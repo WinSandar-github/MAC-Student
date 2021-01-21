@@ -3713,6 +3713,11 @@ function allowToRenew()
                 $("#renew_btn_nonaudit").css('display','block'); // renew btn in information page
                 $(".register-btn").css('display','none'); // register btn in information page
               }
+              // else if(data.status == 0 && data.is_renew == 1 && data.offline_user == 1){
+              //   console.log("hi");
+              //   $('#check_renew').css('display','none');
+              //   $('#check_renew_nonaudit').css('display','none');
+              // }
               else if(data.status == 1 && data.is_renew == 1 && data.offline_user != 1){
                 // to renew normal users who are expired
                 $('#check_renew').css('display','none');
