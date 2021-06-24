@@ -1,4 +1,7 @@
 .env
 /vendor
-.htaccess
-.init
+artisan
+composer.json
+composer.lock
+package.json
+phpunit.xml
