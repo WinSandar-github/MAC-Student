@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.home');
 });
+
+//Frontend DA Register Form
+Route::get('da', 'DAController@daform');
+Route::post('dasubmit', 'DAController@daSubmit');
