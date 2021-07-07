@@ -1,7 +1,6 @@
 .env
 /vendor
 artisan
-composer.json
 composer.lock
 package.json
 phpunit.xml

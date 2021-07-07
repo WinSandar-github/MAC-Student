@@ -210,7 +210,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="မွေးသဣရာဇ်" name="date_of_birth" class="form-control" value="{{ old('date_of_birth') }}" required="">
+                                                <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}"  required>
                                             </div>
                                         </td>
                                     </tr>
@@ -271,8 +271,21 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <input type="hidden" name="registeration_no">
-                                <input type="hidden" name="date">
+                                <input type="hidden" name="registration_no">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ရက်စွဲ</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                                 <input type="hidden" name="approve_reject_status">
                                 <table width="100%">
                                     <tr>
@@ -283,7 +296,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="image_location" required="" style="padding: 2%;">
+                                                <input type="file" placeholder="upload photo" name="image" required="" style="padding: 2%;">
                                             </div>
                                         </td>
                                     </tr>
@@ -342,3 +355,17 @@
         var mmnrc_language = "{{ $nrc_language }}";
     </script>
 @endsection
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("input[name='date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+        });
+        $("input[name='date_of_birth']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+        });
+    });
+</script>
+@endpush
