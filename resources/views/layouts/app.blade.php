@@ -30,7 +30,7 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css"> -->
@@ -58,10 +58,17 @@
     <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/ajax-contact.js') }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!--toastr-->
+
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <script src="assets/js/plugins.min.js"></script> -->
 
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
+
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+@include('sweetalert::alert')
