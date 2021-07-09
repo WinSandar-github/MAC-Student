@@ -1,15 +1,16 @@
 if (typeof (localStorage) != "undefined")
 {
     if (localStorage.getItem("studentinfo") == null) {
-        //location.href = "../../Components/Auth/login.html";
+        
     }
     else {
         var student = JSON.parse(localStorage.getItem("studentinfo"));
-        console.log(student);
-
+        var student_name=student[0].name_eng;
+        var approve_reject_status=student[0].approve_reject_status;
+        var student_id=student[0].id;
       }
 }
 else {
     alert('Your browser does not support local storage');
-    //location.href = "../../Components/Auth/login.html";
+   
   }

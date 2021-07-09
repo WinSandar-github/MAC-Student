@@ -37,12 +37,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'student',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'student',
             'hash' => false,
         ],
         'student' => [
@@ -69,9 +69,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'student' => [
             'driver' => 'eloquent',
-            'model' => App\user::class,
+            'model' => App\StudentInfo::class,
         ],
 
         // 'users' => [
@@ -96,8 +96,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'student' => [
+            'provider' => 'student',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

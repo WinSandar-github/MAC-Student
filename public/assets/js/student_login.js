@@ -9,9 +9,8 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-            console.log(JSON.stringify(result.data));
-         localStorage.setItem('studentinfo', JSON.stringify(result.data));
-         location.href='student_index';
+            localStorage.setItem('studentinfo', JSON.stringify(result.data));
+            location.href='student_index';
       }
     });
 }

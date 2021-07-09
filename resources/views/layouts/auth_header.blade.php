@@ -60,7 +60,7 @@
                         <li>
                             <a href="#">Courses</a>
                             <ul class="sub-menu">
-                                <li><a href="{{url('da')}}">Diploma in Accountancy (DA)</a></li>
+                                <li><a href="{{url('student_da')}}">Diploma in Accountancy (DA)</a></li>
                                 <li><a href="courses-details.html">Certified Public Accountant (CPA)</a></li>
                             </ul>
                         </li>
@@ -125,7 +125,7 @@
                 <!-- Header Sing In & Up Start -->
                 <div class="header-sign-in-up d-none d-lg-block">
                     <ul>
-                        <li><a class="student_name"></a></li>
+                        <li><a class="student_name sign-in"></a></li>
                         
                     </ul>
                 </div>
@@ -204,3 +204,9 @@
 
 </div>
 <!-- Mobile Menu End -->
+@push('scripts')
+<script type="text/javascript">
+    $('.student_name').html("");
+    $('.student_name').append(student_name);
+</script>
+@endpush
