@@ -20,3 +20,7 @@ Route::get('/', function () {
 //Frontend DA Register Form
 Route::get('da', 'DAController@daform');
 Route::post('dasubmit', 'DAController@daSubmit');
+
+Route::get('student_index', 'StudentController@index');
+Auth::routes();
+

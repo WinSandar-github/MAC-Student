@@ -49,7 +49,7 @@
 
                 <!-- Header Logo Start -->
                 <div class="header-logo">
-                    <a href="index.html"><img src="assets/images/logo1.png" alt="Logo"></a>
+                    <a href="index.html"><img src="{{ asset('assets/images/logo1.png')}}" alt="Logo"></a>
                 </div>
                 <!-- Header Logo End -->
 
@@ -125,7 +125,7 @@
                 <!-- Header Sing In & Up Start -->
                 <div class="header-sign-in-up d-none d-lg-block">
                     <ul>
-                        <li><a class="sign-in" href="{{url('login')}}">Sign In</a></li>
+                        <li><a class="student_name"></a></li>
                         
                     </ul>
                 </div>
