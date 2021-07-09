@@ -258,7 +258,7 @@
                                     </tr>
                                 </table>
 
-                                <input type="hidden" name="registration_no">
+                                <input type="hidden" name="registration_no" value="1">
                                 <table width="100%">
                                     <tr>
                                         <td width="25%">
@@ -298,7 +298,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="email" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="">
+                                                <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('job_name') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -382,7 +382,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ရုံးလိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="">
+                                                <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" class="form-control" value="{{ old('office_address') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -542,6 +542,11 @@
                 enableTime: false,
                 dateFormat: "d-m-Y",
         });
+        $("input[name='qualified_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+        });
+        
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
             myanmarLetterOnly($(this));
         });
