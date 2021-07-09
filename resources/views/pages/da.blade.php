@@ -80,7 +80,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" value="{{ old('name_mm') }}" required="">
+                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" value="{{ old('name_mm') }}" id="name_mm" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -140,7 +140,7 @@
                                         </td>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <input type="text" name="nrc_number" id="nrc_number" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  maxlength="6" minlength="6" placeholder="" required="">
+                                                <input type="text" name="nrc_number" id="nrc_number" class="form-control" required="" maxlength="6">
                                             </div>
                                         </td>
                                     </tr>
@@ -154,7 +154,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အဘအမည်(မြန်မာ)" name="father_name_mm" class="form-control" value="{{ old('father_name_mm') }}" required="">
+                                                <input type="text" placeholder="အဘအမည်(မြန်မာ)" name="father_name_mm" id="father_name_mm" class="form-control" value="{{ old('father_name_mm') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -257,20 +257,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="25%">
-                                            <div class="single-form">
-                                                <label class="form-control">Government Staff</label>
-                                            </div>
-                                        </td>
-                                        <td width="75%">
-                                            <div class="single-form">
-                                                <input type="text" placeholder="Government Staff" name="gov_staff" class="form-control" value="{{ old('gov_staff') }}" required="">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+
                                 <input type="hidden" name="registration_no">
                                 <table width="100%">
                                     <tr>
@@ -301,6 +288,195 @@
                                         </td>
                                     </tr>
                                 </table>
+
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">လက်ရှိအလုပ်အကိုင်</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="email" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ရာထူး</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="ရာထူး" name="position" class="form-control" value="{{ old('position') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ဌာန</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="ဌာန" name="department" class="form-control" value="{{ old('department') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">အဖွဲ့အစည်း</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" class="form-control" value="{{ old('organization') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ကုမ္ပဏီအမည်</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" class="form-control" value="{{ old('company_name') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">လစာနှင့်လစာနှုန်း</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" class="form-control" value="{{ old('salary') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ရုံးလိပ်စာ</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="ရုံးလိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="radio" id="yes" name="gov_staff" value="1" style="margin-left: 3%;" <?php if(Input::old('gov_staff')== "yes") { echo 'checked'; } ?> >
+                                                <label for="yes">ဟုတ်</label>
+
+                                                <input type="radio" id="no" name="gov_staff" value="0" style="margin-left: 3%;" <?php if(Input::old('gov_staff')== "no") { echo 'checked'; } ?> >
+                                                <label for="no">မဟုတ်</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">အသိမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော တက္ကသိုလ်အမည်</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" class="form-control" value="{{ old('university_name') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ဘွဲ့အမည်</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">အဓိကဘာသာ</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="အဓိကဘာသာ" name="document" class="form-control" value="{{ old('document') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">နှစ်၊လ</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="နှစ်၊လ" name="qualified_date" class="form-control" value="{{ old('qualified_date') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="25%">
+                                            <div class="single-form">
+                                                <label class="form-control">ခုံအမှတ်</label>
+                                            </div>
+                                        </td>
+                                        <td width="75%">
+                                            <div class="single-form">
+                                                <input type="text" placeholder="ခုံအမှတ်" name="roll_number" class="form-control" value="{{ old('roll_number') }}" required="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
                                 <table width="100%">
                                     <tr>
                                         <td width="25%">
@@ -366,6 +542,37 @@
                 enableTime: false,
                 dateFormat: "d-m-Y",
         });
+        $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
+            myanmarLetterOnly($(this));
+        });
+        
+        $(document).on('keydown', '#nrc_number', function () {
+            myanmarLetterOnly($(this));
+        });
+
+        $("input[id*='name_mm'], text[id*='name_mm']").change(function(e) {
+            myanmarLetterOnly($(this));
+        });
+        
+        $(document).on('keydown', '#name_mm', function () {
+            myanmarLetterOnly($(this));
+        });
+
+        $("input[id*='father_name_mm'], text[id*='father_name_mm']").change(function(e) {
+            myanmarLetterOnly($(this));
+        });
+        
+        $(document).on('keydown', '#father_name_mm', function () {
+            myanmarLetterOnly($(this));
+        });
+
+        function myanmarLetterOnly( self )
+        {
+            val = self.val();
+            if ( /[a-zA-Z0-9]+$/.test( val ) ) {
+              self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
+            }
+        }
     });
 </script>
 @endpush
