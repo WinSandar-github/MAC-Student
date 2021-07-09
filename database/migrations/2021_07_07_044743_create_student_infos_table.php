@@ -17,10 +17,7 @@ class CreateStudentInfosTable extends Migration
             $table->id();
             $table->string('name_mm');
             $table->string('name_eng');
-            $table->string('nrc_state_region')->nullable();
-            $table->string('nrc_township')->nullable();
-            $table->string('nrc_citizen')->nullable();
-            $table->string('nrc_number')->nullable();
+            $table->string('nrc')->nullable();
             $table->string('father_name_mm');
             $table->string('father_name_eng');
             $table->string('race');
@@ -32,7 +29,7 @@ class CreateStudentInfosTable extends Migration
             $table->boolean('gov_staff')->default(0);
             $table->string('image')->nullable();
             $table->string('registration_no');
-            $table->date('date');
+            $table->string('date');
             $table->boolean('approve_reject_status')->default(0);
             $table->string('email');
             $table->string('password');
