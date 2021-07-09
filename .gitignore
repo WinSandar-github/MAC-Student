@@ -4,3 +4,4 @@ artisan
 composer.lock
 package.json
 phpunit.xml
+public/storage
