@@ -20,3 +20,6 @@ Route::get('/', function () {
 //Frontend DA Register Form
 Route::get('da', 'DAController@daform');
 Route::post('dasubmit', 'DAController@daSubmit');
+//Frontend RegisterationExam Form
+Route::get('reg_exam', 'RegisterationExamController@regform');
+Route::post('reg_submit', 'RegisterationExamController@regSubmit');
