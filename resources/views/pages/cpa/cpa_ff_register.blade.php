@@ -74,42 +74,49 @@
                             </div><br/>                       
 
                             <div class="row">
-                                <label class="col-md-1 col-form-label"></label>
-                                <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <label class="col-md-2 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
+                                <div class="col-md-1 col-form-label"></div>
+                                <div class="col-md-1 col-form-label pt-5">{{ __('(က)') }}</div>
+                                <div class="col-md-2 col-form-label pt-5">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                 <div class="col-md-7">
-                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                            <div class="col-md-2 col-5 pr-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
-                                                    @foreach($nrc_regions as $region)
-                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="row">
+                                            <div class="col-md-2 col-5 px-1">
+                                                <div class="courses-select">
+                                                    <select class="form-control" name="nrc_state_region" id="nrc_state_region">
+                                                        @foreach($nrc_regions as $region)
+                                                            <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                                {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="col-md-3 col-7 px-1">
-                                                <select class="form-control" name="nrc_township" id="nrc_township" style="margin-top: 0px; margin-bottom: 0px;">
-                                                    @foreach($nrc_townships as $township)
-                                                        <option value="{{ $township['township_mm'] }}">
-                                                            {{ $township['township_mm'] }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                </select>
+                                                <div class="courses-select">
+                                                    <select class="form-control" name="nrc_township" id="nrc_township" >
+                                                        @foreach($nrc_townships as $township)
+                                                            <option value="{{ $township['township_mm'] }}">
+                                                                {{ $township['township_mm'] }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="col-md-2 col-5 px-1">
-                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen" style="margin-top: 0px; margin-bottom: 0px;">
-                                                    @foreach($nrc_citizens as $citizen)
-                                                    <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                        {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
-                                                    </option>
-                                                    @endforeach
-                                                </select>
+                                                <div class="courses-select">
+                                                    <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                                        @foreach($nrc_citizens as $citizen)
+                                                        <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
 
                                             <div class="col-md-5 col-7 pl-1">
-                                                <input type="text" name="nrc_number" id="nrc_number" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px">
+                                                <div class="single-form">
+                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" required="" maxlength="6">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -119,19 +126,40 @@
                                 <label class="col-md-1 col-form-label"></label>
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                 <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
-
-                                <div class="col-md-2">
-                                    <input type="checkbox" name="education" >
-                                    <label class="form-check-label">CPA</label>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" name="education" >
-                                    <label class="form-check-label">RA</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <input type="checkbox" name="education" >
-                                    <label class="form-check-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
-                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="checkbox" name="education" >
+                                            <label class="form-check-label">CPA</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="checkbox" name="education" >
+                                            <label class="form-check-label">RA</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="single-form">
+                                                <input type="file"  class="form-control" name="image" required="" style="padding: 2%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="checkbox" name="education" >
+                                            <label class="form-check-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="single-form">
+                                                <input type="file"  class="form-control" name="image" required="" style="padding: 2%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>     
                             </div><br/>
 
                             <div class="row">
@@ -250,8 +278,18 @@
                             </div>
                             
                             <div class="row">
+                                <label class="col-md-1 col-form-label"></label>
+                                <label class="col-md-6 col-form-label">{{ __('ရက်စွဲ') }}</label>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" name="cpaff_dateone" placeholder="dd-mm-yyyy" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
                                 <div class="col-md-11 d-md-flex justify-content-md-end">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Save') }}</button>
+                                    <button type="submit" class="btn btn-success btn-round">{{ __('Save') }}</button>
                                 </div>
                             </div>	
                             
