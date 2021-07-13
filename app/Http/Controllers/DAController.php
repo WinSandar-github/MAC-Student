@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DAFormRequest;
 use App\StudentInfo;
 use App\StudentJobHistroy;
 use App\EducationHistroy;
@@ -16,16 +17,23 @@ class DAController extends Controller
         return view('pages.da');
     }
 
-    public function daSubmit(Request $request)
+    public function daSubmit(DAFormRequest $request)
     {
+        $nrc = $request['nrc_state_region'] .'/'. $request['nrc_township'] . $request['nrc_citizen'] . $request['nrc_number'];
+        $data = StudentInfo::where('nrc', '=', $nrc)->first();
+        
+        if($data)
+        {
+            Alert::error("Error", "NRC has been used, please check again!");
+            return redirect(url('/da'));
+        }
+
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $name  = uniqid().'.'.$file->getClientOriginalExtension();
             $file->move(public_path().'/storage/student_info/',$name);
             $image = '/storage/student_info/'.$name;
-        }
-
-        $nrc = $request['nrc_state_region'] .'/'. $request['nrc_township'] . $request['nrc_citizen'] . $request['nrc_number'];
+        }  
 
         $student_info = new StudentInfo();
         $student_info->name_mm          =   $request->name_mm;
