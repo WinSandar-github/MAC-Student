@@ -30,7 +30,9 @@ Route::get('student_papp','PAPPController@info');
 Route::get('student_index', 'StudentController@index');
 Route::get('student_da', 'StudentController@info');
 
+//CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+
 Route::get('student_course', 'StudentController@info');
 Route::get('student_study', 'StudentController@study');
 Auth::routes();
