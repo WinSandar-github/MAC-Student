@@ -20,6 +20,9 @@ Route::get('/', function () {
 //Frontend DA Register Form
 Route::get('da', 'DAController@daform');
 Route::post('dasubmit', 'DAController@daSubmit');
+//Frontend RegisterationExam Form
+Route::get('reg_exam', 'RegisterationExamController@regform');
+Route::post('reg_submit', 'RegisterationExamController@regSubmit');
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
@@ -27,5 +30,7 @@ Route::get('student_papp','PAPPController@info');
 Route::get('student_index', 'StudentController@index');
 Route::get('student_da', 'StudentController@info');
 
+Route::get('student_course', 'StudentController@info');
+Route::get('student_study', 'StudentController@study');
 Auth::routes();
 

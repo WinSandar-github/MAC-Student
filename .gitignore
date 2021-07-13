@@ -1,6 +1,5 @@
 .env
 /vendor
-artisan
 composer.lock
 package.json
 phpunit.xml

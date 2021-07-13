@@ -10,6 +10,9 @@ class StudentController extends Controller
         return view('pages.student_info.student_index');
     }
     public function info(){
-        return view('pages.student_info.student_da');
+        return view('pages.student_info.student_course');
+    }
+    public function study(){
+        return view('pages.student_info.student_study');
     }
 }

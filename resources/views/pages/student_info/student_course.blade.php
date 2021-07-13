@@ -65,7 +65,7 @@
            
                 <div class="comment-form">
                     <div class="form-wrapper">
-                        <div class="row status-reject">
+                        <div class="status-reject">
                             <div class="card text-white bg-danger mb-3">
                                 
                                 <div class="card-body">
@@ -74,15 +74,18 @@
                             </div>
                         </div>
                         <div class="status-approve">
-                            <div class="row ">
-                                <div class="card text-white bg-success mb-3">
-                                    
+                            <div class="">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        Course List
+                                    </div>
                                     <div class="card-body">
-                                        <p class="card-text">Your Registration Form is approved.</p>
+                                    
+                                        <div class="list-group course-list"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item">
 		                                  <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true">Registration Self Study</a>
@@ -280,7 +283,7 @@
                                 
                                 
                                             
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -303,5 +306,6 @@
 @push('scripts')
 <script type="text/javascript">
     getStudentInfo();
+    getCourse();
 </script>
 @endpush
