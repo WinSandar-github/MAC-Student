@@ -101,37 +101,41 @@
                                                     </div>
                                                 </div>
                                             </div><br/>
-                                            <div class="row">
+                                            <div class="row" id="edu">
                                                 <div class="row">
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-4">
                                                             <label>(ခ) ပညာအရည်အချင်း</label>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <input type="checkbox" value="">
+                                                        <input type="checkbox" value="" id="cpa_check" onclick="CPA_Check()">
                                                         <label  style="font-size:15px;">CPA</label>
-                                                        </div>
-                                                        <div class="col-md-3">
+                                                    </div>
+                                                    <div class="col-md-3"  id="cpa_edu" style="display:none;">
                                                         <input type="file" placeholder="upload photo" name="image" required="">
                                                     </div>
                                                 </div> 
                                                 <div class="row">
                                                     <div class="col-md-5"></div>
                                                     <div class="col-md-3">
-                                                        <input type="checkbox" value="">
+                                                        <input type="checkbox" value=""  id="ra_check" onclick="RA_Check()">
                                                         <label  style="font-size:15px;">RA</label>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-3"  id="ra_edu" style="display:none;">
                                                         <input type="file" placeholder="upload photo" name="image" required="">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5"></div>
-                                                    <div class="col-md-3">
-                                                        <input type="checkbox" value="">
+                                                    <div class="col-md-2">
+                                                        <input type="checkbox" value=""  id="degree_check" onclick="Degree_Check()">
                                                         <label  style="font-size:15px;">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        
+                                                    <div class="col-md-1" id="degree_add" style="display:none;">
+                                                        <input type="button" id="add_btn" value="Add" onclick="Add()" >
+                                                    </div>
+                                                    <div class="col-md-2"  id="degree_edu" style="display:none;">
                                                         <input type="file" placeholder="upload photo" name="image" required="">
                                                     </div>
                                                 </div>
@@ -141,14 +145,10 @@
                                                 <div class="col-md-1">
                                                         <label class="col-form-label">{{ _('၂။') }}</label>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="col-form-label"  style="font-size:15px;">{{ _('ကျွန်ုပ်အား အများပြည်သူသို့ စာရင်းဝန်တောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ်') }}</label>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <input type="date" name="date" class="form-control" placeholder="dd/mm/yyyy">
-                                                </div>
-                                                <div>
-                                                    <label class="col-form-label"  style="font-size:15px;">{{ _('ခုနှစ်အတွက် မှတ်ပုံတင်ပေးပါရန် လျှောက်ထားပါသည်။') }}</label>
+                                                <div class="col-md-10">
+                                                    <label class="col-form-label"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့ စာရင်းဝန်တောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ်
+                                                    <input type="date" name="date" placeholder="dd/mm/yyyy">
+                                                    ခုနှစ်အတွက် မှတ်ပုံတင်ပေးပါရန် လျှောက်ထားပါသည်။</label>
                                                 </div> 
                                             </div>
                                             <div class="row">
@@ -296,7 +296,8 @@
                                             <div class="row">
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-8">
-                                                        <label style="font-size:15px;">(ဆ) ပြည်တွင်းအခွန်ဦးစီးဌာနသို့  ........ ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                                        <label style="font-size:15px;">(ဆ) ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ 
+                                                        <input type="date" placeholder="upload photo" name="image" required="">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
                                                         <input type="file" placeholder="upload photo" name="image" required="">
@@ -329,5 +330,46 @@
 @push('scripts')
 <script type="text/javascript">
     // getStudentInfo();
+    function CPA_Check(){
+        var checkBox = document.getElementById("cpa_check");
+        if (checkBox.checked == true){
+            document.getElementById("cpa_edu").style.display = "block";
+        } 
+        else{
+            document.getElementById("cpa_edu").style.display = "none";
+        }
+    }
+
+    function RA_Check(){
+        var checkBox = document.getElementById("ra_check");
+        if (checkBox.checked == true){
+            document.getElementById("ra_edu").style.display = "block";
+        } 
+        else{
+            document.getElementById("ra_edu").style.display = "none";
+        }
+    }
+
+    function Degree_Check(){
+        var checkBox = document.getElementById("degree_check");
+        if (checkBox.checked == true){
+            document.getElementById("degree_edu").style.display="block";
+            document.getElementById("degree_add").style.display="block";
+        } 
+        else{
+            document.getElementById("degree_edu").style.display="none";
+            document.getElementById("degree_add").style.display="none";
+        }
+    }
+
+    function Add(){
+        alert("hello");
+        var edu=document.getElementById("edu");
+        $("#edu").append('<div class="row" id="edu"><div class="col-md-8"></div>'+
+        '<div class="col-md-3"><input type="file" placeholder="upload photo" name="image" required="">'+
+        '<div class="col-md-1"><span class="fa fa-trash danger"></span></div></div></div>');
+            
+     }
+     
 </script>
 @endpush
