@@ -24,6 +24,9 @@ Route::post('dasubmit', 'DAController@daSubmit');
 Route::get('reg_exam', 'RegisterationExamController@regform');
 Route::post('reg_submit', 'RegisterationExamController@regSubmit');
 
+//PAPP Register Form
+Route::get('student_papp','PAPPController@info');
+
 Route::get('student_index', 'StudentController@index');
 Route::get('student_da', 'StudentController@info');
 
