@@ -21,7 +21,11 @@ Route::get('/', function () {
 Route::get('da', 'DAController@daform');
 Route::post('dasubmit', 'DAController@daSubmit');
 
+//PAPP Register Form
+Route::get('student_papp','PAPPController@info');
+
 Route::get('student_index', 'StudentController@index');
 Route::get('student_da', 'StudentController@info');
+
 Auth::routes();
 
