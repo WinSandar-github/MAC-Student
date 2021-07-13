@@ -21,7 +21,7 @@ class DAController extends Controller
     {
         $nrc = $request['nrc_state_region'] .'/'. $request['nrc_township'] . $request['nrc_citizen'] . $request['nrc_number'];
         $data = StudentInfo::where('nrc', '=', $nrc)->first();
-        
+
         if($data)
         {
             Alert::error("Error", "NRC has been used, please check again!");
@@ -33,7 +33,14 @@ class DAController extends Controller
             $name  = uniqid().'.'.$file->getClientOriginalExtension();
             $file->move(public_path().'/storage/student_info/',$name);
             $image = '/storage/student_info/'.$name;
-        }  
+        } 
+
+        if ($request->hasfile('document')) {
+            $file = $request->file('document');
+            $name  = uniqid().'.'.$file->getClientOriginalExtension();
+            $file->move(public_path().'/storage/student_info/',$name);
+            $document = '/storage/student_info/'.$name;
+        } 
 
         $student_info = new StudentInfo();
         $student_info->name_mm          =   $request->name_mm;
@@ -71,7 +78,7 @@ class DAController extends Controller
         $education_histroy->student_info_id = $student_info->id;
         $education_histroy->university_name = $request->university_name;
         $education_histroy->degree_name     = $request->degree_name;
-        $education_histroy->document        = $request->document;
+        $education_histroy->document        = $document;
         $education_histroy->qualified_date  = $request->qualified_date;
         $education_histroy->roll_number     = $request->roll_number;
         $education_histroy->save();

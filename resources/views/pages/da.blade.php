@@ -438,12 +438,12 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အဓိကဘာသာ</label>
+                                                <label class="form-control">Attched Certificate</label>
                                             </div>
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အဓိကဘာသာ" name="document" class="form-control" value="{{ old('document') }}" required="">
+                                                <input type="file" placeholder="upload photo" name="document" value="{{ old('document') }}" required="" style="padding: 2%;">
                                             </div>
                                         </td>
                                     </tr>
