@@ -363,7 +363,6 @@
     }
 
     function Add(){
-        alert("hello");
         var edu=document.getElementById("edu");
         $("#edu").append('<div class="row" id="edu"><div class="col-md-8"></div>'+
         '<div class="col-md-3"><input type="file" placeholder="upload photo" name="image" required="">'+
