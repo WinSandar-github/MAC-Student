@@ -140,7 +140,7 @@
                                         </td>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <input type="text" name="nrc_number" id="nrc_number" class="form-control" required="" maxlength="6">
+                                                <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
                                             </div>
                                         </td>
                                     </tr>
@@ -268,7 +268,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" required>
                                             </div>
                                         </td>
                                     </tr>
@@ -283,7 +283,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="image" required="" style="padding: 2%;">
+                                                <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
                                             </div>
                                         </td>
                                     </tr>
@@ -396,10 +396,10 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="radio" id="yes" name="gov_staff" value="1" style="margin-left: 3%;" <?php if(Input::old('gov_staff')== "yes") { echo 'checked'; } ?> >
+                                                <input type="radio" id="yes" name="gov_staff" value="1" style="margin-left: 3%;" @if(old('gov_staff')) checked @endif >
                                                 <label for="yes">ဟုတ်</label>
 
-                                                <input type="radio" id="no" name="gov_staff" value="0" style="margin-left: 3%;" <?php if(Input::old('gov_staff')== "no") { echo 'checked'; } ?> >
+                                                <input type="radio" id="no" name="gov_staff" value="0" style="margin-left: 3%;" @if(!old('gov_staff')) checked @endif >
                                                 <label for="no">မဟုတ်</label>
                                             </div>
                                         </td>
@@ -488,6 +488,11 @@
                                             <div class="single-form">
                                                 <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
                                             </div>
+                                            @if ($errors->has('email'))
+                                                <span class="text-danger">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </td>
                                     </tr>
                                 </table>
