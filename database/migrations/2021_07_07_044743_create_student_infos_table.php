@@ -17,7 +17,7 @@ class CreateStudentInfosTable extends Migration
             $table->id();
             $table->string('name_mm');
             $table->string('name_eng');
-            $table->string('nrc')->nullable();
+            $table->string('nrc');
             $table->string('father_name_mm');
             $table->string('father_name_eng');
             $table->string('race');
@@ -31,7 +31,7 @@ class CreateStudentInfosTable extends Migration
             $table->string('registration_no');
             $table->string('date');
             $table->boolean('approve_reject_status')->default(0);
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
         });
