@@ -253,7 +253,7 @@
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="single-form">
-                                                                    <input type="text" name="" class="form-control" placeholder="">
+                                                                    <input type="text" name="student_regno" class="form-control" readonly>
                                                                 </div>
                                                             </div>
                                                             
@@ -280,29 +280,21 @@
                                         </form>
                                             
                             </div>
-                            <!-- <div class="row">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item">
-		                                  <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true">Registration Self Study</a>
-                                    </li>
-                                    <li class="nav-item">
-		                                  <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" aria-expanded="false">Registration Private Shool</a>
-                                    </li>
-                                    
-                                </ul>
-                                <div class="tab-space tab-content tab-no-active-fill-tab-content mt-4">
-	                                <div class="tab-pane fade show active m-5" id="link1" aria-expanded="true">
-                                        <div class="row">
-                                            
-                                        
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade m-5" id="link2" aria-expanded="true">
-                                        <div class="row">
+                            <div class="row" id="mac_container">
                                         <form>
                                             <div class="card border-success mb-3">
                                                 <div class="card-body ">
                                                     <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-4 single-form">
+                                                                <label class="coursename col-form-label"></label>
+
+                                                            </div>
+                                                            <div class="col-md-6 single-form"></div>
+                                                            <div class="col-md-2 single-form">
+                                                                <label class="batchname col-form-label"></label>
+                                                            </div>
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-1">
                                                                 <div class="single-form">
@@ -312,20 +304,56 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="single-form">
-                                                                    <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်') }}</label>
+                                                                    <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်') }}</label>
                                                                     
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="single-form">
-                                                                    <input type="text" name="" class="form-control" placeholder="">
+                                                                    <input type="text" name="student_regno" class="form-control" readonly>
                                                                 </div>
                                                             </div>
                                                             
                                                         </div><br/>
-                                                       
                                                         <div class="row">
-                                                            <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                                            <div class="col-md-1">
+                                                                <div class="single-form">
+                                                                    <label class="col-form-label">{{ __('၂။') }}</label>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-11">
+                                                                <div class="single-form">
+                                                                    <label class="col-form-label">{{ __('လျှောက်လွှာကြေး ၁၀၀၀ကျပ်၊မှတ်ပုံတင်ကြေး ၈၀၀၀ကျပ်၊သင်တန်းကြေး ၃၀၀၀၀ကျပ်၊စုစုပေါင်းသင့်ငွေ ၃၉၀၀၀ကို ပေးသွင်းပြီးသည့်ပြေစာအမှတ်') }}</label>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="single-form">
+                                                                    <input type="text" name="" class="form-control" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <div class="single-form">
+                                                                    <label class="col-form-label">{{ __('နှင့် နေ့စွဲ') }}</label>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="single-form">
+                                                                    <input type="text" name="mac_date" class="form-control" placeholder="dd-mm-yyyy">
+                                                                </div>
+                                                            </div>
+                                                        </div><br/>
+                                                        <div class="row">
+                                                            <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
                                                             <label class="col-md-4 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                             
                                                         </div><br/>
@@ -344,14 +372,7 @@
                                             </div>
                                         </form>
                                             
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                
-                                
-                                            
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -374,5 +395,9 @@
 @push('scripts')
 <script type="text/javascript">
     loadCourse();
+    $("input[name='mac_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+    });
 </script>
 @endpush

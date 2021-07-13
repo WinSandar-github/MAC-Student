@@ -56,7 +56,8 @@ function loadCourse(){
     var batchId=localStorage.getItem("batchId");
     $('.coursename').append(courseName);
     $('.batchname').append(batchName);
-    console.log(courseName,":",courseId,":",batchName,":",batchId);
+    $("input[name='student_regno']").val(student_regno);
+    
 }
 function selectedRegistration(){
     var radioValue = $("input[name='register_name']:checked").val();
