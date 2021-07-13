@@ -74,7 +74,7 @@
                         <li>
                             <a href="#">Membership</a>
                             <ul class="sub-menu">
-                                <li><a href="courses.html">CPA Full Fleged</a></li>
+                                <li><a href="{{url('cpa_ff_register')}}">CPA Full Fleged</a></li>
                                 <li><a href="courses-details.html">PAPP</a></li>
                             </ul>
                         </li>

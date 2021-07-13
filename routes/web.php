@@ -23,5 +23,7 @@ Route::post('dasubmit', 'DAController@daSubmit');
 
 Route::get('student_index', 'StudentController@index');
 Route::get('student_da', 'StudentController@info');
+
+Route::get('cpa_ff_register', 'CPAFFController@info');
 Auth::routes();
 
