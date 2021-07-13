@@ -5,3 +5,5 @@ composer.lock
 package.json
 phpunit.xml
 public/storage
+composer.bat
+composer.phar
