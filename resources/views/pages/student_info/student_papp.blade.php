@@ -101,28 +101,42 @@
                                                     </div>
                                                 </div>
                                             </div><br/>
-                                            <div class="row" id="edu">
+                                            <div class="row">
                                                 <div class="row">
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-4">
                                                             <label>(ခ) ပညာအရည်အချင်း</label>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <input type="checkbox" value="" id="cpa_check" onclick="CPA_Check()">
                                                         <label  style="font-size:15px;">CPA</label>
                                                     </div>
-                                                    <div class="col-md-3"  id="cpa_edu" style="display:none;">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                    <div class="col-md-5"  id="cpa_edu" style="display:none;">
+                                                    <div class="row">
+                                                            <!-- <input type="file" placeholder="upload photo" name="image" required=""> -->
+                                                            <div class="col-md-2" >
+                                                            </div>
+                                                            <div class="col-md-10" >
+                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div> 
                                                 <div class="row">
                                                     <div class="col-md-5"></div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <input type="checkbox" value=""  id="ra_check" onclick="RA_Check()">
                                                         <label  style="font-size:15px;">RA</label>
+                                                    </div>
+                                                    <div class="col-md-5"  id="ra_edu" style="display:none;">
+                                                        <div class="row">
+                                                            <!-- <input type="file" placeholder="upload photo" name="image" required=""> -->
+                                                            <div class="col-md-2" >
+                                                            </div>
+                                                            <div class="col-md-10" >
+                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-3"  id="ra_edu" style="display:none;">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -131,14 +145,35 @@
                                                         <input type="checkbox" value=""  id="degree_check" onclick="Degree_Check()">
                                                         <label  style="font-size:15px;">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                                         </div>
-                                                        
-                                                    <div class="col-md-1" id="degree_add" style="display:none;">
-                                                        <input type="button" id="add_btn" value="Add" onclick="Add()" >
-                                                    </div>
-                                                    <div class="col-md-2"  id="degree_edu" style="display:none;">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                    <div class="col-md-5" id="edu" style="display:none;">  
+                                                        <div class="row">  
+                                                            <div class="col-md-2" id="degree_add">
+                                                                <input type="button" id="add_btn" value="Add" onclick="Add()" >
+                                                            </div>
+                                                            <div class="col-md-10"  id="degree_edu" >
+                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <!-- <div id="accredited_foreign" style="display:none;">
+                                        <div class="file1">
+                                            <div class="fileupload1">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="single-form">
+                                                            <input type="file"  class="form-control p-4" name="image" required="" style="padding: 2%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1 pt-4">
+                                                        <button class="btn btn-primary btn-md btn-add" type="button" onclick='addInputFile("file1","fileupload1")'>
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
                                             </div>
                                             <br/>
                                             <div class="row">
@@ -353,22 +388,29 @@
     function Degree_Check(){
         var checkBox = document.getElementById("degree_check");
         if (checkBox.checked == true){
-            document.getElementById("degree_edu").style.display="block";
-            document.getElementById("degree_add").style.display="block";
+            document.getElementById("edu").style.display="block";
+            // document.getElementById("degree_edu").style.display="block";
+            // document.getElementById("degree_add").style.display="block";
+            //document.getElementById("accredited_foreign").style.display="block";
+
         } 
         else{
-            document.getElementById("degree_edu").style.display="none";
-            document.getElementById("degree_add").style.display="none";
+            // document.getElementById("degree_edu").style.display="none";
+            // document.getElementById("degree_add").style.display="none";
+            document.getElementById("edu").style.display="none";
         }
     }
 
+    var count=0;
     function Add(){
-        var edu=document.getElementById("edu");
-        $("#edu").append('<div class="row" id="edu"><div class="col-md-8"></div>'+
-        '<div class="col-md-3"><input type="file" placeholder="upload photo" name="image" required="">'+
-        '<div class="col-md-1"><span class="fa fa-trash danger"></span></div></div></div>');
-            
+        $("#edu").append('<div class="row" id="first'+count+'"><div class="col-md-2"></div>'+
+        '<div class="col-md-8"><input type="file" placeholder="upload photo" name="image" required=""></div>'+
+        '<div class="col-md-1"><a id="myLink" onclick="remove(first'+count+')">'+
+        '<span class="fa fa-trash danger text-danger"></span></a></div></div>');
+        count++;
      }
-     
+    function remove(id){
+        id.remove();
+    }
 </script>
 @endpush
