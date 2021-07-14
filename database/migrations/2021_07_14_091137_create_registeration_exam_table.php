@@ -22,7 +22,6 @@ class CreateRegisterationExamTable extends Migration
             $table->string('private_school_name')->nullable();
             $table->string('grade')->nullable();
             $table->unsignedBigInteger('batch_id');
-            $table->integer('is_past_module');
             $table->integer('is_full_module');
             $table->unsignedBigInteger('exam_type_id');
             $table->timestamps();
