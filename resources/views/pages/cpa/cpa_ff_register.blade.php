@@ -129,29 +129,29 @@
                                 <div class="col-md-7">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <input type="radio" name="education" value="1" onclick="getEducation()">
+                                            <input type="checkbox" id="cpa_edu" name="education" value="1" onclick="getEducation()">
                                             <label class="form-check-label">CPA</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <input type="radio" name="education" value="2" onclick="getEducation()">
+                                            <input type="checkbox" id="ra_edu" name="education" value="2" onclick="getEducation()">
                                             <label class="form-check-label">RA</label>
                                         </div>
                                     </div>
                                     <div id="ra">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="single-form">
-                                                    <input type="file"  class="form-control p-4" name="image" required="" style="padding: 2%;">
-                                                </div>
+                                                <!-- <div class="single-form"> -->
+                                                    <input type="file"  class="p-4" name="image" required="" style="padding: 2%;">
+                                                <!-- </div> -->
                                             </div>
                                         </div><br/>
                                     </div>
                                     
                                     <div class="row" >
                                         <div class="col-md-4">
-                                            <input type="radio" name="education" value="3" onclick="getEducation()">
+                                            <input type="checkbox" id="accreditded_edu" name="education" value="3" onclick="getEducation()">
                                             <label class="form-check-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                         </div>
                                         
@@ -162,12 +162,12 @@
                                             <div class="fileupload1">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="single-form">
-                                                            <input type="file"  class="form-control p-4" name="image" required="" style="padding: 2%;">
-                                                        </div>
+                                                        <!-- <div class="single-form"> -->
+                                                            <input type="file"  class="p-4" name="image" required="" style="padding: 2%;">
+                                                        <!-- </div> -->
                                                     </div>
                                                     <div class="col-md-1 pt-4">
-                                                        <button class="btn btn-primary btn-md btn-add" type="button" onclick='addInputFile("file1","fileupload1")'>
+                                                        <button class="btn-primary btn-md btn-add" type="button" onclick='addInputFile("file1","fileupload1")'>
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </div>
@@ -235,9 +235,9 @@
                                 <div class="col-md-5 col-form-label pt-5">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3 col-auto">
-                                        <div class="single-form">
-                                            <input type="file"  class="form-control p-4" name="cpa" required="" style="padding: 2%;">
-                                        </div>                                            
+                                        <!-- <div class="single-form"> -->
+                                            <input type="file"  class="p-4" name="cpa" required="" style="padding: 2%;">
+                                        <!-- </div>                                             -->
                                     </div>
                                 </div>
                             </div><br/>
@@ -248,9 +248,9 @@
                                 <div class="col-md-5 col-form-label pt-5">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3 col-auto"> 
-                                        <div class="single-form">
-                                            <input type="file"  class="form-control p-4" name="mpa_mem_card" required="" style="padding: 2%;">
-                                        </div>                                         
+                                        <!-- <div class="single-form"> -->
+                                            <input type="file"  class="p-4" name="mpa_mem_card" required="" style="padding: 2%;">
+                                        <!-- </div>                                          -->
                                     </div>
                                 </div>                                
                             </div><br/>
@@ -262,9 +262,9 @@
 
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3 col-auto">
-                                        <div class="single-form">
-                                            <input type="file"  class="form-control p-4" name="nrc" required="" style="padding: 2%;">
-                                        </div>                                        
+                                        <!-- <div class="single-form"> -->
+                                            <input type="file"  class="p-4" name="nrc" required="" style="padding: 2%;">
+                                        <!-- </div>                                         -->
                                     </div>
                                 </div>
                             </div><br/>
@@ -275,9 +275,9 @@
 
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3 col-auto">
-                                        <div class="single-form">
-                                            <input type="file"  class="form-control p-4" name="nrc" required="" style="padding: 2%;">
-                                        </div>                                        
+                                        <!-- <div class="single-form"> -->
+                                            <input type="file"  class="p-4" name="nrc" required="" style="padding: 2%;">
+                                        <!-- </div>                                         -->
                                     </div>
                                 </div>
                             </div><br/>
@@ -288,9 +288,9 @@
                                 <label class="col-md-5 col-form-label pt-5">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3 col-auto">
-                                        <div class="single-form">
-                                            <input type="file"  class="form-control p-4" name="cdp_record" required="" style="padding: 2%;">
-                                        </div>                                           
+                                        <!-- <div class="single-form"> -->
+                                            <input type="file"  class="p-4" name="cdp_record" required="" style="padding: 2%;">
+                                        <!-- </div>                                            -->
                                     </div>
                                 </div>
                             </div><br/>
@@ -302,9 +302,9 @@
                                 <div class="col-md-5 col-form-label pt-5">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3 col-auto">
-                                        <div class="single-form">
-                                            <input type="file"  class="form-control p-4" name="passport_photo" required="" style="padding: 2%;">
-                                        </div>                                          
+                                        <!-- <div class="single-form"> -->
+                                            <input type="file"  class="p-4" name="passport_photo" required="" style="padding: 2%;">
+                                        <!-- </div>                                           -->
                                     </div>
                                 </div>
                             </div>
@@ -313,17 +313,8 @@
                                 <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                 <label class="col-md-4 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 
-                            </div>
+                            </div>                           
                             
-                            <div class="row">
-                                <label class="col-md-1 col-form-label"></label>
-                                <label class="col-md-6 col-form-label">{{ __('ရက်စွဲ') }}</label>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" name="cpaff_dateone" placeholder="dd-mm-yyyy" class="form-control" >
-                                    </div>
-                                </div>
-                            </div>
                             
                             <div class="row">
                                 <div class="col-md-11 d-md-flex justify-content-md-end">
@@ -353,6 +344,5 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    getStudentInfo();
 </script>
 @endpush
