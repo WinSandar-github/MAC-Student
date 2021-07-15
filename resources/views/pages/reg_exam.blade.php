@@ -70,12 +70,12 @@
 
                                 <table width="100%">
                                     <tr>
-                                        <td width="25%">
+                                        <td width="35%">
                                             <div class="single-form">
                                                 <label class="form-control">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
+                                        <td width="65%">
                                             <div class="single-form">
                                                 <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" required="">
                                             </div>
@@ -95,12 +95,12 @@
 
                                 <table width="100%">
                                     <tr>
-                                        <td width="25%">
+                                        <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">(က)နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
+                                                <label class="form-control">(က) နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
+                                        <td width="65%">
                                             <div class="single-form">
                                                 <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
                                             </div>
@@ -109,49 +109,50 @@
                                 </table>
                                 <table width="100%">
                                     <tr>
-                                        <td width="25%">
+                                        <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">(ခ)အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့်Moduleရှိပါကဆိုင်ရာအကွက်တွင်ရွေးချယ်ရန်</label>
+                                                <label class="form-control">(ခ) အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့်Moduleရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန်</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
-                                            <div class="single-form">
-                                                {{ Form::radio('is_past_module', config('global')['PAST_MODULE_ONE']) }} Module 1
-                                                &nbsp; &nbsp; &nbsp;
-                                                {{ Form::radio('is_past_module', config('global')['PAST_MODULE_TWO']) }} Module 2
-                                            </div>
+                                        <td width="65%">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 1
+                                            </label>
+                                            <label class="checkbox-inline" style="margin-left:3%">
+                                              <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 2
+                                            </label>
                                         </td>
                                     </tr>
                                 </table>
                                 <table width="100%">
                                     <tr>
-                                        <td width="25%">
+                                        <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">(ဂ)ယခုဖြေဆိုမည့် Module</label>
+                                                <label class="form-control">(ဂ) ယခုဖြေဆိုမည့် Module</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
-                                            <div class="single-form">
-                                                <div class="single-form">
-                                                    {{ Form::radio('is_full_module', config('global')['NOW_MODULE_ONE']) }} Module 1
-                                                    &nbsp; &nbsp; &nbsp;
-                                                    {{ Form::radio('is_full_module', config('global')['NOW_MODULE_TWO']) }} Module 2
-                                                    &nbsp; &nbsp; &nbsp;
-                                                    {{ Form::radio('is_full_module', config('global')['ALL_MODULES']) }} All Modules
-                                                </div>
-                                            </div>
+                                        <td width="65%">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 1
+                                            </label>
+                                            <label class="checkbox-inline" style="margin-left:3%">
+                                                <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 2
+                                            </label>
+                                            <label class="checkbox-inline" style="margin-left:3%">
+                                                <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;All Modules
+                                            </label>
                                         </td>
                                     </tr>
                                 </table>
                                 
                                 <table width="100%">
                                     <tr>
-                                        <td width="25%">
+                                        <td width="35%">
                                             <div class="single-form">
                                                 <label class="form-control">စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
+                                        <td width="65%">
                                             <div class="single-form">
                                                 <input type="file" placeholder="upload photo" name="invoice_image" required="" style="padding: 2%;">
                                             </div>
@@ -160,12 +161,12 @@
                                 </table>
                                 <table width="100%">
                                     <tr>
-                                        <td width="25%">
+                                        <td width="35%">
                                             <div class="single-form">
                                                 <label class="form-control">ရက်စွဲ</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
+                                        <td width="65%">
                                             <div class="single-form">
                                                 <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
                                             </div>
