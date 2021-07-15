@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/student_info.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/cpa_ff.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!--toastr-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr') }}/toastr.min.css">
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css"> -->
@@ -70,6 +72,7 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/student_login.js') }}"></script>
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
+    <script src="{{ asset('assets/js/common.js') }}"></script>
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
     <script src="{{ asset('assets/js/auth.js') }}"></script>
     <script src=
@@ -78,6 +81,8 @@
     <script src=
 "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
   </script>
+  <!--toastr-->
+  <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
     @stack('scripts')
 </body>
 
