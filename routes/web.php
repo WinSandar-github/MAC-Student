@@ -17,12 +17,12 @@ Auth::routes();
 Route::get('/', function () {
     return view('pages.home');
 });
-//Frontend DA Register Form
- Route::get('da', 'DAController@daform');
-Route::post('dasubmit', 'DAController@daSubmit');
-//Frontend RegisterationExam Form
-Route::get('reg_exam', 'RegisterationExamController@regform');
-Route::post('reg_submit', 'RegisterationExamController@regSubmit');
+
+// DA Register Form
+Route::get('da_register', 'DARegisterController@registerForm');
+
+//Exam Register Form
+Route::get('/exam_register', 'ExamRegisterController@registerForm');
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
