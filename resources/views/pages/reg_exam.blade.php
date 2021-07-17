@@ -72,7 +72,7 @@
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                                <label class="col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             </div>
                                         </td>
                                         <td width="65%">
@@ -87,7 +87,7 @@
                                     <tr>
                                         <td>
                                             <div class="single-form">
-                                                <label class="form-control">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်</label>
+                                                <label class="col-form-label">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်</label>
                                             </div>
                                         </td>
                                     </tr>
@@ -97,7 +97,7 @@
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">(က) နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
+                                                <label class="col-form-label">(က) နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                             </div>
                                         </td>
                                         <td width="65%">
@@ -111,7 +111,7 @@
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">(ခ) အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့်Moduleရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန်</label>
+                                                <label class="col-form-label">(ခ) အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့်Moduleရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန်</label>
                                             </div>
                                         </td>
                                         <td width="65%">
@@ -128,7 +128,7 @@
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">(ဂ) ယခုဖြေဆိုမည့် Module</label>
+                                                <label class="col-form-label">(ဂ) ယခုဖြေဆိုမည့် Module</label>
                                             </div>
                                         </td>
                                         <td width="65%">
@@ -149,12 +149,12 @@
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်</label>
+                                                <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်</label>
                                             </div>
                                         </td>
                                         <td width="65%">
-                                            <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="invoice_image" required="" style="padding: 2%;">
+                                            <div class="">
+                                                <input type="file" class="form-control" placeholder="upload photo" name="invoice_image" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -163,7 +163,7 @@
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
-                                                <label class="form-control">ရက်စွဲ</label>
+                                                <label class="col-form-label">ရက်စွဲ</label>
                                             </div>
                                         </td>
                                         <td width="65%">

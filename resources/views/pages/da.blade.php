@@ -75,7 +75,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အမည်(မြန်မာ)</label>
+                                                <label class="col-form-label">အမည်(မြန်မာ)</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -89,7 +89,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အမည်(အင်္ဂလိပ်)</label>
+                                                <label class="col-form-label">အမည်(အင်္ဂလိပ်)</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -103,7 +103,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                <label class="col-form-label">နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်</label>
                                             </div>
                                         </td>
                                         <td width="15%">
@@ -149,7 +149,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အဘအမည်(မြန်မာ)</label>
+                                                <label class="col-form-label">အဘအမည်(မြန်မာ)</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -163,7 +163,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အဘအမည်(အင်္ဂလိပ်</label>
+                                                <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -177,7 +177,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">လူမျိူး</label>
+                                                <label class="col-form-label">လူမျိူး</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -191,7 +191,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ဘာသာ</label>
+                                                <label class="col-form-label">ဘာသာ</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -205,7 +205,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">မွေးသဣရာဇ်</label>
+                                                <label class="col-form-label">မွေးသဣရာဇ်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -219,7 +219,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ဖုန်းနံပါတ်</label>
+                                                <label class="col-form-label">ဖုန်းနံပါတ်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -233,7 +233,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">နေရပ်လိပ်စာ</label>
+                                                <label class="col-form-label">နေရပ်လိပ်စာ</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -247,7 +247,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                                <label class="col-form-label">အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -263,7 +263,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ရက်စွဲ</label>
+                                                <label class="col-form-label">ရက်စွဲ</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -278,13 +278,13 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">Upload Photo</label>
+                                                <label class="col-form-label">Upload Photo</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
-                                            <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
-                                            </div>
+                                        <td width="75%" class="pt-3">
+                                            <!-- <div class="single-form"> -->
+                                                <input type="file" class="form-control" placeholder="upload photo" name="image" value="{{ old('image') }}" required="" >
+                                            <!-- </div> -->
                                         </td>
                                     </tr>
                                 </table>
@@ -293,7 +293,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">လက်ရှိအလုပ်အကိုင်</label>
+                                                <label class="col-form-label">လက်ရှိအလုပ်အကိုင်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -307,7 +307,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ရာထူး</label>
+                                                <label class="col-form-label">ရာထူး</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -321,7 +321,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ဌာန</label>
+                                                <label class="col-form-label">ဌာန</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -335,7 +335,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အဖွဲ့အစည်း</label>
+                                                <label class="col-form-label">အဖွဲ့အစည်း</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -349,7 +349,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ကုမ္ပဏီအမည်</label>
+                                                <label class="col-form-label">ကုမ္ပဏီအမည်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -363,7 +363,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">လစာနှင့်လစာနှုန်း</label>
+                                                <label class="col-form-label">လစာနှင့်လစာနှုန်း</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -377,7 +377,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ရုံးလိပ်စာ</label>
+                                                <label class="col-form-label">ရုံးလိပ်စာ</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -391,7 +391,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                <label class="col-form-label">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -410,7 +410,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အသိမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော တက္ကသိုလ်အမည်</label>
+                                                <label class="col-form-label">အသိမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော တက္ကသိုလ်အမည်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -424,7 +424,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ဘွဲ့အမည်</label>
+                                                <label class="col-form-label">ဘွဲ့အမည်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -438,13 +438,13 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">Attched Certificate</label>
+                                                <label class="col-form-label">Attched Certificate</label>
                                             </div>
                                         </td>
-                                        <td width="75%">
-                                            <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="document" value="{{ old('document') }}" required="" style="padding: 2%;">
-                                            </div>
+                                        <td width="75%" class="pt-3">
+                                            <!-- <div class="single-form"> -->
+                                                <input type="file" class="form-control" placeholder="upload photo" name="document" value="{{ old('document') }}" required="">
+                                            <!-- </div> -->
                                         </td>
                                     </tr>
                                 </table>
@@ -452,7 +452,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">နှစ်၊လ</label>
+                                                <label class="col-form-label">နှစ်၊လ</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -466,7 +466,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">ခုံအမှတ်</label>
+                                                <label class="col-form-label">ခုံအမှတ်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -481,7 +481,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">အီးမေးလ်</label>
+                                                <label class="col-form-label">အီးမေးလ်</label>
                                             </div>
                                         </td>
                                         <td width="75%">
@@ -500,7 +500,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="form-control">Password</label>
+                                                <label class="col-form-label">Password</label>
                                             </div>
                                         </td>
                                         <td width="75%">

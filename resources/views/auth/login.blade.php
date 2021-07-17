@@ -102,7 +102,7 @@
                                 <!-- Single Form End -->
                                 <!-- Single Form Start -->
                                 <div class="single-form">
-                                    <button type="button" onclick="studentLogin();" class="btn btn-primary btn-hover-dark w-100">Login</button>
+                                    <button type="button" onclick="studentLogin();" class="btn btn-success btn-hover-dark w-100">Login</button>
                                     
                                 </div>
                                 <!-- Single Form End -->
