@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
     <div class="main-wrapper">
@@ -61,12 +61,13 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        {!! Form::open(array('url' => 'reg_submit','method'=>'POST', 'files'=>'true')) !!}
+                        <form method="post" action="javascript:createExamRegister();" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <input type="hidden" name="student_info_id" value="1">
                                 <input type="hidden" name="batch_id" value="1">
                                 <input type="hidden" name="exam_type_id" value="1">
-                                <input type="hidden" name="grade">
+                                <input type="hidden" name="grade" value="A">
 
                                 <table width="100%">
                                     <tr>
@@ -107,7 +108,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table width="100%">
+                                {{--<table width="100%">
                                     <tr>
                                         <td width="35%">
                                             <div class="single-form">
@@ -123,7 +124,7 @@
                                             </label>
                                         </td>
                                     </tr>
-                                </table>
+                                </table>--}}
                                 <table width="100%">
                                     <tr>
                                         <td width="35%">
@@ -131,7 +132,7 @@
                                                 <label class="form-control">(ဂ) ယခုဖြေဆိုမည့် Module</label>
                                             </div>
                                         </td>
-                                        <td width="65%">
+                                        {{--<td width="65%">
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 1
                                             </label>
@@ -141,6 +142,18 @@
                                             <label class="checkbox-inline" style="margin-left:3%">
                                                 <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;All Modules
                                             </label>
+                                        </td>--}}
+                                        <td width="65%">
+                                            <div class="single-form">
+                                                <input type="radio" id="0" name="is_full_module" value="0" style="margin-left: 3%;">
+                                                <label for="0">Module 1</label>
+
+                                                <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
+                                                <label for="1">Module 2</label>
+
+                                                <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
+                                                <label for="2">All Modules</label>
+                                            </div>
                                         </td>
                                     </tr>
                                 </table>
@@ -154,7 +167,7 @@
                                         </td>
                                         <td width="65%">
                                             <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="invoice_image" required="" style="padding: 2%;">
+                                                <input type="file" id="invoice_image" placeholder="upload photo" name="invoice_image" required="" style="padding: 2%;">
                                             </div>
                                         </td>
                                     </tr>
@@ -177,12 +190,12 @@
                                 <div class="col-md-12">
                                     <!-- Form Wrapper Start -->
                                     <div class="single-form text-center">
-                                        <button class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                        <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
                                     </div>
                                     <!-- Form Wrapper End -->
                                 </div>
                             </div>
-                        {!! Form::close() !!}
+                        </form>
                     </div>
                 <!-- Form Wrapper End -->
                 </div><br><br>

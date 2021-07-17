@@ -75,6 +75,8 @@
     <script src="{{ asset('assets/js/common.js') }}"></script>
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
     <script src="{{ asset('assets/js/auth.js') }}"></script>
+    <script src="{{ asset('assets/js/exam_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_register.js') }}"></script>
     <script src=
 "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
   </script>
