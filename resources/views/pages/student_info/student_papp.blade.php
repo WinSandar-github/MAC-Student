@@ -90,99 +90,121 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="single-form">
                                                         <label>(က) နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
-                                                    <div class="single-form">
-                                                        <input type="text" name="" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="row">
+                                                    <div class="col-md-2 col-5 px-1">
+                                                    <div class="courses-select">
+                                                    <select class="form-control" name="nrc_state_region" id="nrc_state_region">
+                                                    @foreach($nrc_regions as $region)
+                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                </div></div>
+                                                <div class="col-md-3 col-7 px-1">
+                                                <div class="courses-select">
+                                                <select class="form-control" name="nrc_township" id="nrc_township">
+                                                    @foreach($nrc_townships as $township)
+                                                        <option value="{{ $township['township_mm'] }}">
+                                                            {{ $township['township_mm'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                </div></div>
+                                                <div class="col-md-2 col-5 px-1">
+                                                <div class="courses-select">
+                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                                    @foreach($nrc_citizens as $citizen)
+                                                    <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                        {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </div></div>
+                                            <div class="col-md-4 col-7 pl-1">
+                                                <div class="single-form">
+                                                <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
+                                            </div></div>
+                                            <div class="col-md-1">
+                                            <div class="single-form">
+                                                <button type="submit" onclick="SearchStudentID();"  class="btn btn-primary btn-hover-dark">Search</button>
+                                            </div></div>
+                                            </div></div>
+                                            
                                             </div><br/>
                                             <div class="row">
                                                 <div class="row">
                                                     <div class="col-md-1"></div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                             <label>(ခ) ပညာအရည်အချင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value="" id="cpa_check" onclick="CPA_Check()">
                                                         <label  style="font-size:15px;">CPA</label>
                                                     </div>
-                                                    <div class="col-md-5"  id="cpa_edu" style="display:none;">
+                                                    <div class="col-md-1">
+                                                   
+                                                    </div>
+                                                    <div class="col-md-4"  id="cpa_edu" style="display:none;">
                                                     <div class="row">
-                                                            <!-- <input type="file" placeholder="upload photo" name="image" required=""> -->
-                                                            <div class="col-md-2" >
-                                                            </div>
-                                                            <div class="col-md-10" >
-                                                                <input type="file" placeholder="upload photo" name="image" required="">
-                                                            </div>
+                                                                <input type="file"  class="custom-file-input"  name="image" required="">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div> 
                                                 <div class="row">
-                                                    <div class="col-md-5"></div>
+                                                    <div class="col-md-4"></div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value=""  id="ra_check" onclick="RA_Check()">
                                                         <label  style="font-size:15px;">RA</label>
                                                     </div>
-                                                    <div class="col-md-5"  id="ra_edu" style="display:none;">
+                                                    <div class="col-md-1">
+                                                   
+                                                    </div>
+                                                    <div class="col-md-4"  id="ra_edu" style="display:none;">
                                                         <div class="row">
-                                                            <!-- <input type="file" placeholder="upload photo" name="image" required=""> -->
-                                                            <div class="col-md-2" >
-                                                            </div>
-                                                            <div class="col-md-10" >
-                                                                <input type="file" placeholder="upload photo" name="image" required="">
-                                                            </div>
+                                                            <input type="file" placeholder="upload photo" name="image" required="">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5"></div>
+                                                    <div class="col-md-4"></div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value=""  id="degree_check" onclick="Degree_Check()">
                                                         <label  style="font-size:15px;">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
-                                                        </div>
-                                                    <div class="col-md-5" id="edu" style="display:none;">  
-                                                        <div class="row">  
-                                                            <div class="col-md-2" id="degree_add">
-                                                                <input type="button" id="add_btn" value="Add" onclick="Add()" >
-                                                            </div>
-                                                            <div class="col-md-10"  id="degree_edu" >
+                                                    </div>
+                                                    <div class="col-md-1" id="add_div" style="display:none;">
+                                                    <input type="button" id="add_btn" value="Add" onclick="Add()" >
+                                                    </div>
+                                                    <div class="col-md-4" id="edu" style="display:none;">  
+                                                        <div class="row" id="edu0" >  
+                                                            <div class="col-md-8"  id="degree_edu" >
                                                                 <input type="file" placeholder="upload photo" name="image" required="">
                                                             </div>
+                                                            <div class="col-md-1" id="edu0_remove" style="display:block;">
+                                                                <a id="myLink" onclick="remove(edu0)">
+                                                                <span class="fa fa-trash danger text-danger">
+
+                                                                </span></a></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div id="accredited_foreign" style="display:none;">
-                                        <div class="file1">
-                                            <div class="fileupload1">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="single-form">
-                                                            <input type="file"  class="form-control p-4" name="image" required="" style="padding: 2%;">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1 pt-4">
-                                                        <button class="btn btn-primary btn-md btn-add" type="button" onclick='addInputFile("file1","fileupload1")'>
-                                                            <i class="fa fa-plus"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                             </div>
                                             <br/>
                                             <div class="row">
                                                 <div class="col-md-1">
                                                         <label class="col-form-label">{{ _('၂။') }}</label>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-11">
                                                     <label class="col-form-label"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့ စာရင်းဝန်တောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ်
-                                                    <input type="date" name="date" placeholder="dd/mm/yyyy">
+                                                    <input type="text" name="papp_date" placeholder="dd/mm/yyyy" required>
                                                     ခုနှစ်အတွက် မှတ်ပုံတင်ပေးပါရန် လျှောက်ထားပါသည်။</label>
                                                 </div> 
                                             </div>
@@ -332,13 +354,17 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-8">
                                                         <label style="font-size:15px;">(ဆ) ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ 
-                                                        <input type="date" placeholder="upload photo" name="image" required="">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                                        <input type="text" name="tax_date" placeholder="dd/mm/yyyy" required>ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
                                                         <input type="file" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
-                                            
+                                            <div class="row">
+                                                <div class="col-md-11 d-md-flex justify-content-md-end single-form">
+                                                    <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -364,7 +390,14 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    // getStudentInfo();
+    $("input[name='tax_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+    });
+    $("input[name='papp_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+    });
     function CPA_Check(){
         var checkBox = document.getElementById("cpa_check");
         if (checkBox.checked == true){
@@ -389,6 +422,7 @@
         var checkBox = document.getElementById("degree_check");
         if (checkBox.checked == true){
             document.getElementById("edu").style.display="block";
+            document.getElementById("add_div").style.display="block";
             // document.getElementById("degree_edu").style.display="block";
             // document.getElementById("degree_add").style.display="block";
             //document.getElementById("accredited_foreign").style.display="block";
@@ -398,19 +432,33 @@
             // document.getElementById("degree_edu").style.display="none";
             // document.getElementById("degree_add").style.display="none";
             document.getElementById("edu").style.display="none";
+            document.getElementById("add_div").style.display="none";
         }
     }
 
-    var count=0;
+    var count=1;
     function Add(){
-        $("#edu").append('<div class="row" id="first'+count+'"><div class="col-md-2"></div>'+
+        // var a=$('#edu div:first-child').attr('id');
+        // alert(a);
+        // var div_count =  $("#edu div").children().length;
+        // alert(div_count);
+        // if(div_count>=4){
+        //     //document.getElementById("edu0_remove").style.display="block";
+        // }
+        $("#edu").append('<div class="row" id="edu'+count+'">'+
         '<div class="col-md-8"><input type="file" placeholder="upload photo" name="image" required=""></div>'+
-        '<div class="col-md-1"><a id="myLink" onclick="remove(first'+count+')">'+
+        '<div class="col-md-1" id="edu'+count+'_remove"><a id="myLink" onclick="remove(edu'+count+')">'+
         '<span class="fa fa-trash danger text-danger"></span></a></div></div>');
         count++;
+        
      }
     function remove(id){
         id.remove();
+        var div_count =  $("#edu div").children().length;
+        // alert(div_count);
+        if(div_count==4){
+            //document.getElementById("edu0_remove").style.display="none";
+        }
     }
 </script>
 @endpush
