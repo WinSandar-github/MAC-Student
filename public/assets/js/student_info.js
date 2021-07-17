@@ -1,10 +1,23 @@
 function getStudentInfo(){
-    if(approve_reject_status==0){
-        $('.status-reject').css('display','block');
-        $('.status-approve').css('display','block');
-    }else{
-        $('.status-approve').css('display','block');
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    approve_reject_status = 2;
+    if(student != null){
+        
+        if(approve_reject_status == 0){
+           
+            $('.check_registration').css('display','block');
+            $('.course_detail').css('display','none');
+
+        }else if(approve_reject_status == 1){
+            location.href = 'http://localhost:8001/student_study'
+        }else{
+            $('.status-reject').css('display','block');
+            $('.course_detail').css('display','none');
+            $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+                
+        }
     }
+    
 }
 function getCourse(){
     $.ajax({
@@ -21,7 +34,7 @@ function getCourse(){
                 if(batch_data.length!=0){
                     batch_data.forEach(function(item){
                         console.log(item.name);
-                        course+="<button type='button' class='dropdown-item' onclick=addCourseBatch(\"" + encodeURIComponent(element.name) + "\"," + element.id + ",\""+encodeURIComponent(item.name) + "\"," + item.id +")>"+item.name+'</button>';
+                        course+=`<a type='button' class='dropdown-item' href='/student_da/${item.id}'>${item.name}</a>`;
                         
                     })
                 }else{
