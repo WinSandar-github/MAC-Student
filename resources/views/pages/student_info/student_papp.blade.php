@@ -151,9 +151,9 @@
                                                     <div class="col-md-1">
                                                    
                                                     </div>
-                                                    <div class="col-md-4"  id="cpa_edu" style="display:none;">
+                                                    <div class="col-md-3"  id="cpa_edu" style="display:none;">
                                                     <div class="row">
-                                                                <input type="file"  class="custom-file-input"  name="image" required="">
+                                                                <input type="file"  class="form-control"  name="image" required="">
                                                             
                                                         </div>
                                                     </div>
@@ -167,34 +167,40 @@
                                                     <div class="col-md-1">
                                                    
                                                     </div>
-                                                    <div class="col-md-4"  id="ra_edu" style="display:none;">
+                                                    <div class="col-md-3"  id="ra_edu" style="display:none;">
                                                         <div class="row">
-                                                            <input type="file" placeholder="upload photo" name="image" required="">
+                                                            <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                             
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-4"></div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <input type="checkbox" value=""  id="degree_check" onclick="Degree_Check()">
                                                         <label  style="font-size:15px;">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                                     </div>
-                                                    <div class="col-md-1" id="add_div" style="display:none;">
+                                                    <!-- <div class="col-md-1" id="add_div" style="display:none;">
                                                     <input type="button" id="add_btn" value="Add" onclick="Add()" >
-                                                    </div>
-                                                    <div class="col-md-4" id="edu" style="display:none;">  
+                                                    </div> -->
+                                                    <div class="col-md-4" id="edu" style="display:none;padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px">  
                                                         <div class="row" id="edu0" >  
-                                                            <div class="col-md-8"  id="degree_edu" >
-                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                            <div class="col-md-9"  id="degree_edu" >
+                                                                <input type="file"  class="form-control" placeholder="upload photo" name="image" required="">
                                                             </div>
-                                                            <div class="col-md-1" id="edu0_remove" style="display:block;">
+                                                            <!-- <div class="col-md-1" id="edu0_remove" style="display:block;">
                                                                 <a id="myLink" onclick="remove(edu0)">
                                                                 <span class="fa fa-trash danger text-danger">
 
-                                                                </span></a></div>
+                                                                </span></a></div> -->
+                                                                <div class="col-md-3" id="add_div" style="display:none;">
+                                                                <input type="button" class="form-control" id="add_btn" value="Add" onclick="Add()" >
+                                                                </div>
                                                         </div>
                                                     </div>
+                                                    <!-- <div class="col-md-1" id="add_div" style="display:none;">
+                                                                <input type="button" class="form-control" id="add_btn" value="Add" onclick="Add()" >
+                                                                </div> -->
                                                 </div>
                                             </div>
                                             <br/>
@@ -446,8 +452,8 @@
         //     //document.getElementById("edu0_remove").style.display="block";
         // }
         $("#edu").append('<div class="row" id="edu'+count+'">'+
-        '<div class="col-md-8"><input type="file" placeholder="upload photo" name="image" required=""></div>'+
-        '<div class="col-md-1" id="edu'+count+'_remove"><a id="myLink" onclick="remove(edu'+count+')">'+
+        '<div class="col-md-9"><input type="file"  class="form-control" placeholder="upload photo" name="image" required=""></div>'+
+        '<div class="col-md-3 text-center" style="padding-top:10px;padding-bottom:10px;" id="edu'+count+'_remove"><a id="myLink" onclick="remove(edu'+count+')">'+
         '<span class="fa fa-trash danger text-danger"></span></a></div></div>');
         count++;
         

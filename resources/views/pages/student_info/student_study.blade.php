@@ -84,7 +84,8 @@
                                 </div>
                             </div><br/>
                             <div class="row" id="self_study_container">
-                                        <form>
+                                        <form id="self_study_form" method="post" action="javascript:createSelfStudy();" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="card border-success mb-3">
                                                 <div class="card-body ">
                                                     <div class="col-md-12">
@@ -98,7 +99,7 @@
                                                                 <label class="batchname col-form-label"></label>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
+                                                        <div class="row mb-2">
                                                             <div class="col-md-1">
                                                                 <div class="single-form">
                                                                     <label class="col-form-label">{{ __('၁။') }}</label>
@@ -114,74 +115,74 @@
                                                             
                                                             
                                                         </div><br/>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
-                                                            <div class="col-md-4">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-5">
                                                                 
                                                                 <label class="form-check-label">(က)ယခုနှစ်</label>
                                                                 
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="checkbox" value="ယခုနှစ်တက်ရောက်ရရှိခြင်း">
+                                                                <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-3"></div>
-                                                            <div class="col-md-4 single-form">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-2"></div>
+                                                            <div class="col-md-4 single-form mt-4">
                                                                 <label>(၁)တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                             </div>
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-5">
                                                                 <div class="single-form">
                                                                         
-                                                                        <input type="text" class="form-control">
+                                                                        <input type="text" class="form-control" name="student_regno" readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
                                                             
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-5">
                                                                 <label>(ခ)သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
                                                         
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း">
+                                                                <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" name="reg_reason[]">
                                                             </div>
                                                             
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
-                                                            <div class="col-md-4">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-5">
                                                                 <label>(ဂ)သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
                                                                 
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း">
+                                                                <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
-                                                            <div class="col-md-4">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-5">
                                                                 <label>(ဃ)စာမေးပွဲကျရှုံးခြင်း</label>
                                                                 
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း">
+                                                                <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
-                                                            <div class="col-md-4">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-5">
                                                                 <label>(င)သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း</label>
                                                                 
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
+                                                                <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                            <label class="col-md-8 col-form-label">{{ __('အပိုဒ် ၁၁ ပါ(ခ)/(ဂ)/(ဃ)/(င) အတွက်') }}</label>
+                                                            <label class="col-md-8 col-form-label">{{ __('အပိုဒ် ၁ ပါ(ခ)/(ဂ)/(ဃ)/(င) အတွက်') }}</label>
                                                             
                                                         </div>
                                                         <div class="row">
@@ -214,17 +215,17 @@
                                                             
                                                         </div>
                                                         <div class="row">
-                                                        <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                            <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                            <div class="col-md-3 offset-md-5">
+                                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                             </div>
                             <div class="row" id="private_school_container">
-                                        <form>
+                                        <form method="post" action="javascript:createPrivateSchool();" enctype="multipart/form-data">
                                             <div class="card border-success mb-3">
                                                 <div class="card-body ">
                                                     <div class="col-md-12">
@@ -245,19 +246,19 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <div class="single-form">
-                                                                    <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်') }}</label>
-                                                                    
-                                                                </div>
+                                                            <div class="col-md-5 single-form">
+                                                                <label>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-3">
                                                                 <div class="single-form">
-                                                                    <input type="text" name="student_regno" class="form-control" readonly>
+                                                                        
+                                                                        <input type="text" class="form-control" name="student_regno" readonly>
                                                                 </div>
                                                             </div>
                                                             
+                                                            
                                                         </div><br/>
+                                                       
                                                        
                                                         <div class="row">
                                                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
@@ -270,10 +271,10 @@
                                                             
                                                         </div>
                                                         <div class="row">
-                                                        <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                            <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                            <div class="col-md-3 offset-md-5">
+                                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -281,7 +282,7 @@
                                             
                             </div>
                             <div class="row" id="mac_container">
-                                        <form>
+                                        <form method="post" action="javascript:createMac();" enctype="multipart/form-data">
                                             <div class="card border-success mb-3">
                                                 <div class="card-body ">
                                                     <div class="col-md-12">
@@ -302,17 +303,16 @@
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-5 single-form">
+                                                                <label>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                            </div>
+                                                            <div class="col-md-3">
                                                                 <div class="single-form">
-                                                                    <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်') }}</label>
-                                                                    
+                                                                        
+                                                                        <input type="text" class="form-control" name="student_regno" readonly>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
-                                                                <div class="single-form">
-                                                                    <input type="text" name="student_regno" class="form-control" readonly>
-                                                                </div>
-                                                            </div>
+                                                            
                                                             
                                                         </div><br/>
                                                         <div class="row">
@@ -340,17 +340,8 @@
                                                                     <input type="text" name="" class="form-control" >
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-1">
-                                                                <div class="single-form">
-                                                                    <label class="col-form-label">{{ __('နှင့် နေ့စွဲ') }}</label>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <div class="single-form">
-                                                                    <input type="text" name="mac_date" class="form-control" placeholder="dd-mm-yyyy">
-                                                                </div>
-                                                            </div>
+                                                            
+                                                            
                                                         </div><br/>
                                                         <div class="row">
                                                             <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -363,10 +354,10 @@
                                                             
                                                         </div>
                                                         <div class="row">
-                                                        <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                            <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                            <div class="col-md-3 offset-md-5">
+                                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>

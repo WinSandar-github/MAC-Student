@@ -14,7 +14,7 @@ function getEducation(){
     }
     else{
         $('#ra').css('display','none');
-        $('#accredited_foreign_degree').css('display','none');
+        $('#foreign_degree').css('display','none');
     }
 }
 
