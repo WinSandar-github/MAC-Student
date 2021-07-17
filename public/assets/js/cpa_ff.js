@@ -1,22 +1,21 @@
 function getEducation(){
-    var cpaValue = document.getElementById('cpa_edu');
-    var raValue = document.getElementById('ra_edu');
-    var accreditdedValue = document.getElementById('accreditded_edu');    
-
-    if(raValue.checked == true){
-        $('#ra').css('display','block');               
+    var checkedValue = $("input[name='education']:checked").val();
+    if(checkedValue==1){
+        $('#ra').css('display','none');
+        $('#accredited_foreign_degree').css('display','none');
+    }
+    else if(checkedValue==2){
+        $('#ra').css('display','block');
+        $('#accredited_foreign_degree').css('display','none');         
+    }
+    else if(checkedValue==3){
+        $('#ra').css('display','none');
+        $('#accredited_foreign_degree').css('display','block');
     }
     else{
         $('#ra').css('display','none');
+        $('#foreign_degree').css('display','none');
     }
-
-    if(accreditdedValue.checked == true){
-        $('#accredited_foreign_degree').css('display','block');               
-    }
-    else{
-        $('#accredited_foreign_degree').css('display','none');
-    }  
-    
 }
 
 function addInputFile(divname,diventry){

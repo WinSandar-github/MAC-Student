@@ -99,7 +99,7 @@
                                                                 <label class="batchname col-form-label"></label>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
+                                                        <div class="row mb-2">
                                                             <div class="col-md-1">
                                                                 <div class="single-form">
                                                                     <label class="col-form-label">{{ __('၁။') }}</label>
@@ -115,8 +115,8 @@
                                                             
                                                             
                                                         </div><br/>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
                                                             <div class="col-md-5">
                                                                 
                                                                 <label class="form-check-label">(က)ယခုနှစ်</label>
@@ -126,20 +126,20 @@
                                                                 <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-3"></div>
-                                                            <div class="col-md-5 single-form">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-2"></div>
+                                                            <div class="col-md-4 single-form mt-4">
                                                                 <label>(၁)တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                             </div>
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-5">
                                                                 <div class="single-form">
                                                                         
                                                                         <input type="text" class="form-control" name="student_regno" readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
                                                             
                                                             <div class="col-md-5">
                                                                 <label>(ခ)သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
@@ -150,8 +150,8 @@
                                                             </div>
                                                             
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
                                                             <div class="col-md-5">
                                                                 <label>(ဂ)သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
                                                                 
@@ -160,8 +160,8 @@
                                                                 <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
                                                             <div class="col-md-5">
                                                                 <label>(ဃ)စာမေးပွဲကျရှုံးခြင်း</label>
                                                                 
@@ -170,8 +170,8 @@
                                                                 <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason[]">
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-2"></div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-1"></div>
                                                             <div class="col-md-5">
                                                                 <label>(င)သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း</label>
                                                                 
@@ -215,8 +215,8 @@
                                                             
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                                <button type="submit" class="btn btn-primary btn-hover-dark" form="self_study_form">{{ __('Save') }}</button>
+                                                            <div class="col-md-3 offset-md-5">
+                                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -271,10 +271,10 @@
                                                             
                                                         </div>
                                                         <div class="row">
-                                                        <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                            <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                            <div class="col-md-3 offset-md-5">
+                                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -354,10 +354,10 @@
                                                             
                                                         </div>
                                                         <div class="row">
-                                                        <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                            <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                            <div class="col-md-3 offset-md-5">
+                                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
