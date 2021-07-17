@@ -6,7 +6,7 @@
 	$nrc_characters = config('myanmarnrc.characters');
 @endphp
 
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
     <div class="main-wrapper">
@@ -69,7 +69,8 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        {!! Form::open(array('url' => 'dasubmit','method'=>'POST', 'files'=>'true')) !!}
+                        <form method="post" action="javascript:createDARegister();" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <table width="100%">
                                     <tr>
@@ -298,7 +299,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('job_name') }}" required="">
+                                                <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -518,7 +519,7 @@
                                     <!-- Form Wrapper End -->
                                 </div>
                             </div>
-                        {!! Form::close() !!}
+                        </form>
                     </div>
                 <!-- Form Wrapper End -->
                 </div><br><br>
@@ -584,5 +585,6 @@
             }
         }
     });
+    
 </script>
 @endpush

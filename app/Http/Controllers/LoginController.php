@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Auth;
 use App\StudentInfo;
 use Hash;
-use Alert;
 
 class LoginController extends Controller
 {
     public function loginValidate(Request $request)
     {
+        
         
        if (Auth::attempt(array('email' => $request->email, 'password' => $request->password)))
         {
