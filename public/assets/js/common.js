@@ -1,4 +1,4 @@
-var BACKEND_URL="http://localhost:8080";
+var BACKEND_URL="http://localhost:8000";
 var BACKEND_URL_NL="http://localhost:7000";
 var toastOptions = {
     "closeButton": true,

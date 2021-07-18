@@ -55,3 +55,68 @@ function createDARegister()
       }
     });
 }
+
+function da_edit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+     $.ajax({
+        type:'GET',
+        url: BACKEND_URL+'/api/student_info/'+student[0].id,
+        success:function(result){
+            var data = result.data;
+            var education = result.data.student_education_histroy;
+            $('#stu_id').val(data.id);
+            $('#name_mm').val(data.name_mm);
+            $('#name_eng').val(data.name_eng);
+            $('#nrc_state_region').val(3);
+            $('#father_name_mm').val(data.father_name_mm);
+            $('#father_name_eng').val(data.father_name_eng);
+            $('#race').val(data.race);
+            $('#religion').val(data.religion);
+            $('#date_of_birth').val(data.date_of_birth);
+            $('#phone').val(data.phone);
+            $('#address').val(data.address);
+            $('#current_address').val(data.current_address);
+            $('#name').val(data.student_job.name);
+            $('#position').val(data.student_job.position);
+            $('#department').val(data.student_job.department);
+            $('#organization').val(data.student_job.organization);
+            $('#company_name').val(data.student_job.company_name);
+            $('#salary').val(data.student_job.salary);
+            $('#office_address').val(data.student_job.address);
+            data.gov_staff == 0 
+            ?  $("#no").prop("checked", true)
+            : $("#yes").prop("checked", true)  ; 
+            $('#uni_name').val(education.university_name);
+            $('#degree_name').val(education.degree_name);
+            $('#qualified_date').val(education.qualified_date);
+            $('#roll_number').val(education.roll_number);
+
+        }
+    })
+
+}
+
+$('#da_update').submit(function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    formData.append('_method', 'PUT');
+    var student_id = $('#stu_id').val();
+    console.log(student_id);
+
+     
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/api/student_info/"+student_id,
+            
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                localStorage.setItem('approve_reject', data.approve_reject_status);
+                location.href = "/student_course/";
+            },
+            error:function (message){
+            }
+        })
+
+})
