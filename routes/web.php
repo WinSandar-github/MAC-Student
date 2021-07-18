@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('pages.home');
 });
@@ -25,6 +26,11 @@ Route::post('dasubmit', 'DAController@daSubmit');
 //Frontend RegisterationExam Form
 Route::get('reg_exam', 'RegisterationExamController@regform');
 Route::post('reg_submit', 'RegisterationExamController@regSubmit');
+// DA Register Form
+Route::get('da_register', 'DARegisterController@registerForm');
+
+//Exam Register Form
+Route::get('/exam_register', 'ExamRegisterController@registerForm');
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
@@ -37,5 +43,4 @@ Route::get('cpa_ff_register', 'CPAFFController@info');
 
 Route::get('student_course', 'StudentController@info');
 Route::get('student_study', 'StudentController@study');
-Auth::routes();
 

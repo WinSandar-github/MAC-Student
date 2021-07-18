@@ -60,8 +60,8 @@
                     </div>
                 </div>
                 @foreach($batch as $b)
-                <div class="row gx-10 course_detail" >
-                    <div class="col-lg-8">
+                <div class="row  course_detail" >
+                    <div class="col-lg-8 col-md-8">
                         <!-- Courses Details Start -->
                         <div class="courses-details">
 
@@ -107,7 +107,7 @@
                         <!-- Courses Details End -->
 
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4">
                         <!-- Courses Details Sidebar Start -->
                         <div class="sidebar">
 

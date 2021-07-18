@@ -69,7 +69,9 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        {!! Form::open(array('url' => 'dasubmit','method'=>'POST', 'files'=>'true')) !!}
+                        <form method="post" id="da_update" enctype="multipart/form-data">
+                            @csrf
+                            <input type="text" name="id" id="stu_id">
                             <div class="row">
                                 <table width="100%">
                                     <tr>
@@ -94,7 +96,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" value="{{ old('name_eng') }}" required="">
+                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" value="{{ old('name_eng') }}" id="name_eng" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -168,7 +170,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" value="{{ old('father_name_eng') }}" required="">
+                                                <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -182,7 +184,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="လူမျိူး" name="race" class="form-control" value="{{ old('race') }}" required="">
+                                                <input type="text" placeholder="လူမျိူး" name="race" class="form-control" value="{{ old('race') }}" required="" id="race">
                                             </div>
                                         </td>
                                     </tr>
@@ -196,7 +198,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="">
+                                                <input type="text" placeholder="ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="" id="religion">
                                             </div>
                                         </td>
                                     </tr>
@@ -210,7 +212,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}"  required>
+                                                <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" id="date_of_birth"  required>
                                             </div>
                                         </td>
                                     </tr>
@@ -224,7 +226,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" class="form-control" value="{{ old('phone') }}" required="">
+                                                <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -238,7 +240,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="">
+                                                <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="" id="address">
                                             </div>
                                         </td>
                                     </tr>
@@ -252,14 +254,14 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address" class="form-control" value="{{ old('current_address') }}" required="">
+                                                <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address" class="form-control" value="{{ old('current_address') }}" required="" id="current_address">
                                             </div>
                                         </td>
                                     </tr>
                                 </table>
 
                                 <input type="hidden" name="registration_no" value="1">
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
@@ -268,11 +270,11 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" required>
+                                                <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" id="date_of_birth" value="{{ old('date_of_birth') }}" required>
                                             </div>
                                         </td>
                                     </tr>
-                                </table>
+                                </table> -->
                                 <input type="hidden" name="approve_reject_status">
                                 <table width="100%">
                                     <tr>
@@ -298,7 +300,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('job_name') }}" required="">
+                                                <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('name') }}" required="" id="name">
                                             </div>
                                         </td>
                                     </tr>
@@ -312,7 +314,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ရာထူး" name="position" class="form-control" value="{{ old('position') }}" required="">
+                                                <input type="text" placeholder="ရာထူး" name="position" id="position" class="form-control" value="{{ old('position') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -326,7 +328,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ဌာန" name="department" class="form-control" value="{{ old('department') }}" required="">
+                                                <input type="text" placeholder="ဌာန" name="department" id="department" class="form-control" value="{{ old('department') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -340,7 +342,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" class="form-control" value="{{ old('organization') }}" required="">
+                                                <input type="text" placeholder="အဖွဲ့အစည်း" id="organization" name="organization" class="form-control" value="{{ old('organization') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -354,7 +356,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" class="form-control" value="{{ old('company_name') }}" required="">
+                                                <input type="text" placeholder="ကုမ္ပဏီအမည်" id="company_name" name="company_name" class="form-control" value="{{ old('company_name') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -368,7 +370,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" class="form-control" value="{{ old('salary') }}" required="">
+                                                <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary" class="form-control" value="{{ old('salary') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -382,7 +384,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" class="form-control" value="{{ old('office_address') }}" required="">
+                                                <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address" class="form-control" value="{{ old('office_address') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -396,10 +398,10 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="radio" id="yes" name="gov_staff" value="1" style="margin-left: 3%;" @if(old('gov_staff')) checked @endif >
+                                                <input type="radio"   id="yes" name="gov_staff" value="1" style="margin-left: 3%;"  >
                                                 <label for="yes">ဟုတ်</label>
 
-                                                <input type="radio" id="no" name="gov_staff" value="0" style="margin-left: 3%;" @if(!old('gov_staff')) checked @endif >
+                                                <input type="radio"  id="no" name="gov_staff" value="0" style="margin-left: 3%;" >
                                                 <label for="no">မဟုတ်</label>
                                             </div>
                                         </td>
@@ -415,7 +417,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" class="form-control" value="{{ old('university_name') }}" required="">
+                                                <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" id="uni_name" class="form-control" value="{{ old('university_name') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -429,7 +431,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" required="">
+                                                <input type="text" placeholder="ဘွဲ့အမည်" id="degree_name" name="degree_name" class="form-control" value="{{ old('degree_name') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -443,7 +445,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="file" placeholder="upload photo" name="document" value="{{ old('document') }}" required="" style="padding: 2%;">
+                                                <input type="file" placeholder="upload photo" name="certificates[]" value="{{ old('document') }}" required="" style="padding: 2%;">
                                             </div>
                                         </td>
                                     </tr>
@@ -457,7 +459,7 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="နှစ်၊လ" name="qualified_date" class="form-control" value="{{ old('qualified_date') }}" required="">
+                                                <input type="text" placeholder="နှစ်၊လ" id="qualified_date" name="qualified_date" class="form-control" value="{{ old('qualified_date') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
@@ -471,13 +473,13 @@
                                         </td>
                                         <td width="75%">
                                             <div class="single-form">
-                                                <input type="text" placeholder="ခုံအမှတ်" name="roll_number" class="form-control" value="{{ old('roll_number') }}" required="">
+                                                <input type="text" placeholder="ခုံအမှတ်" id="roll_number" name="roll_number" class="form-control" value="{{ old('roll_number') }}" required="">
                                             </div>
                                         </td>
                                     </tr>
                                 </table>
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
@@ -509,7 +511,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </table>
+                                </table> -->
                                 <div class="col-md-12">
                                     <!-- Form Wrapper Start -->
                                     <div class="single-form text-center">
@@ -518,7 +520,7 @@
                                     <!-- Form Wrapper End -->
                                 </div>
                             </div>
-                        {!! Form::close() !!}
+                        </form>
                     </div>
                 <!-- Form Wrapper End -->
                 </div><br><br>
@@ -539,6 +541,7 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
+        da_edit();
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",

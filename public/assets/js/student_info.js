@@ -1,6 +1,5 @@
 function getStudentInfo(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    approve_reject_status = 2;
     if(student != null){
         
         if(approve_reject_status == 0){
@@ -20,10 +19,11 @@ function getStudentInfo(){
     
 }
 function getCourse(){
+    
     $.ajax({
-        url: "/api/course",
-        type: 'get',
-        data:"",
+        type: 'GET',
+        url: BACKEND_URL+"/api/course",
+       
         success: function(data){
             var course_data=data.data;
             console.log(course_data);
@@ -31,6 +31,7 @@ function getCourse(){
                 var course="<div class='dropend'><a href='#' data-bs-toggle='dropdown' aria-expanded='false' id='dropdownMenuButton' aria-haspopup='true'><u>"+element.name+"</u></a><div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
                 
                 var batch_data=element.batch;
+                console.log("Batch>>",batch_data)
                 if(batch_data.length!=0){
                     batch_data.forEach(function(item){
                         console.log(item.name);
@@ -87,4 +88,47 @@ function selectedRegistration(){
         $('#private_school_container').css('display','none');
         $('#mac_container').css('display','block');
     }
+}
+function createSelfStudy(){
+    var send_data=new FormData();
+    send_data.append('student_id',student_id);
+    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
+    $.ajax({
+        url: BACKEND_URL+"/api/student_selfstudy",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            successMessage(result);
+      }
+    });
+}
+function createPrivateSchool(){
+    var send_data=new FormData();
+    send_data.append('student_id',student_id);
+    $.ajax({
+        url: BACKEND_URL+"/api/student_privateschool",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            successMessage(result);
+      }
+    });
+}
+function createMac(){
+    var send_data=new FormData();
+    send_data.append('student_id',student_id);
+    $.ajax({
+        url: BACKEND_URL+"/api/student_mac",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            successMessage(result);
+      }
+    });
 }

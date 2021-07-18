@@ -8,11 +8,10 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
-
-    <!-- CSS
-	============================================ -->
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icofont.min.css') }}">
@@ -29,6 +28,12 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="{{ asset('assets/css/cpa_ff.css') }}">
+
+    <!-- Bootstrap JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
@@ -48,8 +53,8 @@
     <script src="{{ asset('assets/js/vendor/jquery-3.5.1.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
-    <script src="{{ asset('assets/js/plugins/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/plugins/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script> -->
 
     <!-- Plugins JS -->
     <script src="{{ asset('assets/js/plugins/swiper-bundle.min.js') }}"></script>
@@ -72,6 +77,16 @@
     <script src="{{ asset('assets/js/auth.js') }}"></script>
 
 
+    <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('assets/js/student_info.js') }}"></script>
+    <script src="{{ asset('assets/js/common.js') }}"></script>
+    <script src="{{ asset('assets/js/exam_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_register.js') }}"></script>
     @stack('scripts')
 </body>
 

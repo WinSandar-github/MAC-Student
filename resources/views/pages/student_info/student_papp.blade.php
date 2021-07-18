@@ -6,7 +6,7 @@
 	$nrc_characters = config('myanmarnrc.characters');
 @endphp
 
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -113,11 +113,10 @@
                                                     </div>
                                                     <div class="col-md-5"  id="cpa_edu" style="display:none;">
                                                     <div class="row">
-                                                            <!-- <input type="file" placeholder="upload photo" name="image" required=""> -->
                                                             <div class="col-md-2" >
                                                             </div>
                                                             <div class="col-md-10" >
-                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                                <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -134,7 +133,7 @@
                                                             <div class="col-md-2" >
                                                             </div>
                                                             <div class="col-md-10" >
-                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                                <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -151,7 +150,7 @@
                                                                 <input type="button" id="add_btn" value="Add" onclick="Add()" >
                                                             </div>
                                                             <div class="col-md-10"  id="degree_edu" >
-                                                                <input type="file" placeholder="upload photo" name="image" required="">
+                                                                <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,7 +181,7 @@
                                                 </div>
                                                 <div class="col-md-10">
                                                     <label class="col-form-label"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့ စာရင်းဝန်တောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ်
-                                                    <input type="date" name="date" placeholder="dd/mm/yyyy">
+                                                    <input type="date" name="date" class="form-control" placeholder="dd/mm/yyyy">
                                                     ခုနှစ်အတွက် မှတ်ပုံတင်ပေးပါရန် လျှောက်ထားပါသည်။</label>
                                                 </div> 
                                             </div>
@@ -280,7 +279,7 @@
                                                         <label style="font-size:15px;">(က) လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             <div class="row">
@@ -289,7 +288,7 @@
                                                         <label style="font-size:15px;">(ခ) မှတ်ပုံတင်မည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူဖြစ်ကြောင်း ခံဝန်ချက်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             <div class="row">
@@ -298,7 +297,7 @@
                                                         <label style="font-size:15px;">(ဂ) အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့် တာဝန်ထမ်းတောင်နေသူ မဟုတ်ကြောင်း ခံဝန်ချက်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             <div class="row">
@@ -307,7 +306,7 @@
                                                         <label style="font-size:15px;">(ဃ) လျှောက်ထားသည့်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏ အဓိကအသက်မွေးဝမ်းကျောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင်မည်ဖြစ်​ကြောင်း ခံဝန်ချက်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             <div class="row">
@@ -316,7 +315,7 @@
                                                         <label style="font-size:15px;">(င) လုပ်ငန်းဆောင်ရွက်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီ၏ ၉-၈-၂၀၁၈ ရက်စွဲပါအမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့်စည်းကမ်းချက်များနှင့် စပ်လျဥ်း၍ လိုက်နာခြင်း ရှိ/မရှိ၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             <div class="row">
@@ -325,17 +324,17 @@
                                                         <label style="font-size:15px;">(စ) စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             <div class="row">
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-8">
                                                         <label style="font-size:15px;">(ဆ) ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ 
-                                                        <input type="date" placeholder="upload photo" name="image" required="">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
+                                                        <input type="date" class="form-control" placeholder="upload photo" name="image" required="">ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <input type="file" placeholder="upload photo" name="image" required="">
+                                                        <input type="file" class="form-control" placeholder="upload photo" name="image" required="">
                                                 </div>
                                             </div><br/>
                                             
@@ -404,7 +403,7 @@
     var count=0;
     function Add(){
         $("#edu").append('<div class="row" id="first'+count+'"><div class="col-md-2"></div>'+
-        '<div class="col-md-8"><input type="file" placeholder="upload photo" name="image" required=""></div>'+
+        '<div class="col-md-8"><input type="file" class="form-control" placeholder="upload photo" name="image" required=""></div>'+
         '<div class="col-md-1"><a id="myLink" onclick="remove(first'+count+')">'+
         '<span class="fa fa-trash danger text-danger"></span></a></div></div>');
         count++;
