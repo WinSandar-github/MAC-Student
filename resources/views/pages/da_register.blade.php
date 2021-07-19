@@ -284,7 +284,7 @@
                                         </td>
                                         <td width="75%" class="pt-3">
                                             <!-- <div class="single-form"> -->
-                                                <input type="file" class="form-control" placeholder="upload photo" name="image" value="{{ old('image') }}" required="" >
+                                                <input type="file" id="image" class="form-control" name="image" value="{{ old('image') }}" required="" >
                                             <!-- </div> -->
                                         </td>
                                     </tr>
@@ -444,7 +444,7 @@
                                         </td>
                                         <td width="75%" class="pt-3">
                                             <!-- <div class="single-form"> -->
-                                                <input type="file" class="form-control" placeholder="upload photo" name="document" value="{{ old('document') }}" required="">
+                                                <input type="file" id="certificate" class="form-control"  name="certificate" value="{{ old('certificate') }}" required="">
                                             <!-- </div> -->
                                         </td>
                                     </tr>

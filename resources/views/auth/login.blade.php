@@ -38,7 +38,7 @@
     <!-- Shape Icon Box Start -->
     <div class="shape-icon-box">
 
-        <img class="icon-shape-1 animation-left" src="assets/images/shape/shape-5.png" alt="Shape">
+        <img class="icon-shape-1 animation-left" src="{{ asset('assets') }}/images/shape/shape-5.png" alt="Shape">
 
         <div class="box-content">
             <div class="box-wrapper">
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <img class="icon-shape-2" src="assets/images/shape/shape-6.png" alt="Shape">
+        <img class="icon-shape-2" src="{{ asset('assets') }}/images/shape/shape-6.png" alt="Shape">
 
     </div>
     <!-- Shape Icon Box End -->
@@ -70,12 +70,12 @@
                     <!-- Register & Login Images Start -->
                     <div class="register-login-images">
                         <div class="shape-1">
-                            <img src="assets/images/shape/shape-26.png" alt="Shape">
+                            <img src="{{ asset('assets') }}/images/shape/shape-26.png" alt="Shape">
                         </div>
 
 
                         <div class="images">
-                            <img src="assets/images/register-login.png" alt="Register Login">
+                            <img src="{{ asset('assets') }}/images/register-login.png" alt="Register Login">
                         </div>
                     </div>
                     <!-- Register & Login Images End -->
