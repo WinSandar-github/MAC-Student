@@ -8,7 +8,7 @@ function getStudentInfo(){
 }
 function getCourse(){
     $.ajax({
-        url: BACKEND_URL+"/api/student_course",
+        url: BACKEND_URL_NL+"/api/student_course",
         type: 'get',
         data:"",
         success: function(data){
@@ -75,12 +75,15 @@ function selectedRegistration(){
         $('#mac_container').css('display','block');
     }
 }
-function createSelfStudy(){
-    var send_data=new FormData();
+
+function createSelfStudy()
+{
+    var send_data = new FormData();
     send_data.append('student_id',student_id);
+    send_data.append('type','SELF_STUDY');
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     $.ajax({
-        url: BACKEND_URL+"/api/student_selfstudy",
+        url: BACKEND_URL_NL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -90,11 +93,14 @@ function createSelfStudy(){
       }
     });
 }
-function createPrivateSchool(){
-    var send_data=new FormData();
+
+function createPrivateSchool()
+{
+    var send_data = new FormData();
     send_data.append('student_id',student_id);
+    send_data.append('type','PRIVATE_SCHOOL');
     $.ajax({
-        url: BACKEND_URL+"/api/student_privateschool",
+        url: BACKEND_URL_NL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -104,11 +110,14 @@ function createPrivateSchool(){
       }
     });
 }
-function createMac(){
-    var send_data=new FormData();
+
+function createMac()
+{
+    var send_data = new FormData();
     send_data.append('student_id',student_id);
+    send_data.append('type','MAC');
     $.ajax({
-        url: BACKEND_URL+"/api/student_mac",
+        url: BACKEND_URL_NL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
