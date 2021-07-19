@@ -13,7 +13,7 @@ function createExamRegister()
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
     
     $.ajax({
-        url: BACKEND_URL_NL+"/api/exam_register",
+        url: BACKEND_URL+"/api/exam_register",
         type: 'post',
         data:send_data,
         contentType: false,

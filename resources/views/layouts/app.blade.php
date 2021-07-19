@@ -43,6 +43,7 @@
 </head>
 <body>
 
+
     <div class="main-wrapper">
         @include('layouts.header')
         @yield('content')

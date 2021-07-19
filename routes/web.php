@@ -24,8 +24,8 @@ Route::get('da_edit', 'DAController@da_edit');
 
 Route::post('dasubmit', 'DAController@daSubmit');
 //Frontend RegisterationExam Form
-Route::get('reg_exam', 'RegisterationExamController@regform');
-Route::post('reg_submit', 'RegisterationExamController@regSubmit');
+// Route::get('reg_exam', 'RegisterationExamController@regform');
+// Route::post('reg_submit', 'RegisterationExamController@regSubmit');
 // DA Register Form
 Route::get('da_register', 'DARegisterController@registerForm');
 
@@ -36,11 +36,12 @@ Route::get('/exam_register', 'ExamRegisterController@registerForm');
 Route::get('student_papp','PAPPController@info');
 
 Route::get('student_index', 'StudentController@index');
-Route::get('student_da/{id}', 'StudentController@course_detail');
+// Route::get('student_da/{id}', 'StudentController@course_detail');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
 
-Route::get('student_course', 'StudentController@info');
+Route::get('student_course', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
+
 
