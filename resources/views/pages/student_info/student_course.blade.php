@@ -6,7 +6,7 @@
 	$nrc_characters = config('myanmarnrc.characters');
 @endphp
 
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -84,6 +84,8 @@
                                     </div>
                                 </div>
                             </div>
+
+ 
                             <!-- <div class="row">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item">

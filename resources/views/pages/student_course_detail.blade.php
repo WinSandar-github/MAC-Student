@@ -124,7 +124,7 @@
                                     </ul>
                                 </div>
                                 <div class="info-btn">
-                                <a href="{{url('da')}}" class="btn btn-primary btn-hover-dark">Enroll Now </a>
+                                <a href="{{url('da_register')}}" class="btn btn-primary btn-hover-dark">Enroll Now </a>
                                 <!-- @if($b[0]['course']['registration_start_date'] < date('Y-m-d') && $b[0]['course']['registration_end_date'] > date('Y-m-d') ) -->
                                 <!-- @endif -->
                                 </div>
