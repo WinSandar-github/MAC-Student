@@ -129,13 +129,13 @@
                                 <div class="col-md-7">
                                     <div class="row mb-2">
                                         <div class="col-md-4">
-                                            <input type="radio" name="education" value="1" onclick="getEducation()">
+                                            <input type="radio" name="edu_lvl" id="cpa" value="1" onclick="getEducation()">
                                             <label class="col-form-label">CPA</label>
                                         </div>
                                     </div>
                                     <div class="row mb-2">
                                         <div class="col-md-4">
-                                            <input type="radio" name="education" value="2" onclick="getEducation()">
+                                            <input type="radio" name="edu_lvl" id="ra" value="2" onclick="getEducation()">
                                             <label class="col-form-label">RA</label>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                                     
                                     <div class="row mb-2">
                                         <div class="col-md-4">
-                                            <input type="radio" name="education" value="3" onclick="getEducation()">
+                                            <input type="radio" name="edu_lvl" id="foreign_degree" value="3" onclick="getEducation()">
                                             <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                         </div>
                                         
@@ -210,11 +210,11 @@
                                     <div class="row">
                                         <label class="col-md-5 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို</label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="ခုနှစ်">
+                                            <input type="text" class="form-control" name="lyear" placeholder="ခုနှစ်">
                                         </div>
                                         <label class="col-md-3 col-form-label">ခုနှစ် တွင် ကိုယ်ပိုင်အမှတ် </label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="ကိုယ်ပိုင်အမှတ်">
+                                            <input type="text" class="form-control" name="personal_no" placeholder="ကိုယ်ပိုင်အမှတ်">
                                         </div>
                                         <label class="col-form-label">ဖြင့် အောင်မြင်ပါသည်။</label>
                                     </div>                                  
@@ -231,29 +231,29 @@
                                 <div class="col-md-10">
                                     <div class="row mb-1">
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="နိုင်ငံ">
+                                            <input type="text" class="form-control" name="country" placeholder="နိုင်ငံ">
                                         </div>
                                         <label class="col-md-1 col-form-label">နိုင်ငံ</label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="အဖွဲ့အစည်း">
+                                            <input type="text" class="form-control" name="organization" placeholder="အဖွဲ့အစည်း">
                                         </div>
                                         <label class="col-md-7 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး</label>
                                     </div>   
                                     <div class="row mb-1">
                                         <label class="col-md-3 col-form-label">မြန်မာနိုင်ငံစာရင်းကောင်စီက </label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="ခုနှစ်">
+                                            <input type="text" class="form-control" name="fyear" placeholder="ခုနှစ်">
                                         </div>
                                         <label class="col-md-1 col-form-label">ခုနှစ်</label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="လ">
+                                            <input type="text" class="form-control" name="month" placeholder="လ">
                                         </div>
                                         <label class="col-md-4 col-form-label">လတွင် ကျင်းပခဲ့သည့် အရည်အချင်းစစ် </label>
                                     </div> 
                                     <div class="row">
                                         <label class="col-md-3 col-form-label">စာမေးပွဲကို ခုံအမှတ်</label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="pass_year" placeholder="ခုံအမှတ်">
+                                            <input type="text" class="form-control" name="seat_num" placeholder="ခုံအမှတ်">
                                         </div>
                                         <label class="col-md-7 col-form-label">ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
                                         
@@ -277,10 +277,8 @@
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                 <div class="col-md-5 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
                                 <div class="col-md-5">
-                                    <div class="col-auto">
-                                        <!-- <div class="single-form"> -->
-                                            <input type="file"  class="form-control" name="cpa" required="">
-                                        <!-- </div>                                             -->
+                                    <div class="">
+                                            <input type="file"  class="form-control" name="cpa_certificate" required="">
                                     </div>
                                 </div>
                             </div><br/>
@@ -290,11 +288,8 @@
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                 <div class="col-md-5 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
                                 <div class="col-md-5">
-                                    <div class=" mt-3 mb-3 col-auto"> 
-                                        <!-- <div class="single-form"> -->
+                                    <div class=" mt-3 mb-3"> 
                                             <input type="file"  class="form-control" name="mpa_mem_card" required="" >
-                                        <!-- </div>                                          -->
-                                    </div>
                                 </div>                                
                             </div><br/>
 
@@ -304,36 +299,31 @@
                                 <div class="col-md-5 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</div>
 
                                 <div class="col-md-5">
-                                    <div class=" mt-3 mb-3 col-auto">
-                                        <!-- <div class="single-form"> -->
-                                            <input type="file"  class="form-control" name="nrc" required="" >
-                                        <!-- </div>                                         -->
+                                    <div class=" mt-3 mb-3">
+                                            <input type="file"  class="form-control" name="nrc_front" required="" >
                                     </div>
                                 </div>
                             </div><br/>
+
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                 <div class="col-md-5 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</div>
 
                                 <div class="col-md-5">
-                                    <div class=" mt-3 mb-3 col-auto">
-                                        <!-- <div class="single-form"> -->
-                                            <input type="file"  class="form-control" name="nrc" required="" >
-                                        <!-- </div>                                         -->
+                                    <div class=" mt-3 mb-3">
+                                            <input type="file"  class="form-control" name="nrc_back" required="" >
                                     </div>
                                 </div>
                             </div><br/>
 
                             <div class="row">
-                                <label class="col-md-1 col-form-label"></label>
+                                <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                 <label class="col-md-5 col-form-label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
                                 <div class="col-md-5">
-                                    <div class=" mt-3 mb-3 col-auto">
-                                        <!-- <div class="single-form"> -->
+                                    <div class=" mt-3 mb-3">
                                             <input type="file"  class="form-control" name="cdp_record" required="" >
-                                        <!-- </div>                                            -->
                                     </div>
                                 </div>
                             </div><br/>
@@ -344,10 +334,8 @@
                                 
                                 <div class="col-md-5 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
                                 <div class="col-md-5">
-                                    <div class=" mt-3 mb-3 col-auto">
-                                        <!-- <div class="single-form"> -->
+                                    <div class=" mt-3 mb-3">
                                             <input type="file"  class="form-control" name="passport_photo" required="" >
-                                        <!-- </div>                                           -->
                                     </div>
                                 </div>
                             </div>
