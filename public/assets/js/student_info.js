@@ -8,7 +8,7 @@ function getStudentInfo(){
 }
 function getCourse(){
     $.ajax({
-        url: BACKEND_URL_NL+"/api/student_course",
+        url: BACKEND_URL+"/api/student_course",
         type: 'get',
         data:"",
         success: function(data){
@@ -83,7 +83,7 @@ function createSelfStudy()
     send_data.append('type','SELF_STUDY');
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     $.ajax({
-        url: BACKEND_URL_NL+"/api/student_register",
+        url: BACKEND_URL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -100,7 +100,7 @@ function createPrivateSchool()
     send_data.append('student_id',student_id);
     send_data.append('type','PRIVATE_SCHOOL');
     $.ajax({
-        url: BACKEND_URL_NL+"/api/student_register",
+        url: BACKEND_URL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -117,7 +117,7 @@ function createMac()
     send_data.append('student_id',student_id);
     send_data.append('type','MAC');
     $.ajax({
-        url: BACKEND_URL_NL+"/api/student_register",
+        url: BACKEND_URL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,

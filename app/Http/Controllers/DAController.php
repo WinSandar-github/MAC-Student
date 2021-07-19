@@ -86,4 +86,9 @@ class DAController extends Controller
         Alert::success('Success', 'Successfully Registered!');
         return redirect(url('/'));
     }
+
+    public function da_edit()
+    {      
+        return view('pages.da_edit');
+    }
 }
