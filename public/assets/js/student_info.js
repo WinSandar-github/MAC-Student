@@ -1,4 +1,5 @@
-function getStudentInfo(){
+function getStudentInfo()
+{
     if(approve_reject_status==0){
         $('.status-reject').css('display','block');
         $('.status-approve').css('display','block');
@@ -6,7 +7,9 @@ function getStudentInfo(){
         $('.status-approve').css('display','block');
     }
 }
-function getCourse(){
+
+function getCourse()
+{
     $.ajax({
         url: BACKEND_URL+"/api/student_course",
         type: 'get',
@@ -40,6 +43,7 @@ function getCourse(){
     
     });
 }
+
 function addCourseBatch(courseName,courseId,batchName,batchId){
     localStorage.setItem("courseName",decodeURIComponent(courseName));
     localStorage.setItem("courseId",decodeURIComponent(courseId));
@@ -47,6 +51,7 @@ function addCourseBatch(courseName,courseId,batchName,batchId){
     localStorage.setItem("batchId",decodeURIComponent(batchId));
     location.href="student_study";
 }
+
 function loadCourse(){
     $('.coursename').html("");
     $('.batchname').html("");
