@@ -16,8 +16,7 @@ function getCourse()
         data:"",
         success: function(data){
             var course_data=data.data;
-            console.log(course_data);
-            course_data.forEach(function(element){
+             course_data.forEach(function(element){
                 var course="<div class='dropend'><a href='#' data-bs-toggle='dropdown' aria-expanded='false' id='dropdownMenuButton' aria-haspopup='true'><u>"+element.name+"</u></a><div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
                 
                 var batch_data=element.batch;
