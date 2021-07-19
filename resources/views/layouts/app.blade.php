@@ -8,6 +8,8 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
 
@@ -71,6 +73,10 @@
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/student_login.js') }}"></script>
+    <script src="{{ asset('assets/js/student_info.js') }}"></script>
+    <script src="{{ asset('assets/js/auth.js') }}"></script>
+
+
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
 
     <!-- Bootstrap JS -->

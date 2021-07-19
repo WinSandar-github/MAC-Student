@@ -6,7 +6,7 @@
 	$nrc_characters = config('myanmarnrc.characters');
 @endphp
 
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -65,16 +65,15 @@
            
                 <div class="comment-form">
                     <div class="form-wrapper">
-                        <div class="status-reject">
+                        <!-- <div class="status-reject">
                             <div class="card text-white bg-danger mb-3">
                                 
                                 <div class="card-body">
                                     <p class="card-text">Your Registration Form is rejected.Please next time register</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="status-approve">
-                            <div class="">
+                        </div> -->
+                             <div class="">
                                 <div class="card">
                                     <div class="card-header bg-success text-white">
                                         Course List
@@ -85,6 +84,8 @@
                                     </div>
                                 </div>
                             </div>
+
+ 
                             <!-- <div class="row">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item">
@@ -284,8 +285,7 @@
                                 
                                             
                             </div> -->
-                        </div>
-                    </div>
+                     </div>
                 </div>
             
         </div><br/></br/>
@@ -305,7 +305,6 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    getStudentInfo();
     getCourse();
 </script>
 @endpush
