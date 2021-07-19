@@ -39,7 +39,6 @@ function getCourse()
         error:function (message){
                  
         }
-    
     });
 }
 
