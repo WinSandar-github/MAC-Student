@@ -129,13 +129,23 @@
                                 <div class="col-md-7">
                                     <div class="row mb-2">
                                         <div class="col-md-4">
-                                            <input type="radio" name="edu_lvl" id="cpa" value="1" onclick="getEducation()">
+                                            <input type="radio" name="education" id="cpa_edu" value="1" onclick="getEducation()">
                                             <label class="col-form-label">CPA</label>
                                         </div>
                                     </div>
+                                    <div id="cpa">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <!-- <div class="single-form"> -->
+                                                    <input type="file"  class="form-control" name="cpa" required="" >
+                                                <!-- </div> -->
+                                            </div>
+                                        </div><br/>
+                                    </div>
+
                                     <div class="row mb-2">
                                         <div class="col-md-4">
-                                            <input type="radio" name="edu_lvl" id="ra" value="2" onclick="getEducation()">
+                                            <input type="radio" name="education" id="ra_edu" value="2" onclick="getEducation()">
                                             <label class="col-form-label">RA</label>
                                         </div>
                                     </div>
@@ -143,7 +153,7 @@
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <!-- <div class="single-form"> -->
-                                                    <input type="file"  class="form-control" name="image" required="" >
+                                                    <input type="file"  class="form-control" name="ra" required="" >
                                                 <!-- </div> -->
                                             </div>
                                         </div><br/>
@@ -151,7 +161,7 @@
                                     
                                     <div class="row mb-2">
                                         <div class="col-md-4">
-                                            <input type="radio" name="edu_lvl" id="foreign_degree" value="3" onclick="getEducation()">
+                                            <input type="radio" name="education" value="3" onclick="getEducation()">
                                             <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                         </div>
                                         
@@ -204,9 +214,9 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
-                                    <input type="radio" name="degree" id="local_degree" value="1">
+                                    <input type="radio" name="degree" id="cpa_part_2" value="1">
                                 </div>
-                                <div class="col-md-10">  
+                                <!-- <div class="col-md-10">  
                                     <div class="row">
                                         <label class="col-md-5 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို</label>
                                         <div class="col-md-2">
@@ -217,18 +227,18 @@
                                             <input type="text" class="form-control" name="personal_no" placeholder="ကိုယ်ပိုင်အမှတ်">
                                         </div>
                                         <label class="col-form-label">ဖြင့် အောင်မြင်ပါသည်။</label>
-                                    </div>                                  
-                                    
-                                </div>                                        
+                                    </div>  
+                                </div> -->
+                                <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို အောင်မြင်ပါသည်။</label>
                             </div><br/>                       
 
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
-                                    <input type="radio" name="degree" id="foreign_degree" value="1">
-                                    
-                                </div>      
-                                <div class="col-md-10">
+                                    <input type="radio" name="degree" id="qt_pass" value="1">                                    
+                                </div>    
+                                <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
+                                <!-- <div class="col-md-10">
                                     <div class="row mb-1">
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" name="country" placeholder="နိုင်ငံ">
@@ -258,7 +268,7 @@
                                         <label class="col-md-7 col-form-label">ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
                                         
                                     </div> 
-                                </div>                                                                         
+                                </div> -->
                                 
                             </div><br/>                           
 
@@ -323,7 +333,7 @@
                                 <label class="col-md-5 col-form-label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3">
-                                            <input type="file"  class="form-control" name="cdp_record" required="" >
+                                            <input type="file"  class="form-control" name="cpd_record" required="" >
                                     </div>
                                 </div>
                             </div><br/>
@@ -335,7 +345,7 @@
                                 <div class="col-md-5 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
                                 <div class="col-md-5">
                                     <div class=" mt-3 mb-3">
-                                            <input type="file"  class="form-control" name="passport_photo" required="" >
+                                            <input type="file"  class="form-control" name="passport_image" required="" >
                                     </div>
                                 </div>
                             </div>

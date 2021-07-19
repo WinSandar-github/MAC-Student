@@ -1,18 +1,22 @@
 function getEducation(){
     var checkedValue = $("input[name='education']:checked").val();
     if(checkedValue==1){
+        $('#cpa').css('display','block');
         $('#ra').css('display','none');
         $('#accredited_foreign_degree').css('display','none');
     }
     else if(checkedValue==2){
+        $('#cpa').css('display','none');
         $('#ra').css('display','block');
         $('#accredited_foreign_degree').css('display','none');         
     }
     else if(checkedValue==3){
+        $('#cpa').css('display','none');
         $('#ra').css('display','none');
         $('#accredited_foreign_degree').css('display','block');
     }
     else{
+        $('#cpa').css('display','none');
         $('#ra').css('display','none');
         $('#foreign_degree').css('display','none');
     }
