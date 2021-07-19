@@ -1,40 +1,29 @@
-function getStudentInfo(){
-    var student = JSON.parse(localStorage.getItem('studentinfo'));
-    if(student != null){
-        
-        if(approve_reject_status == 0){
-           
-            $('.check_registration').css('display','block');
-            $('.course_detail').css('display','none');
-
-        }else if(approve_reject_status == 1){
-            location.href = 'http://localhost:8001/student_study'
-        }else{
-            $('.status-reject').css('display','block');
-            $('.course_detail').css('display','none');
-            $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
-                
-        }
+function getStudentInfo()
+{
+    if(approve_reject_status==0){
+        $('.status-reject').css('display','block');
+        $('.status-approve').css('display','block');
+    }else{
+        $('.status-approve').css('display','block');
     }
-    
 }
-function getCourse(){
-    
+
+function getCourse()
+{
     $.ajax({
-        type: 'GET',
-        url: BACKEND_URL+"/api/course",
-       
+        url: BACKEND_URL+"/api/student_course",
+        type: 'get',
+        data:"",
         success: function(data){
             var course_data=data.data;
              course_data.forEach(function(element){
                 var course="<div class='dropend'><a href='#' data-bs-toggle='dropdown' aria-expanded='false' id='dropdownMenuButton' aria-haspopup='true'><u>"+element.name+"</u></a><div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
                 
                 var batch_data=element.batch;
-                console.log("Batch>>",batch_data)
                 if(batch_data.length!=0){
                     batch_data.forEach(function(item){
                         console.log(item.name);
-                        course+=`<a type='button' class='dropdown-item' href='/student_da/${item.id}'>${item.name}</a>`;
+                        course+="<button type='button' class='dropdown-item' onclick=addCourseBatch(\"" + encodeURIComponent(element.name) + "\"," + element.id + ",\""+encodeURIComponent(item.name) + "\"," + item.id +")>"+item.name+'</button>';
                         
                     })
                 }else{
@@ -53,6 +42,7 @@ function getCourse(){
     
     });
 }
+
 function addCourseBatch(courseName,courseId,batchName,batchId){
     localStorage.setItem("courseName",decodeURIComponent(courseName));
     localStorage.setItem("courseId",decodeURIComponent(courseId));
@@ -60,6 +50,7 @@ function addCourseBatch(courseName,courseId,batchName,batchId){
     localStorage.setItem("batchId",decodeURIComponent(batchId));
     location.href="student_study";
 }
+
 function loadCourse(){
     $('.coursename').html("");
     $('.batchname').html("");
@@ -88,12 +79,15 @@ function selectedRegistration(){
         $('#mac_container').css('display','block');
     }
 }
-function createSelfStudy(){
-    var send_data=new FormData();
+
+function createSelfStudy()
+{
+    var send_data = new FormData();
     send_data.append('student_id',student_id);
+    send_data.append('type','SELF_STUDY');
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     $.ajax({
-        url: BACKEND_URL+"/api/student_selfstudy",
+        url: BACKEND_URL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -103,11 +97,14 @@ function createSelfStudy(){
       }
     });
 }
-function createPrivateSchool(){
-    var send_data=new FormData();
+
+function createPrivateSchool()
+{
+    var send_data = new FormData();
     send_data.append('student_id',student_id);
+    send_data.append('type','PRIVATE_SCHOOL');
     $.ajax({
-        url: BACKEND_URL+"/api/student_privateschool",
+        url: BACKEND_URL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -117,11 +114,14 @@ function createPrivateSchool(){
       }
     });
 }
-function createMac(){
-    var send_data=new FormData();
+
+function createMac()
+{
+    var send_data = new FormData();
     send_data.append('student_id',student_id);
+    send_data.append('type','MAC');
     $.ajax({
-        url: BACKEND_URL+"/api/student_mac",
+        url: BACKEND_URL+"/api/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
