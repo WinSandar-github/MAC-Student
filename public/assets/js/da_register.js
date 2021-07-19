@@ -101,8 +101,7 @@ $('#da_update').submit(function(e){
     var formData = new FormData(this);
     formData.append('_method', 'PUT');
     var student_id = $('#stu_id').val();
-    console.log(student_id);
-
+ 
      
         $.ajax({
             type: "POST",

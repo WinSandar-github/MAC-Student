@@ -19,9 +19,9 @@
 <!-- Page Banner Start -->
 <div class="section page-banner">
 
-    <img class="shape-1 animation-round" src="assets/images/shape/shape-8.png" alt="Shape">
+    <img class="shape-1 animation-round" src="{{ asset('assets') }}/images/shape/shape-8.png" alt="Shape">
 
-    <img class="shape-2" src="assets/images/shape/shape-23.png" alt="Shape">
+    <img class="shape-2" src="{{ asset('assets') }}/images/shape/shape-23.png" alt="Shape">
 
     <div class="container">
         <!-- Page Banner Start -->
@@ -51,9 +51,9 @@
     </div>
     <!-- Shape Icon Box End -->
 
-    <img class="shape-3" src="assets/images/shape/shape-24.png" alt="Shape">
+    <img class="shape-3" src="{{ asset('assets') }}/images/shape/shape-24.png" alt="Shape">
 
-    <img class="shape-author" src="assets/images/author/author-11.jpg" alt="Shape">
+    <img class="shape-author" src="{{ asset('assets') }}/images/author/author-11.jpg" alt="Shape">
 
 </div>
 <!-- Page Banner End -->
@@ -88,8 +88,8 @@
                         <h3 class="title">Login <span>Now</span></h3>
 
                         <div class="form-wrapper">
-                            <form>
-                           
+                            <form >
+                                @csrf
                                 <!-- Single Form Start -->
                                 <div class="single-form">
                                     <input type="email" name="email" placeholder="Email" autocomplete="off">

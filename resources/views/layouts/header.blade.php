@@ -1,3 +1,22 @@
+<style>
+    .dropdown{
+        position:relative !important;
+        display:inline-block !important;
+    }
+    .dropdown-content {
+        display:none !important;
+        position:absolute !important;
+        background-color:#f9f9f9 !important;
+        min-width:160px !important;
+        box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+        padding:12px 16px !important;
+        z-index:1 !important;
+    }
+    .dropdown:hover .dropdown-content{
+        display:block !important;
+    }
+   
+</style>
 <div class="header-section">
 
     <!-- Header Top Start -->
@@ -49,7 +68,7 @@
 
                 <!-- Header Logo Start -->
                 <div class="header-logo">
-                    <a href="index.html"><img src="assets/images/logo1.png" alt="Logo"></a>
+                    <a href="/"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
                 </div>
                 <!-- Header Logo End -->
 
@@ -121,11 +140,27 @@
 
                 </div>
                 <!-- Header Menu End -->
+                                <!-- Header Sing In & Up Start -->
+                
+                <div class="header-sign-in-up d-none d-lg-block signed_in"  >
+                    <ul>
+                        <li>
+                            <div class="dropdown ">
+                            <span><a class="student_name sign-in"></a></span>
+                            <div class="dropdown-content">
+                                <a onclick="logout()" href="/">Logout</a>
+                            </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
 
                 <!-- Header Sing In & Up Start -->
-                <div class="header-sign-in-up d-none d-lg-block">
+                <div class="header-sign-in-up d-none d-lg-block after_signin" >
                     <ul>
-                        <li><a class="sign-in" href="{{url('login')}}">Sign In</a></li>
+                        <li><a class="sign-in" href="{{url('login')}}" >Sign In</a></li>
                         
                     </ul>
                 </div>
@@ -204,3 +239,11 @@
 
 </div>
 <!-- Mobile Menu End -->
+
+@push('scripts')
+<script type="text/javascript">
+
+    check_login();
+  
+</script>
+@endpush
