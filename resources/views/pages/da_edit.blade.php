@@ -71,7 +71,7 @@
                     <div class="form-wrapper">
                         <form method="post" id="da_update" enctype="multipart/form-data">
                             @csrf
-                            <input type="text" name="id" id="stu_id">
+                            <input type="hidden" name="id" id="stu_id">
                             <div class="row">
                                 <table width="100%">
                                     <tr>

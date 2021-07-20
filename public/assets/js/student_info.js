@@ -1,17 +1,28 @@
-function getStudentInfo()
-{
-    if(approve_reject_status==0){
-        $('.status-reject').css('display','block');
-        $('.status-approve').css('display','block');
-    }else{
-        $('.status-approve').css('display','block');
+function getStudentInfo(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    if(student != null){
+        
+        if(approve_reject_status == 0){
+           
+            $('.check_registration').css('display','block');
+            $('.course_detail').css('display','none');
+
+        }else if(approve_reject_status == 1){
+            location.href = 'http://localhost:8001/student_study'
+        }else{
+            $('.status-reject').css('display','block');
+            $('.course_detail').css('display','none');
+            $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+                
+        }
     }
+    
 }
 
 function getCourse()
 {
     $.ajax({
-        url: BACKEND_URL+"/api/student_course",
+        url: BACKEND_URL+"/student_course",
         type: 'get',
         data:"",
         success: function(data){
@@ -86,7 +97,7 @@ function createSelfStudy()
     send_data.append('type','SELF_STUDY');
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     $.ajax({
-        url: BACKEND_URL+"/api/student_register",
+        url: BACKEND_URL+"/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -103,7 +114,7 @@ function createPrivateSchool()
     send_data.append('student_id',student_id);
     send_data.append('type','PRIVATE_SCHOOL');
     $.ajax({
-        url: BACKEND_URL+"/api/student_register",
+        url: BACKEND_URL+"/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -120,7 +131,7 @@ function createMac()
     send_data.append('student_id',student_id);
     send_data.append('type','MAC');
     $.ajax({
-        url: BACKEND_URL+"/api/student_register",
+        url: BACKEND_URL+"/student_register",
         type: 'post',
         data:send_data,
         contentType: false,
