@@ -50,7 +50,7 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-            // console.log(result)
+             console.log(result)
             successMessage(result);
         
       },
