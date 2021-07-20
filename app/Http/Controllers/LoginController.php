@@ -16,9 +16,9 @@ class LoginController extends Controller
        if (Auth::attempt(array('email' => $request->email, 'password' => $request->password)))
         {
                                 
-            $student=StudentInfo::where(['email' => auth::user()->email, 'password' =>auth::user()->password])->get();
-            return response()->json(
-                ['data' => $student],200);
+            $student=StudentInfo::where(['email' => auth::user()->email, 'password' =>auth::user()->password])->first();
+            
+            return response()->json($student,200);
         }else{
 
         }

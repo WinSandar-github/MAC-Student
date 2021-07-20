@@ -103,7 +103,8 @@ function createSelfStudy()
         contentType: false,
         processData: false,
         success: function(result){
-            successMessage(result);
+            // successMessage(result);
+            location.reload();
       }
     });
 }
@@ -119,8 +120,9 @@ function createPrivateSchool()
         data:send_data,
         contentType: false,
         processData: false,
-        success: function(result){
-            successMessage(result);
+        success: function(result){            
+            // successMessage(result);
+            location.reload();
       }
     });
 }
@@ -137,7 +139,46 @@ function createMac()
         contentType: false,
         processData: false,
         success: function(result){
-            successMessage(result);
+            // successMessage(result);
+            location.reload();
       }
     });
+}
+
+function reg_feedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    
+ 
+    $.ajax({
+        url: BACKEND_URL+"/getStatus/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(status){
+            if(status == 0){
+           
+                $('.check_registration').css('display','block');
+                
+        
+            }else if(status == 1){
+                $('.approve').css('display','block');
+        
+            }else if(status == 2){
+                $('.status-reject').css('display','block');
+                 // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+                    
+            }else{
+                $('.study').css('display','block');
+        
+                
+            }
+      }
+    });
+
+
+
+    
+    
+
+    
 }

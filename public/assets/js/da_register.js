@@ -50,8 +50,11 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-            // console.log(result)
-            successMessage(result);
+            console.log(result)
+                localStorage.setItem('studentinfo', JSON.stringify(result));
+                localStorage.setItem('approve_reject',result.approve_reject_status);
+            successMessage("You have successfully registerd!");
+            location.href = "/student_course/";
         
       },
       error:function (message){
@@ -65,15 +68,20 @@ function da_edit(){
    
      $.ajax({
         type:'GET',
-        url: BACKEND_URL+'/student_info/'+student[0].id,
+        url: BACKEND_URL+'/student_info/'+student.id,
         success:function(result){
-            console.log(result)
-            var data = result.data;
-            var education = result.data.student_education_histroy;
+             var data = result.data;
+             var education = result.data.student_education_histroy;
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
-            $('#nrc_state_region').val(3);
+
+            $('#nrc_state_region').val(data.nrc_state_region);
+            $('#nrc_township').val(data.nrc_township);
+
+            $('#nrc_citizen').val(data.nrc_citizen);
+            $('#nrc_number').val(data.nrc_number);
+
             $('#father_name_mm').val(data.father_name_mm);
             $('#father_name_eng').val(data.father_name_eng);
             $('#race').val(data.race);
