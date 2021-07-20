@@ -44,7 +44,7 @@ function createDARegister()
     send_data.append('roll_number', $("input[name=roll_number]").val());
 
     $.ajax({
-        url: BACKEND_URl+"/api/da_register",
+        url: BACKEND_URL+"/api/da_register",
         type: 'post',
         data:send_data,
         contentType: false,
