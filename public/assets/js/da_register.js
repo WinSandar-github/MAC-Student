@@ -51,10 +51,12 @@ function createDARegister()
         processData: false,
         success: function(result){
             console.log(result)
-                localStorage.setItem('studentinfo', JSON.stringify(result));
-                localStorage.setItem('approve_reject',result.approve_reject_status);
+            localStorage.setItem('studentinfo', JSON.stringify(result));
+            localStorage.setItem('approve_reject',result.approve_reject_status);
             successMessage("You have successfully registerd!");
             location.href = "/student_course/";
+            //  console.log(result)
+            // successMessage(result);
         
       },
       error:function (message){
