@@ -55,17 +55,18 @@
                     <div class="card text-white bg-primary mb-3">
                         
                         <div class="card-body">
-                            <p class="card-text">Your Registration Form is checking</p>
+                            <p class="card-text">Your Application Form is checking</p>
                         </div>
                     </div>
                 </div>
-                @foreach($batch as $b)
+              @foreach($batch as $b)
+             
                 <div class="row  course_detail" >
                     <div class="col-lg-8 col-md-8">
                         <!-- Courses Details Start -->
                         <div class="courses-details">
 
-                            <h2 class="title">Diploma in Accountancy ({{$b[0]['name']}})</h2>
+                            <h2 class="title">Diploma in Accountancy ({{$b['name']}})</h2>
                        
                            
 
@@ -88,7 +89,7 @@
                                             <!-- Tab Description Start -->
                                             <div class="tab-description">
                                                 <div class="description-wrapper">
-                                                    <p>{{$b[0]['course']['description']}}</p>
+                                                    <p>{{$b['course']['description']}}</p>
                                                     <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> -->
                                                     <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularsed in the 1960 with release containing Lorem Ipsum passages desktop publishing software.</p> -->
                                                 </div>
@@ -114,18 +115,22 @@
                             <!-- Sidebar Widget Information Start -->
                             <div class="sidebar-widget widget-information">
                                 <div class="info-price">
-                                    <span class="price">{{$b[0]['course']['registration_fee']}} Kyats</span>
+                                    <span class="price">{{$b['course']['registration_fee']}} Kyats</span>
                                 </div>
                                 <div class="info-list">
                                     <ul>
-                                        <li><i class="icofont-man-in-glasses"></i> <strong>Form Fee</strong> <span>{{$b[0]['course']['form_fee']}} Kyats</span></li>
-                                        <li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$b[0]['course']['registration_end_date']}}</span></li>
+                                        <li><i class="icofont-man-in-glasses"></i> <strong>Form Fee</strong> <span>{{$b['course']['form_fee']}} Kyats</span></li>
+                                        <li><i class="icofont-man-in-glasses"></i> <strong>Exam Fee</strong> <span>{{$b['course']['exam_fee']}} Kyats</span></li>
+                                        <li><i class="icofont-man-in-glasses"></i> <strong>Tution Fee</strong> <span>{{$b['course']['tution_fee']}} Kyats</span></li>
+
+                                        <li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$b['course']['registration_end_date']}}</span></li>
+                                        
                                         <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                     </ul>
                                 </div>
                                 <div class="info-btn">
                                 <a href="{{url('da_register')}}" class="btn btn-primary btn-hover-dark">Enroll Now </a>
-                                <!-- @if($b[0]['course']['registration_start_date'] < date('Y-m-d') && $b[0]['course']['registration_end_date'] > date('Y-m-d') ) -->
+                                <!-- @if($b['course']['registration_start_date'] < date('Y-m-d') && $b['course']['registration_end_date'] > date('Y-m-d') ) -->
                                 <!-- @endif -->
                                 </div>
                             </div>
@@ -136,7 +141,7 @@
                     </div>
                 </div>
                 @endforeach
-
+                
             </div>
         </div>
     </div>
