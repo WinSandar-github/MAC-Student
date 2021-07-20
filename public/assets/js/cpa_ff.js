@@ -38,3 +38,7 @@ function addInputFile(divname,diventry){
 function delInputFile(diventry){
     $('.btn-remove').parents('.'+diventry+':first').remove();
 }
+
+function createCPAFFRegister(){
+    
+}

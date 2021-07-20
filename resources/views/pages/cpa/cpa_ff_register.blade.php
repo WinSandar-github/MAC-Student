@@ -65,7 +65,8 @@
             
             <div class="row mt-5">
                                             
-                <form>
+                <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
+                <input type="hidden" name="student_info_id" class="form-control" value="">
                     <div class="card border-success mb-3">
                         <div class="card-body">
                             <div class="row">
@@ -173,7 +174,7 @@
                                                 <div class="row mb-2">
                                                     <div class="col-md-10 col-auto">
                                                         <!-- <div class="single-form"> -->
-                                                            <input type="file"  class="form-control" name="image" required="">
+                                                            <input type="file"  class="form-control" name="foreign_degree" required="">
                                                         <!-- </div> -->
                                                     </div>
                                                     <div class="col-md-1 col-auto">
@@ -189,7 +190,7 @@
                                 </div>     
                             </div><br/>
 
-                            <div class="row">
+                            <!-- <div class="row">
                                 <label class="col-md-1 col-form-label"></label>
                                 <label class="col-md-1 col-form-label pt-4">{{ __('(ဂ)') }}</label>
                                 <label class="col-md-3 col-form-label pt-4">{{ __('CPAအပတ်စဥ် /ကိုယ်ပိုင်အမှတ်') }}</label>
@@ -198,7 +199,7 @@
                                         <input type="text" name="cpa_no" class="form-control" id="cpa_no">
                                     </div>
                                 </div>
-                            </div></br>
+                            </div></br> -->
 
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
@@ -214,7 +215,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
-                                    <input type="radio" name="degree" id="cpa_part_2" value="1">
+                                    <input type="radio" name="degree" id="cpa_part_2" value="">
                                 </div>
                                 <!-- <div class="col-md-10">  
                                     <div class="row">
@@ -235,7 +236,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
-                                    <input type="radio" name="degree" id="qt_pass" value="1">                                    
+                                    <input type="radio" name="degree" id="qt_pass" value="">                                    
                                 </div>    
                                 <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
                                 <!-- <div class="col-md-10">
