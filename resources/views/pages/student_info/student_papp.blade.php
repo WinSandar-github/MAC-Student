@@ -130,7 +130,7 @@
                                                             </div>
                                                             <div class="col-md-4 col-7 pl-1">
                                                                 <div class="single-form">
-                                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
+                                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  required="" maxlength="6">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-1">
@@ -311,7 +311,7 @@
                                                                 <label style="font-size:15px;">(က) လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file" class="form-control"  id="cpa_ff_file">
+                                                                <input type="file" class="form-control"  id="cpa_ff_file" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
@@ -320,7 +320,7 @@
                                                                 <label style="font-size:15px;">(ခ) မှတ်ပုံတင်မည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူဖြစ်ကြောင်း ခံဝန်ချက်၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file" class="form-control" id="file_183">
+                                                                <input type="file" class="form-control" id="file_183" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
@@ -329,7 +329,7 @@
                                                                 <label style="font-size:15px;">(ဂ) အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့် တာဝန်ထမ်းတောင်နေသူ မဟုတ်ကြောင်း ခံဝန်ချက်၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file" class="form-control" id="not_fulltime_file">
+                                                                <input type="file" class="form-control" id="not_fulltime_file" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
@@ -338,7 +338,7 @@
                                                                 <label style="font-size:15px;">(ဃ) လျှောက်ထားသည့်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏ အဓိကအသက်မွေးဝမ်းကျောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင်မည်ဖြစ်​ကြောင်း ခံဝန်ချက်၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file"  class="form-control" id="work_in_mm_file">
+                                                                <input type="file"  class="form-control" id="work_in_mm_file" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
@@ -347,7 +347,7 @@
                                                                 <label style="font-size:15px;">(င) လုပ်ငန်းဆောင်ရွက်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီ၏ ၉-၈-၂၀၁၈ ရက်စွဲပါအမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့်စည်းကမ်းချက်များနှင့် စပ်လျဥ်း၍ လိုက်နာခြင်း ရှိ/မရှိ၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file" class="form-control" id="rule_conf_file">
+                                                                <input type="file" class="form-control" id="rule_conf_file" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
@@ -356,7 +356,7 @@
                                                                 <label style="font-size:15px;">(စ) စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file" class="form-control" id="cpd_record_file" >
+                                                                <input type="file" class="form-control" id="cpd_record_file" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
@@ -366,7 +366,7 @@
                                                                 <input type="text" name="tax_year" placeholder="dd/mm/yyyy" required>ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                                <input type="file" class="form-control" id="tax_free_file" >
+                                                                <input type="file" class="form-control" id="tax_free_file" required="" >
                                                         </div>
                                                     </div><br/>
                                                     <div class="row">
