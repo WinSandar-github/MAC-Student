@@ -55,7 +55,7 @@
                     <div class="card text-white bg-primary mb-3">
                         
                         <div class="card-body">
-                            <p class="card-text">Your Registration Form is checking</p>
+                            <p class="card-text">Your Application Form is checking</p>
                         </div>
                     </div>
                 </div>

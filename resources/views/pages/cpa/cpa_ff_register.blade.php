@@ -66,7 +66,7 @@
             <div class="row mt-5">
                                             
                 <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
-                <input type="hidden" name="student_info_id" class="form-control" value="">
+                <input type="hidden" name="student_info_id" class="form-control" value="1">
                     <div class="card border-success mb-3">
                         <div class="card-body">
                             <div class="row">
@@ -116,7 +116,7 @@
 
                                             <div class="col-md-5 pl-1">
                                                 <div class="single-form">
-                                                    <input type="text" class="form-control" name="nrc_number" id="nrc_number" required="" maxlength="6">
+                                                    <input type="text" class="form-control" name="nrc_number" id="nrc_number" maxlength="6">
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <!-- <div class="single-form"> -->
-                                                    <input type="file"  class="form-control" name="cpa" required="" >
+                                                    <input type="file"  class="form-control" name="cpa" >
                                                 <!-- </div> -->
                                             </div>
                                         </div><br/>
@@ -154,7 +154,7 @@
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <!-- <div class="single-form"> -->
-                                                    <input type="file"  class="form-control" name="ra" required="" >
+                                                    <input type="file"  class="form-control" name="ra" >
                                                 <!-- </div> -->
                                             </div>
                                         </div><br/>
@@ -174,7 +174,7 @@
                                                 <div class="row mb-2">
                                                     <div class="col-md-10 col-auto">
                                                         <!-- <div class="single-form"> -->
-                                                            <input type="file"  class="form-control" name="foreign_degree" required="">
+                                                            <input type="file"  class="form-control" name="foreign_degree[]" >
                                                         <!-- </div> -->
                                                     </div>
                                                     <div class="col-md-1 col-auto">
@@ -215,7 +215,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
-                                    <input type="radio" name="degree" id="cpa_part_2" value="">
+                                    <input type="radio" name="pass_type" id="cpa_part_2_check" value="">
                                 </div>
                                 <!-- <div class="col-md-10">  
                                     <div class="row">
@@ -236,7 +236,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
-                                    <input type="radio" name="degree" id="qt_pass" value="">                                    
+                                    <input type="radio" name="pass_type" id="qt_pass_check" value="">                                    
                                 </div>    
                                 <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
                                 <!-- <div class="col-md-10">

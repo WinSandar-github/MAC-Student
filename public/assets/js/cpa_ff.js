@@ -40,5 +40,72 @@ function delInputFile(diventry){
 }
 
 function createCPAFFRegister(){
+    var cpa             =   $("input[name=cpa]")[0].files[0];
+    var ra              =   $("input[name=ra]")[0].files[0];
+
+    // var foreign_degree  =   $("input[name=foreign_degree[]]")[0].files[0];
+    var foreign_degree  =   $('input[name="foreign_degree[]"]');
+
+    var cpa_certificate =   $("input[name=cpa_certificate]")[0].files[0];
+    var mpa_mem_card    =   $("input[name=mpa_mem_card]")[0].files[0];
+    var nrc_front       =   $("input[name=nrc_front]")[0].files[0];
+    var nrc_back        =   $("input[name=nrc_back]")[0].files[0];
+    var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
+    var passport_image  =   $("input[name=passport_image]")[0].files[0];
+
+    var cpa_part_2      = document.getElementById("cpa_part_2_check");
+    var qt_pass         = document.getElementById("qt_pass_check");
+
+    var send_data = new FormData();
+    send_data.append('student_info_id', $("input[name=student_info_id]").val());
+    send_data.append('cpa', cpa);
+    send_data.append('ra', ra);
+    // send_data.append('foreign_degree', foreign_degree);
+
+    // for (var i = 0; i < count; i++) {
+    //     send_data.append('foreign_degree[]',$('input[name=foreign_degree]'+i)[0].files[0]);
+    // }
+
+    foreign_degree.map(function(){
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+          send_data.append('foreign_degree[]',$(this).get(0).files[i]);
+        }
+        
+    });
+
+    if(cpa_part_2.checked==true){
+        send_data.append('cpa_part_2',1);
+        send_data.append('qt_pass',0);
+    }
+    else if(qt_pass.checked==true){
+        send_data.append('cpa_part_2',0);
+        send_data.append('qt_pass',1);
+    }else{
+        send_data.append('cpa_part_2',0);
+        send_data.append('qt_pass',0);
+    }   
+
+    send_data.append('cpa_certificate', cpa_certificate);
+    send_data.append('mpa_mem_card', mpa_mem_card);
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
+    send_data.append('mpa_mem_card', mpa_mem_card);
+    send_data.append('cpd_record', cpd_record);
+    send_data.append('passport_image', passport_image);
+
+    $.ajax({
+        url: BACKEND_URL+"/cpa_ff",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            successMessage("Insert Successfully");
+            location.reload();
+        },
+        error:function (message){
+            console.log(message);
+        }
+    });
     
 }

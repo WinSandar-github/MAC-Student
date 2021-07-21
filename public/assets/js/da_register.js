@@ -44,13 +44,13 @@ function createDARegister()
     send_data.append('roll_number', $("input[name=roll_number]").val());
 
     $.ajax({
-        url: BACKEND_URL+"/api/da_register",
+        url: BACKEND_URL+"/da_register",
         type: 'post',
         data:send_data,
         contentType: false,
         processData: false,
         success: function(result){
-            // console.log(result)
+             console.log(result)
             successMessage(result);
         
       },
@@ -62,10 +62,12 @@ function createDARegister()
 
 function da_edit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+   
      $.ajax({
         type:'GET',
-        url: BACKEND_URL+'/api/student_info/'+student[0].id,
+        url: BACKEND_URL+'/student_info/'+student[0].id,
         success:function(result){
+            console.log(result)
             var data = result.data;
             var education = result.data.student_education_histroy;
             $('#stu_id').val(data.id);
@@ -86,7 +88,7 @@ function da_edit(){
             $('#organization').val(data.student_job.organization);
             $('#company_name').val(data.student_job.company_name);
             $('#salary').val(data.student_job.salary);
-            $('#office_address').val(data.student_job.address);
+            $('#office_address').val(data.student_job.office_address);
             data.gov_staff == 0 
             ?  $("#no").prop("checked", true)
             : $("#yes").prop("checked", true)  ; 
