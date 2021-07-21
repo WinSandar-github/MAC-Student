@@ -50,7 +50,6 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-<<<<<<< HEAD
             console.log(result)
             localStorage.setItem('studentinfo', JSON.stringify(result));
             localStorage.setItem('approve_reject',result.approve_reject_status);
@@ -63,12 +62,6 @@ function createDARegister()
       error:function (message){
           console.log(message);
           }
-=======
-            // console.log(result)
-            successMessage(result);
-            
-      }
->>>>>>> dbb64c2957ea0747328a877ee2f54376ab2d4974
     });
 }
 
@@ -76,17 +69,10 @@ function da_edit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
      $.ajax({
         type:'GET',
-<<<<<<< HEAD
         url: BACKEND_URL+'/student_info/'+student.id,
         success:function(result){
              var data = result.data;
              var education = result.data.student_education_histroy;
-=======
-        url: BACKEND_URL+'/api/student_info/'+student[0].id,
-        success:function(result){
-            var data = result.data;
-            var education = result.data.student_education_histroy;
->>>>>>> dbb64c2957ea0747328a877ee2f54376ab2d4974
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
@@ -103,7 +89,7 @@ function da_edit(){
             $('#religion').val(data.religion);
             $('#date_of_birth').val(data.date_of_birth);
             $('#phone').val(data.phone);
-            $('#address').val(data.address);
+            $('#office_address').val(data.office_address);
             $('#current_address').val(data.current_address);
             $('#name').val(data.student_job.name);
             $('#position').val(data.student_job.position);
