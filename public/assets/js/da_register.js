@@ -43,8 +43,10 @@ function createDARegister()
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
 
+    send_data.append('batch_id', $("input[name=batch_id]").val());
+
     $.ajax({
-        url: BACKEND_URL+"/api/da_register",
+        url: BACKEND_URL+"/da_register",
         type: 'post',
         data:send_data,
         contentType: false,
@@ -62,6 +64,11 @@ function createDARegister()
       error:function (message){
           console.log(message);
           }
+        // },
+        // error:function (message){
+        //   // console.log(message)
+        //   successMessage(result);
+        // }
     });
 }
 
