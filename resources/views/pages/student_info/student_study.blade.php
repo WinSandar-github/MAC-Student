@@ -5,7 +5,7 @@
     $nrc_citizens = config('myanmarnrc.citizens');
     $nrc_characters = config('myanmarnrc.characters');
 @endphp
-@extends('layouts.auth')
+@extends('layouts.app')
 @section('content')
 <div class="main-wrapper">
     <div class="overlay"></div>
@@ -38,7 +38,33 @@
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="container" style="overflow: hidden;">
-        <div class="comment-form">
+                <div class="status-reject" style="display:none">
+                    <div class="card text-white bg-dark my-3">
+                        
+                        <div class="card-body">
+                            <!-- status == 2 => reject -->
+                            <p class="card-text reject">Your Registration Form need to prepare.Please upate your form  
+                             </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="check_registration" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your Registration Form is checking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="approve" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your Registration Form is Successfully</p>
+                        </div>
+                    </div>
+                </div>
+        <div class="comment-form study" style="display:none !important;">
             <div class="form-wrapper">
                 <div class="">
                     <div class="card border-success">
@@ -318,6 +344,7 @@
 @push('scripts')
 <script type="text/javascript">
     loadCourse();
+    reg_feedback();
     $("input[name='mac_date']").flatpickr({
         enableTime: false,
         dateFormat: "d-m-Y",
