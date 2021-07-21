@@ -94,7 +94,7 @@ function createSelfStudy()
 {
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('type','SELF_STUDY');
+    send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -113,7 +113,7 @@ function createPrivateSchool()
 {
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('type','PRIVATE_SCHOOL');
+    send_data.append('type', 1);
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -131,7 +131,7 @@ function createMac()
 {
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('type','MAC');
+    send_data.append('type', 2);
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',

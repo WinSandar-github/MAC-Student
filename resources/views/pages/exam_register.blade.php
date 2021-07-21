@@ -64,10 +64,6 @@
                         <form method="post" action="javascript:createExamRegister();" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <input type="hidden" name="student_info_id" value="1">
-                                <input type="hidden" name="batch_id" value="1">
-                                <input type="hidden" name="exam_type_id" value="1">
-                                <input type="hidden" name="grade" value="A">
 
                                 <table width="100%">
                                     <tr>
@@ -144,8 +140,8 @@
                                             </label>
                                         </td>--}}
                                         <td width="65%">
-                                            <div class="single-form">
-                                                <input type="radio" id="0" name="is_full_module" value="0" style="margin-left: 3%;">
+                                            <div class="single-form" style="margin-bottom: 4%; margin-top: 5%;">
+                                                <input type="radio" id="0" name="is_full_module" value="0">
                                                 <label for="0">Module 1</label>
 
                                                 <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
@@ -167,7 +163,7 @@
                                         </td>
                                         <td width="65%">
                                             <div class="">
-                                                <input type="file" class="form-control" placeholder="upload photo" name="invoice_image" required="">
+                                                <input type="file" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" required="">
                                             </div>
                                         </td>
                                     </tr>
