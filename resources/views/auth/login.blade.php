@@ -92,12 +92,14 @@
                                 @csrf
                                 <!-- Single Form Start -->
                                 <div class="single-form">
-                                    <input type="email" name="email" placeholder="Email" autocomplete="off">
+                                    <input type="email" name="email" placeholder="Email" autocomplete="off" id="email">
+                                    <span id="err"></span>
                                 </div>
+                                <div id="err_msg" class="m-1 text-danger"></div>
                                 <!-- Single Form End -->
                                 <!-- Single Form Start -->
                                 <div class="single-form">
-                                    <input type="password" name="password" placeholder="Password" autocomplete="off">
+                                    <input type="password" name="password" placeholder="Password" autocomplete="off" id="password">
                                 </div>
                                 <!-- Single Form End -->
                                 <!-- Single Form Start -->

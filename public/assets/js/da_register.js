@@ -60,11 +60,15 @@ function createDARegister()
             //  console.log(result)
             // successMessage(result);
         
-        },
-        error:function (message){
-          // console.log(message)
-          successMessage(result);
-        }
+      },
+      error:function (message){
+          console.log(message);
+          }
+        // },
+        // error:function (message){
+        //   // console.log(message)
+        //   successMessage(result);
+        // }
     });
 }
 
@@ -72,10 +76,10 @@ function da_edit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
      $.ajax({
         type:'GET',
-        url: BACKEND_URL+'/student_info/'+student[0].id,
+        url: BACKEND_URL+'/student_info/'+student.id,
         success:function(result){
-            var data = result.data;
-            var education = result.data.student_education_histroy;
+             var data = result.data;
+             var education = result.data.student_education_histroy;
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
@@ -92,7 +96,7 @@ function da_edit(){
             $('#religion').val(data.religion);
             $('#date_of_birth').val(data.date_of_birth);
             $('#phone').val(data.phone);
-            $('#address').val(data.address);
+            $('#office_address').val(data.office_address);
             $('#current_address').val(data.current_address);
             $('#name').val(data.student_job.name);
             $('#position').val(data.student_job.position);

@@ -111,6 +111,7 @@ function createSelfStudy()
 
 function createPrivateSchool()
 {
+    
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
@@ -168,6 +169,7 @@ function reg_feedback(){
                  // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                     
             }else{
+                selectedRegistration();
                 $('.study').css('display','block');
         
                 
