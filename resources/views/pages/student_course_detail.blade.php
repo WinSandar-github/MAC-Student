@@ -60,7 +60,7 @@
                     </div>
                 </div>
               @foreach($batch as $b)
-             
+              
                 <div class="row  course_detail" >
                     <div class="col-lg-8 col-md-8">
                         <!-- Courses Details Start -->
@@ -128,8 +128,9 @@
                                         <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                     </ul>
                                 </div>
+                                
                                 <div class="info-btn">
-                                <a href="{{url('da_register')}}" class="btn btn-primary btn-hover-dark">Enroll Now </a>
+                                <a href="{{ url($b['id'], 'da_register') }}" class="btn btn-primary btn-hover-dark">Enroll Now </a>
                                 <!-- @if($b['course']['registration_start_date'] < date('Y-m-d') && $b['course']['registration_end_date'] > date('Y-m-d') ) -->
                                 <!-- @endif -->
                                 </div>

@@ -75,7 +75,7 @@
                 <!-- Header Menu Start -->
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li>
                             <a href="#">Courses</a>
                             <ul class="sub-menu">

@@ -6,7 +6,7 @@
 	$nrc_characters = config('myanmarnrc.characters');
 @endphp
 
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -32,10 +32,10 @@
                 <!-- Page Banner Start -->
                 <div class="page-banner-content">
                     <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration <span>Form</span></h2>
+                    <h2 class="title">Application <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -511,6 +511,8 @@
                                         </td>
                                     </tr>
                                 </table>
+                                
+                                <input type="hidden" name="batch_id" value="{{ $batch_id }}">
                                 <div class="col-md-12">
                                     <!-- Form Wrapper Start -->
                                     <div class="single-form text-center">
