@@ -43,5 +43,6 @@ Route::get('cpa_ff_register', 'CPAFFController@info');
 
 Route::get('student_course', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
+Route::get('{batch_id}/da_register', 'DARegisterController@registerForm');
 
 
