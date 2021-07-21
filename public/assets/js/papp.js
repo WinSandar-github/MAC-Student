@@ -63,17 +63,25 @@ async function SearchStudentID(){
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
     var nrc_number=$("input[name=nrc_number]").val();
-    var nrc=nrc_state_region+nrc_township+nrc_citizen+nrc_number;
-    console.log(nrc);
+    
+    var nrc = new FormData();
+    nrc.append('nrc_state_region', nrc_state_region);
+    nrc.append('nrc_township', nrc_township);
+    nrc.append('nrc_citizen', nrc_citizen);
+    nrc.append('nrc_number', nrc_number);
+    // var nrc=nrc_state_region+nrc_township+nrc_citizen+nrc_number;
+    // console.log(nrc);
     //var nrc="1kamatanaing123456";
     await $.ajax({
-    url:BACKEND_URL+"/api/student_info_by_nrc/"+nrc,
-    type: 'get',
-    data: "",
+    url:BACKEND_URL+"/student_info_by_nrc",
+    type: 'post',
+    data: nrc,
+    contentType: false,
+    processData: false,
     success: function(result){
-        console.log("result",result);
-            if(result.data.length!=0){
-                studentID=result.data[0].id;
+        console.log('result',result);
+            if(result.data!=null){
+                studentID=result.data.id;
                 document.getElementById("fieldset").disabled = false;
             }
             else{
@@ -141,7 +149,7 @@ function Papp_Submit(){
     data.append('tax_free_recommendation', tax_free_file);
 
     $.ajax({
-    url: BACKEND_URL+"/api/papp",
+    url: BACKEND_URL+"/papp",
     type: 'post',
     data:data,
     contentType: false,
