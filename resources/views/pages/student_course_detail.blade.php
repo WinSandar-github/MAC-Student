@@ -60,7 +60,7 @@
                     </div>
                 </div>
               @foreach($batch as $b)
-              
+                @if(isset($b))
                 <div class="row  course_detail" >
                     <div class="col-lg-8 col-md-8">
                         <!-- Courses Details Start -->
@@ -141,6 +141,7 @@
                         <!-- Courses Details Sidebar End -->
                     </div>
                 </div>
+                @endif
                 @endforeach
                 
             </div>
