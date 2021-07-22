@@ -11,8 +11,7 @@ class LoginController extends Controller
 {
     public function loginValidate(Request $request)
     {
-        
-        
+         
        if (Auth::attempt(array('email' => $request->email, 'password' => $request->password)))
         {
                                 
@@ -20,6 +19,7 @@ class LoginController extends Controller
             
             return response()->json($student,200);
         }else{
+            
 
         }
                             

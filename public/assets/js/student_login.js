@@ -9,12 +9,19 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-           
-            // console.log(result.data[0].approve_reject_status);
-            localStorage.setItem('studentinfo', JSON.stringify(result));
-            localStorage.setItem('approve_reject',result.approve_reject_status);
-            location.href="student_index";
+            console.log(typeof result)
+            if(result){ 
+                localStorage.setItem('studentinfo', JSON.stringify(result));
+                localStorage.setItem('approve_reject',result.approve_reject_status);
+                location.href="student_index";
+            }else{
+                $('#err_msg').text("Password and Email dost not match");
+                $("#email").val("");
+                $('#password').val("");
+
+           }
       }
+
     });
 }
 
