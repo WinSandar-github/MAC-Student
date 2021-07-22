@@ -2,7 +2,7 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url:"/api/loginValidate",
+        url: BACKEND_URL + "/loginValidate",
         type: 'post',
         data: {
             email: email,
@@ -10,7 +10,7 @@ function studentLogin(){
             },
         success: function(result){
             console.log(typeof result)
-            if(result){ 
+            if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
                 location.href="student_index";
@@ -26,7 +26,7 @@ function studentLogin(){
 }
 
 function check_login(){
-    
+
     if(student_name == null){
          $('.signed_in').attr('style','display:none !important');
     }else{
