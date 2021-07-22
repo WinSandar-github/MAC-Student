@@ -10,7 +10,7 @@
 
          <!-- Slider Shape Start -->
          <div class="slider-shape">
-             <img class="shape-1 animation-round" src="assets/images/shape/shape-8.png" alt="Shape">
+             <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
          </div>
          <!-- Slider Shape End -->
 
