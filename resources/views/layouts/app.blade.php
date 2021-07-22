@@ -77,6 +77,7 @@
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
     <script src="{{ asset('assets/js/auth.js') }}"></script>
 
+    <script src="{{ asset('assets/js/papp.js') }}"></script>
 
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
 
