@@ -38,6 +38,6 @@ function check_login(){
 
 function logout(){
     localStorage.clear();
-    location.href= FRONTEND_URL + "student_index";
+    location.href= FRONTEND_URL + "/student_index";
 
 }
