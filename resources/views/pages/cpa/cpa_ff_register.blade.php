@@ -130,6 +130,7 @@
 
                             <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
                                 <fieldset id="fieldset" disabled>
+                                <input type="hidden" name="status">
                                     <div class="row">
                                         <label class="col-md-1 col-form-label"></label>
                                         <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
