@@ -52,12 +52,16 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-             console.log(result)
-            successMessage(result);
-        
+             if(result.name_mm!=null){
+                successMessage("Insert Successfully");                
+                location.reload();
+             }
+             else{
+                successMessage(result);
+             }
       },
       error:function (message){
-          console.log(message);
+        errorMessage(message);
           }
         // },
         // error:function (message){
