@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('pages.home');
 });
-
+Route::post('/loginValidate', 'LoginController@loginValidate');
 //Frontend DA Register Form
 Route::get('da', 'DAController@daform');
 Route::get('da_edit', 'DAController@da_edit');
@@ -44,5 +44,3 @@ Route::get('cpa_ff_register', 'CPAFFController@info');
 Route::get('student_course', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
 Route::get('{batch_id}/da_register', 'DARegisterController@registerForm');
-
-

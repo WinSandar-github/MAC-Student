@@ -2,14 +2,13 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url: BACKEND_URL + "/loginValidate",
+        url: "/loginValidate",
         type: 'post',
         data: {
             email: email,
             password:password
             },
         success: function(result){
-            console.log(typeof result)
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
