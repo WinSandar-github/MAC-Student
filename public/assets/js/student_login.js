@@ -2,7 +2,7 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url: "/loginValidate",
+        url: FRONTEND_URL + "/loginValidate",
         type: 'post',
         data: {
             email: email,
@@ -38,6 +38,6 @@ function check_login(){
 
 function logout(){
     localStorage.clear();
-    location.href="student_index";
+    location.href= FRONTEND_URL + "student_index";
 
 }
