@@ -73,7 +73,7 @@ async function SearchStudentID(){
     // console.log(nrc);
     //var nrc="1kamatanaing123456";
     await $.ajax({
-    url:BACKEND_URL+"/api/student_info_by_nrc",
+    url:BACKEND_URL+"/student_info_by_nrc",
     type: 'post',
     data: nrc,
     contentType: false,
@@ -148,7 +148,7 @@ function Papp_Submit(){
     data.append('tax_free_recommendation', tax_free_file);
 
     $.ajax({
-    url: BACKEND_URL+"/api/papp",
+    url: BACKEND_URL+"/papp",
     type: 'post',
     data:data,
     contentType: false,
