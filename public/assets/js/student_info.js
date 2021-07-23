@@ -1,6 +1,9 @@
 function getStudentInfo(){
-    var student = JSON.parse(localStorage.getItem('studentinfo'));
+     var student = JSON.parse(localStorage.getItem('studentinfo'));
+     
     if(student != null){
+      
+        $('#logined').attr('style','display:block !important');
         
         if(approve_reject_status == 0){
            
@@ -8,17 +11,20 @@ function getStudentInfo(){
             $('.course_detail').css('display','none');
 
         }else if(approve_reject_status == 1){
-            location.href = 'http://localhost:8001/student_study'
+            location.href = '/student_study';
         }else{
             $('.status-reject').css('display','block');
             $('.course_detail').css('display','none');
             $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 
         }
+    }else
+    {
+             $('.login').attr('style','display:block !important')
     }
     
-}
-
+    
+    }
 function getCourse()
 {
     $.ajax({

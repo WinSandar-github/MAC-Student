@@ -512,13 +512,10 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <input type="hidden" name="batch_id" value="{{ $batch_id }}">
                                     <div class="col-md-12" style="padding-top: 2%;">
-                                        <!-- Form Wrapper Start -->
                                         <div class="single-form text-center">
-                                            <button class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                            <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
                                         </div>
-                                        <!-- Form Wrapper End -->
                                     </div>
                                 </div>
                             </div>
