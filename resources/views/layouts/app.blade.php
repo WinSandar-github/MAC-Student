@@ -40,6 +40,10 @@
     <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css"> -->
 
+    <!--toastr-->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/toastr.min.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr') }}/toastr.min.css">
+
 </head>
 <body>
 
@@ -66,6 +70,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!--toastr-->
+    <!-- <script src="{{ asset('assets/toastr/toastr.main.js') }}"></script> -->
+    <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
+
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <script src="assets/js/plugins.min.js"></script> -->
@@ -77,6 +84,7 @@
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
     <script src="{{ asset('assets/js/auth.js') }}"></script>
 
+    <script src="{{ asset('assets/js/papp.js') }}"></script>
 
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
 

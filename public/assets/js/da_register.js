@@ -52,13 +52,8 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result)
-            localStorage.setItem('studentinfo', JSON.stringify(result));
-            localStorage.setItem('approve_reject',result.approve_reject_status);
-            successMessage("You have successfully registerd!");
-            location.href = "/student_course/";
-            //  console.log(result)
-            // successMessage(result);
+             console.log(result)
+            successMessage(result);
         
       },
       error:function (message){
@@ -74,6 +69,7 @@ function createDARegister()
 
 function da_edit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+   
      $.ajax({
         type:'GET',
         url: BACKEND_URL+'/student_info/'+student.id,
@@ -83,13 +79,7 @@ function da_edit(){
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
-
-            $('#nrc_state_region').val(data.nrc_state_region);
-            $('#nrc_township').val(data.nrc_township);
-
-            $('#nrc_citizen').val(data.nrc_citizen);
-            $('#nrc_number').val(data.nrc_number);
-
+            $('#nrc_state_region').val(3);
             $('#father_name_mm').val(data.father_name_mm);
             $('#father_name_eng').val(data.father_name_eng);
             $('#race').val(data.race);
@@ -104,7 +94,7 @@ function da_edit(){
             $('#organization').val(data.student_job.organization);
             $('#company_name').val(data.student_job.company_name);
             $('#salary').val(data.student_job.salary);
-            $('#office_address').val(data.student_job.address);
+            $('#office_address').val(data.student_job.office_address);
             data.gov_staff == 0 
             ?  $("#no").prop("checked", true)
             : $("#yes").prop("checked", true)  ; 

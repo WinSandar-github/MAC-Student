@@ -38,5 +38,5 @@ class StudentController extends Controller
         return view('pages.student_course',['batch' => $batch,'course' => $course]);
     }
 
-   
+
 }
