@@ -512,7 +512,7 @@
                                     </tr>
                                 </table>
                                 
-                                <input type="hidden" name="batch_id" value="{{ $batch_id }}">
+                                <!-- <input type="hidden" name="batch_id"  > -->
                                 <div class="col-md-12">
                                     <!-- Form Wrapper Start -->
                                     <div class="single-form text-center">
