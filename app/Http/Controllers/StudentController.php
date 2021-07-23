@@ -18,8 +18,8 @@ class StudentController extends Controller
     }
     public function course($course_type_id)
     {
-         // $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-        $BACKEND_URL = "http://localhost:8000/api";
+         $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+        // $BACKEND_URL = "http://localhost:8000/api";
         
          
         $client = new \GuzzleHttp\Client();
