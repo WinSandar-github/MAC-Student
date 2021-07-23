@@ -40,6 +40,7 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+Route::get('cpa_one_register', 'CPAOneRegisterController@info');
 
 Route::get('student_course', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
