@@ -16,27 +16,17 @@ class StudentController extends Controller
     public function study(){
         return view('pages.student_info.student_study');
     }
-    public function course($course_type_id)
+    public function course()
     {
-        //  $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-        $BACKEND_URL = "http://localhost:8000/api";
+        $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+        // $BACKEND_URL = "http://localhost:8000/api";
         
-         
         $client = new \GuzzleHttp\Client();
        
-        $res = json_decode($client->request('GET', $BACKEND_URL.'/publish_batch/'.$course_type_id)->getBody(),true);
-        $batch = $res['batch'];
-        $course = $res['course'];
-        
+        $batch = json_decode($client->request('GET', $BACKEND_URL.'/publish_batch')->getBody(),true);
         
         // $batch = Http::get('http://localhost:8000/batch/'.$id);
         // return $batch;
-       
-          
-        
-  
-        return view('pages.student_course',['batch' => $batch,'course' => $course]);
-    }
-
-
+        return view('pages.student_course_detail',['batch' => $batch]);
+    } 
 }
