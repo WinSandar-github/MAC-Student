@@ -79,9 +79,11 @@ async function SearchStudentID(){
     contentType: false,
     processData: false,
     success: function(result){
-        console.log('result',result);
+        console.log('result',result.data);
+        // console.log('result',result);
             if(result.data!=null){
                 studentID=result.data.id;
+
                 document.getElementById("fieldset").disabled = false;
             }
             else{
