@@ -18,9 +18,11 @@ class StudentController extends Controller
     }
     public function course()
     {
-        $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-        // $BACKEND_URL = "http://localhost:8000/api";
-        
+
+        // $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+        $BACKEND_URL = "http://localhost:8000/api";
+
+
         $client = new \GuzzleHttp\Client();
        
         $batch = json_decode($client->request('GET', $BACKEND_URL.'/publish_batch')->getBody(),true);
