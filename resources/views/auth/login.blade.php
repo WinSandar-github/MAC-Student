@@ -107,6 +107,9 @@
                                     <button type="button" onclick="studentLogin();" class="btn btn-success btn-hover-dark w-100">Login</button>
                                     
                                 </div>
+                                <div class="single-form">
+                                    You dont have account  <a href="{{url('da_register')}}">Register</a>
+                                </div>
                                 <!-- Single Form End -->
                             </form>
                         </div>

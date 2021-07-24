@@ -45,8 +45,8 @@ Route::get('cpa_one_register', 'CPAOneRegisterController@register');
 Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
 Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 
-Route::get('student_course', 'StudentController@course');
+Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
-Route::get('{batch_id}/da_register', 'DARegisterController@registerForm');
+Route::get('da_register', 'DARegisterController@registerForm');
 
 
