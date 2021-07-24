@@ -24,17 +24,11 @@ class StudentController extends Controller
 
 
         $client = new \GuzzleHttp\Client();
-
+       
         $batch = json_decode($client->request('GET', $BACKEND_URL.'/publish_batch')->getBody(),true);
-
+        
         // $batch = Http::get('http://localhost:8000/batch/'.$id);
         // return $batch;
-
-
-
-
         return view('pages.student_course_detail',['batch' => $batch]);
-    }
-
-
+    } 
 }
