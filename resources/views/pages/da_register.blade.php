@@ -164,7 +164,7 @@
                                     <tr>
                                         <td width="25%">
                                             <div class="single-form">
-                                                <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်</label>
+                                                <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်)</label>
                                             </div>
                                         </td>
                                         <td width="75%">
