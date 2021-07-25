@@ -107,8 +107,8 @@
                                     <button type="button" onclick="studentLogin();" class="btn btn-success btn-hover-dark w-100">Login</button>
                                     
                                 </div>
-                                <div class="single-form">
-                                    You dont have account  <a href="{{url('da_register')}}">Register</a>
+                                <div class="single-form route_reg">
+                                    
                                 </div>
                                 <!-- Single Form End -->
                             </form>
@@ -140,6 +140,23 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+
+$('document').ready(function(){ 
+    let ls_course_type = localStorage.getItem('course_type');
+    if(ls_course_type == 1){
+        $('.route_reg').append(`You dont have account  <a href="{{url('da_register')}}">Register</a>`)
+
+
+    }else{
+        $('.route_reg').append(`You dont have account  <a href="{{url('cpa_register')}}">Register</a>`)
+
+    }
+
+
+
+
+})
+
     
 </script>
 @endpush
