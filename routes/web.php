@@ -43,11 +43,11 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
+Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
+Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 
-//image upload
-Route::get('upload-ui', [FileUploadController::class, 'dropzoneUi' ]);
-Route::post('file-upload', [FileUploadController::class, 'dropzoneFileUpload' ])->name('dropzoneFileUpload');
-
-Route::get('student_course', 'StudentController@course');
+Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
-Route::get('{batch_id}/da_register', 'DARegisterController@registerForm');
+Route::get('da_register', 'DARegisterController@registerForm');

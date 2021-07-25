@@ -130,6 +130,7 @@
 
                             <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
                                 <fieldset id="fieldset" disabled>
+                                <input type="hidden" name="status">
                                     <div class="row">
                                         <label class="col-md-1 col-form-label"></label>
                                         <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
@@ -222,7 +223,7 @@
                                     <div class="row">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-1">
-                                            <input type="radio" name="pass_type" id="cpa_part_2_check" value="">
+                                            <input type="radio" name="pass_type" id="cpa_part_2_check" value="" required="">
                                         </div>
                                         <!-- <div class="col-md-10">  
                                             <div class="row">
@@ -243,7 +244,7 @@
                                     <div class="row">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-1">
-                                            <input type="radio" name="pass_type" id="qt_pass_check" value="">                                    
+                                            <input type="radio" name="pass_type" id="qt_pass_check" value="" required="">                                    
                                         </div>    
                                         <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
                                         <!-- <div class="col-md-10">
