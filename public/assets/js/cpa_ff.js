@@ -145,3 +145,44 @@ function createCPAFFRegister(){
     });
     
 }
+
+
+function selectEntry(){
+    var radioValue = $("input[name='selected_name']:checked").val();
+    console.log(radioValue);
+    if(radioValue==1){
+        
+        $('#direct').css('display','block');
+        $('#da_pass').css('display','none');
+     }else
+     {
+        $('#da_pass').css('display','block');
+        $('#direct').css('display','none');
+     }
+}
+
+//store cpa  app form
+$('#cpa_register').submit(function(e){
+    alert("hello")
+    
+   
+    e.preventDefault();
+     var formData = new FormData(this);
+ 
+     
+        $.ajax({
+            type: "POST",
+            url: BACKEND_URL+"/cpa_register",
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                console.log(data)
+                // localStorage.setItem('approve_reject', data.approve_reject_status);
+                // location.href = "/student_course/";
+            },
+            error:function (message){
+            }
+        })
+
+})

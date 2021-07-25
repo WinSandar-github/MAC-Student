@@ -99,7 +99,7 @@
                                 <div class="info-btn mt-2">
                                 <!-- $b['id'], 'da_register' -->
                                              
-                                    <a href="{{ url('da_register') }}" class="btn btn-primary btn-hover-dark d-none logined" >Enroll Now </a>
+                                    <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none logined" >Enroll Now </a>
                                     <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none login" >Enroll Now </a>
 
                                 
@@ -131,6 +131,13 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+    $('document').ready(function(){
+        var course_type = location.pathname.split('/');
+        var student = JSON.parse(localStorage.getItem('studentinfo'));
+        if(!student){
+        localStorage.setItem('course_type',course_type[2])
+        }
+    })
     getStudentInfo();
 
 </script>

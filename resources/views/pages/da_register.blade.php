@@ -542,6 +542,7 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
+        localStorage.removeItem('course_type');
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
