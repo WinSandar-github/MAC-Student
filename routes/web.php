@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\FileUploadController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +33,7 @@ Route::get('da_register', 'DARegisterController@registerForm');
 
 //Exam Register Form
 Route::get('/exam_register', 'ExamRegisterController@registerForm');
+Route::get('/cpa_exam_register', 'CpaExamRegisterController@registerForm');
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
@@ -41,8 +44,10 @@ Route::get('student_index', 'StudentController@index');
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
 
+//image upload
+Route::get('upload-ui', [FileUploadController::class, 'dropzoneUi' ]);
+Route::post('file-upload', [FileUploadController::class, 'dropzoneFileUpload' ])->name('dropzoneFileUpload');
+
 Route::get('student_course', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
 Route::get('{batch_id}/da_register', 'DARegisterController@registerForm');
-
-
