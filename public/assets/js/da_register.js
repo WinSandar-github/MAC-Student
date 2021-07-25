@@ -43,7 +43,7 @@ function createDARegister()
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
 
-    send_data.append('batch_id', $("input[name=batch_id]").val());
+    // send_data.append('batch_id', $("input[name=batch_id]").val());
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -52,12 +52,16 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-             console.log(result)
-            successMessage(result);
-        
+             if(result.name_mm!=null){
+                successMessage("Insert Successfully");                
+                location.reload();
+             }
+             else{
+                successMessage(result);
+             }
       },
       error:function (message){
-          console.log(message);
+        errorMessage(message);
           }
         // },
         // error:function (message){

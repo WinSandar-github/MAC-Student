@@ -7,7 +7,7 @@ class Helper
 {
     //  public static $domain = 'https://ericss.ucsb.gov.mm/PersonalDB/public/index.php/api';
 
-  public static $domain="http://127.0.0.1:8000/api";
+  public static $domain="http://localhost:8000/api";
 
     
 

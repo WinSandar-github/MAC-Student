@@ -775,6 +775,11 @@
                                         
 
                                         <div class="row">
+                                                 <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('၁၇။') }}</label>
+                                                        </div>   
+                                                    </div>
                                             
                                                 <div class="col-md-2">
                                                     <div class="single-form">
@@ -794,6 +799,11 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('၁၈။') }}</label>
+                                                        </div>   
+                                                    </div>
                                             
                                                 <div class="col-md-2">
                                                     <div class="single-form">

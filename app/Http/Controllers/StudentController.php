@@ -31,12 +31,6 @@ class StudentController extends Controller
         
         // $batch = Http::get('http://localhost:8000/batch/'.$id);
         // return $batch;
-       
-          
-        
-  
-        return view('pages.student_course',['batch' => $batch,'course' => $course]);
-    }
-
-
+        return view('pages.student_course',['batch' => $batch,"course" => $course]);
+    } 
 }
