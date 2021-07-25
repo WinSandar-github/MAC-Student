@@ -2,7 +2,7 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url: BACKEND_URL + "/loginValidate",
+        url:   "/loginValidate",
         type: 'post',
         data: {
             email: email,
