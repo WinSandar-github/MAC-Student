@@ -8,6 +8,9 @@ async function SearchStudentByNRC(){
     var nrc_citizen = $("#nrc_citizen").val();
     var nrc_number=$("input[name=nrc_number]").val();
 
+    var photo = $('#photo')[0].files[0];
+    console.log(photo);
+
     var name_mm=document.getElementById("name_mm");
     var name_eng=document.getElementById("name_eng");
     //var photo=document.getElementById("photo");
@@ -45,6 +48,7 @@ async function SearchStudentByNRC(){
                 name_mm.value=result.data.name_mm;
                 name_eng.value=result.data.name_eng;
                 //photo.value=result.data.image;
+                //$('#photo')[0].files[0]=result.data.image;
                 father_name_mm.value=result.data.father_name_mm;
                 father_name_eng.value=result.data.father_name_eng;
                 race.value=result.data.race;
