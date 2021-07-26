@@ -7,6 +7,25 @@ async function SearchStudentByNRC(){
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
     var nrc_number=$("input[name=nrc_number]").val();
+
+    var name_mm=document.getElementById("name_mm");
+    var name_eng=document.getElementById("name_eng");
+    //var photo=document.getElementById("photo");
+    var father_name_mm=document.getElementById("father_name_mm");
+    var father_name_eng=document.getElementById("father_name_eng");
+    var race=document.getElementById("race");
+    var religion=document.getElementById("religion");
+    var date_of_birth=document.getElementById("date_of_birth");
+    var education=document.getElementById("education");
+    var position=document.getElementById("position");
+    var department=document.getElementById("department");
+    var office_area=document.getElementById("office_area");
+    var civil_servant=document.getElementById("civil_servant");
+    var address=document.getElementById("address");
+    var current_address=document.getElementById("current_address");
+    var phone=document.getElementById("phone");
+    var email=document.getElementById("email");
+    
     var nrc = new FormData();
     
     nrc.append('nrc_state_region', nrc_state_region);
@@ -22,10 +41,35 @@ async function SearchStudentByNRC(){
     success: function(result){
         console.log("result",result);
             if(result.data!=null){
-                alert("abc");
+                console.log(result.data);
+                name_mm.value=result.data.name_mm;
+                name_eng.value=result.data.name_eng;
+                //photo.value=result.data.image;
+                father_name_mm.value=result.data.father_name_mm;
+                father_name_eng.value=result.data.father_name_eng;
+                race.value=result.data.race;
+                religion.value=result.data.religion;
+                date_of_birth.value=result.data.date_of_birth;
+                education.value=result.data.student_education_histroy.degree_name;
+                position.value=result.data.student_job.position;
+                department.value=result.data.student_job.department;
+                office_area.value=result.data.student_job.office_address;
+                if(result.data.gov_staff==1){
+                    var yes=document.getElementById("yes");
+                    yes.checked=true;
+                }
+                else{
+                    var no=document.getElementById("no");
+                    no.checked=true;
+                }
+                address.value=result.data.address;
+                current_address.value=result.data.current_address;
+                phone.value=result.data.phone;
+                if(email){
+                    email.value=result.data.email;
+                }
             }
             else{
-                alert("def");
             }
         }
     });
@@ -84,6 +128,7 @@ function Private_School_Submit(){
         success: function(result){
             console.log(result.message);
             successMessage(result.message);
+            location.reload();
         },
         error:function (message){
             console.log(message);
@@ -185,6 +230,7 @@ function Self_Study_Submit(){
         success: function(result){
             console.log(result.message);
             successMessage(result.message);
+            location.reload();
         },
         error:function (message){
             console.log(message);
@@ -281,6 +327,7 @@ function Mac_Submit(){
         success: function(result){
             console.log(result.message);
             successMessage(result.message);
+            location.reload();
         },
         error:function (message){
             console.log(message);
