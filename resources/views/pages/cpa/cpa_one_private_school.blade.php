@@ -69,11 +69,45 @@
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                 <div class="card border-success mb-3">
                     <div class="card-body">
-                        <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                        <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                        <!-- <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5> -->
+                        <div class="row">   
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8">
+                                        <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                        <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</div> 
+                                    <div class="col-md-3 col-form-label pt-4">
+                                        <input type="text" id="private_school_name" class="form-control" value="" >
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('ပညာသင်နှစ်') }}</div> 
+                                    <div class="col-md-3 col-form-label pt-4">
+                                        <input type="text"  id="academic_year" class="form-control" value="" required>
+                                    </div> 
+                                </div><br/>
+                            </div>   
+                            <div class="col-md-3">
+                                <div class="card" style="width:230px;">
+                                    <div class="card-header" style="padding:0px 0px 0px 0px;">
+                                        <!-- <img src="https://www.w3schools.com/images/lamp.jpg" alt="Avatar" id="img_preview" style="width:230px;height:150px"> -->
+                                        <img src="{{ asset('assets/images/profile.png') }}" alt="Avatar" id="img_preview" style="width:230px;height:150px"> 
+                                    </div>
+                                    <div class="card-body" style="padding-left:2px;padding-right:0px;">
+                                        <input type="file" id="photo" accept="image/*" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis; width: 220px;" value="" required>
+                                    </div>
+                                </div>
+                                
+                            </div>   
+                        </div>
                         <div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-3 col-form-label pt-4">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</div> 
                                 <div class="col-md-3 col-form-label pt-4">
                                     <input type="text" id="private_school_name" class="form-control" value="" >
@@ -84,7 +118,7 @@
                                 <div class="col-md-3 col-form-label pt-4">
                                     <input type="text" id="academic_year" class="form-control" value="" >
                                 </div> 
-                            </div><br/>
+                            </div><br/> -->
                             <div class="row">
                                 <div class="col-md-1 col-form-label pt-4">{{ __('၁။') }}</div>
                                 <div class="col-md-4 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
@@ -172,7 +206,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('၄။') }}</label>
@@ -185,15 +219,15 @@
                                     </div>
                                     <div class="col-md-5">
                                         <br/>
-                                        <!-- <div class="single-form"> -->
-                                            <input type="file" id="photo" class="form-control" value="" required>
-                                        <!-- </div> -->
+                                        <div class="single-form"> 
+                                            <input type="file" id="photo" class="form-control" accept="image/*" value="" required>
+                                         </div> 
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၅။') }}</label>
+                                            <label class="col-form-label">{{ _('၄။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -210,7 +244,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၆။') }}</label>
+                                            <label class="col-form-label">{{ _('၅။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -227,7 +261,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၇။') }}</label>
+                                            <label class="col-form-label">{{ _('၆။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -244,7 +278,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၈။') }}</label>
+                                            <label class="col-form-label">{{ _('၇။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -261,7 +295,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၉။') }}</label>
+                                            <label class="col-form-label">{{ _('၈။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -278,7 +312,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၀။') }}</label>
+                                            <label class="col-form-label">{{ _('၉။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -295,7 +329,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၁။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၀။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -312,7 +346,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၂။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၁။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -329,7 +363,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၃။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -346,7 +380,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၄။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၃။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -367,7 +401,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၅။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၄။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -384,7 +418,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၆။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၅။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -401,7 +435,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၇။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၆။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -418,7 +452,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၈။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၇။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -435,7 +469,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၉။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၈။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -452,7 +486,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၂၀။') }}</label>
+                                            <label class="col-form-label">{{ _('၁၉။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -470,7 +504,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၂၁။') }}</label>
+                                            <label class="col-form-label">{{ _('၂၀။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-10">
@@ -506,5 +540,6 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+
 </script>
 @endpush
