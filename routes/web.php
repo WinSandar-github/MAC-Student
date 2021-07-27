@@ -51,3 +51,5 @@ Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
 Route::get('da_register', 'DARegisterController@registerForm');
+Route::post('/loginValidate', 'LoginController@loginValidate');
+Route::get('cpa_register', 'CPAFFController@cpaRegister');
