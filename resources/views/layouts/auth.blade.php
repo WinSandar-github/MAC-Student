@@ -84,6 +84,7 @@
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
     <script src="{{ asset('assets/js/auth.js') }}"></script>
     <script src="{{ asset('assets/js/exam_register.js') }}"></script>
+    <script src="{{ asset('assets/js/daII_exam_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
   <!--toastr-->
   <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
