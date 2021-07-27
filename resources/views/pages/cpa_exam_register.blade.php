@@ -2,24 +2,11 @@
 
 @section('content')
 <head>
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" rel="stylesheet"> -->
 
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+<!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'> -->
 
-<link rel="stylesheet" href="{{ asset('assets/css/plugins/image_style.css') }}">
-
-  <!-- <style>
-  .dropzone {
-        background: #e3e6ff;
-        border-radius: 13px;
-        max-width: 550px;
-        margin-left: auto;
-        margin-right: auto;
-        border: 2px dotted #1833FF;
-        margin-top: 50px;
-    }
-  </style> -->
+<!-- <link rel="stylesheet" href="{{ asset('assets/css/plugins/image_style.css') }}"> -->
 </head>
 
     <div class="main-wrapper">
@@ -83,9 +70,9 @@
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
 
-                        <form runat="server" method="post" action="javascript:createExamRegister();" enctype="multipart/form-data">
+                        <form runat="server" method="post" action="javascript:createCpaExamRegister();" enctype="multipart/form-data">
                             @csrf
-                            <div class="row">
+                            <!-- <div class="row">
                               <div class="col-md-12">
                                 <div class="col-md-3 pull-right">
                                   <div class="alert"></div>
@@ -100,10 +87,10 @@
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
 
                             <div class="row">
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -121,9 +108,9 @@
                                           </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -141,9 +128,9 @@
                                           </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -161,9 +148,9 @@
                                           </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -181,9 +168,9 @@
                                         </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -201,9 +188,9 @@
                                         </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -221,9 +208,9 @@
                                         </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
-                                <table width="100%">
+                                <!-- <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
@@ -266,13 +253,13 @@
                                         </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table> -->
 
                                 <table width="100%">
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
-                                            <label class="col-form-label">၈။</label>
+                                            <label class="col-form-label">၁။</label>
                                         </div>
                                       </td>
                                       <td width="30%">
@@ -282,7 +269,7 @@
                                       </td>
                                       <td width="65%">
                                         <div class="single-form">
-                                            <input type="text" name="private_course_name" class="form-control" placeholder="" required>
+                                            <input type="text" name="private_school_name" class="form-control" placeholder="" required>
                                         </div>
                                       </td>
                                     </tr>
@@ -292,7 +279,7 @@
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
-                                            <label class="col-form-label">၉။</label>
+                                            <label class="col-form-label">၂။</label>
                                         </div>
                                       </td>
                                       <td width="95%">
@@ -337,7 +324,7 @@
                                     </td>
                                     <td width="25%">
                                         <div class="single-form">
-                                            <input type="text" name="holding_year_month" class="form-control" placeholder="" required>
+                                            <input type="text" name="last_exam_date" class="form-control" placeholder="" required>
                                         </div>
                                     </td>
                                   </tr>
@@ -367,7 +354,7 @@
                                     </td>
                                     <td width="5%">
                                         <div style="margin-top:20px;">
-                                          <input type="checkbox" name="" class="" placeholder="" required>
+                                          <input type="checkbox" name="passed_modules" id="passed_module_1" value="module_1" class="" placeholder="" >
                                         </div>
                                     </td>
                                     <td width="10%">
@@ -377,7 +364,7 @@
                                     </td>
                                     <td width="5%">
                                       <div style="margin-top:20px;">
-                                        <input type="checkbox" name="" class="" placeholder="" required>
+                                        <input type="checkbox" name="passed_modules" id="passed_module_2" value="module_2" class="" placeholder="" >
                                       </div>
                                     </td>
                                   </tr>
@@ -402,32 +389,32 @@
                                     </td>
                                     <td width="10%">
                                         <div class="single-form">
-                                            <label class="col-form-label">Module 1</label>
+                                            <label for="0" class="col-form-label">Module 1</label>
                                         </div>
                                     </td>
                                     <td width="5%">
                                         <div style="margin-top:20px;">
-                                          <input type="checkbox" name="" class="" placeholder="" required>
+                                          <input type="radio" name="is_full_module" id="0" class="" placeholder="" value="0" >
                                         </div>
                                     </td>
                                     <td width="10%">
                                         <div class="single-form">
-                                            <label class="col-form-label">Module 2</label>
+                                            <label for="1" class="col-form-label">Module 2</label>
                                         </div>
                                     </td>
                                     <td width="5%">
                                       <div style="margin-top:20px;">
-                                        <input type="checkbox" name="" class="" placeholder="" required>
+                                        <input type="radio" name="is_full_module" id="1" class="" placeholder="" value="1" >
                                       </div>
                                     </td>
                                     <td width="10%">
                                         <div class="single-form">
-                                            <label class="col-form-label">All Module</label>
+                                            <label for="2" class="col-form-label">All Module</label>
                                         </div>
                                     </td>
                                     <td width="5%">
                                       <div style="margin-top:20px;">
-                                        <input type="checkbox" name="" class="" placeholder="" required>
+                                        <input type="radio" name="is_full_module" id="2" class="" placeholder="" value="2" >
                                       </div>
                                     </td>
                                   </tr>
@@ -437,7 +424,7 @@
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
-                                            <label class="col-form-label">၁၀။</label>
+                                            <label class="col-form-label">၃။</label>
                                         </div>
                                       </td>
                                       <td width="40%">
@@ -461,7 +448,7 @@
                                       </td>
                                       <td width="20%">
                                         <div class="single-form">
-                                            <input type="text" name="paid_date" class="form-control" placeholder="" required>
+                                            <input type="text" name="paid_date" class="form-control flatpickr-input" placeholder="dd/mm/yyyy" required readonly>
                                         </div>
                                       </td>
                                     </tr>
@@ -497,15 +484,13 @@
         //         enableTime: false,
         //         dateFormat: "d-m-Y",
         // });
-        // $("input[name='invoice_date']").flatpickr({
-        //         enableTime: false,
-        //         dateFormat: "d-m-Y",
-        // });
 
+        $("input[name='paid_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+        });
 
     });
-
-
 
 </script>
 @endpush
