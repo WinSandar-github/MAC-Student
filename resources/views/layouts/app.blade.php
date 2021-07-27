@@ -90,6 +90,7 @@
     <script src="{{ asset('assets/js/papp.js') }}"></script>
     <script src="{{ asset('assets/js/cpa_one.js') }}"></script>
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
+    <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

@@ -93,7 +93,7 @@ async function SearchStudentByNRC(){
         }
     });
 }
-
+//type==> private school->0, self study->1, Mac->2
 function Private_School_Submit(){
     var photo = $('#photo')[0].files[0];
     console.log(photo);
@@ -164,10 +164,15 @@ function Private_School_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result.message);
-            updateStudentInfo();
-            successMessage(result.message);
-            //location.reload();
+            console.log(result);  
+            if(result.message==undefined){
+                successMessage(result);
+            }   
+            else{       
+                updateStudentInfo();
+                successMessage(result.message);
+                location.reload();
+            }
         },
         error:function (message){
             console.log(message);
@@ -281,10 +286,15 @@ console.log('data',data);
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result.message);
-            updateStudentInfo();
-            successMessage(result.message);
-            location.reload();
+            console.log(result);  
+            if(result.message==undefined){
+                successMessage(result);
+            }   
+            else{       
+                updateStudentInfo();
+                successMessage(result.message);
+                location.reload();
+            }
         },
         error:function (message){
             console.log(message);
@@ -393,11 +403,16 @@ function Mac_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            alert(studentID);
-            console.log(result.message);            
-            updateStudentInfo();
-            successMessage(result.message);
-            //location.reload();
+            //alert(studentID);
+            console.log(result);  
+            if(result.message==undefined){
+                successMessage(result);
+            }   
+            else{       
+                updateStudentInfo();
+                successMessage(result.message);
+                //location.reload();
+            }
         },
         error:function (message){
             console.log(message);
