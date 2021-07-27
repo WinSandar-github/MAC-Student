@@ -377,10 +377,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-form">
-                                            <input type="radio" id="yes" name="civil_servant" value="1" style="margin-left: 3%;" @if(old('gov_staff')) checked @endif >
+                                            <input type="radio" id="yes" name="civil_servant" value="1" style="margin-left: 3%;" @if(old('civil_servant')) checked @endif >
                                             <label for="yes">ဟုတ်</label>
 
-                                            <input type="radio" id="no" name="civil_servant" value="0" style="margin-left: 3%;" @if(!old('gov_staff')) checked @endif >
+                                            <input type="radio" id="no" name="civil_servant" value="0" style="margin-left: 3%;" @if(!old('civil_servant')) checked @endif >
                                             <label for="no">မဟုတ်</label>
                                         </div>
                                     </div>
@@ -634,21 +634,5 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#img_preview').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-$("#photo").change(function(){
-    readURL(this);
-});
-
 </script>
 @endpush
