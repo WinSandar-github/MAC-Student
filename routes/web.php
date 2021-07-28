@@ -50,6 +50,7 @@ Route::get('student_study', 'StudentController@study');
 Route::get('da_register', 'DARegisterController@registerForm');
 Route::post('/loginValidate', 'LoginController@loginValidate');
 Route::get('cpa_register', 'CPAFFController@cpaRegister');
+Route::get('da_two_register', 'DARegisterController@da_two_register');
 
 
 

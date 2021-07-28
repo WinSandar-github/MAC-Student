@@ -102,6 +102,7 @@ function createSelfStudy()
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
+    send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -109,7 +110,7 @@ function createSelfStudy()
         contentType: false,
         processData: false,
         success: function(result){
-            // successMessage(result);
+            successMessage(result);
             location.reload();
       }
     });
@@ -121,6 +122,11 @@ function createPrivateSchool()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
+    send_data.append('form_type', $("input[name='form_type']").val());
+    if($("input[name='form_type']").val()=="da two"){
+        send_data.append('date', formatDate($("input[name='exam_date']").val()));
+    }
+    
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -128,7 +134,7 @@ function createPrivateSchool()
         contentType: false,
         processData: false,
         success: function(result){            
-            // successMessage(result);
+            successMessage(result);
             location.reload();
       }
     });
@@ -139,6 +145,7 @@ function createMac()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
+    send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -146,7 +153,7 @@ function createMac()
         contentType: false,
         processData: false,
         success: function(result){
-            // successMessage(result);
+            successMessage(result);
             location.reload();
       }
     });
@@ -189,4 +196,27 @@ function reg_feedback(){
     
 
     
+}
+function loadExam()
+{
+    var id=student_id;
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL+ "/exam_register/"+id,
+        success: function (data) {
+            var exam_data=data.data;
+            if(exam_data.length==0){
+                $("input[name='form_type']").val("da one");
+            }else{
+                exam_data.forEach(function(element){
+                    if(element.status==1){
+                        localStorage.setItem("exam_date",element.date);
+                        location.href = '/da_two_register';
+                    }
+                })
+                
+            }
+            
+        }
+    })
 }

@@ -38,34 +38,9 @@
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="container" style="overflow: hidden;">
-                <div class="status-reject" style="display:none">
-                    <div class="card text-white bg-dark my-3">
-                        
-                        <div class="card-body">
-                            <!-- status == 2 => reject -->
-                            <p class="card-text reject">Your Registration Form need to prepare.Please upate your form  
-                             </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="check_registration" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-                        
-                        <div class="card-body">
-                            <p class="card-text">Your Registration Form is checking</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="approve" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-                        
-                        <div class="card-body">
-                            <p class="card-text">Your Registration Form is Successfully</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="comment-form study" style="display:none;">
-                    <input type="hidden" name="form_type">
+                
+                <div class="comment-form">
+                <input type="hidden" name="form_type" value="da two">
                     <div class="form-wrapper">
                         <div class="">
                             <div class="card border-success">
@@ -123,8 +98,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3"></div>
-                                                    <div class="col-md-5 single-form">
-                                                        <label>(၁)တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                    <div class="col-md-5 ">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">(၁)တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="single-form">
@@ -135,21 +112,21 @@
                                                 <div class="row">
                                                     <div class="col-md-2"></div>
                                                     <div class="col-md-5">
-                                                        <label>(ခ)သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
+                                                        <label class="form-check-label">(ခ)သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" name="reg_reason[]">
                                                     </div>
-                                                </div>
+                                                </div><br/>
                                                 <div class="row">
                                                     <div class="col-md-2"></div>
                                                     <div class="col-md-5">
-                                                        <label>(ဂ)သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
+                                                        <label class="form-check-label">(ဂ)သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason[]">
                                                     </div>
-                                                </div>
+                                                </div><br/>
                                                 <div class="row">
                                                     <div class="col-md-2"></div>
                                                     <div class="col-md-5">
@@ -158,7 +135,7 @@
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason[]">
                                                     </div>
-                                                </div>
+                                                </div><br/>
                                                 <div class="row">
                                                     <div class="col-md-2"></div>
                                                     <div class="col-md-5">
@@ -167,7 +144,7 @@
                                                     <div class="col-md-2">
                                                         <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason[]">
                                                     </div>
-                                                </div>
+                                                </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                     <label class="col-md-8 col-form-label">{{ __('အပိုဒ် ၁ ပါ(ခ)/(ဂ)/(ဃ)/(င) အတွက်') }}</label>
@@ -191,11 +168,11 @@
                                                 </div>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label"></label>
-                                                    <label class="col-md-8 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-11 d-md-flex justify-content-md-end single-form">
@@ -225,10 +202,11 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label class="col-form-label">{{ __('၁။') }}</label> 
+                                                            <label class=" col-form-label">{{ __('၁။') }}</label> 
+                                                            
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 ">
+                                                    <div class="col-md-6">
                                                         <div class="single-form">
                                                             <label class="col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                         </div>
@@ -240,13 +218,31 @@
                                                     </div>
                                                 </div><br/>
                                                 <div class="row">
-                                                    <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label class=" col-form-label">{{ __('၂။') }}</label> 
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်နှစ်/လ</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="single-form">
+                                                            <input type="text" class="form-control" name="exam_date" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div><br/>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label"></label>
-                                                    <label class="col-md-8 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
                                                     
                                                 </div>
                                                 <div class="row">
@@ -314,11 +310,11 @@
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label"></label>
-                                                    <label class="col-md-8 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>  
+                                                    <label class="col-md-11 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>  
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-11 d-md-flex justify-content-md-end single-form">
@@ -332,8 +328,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                  
+                </div> 
     </div><br/></br/>    
 </div>
 <!-- JavaScript Section -->
@@ -350,11 +345,7 @@
 @push('scripts')
 <script type="text/javascript">
     loadCourse();
-    loadExam();
-    reg_feedback();
-    $("input[name='mac_date']").flatpickr({
-        enableTime: false,
-        dateFormat: "d-m-Y",
-    });
+    var exam_date=localStorage.getItem("exam_date");
+    $("input[name='exam_date']").val(formatDate(exam_date));
 </script>
 @endpush
