@@ -60,10 +60,10 @@ Route::get('cpa_register', 'CPAOneRegisterController@cpaRegister');
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
 //Cpa One Exam Register
 Route::get('cpa_exam_register','CPAOneRegisterController@cpaExamRegister');
+//Cpa two exam register
+Route::get('cpa_two_exam_register','CPATwoRegisterController@cpaTwoExamRegister');
 
 //User login
 Route::post('/loginValidate', 'LoginController@loginValidate');
 Route::get('login','LoginController@login')->name('login');
-
-
 

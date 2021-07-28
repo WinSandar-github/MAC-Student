@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" value="{{ ('name_mm') }}" id="name_mm" required="">
+                                                    <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" value="{{ old('name_eng') }}" id="name_mm" required="">
                                                 </div>
                                             </div>
                                         </div>
