@@ -148,7 +148,11 @@
                             <span><a class="student_name sign-in"></a></span>
                             <div class="dropdown-content">
                                 <a onclick="logout()" href="/">Logout</a>
+                            
+                               
+
                             </div>
+                             
                             </div>
                         </li>
                         

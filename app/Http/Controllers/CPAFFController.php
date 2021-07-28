@@ -11,8 +11,5 @@ class CPAFFController extends Controller
         return view('pages.cpa.cpa_ff_register');
     }
 
-    public function cpaRegister()
-    {
-        return view('pages.cpa.cpa_register');
-    }
+   
 }
