@@ -1,5 +1,7 @@
 function getStudentInfo(){
-     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+
+
      
     if(student != null){
       
@@ -13,10 +15,18 @@ function getStudentInfo(){
         }else if(approve_reject_status == 1){
             location.href = '/student_study';
         }else{
+            if(course_type_id == 2){
+                $('.status-reject').css('display','block');
+                $('.course_detail').css('display','none');
+                $('.reject').append(`<a href="/cpa_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+
+
+
+            }else{
             $('.status-reject').css('display','block');
             $('.course_detail').css('display','none');
             $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
-                
+                }
         }
     }else
     {

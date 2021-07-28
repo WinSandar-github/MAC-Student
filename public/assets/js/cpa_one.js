@@ -93,7 +93,7 @@ async function SearchStudentByNRC(){
         }
     });
 }
-
+//type==> private school->0, self study->1, Mac->2
 function Private_School_Submit(){
     var photo = $('#photo')[0].files[0];
     console.log(photo);
@@ -164,10 +164,15 @@ function Private_School_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result.message);
-            updateStudentInfo();
-            successMessage(result.message);
-            //location.reload();
+            console.log(result);  
+            if(result.message==undefined){
+                successMessage(result);
+            }   
+            else{       
+                updateStudentInfo();
+                successMessage(result.message);
+                location.reload();
+            }
         },
         error:function (message){
             console.log(message);
@@ -281,10 +286,15 @@ console.log('data',data);
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result.message);
-            updateStudentInfo();
-            successMessage(result.message);
-            location.reload();
+            console.log(result);  
+            if(result.message==undefined){
+                successMessage(result);
+            }   
+            else{       
+                updateStudentInfo();
+                successMessage(result.message);
+                location.reload();
+            }
         },
         error:function (message){
             console.log(message);
@@ -393,17 +403,136 @@ function Mac_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            alert(studentID);
-            console.log(result.message);            
-            updateStudentInfo();
-            successMessage(result.message);
-            //location.reload();
+            //alert(studentID);
+            console.log(result);  
+            if(result.message==undefined){
+                successMessage(result);
+            }   
+            else{       
+                updateStudentInfo();
+                successMessage(result.message);
+                //location.reload();
+            }
         },
         error:function (message){
             console.log(message);
             }
         });
 }
+
+
+
+//store cpa  app form
+$('#cpa_register').submit(function(e){
+    
+   
+    e.preventDefault();
+     var formData = new FormData(this);
+     
+        $.ajax({
+            type: "POST",
+            url: BACKEND_URL+"/cpa_register",
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                console.log(data)
+                // localStorage.setItem('approve_reject', data.approve_reject_status);
+                // location.href = "/student_course/";
+            },
+            error:function (message){
+            }
+        })
+
+})
+
+
+function cpa_edit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+   
+     $.ajax({
+        type:'GET',
+        url: BACKEND_URL+'/student_info/'+student.id,
+        success:function(result){
+            console.log(result.data)
+             var data = result.data;
+             var education = result.data.student_education_histroy;
+             var cpone_dir = result.data.cpa_one_direct;
+            $('#stu_id').val(data.id);
+            $('#name_mm').val(data.name_mm);
+            $('#name_eng').val(data.name_eng);
+            $('#nrc_state_region').val(data.nrc_state_region);
+            $('#nrc_number').val(data.nrc_number)
+            $('#father_name_mm').val(data.father_name_mm);
+            $('#father_name_eng').val(data.father_name_eng);
+            $('#race').val(data.race);
+            $('#religion').val(data.religion);
+            $('#date_of_birth').val(data.date_of_birth);
+            $('#phone').val(data.phone);
+            $('#address').val(data.address);
+            $('#office_address').val(data.office_address);
+            $('#current_address').val(data.current_address);
+            $('#name').val(data.student_job.name);
+            $('#position').val(data.student_job.position);
+            $('#department').val(data.student_job.department);
+            $('#organization').val(data.student_job.organization);
+            $('#company_name').val(data.student_job.company_name);
+            $('#salary').val(data.student_job.salary);
+            $('#office_address').val(data.student_job.office_address);
+            data.gov_staff == 0 
+            ?  $("#no").prop("checked", true)
+            : $("#yes").prop("checked", true)  ; 
+            $('#uni_name').val(education.university_name);
+            $('#degree_name').val(education.degree_name);
+            $('#qualified_date').val(education.qualified_date);
+            $('#roll_number').val(education.roll_number);
+
+            $('#acca_cima_pass_level').val(cpone_dir.acca_cima_pass_level);
+            $('#acca_cima_exam_year').val(cpone_dir.acca_cima_pass_year);
+            $('#acca_cima_exam_month').val(cpone_dir.acca_cima_exam_month);
+            $('#acca_cima_reg_no').val(cpone_dir.acca_cima_reg_no);
+          
+          
+            $('#da_pass_year').val(cpone_dir.da_pass_year);
+            $('#da_pass_month').val(cpone_dir.da_pass_month);
+            $('#da_pass_roll_number').val(cpone_dir.da_pass_roll_number);
+
+            
+            (cpone_dir.da_pass_year) ? $('#da').prop("checked",true) : $('#non_da').prop("checked",true) 
+            selectEntry();
+
+
+
+        }
+    })
+
+}
+
+
+$('#cpa_update').submit(function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    formData.append('_method', 'PUT');
+    var student_id = $('#stu_id').val();
+ 
+     
+        $.ajax({
+            type: "POST",
+            url: BACKEND_URL+"/cpa_register/"+student_id,
+            
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                localStorage.setItem('approve_reject', data.approve_reject_status);
+                location.href = "/student_course/"+data.course_type_id;
+            },
+            error:function (message){
+            }
+        })
+
+})
+
 
 function updateStudentInfo(){
     console.log(studentID);
