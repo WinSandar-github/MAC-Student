@@ -32,6 +32,9 @@ Route::get('da_register', 'DARegisterController@registerForm');
 //Exam Register Form
 Route::get('/exam_register', 'ExamRegisterController@registerForm');
 
+//DAII Exam Register Form
+Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegisterForm');
+
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
 
@@ -65,5 +68,7 @@ Route::get('cpa_two_exam_register','CPATwoRegisterController@cpaTwoExamRegister'
 
 //User login
 Route::post('/loginValidate', 'LoginController@loginValidate');
+Route::get('cpa_register', 'CPAFFController@cpaRegister');
+Route::get('da_two_register', 'DARegisterController@da_two_register');
 Route::get('login','LoginController@login')->name('login');
 

@@ -85,6 +85,8 @@
     <script src="{{ asset('assets/js/auth.js') }}"></script>
     <script src="{{ asset('assets/js/exam_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script>
   <!--toastr-->
   <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
     @stack('scripts')

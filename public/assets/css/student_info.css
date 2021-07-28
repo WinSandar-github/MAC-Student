@@ -1,4 +1,4 @@
-.status-reject,.status-approve,#self_study_container,#private_school_container,#mac_container{
+.status-reject,.status-approve,#private_school_container,#mac_container{
     display: none;
 }
 
