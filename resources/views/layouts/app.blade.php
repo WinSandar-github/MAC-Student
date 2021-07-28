@@ -99,6 +99,7 @@
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
     <script src="{{ asset('assets/js/common.js') }}"></script>
     <script src="{{ asset('assets/js/exam_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
     @stack('scripts')
 </body>
