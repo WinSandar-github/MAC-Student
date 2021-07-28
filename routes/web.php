@@ -66,6 +66,8 @@ Route::get('cpa_exam_register','CPAOneRegisterController@cpaExamRegister');
 
 //User login
 Route::post('/loginValidate', 'LoginController@loginValidate');
+Route::get('cpa_register', 'CPAFFController@cpaRegister');
+Route::get('da_two_register', 'DARegisterController@da_two_register');
 Route::get('login','LoginController@login')->name('login');
 
 

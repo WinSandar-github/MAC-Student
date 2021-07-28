@@ -11,4 +11,8 @@ class DARegisterController extends Controller
         // return $batch_id;
         return view('pages.da_register');
     }
+    public function da_two_register()
+    {
+        return view('pages.da.da_two_register');
+    }
 }
