@@ -20,3 +20,24 @@ function createExamRegister()
       }
     });
 }
+
+
+$('#cpa_exam_register').submit(function(e){
+    e.preventDefault();    
+    var form_data = new FormData(this);
+    form_data.append('student_id',student_id);
+    console.log(student_id)
+    
+    $.ajax({
+        url: BACKEND_URL+"/cpa_exam_register",
+        type: 'post',
+        data:form_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+             location.reload();
+            // successMessage(result);
+      }
+    });
+
+})
