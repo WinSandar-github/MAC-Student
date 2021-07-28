@@ -69,15 +69,16 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form method="post" action="javascript:createExamRegister();" enctype="multipart/form-data">
+                        
                             @csrf
                             <div class="row">
                             <div class="card border-success mb-3">                                                     
                             <!-- <form> -->
                                 <div class="card-body ">
                                     <div class="col-md-12">
+
                                         
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
                                             <div class="col-md-4 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                             <div class="col-md-7">
@@ -127,13 +128,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><br/>
+                                        </div><br/> -->
 
-                                        <form  method="post" action="javascript:();" enctype="multipart/form-data">
-                                            <fieldset id="fieldset" disabled>
+                                        <form  method="post" action="javascript:createDATwoExamRegister();" enctype="multipart/form-data">
+                                            <!-- <fieldset id="fieldset" disabled> -->
 
                                                 <div class="row">
-                                                    <div class="col-md-1 col-form-label">{{ _('၂။') }}</div>
+                                                    <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                     <div class="col-md-7 single-form">
                                                         <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="" required="">
@@ -141,7 +142,7 @@
                                                 </div><br/>
 
                                                 <div class="row">
-                                                    <div class="col-md-1 col-form-label">{{ _('၃။') }}</div>
+                                                    <div class="col-md-1 col-form-label">{{ _('၂။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}</label>                                                    
                                                 </div><br/>
 
@@ -160,9 +161,18 @@
                                                     <label class="col-md-3 col-form-label">{{ __('ယခုဖြေဆိုမည့် Module') }}</label>
                                                     <div class="col-md-7">
                                                         <div class="row">
-                                                            <div class="col-md-3"><input type="radio" name="module" value=""> <label class="col-form-label">Module 1</label></div>
-                                                            <div class="col-md-3"><input type="radio" name="module" value=""> <label class="col-form-label">Module 2</label></div>
-                                                            <div class="col-md-3"><input type="radio" name="module" value=""> <label class="col-form-label">All Modules</label></div>
+                                                            <div class="col-md-3">
+                                                                <input type="radio" id="0" name="is_full_module" value="0">
+                                                                <label for="0">Module 1</label>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
+                                                                <label for="1">Module 2</label>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
+                                                                <label for="2">All Modules</label>
+                                                            </div>
                                                         </div> 
                                                     </div>
                                                 </div><br/>
@@ -197,7 +207,7 @@
                             <!-- </form> -->
                         </div>
                             </div>
-                        </form>
+                        
                     </div>
                 <!-- Form Wrapper End -->
                 </div><br><br>

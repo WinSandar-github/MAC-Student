@@ -63,6 +63,7 @@
                     <div class="form-wrapper">
                         <form method="post" action="javascript:createExamRegister();" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="da_type" class="form-control" value="1">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                     <table width="100%">
