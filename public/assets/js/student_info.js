@@ -57,10 +57,10 @@ function app_form_feedback(){
                                 ++count;
 
                                 if(course_type == 1){
-                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register';
+                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? '/cpa_register' : 'cpa_two_register';
+                                    course_url = count == 1 ? '/cpa_register'+batch_id[i] : 'cpa_two_register'+batch_id[i];
                                 }
                                 
                              
@@ -157,20 +157,28 @@ function loadCourse(){
     $("input[name='student_regno']").val(student_regno);
     
 }
-function selectedRegistration(){
-    var radioValue = $("input[name='register_name']:checked").val();
+function selectedRegistration(radioValue){
     if(radioValue==1){
         $('#self_study_container').css('display','block');
         $('#private_school_container').css('display','none');
         $('#mac_container').css('display','none');
+        $('#self_study_card').addClass("text-success border-success");
+        $("#private_card").removeClass("text-success border-success");
+        $('#mac_card').removeClass("text-success border-success");
     }else if(radioValue==2){
         $('#private_school_container').css('display','block');
         $('#self_study_container').css('display','none');
         $('#mac_container').css('display','none');
-    }else{
+        $('#self_study_card').removeClass("text-success border-success");
+        $("#private_card").addClass("text-success border-success");
+        $('#mac_card').removeClass("text-success border-success");
+    }else if(radioValue==3){
         $('#self_study_container').css('display','none');
         $('#private_school_container').css('display','none');
         $('#mac_container').css('display','block');
+        $('#self_study_card').removeClass("text-success border-success");
+        $('#private_card').removeClass("text-success border-success");
+        $("#mac_card").addClass("text-success border-success");
     }
 }
 
@@ -180,6 +188,7 @@ function createSelfStudy()
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
+    send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -187,7 +196,7 @@ function createSelfStudy()
         contentType: false,
         processData: false,
         success: function(result){
-            // successMessage(result);
+            successMessage(result);
             location.reload();
       }
     });
@@ -199,6 +208,11 @@ function createPrivateSchool()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
+    send_data.append('form_type', $("input[name='form_type']").val());
+    if($("input[name='form_type']").val()=="da two"){
+        send_data.append('date', formatDate($("input[name='exam_date']").val()));
+    }
+    
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -206,7 +220,7 @@ function createPrivateSchool()
         contentType: false,
         processData: false,
         success: function(result){            
-            // successMessage(result);
+            successMessage(result);
             location.reload();
       }
     });
@@ -217,6 +231,7 @@ function createMac()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
+    send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -224,7 +239,7 @@ function createMac()
         contentType: false,
         processData: false,
         success: function(result){
-            // successMessage(result);
+            successMessage(result);
             location.reload();
       }
     });
@@ -269,3 +284,26 @@ function reg_feedback(){
     
 }
 
+function loadExam()
+{
+    var id=student_id;
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL+ "/exam_register/"+id,
+        success: function (data) {
+            var exam_data=data.data;
+            if(exam_data.length==0){
+                $("input[name='form_type']").val("da one");
+            }else{
+                exam_data.forEach(function(element){
+                    if(element.status==1){
+                        localStorage.setItem("exam_date",element.date);
+                        location.href = '/da_two_register';
+                    }
+                })
+                
+            }
+            
+        }
+    })
+}

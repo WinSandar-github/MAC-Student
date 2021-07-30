@@ -450,6 +450,23 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="single-form">
+                                            <label class="col-form-label">{{ _('Email') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="single-form">
+                                            <input type="text" id="email" class="form-control" value="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="single-form">
+                                            <label class="col-form-label">{{ _('၁၇။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="single-form">
                                             <label class="col-form-label">{{ _('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
                                         </div>
                                     </div>
