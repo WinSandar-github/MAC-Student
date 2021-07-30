@@ -351,7 +351,7 @@ function Mac_Submit(){
     data.append('address', $("#address").val());
     data.append('current_address', $("#current_address").val());
     data.append('phone', $("#phone").val());
-    data.append('email', null);
+    data.append('email', $("#email").val());
     data.append('direct_access_no', $("#direct_access_no").val());
     data.append('entry_success_no', $("#entry_success_no").val());
     if(gov_department.checked==true){
