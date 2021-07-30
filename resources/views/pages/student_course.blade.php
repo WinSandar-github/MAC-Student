@@ -59,61 +59,75 @@
                         </div>
                     </div>
                 </div>
-                <div class="row  course_detail" >
-                    @foreach($course as $b)
-                        <div class="card col-md-5 col-lg-5 offset-md-1 ">
-                            <div class="card-header">
-                                <h4 class="card-title">Diploma in Accountancy ({{$b['name']}})</h4>
-                            </div>
-                            <div class="card-body">
-                            <div class="mt-2 widget-information mb-2">
-                                        <div class="info-price">
-                                            <span class="price">{{$b['registration_fee']}} Kyats</span>
-                                        </div>
-                                        <div class="info-list">
-                                            <ul>
-                                                <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee</strong> <span>{{$b['registration_fee']}} Kyats</span></li>
-                                                
-                                                <li><i class="icofont-man-in-glasses"></i> <strong>Form Fee</strong> <span>{{$b['form_fee']}} Kyats</span></li>
-                                                <li><i class="icofont-man-in-glasses"></i> <strong>Exam Fee</strong> <span>{{$b['exam_fee']}} Kyats</span></li>
-                                                <li><i class="icofont-man-in-glasses"></i> <strong>Tution Fee</strong> <span>{{$b['tution_fee']}} Kyats</span></li>
-
-                                                <li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$b['registration_end_date']}}</span></li>
-                                                
-                                                <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
-                                            </ul>
-                                        </div>
-                                       
+                <div class="course_detail">
+                    <div class="row" >
+                       
+                        @php $i=0; $date=Date('Y-m-d'); @endphp
+                        @foreach($course as $c)
+                        @php ++$i; @endphp
+                        <input type="hidden" value="{{$c['id']}}" id="course_id{!! $i !!}"/>
+                            <div class="card col-md-5 col-lg-5 offset-md-1 ">
+                                <div class="card-header">
+                                    <h4 class="card-title text-center">{{ $c['name']}} </h4>
                                 </div>
-                                <div class=" widget-information" >
+                                <div class="card-body">
+                                <div class="mt-2 widget-information mb-2">
+                                            <div class="info-price">
+                                                <span class="price">{{$c['registration_fee']}} Kyats</span>
+                                            </div>
+                                            <div class="info-list">
+                                                <ul>
+                                                    <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee</strong> <span>{{$c['registration_fee']}} Kyats</span></li>
+                                                    
+                                                    <li><i class="icofont-man-in-glasses"></i> <strong>Form Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                    <li><i class="icofont-man-in-glasses"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
+                                                    <li><i class="icofont-man-in-glasses"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
+
+                                                    <li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$c['registration_end_date']}}</span></li>
+                                                    
+                                                    <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
+                                                </ul>
+                                            </div>
+                                        
+                                    </div>
+                                    <div class=" widget-information" >
+                                        
+                                        <h6>Description</h6>
+                                        <hr>
+
                                     
-                                    <h6>Description</h6>
-                                    <hr>
+                                        <p style="height:150px;overflow:auto;">{{$c['description']}}</p>
 
-                                   
-                                    <p style="height:150px;overflow:auto;">{{$b['description']}}</p>
+                                    </div>
+                                  
+                                     @foreach($c['batches'] as $b)
+                                     @if(($b['start_date'] <= $date) && $date <= $b['end_date'])
+                                       <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
+                                      <div class="info-btn mt-2 text-center check_login{!! $i !!}">
+                                        <!-- $c['id'], 'da_register' -->
+                                       <!-- sucess da         -->
+                                        <!-- <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none " >Enroll Now </a> -->
+                                       
+                                        <!-- <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none  logined" >Enroll Now </a> -->
 
-                                 </div>
+                                    
+                                        </div>
+                                    
+                                    @endif
+                                    @endforeach
                                 
-                               
-                                <div class="info-btn mt-2">
-                                <!-- $b['id'], 'da_register' -->
-                                             
-                                    <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none logined" >Enroll Now </a>
-                                    <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none login" >Enroll Now </a>
-
-                                
+                                    
                                 </div>
-                               
-                                
                             </div>
-                        </div>
-              
-               
+                
+                
 
-                   
-                    @endforeach
+                    
+                        @endforeach
+                    </div>
+
                 </div>
+                
                 
             </div>
         </div>
@@ -138,7 +152,7 @@
         localStorage.setItem('course_type',course_type[2])
         }
     })
-    getStudentInfo();
+    app_form_feedback();
 
 </script>
 @endpush

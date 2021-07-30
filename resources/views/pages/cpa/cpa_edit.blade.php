@@ -79,6 +79,8 @@
                                 <form method="Post" id="cpa_update" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="id" id="stu_id">
+                                    <input type="text" name="batch_id" id="batch_id">
+
 
                                     <div class="col-md-12">
                                         <div class="row">
@@ -573,6 +575,27 @@
                                                 </div>
                                              </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="single-form">
+                                                    <label> </label>
+                                                </div>   
+                                            </div>
+                                    
+                                    
+                                            <div class="col-md-2">
+                                                <div class="single-form">
+                                                    <label> (ဃ) Certificate</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="single-form">
+                                                    <input type="file" placeholder="upload photo" name="certificates"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                </div>
+                                            </div>
+
+                                        </div>
                                         
                                          <div class="row">
                                             <div class="col-md-1">
@@ -605,7 +628,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="နှစ်၊လ" id="acca_cima_pass_level" name="acca_cima_pass_level" class="form-control" value="{{ old('qualified_date') }}" required="">
+                                                    <input type="text" placeholder="နှစ်၊လ" id="direct_degree" name="direct_degree" class="form-control"  required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -623,16 +646,16 @@
                                                     <label>(ခ) ခုနှစ်/လ</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="ခုနှစ်" id="acca_cima_exam_year" name="acca_cima_exam_year" class="form-control year"  required="">
+                                                    <input type="text" placeholder="ခုနှစ်" id="degree_date" name="degree_date" class="form-control"  required="">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <!-- <div class="col-md-4">
                                                 <div class="single-form">
                                                     <input type="year" placeholder="လ" id="acca_cima_exam_month" name="acca_cima_exam_month" class="form-control month" value="{{ old('roll_number') }}" required="">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="row">
                                             <div class="col-md-1">
@@ -648,11 +671,32 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="acca_cima_reg_no" name="acca_cima_reg_no" class="form-control" value="{{ old('roll_number') }}" required="">
+                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" required="">
                                                 </div>
                                              </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="single-form">
+                                                    <label> </label>
+                                                </div>   
+                                            </div>
+                                    
+                                    
+                                            <div class="col-md-2">
+                                                <div class="single-form">
+                                                    <label>(ဃ)Attched Certificate</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="single-form">
+                                                    <input type="file" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <!-- <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၆။') }}</label>
@@ -677,10 +721,10 @@
                                                 </div>
                                             </div>
                                             
-                                        </div>
+                                        </div> -->
 
                                         <!-- Direct or DA Pass -->
-                                        <div class="row" id="direct">
+                                        <!-- <div class="row" id="direct">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-1">
@@ -749,29 +793,10 @@
                                                 </div>
                                              </div>
                                         </div>
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label> </label>
-                                                        </div>   
-                                                    </div>
-                                            
-                                            
-                                                    <div class="col-md-2">
-                                                        <div class="single-form">
-                                                            <label>Attched Certificate</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="single-form">
-                                                            <input type="file" placeholder="upload photo" name="certificates[]" multiple value="{{ old('document') }}"  style="padding: 2%;">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
+                                                
 
                                             </div>
-                                        </div> 
+                                        </div>  -->
                                         <div class="col-md-12">
                                             <!-- Form Wrapper Start -->
                                             <div class="single-form text-center">
@@ -815,9 +840,9 @@
     $(document).ready(function (e) {
         cpa_edit();
 
-        $(".year").flatpickr({
+        $("#degree_date").flatpickr({
                 enableTime: false,
-                 dateFormat: "Y",
+                 dateFormat: "d-m-Y",
 
         });
         $(".month").flatpickr({

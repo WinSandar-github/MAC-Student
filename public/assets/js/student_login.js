@@ -42,3 +42,20 @@ function logout(){
     location.href="student_index";
 
 }
+
+//Redirect login page depend on course
+function login_page(batch_id,course_id,course_type){
+    if(course_id == 1){
+
+        localStorage.setItem('batch_id',batch_id);
+        location.href = '/login';
+    }else{
+        if(course_type == 1){
+            alert("You need to Pass DA I")
+        }else{
+            alert("You need to Pass CPA I")
+
+
+        }
+    }
+}

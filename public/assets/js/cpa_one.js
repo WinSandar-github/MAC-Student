@@ -409,10 +409,12 @@ function Mac_Submit(){
 
 //store cpa  app form
 $('#cpa_register').submit(function(e){
-    
-   
     e.preventDefault();
+    var url = location.pathname;
+    var batch_id = url.substring(url.lastIndexOf('/')+1);
+    
      var formData = new FormData(this);
+     formData.append('batch_id',batch_id)
      
         $.ajax({
             type: "POST",
@@ -421,9 +423,9 @@ $('#cpa_register').submit(function(e){
             processData: false,
             data: formData,
             success: function (data) {
-                console.log(data)
-                // localStorage.setItem('approve_reject', data.approve_reject_status);
-                // location.href = "/student_course/";
+                localStorage.setItem('studentinfo', JSON.stringify(result));
+                localStorage.setItem('approve_reject', data.approve_reject_status);
+                location.href = "/student_course/2";
             },
             error:function (message){
             }
@@ -471,11 +473,12 @@ function cpa_edit(){
             $('#degree_name').val(education.degree_name);
             $('#qualified_date').val(education.qualified_date);
             $('#roll_number').val(education.roll_number);
+            $('#batch_id').val(education.batch_id);
 
-            $('#acca_cima_pass_level').val(cpone_dir.acca_cima_pass_level);
-            $('#acca_cima_exam_year').val(cpone_dir.acca_cima_pass_year);
-            $('#acca_cima_exam_month').val(cpone_dir.acca_cima_exam_month);
-            $('#acca_cima_reg_no').val(cpone_dir.acca_cima_reg_no);
+            $('#direct_degree').val(data.direct_degree);
+            $('#degree_date').val(data.degree_date);
+            $('#degree_rank').val(data.degree_rank);
+            // $('#acca_cima_reg_no').val(cpone_dir.acca_cima_reg_no);
           
           
             $('#da_pass_year').val(cpone_dir.da_pass_year);

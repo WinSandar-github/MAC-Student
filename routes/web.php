@@ -47,9 +47,9 @@ Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
-Route::get('da_register', 'DARegisterController@registerForm');
+Route::get('da_register/{id}', 'DARegisterController@registerForm');
 //Cpa One
-Route::get('cpa_register', 'CPAOneRegisterController@cpaRegister');
+Route::get('cpa_register/{id}', 'CPAOneRegisterController@cpaRegister');
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
 //Cpa One Exam Register
 Route::get('cpa_exam_register','CPAOneRegisterController@cpaExamRegister');

@@ -1,36 +1,104 @@
-function getStudentInfo(){
+function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    let url = location.pathname;
+    let course_type = url.substring(url.lastIndexOf('/')+1);
+    let batch_id = [$('#batch_id1').val(),$('#batch_id2').val()];
+    let count = 0;
 
-
-     
+    
+    //show data depend login or no
     if(student != null){
-      
-        $('#logined').attr('style','display:block !important');
-        
-        if(approve_reject_status == 0){
-           
-            $('.check_registration').css('display','block');
-            $('.course_detail').css('display','none');
-
-        }else if(approve_reject_status == 1){
-            location.href = '/student_study';
-        }else{
-            if(course_type_id == 2){
-                $('.status-reject').css('display','block');
+       
+            if(approve_reject_status == 0){
+            
+                $('.check_registration').css('display','block');
                 $('.course_detail').css('display','none');
-                $('.reject').append(`<a href="/cpa_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
 
-
-
-            }else{
-            $('.status-reject').css('display','block');
-            $('.course_detail').css('display','none');
-            $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+            }else if(approve_reject_status == 1){
+                location.href = '/student_study';
+            }else if(approve_reject_status == 2){
+                if(course_type_id == 2)
+                {
+                    $('.status-reject').css('display','block');
+                    $('.course_detail').css('display','none');
+                    $('.reject').append(`<a href="/cpa_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+                } 
+                else
+                {
+                    $('.status-reject').css('display','block');
+                    $('.course_detail').css('display','none');
+                    $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 }
+            }else{
+            
+                $('.course_detail').css('display','block');
+                $.ajax({
+                    url: BACKEND_URL+"/get_exam_student/"+student_id,
+                    type: 'get',
+                    contentType: false,
+                    processData: false,
+                    success: function(result){  
+                         
+                     
+                        let course_id = [$('#course_id1').val(),$('#course_id2').val()];
+                          
+                        $('.course_detail').css('display','block') 
+                         let data  = result.data;
+                        
+                        
+                        
+                        var data_course = data.filter( function(v){
+                            return v.course.course_type_id == course_type});
+
+                           var course_url;
+                            
+                            for(let i=0 ;i<2; i++){
+                                // console.log(i)
+                                ++count;
+
+                                if(course_type == 1){
+                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register';
+
+                                }else{
+                                    course_url = count == 1 ? '/cpa_register' : 'cpa_two_register';
+                                }
+                                
+                             
+                           
+                            if(data_course[i])
+                            {
+                                if(data_course[i].grade == 1  && data_course[i].exam_type_id == course_id[i])
+                                {
+                                $(`.check_login${count}`).append(`<p class=" text-success">You have been Sucessfully</p>`)
+                                }else{
+                                   
+                                        $(`.check_login${count}`).append(`<a href=${course_url} class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+
+                                }
+                                
+                            }else
+                            {  
+                                $(`.check_login${count}`).append(`<a href=${course_url} class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+         
+                            } 
+                        }
+                        
+                    }
+                });
+    
+            }   
+       
         }
-    }else
+    else
     {
-             $('.login').attr('style','display:block !important')
+         
+        for(let i=0 ; i<2;i++){
+            ++count;
+            $(`.check_login${count}`).append(`<a href="javascript:login_page(${batch_id[i]},${count},${course_type})" class="btn btn-primary btn-hover-dark    " >Enroll Now </a>`)
+        }
+            // $('.logined').css('display','block')
+        // $('.check_login2').append(`<a href="/login" class="btn btn-primary btn-hover-dark   " >Enroll Now </a>`)
+
     }
     
     
@@ -200,3 +268,4 @@ function reg_feedback(){
 
     
 }
+
