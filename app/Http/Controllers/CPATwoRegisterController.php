@@ -15,4 +15,9 @@ class CPATwoRegisterController extends Controller
     public function private_school(){
         return view('pages.cpa.cpa_two_private_school');
     }
+
+    public function cpaTwoExamRegister()
+    {
+        return view('pages.cpa.cpa_two_exam_register');
+    }
 }
