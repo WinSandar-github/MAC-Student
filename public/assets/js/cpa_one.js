@@ -274,9 +274,9 @@ function Self_Study_Submit(){
     else{
         data.append('module_id', 1);
     }
-    data.append('batch_session_no', $("#office_area").val());
-    data.append('entrance_part', $("#office_area").val());
-    data.append('entrance_exam_no', $("#office_area").val());
+    data.append('batch_session_no', $("#batch_session_no").val());
+    data.append('entrance_part', $("#entrance_part").val());
+    data.append('entrance_exam_no', $("#entrance_exam_no").val());
     data.append('cpa_one_type', 1);
 console.log('data',data);
     $.ajax({
@@ -321,6 +321,7 @@ function Mac_Submit(){
     var personal_acc_training=document.getElementById("personal_acc_training");
     var after_second_exam=document.getElementById("after_second_exam");
     var yes=document.getElementById("yes");
+    
     var data = new FormData();
     data.append('private_school_name', null);
     data.append('academic_year', $("#academic_year").val());
@@ -359,6 +360,7 @@ function Mac_Submit(){
     else{
         data.append('gov_department', 0);
     }
+
     if(personal_acc_training.checked==true){
         data.append('personal_acc_training', 1);
     }
@@ -411,7 +413,7 @@ function Mac_Submit(){
             else{       
                 updateStudentInfo();
                 successMessage(result.message);
-                //location.reload();
+                location.reload();
             }
         },
         error:function (message){
