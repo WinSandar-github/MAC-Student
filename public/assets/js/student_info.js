@@ -57,10 +57,10 @@ function app_form_feedback(){
                                 ++count;
 
                                 if(course_type == 1){
-                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register'+batch_id[i];
+                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? '/cpa_register'+batch_id[i] : 'cpa_two_register'+batch_id[i];
+                                    course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_register/'+batch_id[i];
                                 }
                                 
                              
@@ -91,6 +91,7 @@ function app_form_feedback(){
         }
     else
     {
+         
          
         for(let i=0 ; i<2;i++){
             ++count;

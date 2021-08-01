@@ -9,7 +9,7 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-            console.log(typeof result)
+           
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);

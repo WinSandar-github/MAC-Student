@@ -345,7 +345,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
+                                                    <input type="file" placeholder="upload photo" accept="image" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
                                                 </div>
                                             </div>
                                          </div>
@@ -589,6 +589,7 @@
                                                 <div class="col-md-8">
                                                     <div class="single-form">
                                                         <input type="file" placeholder="upload photo" name="certificates"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                      
                                                     </div>
                                                 </div>
 
@@ -682,7 +683,7 @@
                                     
                                             <div class="col-md-2">
                                                 <div class="single-form">
-                                                    <label>(ဃ)Attched Certificate</label>
+                                                    <label>(ဃ) Attched Certificate</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -946,6 +947,11 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
+
+         
+
+        
     });
+     
 </script>
 @endpush

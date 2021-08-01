@@ -17,6 +17,7 @@ function readURL(input) {
 $("#photo").change(function(){
     readURL(this);
 });
+
 var studentID=null;
 async function SearchStudentByNRC(){
     var nrc_state_region = $("#nrc_state_region").val();
@@ -274,9 +275,9 @@ function Self_Study_Submit(){
     else{
         data.append('module_id', 1);
     }
-    data.append('batch_session_no', $("#office_area").val());
-    data.append('entrance_part', $("#office_area").val());
-    data.append('entrance_exam_no', $("#office_area").val());
+    data.append('batch_session_no', $("#batch_session_no").val());
+    data.append('entrance_part', $("#entrance_part").val());
+    data.append('entrance_exam_no', $("#entrance_exam_no").val());
     data.append('cpa_one_type', 1);
 console.log('data',data);
     $.ajax({
@@ -321,6 +322,7 @@ function Mac_Submit(){
     var personal_acc_training=document.getElementById("personal_acc_training");
     var after_second_exam=document.getElementById("after_second_exam");
     var yes=document.getElementById("yes");
+    
     var data = new FormData();
     data.append('private_school_name', null);
     data.append('academic_year', $("#academic_year").val());
@@ -359,6 +361,7 @@ function Mac_Submit(){
     else{
         data.append('gov_department', 0);
     }
+
     if(personal_acc_training.checked==true){
         data.append('personal_acc_training', 1);
     }
@@ -411,7 +414,7 @@ function Mac_Submit(){
             else{       
                 updateStudentInfo();
                 successMessage(result.message);
-                //location.reload();
+                location.reload();
             }
         },
         error:function (message){
@@ -438,7 +441,8 @@ $('#cpa_register').submit(function(e){
             processData: false,
             data: formData,
             success: function (data) {
-                localStorage.setItem('studentinfo', JSON.stringify(result));
+              
+                localStorage.setItem('studentinfo', JSON.stringify(data));
                 localStorage.setItem('approve_reject', data.approve_reject_status);
                 location.href = "/student_course/2";
             },
@@ -459,7 +463,7 @@ function cpa_edit(){
             console.log(result.data)
              var data = result.data;
              var education = result.data.student_education_histroy;
-             var cpone_dir = result.data.cpa_one_direct;
+            //  var cpone_dir = result.data.cpa_one_direct;
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
@@ -488,21 +492,26 @@ function cpa_edit(){
             $('#degree_name').val(education.degree_name);
             $('#qualified_date').val(education.qualified_date);
             $('#roll_number').val(education.roll_number);
-            $('#batch_id').val(education.batch_id);
+            $('#batch_id').val(data.student_course.batch_id);
 
             $('#direct_degree').val(data.direct_degree);
             $('#degree_date').val(data.degree_date);
             $('#degree_rank').val(data.degree_rank);
+            $('#old_certificate').val(education.certificate);
+            $('#old_deg_certi').val(data.degree_certificate_image);
+            $('#old_image').val(data.image);
+
+
             // $('#acca_cima_reg_no').val(cpone_dir.acca_cima_reg_no);
           
           
-            $('#da_pass_year').val(cpone_dir.da_pass_year);
-            $('#da_pass_month').val(cpone_dir.da_pass_month);
-            $('#da_pass_roll_number').val(cpone_dir.da_pass_roll_number);
+            // $('#da_pass_year').val(cpone_dir.da_pass_year);
+            // $('#da_pass_month').val(cpone_dir.da_pass_month);
+            // $('#da_pass_roll_number').val(cpone_dir.da_pass_roll_number);
 
             
-            (cpone_dir.da_pass_year) ? $('#da').prop("checked",true) : $('#non_da').prop("checked",true) 
-            selectEntry();
+            // (cpone_dir.da_pass_year) ? $('#da').prop("checked",true) : $('#non_da').prop("checked",true) 
+            // selectEntry();
 
 
 

@@ -72,14 +72,14 @@
                         <div class="card border-success mb-3">
                             <div class="card-body">
                                     <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
-                                    <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
+                                    <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ ပြင်ဆင်ချက်</h5>
                                     <br/>
                                 
                                 
                                 <form method="Post" id="cpa_update" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="id" id="stu_id">
-                                    <input type="text" name="batch_id" id="batch_id">
+                                    <input type="hidden" name="batch_id" id="batch_id">
 
 
                                     <div class="col-md-12">
@@ -347,7 +347,8 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
+                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}"  style="padding: 2%;">
+                                                    <input type="text" name="old_image" id="old_image"/>
                                                 </div>
                                             </div>
                                          </div>
@@ -591,8 +592,10 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" name="certificates"  value="{{ old('document') }}"  style="padding: 2%;">
-                                                </div>
+                                                    <input type="file" placeholder="upload certificate" name="certificates"    style="padding: 2%;">
+                                                    <input type="hidden"  name="old_certificate" id="old_certificate"/>
+                                                </div> 
+                                             
                                             </div>
 
                                         </div>
@@ -685,18 +688,20 @@
                                     
                                             <div class="col-md-2">
                                                 <div class="single-form">
-                                                    <label>(ဃ)Attched Certificate</label>
+                                                    <label>(ဃ) Attched Certificate</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
                                                     <input type="file" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                    <input type="hidden"  name="old_deg_certi" id="old_deg_certi"/>
+
                                                 </div>
                                             </div>
 
                                         </div>
                                         
-                                        <!-- <div class="row">
+                                        <!-- <div class="row">hi
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၆။') }}</label>

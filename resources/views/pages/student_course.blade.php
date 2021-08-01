@@ -62,9 +62,15 @@
                 <div class="course_detail">
                     <div class="row" >
                        
-                        @php $i=0; $date=Date('Y-m-d'); @endphp
+                        @php $i=0; $date=Date('Y-m-d');
+                        
+                        @endphp
+                       
                         @foreach($course as $c)
-                        @php ++$i; @endphp
+                        
+                        
+                     
+                         @php ++$i;  @endphp
                         <input type="hidden" value="{{$c['id']}}" id="course_id{!! $i !!}"/>
                             <div class="card col-md-5 col-lg-5 offset-md-1 ">
                                 <div class="card-header">
@@ -99,11 +105,11 @@
                                         <p style="height:150px;overflow:auto;">{{$c['description']}}</p>
 
                                     </div>
-                                  
-                                     @foreach($c['batches'] as $b)
-                                     @if(($b['start_date'] <= $date) && $date <= $b['end_date'])
-                                       <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
+                                    @if(!empty($c['active_batch']))
+                                     @foreach($c['active_batch'] as $b)
+                                        <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
                                       <div class="info-btn mt-2 text-center check_login{!! $i !!}">
+                                          
                                         <!-- $c['id'], 'da_register' -->
                                        <!-- sucess da         -->
                                         <!-- <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none " >Enroll Now </a> -->
@@ -113,8 +119,11 @@
                                     
                                         </div>
                                     
+                                     @endforeach
+                                    @else
+                                    <p class="text-center text-dark mt-2 h6 ">Coming Soon</p>
+
                                     @endif
-                                    @endforeach
                                 
                                     
                                 </div>
