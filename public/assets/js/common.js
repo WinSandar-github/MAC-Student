@@ -1,5 +1,5 @@
-var BACKEND_URL="http://localhost:8000/api";
-// var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+// var BACKEND_URL="http://localhost:8000/api";
+var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var toastOptions = {
     "closeButton": true,
     "debug": false,
@@ -17,6 +17,7 @@ var toastOptions = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 }
+
 function successMessage(message) {
     toastr.options = toastOptions;
     toastr.success(message);

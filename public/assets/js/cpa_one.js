@@ -468,6 +468,8 @@ function cpa_edit(){
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
             $('#nrc_state_region').val(data.nrc_state_region);
+            $('#nrc_township').val(data.nrc_township);
+            $('#nrc_citizen').val(data.nrc_citizen);
             $('#nrc_number').val(data.nrc_number)
             $('#father_name_mm').val(data.father_name_mm);
             $('#father_name_eng').val(data.father_name_eng);
