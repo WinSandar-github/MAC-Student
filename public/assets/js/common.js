@@ -17,6 +17,7 @@ var toastOptions = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 }
+
 function successMessage(message) {
     toastr.options = toastOptions;
     toastr.success(message);
