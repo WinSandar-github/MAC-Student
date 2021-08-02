@@ -60,7 +60,7 @@
                         <li>
                             <a href="#">Courses</a>
                             <ul class="sub-menu">
-                                <li><a href="{{url('student_course')}}">Diploma in Accountancy (DA)</a></li>
+                                <li><a href="{{url('da_two_register')}}">Diploma in Accountancy (DA)</a></li>
                                 <li><a href="courses-details.html">Certified Public Accountant (CPA)</a></li>
                             </ul>
                         </li>

@@ -21,16 +21,16 @@ class StudentController extends Controller
     public function course($course_type_id)
     {
          
-         
         $client = new \GuzzleHttp\Client();
        
         $res = json_decode($client->request('GET', Helper::$domain.'/publish_batch/'.$course_type_id)->getBody(),true);
-        $batch = $res['batch'];
+        
+
         $course = $res['course'];
-        
-        
+       
+
         // $batch = Http::get('http://localhost:8000/batch/'.$id);
-        // return $batch;
-        return view('pages.student_course',['batch' => $batch,"course" => $course]);
+    // return $batch;
+        return view('pages.student_course',["course" => $course]);
     } 
 }

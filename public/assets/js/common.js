@@ -30,17 +30,21 @@ $('document').ready(function(){
         url:BACKEND_URL+'/get_course_type',
         type:'GET',
         success:function(response){
-             
             $.each(response.data,function(i,v){
                 var course = `<li><a href='/student_course/${v.id}'>${v.name}</a></li>`;
 
                 $('.course_type').append(course);
 
             })
-
+            
             
            
         }
     })
 
 })
+function formatDate(date){
+    var income_date=date.split('-');
+    var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
+    return date;
+}

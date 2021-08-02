@@ -72,6 +72,7 @@
                         <form method="post" id="da_update" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" id="stu_id">
+                            <input type="hidden" name="batch_id" id="batch_id">
                             <div class="row">
                                 <table width="100%">
                                     <tr>

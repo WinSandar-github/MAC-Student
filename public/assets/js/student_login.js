@@ -9,7 +9,7 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-            console.log(typeof result)
+           
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
@@ -41,4 +41,21 @@ function logout(){
     localStorage.clear();
     location.href="student_index";
 
+}
+
+//Redirect login page depend on course
+function login_page(batch_id,course_id,course_type){
+    if(course_id == 1){
+
+        localStorage.setItem('batch_id',batch_id);
+        location.href = '/login';
+    }else{
+        if(course_type == 1){
+            alert("You need to Pass DA I")
+        }else{
+            alert("You need to Pass CPA I")
+
+
+        }
+    }
 }
