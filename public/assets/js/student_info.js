@@ -220,7 +220,7 @@ function loadExam()
     var id=student_id;
     $.ajax({
         type: "GET",
-        url: BACKEND_URL+ "/exam_register/"+id,
+        url: BACKEND_URL+ "/exam_status/"+id,
         success: function (data) {
             var exam_data=data.data;
             if(exam_data.length==0){
