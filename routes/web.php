@@ -72,3 +72,9 @@ Route::get('cpa_register', 'CPAFFController@cpaRegister');
 Route::get('da_two_register', 'DARegisterController@da_two_register');
 Route::get('login','LoginController@login')->name('login');
 
+//School Register Form
+Route::get('school_register', 'SchoolController@info');
+
+//Teacher Register Form
+Route::get('teacher_register', 'TeacherController@info');
+
