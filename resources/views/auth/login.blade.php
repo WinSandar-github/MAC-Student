@@ -143,12 +143,13 @@
 
 $('document').ready(function(){ 
     let ls_course_type = localStorage.getItem('course_type');
-    if(ls_course_type == 1){
-        $('.route_reg').append(`You dont have account  <a href="{{url('da_register')}}">Register</a>`)
-
-
+    let batch_id = localStorage.getItem('batch_id');
+    
+    if(ls_course_type == 2){
+        
+        $('.route_reg').append(`You dont have account  <a href={{url('cpa_register/${batch_id}')}}>Register</a>`)
     }else{
-        $('.route_reg').append(`You dont have account  <a href="{{url('cpa_register')}}">Register</a>`)
+        $('.route_reg').append(`You dont have account  <a href="{{url('da_register/${batch_id}')}}">Register</a>`)
 
     }
 
