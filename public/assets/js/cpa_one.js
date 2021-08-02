@@ -17,6 +17,7 @@ function readURL(input) {
 $("#photo").change(function(){
     readURL(this);
 });
+
 var studentID=null;
 async function SearchStudentByNRC(){
     var nrc_state_region = $("#nrc_state_region").val();
@@ -426,10 +427,12 @@ function Mac_Submit(){
 
 //store cpa  app form
 $('#cpa_register').submit(function(e){
-    
-   
     e.preventDefault();
+    var url = location.pathname;
+    var batch_id = url.substring(url.lastIndexOf('/')+1);
+    
      var formData = new FormData(this);
+     formData.append('batch_id',batch_id)
      
         $.ajax({
             type: "POST",
@@ -438,9 +441,10 @@ $('#cpa_register').submit(function(e){
             processData: false,
             data: formData,
             success: function (data) {
-                console.log(data)
-                // localStorage.setItem('approve_reject', data.approve_reject_status);
-                // location.href = "/student_course/";
+              
+                localStorage.setItem('studentinfo', JSON.stringify(data));
+                localStorage.setItem('approve_reject', data.approve_reject_status);
+                location.href = "/student_course/2";
             },
             error:function (message){
             }
@@ -459,7 +463,7 @@ function cpa_edit(){
             console.log(result.data)
              var data = result.data;
              var education = result.data.student_education_histroy;
-             var cpone_dir = result.data.cpa_one_direct;
+            //  var cpone_dir = result.data.cpa_one_direct;
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
@@ -488,20 +492,26 @@ function cpa_edit(){
             $('#degree_name').val(education.degree_name);
             $('#qualified_date').val(education.qualified_date);
             $('#roll_number').val(education.roll_number);
+            $('#batch_id').val(data.student_course.batch_id);
 
-            $('#acca_cima_pass_level').val(cpone_dir.acca_cima_pass_level);
-            $('#acca_cima_exam_year').val(cpone_dir.acca_cima_pass_year);
-            $('#acca_cima_exam_month').val(cpone_dir.acca_cima_exam_month);
-            $('#acca_cima_reg_no').val(cpone_dir.acca_cima_reg_no);
+            $('#direct_degree').val(data.direct_degree);
+            $('#degree_date').val(data.degree_date);
+            $('#degree_rank').val(data.degree_rank);
+            $('#old_certificate').val(education.certificate);
+            $('#old_deg_certi').val(data.degree_certificate_image);
+            $('#old_image').val(data.image);
+
+
+            // $('#acca_cima_reg_no').val(cpone_dir.acca_cima_reg_no);
           
           
-            $('#da_pass_year').val(cpone_dir.da_pass_year);
-            $('#da_pass_month').val(cpone_dir.da_pass_month);
-            $('#da_pass_roll_number').val(cpone_dir.da_pass_roll_number);
+            // $('#da_pass_year').val(cpone_dir.da_pass_year);
+            // $('#da_pass_month').val(cpone_dir.da_pass_month);
+            // $('#da_pass_roll_number').val(cpone_dir.da_pass_roll_number);
 
             
-            (cpone_dir.da_pass_year) ? $('#da').prop("checked",true) : $('#non_da').prop("checked",true) 
-            selectEntry();
+            // (cpone_dir.da_pass_year) ? $('#da').prop("checked",true) : $('#non_da').prop("checked",true) 
+            // selectEntry();
 
 
 

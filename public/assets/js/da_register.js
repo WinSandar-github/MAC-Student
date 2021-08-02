@@ -42,8 +42,11 @@ function createDARegister()
     send_data.append('certificate', certificate);
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
+    var url = location.pathname;
+    var batch_id = url.substring(url.lastIndexOf('/')+1);
+    
 
-    // send_data.append('batch_id', $("input[name=batch_id]").val());
+    send_data.append('batch_id', batch_id);
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -52,13 +55,13 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-             if(result.name_mm!=null){
-                successMessage("Insert Successfully");                
-                location.reload();
-             }
-             else{
-                successMessage(result);
-             }
+            //  if(result.name_mm!=null){
+            //     successMessage("Insert Successfully");                
+            //     location.reload();
+            //  }
+            //  else{
+            //     successMessage(result);
+            //  }
       },
       error:function (message){
         errorMessage(message);
@@ -106,7 +109,7 @@ function da_edit(){
             $('#degree_name').val(education.degree_name);
             $('#qualified_date').val(education.qualified_date);
             $('#roll_number').val(education.roll_number);
-
+            $('#batch_id').val(education.batch_id);
         }
     })
 
@@ -114,6 +117,8 @@ function da_edit(){
 
 $('#da_update').submit(function(e){
     e.preventDefault();
+  
+
     var formData = new FormData(this);
     formData.append('_method', 'PUT');
     var student_id = $('#stu_id').val();
