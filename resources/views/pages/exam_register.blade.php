@@ -61,9 +61,9 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form method="post" action="javascript:createExamRegister();" enctype="multipart/form-data">
+                        <form method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="da_type" class="form-control" value="1">
+                            <input type="hidden" id="form_type" class="form-control" value="da one">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                     <table width="100%">
