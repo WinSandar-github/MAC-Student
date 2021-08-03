@@ -42,8 +42,11 @@ function createDARegister()
     send_data.append('certificate', certificate);
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
+    var url = location.pathname;
+    var batch_id = url.substring(url.lastIndexOf('/')+1);
+    
 
-    // send_data.append('batch_id', $("input[name=batch_id]").val());
+    send_data.append('batch_id', batch_id);
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -78,20 +81,26 @@ function da_edit(){
         type:'GET',
         url: BACKEND_URL+'/student_info/'+student.id,
         success:function(result){
+            console.log(result)
              var data = result.data;
              var education = result.data.student_education_histroy;
             $('#stu_id').val(data.id);
             $('#name_mm').val(data.name_mm);
             $('#name_eng').val(data.name_eng);
-            $('#nrc_state_region').val(3);
+            $('#nrc_state_region').val(data.nrc_state_region);
+            $('#nrc_township').val(data.nrc_township);
+            $('#nrc_citizen').val(data.nrc_citizen);
+            $('#nrc_number').val(data.nrc_number)
             $('#father_name_mm').val(data.father_name_mm);
             $('#father_name_eng').val(data.father_name_eng);
             $('#race').val(data.race);
             $('#religion').val(data.religion);
             $('#date_of_birth').val(data.date_of_birth);
             $('#phone').val(data.phone);
-            $('#office_address').val(data.office_address);
+            $('#address').val(data.address);
             $('#current_address').val(data.current_address);
+            $('#old_image').val(data.image);
+            $('#old_certificate').val(education.certificate);
             $('#name').val(data.student_job.name);
             $('#position').val(data.student_job.position);
             $('#department').val(data.student_job.department);
@@ -106,6 +115,7 @@ function da_edit(){
             $('#degree_name').val(education.degree_name);
             $('#qualified_date').val(education.qualified_date);
             $('#roll_number').val(education.roll_number);
+            $('#batch_id').val(data.student_course.batch_id);
 
         }
     })
@@ -114,8 +124,10 @@ function da_edit(){
 
 $('#da_update').submit(function(e){
     e.preventDefault();
+  
+
     var formData = new FormData(this);
-    formData.append('_method', 'PUT');
+    formData.append('_method', 'PATCH');
     var student_id = $('#stu_id').val();
  
      
@@ -128,7 +140,7 @@ $('#da_update').submit(function(e){
             data: formData,
             success: function (data) {
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = "/student_course/";
+                location.href = "/student_course/1";
             },
             error:function (message){
             }

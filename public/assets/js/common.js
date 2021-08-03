@@ -1,5 +1,6 @@
-var BACKEND_URL="http://localhost:8000/api";
-// var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+// var BACKEND_URL="http://localhost:8000/api";
+var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+
 var toastOptions = {
     "closeButton": true,
     "debug": false,
@@ -17,14 +18,13 @@ var toastOptions = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 }
+
 function successMessage(message) {
     toastr.options = toastOptions;
     toastr.success(message);
 }
 
 $('document').ready(function(){
-    
-
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
@@ -35,10 +35,7 @@ $('document').ready(function(){
 
                 $('.course_type').append(course);
 
-            })
-            
-            
-           
+            }) 
         }
     })
 

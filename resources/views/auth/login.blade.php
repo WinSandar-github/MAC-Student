@@ -143,15 +143,46 @@
 
 $('document').ready(function(){ 
     let ls_course_type = localStorage.getItem('course_type');
-    if(ls_course_type == 1){
-        $('.route_reg').append(`You dont have account  <a href="{{url('da_register')}}">Register</a>`)
+    let batch_id = localStorage.getItem('batch_id');
 
+    async function getCurrentBatch(){
+        const response =    await fetch(BACKEND_URL+"/publish_batch/1");
+        const result   = await response.json();
+    
+        const course = result.course.filter(function(res) {
+            return    res.code == 1
+        }
+        );
+        console.log(course[0].active_batch[0]);
+       if(course[0].active_batch[0] !== undefined){
+           batch_id =  course[0].active_batch[0].id;
+           $('.route_reg').append(`You dont have account  <a href={{url('da_register/${batch_id}')}}>Register</a>`)
 
+       }else{
+        $('.route_reg').append(`You dont have account  <a href="javascript:void(0)" onclick='alert("The class is not currently ‌available")'>Register</a>`)
+           
+       }
+
+        
+           
+     }
+     
+    
+    
+    
+    // console.log(response)
+    if(batch_id == null ){
+        getCurrentBatch();
     }else{
-        $('.route_reg').append(`You dont have account  <a href="{{url('cpa_register')}}">Register</a>`)
+    
+    if(ls_course_type == 2){
+        
+        $('.route_reg').append(`You dont have account  <a href={{url('cpa_register/${batch_id}')}}>Register</a>`)
+    }else{
+        $('.route_reg').append(`You dont have account  <a href="{{url('da_register/${batch_id}')}}">Register</a>`)
 
     }
-
+}
 
 
 

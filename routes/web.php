@@ -57,12 +57,14 @@ Route::get('cpa_two_private_school', 'CPATwoRegisterController@private_school');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
-Route::get('da_register', 'DARegisterController@registerForm');
+Route::get('da_register/{id}', 'DARegisterController@registerForm');
 //Cpa One
-Route::get('cpa_register', 'CPAOneRegisterController@cpaRegister');
+Route::get('cpa_register/{id}', 'CPAOneRegisterController@cpaRegister');
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
 //Cpa One Exam Register
 Route::get('cpa_exam_register','CPAOneRegisterController@cpaExamRegister');
+//Cpa two exam register
+Route::get('cpa_two_exam_register','CPATwoRegisterController@cpaTwoExamRegister');
 
 //User login
 Route::post('/loginValidate', 'LoginController@loginValidate');
@@ -72,4 +74,3 @@ Route::get('login','LoginController@login')->name('login');
 
 // Audit Firm
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
-
