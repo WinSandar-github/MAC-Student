@@ -30,6 +30,8 @@ function app_form_feedback(){
                     $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 }
             }else{
+
+                
             
                 $('.course_detail').css('display','block');
                 $.ajax({
