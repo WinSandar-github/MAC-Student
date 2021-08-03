@@ -47,6 +47,9 @@ Route::get('student_index', 'StudentController@index');
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
 
+//Non_Audit firm
+Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
+
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
 Route::get('cpa_one_register', 'CPAOneRegisterController@register');
