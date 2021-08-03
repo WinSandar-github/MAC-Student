@@ -59,10 +59,10 @@ function app_form_feedback(){
                                 ++count;
 
                                 if(course_type == 1){
-                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_form/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_form/'+batch_id[i];
                                 }
                                 
                              
@@ -248,10 +248,10 @@ function createMac()
     });
 }
 
+// show Register Form Feedback after approve application form in student study page
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     
- 
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
         type: 'GET',

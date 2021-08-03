@@ -60,7 +60,7 @@
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body">
-                            <p class="card-text">Your Registration Form is Successfully</p>
+                            <p class="card-text">You have the opportunity to attend the training  </p>
                         </div>
                     </div>
                 </div>

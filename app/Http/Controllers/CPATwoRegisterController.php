@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\CustomClass\Helper;
+
 
 class CPATwoRegisterController extends Controller
 {
@@ -19,5 +21,14 @@ class CPATwoRegisterController extends Controller
     public function cpaTwoExamRegister()
     {
         return view('pages.cpa.cpa_two_exam_register');
+    }
+
+    public function cpaTwoAppForm($id)
+    {       
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+        $batch = $res['data'];
+        return view('pages.da.da_two_app_form',compact('batch'));
     }
 }

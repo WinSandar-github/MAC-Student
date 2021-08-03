@@ -57,7 +57,6 @@ Route::get('cpa_two_private_school', 'CPATwoRegisterController@private_school');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('student_study', 'StudentController@study');
-Route::get('da_register/{id}', 'DARegisterController@registerForm');
 //Cpa One
 Route::get('cpa_register/{id}', 'CPAOneRegisterController@cpaRegister');
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
@@ -68,7 +67,15 @@ Route::get('cpa_two_exam_register','CPATwoRegisterController@cpaTwoExamRegister'
 
 //User login
 Route::post('/loginValidate', 'LoginController@loginValidate');
-Route::get('cpa_register', 'CPAFFController@cpaRegister');
-Route::get('da_two_register', 'DARegisterController@da_two_register');
 Route::get('login','LoginController@login')->name('login');
+
+Route::get('cpa_register', 'CPAFFController@cpaRegister');
+Route::get('da_register/{id}', 'DARegisterController@registerForm');
+Route::get('da_two_register', 'DARegisterController@da_two_register');
+Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
+
+
+
+
 
