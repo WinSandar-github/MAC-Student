@@ -96,6 +96,8 @@
                                 <li><a href="{{url('student_papp')}}">PAPP</a></li>
                             </ul>
                         </li>
+                        <li><a href="{{url('school_register')}}">School</a></li>
+                        <li><a href="{{url('teacher_register')}}">Teacher</a></li>
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
