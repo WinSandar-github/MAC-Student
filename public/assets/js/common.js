@@ -165,6 +165,13 @@ function delRowDirector(tbody){
     });
 }
 
+function delRowDirectorCPA(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
+}
+
 function getOrganization(){
     var radioValue = $("input[name='org_stru_id']:checked").val();
     if(radioValue==1){
