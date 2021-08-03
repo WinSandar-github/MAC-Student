@@ -62,10 +62,11 @@
 
         </div>
           <div class="container" style="overflow: hidden;">
-            <div class="row mt-5">
-                <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-
-              <div class="card border-success card-stats mb-3">
+						<form id="non-audit-form" method="post" action="javascript:createFirm();" enctype="multipart/form-data">
+							<input type="hidden" value="2" name="audit_firm_type_id">
+	            <input type="hidden" value="1" name="local_foreign_id">
+            	<div class="row mt-5">
+              	<div class="card border-success card-stats mb-3">
                 <br>
                 <div class="dropdown">
                   <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -967,27 +968,27 @@
                       <label class="col-md-4 col-form-label">{{ __('Total Staff') }}</label>
 
                   </div>
-                  <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
-                          <div class="card">
-                              <div class="card-body">
-                                  <table id="tbl_non_audit" class="table">
-                                      <thead>
-                                          <tr>
-                                              <th class="less-font-weight" ></th>
-                                              <th class="less-font-weight" rowspan="2">Number</th>
+									<div class="row">
+                  	<div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <table id="tbl_non_audit_number" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="less-font-weight" ></th>
+                                            <th class="less-font-weight" rowspan="2">Number</th>
 
-                                          </tr>
+                                        </tr>
 
-                                      </thead>
-                                      <tbody id="tbl_non_audit_body">
+                                    </thead>
+                                    <tbody id="tbl_non_audit_number_body">
 
-                                      </tbody>
-                                  </table>
-                              </div>
-                          </div>
-                      </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                   </div>
                   <br>
                   <div class="row">
@@ -1084,7 +1085,8 @@
                 </div>
 
               </div>
-            </div>
+            	</div>
+						</form>
           </div>
         </div>
 
