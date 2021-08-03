@@ -1,4 +1,4 @@
-// var BACKEND_URL="http://localhost:8000/api";
+// var BACKEND_URL="http://localhost:8080/api";
 var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var toastOptions = {
     "closeButton": true,
@@ -24,7 +24,6 @@ function successMessage(message) {
 }
 
 $('document').ready(function(){
-    
 
     //getCourseType for Nav bar
     $.ajax({
@@ -49,3 +48,4 @@ function formatDate(date){
     var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
     return date;
 }
+
