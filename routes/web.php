@@ -70,5 +70,6 @@ Route::get('cpa_register', 'CPAFFController@cpaRegister');
 Route::get('da_two_register', 'DARegisterController@da_two_register');
 Route::get('login','LoginController@login')->name('login');
 
-
+// Audit Firm
+Route::get('audit_firm', 'AuditFirmController@auditFirm');
 
