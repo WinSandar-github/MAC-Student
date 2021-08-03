@@ -1,5 +1,6 @@
-var BACKEND_URL="http://localhost:8080/api";
-// var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+// var BACKEND_URL="http://localhost:8080/api";
+var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+
 var toastOptions = {
     "closeButton": true,
     "debug": false,
@@ -24,8 +25,6 @@ function successMessage(message) {
 }
 
 $('document').ready(function(){
-
-
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
@@ -37,13 +36,11 @@ $('document').ready(function(){
                 $('.course_type').append(course);
 
             })
-
-
-
         }
     })
 
 })
+
 function formatDate(date){
     var income_date=date.split('-');
     var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
@@ -161,7 +158,7 @@ function addRowDirectorCPA(tbody){
     counter++;
 }
 
-function delRowDirectorCPA(tbody){
+function delRowDirector(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
         $(this).closest("tr").remove();
         counter -= 1
@@ -198,3 +195,12 @@ function destroyDatatable(table, tableBody) {
     }
     $(tableBody).empty();
 }
+$('table tbody').on('click', 'tr', function () {
+    if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+    }
+    else {
+        $('table tbody tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+    }
+});
