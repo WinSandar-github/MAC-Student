@@ -69,6 +69,7 @@
                                     <br/>
                                     <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" id="form_type" class="form-control" value="cpa two">
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-1">

@@ -156,7 +156,7 @@ function Private_School_Submit(){
     data.append('batch_session_no', null);
     data.append('entrance_part', null);
     data.append('entrance_exam_no', null);
-    data.append('cpa_one_type', 0);
+    data.append('cpa_one_type', 1);
 
     $.ajax({
         url: BACKEND_URL+"/cpa_one_registration",
@@ -278,7 +278,7 @@ function Self_Study_Submit(){
     data.append('batch_session_no', $("#batch_session_no").val());
     data.append('entrance_part', $("#entrance_part").val());
     data.append('entrance_exam_no', $("#entrance_exam_no").val());
-    data.append('cpa_one_type', 1);
+    data.append('cpa_one_type', 0);
 console.log('data',data);
     $.ajax({
         url: BACKEND_URL+"/cpa_one_registration",

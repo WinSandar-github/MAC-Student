@@ -130,9 +130,9 @@
                                             </div>
                                         </div><br/> -->
 
-                                        <form  method="post" action="javascript:createDATwoExamRegister();" enctype="multipart/form-data">
+                                        <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
-
+                                            <input type="hidden" id="form_type" class="form-control" value="da two">
                                                 <div class="row">
                                                     <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
