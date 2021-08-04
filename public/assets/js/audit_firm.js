@@ -9,7 +9,7 @@ function createAuditFirm(){
   send_data.append('city',$("input[name=city]").val());
   send_data.append('state',$("input[name=state]").val());
   send_data.append('phone_no',$("input[name=phone_no]").val());
-  send_data.append('email',$("input[name=email]").val());
+  send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
@@ -17,6 +17,10 @@ function createAuditFirm(){
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
+
+  send_data.append('email',$("input[name=email]").val());
+  send_data.append('password',$("input[name=password]").val());
+
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
   $('input[name="bo_post_code[]"]').map(function(){send_data.append("bo_post_code[]",$(this).val());});
