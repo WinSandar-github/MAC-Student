@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\FileUploadController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +33,7 @@ Route::get('da_register', 'DARegisterController@registerForm');
 
 //Exam Register Form
 Route::get('/exam_register', 'ExamRegisterController@registerForm');
+Route::get('/cpa_exam_register', 'CpaExamRegisterController@registerForm');
 
 //DAII Exam Register Form
 Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegisterForm');
@@ -43,6 +46,9 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+
+//Non_Audit firm
+Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
 
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');

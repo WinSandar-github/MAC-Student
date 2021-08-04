@@ -8,7 +8,7 @@ function createDAExamRegister()
     send_data.append('private_school_name', $("input[name=private_school_name]").val());
     send_data.append('invoice_image', invoice_image);
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
-    
+
     send_data.append('form_type',$("#form_type").val());
     // console.log('form_type',$("input[name=form_type]").val());
     $.ajax({
@@ -26,7 +26,7 @@ function createDAExamRegister()
 
 
 $('#cpa_exam_register').submit(function(e){
-    e.preventDefault();    
+    e.preventDefault();
     var form_data = new FormData(this);
     form_data.append('form_type',$("#form_type").val());
     console.log(student_id)
