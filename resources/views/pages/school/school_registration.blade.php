@@ -44,7 +44,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Student Registration  <span>Form</span></h2>
+                    <h2 class="title">School Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
