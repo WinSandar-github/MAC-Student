@@ -141,7 +141,7 @@
                                                         </td>
                                                         <td width="30%">
                                                             <div class="form-group">
-                                                                <input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
+                                                                <input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="30%">
@@ -878,24 +878,9 @@
                                             </div>
                                             <div class="row type_service_provided"></div><br><br>
 
-                                            <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label style="margin-left: 20%;">12</label></td>
-                                                        <td width="15%"><label>Declaration</label></td>
-                                                        <td width="80%">
-                                                            <div class="form-group">
-                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
-                                                                (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>
-
                                             <table width="100%">
                                                 <tr>
-                                                    <td width="5%">13</td>
+                                                    <td width="5%">12</td>
                                                     <td width="15%"><label class="col-form-label">အီးမေးလ်</label>
                                                     </td>
                                                     <td width="80%">
@@ -907,7 +892,7 @@
                                             </table><br>
                                             <table width="100%">
                                                 <tr>
-                                                    <td width="5%">14</td>
+                                                    <td width="5%">13</td>
                                                     <td width="15%"><label class="col-form-label">Password</label>
                                                     </td>
                                                     <td width="80%">
@@ -916,7 +901,52 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </table>
+                                            </table><br>
+
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">14</td>
+                                                    <td width="15%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="form-group">
+                                                            <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+                                                            <input type="hidden" value="1000" name="form_fee">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">15</td>
+                                                    <td width="15%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="form-group">
+                                                            <div class="form-group">
+                                                            <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+                                                            <input type="hidden" value="100000" name="nrc_fee">
+                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+
+                                            <div class="row">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td width="5%"></td>
+                                                        <td width="15%"><label>Declaration</label></td>
+                                                        <td width="80%">
+                                                            <div class="form-group">
+                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
+                                                                (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div><br>
                                             <div class="col-md-12" style="padding-top: 2%;">
                                                 <div class="single-form text-center">
                                                     <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
