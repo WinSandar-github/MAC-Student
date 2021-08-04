@@ -76,7 +76,7 @@
                                                             <div class="form-group">
                                                                 <input type="hidden" value="1" name="audit_firm_type_id">
                                                                 <input type="hidden" value="1" name="local_foreign_id">
-                                                                <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off">
+                                                                <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -90,7 +90,7 @@
                                                         <td width="15%"><label>Accountancy Firm Name</label></td>
                                                         <td width="80%">
                                                             <div class="form-group">
-                                                                <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Accountancy Firm Name" autocomplete="off">
+                                                                <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Accountancy Firm Name" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -109,22 +109,22 @@
                                                         <td width="15%"><label>Address Of Practice(Head Office</label></td>
                                                         <td width="20%">
                                                             <div class="form-group">
-                                                                <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off">
+                                                                <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="20%">
                                                             <div class="form-group">
-                                                                <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off">
+                                                                <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="20%">
                                                             <div class="form-group">
-                                                                <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off">
+                                                                <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="20%">
                                                             <div class="form-group">
-                                                                <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off">
+                                                                <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -137,16 +137,16 @@
                                                         <td width="20%">
                                                         </td>
                                                         <td width="25%">
-                                                            <input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off">
+                                                            <input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" required="">
                                                         </td>
                                                         <td width="30%">
                                                             <div class="form-group">
-                                                                <input type="text" name="email" class="form-control" placeholder="Email Address" autocomplete="off">
+                                                                <input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="30%">
                                                             <div class="form-group">
-                                                                <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off">
+                                                                <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -781,11 +781,11 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>8</label></td>
+                                                        <td width="5%"><label style="margin-left: 26%;">8</label></td>
                                                         <td width="15%"><label>Name Of Sole Proprietor/Managing Partner</label></td>
                                                         <td width="80%">
                                                             <div class="form-group">
-                                                                <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off">
+                                                                <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" required="">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -795,7 +795,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>9</label></td>
+                                                        <td><label style="margin-left: 10%;">9</label></td>
                                                         <td><label style="margin-left:-8%;">Total Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -833,7 +833,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>10</label></td>
+                                                        <td><label style="margin-left: 7%;">10</label></td>
                                                         <td><label style="margin-left:-17%;">Audit Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -871,7 +871,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>11</label></td>
+                                                        <td><label style="margin-left: 9%;">11</label></td>
                                                         <td><label style="margin-left:-5%;">Types Of Service Provided</label></td>
                                                     </tr>
                                                 </table>
@@ -881,21 +881,45 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>12</label></td>
+                                                        <td width="5%"><label style="margin-left: 20%;">12</label></td>
                                                         <td width="15%"><label>Declaration</label></td>
                                                         <td width="80%">
                                                             <div class="form-group">
-                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off">
+                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
                                                                 (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
                                                             </div>
                                                         </td>
                                                     </tr>
                                                 </table>
-                                            </div>
+                                            </div><br>
 
-                                            <div class="row">
-                                                <div class="col-md-11 d-md-flex justify-content-md-end">
-                                                    <button type="submit" class="btn btn-primary btn-round" form="audit_firm_form">{{ __('Save') }}</button>
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">13</td>
+                                                    <td width="15%"><label class="col-form-label">အီးမေးလ်</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="form-group">
+                                                            <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">14</td>
+                                                    <td width="15%"><label class="col-form-label">Password</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="form-group">
+                                                            <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="col-md-12" style="padding-top: 2%;">
+                                                <div class="single-form text-center">
+                                                    <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
                                                 </div>
                                             </div>
                                         </div>
