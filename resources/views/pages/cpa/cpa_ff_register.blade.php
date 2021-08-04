@@ -64,17 +64,44 @@
         <div class="container" style="overflow: hidden;">
             
             <div class="row mt-5">
-                                            
-                
-                <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-                    <div class="card border-success mb-3">
+                    <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_age" id="check_age">
+                        <label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
+                    </div>        
+                    <br/>  
+                    <br/>  
+                    <br/>            
+                    <div id="rejected" style="display:none">
+                        <div class="card text-white bg-dark my-3">                            
+                            <div class="card-body">
+                                <p class="card-text reject">Your registration form is rejected. Please update your information. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pending" style="display:none;">
+                        <div class="card text-white bg-primary my-3">
+                            
+                            <div class="card-body">
+                                <p class="card-text">Your registration form is being checked.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="approved" style="display:none;">
+                        <div class="card text-white bg-primary my-3">
+                            
+                            <div class="card-body">
+                                <p class="card-text">Your registration form is approved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-success mb-3" id="cpaff_from" style="display:none;">
                         <div class="card-body">
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                 <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်(အင်္ဂလိပ်ဘာသာဖြင့်ဖြည့်စွက်ပေးပါရန်)') }}</label>                                
-                            </div><br/>                       
+                            </div>              
 
-                            <div class="row">
+                            {{--<div class="row">
                                 <div class="col-md-1 col-form-label"></div>
                                 <div class="col-md-1 col-form-label pt-4">{{ __('(က)') }}</div>
                                 <div class="col-md-3 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
@@ -126,7 +153,15 @@
                                             </div>
                                         </div>
                                     </div>
-                            </div> <br/>     
+                            </div> <br/>     --}}
+                            <div class="row">
+                                <div class="col-md-1 col-form-label"></div>
+                                <div class="col-md-1 col-form-label pt-4">{{ __('(က)') }}</div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('အသက်') }}</div>
+                                    <div class="col-md-7 col-form-label pt-4">
+                                        <lable id="age"></label>
+                                    </div>
+                            </div>
 
                             <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
                                 <fieldset id="fieldset" disabled>
@@ -138,7 +173,7 @@
                                         <div class="col-md-7">
                                             <div class="row mb-2">
                                                 <div class="col-md-4">
-                                                    <input type="radio" name="education" id="cpa_edu" value="1" onclick="getEducation()">
+                                                    <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
                                                     <label class="col-form-label">CPA</label>
                                                 </div>
                                             </div>
@@ -154,7 +189,7 @@
 
                                             <div class="row mb-2">
                                                 <div class="col-md-4">
-                                                    <input type="radio" name="education" id="ra_edu" value="2" onclick="getEducation()">
+                                                    <input type="radio" name="education" id="ra_edu" value="2" onclick="getCPAEducation()">
                                                     <label class="col-form-label">RA</label>
                                                 </div>
                                             </div>
@@ -170,7 +205,7 @@
                                             
                                             <div class="row mb-2">
                                                 <div class="col-md-4">
-                                                    <input type="radio" name="education" value="3" onclick="getEducation()">
+                                                    <input type="radio" name="education" value="3" onclick="getCPAEducation()">
                                                     <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                                 </div>
                                                 
@@ -395,5 +430,7 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+    isLogin();
+    form_feedback();
 </script>
 @endpush
