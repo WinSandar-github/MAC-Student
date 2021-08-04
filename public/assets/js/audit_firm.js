@@ -272,6 +272,10 @@ function autoLoadAudit(){
             removeBracketed(item.letterhead,"letterheads");
           }else $(".letterheads").append("<span class='text-primary'>no file</span>");
 
+          if(item.tax_clearance!="null"){
+            removeBracketed(item.tax_clearance,"tax_clearances");
+          }else $(".tax_clearances").append("<span class='text-primary'>no file</span>");
+
           if(item.representative!="null"){
             removeBracketed(item.representative,"representatives");
           }else $(".representatives").append("<span class='text-primary'>no file</span>");
