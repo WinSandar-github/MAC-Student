@@ -79,3 +79,11 @@ Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('
 
 
 
+// Audit Firm
+Route::get('audit_firm', 'AuditFirmController@auditFirm');
+
+//School Register Form
+Route::get('school_register', 'SchoolController@info');
+
+//Teacher Register Form
+Route::get('teacher_register', 'TeacherController@info');

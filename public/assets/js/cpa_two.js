@@ -48,7 +48,7 @@ function CPA2_Private_School_Submit(){
     data.append('batch_session_no', "");
     data.append('entrance_part', "");
     data.append('entrance_exam_no', "");
-    data.append('cpa_two_type', 0);
+    data.append('cpa_two_type', 1);
     $.ajax({
         url: BACKEND_URL+"/cpa_two_registration",
         type: 'post',
@@ -142,7 +142,7 @@ function CPA2_Self_Study_Submit(){
     data.append('batch_session_no',$("#batch_session_no").val() );
     data.append('entrance_part', $("#entrance_part").val());
     data.append('entrance_exam_no', $("#entrance_exam_no").val());
-    data.append('cpa_two_type', 1);
+    data.append('cpa_two_type',0);
     $.ajax({
         url: BACKEND_URL+"/cpa_two_registration",
         type: 'post',

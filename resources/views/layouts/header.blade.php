@@ -85,7 +85,7 @@
                         <li>
                             <a href="#">Firm</a>
                             <ul class="sub-menu">
-                                <li><a href="courses.html">Audit Firm</a></li>
+                                <li><a href="{{ url('/audit_firm') }}">Audit Firm</a></li>
                                 <li><a href="courses-details.html">Non Audit Firm</a></li>
                             </ul>
                         </li>
@@ -96,6 +96,8 @@
                                 <li><a href="{{url('student_papp')}}">PAPP</a></li>
                             </ul>
                         </li>
+                        <li><a href="{{url('school_register')}}">School</a></li>
+                        <li><a href="{{url('teacher_register')}}">Teacher</a></li>
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
