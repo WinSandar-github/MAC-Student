@@ -1077,6 +1077,32 @@
                         </div>
                       </div>
                   </div>
+
+                  <!-- <table width="100%">
+                    <tr>
+                        <td width="5%">13</td>
+                        <td width="15%"><label class="col-form-label">အီးမေးလ်</label>
+                        </td>
+                        <td width="80%">
+                            <div class="form-group">
+                                <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
+                            </div>
+                        </td>
+                    </tr>
+                </table><br>
+                <table width="100%">
+                    <tr>
+                        <td width="5%">14</td>
+                        <td width="15%"><label class="col-form-label">Password</label>
+                        </td>
+                        <td width="80%">
+                            <div class="form-group">
+                                <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+                            </div>
+                        </td>
+                    </tr>
+                </table> -->
+
                   <div class="row">
                       <div class="col-md-11 d-md-flex justify-content-md-end">
                           <button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Save') }}</button>
@@ -1107,8 +1133,8 @@
 @push('scripts')
 <script>
   loadNonAuditStaff();
-  loadOrganization();
-  loadTypeOfService();
+  loadNonAuditOrganization();
+  loadNonAuditTypeOfService();
 </script>
 
 @endpush
