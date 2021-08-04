@@ -78,7 +78,7 @@
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                     <div class="card border-success mb-3">
                         <div class="card-body">
-                            <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" novalidate>
+                            <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
                                 <div class="row">
                                   <label class="col-md-1 col-form-label"></label>
                                   <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏အချက်အလက်များ') }}</label>
@@ -90,7 +90,7 @@
                                   <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
                                   <div class="col-md-8">
                                       <div class="form-group">
-                                          <input type="text" name="name_mm" class="form-control" required>
+                                          <input type="text" name="name_mm" class="form-control" autocomplete='off' required>
                                       </div>
                                   </div>
                                 </div>
@@ -100,7 +100,7 @@
                                   <label class="col-md-2 col-form-label">{{ __('အမည်(အင်္ဂလိပ်)') }}</label>
                                   <div class="col-md-8">
                                       <div class="form-group">
-                                          <input type="text" name="name_eng" class="form-control" required>
+                                          <input type="text" name="name_eng" class="form-control" autocomplete='off' required>
                                       </div>
                                   </div>
                                 </div>
@@ -149,7 +149,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အဘအမည်(မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="father_name_mm" class="form-control" required>
+                                            <input type="text" name="father_name_mm" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                             
@@ -160,7 +160,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အဘအမည်(အင်္ဂလိပ်)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="father_name_eng" class="form-control" required>
+                                            <input type="text" name="father_name_eng" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                             
@@ -171,7 +171,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('မွေးသဣရာဇ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy" class="form-control" required>
+                                            <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="degree" class="form-control" required>
+                                            <input type="text" name="degree" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@
                                     <div class="col-md-8">
                                         <input type="checkbox" name="school_type[]" value='individual'>
                                         <label class="form-check-label">တစ်ဦးတည်းပိုင်လုပ်ငန်း </label>
-                                        <label class="form-check-label type text-danger" style='display:none;float:right;'>!Please check at least one of the box.</label>
+                                        <label class="form-check-label type text-danger" style='display:none;float:right;'>ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ပေးပါ</label>
                                     </div>                
                                 </div>
                             
@@ -239,7 +239,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="address" class="form-control" required>
+                                            <input type="text" name="address" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="phone" class="form-control" required>
+                                            <input type="text" name="phone" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +259,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အီးမေးလ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="email" class="form-control" required>
+                                            <input type="text" name="email" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -302,13 +302,22 @@
 <script type="text/javascript">
 
 $(document).ready(function (e) {
-   $('#image').change(function(){
-        let reader = new FileReader();
-        reader.onload = (e) => { 
-            $('#preview-image-before-upload').attr('src', e.target.result); 
+    $( "#school_register_form" ).submit(function( event ) {
+        var checkedNum = $('input[name="school_type[]"]:checked').length;
+        if (!checkedNum) {
+            $(".type").show();
+            event.preventDefault();
         }
-        reader.readAsDataURL(this.files[0]); 
-   });
+    });
+    $('input[type=checkbox][name="school_type[]"]').change(function() {
+        var checkedNum = $('input[name="school_type[]"]:checked').length;
+        if (!checkedNum) {
+            $(".type").show();
+        }
+        else {
+            $(".type").hide();
+        }
+    });
 
     $("input[name='dob']").flatpickr({
             enableTime: false,

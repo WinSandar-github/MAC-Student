@@ -78,13 +78,13 @@
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                     <div class="card border-success mb-3">
                         <div class="card-body">
-                            <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:createTeacherRegister();" class="needs-validation" novalidate>
+                            <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:createTeacherRegister();" class="needs-validation" autocomplete="off" novalidate>
                             <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="name_mm" class="form-control" placeholder="အမည်(မြန်မာ)" required>
+                                            <input type="text" name="name_mm" class="form-control" placeholder="အမည်(မြန်မာ)"  required>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@
                                                 
                                             </div>
                                             <div class="col-md-4">
-                                            <label class="invalid-feedback gov_employee text-danger">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးပါ</label>
+                                                <label class="invalid-feedback gov_employee text-danger">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးပါ</label>
                                             </div>
                                         </div>                                                                                        
                                     </div>
