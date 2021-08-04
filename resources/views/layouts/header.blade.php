@@ -15,7 +15,7 @@
     .dropdown:hover .dropdown-content{
         display:block !important;
     }
-   
+
 </style>
 <div class="header-section">
 
@@ -79,14 +79,14 @@
                         <li>
                             <a href="#">Courses</a>
                             <ul class="sub-menu course_type">
-                               
+
                             </ul>
                         </li>
                         <li>
                             <a href="#">Firm</a>
                             <ul class="sub-menu">
                                 <li><a href="{{ url('/audit_firm') }}">Audit Firm</a></li>
-                                <li><a href="courses-details.html">Non Audit Firm</a></li>
+                                <li><a href="{{url('non_audit_firm_register')}}">Non Audit Firm</a></li>
                             </ul>
                         </li>
                         <li>
@@ -142,7 +142,7 @@
                 </div>
                 <!-- Header Menu End -->
                                 <!-- Header Sing In & Up Start -->
-                
+
                 <div class="header-sign-in-up d-none d-lg-block signed_in"  >
                     <ul>
                         <li>
@@ -150,23 +150,23 @@
                             <span><a class="student_name sign-in"></a></span>
                             <div class="dropdown-content">
                                 <a onclick="logout()" href="/">Logout</a>
-                            
-                               
+
+
 
                             </div>
-                             
+
                             </div>
                         </li>
-                        
+
                     </ul>
-                    
+
                 </div>
 
                 <!-- Header Sing In & Up Start -->
                 <div class="header-sign-in-up d-none d-lg-block after_signin" >
                     <ul>
                         <li><a class="sign-in" href="{{url('login')}}" >Sign In</a></li>
-                        
+
                     </ul>
                 </div>
                 <!-- Header Sing In & Up End -->
@@ -249,6 +249,6 @@
 <script type="text/javascript">
 
     check_login();
-  
+
 </script>
 @endpush
