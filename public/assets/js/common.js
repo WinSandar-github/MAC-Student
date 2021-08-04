@@ -6,12 +6,12 @@ var toastOptions = {
     "debug": false,
     "newestOnTop": false,
     "progressBar": false,
-    "positionClass": "toast-top-right",
+    "positionClass": "toast-top-center",
     "preventDuplicates": false,
     "onclick": null,
     "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "1000",
+    "hideDuration": "2500",
+    "timeOut": "2500",
     "extendedTimeOut": "1000",
     "showEasing": "swing",
     "hideEasing": "linear",
@@ -174,6 +174,7 @@ function destroyDatatable(table, tableBody) {
     }
     $(tableBody).empty();
 }
+
 $('table tbody').on('click', 'tr', function () {
     if ($(this).hasClass('selected')) {
         $(this).removeClass('selected');
@@ -183,3 +184,27 @@ $('table tbody').on('click', 'tr', function () {
         $(this).addClass('selected');
     }
 });
+
+function resetForm(form){
+    var form = $(form)[0];
+    $(form).removeClass('was-validated');
+    form.reset();
+}
+// form validation 
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
