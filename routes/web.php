@@ -33,7 +33,7 @@ Route::get('da_register', 'DARegisterController@registerForm');
 
 //Exam Register Form
 Route::get('/exam_register', 'ExamRegisterController@registerForm');
-Route::get('/cpa_exam_register', 'CpaExamRegisterController@registerForm');
+// Route::get('/cpa_exam_register', 'CpaExamRegisterController@registerForm');
 
 //DAII Exam Register Form
 Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegisterForm');

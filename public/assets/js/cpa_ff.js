@@ -1,4 +1,4 @@
-function getEducation(){
+function getCPAEducation(){
     var checkedValue = $("input[name='education']:checked").val();
     if(checkedValue==1){
         $('#cpa').css('display','block');
@@ -39,43 +39,44 @@ function delInputFile(diventry){
     $('.btn-remove').parents('.'+diventry+':first').remove();
 }
 
-var  studentID;
-function SearchStudentID(){
-    var nrc_state_region    =   $("#nrc_state_region").val();
-    var nrc_township        =   $("#nrc_township").val();
-    var nrc_citizen         =   $("#nrc_citizen").val();
-    var nrc_number          =   $("input[name=nrc_number]").val();
-    // var nrc                 =   nrc_state_region+nrc_township+nrc_citizen+nrc_number;
-    var nrc = new FormData();
-    nrc.append('nrc_state_region', nrc_state_region);
-    nrc.append('nrc_township', nrc_township);
-    nrc.append('nrc_citizen', nrc_citizen);
-    nrc.append('nrc_number', nrc_number);
+// var  studentID;
+// function SearchStudentID(){
+//     var nrc_state_region    =   $("#nrc_state_region").val();
+//     var nrc_township        =   $("#nrc_township").val();
+//     var nrc_citizen         =   $("#nrc_citizen").val();
+//     var nrc_number          =   $("input[name=nrc_number]").val();
+//     // var nrc                 =   nrc_state_region+nrc_township+nrc_citizen+nrc_number;
+//     var nrc = new FormData();
+//     nrc.append('nrc_state_region', nrc_state_region);
+//     nrc.append('nrc_township', nrc_township);
+//     nrc.append('nrc_citizen', nrc_citizen);
+//     nrc.append('nrc_number', nrc_number);
 
-    console.log('nrc',nrc);
+//     console.log('nrc',nrc);
 
-    $.ajax({
-        url:BACKEND_URL+"/student_info_by_nrc",
-        type: 'post',
-        data: nrc,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            // console.log('result',result.data)
-                if(result.data!=null){
-                    studentID=result.data.id;
-                    document.getElementById("fieldset").disabled = false;
-                }
-                else{
-                    document.getElementById("fieldset").disabled = true;
-                }
-            }
-        });
+//     $.ajax({
+//         url:BACKEND_URL+"/student_info_by_nrc",
+//         type: 'post',
+//         data: nrc,
+//         contentType: false,
+//         processData: false,
+//         success: function(result){
+//             // console.log('result',result.data)
+//                 if(result.data!=null){
+//                     studentID=result.data.id;
+//                     document.getElementById("fieldset").disabled = false;
+//                 }
+//                 else{
+//                     document.getElementById("fieldset").disabled = true;
+//                 }
+//             }
+//         });
 
     
-}
+// }
 
 function createCPAFFRegister(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
     var cpa             =   $("input[name=cpa]")[0].files[0];
     var ra              =   $("input[name=ra]")[0].files[0];
 
@@ -93,7 +94,7 @@ function createCPAFFRegister(){
     var qt_pass         = document.getElementById("qt_pass_check");
 
     var send_data = new FormData();
-    send_data.append('student_info_id', studentID);
+    send_data.append('student_info_id', student.id);
     send_data.append('cpa', cpa);
     send_data.append('ra', ra);
     // send_data.append('foreign_degree', foreign_degree);
@@ -161,3 +162,54 @@ function selectEntry(){
      }
 }
 
+function isLogin(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    if(student == null){
+        location.href = '/login';
+    }
+    else{
+        var a=new Date(student.date_of_birth);
+        var diff_ms = Date.now() - a.getTime();
+        var age_dt = new Date(diff_ms); 
+        var age=Math.abs(age_dt.getUTCFullYear() - 1970);
+        if(age>=21){
+            $("#age").append(age+" years");
+            document.getElementById('fieldset').disabled=false;
+        }
+        else{
+            $("#age").append(age+" years");
+            document.getElementById('fieldset').disabled=true;
+            document.getElementById('check_age').style.display='block';
+        }
+    }
+}
+
+function form_feedback(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(cData){
+            console.log(cData.data);
+            if(cData.data!=null){
+                if(cData.data.status==0)
+                {
+                    document.getElementById('pending').style.display='block';
+                }
+                else if(cData.data.status==1)
+                {
+                    document.getElementById('approved').style.display='block';
+                }
+                else if(cData.data.status==2)
+                {
+                    document.getElementById('rejected').style.display='block';
+                }
+            }
+            else{
+                document.getElementById('cpaff_from').style.display='block';
+            }
+        }
+    });
+}

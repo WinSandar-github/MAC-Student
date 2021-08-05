@@ -43,7 +43,7 @@
                         
                         <div class="card-body">
                             <!-- status == 2 => reject -->
-                            <p class="card-text reject">Your Registration Form need to prepare.Please upate your form  
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
                              </p>
                         </div>
                     </div>
@@ -61,6 +61,15 @@
                         
                         <div class="card-body">
                             <p class="card-text">You have the opportunity to attend the training  </p>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body add_exam">
+                             
+                            
                         </div>
                     </div>
                 </div>
