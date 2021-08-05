@@ -1,3 +1,33 @@
+function audit_reg_feedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    console.log(student)
+    // $.ajax({
+    //     url: BACKEND_URL+"/getStatus/"+student.id,
+    //     type: 'GET',
+    //     contentType: false,
+    //     processData: false,
+    //     success: function(status){
+    //         if(status == 0){
+           
+    //             $('.audit_check_registration').css('display','block');
+                
+        
+    //         // }else if(status == 1){
+    //         //     $('.approve').css('display','block');
+        
+    //         // }else if(status == 2){
+    //         //     $('.status-reject').css('display','block');
+    //         //      // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+                    
+    //         // }else{
+    //         //     selectedRegistration();
+    //         //     $('.study').css('display','block');
+        
+                
+    //          }
+    //   }
+    // });   
+}
 
 function createAuditFirm(){
     
@@ -12,7 +42,7 @@ function createAuditFirm(){
   send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
-  send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
+  // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());

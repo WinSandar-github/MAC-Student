@@ -56,9 +56,16 @@
 
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
-
+            <div class="audit_check_registration" style="display:none;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your Registration Form is checking</p>
+                    </div>
+                </div>
+            </div>
             <div class="blog-details-comment">
-                <div class="comment-form">
+                <div class="comment-form" style="display:none;">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         <form id="audit_firm_form" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data">
@@ -75,7 +82,7 @@
                                                         <td width="80%">
                                                             <div class="form-group">
                                                                 <input type="hidden" value="1" name="audit_firm_type_id">
-                                                                <input type="hidden" value="1" name="local_foreign_id">
+                                                                {{--<input type="hidden" value="1" name="local_foreign_id">--}}
                                                                 <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
                                                             </div>
                                                         </td>
@@ -973,5 +980,6 @@
     loadTypeOfService();
     loadAuditTotalStaff();
     loadAuditStaff();
+    audit_reg_feedback();
 </script>
 @endpush
