@@ -62,27 +62,29 @@
 
         </div>
           <div class="container" style="overflow: hidden;">
-						<form id="non-audit-form" method="post" action="javascript:createFirm();" enctype="multipart/form-data">
+						<form id="non-audit-form" method="post" action="javascript:createNonAuditFirm();" enctype="multipart/form-data">
 							<input type="hidden" value="2" name="audit_firm_type_id">
 	            <input type="hidden" value="1" name="local_foreign_id">
             	<div class="row mt-5">
               	<div class="card border-success card-stats mb-3">
                 <br>
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Choose Firm Type
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li><button class="dropdown-item" type="button" id="local_firm_list">Local Firm</button></li>
-                    <li><button class="dropdown-item" type="button" id="foreign_firm_list">Foreign Firm</button></li>
-                  </ul>
-                </div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-2">
+											<select class="form-select form-select-md mb-3" id="choose_firm_type" aria-label=".form-select-md example">
+											  <option value="0" selected>Choose Firm Type</option>
+											  <option value="1">Local</option>
+											  <option value="2">Foreign</option>
+											</select>
+										</div>
+									</div>
+								</div>
                 <br>
                 <div class="card-header" style="" id="local_header">
-                  Local Firm Information
+                  <h4>Local Firm Information</h4>
                 </div>
                 <div class="card-header" style="display:none;" id="foreign_header">
-                  Foreign Firm Information
+                  <h4>Foreign Firm Information</h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -143,7 +145,7 @@
                       </div>
                       <div class="col-md-3">
                           <div class="form-group">
-                              <input type="text" name="email" class="form-control" placeholder="Email Address" autocomplete="off" >
+                              <input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" >
                           </div>
                       </div>
                       <div class="col-md-3">
@@ -160,8 +162,8 @@
 
                   </div>
                   <div class="row">
-                      <label class="col-md-1 col-form-label"></label>
-                      <div class="col-md-10">
+                      <label class="col-md-3 col-form-label"></label>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table class="table branch_non_audit table-bordered input-table">
@@ -212,8 +214,8 @@
 
                   </div>
                   <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table id="myTable" class="table non_partner table-bordered">
@@ -253,8 +255,8 @@
 
                   </div>
                   <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table id="myTable" class="table non_director table-bordered">
@@ -304,8 +306,8 @@
 
                   <div id="sole-proprietorship">
                       <div class="row">
-                          <div class="col-md-1"></div>
-                          <div class="col-md-10">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-9">
                               <div class="card">
                                   <div class="card-body">
                                       <div class="row">
@@ -480,8 +482,8 @@
 
                   <div id="partnership">
                       <div class="row">
-                          <div class="col-md-1"></div>
-                          <div class="col-md-10">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-9">
                               <div class="card">
                                   <div class="card-body">
                                       <div class="row">
@@ -715,8 +717,8 @@
                   </div>
                   <div id="company">
                       <div class="row">
-                          <div class="col-md-1"></div>
-                          <div class="col-md-10">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-9">
                               <div class="card">
                                   <div class="card-body">
                                       <div class="row">
@@ -955,8 +957,8 @@
 
                   </div>
                   <div class="row">
-                          <label class="col-md-1 col-form-label"></label>
-                          <div class="col-md-10 col-form-label">
+                          <label class="col-md-3 col-form-label"></label>
+                          <div class="col-md-9 col-form-label">
                           <div class="form-group">
                               <input type="text" name="name_sole_proprietor"  class="form-control"  autofocus autocomplete="off">
                           </div>
@@ -969,8 +971,8 @@
 
                   </div>
 									<div class="row">
-                  	<div class="col-md-1"></div>
-                    <div class="col-md-10">
+                  	<div class="col-md-3"></div>
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-body">
                                 <table id="tbl_non_audit_number" class="table">
@@ -997,8 +999,8 @@
 
                   </div>
                   <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table id="tbl_type_service" class="table ">
@@ -1018,16 +1020,44 @@
                       </div>
                   </div>
                   <br>
-                  <br>
+									<table width="100%">
+											<tr>
+													<td width="8%">11</td>
+													<td width="17%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
+													</td>
+													<td width="73%">
+															<div class="form-group">
+																	<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																	<input type="hidden" value="1000" name="form_fee">
+															</div>
+													</td>
+											</tr>
+									</table><br>
+									<table width="100%">
+											<tr>
+													<td width="8%">12</td>
+													<td width="17%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
+													</td>
+													<td width="73%">
+															<div class="form-group">
+																	<div class="form-group">
+																	<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																	<input type="hidden" value="100000" name="nrc_fee">
+															</div>
+															</div>
+													</td>
+											</tr>
+									</table><br>
+
                   <div id="director_staffmembers" style="display:none;">
                     <div class="row">
-                        <label class="col-md-1 col-form-label">{{ __('11') }}</label>
+                        <label class="col-md-1 col-form-label">{{ __('13') }}</label>
                         <label class="col-md-10 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-9">
                             <div class="card">
                                 <div class="card-body">
                                     <table id="myTable" class="table director_cpa_initial table-bordered">
@@ -1066,47 +1096,53 @@
                     </div>
                   </div>
                   <br>
-                  <!-- Declaration new -->
+									<table width="100%">
+											<tr>
+													<td width="8%" id="email_num">13</td>
+													<td width="17%"><label class="col-form-label">အီးမေးလ်</label>
+													</td>
+													<td width="73%">
+															<div class="form-group">
+																	<input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
+															</div>
+													</td>
+											</tr>
+									</table><br>
+									<table width="100%">
+											<tr>
+													<td width="8%" id="password_num">14</td>
+													<td width="17%"><label class="col-form-label">Password</label>
+													</td>
+													<td width="73%">
+															<div class="form-group">
+																	<input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+															</div>
+													</td>
+											</tr>
+									</table>
+									<br>
+                  <!-- Declaration  -->
+									<div class="row">
+											<table width="100%">
+													<tr>
+															<td width="9%"><label style="margin-left: 20%;"></label></td>
+															<td width="17%"><label>Declaration</label></td>
+															<td width="75%">
+																	<div class="form-group">
+																			I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
+																			(sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+																	</div>
+															</td>
+													</tr>
+											</table>
+									</div>
+									<br>
                   <div class="row">
-                    <label class="col-md-1 col-form-label"></label>
-                    <label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            I <input type="text" name="declaration" id="declaration_name" class="" autofocus value="" autocomplete="off">
-                            (managing director) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
-                        </div>
-                      </div>
-                  </div>
-
-                  <!-- <table width="100%">
-                    <tr>
-                        <td width="5%">13</td>
-                        <td width="15%"><label class="col-form-label">အီးမေးလ်</label>
-                        </td>
-                        <td width="80%">
-                            <div class="form-group">
-                                <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
-                            </div>
-                        </td>
-                    </tr>
-                </table><br>
-                <table width="100%">
-                    <tr>
-                        <td width="5%">14</td>
-                        <td width="15%"><label class="col-form-label">Password</label>
-                        </td>
-                        <td width="80%">
-                            <div class="form-group">
-                                <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
-                            </div>
-                        </td>
-                    </tr>
-                </table> -->
-
-                  <div class="row">
-                      <div class="col-md-11 d-md-flex justify-content-md-end">
-                          <button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Save') }}</button>
-                      </div>
+											<div class="col-md-12" style="padding-top: 2%;">
+													<div class="single-form text-center">
+															<button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Submit Now') }}</button>
+													</div>
+											</div>
                   </div>
                 </div>
 
