@@ -57,43 +57,44 @@ function remove(id){
     //document.getElementById("edu0_remove").style.display="none";
     }
 }
-var studentID;
-async function SearchStudentID(){
-    var nrc_state_region = $("#nrc_state_region").val();
-    var nrc_township = $("#nrc_township").val();
-    var nrc_citizen = $("#nrc_citizen").val();
-    var nrc_number=$("input[name=nrc_number]").val();
+// var studentID;
+// async function SearchStudentID(){
+//     var nrc_state_region = $("#nrc_state_region").val();
+//     var nrc_township = $("#nrc_township").val();
+//     var nrc_citizen = $("#nrc_citizen").val();
+//     var nrc_number=$("input[name=nrc_number]").val();
     
-    var nrc = new FormData();
-    nrc.append('nrc_state_region', nrc_state_region);
-    nrc.append('nrc_township', nrc_township);
-    nrc.append('nrc_citizen', nrc_citizen);
-    nrc.append('nrc_number', nrc_number);
+//     var nrc = new FormData();
+//     nrc.append('nrc_state_region', nrc_state_region);
+//     nrc.append('nrc_township', nrc_township);
+//     nrc.append('nrc_citizen', nrc_citizen);
+//     nrc.append('nrc_number', nrc_number);
     // var nrc=nrc_state_region+nrc_township+nrc_citizen+nrc_number;
     // console.log(nrc);
     //var nrc="1kamatanaing123456";
-    await $.ajax({
-    url:BACKEND_URL+"/student_info_by_nrc",
-    type: 'post',
-    data: nrc,
-    contentType: false,
-    processData: false,
-    success: function(result){
-        console.log('result',result.data);
-        // console.log('result',result);
-            if(result.data!=null){
-                studentID=result.data.id;
+    // await $.ajax({
+//     url:BACKEND_URL+"/student_info_by_nrc",
+//     type: 'post',
+//     data: nrc,
+//     contentType: false,
+//     processData: false,
+//     success: function(result){
+//         console.log('result',result.data);
+//         // console.log('result',result);
+//             if(result.data!=null){
+//                 studentID=result.data.id;
 
-                document.getElementById("fieldset").disabled = false;
-            }
-            else{
-                document.getElementById("fieldset").disabled = true;
-            }
-        }
-    });
-}
+//                 document.getElementById("fieldset").disabled = false;
+//             }
+//             else{
+//                 document.getElementById("fieldset").disabled = true;
+//             }
+//         }
+//     });
+// }
 
 function Papp_Submit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
     var cpa_check = document.getElementById("cpa_check");
     var ra_check = document.getElementById("ra_check");
     var degree_check = document.getElementById("degree_check");
@@ -112,7 +113,7 @@ function Papp_Submit(){
     var cpd_record_file=$('#cpd_record_file')[0].files[0];
     var tax_free_file=$('#tax_free_file')[0].files[0];
     var data = new FormData();
-    data.append('student_id', studentID);
+    data.append('student_id', student.id);
     data.append('cpa', cpa_file);
     data.append('ra', ra_file);
         for (var i = 0; i < count; i++) {
@@ -162,6 +163,105 @@ function Papp_Submit(){
         },
     error:function (message){
         console.log(message);
+        }
+    });
+}
+
+function isLoginPAPP(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    if(student == null){
+        location.href = '/login';
+    }
+    else{
+        $.ajax({
+            url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
+            type: 'get',
+            data:"",
+            success: function(result){
+                var data=result.data;
+                if(data!=null){
+                    var a=new Date(data.accepted_date);
+                    var diff_ms = Date.now() - a.getTime();
+                    var age_dt = new Date(diff_ms); 
+                    var age=Math.abs(age_dt.getUTCFullYear() - 1970);
+                    if(age>=1){
+                        $("#cpa_age").append(age+" years");
+                        document.getElementById('fieldset').disabled=false;
+                    }
+                    else{
+                        $("#cpa_age").append(age+" years");
+                        document.getElementById('fieldset').disabled=true;
+                        document.getElementById('check_cpa_age').style.display='block';
+                    }
+                }
+                else{
+                    $("#cpa_age").append("0 years");
+                    document.getElementById('check_cpa_age').style.display='block';
+                }
+            },
+            error:function (message){
+                console.log(message);
+            }
+        });
+    }
+}
+
+function Papp_feedback(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(cData){
+            console.log(cData.data);
+            var data=cData.data;
+            if(data!=null){
+                if(data.status==0 || data.renew_status==0)
+                {
+                    document.getElementById('pending').style.display='block';
+                }
+                else if(data.status==1 || data.renew_status==1)
+                {
+                    var accept=new Date(data.renew_accepted_date);
+                    var month=accept.getMonth();
+                    var year=accept.getFullYear();
+                    var y=year+1;
+                    console.log(year);
+                    console.log(month);
+                    if(month>8){
+                        document.getElementById('expiry_card').style.display='block';
+                        $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
+                        var now=new Date(Date.now());
+                        if(now.getFullYear()==y && now.getMonth()==7){                            
+                            document.getElementById('approved').style.display='none';
+                           // document.getElementById('cpaff_renew_form').style.display='block';
+                        }
+                        else{
+                            document.getElementById('approved').style.display='block';
+                        }
+                    }
+                    else{
+                        document.getElementById('expiry_card').style.display='block';
+                        $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
+                        var now=new Date(Date.now());
+                        if(now.getFullYear()==year && now.getMonth()==7){                            
+                            document.getElementById('approved').style.display='none';
+                            //document.getElementById('papp_renew_form').style.display='block';
+                        }
+                        else{
+                            document.getElementById('approved').style.display='block';
+                        }
+                    }
+                }
+                else if(data.status==2 || data.renew_status==2)
+                {
+                    document.getElementById('rejected').style.display='block';
+                }
+            }
+            else{
+                document.getElementById('papp_from').style.display='block';
+            }
         }
     });
 }
