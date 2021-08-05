@@ -64,7 +64,7 @@
           <div class="container" style="overflow: hidden;">
 						<form id="non-audit-form" method="post" action="javascript:createNonAuditFirm();" enctype="multipart/form-data">
 							<input type="hidden" value="2" name="audit_firm_type_id">
-	            <input type="hidden" value="1" name="local_foreign_id">
+	            <input type="hidden" value="1" name="local_foreign_type">
             	<div class="row mt-5">
               	<div class="card border-success card-stats mb-3">
                 <br>
