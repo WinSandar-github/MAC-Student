@@ -233,7 +233,7 @@ function Papp_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==y && now.getMonth()==7){                            
+                        if(now.getFullYear()==y && now.getMonth()==11){                            
                             document.getElementById('approved').style.display='none';
                            // document.getElementById('cpaff_renew_form').style.display='block';
                         }
@@ -245,7 +245,7 @@ function Papp_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==year && now.getMonth()==7){                            
+                        if(now.getFullYear()==year && now.getMonth()==11){                            
                             document.getElementById('approved').style.display='none';
                             document.getElementById('papp_renew_form').style.display='block';
                         }
