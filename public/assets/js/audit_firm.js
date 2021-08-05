@@ -1,32 +1,45 @@
 function audit_reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    console.log(student)
-    // $.ajax({
-    //     url: BACKEND_URL+"/getStatus/"+student.id,
-    //     type: 'GET',
-    //     contentType: false,
-    //     processData: false,
-    //     success: function(status){
-    //         if(status == 0){
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/getStatus/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(status){
+            if(approve_reject_status == 0){
            
-    //             $('.audit_check_registration').css('display','block');
-                
-        
-    //         // }else if(status == 1){
-    //         //     $('.approve').css('display','block');
-        
-    //         // }else if(status == 2){
-    //         //     $('.status-reject').css('display','block');
-    //         //      // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
-                    
-    //         // }else{
-    //         //     selectedRegistration();
-    //         //     $('.study').css('display','block');
-        
-                
-    //          }
-    //   }
-    // });   
+                $('.audit_check_registration').css('display','block');
+                $('.comment-form').css('display','none');
+
+            }else if(approve_reject_status == 1){
+                $('.audit_check_registration').css('display','none');
+                $('.comment-form').css('display','none');
+                showAudit();
+            }
+            // else if(status == 2){}
+        }
+    }); 
+} 
+
+function showAudit(){
+    $('#audit_container').css('display','block');
+}
+
+function auditData(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
+        success: function (data) {
+            var audit_data = data;
+            audit_data.forEach(function(element){
+                console.log(element)
+                $("#accountancy_firm_name").append(element.accountancy_firm_name);
+                $("#updated_at").append(element.updated_at);
+            })
+        }
+    })
 }
 
 function createAuditFirm(){
