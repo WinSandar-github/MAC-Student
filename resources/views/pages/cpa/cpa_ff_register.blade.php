@@ -66,10 +66,11 @@
             <div class="row mt-5">
                     <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_age" id="check_age">
                         <label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
-                    </div>        
+                               
                     <br/>  
                     <br/>  
-                    <br/>            
+                    <br/>  
+                    </div>           
                     <div id="rejected" style="display:none">
                         <div class="card text-white bg-dark my-3">                            
                             <div class="card-body">
@@ -87,10 +88,18 @@
                         </div>
                     </div>
                     <div id="approved" style="display:none;">
-                        <div class="card text-white bg-primary my-3">
-                            
+                            <div class="card text-white bg-primary my-3">
+                                
+                                <div class="card-body">
+                                    <p class="card-text">Your registration form is approved.</p>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <div id="expiry_card" style="display:none;">
+                        <div class="card border-danger my-3" style="height:60px;">
                             <div class="card-body">
-                                <p class="card-text">Your registration form is approved.</p>
+                                <p  class="card-text" id="expire"></p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +107,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်(အင်္ဂလိပ်ဘာသာဖြင့်ဖြည့်စွက်ပေးပါရန်)') }}</label>                                
+                                <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်') }}</label>                                
                             </div>              
 
                             {{--<div class="row">
@@ -410,7 +419,56 @@
                             </form>
                         </div>
                     </div>
-                
+                    <div>
+                        <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/>
+                            <h5 class="card-title text-center">CPA (Full-Fledged) မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>                   
+                            <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                        <div class="col-md-7 col-form-label">သက်တမ်းတိုးလျှောက်လွှာ</div>
+                                        <div class="col-md-4">
+                                            <div class="">
+                                                    <input type="file"  class="form-control" name="renew_file" required="">
+                                            </div>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                        <div class="col-md-7 col-form-label"> MICPA membership ကတ် ( သက်ဆိုင်ရာ ပြက္ခဒိန်နှစ်အတွပ် သက်တမ်းတိုးပြီး ဖြစ်ရပါမည်။)</div>
+                                        <div class="col-md-4">
+                                            <div class="">
+                                                    <input type="file"  class="form-control" name="renew_micpa" required="">
+                                            </div>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                        <div class="col-md-7 col-form-label"> CPD နာရီ မှတ်တမ်းအထောက်အထားများ ( သက်တမ်းတိုးမည့် ပြက္ခဒိန်နှစ်မတိုင်မီ ကပ်လျက်ရှိသော နှစ်၏ နိုင်ဝင်ဘာလမတိုင်မီ (၁၂) လအတွင်း CPD နာရီ အနည်းဆုံး ၂၀ နာရီ ပြည့်မီရမည်ဖြစ်ပြီး တစ်ဆက်တည်းသုံးနှစ်တွင် စုစုပေါင်းနာရီ ၁၂၀ ပြည့်မီရမည်ဖြစ်ပါသည်။)</div>
+                                        <div class="col-md-4">
+                                            <div class="">
+                                                    <input type="file"  class="form-control" name="renew_cpd" required="">
+                                            </div>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                        <div class="col-md-7 col-form-label"> CPA (full-fledged) မှတ်ပုံတင်ကတ်</div>
+                                        <div class="col-md-4">
+                                            <div class="">
+                                                    <input type="file"  class="form-control" name="renew_cpaff_reg" required="">
+                                            </div>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <div class="col-md-2 offset-md-5">
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
+                                        </div>
+                                    </div>	
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -430,7 +488,7 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    isLogin();
+    isLoginCPAFF();
     form_feedback();
 </script>
 @endpush
