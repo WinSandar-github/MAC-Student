@@ -306,8 +306,8 @@
 
                   <div id="sole-proprietorship">
                       <div class="row">
-                          <div class="col-md-1"></div>
-                          <div class="col-md-10">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-9">
                               <div class="card">
                                   <div class="card-body">
                                       <div class="row">
@@ -482,8 +482,8 @@
 
                   <div id="partnership">
                       <div class="row">
-                          <div class="col-md-1"></div>
-                          <div class="col-md-10">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-9">
                               <div class="card">
                                   <div class="card-body">
                                       <div class="row">
@@ -717,8 +717,8 @@
                   </div>
                   <div id="company">
                       <div class="row">
-                          <div class="col-md-1"></div>
-                          <div class="col-md-10">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-9">
                               <div class="card">
                                   <div class="card-body">
                                       <div class="row">
@@ -1022,28 +1022,33 @@
                   <br>
 									<table width="100%">
 											<tr>
-													<td width="5%">11</td>
-													<td width="15%"><label class="col-form-label">Application Fees</label>
+													<td width="8%">11</td>
+													<td width="17%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
 													</td>
-													<td width="80%">
+													<td width="73%">
 															<div class="form-group">
-																	<input type="text" placeholder="Application Fees" name="application_fees" class="form-control" value="{{ old('email') }}" required="">
+																	<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																	<input type="hidden" value="1000" name="form_fee">
 															</div>
 													</td>
 											</tr>
 									</table><br>
 									<table width="100%">
 											<tr>
-													<td width="5%">12</td>
-													<td width="15%"><label class="col-form-label">Registration Fees</label>
+													<td width="8%">12</td>
+													<td width="17%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
 													</td>
-													<td width="80%">
+													<td width="73%">
 															<div class="form-group">
-																	<input type="text" placeholder="Registration Fees" name="registration_fees" class="form-control" value="{{ old('email') }}" required="">
+																	<div class="form-group">
+																	<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																	<input type="hidden" value="100000" name="nrc_fee">
+															</div>
 															</div>
 													</td>
 											</tr>
 									</table><br>
+
                   <div id="director_staffmembers" style="display:none;">
                     <div class="row">
                         <label class="col-md-1 col-form-label">{{ __('13') }}</label>
@@ -1051,8 +1056,8 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-9">
                             <div class="card">
                                 <div class="card-body">
                                     <table id="myTable" class="table director_cpa_initial table-bordered">
@@ -1093,10 +1098,10 @@
                   <br>
 									<table width="100%">
 											<tr>
-													<td width="5%" id="email_num">13</td>
-													<td width="15%"><label class="col-form-label">အီးမေးလ်</label>
+													<td width="8%" id="email_num">13</td>
+													<td width="17%"><label class="col-form-label">အီးမေးလ်</label>
 													</td>
-													<td width="80%">
+													<td width="73%">
 															<div class="form-group">
 																	<input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
 															</div>
@@ -1105,10 +1110,10 @@
 									</table><br>
 									<table width="100%">
 											<tr>
-													<td width="5%" id="password_num">14</td>
-													<td width="15%"><label class="col-form-label">Password</label>
+													<td width="8%" id="password_num">14</td>
+													<td width="17%"><label class="col-form-label">Password</label>
 													</td>
-													<td width="80%">
+													<td width="73%">
 															<div class="form-group">
 																	<input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
 															</div>
@@ -1120,9 +1125,9 @@
 									<div class="row">
 											<table width="100%">
 													<tr>
-															<td width="6%"><label style="margin-left: 20%;"></label></td>
-															<td width="15%"><label>Declaration</label></td>
-															<td width="80%">
+															<td width="9%"><label style="margin-left: 20%;"></label></td>
+															<td width="17%"><label>Declaration</label></td>
+															<td width="75%">
 																	<div class="form-group">
 																			I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
 																			(sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.

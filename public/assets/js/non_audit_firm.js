@@ -125,8 +125,8 @@ function createNonAuditFirm(){
   send_data.append('declaration',$("input[name=declaration]").val());
   send_data.append('email',$("input[name=email]").val());
   send_data.append('password',$("input[name=password]").val());
-  send_data.append('application_fees',$("input[name=application_fees]").val());
-  send_data.append('registration_fees',$("input[name=registration_fees]").val());
+  send_data.append('form_fee',$("input[name=form_fee]").val());
+  send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
