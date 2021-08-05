@@ -162,8 +162,8 @@
 
                   </div>
                   <div class="row">
-                      <label class="col-md-1 col-form-label"></label>
-                      <div class="col-md-10">
+                      <label class="col-md-3 col-form-label"></label>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table class="table branch_non_audit table-bordered input-table">
@@ -214,8 +214,8 @@
 
                   </div>
                   <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table id="myTable" class="table non_partner table-bordered">
@@ -255,8 +255,8 @@
 
                   </div>
                   <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table id="myTable" class="table non_director table-bordered">
@@ -957,8 +957,8 @@
 
                   </div>
                   <div class="row">
-                          <label class="col-md-1 col-form-label"></label>
-                          <div class="col-md-10 col-form-label">
+                          <label class="col-md-3 col-form-label"></label>
+                          <div class="col-md-9 col-form-label">
                           <div class="form-group">
                               <input type="text" name="name_sole_proprietor"  class="form-control"  autofocus autocomplete="off">
                           </div>
@@ -971,8 +971,8 @@
 
                   </div>
 									<div class="row">
-                  	<div class="col-md-1"></div>
-                    <div class="col-md-10">
+                  	<div class="col-md-3"></div>
+                    <div class="col-md-9">
                         <div class="card">
                             <div class="card-body">
                                 <table id="tbl_non_audit_number" class="table">
@@ -999,8 +999,8 @@
 
                   </div>
                   <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-10">
+                      <div class="col-md-3"></div>
+                      <div class="col-md-9">
                           <div class="card">
                               <div class="card-body">
                                   <table id="tbl_type_service" class="table ">

@@ -37,7 +37,7 @@ function loadOrganization(){
     data:"",
     success: function(result){
      var organization_structure=result.data;
-     $('.organization_data').append("<div class='col-md-2'></div>");
+     $('.organization_data').append("<div class='col-md-3'></div>");
      organization_structure.forEach(function(element){
        if(element.id!=3){
         var radio_data="<div class='col-md-2'>"+
