@@ -56,9 +56,44 @@
 
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
-
+            <div class="audit_check_registration" style="display:none;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your Audit Form is checking</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="audit_container" style="display:none; margin-top:5%;">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="card border-success mb-3">
+                        <div class="card-body text-success">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <center><h4>Audit Firm Data</h4></center><br><br>
+                                    <table class="table table-bordered input-table" width="100%">
+                                        <tr>
+                                            <th>Accountancy Firm Name</th>
+                                            <th>Applied Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="accountancy_firm_name"></span></td>
+                                            <td><span id="updated_at"></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>           
+            </div>
             <div class="blog-details-comment">
-                <div class="comment-form">
+                <div class="comment-form" style="display:block;">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         <form id="audit_firm_form" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data">
@@ -75,7 +110,7 @@
                                                         <td width="80%">
                                                             <div class="form-group">
                                                                 <input type="hidden" value="1" name="audit_firm_type_id">
-                                                                <input type="hidden" value="1" name="local_foreign_id">
+                                                                {{--<input type="hidden" value="1" name="local_foreign_id">--}}
                                                                 <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
                                                             </div>
                                                         </td>
@@ -973,5 +1008,7 @@
     loadTypeOfService();
     loadAuditTotalStaff();
     loadAuditStaff();
+    audit_reg_feedback();
+    auditData();
 </script>
 @endpush
