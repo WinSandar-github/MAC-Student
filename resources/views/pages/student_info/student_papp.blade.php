@@ -446,7 +446,7 @@
                                         <div class="col-md-7 col-form-label"> PAPP မှတ်ပုံတင်ကတ် </div>
                                         <div class="col-md-4">
                                             <div class="">
-                                                    <input type="file"  class="form-control" name="renew_micpa" required="">
+                                                    <input type="file"  class="form-control" name="renew_papp_reg" required="">
                                             </div>
                                         </div>
                                     </div><br/>
@@ -455,31 +455,13 @@
                                         <div class="col-md-7 col-form-label"> MICPA membership ကတ် (သက်ဆိုင်ရာပြက္ခဒိန်နှစ်တွက် သက်တမ်းတိုးပြီး ဖြစ်ရပါမည်။)</div>
                                         <div class="col-md-4">
                                             <div class="">
-                                                    <input type="file"  class="form-control" name="renew_cpd" required="">
-                                            </div>
-                                        </div>
-                                    </div><br/>
-                                    <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                        <div class="col-md-7 col-form-label"> CPA (full-fledged) မှတ်ပုံတင်ကတ်</div>
-                                        <div class="col-md-4">
-                                            <div class="">
-                                                    <input type="file"  class="form-control" name="renew_cpaff_reg" required="">
-                                            </div>
-                                        </div>
-                                    </div><br/>
-                                    <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                        <div class="col-md-7 col-form-label"> MICPA membership ကတ် ( သက်ဆိုင်ရာ ပြက္ခဒိန်နှစ်အတွပ် သက်တမ်းတိုးပြီး ဖြစ်ရပါမည်။)</div>
-                                        <div class="col-md-4">
-                                            <div class="">
                                                     <input type="file"  class="form-control" name="renew_micpa" required="">
                                             </div>
                                         </div>
                                     </div><br/>
                                     <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                        <div class="col-md-7 col-form-label"> CPD နာရီ မှတ်တမ်းအထောက်အထားများ ( သက်တမ်းတိုးမည့် ပြက္ခဒိန်နှစ်မတိုင်မီ ကပ်လျက်ရှိသော နှစ်၏ နိုင်ဝင်ဘာလမတိုင်မီ (၁၂) လအတွင်း CPD နာရီ အနည်းဆုံး ၂၀ နာရီ ပြည့်မီရမည်ဖြစ်ပြီး တစ်ဆက်တည်းသုံးနှစ်တွင် စုစုပေါင်းနာရီ ၁၂၀ ပြည့်မီရမည်ဖြစ်ပါသည်။)</div>
+                                        <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                        <div class="col-md-7 col-form-label"> CPD နာရီ မှတ်တမ်းအထောက်အထားများ (သတ်တမ်းတိုးမည့် ပြက္ခဒိန်နှစ်မတိုင်မီ ကပ် လျက်ရှိသော နှစ်၏ နိုဝင်ဘာလမတိုင်မီ (၁၂) လ အတွင်း CPD နာရီ အနည်းဆုံး ၂၀ နာရီ ပြည့်မီရမည်ဖြစ်ပြီးတစ်ဆက်တည်းသုံးနှစ်တွင်စုစုပေါင်းနာရီ၁၂၀ပြည့်မီရမည်ဖြစ်ပါသည်။)</div>
                                         <div class="col-md-4">
                                             <div class="">
                                                     <input type="file"  class="form-control" name="renew_cpd" required="">
@@ -487,11 +469,29 @@
                                         </div>
                                     </div><br/>
                                     <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                        <div class="col-md-7 col-form-label"> CPA (full-fledged) မှတ်ပုံတင်ကတ်</div>
+                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                        <div class="col-md-7 col-form-label"> မှတ်ပုံတင်မည့်ပြက္ခဒိန်နှစ် မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံတွင် ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူ ဖြစ်ကြောင်း ကိုယ်တိုင်ခံဝန်ချက်</div>
                                         <div class="col-md-4">
                                             <div class="">
-                                                    <input type="file"  class="form-control" name="renew_cpaff_reg" required="">
+                                                    <input type="file"  class="form-control" name="renew_183_recomm" required="">
+                                            </div>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                        <div class="col-md-7 col-form-label"> အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့်တာဝန်ထမ်းဆောင်နေသူ မဟုတ် ကြောင်း ကိုယ်တိုင်ခံဝန်ချက်</div>
+                                        <div class="col-md-4">
+                                            <div class="">
+                                                    <input type="file"  class="form-control" name="renew_not_fulltime_recomm" required="">
+                                            </div>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                        <div class="col-md-7 col-form-label"> လျှောက်ထားသည့် ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ် ငန်းကိုမိမိ၏အဓိကအသက်မွေးဝမ်းကြောင်းလုပ်ငန်းအဖြစ်မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင် မည်ဖြစ်ကြောင်း ကိုယ်တိုင်ခံဝန်ချက်</div>
+                                        <div class="col-md-4">
+                                            <div class="">
+                                                    <input type="file"  class="form-control" name="renew_rule_confession" required="">
                                             </div>
                                         </div>
                                     </div><br/>

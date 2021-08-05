@@ -247,7 +247,7 @@ function Papp_feedback(){
                         var now=new Date(Date.now());
                         if(now.getFullYear()==year && now.getMonth()==7){                            
                             document.getElementById('approved').style.display='none';
-                            //document.getElementById('papp_renew_form').style.display='block';
+                            document.getElementById('papp_renew_form').style.display='block';
                         }
                         else{
                             document.getElementById('approved').style.display='block';
@@ -262,6 +262,61 @@ function Papp_feedback(){
             else{
                 document.getElementById('papp_from').style.display='block';
             }
+        }
+    });
+}
+
+function RenewPAPP(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
+    $.ajax({
+        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+        type: 'get',
+        data:"",
+        success: function(result){
+            // successMessage("Insert Successfully");
+            // location.reload();
+            if(result.data!=null){
+                var renew_file =   $("input[name=renew_file]")[0].files[0];
+                var renew_papp_reg    =   $("input[name=renew_papp_reg]")[0].files[0];
+                var renew_micpa       =   $("input[name=renew_micpa]")[0].files[0];
+                var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
+                var renew_183_recomm    =   $("input[name=renew_183_recomm]")[0].files[0];
+                var renew_not_fulltime_recomm       =   $("input[name=renew_not_fulltime_recomm]")[0].files[0];
+                var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
+                var data = new FormData();
+                data.append('renew_file', renew_file);
+                data.append('renew_papp_reg', renew_papp_reg);
+                data.append('renew_micpa', renew_micpa);
+                data.append('renew_cpd', renew_cpd);
+                data.append('renew_183_recomm', renew_183_recomm);
+                data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
+                data.append('renew_rule_confession', renew_rule_confession);
+                data.append('_method', 'PUT');
+                $.ajax({
+                    url: BACKEND_URL+"/papp/"+result.data.id,
+                    type: 'post',
+                    data:data,
+                    contentType: false,
+                    processData: false,
+                    success: function(result){
+                        successMessage("Insert Successfully");
+                        location.reload();
+                        document.getElementById('approved').style.display='none';
+                        document.getElementById('rejected').style.display='none';
+                        document.getElementById('pending').style.display='none';
+                        document.getElementById('papp_form').style.display='none';
+                        document.getElementById('papp_renew_form').style.display='none';
+                        document.getElementById('expiry_card').style.display='none';
+                    },
+                    error:function (message){
+                        console.log(message);
+                    }
+                });
+            }
+        },
+        error:function (message){
+            console.log(message);
         }
     });
 }
