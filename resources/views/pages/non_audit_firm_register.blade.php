@@ -1164,8 +1164,8 @@
 @push('scripts')
 <script>
   loadNonAuditStaff();
-  loadOrganization();
-  loadTypeOfService();
+  loadNonAuditOrganization();
+  loadNonAuditTypeOfService();
 </script>
 
 @endpush

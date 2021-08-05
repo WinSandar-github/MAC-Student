@@ -20,6 +20,8 @@ function createAuditFirm(){
 
   send_data.append('email',$("input[name=email]").val());
   send_data.append('password',$("input[name=password]").val());
+  send_data.append('form_fee',$("input[name=form_fee]").val());
+  send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
@@ -80,7 +82,7 @@ function createAuditFirm(){
       send_data.append('pass_photos[]',$(this).get(0).files[i]);
     }
   });
-  $('input[name="owner_profiless[]"]').map(function(){
+  $('input[name="owner_profiles[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('owner_profiles[]',$(this).get(0).files[i]);
     }
@@ -275,6 +277,10 @@ function autoLoadAudit(){
           if(item.letterhead!="null"){
             removeBracketed(item.letterhead,"letterheads");
           }else $(".letterheads").append("<span class='text-primary'>no file</span>");
+
+          if(item.tax_clearance!="null"){
+            removeBracketed(item.tax_clearance,"tax_clearances");
+          }else $(".tax_clearances").append("<span class='text-primary'>no file</span>");
 
           if(item.representative!="null"){
             removeBracketed(item.representative,"representatives");

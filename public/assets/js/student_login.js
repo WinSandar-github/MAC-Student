@@ -15,7 +15,7 @@ function studentLogin(){
                 localStorage.setItem('approve_reject',result.approve_reject_status);
                 location.href="student_index";
             }else{
-                $('#err_msg').text("Password and Email dost not match");
+                $('#err_msg').text("Password and Email don't not match");
                 $("#email").val("");
                 $('#password').val("");
 

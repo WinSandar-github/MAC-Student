@@ -30,7 +30,7 @@ $(document).ready(function(){
   });
 });
 
-function loadOrganization(){
+function loadNonAuditOrganization(){
   $.ajax({
     url: BACKEND_URL+"/organization_structure",
     type: 'get',
@@ -76,7 +76,7 @@ function loadNonAuditStaff(){
 });
 }
 
-function loadTypeOfService(){
+function loadNonAuditTypeOfService(){
   destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
     $.ajax({
       url: BACKEND_URL+"/type_service_provided",
@@ -187,7 +187,7 @@ function createNonAuditFirm(){
       send_data.append('pass_photos[]',$(this).get(0).files[i]);
     }
   });
-  $('input[name="owner_profiless[]"]').map(function(){
+  $('input[name="owner_profiles[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('owner_profiles[]',$(this).get(0).files[i]);
     }

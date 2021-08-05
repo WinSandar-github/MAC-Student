@@ -43,7 +43,7 @@
                         
                         <div class="card-body">
                             <!-- status == 2 => reject -->
-                            <p class="card-text reject">Your Registration Form need to prepare.Please upate your form  
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
                              </p>
                         </div>
                     </div>
