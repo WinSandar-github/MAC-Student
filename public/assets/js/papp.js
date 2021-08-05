@@ -170,7 +170,7 @@ function Papp_Submit(){
 function isLoginPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student == null){
-        location.href = '/login';
+        location.href = FRONTEND_URL + '/login';
     }
     else{
         $.ajax({
