@@ -56,9 +56,44 @@
 
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
-
+            <div class="audit_check_registration" style="display:none;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your Audit Form is checking</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="audit_container" style="display:none; margin-top:5%;">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="card border-success mb-3">
+                        <div class="card-body text-success">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <center><h4>Audit Firm Data</h4></center><br><br>
+                                    <table class="table table-bordered input-table" width="100%">
+                                        <tr>
+                                            <th>Accountancy Firm Name</th>
+                                            <th>Applied Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="accountancy_firm_name"></span></td>
+                                            <td><span id="updated_at"></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>           
+            </div>
             <div class="blog-details-comment">
-                <div class="comment-form">
+                <div class="comment-form" style="display:block;">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         <form id="audit_firm_form" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data">
@@ -75,7 +110,7 @@
                                                         <td width="80%">
                                                             <div class="form-group">
                                                                 <input type="hidden" value="1" name="audit_firm_type_id">
-                                                                <input type="hidden" value="1" name="local_foreign_id">
+                                                                {{--<input type="hidden" value="1" name="local_foreign_id">--}}
                                                                 <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
                                                             </div>
                                                         </td>
@@ -141,7 +176,7 @@
                                                         </td>
                                                         <td width="30%">
                                                             <div class="form-group">
-                                                                <input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
+                                                                <input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="30%">
@@ -878,24 +913,9 @@
                                             </div>
                                             <div class="row type_service_provided"></div><br><br>
 
-                                            <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label style="margin-left: 20%;">12</label></td>
-                                                        <td width="15%"><label>Declaration</label></td>
-                                                        <td width="80%">
-                                                            <div class="form-group">
-                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
-                                                                (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>
-
                                             <table width="100%">
                                                 <tr>
-                                                    <td width="5%">13</td>
+                                                    <td width="5%">12</td>
                                                     <td width="15%"><label class="col-form-label">အီးမေးလ်</label>
                                                     </td>
                                                     <td width="80%">
@@ -907,7 +927,7 @@
                                             </table><br>
                                             <table width="100%">
                                                 <tr>
-                                                    <td width="5%">14</td>
+                                                    <td width="5%">13</td>
                                                     <td width="15%"><label class="col-form-label">Password</label>
                                                     </td>
                                                     <td width="80%">
@@ -916,7 +936,52 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </table>
+                                            </table><br>
+
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">14</td>
+                                                    <td width="15%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="form-group">
+                                                            <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+                                                            <input type="hidden" value="1000" name="form_fee">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">15</td>
+                                                    <td width="15%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="form-group">
+                                                            <div class="form-group">
+                                                            <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+                                                            <input type="hidden" value="100000" name="nrc_fee">
+                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+
+                                            <div class="row">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td width="5%"></td>
+                                                        <td width="15%"><label>Declaration</label></td>
+                                                        <td width="80%">
+                                                            <div class="form-group">
+                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
+                                                                (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div><br>
                                             <div class="col-md-12" style="padding-top: 2%;">
                                                 <div class="single-form text-center">
                                                     <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
@@ -943,5 +1008,7 @@
     loadTypeOfService();
     loadAuditTotalStaff();
     loadAuditStaff();
+    audit_reg_feedback();
+    auditData();
 </script>
 @endpush

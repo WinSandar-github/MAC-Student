@@ -1,26 +1,43 @@
 $(document).ready(function(){
-  $("#foreign_firm_list").click(function(){
-    $("#foreign_header").css("display","block");
-    $("#local_header").css("display","none");
-    $("#director_staffmembers").css("display","block");
-    $("input[name=local_foreign_id]").val("2");
-  });
-  $("#local_firm_list").click(function(){
-    $("#local_header").css("display","block");
-    $("#foreign_header").css("display","none");
-    $("#director_staffmembers").css("display","none");
-    $("input[name=local_foreign_id]").val("1");
+  $("#choose_firm_type").change(function(){
+    if($(this).val() == "1"){
+      //local
+      $("#local_header").css("display","block");
+      $("#foreign_header").css("display","none");
+      $("#director_staffmembers").css("display","none");
+      $("input[name=local_foreign_type]").val("1");
+      $("#email_num").text("13");
+      $("#password_num").text("14");
+    }
+    else if($(this).val() == "2"){
+      //foreign
+      $("#foreign_header").css("display","block");
+      $("#local_header").css("display","none");
+      $("#director_staffmembers").css("display","block");
+      $("input[name=local_foreign_type]").val("2");
+      $("#email_num").text("14");
+      $("#password_num").text("15");
+    }
+    else{
+      //local
+      $("#local_header").css("display","block");
+      $("#foreign_header").css("display","none");
+      $("#director_staffmembers").css("display","none");
+      $("input[name=local_foreign_type]").val("1");
+      $("#email_num").text("13");
+      $("#password_num").text("14");
+    }
   });
 });
 
-function loadOrganization(){
+function loadNonAuditOrganization(){
   $.ajax({
     url: BACKEND_URL+"/organization_structure",
     type: 'get',
     data:"",
     success: function(result){
      var organization_structure=result.data;
-     $('.organization_data').append("<div class='col-md-2'></div>");
+     $('.organization_data').append("<div class='col-md-3'></div>");
      organization_structure.forEach(function(element){
        if(element.id!=3){
         var radio_data="<div class='col-md-2'>"+
@@ -59,7 +76,7 @@ function loadNonAuditStaff(){
 });
 }
 
-function loadTypeOfService(){
+function loadNonAuditTypeOfService(){
   destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
     $.ajax({
       url: BACKEND_URL+"/type_service_provided",
@@ -88,7 +105,7 @@ function loadTypeOfService(){
   });
 }
 
-function createFirm(){
+function createNonAuditFirm(){
 
   var send_data=new FormData();
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
@@ -98,14 +115,19 @@ function createFirm(){
   send_data.append('city',$("input[name=city]").val());
   send_data.append('state',$("input[name=state]").val());
   send_data.append('phone_no',$("input[name=phone_no]").val());
-  send_data.append('email',$("input[name=email]").val());
+  send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
-  send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
+  send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
+  send_data.append('email',$("input[name=email]").val());
+  send_data.append('password',$("input[name=password]").val());
+  send_data.append('form_fee',$("input[name=form_fee]").val());
+  send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
+
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
   $('input[name="bo_post_code[]"]').map(function(){send_data.append("bo_post_code[]",$(this).val());});
@@ -165,7 +187,7 @@ function createFirm(){
       send_data.append('pass_photos[]',$(this).get(0).files[i]);
     }
   });
-  $('input[name="owner_profiless[]"]').map(function(){
+  $('input[name="owner_profiles[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('owner_profiles[]',$(this).get(0).files[i]);
     }
