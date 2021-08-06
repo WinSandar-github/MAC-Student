@@ -89,7 +89,7 @@
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script>
-    <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/audit_firm.js') }}"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
     <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
