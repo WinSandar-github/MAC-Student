@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -91,6 +91,14 @@
                         </div>
                     </div>
                 </form>           
+            </div>
+            <div id="audit_container_pending" style="display:none; margin-top:5%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your Audit Form is checking</p>
+                    </div>
+                </div>
             </div>
             <div class="blog-details-comment">
                 <div class="comment-form" style="display:block;">
@@ -1010,5 +1018,6 @@
     loadAuditStaff();
     audit_reg_feedback();
     auditData();
+    pendingStatus();
 </script>
 @endpush
