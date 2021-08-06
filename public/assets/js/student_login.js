@@ -2,7 +2,7 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url:   "/loginValidate",
+        url:   FRONTEND_URL + "/loginValidate",
         type: 'post',
         data: {
             email: email,
@@ -13,7 +13,7 @@ function studentLogin(){
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                location.href="student_index";
+                location.href= FRONTEND_URL + "/student_index";
             }else{
                 $('#err_msg').text("Password and Email don't not match");
                 $("#email").val("");
@@ -39,7 +39,7 @@ function check_login(){
 
 function logout(){
     localStorage.clear();
-    location.href="student_index";
+    location.href=FRONTEND_URL+"/student_index";
 
 }
 
@@ -48,7 +48,7 @@ function login_page(batch_id,course_id,course_type){
     if(course_id == 1){
 
         localStorage.setItem('batch_id',batch_id);
-        location.href = '/login';
+        location.href = FRONTEND_URL+"/login";
     }else{
         if(course_type == 1){
             alert("You need to Pass DA I")

@@ -150,15 +150,14 @@ function createCPAFFRegister(){
 
 function selectEntry(){
     var radioValue = $("input[name='selected_name']:checked").val();
-    console.log(radioValue);
-    
+     
     if(radioValue==1){
         
         $('#direct').css('display','block');
-        $('#da_pass').css('display','none');
+        $('#entry_pass').css('display','none');
      }else
      {
-        $('#da_pass').css('display','block');
+        $('#entry_pass').css('display','block');
         $('#direct').css('display','none');
      }
 }
@@ -166,7 +165,7 @@ function selectEntry(){
 function isLoginCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student == null){
-        location.href = '/login';
+        location.href = FRONTEND_URL + '/login';
     }
     else{
         var a=new Date(student.date_of_birth);

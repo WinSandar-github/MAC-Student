@@ -13,11 +13,10 @@ function audit_reg_feedback(){
                 $('.comment-form').css('display','none');
 
             }else if(approve_reject_status == 1){
+                showAudit();
                 $('.audit_check_registration').css('display','none');
                 $('.comment-form').css('display','none');
-                showAudit();
             }
-            // else if(status == 2){}
         }
     }); 
 } 
@@ -31,15 +30,24 @@ function auditData(){
     $.ajax({
         type: "GET",
         url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
-        success: function (data) {
+        success: function (data){
             var audit_data = data;
             audit_data.forEach(function(element){
-                console.log(element)
-                $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                $("#updated_at").append(element.updated_at);
+                if(element.status == 0){
+                    pendingStatus();
+                }else if(element.status ==1){
+                    $("#accountancy_firm_name").append(element.accountancy_firm_name);
+                    $("#updated_at").append(element.updated_at);
+                    $('#audit_container_pending').css('display','none');
+                }
             })
         }
     })
+}
+
+function pendingStatus(){
+    $('#audit_container').css('display','none');
+    $('#audit_container_pending').css('display','block');
 }
 
 function createAuditFirm(){
@@ -247,12 +255,12 @@ function getAudit(){
 }
 function showAuditInfo(auditId) {
   localStorage.setItem("id",auditId);
-  location.href="/audit-firm-show_info";
+  location.href= FRONTEND_URL + "/audit-firm-show_info";
   
 }
 function showNonAuditInfo(nonAuditId) {
   localStorage.setItem("id",nonAuditId);
-  location.href="/non-audit-firm-show_info";
+  location.href= FRONTEND_URL + "/non-audit-firm-show_info";
   
 }
 function autoLoadAudit(){
@@ -640,7 +648,7 @@ function loadAuditStaff(){
 function loadNonAuditStaff(){
   destroyDatatable("#tbl_non_audit_number", "#tbl_non_audit_number_body");
   $.ajax({
-    url: "/api/non_audit_total_staff",
+    url: BACKEND_URL + "/non_audit_total_staff",
     type: 'get',
     data:"",
     success: function(result){
@@ -662,7 +670,7 @@ function deleteAuditInfo(accName,accId){
     if (result) {
         $.ajax({
             type: "DELETE",
-            url: '/api/acc_firm_info/'+accId,
+            url: BACKEND_URL + '/acc_firm_info/'+accId,
             success: function (data) {
                 successMessage(data);
                 getAudit();
@@ -811,7 +819,7 @@ function updateAuditFirm(){
   send_data.append('_method', 'PATCH');
   
         $.ajax({
-                url: "/api/acc_firm_info/"+id,
+                url: BACKEND_URL + "/acc_firm_info/"+id,
                 type: 'post',
                 data:send_data,
                 contentType: false,
