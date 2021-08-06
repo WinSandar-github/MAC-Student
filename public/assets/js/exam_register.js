@@ -19,7 +19,9 @@ function createDAExamRegister()
         processData: false,
         success: function(result){
             // console.log(result)
+            location.reload();
             successMessage(result);
+
       }
     });
 }
