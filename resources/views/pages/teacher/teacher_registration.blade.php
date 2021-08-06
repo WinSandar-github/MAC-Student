@@ -84,7 +84,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="name_mm" class="form-control" placeholder="အမည်(မြန်မာ)"  required>
+                                            <input type="text" name="name_mm" id="name_mm" class="form-control"  placeholder="အမည်(မြန်မာ)"  required>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အဘအမည် (မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="father_name_mm" class="form-control" placeholder="အဘအမည် (မြန်မာ)" required>
+                                            <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" placeholder="အဘအမည် (မြန်မာ)" required>
                                         </div>
                                     </div>
                                 </div>
@@ -170,28 +170,10 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('အီးမေးလ်') }}</label>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                        <input type="text" name="email" class="form-control" placeholder="အီးမေးလ်(Email)" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက်') }}</label>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control" autocomplete='off' required>
-                                        </div>
-                                    </div>
-                                </div>
+                               
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း (ရရှိထားသော တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ)') }}</label>
                                     <div class="col-md-8">
                                         <table class="table tbl_degree table-bordered input-table">
@@ -199,18 +181,24 @@
                                                 <tr > 
                                                     <th class="less-font-weight text-center" width="10%">စဉ်</th> 
                                                     <th class="less-font-weight text-center"  width="80%">ပညာအရည်အချင်း</th>                                                        
-                                                    <th class="text-center" width="10%"><input type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")' value="+"></td>
+                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></td>
                                                 </tr>
                                             </thead>
                                             <tbody class="tbl_degree_body">
                                                                                                        
                                             </tbody>
                                         </table>
+                                       
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                <div class="row" style="margin-bottom:25px;margin-top:-12px;text-align:right;">
+                                    <div class="col-md-11 pull-right">
+                                        <label class="invalid-feedback degree text-right text-danger">ပညာအရည်အချင်း ထည့်ပါ</label>
+                                    </div>
+                                   
+                                </div>
+                                <div class="row" style="clear:both;">
+                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
                                     <div class="col-md-7">
                                         <div class="row">
@@ -231,8 +219,12 @@
                                 </div></br>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</label><br>
+                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                    <label class="col-md-4 col-form-label">{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</label>
+                                    <div class="col-md-6 pull-right" style="text-align:right;">
+                                        <label class="invalid-feedback col-form-label certificate text-danger">သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ ထည့်ပါ</label><br>
+                                    </div>
+                                    
                                 </div>    
 
                                 <div class="row">
@@ -244,7 +236,7 @@
                                                 <tr>  
                                                     <th class="less-font-weight text-center"  width="10%">စဉ်</th>                                                      
                                                     <th class="less-font-weight text-center"  width="80%">လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း</th>                                                        
-                                                    <th  class="less-font-weight text-center"  width="10%"><input type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSubject("tbl_certificate")' value="+"></td>
+                                                    <th  class="less-font-weight text-center"  width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSubject("tbl_certificate")'><li class="fa fa-plus"></li></button></td>
                                                 </tr>
                                             </thead>
                                             <tbody class="tbl_certificate_body">
@@ -263,7 +255,7 @@
                                                 <tr>   
                                                     <th class="less-font-weight text-center" width="10%">စဉ်</th>                                                     
                                                     <th class="less-font-weight text-center" width="80%">ဒီပလိုမာစာရင်းကိုင်သင်တန်း</th>                                                        
-                                                    <th class="less-font-weight text-center" width="10%"><input type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDipSubject("tbl_diploma")' value="+"></td>
+                                                    <th class="less-font-weight text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDipSubject("tbl_diploma")'><li class="fa fa-plus"></li></button></td>
                                                 </tr>
                                             </thead>
                                             <tbody class="tbl_diploma_body">
@@ -274,7 +266,7 @@
                                 </div>                                                             
                                     
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -284,9 +276,29 @@
                                 </div>
 
                                 <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label class="col-md-2 col-form-label">{{ __('အီးမေးလ်') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                        <input type="email" name="email" class="form-control" placeholder="အီးမေးလ်(Email)" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက်') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" autocomplete='off' required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- <label class="col-md-1 col-form-label">{{ __('၉။') }}</label> -->
                                     <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>                                        
                                 </div>
+
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label ">{{ __('မှတ်ချက်။') }}</label>
@@ -327,8 +339,23 @@
     $(document).ready(function (e) {
         $( "#teacher_register_form" ).submit(function( event ) {
             var checkedNum = $('input[name="gov_employee"]:checked').length;
+            var tbl_degree = $('.tbl_degree_body tr').length;
+            var tbl_certificate = $('.tbl_certificate_body tr').length;
+            var tbl_diploma = $('.tbl_diploma_body tr').length;
             if (!checkedNum) {
                 $(".gov_employee").show();
+                event.preventDefault();
+            }
+            if(!tbl_degree){
+                $(".degree").show();
+                event.preventDefault();
+            }
+            if(!tbl_certificate){
+                $(".certificate").show();
+                event.preventDefault();
+            }
+            if(!tbl_diploma){
+                $(".certificate").show();
                 event.preventDefault();
             }
         });
@@ -341,6 +368,25 @@
                 $(".gov_employee").hide();
             }
         });
+        $("input[id*='name_mm'], text[id*='name_mm']").on('keyup', function(e) {
+            myanmarLetterOnly($(this));
+        });
+        $(document).on('keydown', '#name_mm', function () {
+            myanmarLetterOnly($(this));
+        });
+        $("input[id*='father_name_mm'], text[id*='father_name_mm']").on('keyup', function(e) {
+            myanmarLetterOnly($(this));
+        });
+        $(document).on('keydown', '#father_name_mm', function () {
+            myanmarLetterOnly($(this));
+        });
+        function myanmarLetterOnly( self )
+        {
+            val = self.val();
+            if ( /[a-zA-Z0-9]+$/.test( val ) ) {
+              self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
+            }
+        }
     });
    
 </script>
