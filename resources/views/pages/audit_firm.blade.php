@@ -60,7 +60,7 @@
                 <div class="card text-white bg-primary my-3">
                     
                     <div class="card-body">
-                        <p class="card-text">Your Audit Form is checking</p>
+                        <p class="card-text">Your Application Form is checking</p>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     </div>
                 </form>           
             </div>
-            <div id="audit_container_pending" style="display:none; margin-top:5%;">
+            <div class="audit_container_pending" style="display:none; margin-top:5%;">
                 <div class="card text-white bg-primary my-3">
                     
                     <div class="card-body">

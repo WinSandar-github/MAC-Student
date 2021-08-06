@@ -203,7 +203,8 @@ function createSelfStudy()
         processData: false,
         success: function(result){
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -227,7 +228,8 @@ function createPrivateSchool()
         processData: false,
         success: function(result){            
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -246,7 +248,8 @@ function createMac()
         processData: false,
         success: function(result){
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }

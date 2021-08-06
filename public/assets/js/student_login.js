@@ -13,7 +13,8 @@ function studentLogin(){
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                location.href= FRONTEND_URL + "/student_index";
+                // location.href= FRONTEND_URL + "/student_index";
+                location.href= FRONTEND_URL + "/";
             }else{
                 $('#err_msg').text("Password and Email don't not match");
                 $("#email").val("");
