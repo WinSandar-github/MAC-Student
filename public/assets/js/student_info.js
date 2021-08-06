@@ -15,21 +15,21 @@ function app_form_feedback(){
                 $('.course_detail').css('display','none');
 
             }else if(approve_reject_status == 1){
+                 
                 $.ajax({
                     type: "get",
-                    url: BACKEND_URL+"/get_exam/"+student.id,
+                    url: BACKEND_URL+"/get_current_batch_studentId/"+student.id,
                     contentType: false,
                     processData: false,
                     success: function (result) {
                         var register_url;
-                        console.log(result,"Batch")
-                        localStorage.setItem('course_id',result.course_id);
+                        let batch = result.data;
+                        console.log(result.data,"Batch")
+                        localStorage.setItem('course_id',batch.course_id);
+                      
+                        if(batch){
 
-                       
-                        
-                        if(result){
-
-                            switch(result.course.code){
+                            switch(batch.course.code){
                                 case 'da_1':
                                 register_url = '/da_one_register';
                                 break;
@@ -49,8 +49,7 @@ function app_form_feedback(){
     
                                 
                             }
-                            console.log(register_url);
-                        location.href = FRONTEND_URL+register_url;
+                         location.href = FRONTEND_URL+register_url;
                         }
                         }
                     })  ;     
@@ -99,10 +98,10 @@ function app_form_feedback(){
 
                                 // }else{
                                 //     course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_form/'+batch_id[i];
-                                    course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_form/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_/'+batch_id[i];
                                 }
                                 
                              
@@ -110,7 +109,7 @@ function app_form_feedback(){
                             if(data_course[i])
                             {
                                 console.log(data_course[i].grade)
-                                if(data_course[i].grade == 1  && data_course[i].exam_type_id == course_id[i])
+                                if(data_course[i].grade == 1  && data_course[i].form_type == course_id[i])
                                 {
                                 $(`.check_login${count}`).append(`<p class=" text-success">You have been Sucessfully</p>`)
                                 }else{
@@ -313,6 +312,7 @@ function reg_feedback(){
                     contentType: false,
                     processData: false,
                     success: function (result) {
+                        console.log(result)
                         var exam_url;
 
                         // if(result.course.code == 'da_1'){}

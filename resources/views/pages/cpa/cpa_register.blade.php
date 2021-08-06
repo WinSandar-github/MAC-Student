@@ -65,7 +65,7 @@
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
 
-            <div class="blog-details-comment">
+            <div class="blog-details-comment dir_cpa_app_form">
                 <div class="comment-form">
                     <div class="form-wrapper">
                         <div class="row">
@@ -893,6 +893,160 @@
                 <!-- Form Wrapper End -->
                 </div><br><br>
             </div>
+
+
+            <div class="comment-form da_to_cpa">
+                    <div class="form-wrapper">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <form   id="store_da_two_form" method="post" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="card border-success mb-3">
+                                        <div class="card-body">
+                                        <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                    <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
+                                    <br/>
+
+                                           <input type="text" name="batch_id" id="batch_id" />
+                                            <div class="row">
+                                                <div class=col-md-3>
+                                                    <div class="single-form">
+                                                        
+                                                        <label >Batch Name</label>
+                                                    </div>
+                                                
+                                                </div>
+                                                <div class=col-md-9>
+                                                    <div class="single-form">
+                                                        <p id="batch_name" > </p>
+                                                    </div>
+                                                </div>             
+                                                
+                                                               
+                                            </div>
+                                            <div class="row">
+                                            <div class=col-md-3>
+                                                    <div class="single-form">
+                                                        <label>Payment</label>
+                                                         
+                                                    </div>
+                                                </div>   
+                                            <div class=col-md-9>
+                                                <div class="single-form">
+                                                    <p class="text-primary">Payment System Coming Soon</p>
+                                                </div>
+                                            </div>           
+                                            </div>
+                                            <div class="row">
+                                                    
+                                                    <div class="col-md-12">
+                                                        <div class="single-form">
+                                                            <label>ACCA/CIMA တက်ရောက်နေသူ -</label>
+                                                        </div>
+
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('') }}</label>
+                                                        </div>   
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="single-form">
+                                                            <label>(က) အောင်မြင်ထားသည်အဆင့် </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="single-form">
+                                                            <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('') }}</label>
+                                                        </div>   
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="single-form">
+                                                            <label>(ခ) ခုနှစ်/လ</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="single-form">
+                                                            <input type="text" placeholder="ခုနှစ်/လ" id="degree_date" name="degree_date" class="form-control year"  >
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('') }}</label>
+                                                        </div>   
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="single-form">
+                                                            <label>(ဂ) မှတ်ပုံတင်အမှတ်</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="single-form">
+                                                            <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label> </label>
+                                                        </div>   
+                                                    </div>
+                                            
+                                            
+                                                    <div class="col-md-2">
+                                                        <div class="single-form">
+                                                            <label>(ဃ) Attched Certificate</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="single-form">
+                                                            <input type="file" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            <div class="col-md-12">
+                                                 <div class="single-form text-center">
+                                                    <button class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div> 
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                
+                </div><br><br>
+
+
+
         </div>
     </div>
     <!-- JavaScript Section -->
@@ -912,6 +1066,7 @@
         check_entry_pass()
         localStorage.removeItem('course_type');
         localStorage.removeItem('batch_id');
+        direct_or_da();
 
 
        

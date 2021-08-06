@@ -70,7 +70,7 @@
                         
                         <div class="card-body add_exam">
                              
-                            
+                        
                         </div>
                     </div>
                 </div>
@@ -392,6 +392,7 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+  
     loadCourse();
     reg_feedback();
     var exam_date=localStorage.getItem("exam_date");

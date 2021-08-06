@@ -69,7 +69,7 @@
                                     <br/>
                                     <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" id="form_type" class="form-control" value="cpa one">
+                                        <input type="hidden" id="form_type" class="form-control" name="form_type">
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-1">
@@ -235,6 +235,7 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
+        $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "m-Y",

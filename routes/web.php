@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
 
-/*
+/*e
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -78,6 +78,8 @@ Route::get('login','LoginController@login')->name('login');
 Route::get('cpa_register', 'CPAFFController@cpaRegister');
 Route::get('da_register/{id}', 'DARegisterController@registerForm');
 Route::get('da_two_register', 'DARegisterController@da_two_register');
+
+//Da Two application form
 Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
