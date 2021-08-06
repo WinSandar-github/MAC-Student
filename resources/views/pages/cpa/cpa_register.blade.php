@@ -196,7 +196,7 @@
                                             
                                             <div class="col-md-2">
                                                 <div class="single-form">
-                                                    <label>အဘအမည်(အင်္ဂလိပ်</label>
+                                                    <label>အဘအမည်(အင်္ဂလိပ်)</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -256,7 +256,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" id="date_of_birth"  required>
+                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy"  id="date_of_birth"  required>
                                                 </div>
                                             </div>
                                         </div>
