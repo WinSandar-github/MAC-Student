@@ -345,7 +345,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" accept="image" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
+                                                    <input type="file" placeholder="upload photo" accept="image" name="image" value="{{ old('image') }}" required=""  accept="image/*"  style="padding: 2%;">
                                                 </div>
                                             </div>
                                          </div>
