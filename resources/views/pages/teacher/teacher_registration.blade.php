@@ -300,10 +300,10 @@
                                 </div>
 
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <label class="col-md-1 col-form-label ">{{ __('မှတ်ချက်။') }}</label>
                                     <label class="col-md-11 col-form-label" >{{ __('နိုင်ငံသားစိစစ်ရေးကတ်၊ ဘွဲ့လက်မှတ် မိတ္တူများနှင့် သင်ကြားမှုနှင့် အခြားလုပ်ငန်းအတွေ့အကြုံများအတွက် အထောက်အထားများ ဓာတ်ပုံအပို (၂) ပုံ တင်ပြရမည်။') }}</label>                                
-                                </div>
+                                </div> -->
                                                 
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
