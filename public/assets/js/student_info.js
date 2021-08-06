@@ -30,9 +30,7 @@ function app_form_feedback(){
                     $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 }
             }else{
-
-                
-            
+        
                 $('.course_detail').css('display','block');
                 $.ajax({
                     url: BACKEND_URL+"/get_exam_student/"+student_id,
@@ -69,6 +67,7 @@ function app_form_feedback(){
                            
                             if(data_course[i])
                             {
+                                console.log(data_course[i].grade)
                                 if(data_course[i].grade == 1  && data_course[i].exam_type_id == course_id[i])
                                 {
                                 $(`.check_login${count}`).append(`<p class=" text-success">You have been Sucessfully</p>`)
@@ -251,6 +250,8 @@ function createMac()
 // show Register Form Feedback after approve application form in student study page
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
+
+
     
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
@@ -258,11 +259,10 @@ function reg_feedback(){
         contentType: false,
         processData: false,
         success: function(status){
+           console.log(status);
             if(status == 0){
-           
                 $('.check_registration').css('display','block');
                 
-        
             }else if(status == 1){
                 $('.approve').css('display','block');
                  

@@ -75,7 +75,7 @@
 
                                     <div class="card border-success mb-3">
                                         <div class="card-body">
-                                            <h1>Da Two Form</h1>
+                                            <h4>Da Two Form</h4>
 
                                            <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                             <div class="row">
