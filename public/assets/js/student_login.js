@@ -2,18 +2,18 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url:   BACKEND_URL + "/loginValidate",
+        url:  "/loginValidate",
         type: 'post',
         data: {
             email: email,
             password:password
             },
         success: function(result){
-           
+
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                location.href= FRONTEND_URL + "student_index";
+                location.href= FRONTEND_URL + "/student_index";
             }else{
                 $('#err_msg').text("Password and Email don't not match");
                 $("#email").val("");
