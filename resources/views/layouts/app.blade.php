@@ -113,7 +113,7 @@
     <!-- dataTables JS -->
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"> -->
-    <script src="{{ asset('assets/js/plugins/dataTables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/dataTables/dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/dataTables/dataTables.bootstrap5.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
