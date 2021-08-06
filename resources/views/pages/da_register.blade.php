@@ -212,7 +212,7 @@
                                             </td>
                                             <td width="75%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}"  required>
+                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -270,7 +270,7 @@
                                             </td>
                                             <td width="75%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" required>
+                                                    <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -285,7 +285,7 @@
                                             </td>
                                             <td width="75%" class="pt-3">
                                                 <!-- <div class="single-form"> -->
-                                                    <input type="file" id="image" class="form-control" name="image" value="{{ old('image') }}" required="" >
+                                                    <input type="file" id="image" class="form-control" name="image" value="{{ old('image') }}"  accept="image/*" required="" >
                                                 <!-- </div> -->
                                             </td>
                                         </tr>
@@ -440,7 +440,7 @@
                                         <tr>
                                             <td width="25%">
                                                 <div class="single-form">
-                                                    <label class="col-form-label">Attched Certificate</label>
+                                                    <label class="col-form-label">Attached Certificate</label>
                                                 </div>
                                             </td>
                                             <td width="75%" class="pt-3">
@@ -459,7 +459,7 @@
                                             </td>
                                             <td width="75%">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="နှစ်၊လ" name="qualified_date" class="form-control" value="{{ old('qualified_date') }}" required="">
+                                                    <input type="text" placeholder="နှစ်၊လ" name="qualified_date" class="form-control"  required="">
                                                 </div>
                                             </td>
                                         </tr>
