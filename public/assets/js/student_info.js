@@ -30,9 +30,7 @@ function app_form_feedback(){
                     $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 }
             }else{
-
-                
-            
+        
                 $('.course_detail').css('display','block');
                 $.ajax({
                     url: BACKEND_URL+"/get_exam_student/"+student_id,
@@ -59,6 +57,10 @@ function app_form_feedback(){
                                 ++count;
 
                                 if(course_type == 1){
+                                //     course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_form/'+batch_id[i];
+
+                                // }else{
+                                //     course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_form/'+batch_id[i];
                                     course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_register/'+batch_id[i];
 
                                 }else{
@@ -69,6 +71,7 @@ function app_form_feedback(){
                            
                             if(data_course[i])
                             {
+                                console.log(data_course[i].grade)
                                 if(data_course[i].grade == 1  && data_course[i].exam_type_id == course_id[i])
                                 {
                                 $(`.check_login${count}`).append(`<p class=" text-success">You have been Sucessfully</p>`)
@@ -248,23 +251,81 @@ function createMac()
     });
 }
 
+// show Register Form Feedback after approve application form in student study page
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
+
+
     
- 
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
         type: 'GET',
         contentType: false,
         processData: false,
         success: function(status){
+           console.log(status);
             if(status == 0){
-           
                 $('.check_registration').css('display','block');
                 
-        
             }else if(status == 1){
                 $('.approve').css('display','block');
+                 
+                $.ajax({
+                    type: "get",
+                    url: BACKEND_URL+"/get_exam/"+student.id,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        var exam_url;
+
+                        // if(result.course.code == 'da_1'){}
+                       
+                        
+                        if(result){
+
+                            switch(result.course.code){
+                                case 'da_1':
+                                exam_url = 'exam_register';
+                                break;
+                                case 'da_2':
+                                exam_url = 'da_two_exam_register';
+                                break;
+                                case 'cpa_1':
+                                exam_url = 'cpa_exam_register';
+                                break;
+                                case 'cpa_2':
+                                exam_url = 'cpa_two_exam_register';
+                                break;
+                                default:
+                                exam_url = 'exam_register';
+                                break;
+    
+    
+                                
+                            }
+    
+                            $('.add_exam').append(`<div>
+                            <p>${result.name} </p>
+                            <p>Exam Start Date - ${result.exam_start_date}</p>
+                            <p>Exam End Date - ${result.exam_end_date}</p>
+                            <p> Go to Exam Registration Form
+                            <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
+                            </p>
+                        </div>`)
+
+                            
+                        }else{
+                            $('.add_exam').append(`<div>
+                                <p>The exam schedule will be announced soon</p>
+                            </div>`)
+                        }
+                      
+                    },
+                    error:function (message){
+                    }
+                })
+
+
         
             }else if(status == 2){
                 $('.status-reject').css('display','block');

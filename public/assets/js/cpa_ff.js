@@ -150,15 +150,14 @@ function createCPAFFRegister(){
 
 function selectEntry(){
     var radioValue = $("input[name='selected_name']:checked").val();
-    console.log(radioValue);
-    
+     
     if(radioValue==1){
         
         $('#direct').css('display','block');
-        $('#da_pass').css('display','none');
+        $('#entry_pass').css('display','none');
      }else
      {
-        $('#da_pass').css('display','block');
+        $('#entry_pass').css('display','block');
         $('#direct').css('display','none');
      }
 }
