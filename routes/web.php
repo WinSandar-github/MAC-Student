@@ -62,7 +62,7 @@ Route::get('cpa_two_mac', 'CPATwoRegisterController@mac');
 Route::get('cpa_two_private_school', 'CPATwoRegisterController@private_school');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
-Route::get('student_study', 'StudentController@study');
+Route::get('da_one_register', 'StudentController@daOneRegister');
 //Cpa One
 Route::get('cpa_register/{id}', 'CPAOneRegisterController@cpaRegister');
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');

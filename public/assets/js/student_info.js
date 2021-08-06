@@ -15,7 +15,45 @@ function app_form_feedback(){
                 $('.course_detail').css('display','none');
 
             }else if(approve_reject_status == 1){
-                location.href = FRONTEND_URL+ '/student_study';
+                $.ajax({
+                    type: "get",
+                    url: BACKEND_URL+"/get_exam/"+student.id,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        var register_url;
+                        console.log(result,"Batch")
+                        localStorage.setItem('course_id',result.course_id);
+
+                       
+                        
+                        if(result){
+
+                            switch(result.course.code){
+                                case 'da_1':
+                                register_url = '/da_one_register';
+                                break;
+                                case 'da_2':
+                                register_url = '/da_two_register';
+                                break;
+                                case 'cpa_1':
+                                register_url = '/cpa_one_register';
+                                break;
+                                case 'cpa_2':
+                                register_url = '/cpa_two_register';
+                                break;
+                                default:
+                                register_url = '/da_one_register';
+                                break;
+    
+    
+                                
+                            }
+                            console.log(register_url);
+                        location.href = FRONTEND_URL+register_url;
+                        }
+                        }
+                    })  ;     
             }else if(approve_reject_status == 2){
                 if(course_type_id == 2)
                 {
@@ -254,8 +292,6 @@ function createMac()
 // show Register Form Feedback after approve application form in student study page
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-
-
     
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
@@ -264,6 +300,7 @@ function reg_feedback(){
         processData: false,
         success: function(status){
            console.log(status);
+ 
             if(status == 0){
                 $('.check_registration').css('display','block');
                 
@@ -332,6 +369,7 @@ function reg_feedback(){
                  // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                     
             }else{
+                $('#form_type').val(localStorage.getItem('course_id'));
                 selectedRegistration();
                 $('.study').css('display','block');
         
