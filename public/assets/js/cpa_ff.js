@@ -166,7 +166,7 @@ function selectEntry(){
 function isLoginCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student == null){
-        location.href = '/login';
+        location.href = FRONTEND_URL + '/login';
     }
     else{
         var a=new Date(student.date_of_birth);
