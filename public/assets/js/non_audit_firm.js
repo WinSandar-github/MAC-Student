@@ -5,7 +5,7 @@ $(document).ready(function(){
       $("#local_header").css("display","block");
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
-      $("input[name=local_foreign_id]").val("1");
+      $("input[name=local_foreign_type]").val("1");
       $("#email_num").text("13");
       $("#password_num").text("14");
     }
@@ -14,7 +14,7 @@ $(document).ready(function(){
       $("#foreign_header").css("display","block");
       $("#local_header").css("display","none");
       $("#director_staffmembers").css("display","block");
-      $("input[name=local_foreign_id]").val("2");
+      $("input[name=local_foreign_type]").val("2");
       $("#email_num").text("14");
       $("#password_num").text("15");
     }
@@ -23,7 +23,7 @@ $(document).ready(function(){
       $("#local_header").css("display","block");
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
-      $("input[name=local_foreign_id]").val("1");
+      $("input[name=local_foreign_type]").val("1");
       $("#email_num").text("13");
       $("#password_num").text("14");
     }
@@ -118,7 +118,7 @@ function createNonAuditFirm(){
   send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
-  send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
+  send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());

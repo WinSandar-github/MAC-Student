@@ -15,7 +15,7 @@ function app_form_feedback(){
                 $('.course_detail').css('display','none');
 
             }else if(approve_reject_status == 1){
-                location.href = '/student_study';
+                location.href = FRONTEND_URL+ '/student_study';
             }else if(approve_reject_status == 2){
                 if(course_type_id == 2)
                 {
@@ -59,10 +59,10 @@ function app_form_feedback(){
                                 ++count;
 
                                 if(course_type == 1){
-                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_register/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_register/'+batch_id[i];
                                 }
                                 
                              
@@ -145,7 +145,7 @@ function addCourseBatch(courseName,courseId,batchName,batchId){
     localStorage.setItem("courseId",decodeURIComponent(courseId));
     localStorage.setItem("batchName",decodeURIComponent(batchName));
     localStorage.setItem("batchId",decodeURIComponent(batchId));
-    location.href="student_study";
+    location.href=FRONTEND_URL+"student_study";
 }
 
 function loadCourse(){
@@ -301,7 +301,7 @@ function loadExam()
                 exam_data.forEach(function(element){
                     if(element.status==1){
                         localStorage.setItem("exam_date",element.date);
-                        location.href = '/da_two_register';
+                        location.href = FRONTEND_URL+'/da_two_register';
                     }
                 })
                 

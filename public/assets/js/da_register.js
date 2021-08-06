@@ -140,7 +140,7 @@ $('#da_update').submit(function(e){
             data: formData,
             success: function (data) {
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = "/student_course/1";
+                location.href = FRONTEND_URL + "/student_course/1";
             },
             error:function (message){
             }
