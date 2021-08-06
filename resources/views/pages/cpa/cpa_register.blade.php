@@ -256,7 +256,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" id="date_of_birth"  required>
+                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" id="date_of_birth"  required>
                                                 </div>
                                             </div>
                                         </div>
@@ -325,7 +325,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="single-form">
-                                                        <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" id="date_of_birth" value="{{ old('date_of_birth') }}" required>
+                                                        <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy"  required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -683,7 +683,7 @@
                                     
                                             <div class="col-md-2">
                                                 <div class="single-form">
-                                                    <label>(ဃ) Attched Certificate</label>
+                                                    <label>(ဃ) Attached Certificate</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
