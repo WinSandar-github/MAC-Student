@@ -238,10 +238,12 @@
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "m-Y",
+                allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
+                allowInput: true,
         });
     });
 </script>
