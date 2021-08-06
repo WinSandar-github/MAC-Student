@@ -2,7 +2,7 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
-        url:   "/loginValidate",
+        url:   BACKEND_URL + "/loginValidate",
         type: 'post',
         data: {
             email: email,
@@ -13,7 +13,7 @@ function studentLogin(){
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                location.href="student_index";
+                location.href= FRONTEND_URL + "student_index";
             }else{
                 $('#err_msg').text("Password and Email don't not match");
                 $("#email").val("");

@@ -164,3 +164,31 @@ function CPA2_Self_Study_Submit(){
             }
         });
 }
+
+
+
+$('#store_cpa_two_form').submit(function(e){
+    e.preventDefault();
+
+    var formData = new FormData(this);
+    formData.append('student_id',student_id);
+    $.ajax({
+        url: BACKEND_URL+"/store_da_two_app_form",
+        type: 'post',
+        data:formData,
+        contentType: false,
+        processData: false,
+        success: function(data){
+            localStorage.setItem('approve_reject', data.approve_reject_status);
+            location.href = "/student_course/2"; 
+        },
+      error:function (message){
+        errorMessage(message);
+          }
+        // },
+        // error:function (message){
+        //   // console.log(message)
+        //   successMessage(result);
+        // }
+    });
+});

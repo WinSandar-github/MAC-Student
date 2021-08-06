@@ -194,7 +194,7 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
-                                        <input type="checkbox" name="school_type[]" value='individual'>
+                                        <input type="checkbox" name="school_type[]" value='တစ်ဦးတည်းပိုင်လုပ်ငန်း'>
                                         <label class="form-check-label">တစ်ဦးတည်းပိုင်လုပ်ငန်း </label>
                                         <label class="form-check-label type text-danger" style='display:none;float:right;'>ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ပေးပါ</label>
                                     </div>                
@@ -203,7 +203,7 @@
                                 <div class="row" style="clear:both;">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
-                                        <input type="checkbox" name="school_type[]" value='group'>
+                                        <input type="checkbox" name="school_type[]" value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း'>
                                         <label class="form-check-label">နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း</label>
                                     </div>              
                                 </div>
@@ -211,7 +211,7 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
-                                        <input type="checkbox" name="school_type[]" value='company'>
+                                        <input type="checkbox" name="school_type[]" value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ'>
                                         <label class="form-check-label">တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ</label>
                                     </div>                
                                 </div>
@@ -219,7 +219,7 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
-                                        <input type="checkbox" name="school_type[]" value='committee'>
+                                        <input type="checkbox" name="school_type[]" value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်'>
                                         <label class="form-check-label">တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း</label>
                                     </div>              
                                 </div><br>
@@ -260,6 +260,16 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <input type="text" name="email" class="form-control" autocomplete='off' required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက်') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>

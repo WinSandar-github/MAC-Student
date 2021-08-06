@@ -255,12 +255,12 @@ function getAudit(){
 }
 function showAuditInfo(auditId) {
   localStorage.setItem("id",auditId);
-  location.href="/audit-firm-show_info";
+  location.href= FRONTEND_URL + "/audit-firm-show_info";
   
 }
 function showNonAuditInfo(nonAuditId) {
   localStorage.setItem("id",nonAuditId);
-  location.href="/non-audit-firm-show_info";
+  location.href= FRONTEND_URL + "/non-audit-firm-show_info";
   
 }
 function autoLoadAudit(){
@@ -648,7 +648,7 @@ function loadAuditStaff(){
 function loadNonAuditStaff(){
   destroyDatatable("#tbl_non_audit_number", "#tbl_non_audit_number_body");
   $.ajax({
-    url: "/api/non_audit_total_staff",
+    url: BACKEND_URL + "/non_audit_total_staff",
     type: 'get',
     data:"",
     success: function(result){
@@ -670,7 +670,7 @@ function deleteAuditInfo(accName,accId){
     if (result) {
         $.ajax({
             type: "DELETE",
-            url: '/api/acc_firm_info/'+accId,
+            url: BACKEND_URL + '/acc_firm_info/'+accId,
             success: function (data) {
                 successMessage(data);
                 getAudit();
@@ -819,7 +819,7 @@ function updateAuditFirm(){
   send_data.append('_method', 'PATCH');
   
         $.ajax({
-                url: "/api/acc_firm_info/"+id,
+                url: BACKEND_URL + "/acc_firm_info/"+id,
                 type: 'post',
                 data:send_data,
                 contentType: false,
