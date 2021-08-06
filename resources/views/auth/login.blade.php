@@ -150,10 +150,10 @@ $('document').ready(function(){
         const result   = await response.json();
     
         const course = result.course.filter(function(res) {
-            return    res.code == 1
+            return    res.code == 'da_1'
         }
         );
-        console.log(course[0].active_batch[0]);
+       
        if(course[0].active_batch[0] !== undefined){
            batch_id =  course[0].active_batch[0].id;
            $('.route_reg').append(`You dont have account  <a href={{url('da_register/${batch_id}')}}>Register</a>`)

@@ -1,3 +1,4 @@
+let url = location.pathname;
 $("input[name='date_of_birth']").flatpickr({
     enableTime: false,
     dateFormat: "d-m-Y",
@@ -428,10 +429,12 @@ function Mac_Submit(){
 //store cpa  app form
 $('#cpa_register').submit(function(e){
     e.preventDefault();
-    var url = location.pathname;
-    var batch_id = url.substring(url.lastIndexOf('/')+1);
+  
+    let batch_id = url.substring(url.lastIndexOf('/')+1);
+
+    var formData = new FormData(this);
     
-     var formData = new FormData(this);
+    
      formData.append('batch_id',batch_id)
      
         $.ajax({
@@ -442,9 +445,16 @@ $('#cpa_register').submit(function(e){
             data: formData,
             success: function (data) {
               
+                // localStorage.setItem('studentinfo', JSON.stringify(data));
+                // localStorage.setItem('approve_reject', data.approve_reject_status);
+                // location.href = "/student_course/2";
+                if(data.name != null){
                 localStorage.setItem('studentinfo', JSON.stringify(data));
                 localStorage.setItem('approve_reject', data.approve_reject_status);
                 location.href = FRONTEND_URL + "/student_course/2";
+                }else{
+                    location.reload();
+                }
             },
             error:function (message){
             }
@@ -546,6 +556,34 @@ $('#cpa_update').submit(function(e){
         })
 
 })
+
+function check_entry_pass(){
+    let batch_id = url.substring(url.lastIndexOf('/')+1);
+    $.ajax({
+        type: "get",
+        url: BACKEND_URL+"/batch/"+batch_id,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+             let date = new Date();
+              
+            // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+            var start_date = new Date(res.data.entrance_pass_start_date);
+            var end_date = new Date(res.data.entrance_pass_end_date);
+             if(start_date <= date && end_date >= date){
+                 $('#active_entrance').show();
+            }else{
+                $('#non_active').show();
+            }
+          
+        },
+        error:function (message){
+        }
+    })
+
+    
+    
+}
 
 
 function updateStudentInfo(){
