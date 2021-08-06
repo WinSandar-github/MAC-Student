@@ -448,6 +448,13 @@ $('#cpa_register').submit(function(e){
                 // localStorage.setItem('studentinfo', JSON.stringify(data));
                 // localStorage.setItem('approve_reject', data.approve_reject_status);
                 // location.href = "/student_course/2";
+                if(data.name != null){
+                localStorage.setItem('studentinfo', JSON.stringify(data));
+                localStorage.setItem('approve_reject', data.approve_reject_status);
+                location.href = FRONTEND_URL + "/student_course/2";
+                }else{
+                    location.reload();
+                }
             },
             error:function (message){
             }
@@ -542,7 +549,7 @@ $('#cpa_update').submit(function(e){
             data: formData,
             success: function (data) {
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = "/student_course/"+data.course_type_id;
+                location.href = FRONTEND_URL + "/student_course/"+data.course_type_id;
             },
             error:function (message){
             }

@@ -179,7 +179,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                    
+                                
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက်') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" autocomplete='off' required>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း (ရရှိထားသော တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ)') }}</label>
