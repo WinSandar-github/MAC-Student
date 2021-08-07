@@ -19,98 +19,84 @@ $("#photo").change(function(){
     readURL(this);
 });
 
-var studentID=null;
-async function SearchStudentByNRC(){
-    var nrc_state_region = $("#nrc_state_region").val();
-    var nrc_township = $("#nrc_township").val();
-    var nrc_citizen = $("#nrc_citizen").val();
-    var nrc_number=$("input[name=nrc_number]").val();
+// var studentID=null;
+// async function SearchStudentByNRC(){
+//     var nrc_state_region = $("#nrc_state_region").val();
+//     var nrc_township = $("#nrc_township").val();
+//     var nrc_citizen = $("#nrc_citizen").val();
+//     var nrc_number=$("input[name=nrc_number]").val();
 
-    var photo = $('#photo')[0].files[0];
+//     var photo = $('#photo')[0].files[0];
    
-    var name_mm=document.getElementById("name_mm");
-    var name_eng=document.getElementById("name_eng");
-    //var photo=document.getElementById("photo");
-    var father_name_mm=document.getElementById("father_name_mm");
-    var father_name_eng=document.getElementById("father_name_eng");
-    var race=document.getElementById("race");
-    var religion=document.getElementById("religion");
-    var date_of_birth=document.getElementById("date_of_birth");
-    var education=document.getElementById("education");
-    var position=document.getElementById("position");
-    var department=document.getElementById("department");
-    var office_area=document.getElementById("office_area");
-    var civil_servant=document.getElementById("civil_servant");
-    var address=document.getElementById("address");
-    var current_address=document.getElementById("current_address");
-    var phone=document.getElementById("phone");
-    var email=document.getElementById("email");
-    var nrc = new FormData();
+//     var name_mm=document.getElementById("name_mm");
+//     var name_eng=document.getElementById("name_eng");
+//     //var photo=document.getElementById("photo");
+//     var father_name_mm=document.getElementById("father_name_mm");
+//     var father_name_eng=document.getElementById("father_name_eng");
+//     var race=document.getElementById("race");
+//     var religion=document.getElementById("religion");
+//     var date_of_birth=document.getElementById("date_of_birth");
+//     var education=document.getElementById("education");
+//     var position=document.getElementById("position");
+//     var department=document.getElementById("department");
+//     var office_area=document.getElementById("office_area");
+//     var civil_servant=document.getElementById("civil_servant");
+//     var address=document.getElementById("address");
+//     var current_address=document.getElementById("current_address");
+//     var phone=document.getElementById("phone");
+//     var email=document.getElementById("email");
+//     var nrc = new FormData();
     
-    nrc.append('nrc_state_region', nrc_state_region);
-    nrc.append('nrc_township', nrc_township);
-    nrc.append('nrc_citizen', nrc_citizen);
-    nrc.append('nrc_number', nrc_number);
-    await $.ajax({
-    url:BACKEND_URL+"/student_info_by_nrc",
-    type: 'post',
-    data: nrc,
-    contentType: false,
-    processData: false,
-    success: function(result){
-        console.log("result",result);
-            if(result.data!=null){
-                studentID=result.data.id;
-                console.log(result.data);
-                name_mm.value=result.data.name_mm;
-                name_eng.value=result.data.name_eng;
-                //photo.value=result.data.image;
-                //$('#photo')[0].files[0]=result.data.image;
-                father_name_mm.value=result.data.father_name_mm;
-                father_name_eng.value=result.data.father_name_eng;
-                race.value=result.data.race;
-                religion.value=result.data.religion;
-                date_of_birth.value=result.data.date_of_birth;
-                education.value=result.data.student_education_histroy.degree_name;
-                position.value=result.data.student_job.position;
-                department.value=result.data.student_job.department;
-                office_area.value=result.data.student_job.office_address;
-                if(result.data.gov_staff==1){
-                    var yes=document.getElementById("yes");
-                    yes.checked=true;
-                }
-                else{
-                    var no=document.getElementById("no");
-                    no.checked=true;
-                }
-                address.value=result.data.address;
-                current_address.value=result.data.current_address;
-                phone.value=result.data.phone;
-                if(email){
-                    email.value=result.data.email;
-                }
-            }
-            else{
-            }
-        }
-    });
-}
-//type==> private school->0, self study->1, Mac->2
+//     nrc.append('nrc_state_region', nrc_state_region);
+//     nrc.append('nrc_township', nrc_township);
+//     nrc.append('nrc_citizen', nrc_citizen);
+//     nrc.append('nrc_number', nrc_number);
+//     await $.ajax({
+//     url:BACKEND_URL+"/student_info_by_nrc",
+//     type: 'post',
+//     data: nrc,
+//     contentType: false,
+//     processData: false,
+//     success: function(result){
+//         console.log("result",result);
+//             if(result.data!=null){
+//                 studentID=result.data.id;
+//                 console.log(result.data);
+//                 name_mm.value=result.data.name_mm;
+//                 name_eng.value=result.data.name_eng;
+//                 //photo.value=result.data.image;
+//                 //$('#photo')[0].files[0]=result.data.image;
+//                 father_name_mm.value=result.data.father_name_mm;
+//                 father_name_eng.value=result.data.father_name_eng;
+//                 race.value=result.data.race;
+//                 religion.value=result.data.religion;
+//                 date_of_birth.value=result.data.date_of_birth;
+//                 education.value=result.data.student_education_histroy.degree_name;
+//                 position.value=result.data.student_job.position;
+//                 department.value=result.data.student_job.department;
+//                 office_area.value=result.data.student_job.office_address;
+//                 if(result.data.gov_staff==1){
+//                     var yes=document.getElementById("yes");
+//                     yes.checked=true;
+//                 }
+//                 else{
+//                     var no=document.getElementById("no");
+//                     no.checked=true;
+//                 }
+//                 address.value=result.data.address;
+//                 current_address.value=result.data.current_address;
+//                 phone.value=result.data.phone;
+//                 if(email){
+//                     email.value=result.data.email;
+//                 }
+//             }
+//             else{
+//             }
+//         }
+//     });
+// }
+
 function Private_School_Submit(){
-    var photo = $('#photo')[0].files[0];
-    console.log(photo);
-    if(photo==null){
-        alert("Please select photo!");
-        return;
-    }
-    if( $("#academic_year").val()==""){
-        alert("Please enter academic year!");
-        return;
-    }
-    if( $("#private_school_name").val()==""){
-        alert("Please enter private school name!");
-        return;
-    }
     var yes=document.getElementById("yes");
 
     var data = new FormData();
@@ -183,15 +169,6 @@ function Private_School_Submit(){
 }
 
 function Self_Study_Submit(){
-    var photo = $('#photo')[0].files[0];
-     if(photo==null){
-        alert("Please select photo!");
-        return;
-    }
-    if( $("#academic_year").val()==""){
-        alert("Please enter academic year!");
-        return;
-    }
     var resigned = document.getElementById("resigned");
     var fail_exam = document.getElementById("fail_exam");
     var attendance = document.getElementById("attendance");
@@ -304,15 +281,6 @@ console.log('data',data);
 }
 
 function Mac_Submit(){
-    var photo = $('#photo')[0].files[0];
-    if(photo==null){
-        alert("Please select photo!");
-        return;
-    }
-    if( $("#academic_year").val()==""){
-        alert("Please enter academic year!");
-        return;
-    }
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
     var module1=document.getElementById("module1");
@@ -586,73 +554,73 @@ function check_entry_pass(){
 }
 
 
-function updateStudentInfo(){
-    console.log(studentID);
-    var photo = $('#photo')[0].files[0];
-    var update_data = new FormData();
-    update_data.append('image', photo);
-    update_data.append('name_mm', $("#name_mm").val());
-    update_data.append('name_eng', $("#name_eng").val());
-    update_data.append('nrc_state_region', $("#nrc_state_region").val());
-    update_data.append('nrc_township', $("#nrc_township").val());
-    update_data.append('nrc_citizen', $("#nrc_citizen").val());
-    update_data.append('nrc_number', $("input[name=nrc_number]").val());
-    update_data.append('father_name_mm', $("#father_name_mm").val());
-    update_data.append('father_name_eng', $("#father_name_eng").val());
-    update_data.append('race', $("#race").val());
-    update_data.append('religion', $("#religion").val());
-    update_data.append('birth_date', $("#birth_date").val());
-    // update_data.append('education', $("#education").val());
-    // update_data.append('position', $("#position").val());
-    // update_data.append('department', $("#department").val());
-    // update_data.append('office_area', $("#office_area").val());
-    if(yes.checked){
-        update_data.append('civil_servant',1);
-    }
-    else{
-        update_data.append('civil_servant',0);
-    }
-    update_data.append('address', $("#address").val());
-    update_data.append('current_address', $("#current_address").val());
-    update_data.append('phone', $("#phone").val());
-    // update_data.append('email', $("#email").val());
-    if(studentID==null)
-    {
-        $.ajax({
-            url: BACKEND_URL+"/da_register",
-            type: 'post',
-            data:update_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
-                console.log(result.message);
-                successMessage(result.message);
-                location.reload();
-            },
-            error:function (message){
-                console.log(message);
-            }
-        });
-    }
-    else{
-        update_data.append('_method', 'PUT');
-        $.ajax({
-            url: BACKEND_URL+"/da_register/"+studentID,
-            type: 'post',
-            data:update_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
-                console.log(result.message);
-                successMessage(result.message);
-                //location.reload();
-            },
-            error:function (message){
-                console.log(message);
-            }
-        });
-    }
-}
+// function updateStudentInfo(){
+//     console.log(studentID);
+//     var photo = $('#photo')[0].files[0];
+//     var update_data = new FormData();
+//     update_data.append('image', photo);
+//     update_data.append('name_mm', $("#name_mm").val());
+//     update_data.append('name_eng', $("#name_eng").val());
+//     update_data.append('nrc_state_region', $("#nrc_state_region").val());
+//     update_data.append('nrc_township', $("#nrc_township").val());
+//     update_data.append('nrc_citizen', $("#nrc_citizen").val());
+//     update_data.append('nrc_number', $("input[name=nrc_number]").val());
+//     update_data.append('father_name_mm', $("#father_name_mm").val());
+//     update_data.append('father_name_eng', $("#father_name_eng").val());
+//     update_data.append('race', $("#race").val());
+//     update_data.append('religion', $("#religion").val());
+//     update_data.append('birth_date', $("#birth_date").val());
+//     // update_data.append('education', $("#education").val());
+//     // update_data.append('position', $("#position").val());
+//     // update_data.append('department', $("#department").val());
+//     // update_data.append('office_area', $("#office_area").val());
+//     if(yes.checked){
+//         update_data.append('civil_servant',1);
+//     }
+//     else{
+//         update_data.append('civil_servant',0);
+//     }
+//     update_data.append('address', $("#address").val());
+//     update_data.append('current_address', $("#current_address").val());
+//     update_data.append('phone', $("#phone").val());
+//     // update_data.append('email', $("#email").val());
+//     if(studentID==null)
+//     {
+//         $.ajax({
+//             url: BACKEND_URL+"/da_register",
+//             type: 'post',
+//             data:update_data,
+//             contentType: false,
+//             processData: false,
+//             success: function(result){
+//                 console.log(result.message);
+//                 successMessage(result.message);
+//                 location.reload();
+//             },
+//             error:function (message){
+//                 console.log(message);
+//             }
+//         });
+//     }
+//     else{
+//         update_data.append('_method', 'PUT');
+//         $.ajax({
+//             url: BACKEND_URL+"/da_register/"+studentID,
+//             type: 'post',
+//             data:update_data,
+//             contentType: false,
+//             processData: false,
+//             success: function(result){
+//                 console.log(result.message);
+//                 successMessage(result.message);
+//                 //location.reload();
+//             },
+//             error:function (message){
+//                 console.log(message);
+//             }
+//         });
+//     }
+// }
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));

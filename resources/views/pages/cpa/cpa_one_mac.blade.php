@@ -70,30 +70,27 @@
                 <div class="card border-success mb-3">
                     <div class="card-body">
                     <div class="row">   
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-2"></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                                        <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
                                     </div>
-                                    <div class="col-md-2"></div>
-                                </div>
+                                </div><br/>
                                 <!-- <div class="row">
                                     <div class="col-md-3 col-form-label pt-4">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</div> 
                                     <div class="col-md-3 col-form-label pt-4">
                                         <input type="text" id="private_school_name" class="form-control" value="" >
                                     </div> 
                                 </div> -->
-                                <div class="row">
+                                {{--<div class="row">
                                     <div class="col-md-3 col-form-label pt-4">{{ __('ပညာသင်နှစ်') }}</div> 
                                     <div class="col-md-3 col-form-label pt-4">
                                         <input type="text"  id="academic_year" class="form-control" value="" required>
                                     </div> 
-                                </div><br/>
+                                </div><br/>--}}
                             </div>    
-                            <div class="col-md-3">
+                            {{--<div class="col-md-3">
                                 <div class="card" style="width:230px;">
                                     <div class="card-header" style="padding:0px 0px 0px 0px;">
                                     <img src="{{ asset('assets/images/profile.png') }}" alt="Avatar" id="img_preview" style="width:230px;height:150px"> 
@@ -103,7 +100,7 @@
                                     </div>
                                 </div>
                                 
-                            </div>   
+                            </div>   --}}
                         </div>
                         <!-- <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5> -->
                         <div>
@@ -113,7 +110,7 @@
                                     <input type="text" id="academic_year" class="form-control" value="" >
                                 </div> 
                             </div><br/> -->
-                            <div class="row">
+                            {{--<div class="row">
                                 <div class="col-md-1 col-form-label pt-4">{{ __('၁။') }}</div>
                                 <div class="col-md-4 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                 <div class="col-md-7">
@@ -164,9 +161,9 @@
                                             </div>
                                         </div>
                                     </div>
-                            </div> 
+                            </div> --}}
                             <form  method="post" action="javascript:Mac_Submit();" enctype="multipart/form-data">
-                                <div class="row">
+                                {{--<div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('၂။') }}</label>
@@ -458,11 +455,28 @@
                                             <input type="text" id="email" class="form-control" value="" required>
                                         </div>
                                     </div>
+                                </div>--}}
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="single-form">
+                                            <label class="col-form-label">{{ _('၁။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="single-form">
+                                            <label class="col-form-label">{{ _('ပညာသင်နှစ်') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="single-form">
+                                            <input type="text" id="academic_year" class="form-control" value="" required>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၇။') }}</label>
+                                            <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -479,7 +493,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၈။') }}</label>
+                                            <label class="col-form-label">{{ _('၃။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -496,7 +510,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁၉။') }}</label>
+                                            <label class="col-form-label">{{ _('၄။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -545,7 +559,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <label class="col-form-label">{{ _('၂၀။') }}</label>                                   
+                                        <label class="col-form-label">{{ _('၅။') }}</label>                                   
                                     </div>
                                     <div class="col-md-10">
                                             <label class="col-form-label">{{ _('အစိုးရဌာနတွင်အလုပ်သင်ဆင်းလိုကြောင်းအဆိုပြုသူများအတွက် ပူးတွဲတင်ပြရမည့် စာရွက်စာတမ်းများ') }}</label>                                   
@@ -574,7 +588,7 @@
                             <br/>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <label class="col-form-label">{{ _('၂၁။') }}</label>                                   
+                                        <label class="col-form-label">{{ _('၆။') }}</label>                                   
                                     </div>
                                     <div class="col-md-5">
                                             <label class="col-form-label">{{ _('ဖြေဆိုမည့် Module') }}</label>                                   
@@ -599,7 +613,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၂၂။') }}</label>
+                                            <label class="col-form-label">{{ _('၇။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-10">
