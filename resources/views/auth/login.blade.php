@@ -177,9 +177,11 @@ $('document').ready(function(){
     
     if(ls_course_type == 2){
         
-        $('.route_reg').append(`You dont have account  <a href={{url('${FRONTEND_URL}/cpa_register/${batch_id}')}}>Register</a>`)
+        // $('.route_reg').append(`You dont have account  <a href={{url('${FRONTEND_URL}/cpa_register/${batch_id}')}}>Register</a>`)
+        $('.route_reg').append(`You dont have account  <a href={{url('/cpa_register/${batch_id}')}}>Register</a>`)
     }else{
-        $('.route_reg').append(`You dont have account  <a href="{{url('${FRONTEND_URL}/da_register/${batch_id}')}}">Register</a>`)
+        // $('.route_reg').append(`You dont have account  <a href="{{url('${FRONTEND_URL}/da_register/${batch_id}')}}">Register</a>`)
+        $('.route_reg').append(`You dont have account  <a href="{{url('/da_register/${batch_id}')}}">Register</a>`)
 
     }
 }
