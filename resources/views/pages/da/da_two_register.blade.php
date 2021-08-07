@@ -38,8 +38,8 @@
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="section section-padding">
-        <div class="container approve_reject">
-        <div class="status-reject" style="display:none">
+        <div class="container">
+                <div class="status-reject" style="display:none">
                     <div class="card text-white bg-dark my-3">
                         
                         <div class="card-body">
@@ -76,7 +76,7 @@
                 </div>
                     
                     <div class="comment-form study" style="display:none;">
-                        <input type="text" name="form_type" id="form_type">
+                        <input type="hidden" name="form_type" id="form_type">
                         <div class="">
                             <div class="form-wrapper">
                                 

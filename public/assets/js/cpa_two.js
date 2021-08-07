@@ -174,7 +174,7 @@ $('#store_cpa_two_form').submit(function(e){
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     $.ajax({
-        url: BACKEND_URL+"/store_da_two_app_form",
+        url: BACKEND_URL+"/store_cpa_da_two_app_form",
         type: 'post',
         data:formData,
         contentType: false,

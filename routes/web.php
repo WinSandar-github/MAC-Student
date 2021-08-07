@@ -53,6 +53,9 @@ Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
 Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+
+
 Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
 Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 
@@ -60,6 +63,8 @@ Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 Route::get('cpa_two_self_study', 'CPATwoRegisterController@self_study');
 Route::get('cpa_two_mac', 'CPATwoRegisterController@mac');
 Route::get('cpa_two_private_school', 'CPATwoRegisterController@private_school');
+Route::get('cpa_two_register', 'CPATwoRegisterController@register');
+
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
