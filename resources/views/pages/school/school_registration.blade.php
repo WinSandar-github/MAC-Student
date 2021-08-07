@@ -90,7 +90,7 @@
                                   <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
                                   <div class="col-md-8">
                                       <div class="form-group">
-                                          <input type="text" name="name_mm" class="form-control" autocomplete='off' required>
+                                          <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' required>
                                       </div>
                                   </div>
                                 </div>
@@ -149,7 +149,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အဘအမည်(မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="father_name_mm" class="form-control" autocomplete='off' required>
+                                            <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                             
@@ -229,7 +229,7 @@
                                     <label class="col-md-6 col-form-label">{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}</label>
                                     <div class="col-md-4">
                                         <div class="mb-3 col-auto">
-                                            <input type="file" id="attachment" name="attachment" class="form-control" required />                                            
+                                            <input type="file" id="attachment" name="attachment" class="form-control" accept="application/pdf"  required />                                            
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +259,7 @@
                                     <label class="col-md-2 col-form-label">{{ __('အီးမေးလ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="email" class="form-control" autocomplete='off' required>
+                                            <input type="email" name="email" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -279,7 +279,7 @@
                                     <label class="col-md-10 col-form-label">{{ __('မှတ်ချက်။လျှောက်လွှာကြေး ၁၀၀၀၀ကျပ်၊မှတ်ပုံတင်ကြေး ၅၀၀,၀၀၀ကျပ်၊နှစ်စဥ်ကြေး ၃၀၀,၀၀၀ကျပ်') }}</label>
                                 </div>
 
-                                <div class="row m-2">
+                                <div class="row m-4">
                                     <div class="col-md-2 offset-md-5">
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
                                     </div>
@@ -334,6 +334,26 @@ $(document).ready(function (e) {
             dateFormat: "d-m-Y",
             allowInput: true
     });
+
+    $("input[id*='name_mm'], text[id*='name_mm']").on('keyup', function(e) {
+        myanmarLetterOnly($(this));
+    });
+    $(document).on('keydown', '#name_mm', function () {
+        myanmarLetterOnly($(this));
+    });
+    $("input[id*='father_name_mm'], text[id*='father_name_mm']").on('keyup', function(e) {
+        myanmarLetterOnly($(this));
+    });
+    $(document).on('keydown', '#father_name_mm', function () {
+        myanmarLetterOnly($(this));
+    });
+    function myanmarLetterOnly( self )
+    {
+        val = self.val();
+        if ( /[a-zA-Z0-9]+$/.test( val ) ) {
+          self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
+        }
+    }
 });
 </script>
 @endpush
