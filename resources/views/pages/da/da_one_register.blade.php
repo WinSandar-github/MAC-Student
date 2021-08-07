@@ -37,7 +37,7 @@
         <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
-    <div class="container" style="overflow: hidden;">
+    <div class="container approve_request" style="overflow: hidden;">
                 <div class="status-reject" style="display:none">
                     <div class="card text-white bg-dark my-3">
                         
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="comment-form study" style="display:none;">
-                    <input type="hidden" name="form_type">
+                    <input type="text" name="form_type" id="form_type">
                     <div class="form-wrapper">
                         <div class="">
                             <div class="row">

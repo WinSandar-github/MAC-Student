@@ -38,10 +38,45 @@
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="section section-padding">
-        <div class="container">
+        <div class="container approve_reject">
+        <div class="status-reject" style="display:none">
+                    <div class="card text-white bg-dark my-3">
+                        
+                        <div class="card-body">
+                            <!-- status == 2 => reject -->
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                             </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="check_registration" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your Registration Form is checking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="approve" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">You have the opportunity to attend the training  </p>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body add_exam">
+                             
+                        
+                        </div>
+                    </div>
+                </div>
                     
-                    <div class="">
-                    <input type="hidden" name="form_type" value="da two">
+                    <div class="comment-form study" style="display:none;">
+                        <input type="text" name="form_type" id="form_type">
                         <div class="">
                             <div class="form-wrapper">
                                 
@@ -357,7 +392,9 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+  
     loadCourse();
+    reg_feedback();
     var exam_date=localStorage.getItem("exam_date");
     $("input[name='exam_date']").val(formatDate(exam_date));
 </script>

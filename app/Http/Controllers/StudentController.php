@@ -15,8 +15,8 @@ class StudentController extends Controller
     public function info(){
         return view('pages.student_info.student_course');
     }
-    public function study(){
-        return view('pages.student_info.student_study');
+    public function daOneRegister(){
+         return view('pages.da.da_one_register');
     }
     public function course($course_type_id)
     {

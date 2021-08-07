@@ -184,8 +184,7 @@ function Private_School_Submit(){
 
 function Self_Study_Submit(){
     var photo = $('#photo')[0].files[0];
-    console.log(photo);
-    if(photo==null){
+     if(photo==null){
         alert("Please select photo!");
         return;
     }
@@ -557,6 +556,7 @@ $('#cpa_update').submit(function(e){
 
 })
 
+// Entry pass in Cpa One Register
 function check_entry_pass(){
     let batch_id = url.substring(url.lastIndexOf('/')+1);
     $.ajax({
@@ -652,4 +652,27 @@ function updateStudentInfo(){
             }
         });
     }
+}
+
+function direct_or_da(){
+    let student = JSON.parse(localStorage.getItem("studentinfo"));
+    if(student){
+        let batch_id = url.substring(url.lastIndexOf('/')+1);
+        $.ajax({
+            type: "get",
+            url: BACKEND_URL+"/batch/"+batch_id,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log(res)
+                $('#batch_id').val(res.data.id);
+                $('#batch_name').text(res.data.name);
+            }
+        })        
+        $('.da_to_cpa').show();
+    }else{
+        $('.dir_cpa_app_form').show();
+
+    }
+
 }
