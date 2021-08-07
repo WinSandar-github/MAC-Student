@@ -38,7 +38,8 @@ function auditData(){
                 }else if(element.status ==1){
                     $("#accountancy_firm_name").append(element.accountancy_firm_name);
                     $("#updated_at").append(element.updated_at);
-                    $('#audit_container_pending').css('display','none');
+                    $('#audit_container').css('display','block');
+                    $('.audit_container_pending').css('display','none');
                 }
             })
         }
@@ -47,7 +48,7 @@ function auditData(){
 
 function pendingStatus(){
     $('#audit_container').css('display','none');
-    $('#audit_container_pending').css('display','block');
+    $('.audit_container_pending').css('display','block');
 }
 
 function createAuditFirm(){

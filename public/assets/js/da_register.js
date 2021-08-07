@@ -57,7 +57,8 @@ function createDARegister()
         success: function(result){
              if(result.name_mm!=null){
                 successMessage("Insert Successfully");                
-                location.reload();
+                // location.reload();
+                location.href = "/";
              }
              else{
                 successMessage(result);
