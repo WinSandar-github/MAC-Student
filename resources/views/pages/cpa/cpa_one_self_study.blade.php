@@ -118,7 +118,7 @@
                                         <label class="col-form-label">{{ _('(က) ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း') }}</label>
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="cpa_check" >
+                                        <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -147,7 +147,7 @@
                                     
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="enrol_no_exam" >
+                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam" name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -157,7 +157,7 @@
                                     
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="attendance" >
+                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance" name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -166,7 +166,7 @@
                                             <label class="col-form-label">{{ _('(ဃ) စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="fail_exam" >
+                                        <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam" name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -175,7 +175,7 @@
                                         <label class="col-form-label">{{ _('(င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="resigned" >
+                                        <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned" name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">

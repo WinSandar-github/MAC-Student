@@ -9,7 +9,7 @@ use App\Http\Controllers\CustomClass\Helper;
 class CPATwoRegisterController extends Controller
 {
     public function register(){
-        return view('pages.cpa.cpa_one_register');
+        return view('pages.cpa.cpa_two_register');
     }
     public function self_study(){
         return view('pages.cpa.cpa_two_self_study');

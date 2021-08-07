@@ -97,56 +97,18 @@ $("#photo").change(function(){
 // }
 
 function Private_School_Submit(){
-    var yes=document.getElementById("yes");
-
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
+    data.append('student_id',student.id)
     data.append('private_school_name', $("#private_school_name").val());
     data.append('academic_year', $("#academic_year").val());
-    data.append('photo', photo);
-    data.append('name_mm', $("#name_mm").val());
-    data.append('name_en', $("#name_eng").val());
-    data.append('nrc_state_region', $("#nrc_state_region").val());
-    data.append('nrc_township', $("#nrc_township").val());
-    data.append('nrc_citizen', $("#nrc_citizen").val());
-    data.append('nrc_number', $("input[name=nrc_number]").val());
-    data.append('father_name_mm', $("#father_name_mm").val());
-    data.append('father_name_en', $("#father_name_eng").val());
-    data.append('race', $("#race").val());
-    data.append('religion', $("#religion").val());
-    data.append('birth_date', $("#birth_date").val());
-    data.append('education', $("#education").val());
-    data.append('position', $("#position").val());
-    data.append('department', $("#department").val());
-    data.append('office_area', $("#office_area").val());
-    if(yes.checked){
-        data.append('civil_servant',1);
-    }
-    else{
-        data.append('civil_servant',0);
-    }
-    data.append('address', $("#address").val());
-    data.append('current_address', $("#current_address").val());
-    data.append('phone', $("#phone").val());
-    data.append('email', $("#email").val());
     data.append('direct_access_no', $("#direct_access_no").val());
     data.append('entry_success_no', $("#entry_success_no").val());
-    data.append('gov_department', 0);
-    data.append('personal_acc_training', 0);
-    data.append('after_second_exam', 0);
-    data.append('good_morale', null);
-    data.append('no_crime', null);
-    data.append('enrol_no_exam', 0);
-    data.append('attendance', 0);
-    data.append('fail_exam', 0);
-    data.append('resigned', 0);
-    data.append('module_id', 1);
-    data.append('batch_session_no', null);
-    data.append('entrance_part', null);
-    data.append('entrance_exam_no', null);
-    data.append('cpa_one_type', 1);
+    data.append('form_type',localStorage.getItem('course_id'));
+    data.append('type', 1);
 
     $.ajax({
-        url: BACKEND_URL+"/cpa_one_registration",
+        url: BACKEND_URL+"/student_register",
         type: 'post',
         data:data,
         contentType: false,
@@ -157,7 +119,6 @@ function Private_School_Submit(){
                 successMessage(result);
             }   
             else{       
-                updateStudentInfo();
                 successMessage(result.message);
                 location.reload();
             }
@@ -169,96 +130,19 @@ function Private_School_Submit(){
 }
 
 function Self_Study_Submit(){
-    var resigned = document.getElementById("resigned");
-    var fail_exam = document.getElementById("fail_exam");
-    var attendance = document.getElementById("attendance");
-    var enrol_no_exam = document.getElementById("enrol_no_exam");
-    var module1=document.getElementById("module1");
-    var module2=document.getElementById("module2");
-    var allmodule=document.getElementById("allmodule");
-    var yes=document.getElementById("yes");
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
-    data.append('private_school_name',null);
+    data.append('student_id',student.id);
     data.append('academic_year', $("#academic_year").val());
-    data.append('photo', photo);
-    data.append('name_mm', $("#name_mm").val());
-    data.append('name_en', $("#name_eng").val());
-    data.append('nrc_state_region', $("#nrc_state_region").val());
-    data.append('nrc_township', $("#nrc_township").val());
-    data.append('nrc_citizen', $("#nrc_citizen").val());
-    data.append('nrc_number', $("input[name=nrc_number]").val());
-    data.append('father_name_mm', $("#father_name_mm").val());
-    data.append('father_name_en', $("#father_name_eng").val());
-    data.append('race', $("#race").val());
-    data.append('religion', $("#religion").val());
-    data.append('birth_date', $("#birth_date").val());
-    data.append('education', $("#education").val());
-    data.append('position', $("#position").val());
-    data.append('department', $("#department").val());
-    data.append('office_area', $("#office_area").val());
-    if(yes.checked){
-        data.append('civil_servant',1);
-    }
-    else{
-        data.append('civil_servant',0);
-    }
-    data.append('address', $("#address").val());
-    data.append('current_address', $("#current_address").val());
-    data.append('phone', $("#phone").val());
-    data.append('email', $("#email").val());
     data.append('direct_access_no', $("#direct_access_no").val());
     data.append('entry_success_no', $("#entry_success_no").val());
-    data.append('gov_department', 0);
-    data.append('personal_acc_training', 0);
-    data.append('after_second_exam', 0);
-    data.append('good_morale', null);
-    data.append('no_crime', null);
-    if(enrol_no_exam.checked==true){
-        data.append('enrol_no_exam', 1);
-    }
-    else{
-        data.append('enrol_no_exam', 0);
-    }
-    if(attendance.checked==true){
-        data.append('attendance', 1);
-    }
-    else{
-        data.append('attendance', 0);
-    }
-    if(fail_exam.checked==true){
-        data.append('fail_exam', 1);
-    }
-    else{
-        data.append('fail_exam', 0);
-    }
-    if(resigned.checked==true)
-    {
-        data.append('resigned', 1);
-    }
-    else{
-        data.append('resigned', 0);
-    }
-    if(module1.checked==true){
-        data.append('module_id', 1);
-    }
-    else if(module2.checked==true)
-    {
-        data.append('module_id', 2);
-    }
-    else if(allmodule.checked==true)
-    {
-        data.append('module_id', 3);
-    }
-    else{
-        data.append('module_id', 1);
-    }
-    data.append('batch_session_no', $("#batch_session_no").val());
-    data.append('entrance_part', $("#entrance_part").val());
-    data.append('entrance_exam_no', $("#entrance_exam_no").val());
-    data.append('cpa_one_type', 0);
-console.log('data',data);
+    $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    data.append('module', $("input[type='radio'][name='module']:checked").val());
+    data.append('batch_part_no', $("#batch_part_no").val());
+    data.append('type', 0);
+    data.append('form_type',localStorage.getItem('course_id'));
     $.ajax({
-        url: BACKEND_URL+"/cpa_one_registration",
+        url: BACKEND_URL+"/student_register",
         type: 'post',
         data:data,
         contentType: false,
@@ -267,11 +151,11 @@ console.log('data',data);
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
+                location.href = FRONTEND_URL+'/';
             }   
             else{       
-                updateStudentInfo();
                 successMessage(result.message);
-                location.reload();
+                location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){
@@ -293,24 +177,23 @@ function Mac_Submit(){
     data.append('good_behavior', good_morale_file);
     data.append('no_crime', no_crime_file);
     data.append('module', $("input[type='radio'][name='module']:checked").val());
-    data.append('cpa_one_type', 2);
-
+    data.append('type', 2);
+    data.append('form_type',localStorage.getItem('course_id'));
     $.ajax({
-        url: BACKEND_URL+"/cpa_one_registration",
+        url: BACKEND_URL+"/student_register",
         type: 'post',
         data:data,
         contentType: false,
         processData: false,
         success: function(result){
-            //alert(studentID);
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
+                location.href = FRONTEND_URL+'/';
             }   
             else{       
-                updateStudentInfo();
                 successMessage(result.message);
-                location.reload();
+                location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){
