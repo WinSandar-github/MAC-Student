@@ -77,11 +77,11 @@
                                         <div class="card-body">
                                             <h1>Da Two Form</h1>
 
-                                           <input type="hidden" name="batch_id" value="{{$batch->id}}"/>
+                                           <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                             <div class="row">
                                                 
                                                 <label class=col-md-3>Batch Name</label>
-                                                <p class="col-md-9"> {{$batch->name}}</p>
+                                                <p class="col-md-9"> {{$batch['name']}}</p>
                                                 
                                                 
                                                 

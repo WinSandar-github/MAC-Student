@@ -271,9 +271,9 @@ function auditRegFeedback(){
                 $('#comment-form').css('display','none');
 
             }else if(approve_reject_status == 1){
-                $('#non_audit_check_registration').css('display','none');
-                $('#comment-form').css('display','none');
-                showNonAudit();
+              showNonAudit();
+              $('#non_audit_check_registration').css('display','none');
+              $('#comment-form').css('display','none');
             }
             // else if(status == 2){}
         }
@@ -290,12 +290,22 @@ function nonAuditData(){
         type: "GET",
         url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
         success: function (data) {
-            var audit_data = data;
-            audit_data.forEach(function(element){
-                console.log(element)
-                $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                $("#updated_at").append(element.updated_at);
+            var non_audit_data = data;
+            non_audit_data.forEach(function(element){
+              if(element.status == 0){
+                  pendingStatus();
+              }else if(element.status ==1){
+                  $("#accountancy_firm_name").append(element.accountancy_firm_name);
+                  $("#updated_at").append(element.updated_at);
+                  $('#non_audit_container').css('display','block');
+                  $('#non_audit_container_pending').css('display','none');
+              }
             })
         }
     })
+}
+
+function pendingStatus(){
+    $('#non_audit_container').css('display','none');
+    $('#non_audit_container_pending').css('display','block');
 }
