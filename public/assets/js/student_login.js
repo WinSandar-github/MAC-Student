@@ -9,11 +9,12 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-           
+
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                location.href= FRONTEND_URL + "/student_index";
+                // location.href= FRONTEND_URL + "/student_index";
+                location.href= FRONTEND_URL + "/";
             }else{
                 $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
@@ -38,6 +39,7 @@ function check_login(){
 }
 
 function logout(){
+
     localStorage.clear();
     location.href=FRONTEND_URL+"/student_index";
 

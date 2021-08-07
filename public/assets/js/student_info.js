@@ -15,7 +15,44 @@ function app_form_feedback(){
                 $('.course_detail').css('display','none');
 
             }else if(approve_reject_status == 1){
-                location.href = FRONTEND_URL+ '/student_study';
+                 
+                $.ajax({
+                    type: "get",
+                    url: BACKEND_URL+"/get_current_batch_studentId/"+student.id,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        var register_url;
+                        let batch = result.data;
+                        console.log(result.data,"Batch")
+                        localStorage.setItem('course_id',batch.course_id);
+                      
+                        if(batch){
+
+                            switch(batch.course.code){
+                                case 'da_1':
+                                register_url = '/da_one_register';
+                                break;
+                                case 'da_2':
+                                register_url = '/da_two_register';
+                                break;
+                                case 'cpa_1':
+                                register_url = '/cpa_one_register';
+                                break;
+                                case 'cpa_2':
+                                register_url = '/cpa_two_register';
+                                break;
+                                default:
+                                register_url = '/da_one_register';
+                                break;
+    
+    
+                                
+                            }
+                         location.href = FRONTEND_URL+register_url;
+                        }
+                        }
+                    })  ;     
             }else if(approve_reject_status == 2){
                 if(course_type_id == 2)
                 {
@@ -61,10 +98,10 @@ function app_form_feedback(){
 
                                 // }else{
                                 //     course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_form/'+batch_id[i];
-                                    course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_form/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_/'+batch_id[i];
                                 }
                                 
                              
@@ -72,7 +109,7 @@ function app_form_feedback(){
                             if(data_course[i])
                             {
                                 console.log(data_course[i].grade)
-                                if(data_course[i].grade == 1  && data_course[i].exam_type_id == course_id[i])
+                                if(data_course[i].grade == 1  && data_course[i].form_type == course_id[i])
                                 {
                                 $(`.check_login${count}`).append(`<p class=" text-success">You have been Sucessfully</p>`)
                                 }else{
@@ -203,7 +240,8 @@ function createSelfStudy()
         processData: false,
         success: function(result){
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -227,7 +265,8 @@ function createPrivateSchool()
         processData: false,
         success: function(result){            
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -246,7 +285,8 @@ function createMac()
         processData: false,
         success: function(result){
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -254,8 +294,6 @@ function createMac()
 // show Register Form Feedback after approve application form in student study page
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-
-
     
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
@@ -264,6 +302,7 @@ function reg_feedback(){
         processData: false,
         success: function(status){
            console.log(status);
+ 
             if(status == 0){
                 $('.check_registration').css('display','block');
                 
@@ -276,6 +315,7 @@ function reg_feedback(){
                     contentType: false,
                     processData: false,
                     success: function (result) {
+                        console.log(result)
                         var exam_url;
 
                         // if(result.course.code == 'da_1'){}
@@ -332,6 +372,7 @@ function reg_feedback(){
                  // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                     
             }else{
+                $('#form_type').val(localStorage.getItem('course_id'));
                 selectedRegistration();
                 $('.study').css('display','block');
         

@@ -19,7 +19,8 @@ function createDAExamRegister()
         processData: false,
         success: function(result){
             // console.log(result)
-            location.reload();
+            // location.reload();
+            location.href = "/";
             successMessage(result);
 
       }
@@ -40,7 +41,8 @@ $('#cpa_exam_register').submit(function(e){
         contentType: false,
         processData: false,
         success: function(result){
-             location.reload();
+             // location.reload();
+             location.href = "/";
             // successMessage(result);
       }
     });

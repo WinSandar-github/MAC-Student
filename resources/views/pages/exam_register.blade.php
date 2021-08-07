@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -63,7 +63,7 @@
                     <div class="form-wrapper">
                         <form method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" id="form_type" class="form-control" value="da one">
+                            <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                     <table width="100%">
@@ -205,6 +205,7 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
+        $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",

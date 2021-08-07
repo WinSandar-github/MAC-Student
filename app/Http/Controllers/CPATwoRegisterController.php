@@ -29,6 +29,6 @@ class CPATwoRegisterController extends Controller
        
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
         $batch = $res['data'];
-        return view('pages.da.da_two_app_form',compact('batch'));
+        return view('pages.cpa.da_two_app_form',compact('batch'));
     }
 }
