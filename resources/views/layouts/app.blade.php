@@ -103,6 +103,7 @@
     <script src="{{ asset('assets/js/cpa_one.js') }}"></script>
     <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
     <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
+    <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
 
     <!-- Bootstrap JS -->

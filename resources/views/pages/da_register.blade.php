@@ -121,11 +121,11 @@
                                             <td width="20%">
                                                 <div class="courses-select">
                                                     <select class="form-control" name="nrc_township" id="nrc_township" >
-                                                        @foreach($nrc_townships as $township)
+                                                        {{--@foreach($nrc_townships as $township)
                                                             <option value="{{ $township['township_mm'] }}">
                                                                 {{ $township['township_mm'] }}
                                                             </option>
-                                                        @endforeach
+                                                        @endforeach--}}
                                                     </select>
                                                 </div>
                                             </td>
