@@ -141,7 +141,7 @@
                                                         </div>
                                                 
                                                         <div class="courses-select col-md-3">
-                                                            <select class="form-control" name="nrc_township" id="nrc_township" >
+                                                            <select class="form-control" name="nrc_township" id="nrc_township">
                                                                 @foreach($nrc_townships as $township)
                                                                     <option value="{{ $township['township_mm'] }}">
                                                                         {{ $township['township_mm'] }}
@@ -345,7 +345,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" accept="image" name="image" value="{{ old('image') }}" required="" style="padding: 2%;">
+                                                    <input type="file" placeholder="upload photo" accept="image/*" name="image" value="{{ old('image') }}" required=""  accept="image/*"  style="padding: 2%;">
                                                 </div>
                                             </div>
                                          </div>

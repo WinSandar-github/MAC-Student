@@ -2,18 +2,27 @@ function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
     $.ajax({
+<<<<<<< HEAD
         url:   FRONTEND_URL + "/loginValidate",
+=======
+        url:  "/loginValidate",
+>>>>>>> ea492aeff953f448d88d1005eeb1c2dbdd7d0683
         type: 'post',
         data: {
             email: email,
             password:password
             },
         success: function(result){
-           
+
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
+<<<<<<< HEAD
                 location.href= FRONTEND_URL + "/student_index";
+=======
+                // location.href= FRONTEND_URL + "/student_index";
+                location.href= FRONTEND_URL + "/";
+>>>>>>> ea492aeff953f448d88d1005eeb1c2dbdd7d0683
             }else{
                 $('#err_msg').text("Password and Email don't not match");
                 $("#email").val("");
@@ -40,7 +49,7 @@ function check_login(){
 function logout(){
 
     localStorage.clear();
-    location.href = FRONTEND_URL+'/login';
+    location.href=FRONTEND_URL+"/student_index";
 
 }
 
@@ -49,7 +58,7 @@ function login_page(batch_id,course_id,course_type){
     if(course_id == 1){
 
         localStorage.setItem('batch_id',batch_id);
-        location.href = FRONTEND_URL+'/login';
+        location.href = FRONTEND_URL+"/login";
     }else{
         if(course_type == 1){
             alert("You need to Pass DA I")

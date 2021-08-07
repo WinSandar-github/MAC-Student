@@ -13,11 +13,10 @@ function audit_reg_feedback(){
                 $('.comment-form').css('display','none');
 
             }else if(approve_reject_status == 1){
+                showAudit();
                 $('.audit_check_registration').css('display','none');
                 $('.comment-form').css('display','none');
-                showAudit();
             }
-            // else if(status == 2){}
         }
     }); 
 } 
@@ -31,15 +30,25 @@ function auditData(){
     $.ajax({
         type: "GET",
         url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
-        success: function (data) {
+        success: function (data){
             var audit_data = data;
             audit_data.forEach(function(element){
-                console.log(element)
-                $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                $("#updated_at").append(element.updated_at);
+                if(element.status == 0){
+                    pendingStatus();
+                }else if(element.status ==1){
+                    $("#accountancy_firm_name").append(element.accountancy_firm_name);
+                    $("#updated_at").append(element.updated_at);
+                    $('#audit_container').css('display','block');
+                    $('.audit_container_pending').css('display','none');
+                }
             })
         }
     })
+}
+
+function pendingStatus(){
+    $('#audit_container').css('display','none');
+    $('.audit_container_pending').css('display','block');
 }
 
 function createAuditFirm(){

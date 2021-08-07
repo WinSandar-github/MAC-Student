@@ -6,7 +6,7 @@
 	$nrc_characters = config('myanmarnrc.characters');
 @endphp
 
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -69,15 +69,15 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        
+
                             @csrf
                             <div class="row">
-                            <div class="card border-success mb-3">                                                     
+                            <div class="card border-success mb-3">
                             <!-- <form> -->
                                 <div class="card-body ">
                                     <div class="col-md-12">
 
-                                        
+
                                         <!-- <div class="row">
                                             <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
                                             <div class="col-md-4 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
@@ -143,7 +143,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-1 col-form-label">{{ _('၂။') }}</div>
-                                                    <label class="col-md-4 col-form-label">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}</label>                                                    
+                                                    <label class="col-md-4 col-form-label">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}</label>
                                                 </div><br/>
 
                                                 <div class="row">
@@ -173,7 +173,7 @@
                                                                 <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
                                                                 <label for="2">All Modules</label>
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                 </div><br/>
 
@@ -194,12 +194,12 @@
                                                         <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
                                                     </div>
                                                 </div><br/>
-                                                
+
                                                 <div class="row">
                                                     <div class="col-md-3 offset-md-5">
                                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
                                                     </div>
-                                                </div>	
+                                                </div>
                                             </fieldset>
                                         </form>
                                     </div>
@@ -207,7 +207,7 @@
                             <!-- </form> -->
                         </div>
                             </div>
-                        
+
                     </div>
                 <!-- Form Wrapper End -->
                 </div><br><br>

@@ -1,6 +1,7 @@
 $("input[id='cpa_one_pass_date']").flatpickr({
     enableTime: false,
     dateFormat: "d-m-Y",
+    allowInput: true,
 });
 var cpaOneID;
 async function SearchCPAOneByNRC(){

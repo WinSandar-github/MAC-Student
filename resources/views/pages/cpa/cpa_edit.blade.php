@@ -258,7 +258,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" id="date_of_birth"  required>
+                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" id="date_of_birth"  required>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +347,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}"  style="padding: 2%;">
+                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}"  accept="image/*"   style="padding: 2%;">
                                                     <input type="text" name="old_image" id="old_image"/>
                                                 </div>
                                             </div>

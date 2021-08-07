@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -209,10 +209,12 @@
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
+                allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
+                allowInput: true,
         });
     });
 </script>
