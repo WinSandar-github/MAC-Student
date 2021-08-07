@@ -256,3 +256,46 @@ function createNonAuditFirm(){
               }
             });
 }
+
+function auditRegFeedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        url: BACKEND_URL+"/getStatus/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(status){
+            if(approve_reject_status == 0){
+
+                $('#non_audit_check_registration').css('display','block');
+                $('#comment-form').css('display','none');
+
+            }else if(approve_reject_status == 1){
+                $('#non_audit_check_registration').css('display','none');
+                $('#comment-form').css('display','none');
+                showNonAudit();
+            }
+            // else if(status == 2){}
+        }
+    });
+}
+
+function showNonAudit(){
+    $('#non_audit_container').css('display','block');
+}
+
+function nonAuditData(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
+        success: function (data) {
+            var audit_data = data;
+            audit_data.forEach(function(element){
+                console.log(element)
+                $("#accountancy_firm_name").append(element.accountancy_firm_name);
+                $("#updated_at").append(element.updated_at);
+            })
+        }
+    })
+}
