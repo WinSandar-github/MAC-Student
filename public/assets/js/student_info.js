@@ -67,7 +67,7 @@ function app_form_feedback(){
                     $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 }
             }else{
-        
+                
                 $('.course_detail').css('display','block');
                 $.ajax({
                     url: BACKEND_URL+"/get_exam_student/"+student_id,
@@ -75,17 +75,21 @@ function app_form_feedback(){
                     contentType: false,
                     processData: false,
                     success: function(result){  
+                        
                          
                      
                         let course_id = [$('#course_id1').val(),$('#course_id2').val()];
+                         console.log(result)
                           
                         $('.course_detail').css('display','block') 
                          let data  = result.data;
                         
                         
-                        
+                         console.log(data);
+
                         var data_course = data.filter( function(v){
                             return v.course.course_type_id == course_type});
+                            console.log(data_course)
 
                            var course_url;
                             
@@ -101,7 +105,7 @@ function app_form_feedback(){
                                     course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_form/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_form/'+batch_id[i];
                                 }
                                 
                              

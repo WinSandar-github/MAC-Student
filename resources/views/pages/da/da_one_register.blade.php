@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="comment-form study" style="display:none;">
-                    <input type="text" name="form_type" id="form_type">
+                    <input type="hidden" name="form_type" id="form_type">
                     <div class="form-wrapper">
                         <div class="">
                             <div class="row">

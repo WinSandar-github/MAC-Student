@@ -8,6 +8,9 @@ use App\Http\Controllers\CustomClass\Helper;
 
 class CPATwoRegisterController extends Controller
 {
+    public function register(){
+        return view('pages.cpa.cpa_one_register');
+    }
     public function self_study(){
         return view('pages.cpa.cpa_two_self_study');
     }
@@ -20,6 +23,7 @@ class CPATwoRegisterController extends Controller
 
     public function cpaTwoExamRegister()
     {
+
         return view('pages.cpa.cpa_two_exam_register');
     }
 
@@ -29,6 +33,6 @@ class CPATwoRegisterController extends Controller
        
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
         $batch = $res['data'];
-        return view('pages.cpa.da_two_app_form',compact('batch'));
+        return view('pages.cpa.cpa_two_app_form',compact('batch'));
     }
 }
