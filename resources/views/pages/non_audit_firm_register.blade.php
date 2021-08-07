@@ -65,7 +65,7 @@
 						<div id="non_audit_check_registration" style="display:none;">
                 <div class="card text-white bg-primary my-3">
                     <div class="card-body">
-                        <p class="card-text">Your Non-Audit Form is checking</p>
+                        <p class="card-text">Your Application Form is checking</p>
                     </div>
                 </div>
             </div>
@@ -96,6 +96,14 @@
                         </div>
                     </div>
                 </form>
+            </div>
+						<div id="non_audit_container_pending" style="display:none; margin-top:5%;">
+                <div class="card text-white bg-primary my-3">
+
+                    <div class="card-body">
+                        <p class="card-text">Your Non-Audit Form is checking</p>
+                    </div>
+                </div>
             </div>
 						<div id="comment-form" style="display:block;">
 							<form id="non-audit-form" method="post" action="javascript:createNonAuditFirm();" enctype="multipart/form-data">
@@ -1204,11 +1212,12 @@
 @endsection
 @push('scripts')
 <script>
-	auditRegFeedback();
   loadNonAuditStaff();
   loadNonAuditOrganization();
   loadNonAuditTypeOfService();
+	auditRegFeedback();
 	nonAuditData();
+	pendingStatus();
 </script>
 
 @endpush
