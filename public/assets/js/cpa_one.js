@@ -281,90 +281,18 @@ console.log('data',data);
 }
 
 function Mac_Submit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
-    var module1=document.getElementById("module1");
-    var module2=document.getElementById("module2");
-    var allmodule=document.getElementById("allmodule");
-    var gov_department=document.getElementById("gov_department");
-    var personal_acc_training=document.getElementById("personal_acc_training");
-    var after_second_exam=document.getElementById("after_second_exam");
-    var yes=document.getElementById("yes");
-    
     var data = new FormData();
-    data.append('private_school_name', null);
+    data.append('student_id',student.id);
     data.append('academic_year', $("#academic_year").val());
-    data.append('photo', photo);
-    data.append('name_mm', $("#name_mm").val());
-    data.append('name_en', $("#name_eng").val());
-    data.append('nrc_state_region', $("#nrc_state_region").val());
-    data.append('nrc_township', $("#nrc_township").val());
-    data.append('nrc_citizen', $("#nrc_citizen").val());
-    data.append('nrc_number', $("input[name=nrc_number]").val());
-    data.append('father_name_mm', $("#father_name_mm").val());
-    data.append('father_name_en', $("#father_name_eng").val());
-    data.append('race', $("#race").val());
-    data.append('religion', $("#religion").val());
-    data.append('birth_date', $("#birth_date").val());
-    data.append('education', $("#education").val());
-    data.append('position', $("#position").val());
-    data.append('department', $("#department").val());
-    data.append('office_area', $("#office_area").val());
-    //$(':radio:checked').map(function(){data.append('civil_servant',$(this).val())});
-    if(yes.checked){
-        data.append('civil_servant',1);
-    }
-    else{
-        data.append('civil_servant',0);
-    }
-    data.append('address', $("#address").val());
-    data.append('current_address', $("#current_address").val());
-    data.append('phone', $("#phone").val());
-    data.append('email', $("#email").val());
     data.append('direct_access_no', $("#direct_access_no").val());
     data.append('entry_success_no', $("#entry_success_no").val());
-    if(gov_department.checked==true){
-        data.append('gov_department', 1);
-    }
-    else{
-        data.append('gov_department', 0);
-    }
-
-    if(personal_acc_training.checked==true){
-        data.append('personal_acc_training', 1);
-    }
-    else{
-        data.append('personal_acc_training', 0);
-    }
-    if(after_second_exam.checked==true){
-        data.append('after_second_exam', 1);
-    }
-    else{
-        data.append('after_second_exam', 0);
-    }
-    data.append('good_morale', good_morale_file);
+    data.append('internship', $("input[type='radio'][name='internship']:checked").val());
+    data.append('good_behavior', good_morale_file);
     data.append('no_crime', no_crime_file);
-    data.append('enrol_no_exam', 0);
-    data.append('attendance', 0);
-    data.append('fail_exam', 0);
-    data.append('resigned', 0);
-    if(module1.checked==true){
-        data.append('module_id', 1);
-    }
-    else if(module2.checked==true)
-    {
-        data.append('module_id', 2);
-    }
-    else if(allmodule.checked==true)
-    {
-        data.append('module_id', 3);
-    }
-    else{
-        data.append('module_id', 1);
-    }
-    data.append('batch_session_no', null);
-    data.append('entrance_part', null);
-    data.append('entrance_exam_no', null);
+    data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('cpa_one_type', 2);
 
     $.ajax({
