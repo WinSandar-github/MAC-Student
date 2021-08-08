@@ -59,26 +59,38 @@ function showAuditList(){
     $('#audit_form_pending').css('display','none');
 }
 
-// function dateQuery(){
-//     var student =JSON.parse(localStorage.getItem("studentinfo"));
-//     $.ajax({
-//         type: "GET",
-//         url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
-//         success: function (data){
-//             console.log(data)
-//             // var audit_data = data;
-//             // audit_data.forEach(function(element){
-//             //     if(element.status == 0){
-//             //         pendingStatus();
-//             //     }else if(element.status ==1){
-//             //         $("#accountancy_firm_name").append(element.accountancy_firm_name);
-//             //         $("#updated_at").append(element.updated_at);
-//             //         showAuditList();
-//             //     }
-//             // })
-//         }
-//     })
-// }
+function dateQuery(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
+        success: function (data){
+            // console.log(data)
+            $("#message").append(data);
+        }
+    })
+}
+
+function verifyStatus()
+{
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL+"/checkVerify/"+student.accountancy_firm_info_id,
+        success: function (data){
+            var status = data;
+            // console.log(data)
+            status.forEach(function(element){
+                console.log(element.verify_status)
+                if(element.verify_status == 1){
+                    $('#check_status').css('display','none');
+                }else if(element.verify_status == 2){
+                    $('#check_status').css('display','block');
+                }
+            })
+        }
+    })
+}
 
 function createAuditFirm(){
     
