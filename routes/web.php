@@ -69,7 +69,7 @@ Route::get('cpa_two_register', 'CPATwoRegisterController@register');
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
 //Cpa One
-Route::get('cpa_register/{id}', 'CPAOneRegisterController@cpaRegister');
+Route::get('cpa_one_form/{id}', 'CPAOneRegisterController@cpaOneForm');
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
 //Cpa One Exam Register
 Route::get('cpa_exam_register','CPAOneRegisterController@cpaExamRegister');
@@ -80,8 +80,11 @@ Route::get('cpa_two_exam_register','CPATwoRegisterController@cpaTwoExamRegister'
 Route::post('/loginValidate', 'LoginController@loginValidate');
 Route::get('login','LoginController@login')->name('login');
 
-Route::get('cpa_register', 'CPAFFController@cpaRegister');
-Route::get('da_register/{id}', 'DARegisterController@registerForm');
+// Route::get('cpa_register', 'CPAFFController@cpaRegister');
+
+// show application form of da one
+Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
+
 Route::get('da_two_register', 'DARegisterController@da_two_register');
 
 //Da Two application form

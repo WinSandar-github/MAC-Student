@@ -75,7 +75,9 @@
 
                                     <div class="card border-success mb-3">
                                         <div class="card-body">
-                                            <h1>Da Two Form</h1>
+                                        <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                    <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
+                                <hr>
 
                                            <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                             <div class="row">

@@ -908,7 +908,7 @@
                                     <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
                                     <br/>
 
-                                           <input type="text" name="batch_id" id="batch_id" />
+                                           <input type="hidden" name="batch_id" id="batch_id" />
                                             <div class="row">
                                                 <div class=col-md-3>
                                                     <div class="single-form">
