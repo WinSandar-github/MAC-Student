@@ -76,70 +76,19 @@
                                     <div class="col-md-8">
                                         <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                                        <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
+                                       
                                     </div>
                                     <div class="col-md-2"></div>
                                 </div>
                             </div>      
                         </div>
-                        <div class="row">
-                            <div class="col-md-1 col-form-label pt-4">{{ __('၁။') }}</div>
-                            <div class="col-md-4 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
-                            <div class="col-md-7">
-                                <div class="row">
-                                    <div class="col-md-2  px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region">
-                                                @foreach($nrc_regions as $region)
-                                                    <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                        {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_township" id="nrc_township">
-                                                @foreach($nrc_townships as $township)
-                                                    <option value="{{ $township['township_mm'] }}">
-                                                        {{ $township['township_mm'] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
-                                                @foreach($nrc_citizens as $citizen)
-                                                <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                    {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 pl-1">
-                                        <div class="single-form">
-                                        <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"   maxlength="6">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <div class="single-form">
-                                            <button type="submit" onclick="SearchCPAOneByNRC()"  class="btn btn-primary btn-hover-dark">Search</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
+                        
                         <form  method="post" action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data">
-                        <fieldset id="fieldset" disabled>
+                        <fieldset id="fieldset" >
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                            <label class="col-form-label">{{ _('၁။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-11">

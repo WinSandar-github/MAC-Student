@@ -17,7 +17,7 @@ function studentLogin(){
                 // location.href= FRONTEND_URL + "/student_index";
                 location.href= FRONTEND_URL + "/";
             }else{
-                $('#err_msg').text("Password and Email don't not match");
+                $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
                 $('#password').val("");
 

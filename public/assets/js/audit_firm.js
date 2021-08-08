@@ -2,27 +2,27 @@ function audit_reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     // console.log(student)
     $.ajax({
-        url: BACKEND_URL+"/getStatus/"+student.id,
+        url: BACKEND_URL+"/getAuditFormStatus/"+student.id,
         type: 'GET',
         contentType: false,
         processData: false,
         success: function(status){
             if(approve_reject_status == 0){
-           
-                $('.audit_check_registration').css('display','block');
-                $('.comment-form').css('display','none');
+                showPending();
 
             }else if(approve_reject_status == 1){
                 showAudit();
-                $('.audit_check_registration').css('display','none');
-                $('.comment-form').css('display','none');
             }
         }
     }); 
 } 
 
+function showPending(){
+    $('#app_form').css('display','none');
+}
+
 function showAudit(){
-    $('#audit_container').css('display','block');
+    $('#app_form').css('display','none');
 }
 
 function auditData(){
@@ -38,8 +38,7 @@ function auditData(){
                 }else if(element.status ==1){
                     $("#accountancy_firm_name").append(element.accountancy_firm_name);
                     $("#updated_at").append(element.updated_at);
-                    $('#audit_container').css('display','block');
-                    $('.audit_container_pending').css('display','none');
+                    showAuditList();
                 }
             })
         }
@@ -47,8 +46,12 @@ function auditData(){
 }
 
 function pendingStatus(){
-    $('#audit_container').css('display','none');
-    $('.audit_container_pending').css('display','block');
+    $('#audit_form_pending').css('display','block');
+}
+
+function showAuditList(){
+    $('#audit_container').css('display','block');
+    $('#audit_form_pending').css('display','none');
 }
 
 function createAuditFirm(){
@@ -199,7 +202,8 @@ function createAuditFirm(){
                 success: function(result){
                  
                   successMessage("Insert Successfully");                
-                  location.reload();
+                  // location.reload();
+                  location.href = "/";
               }
             });
 }

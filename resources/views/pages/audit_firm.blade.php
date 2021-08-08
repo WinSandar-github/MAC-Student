@@ -56,11 +56,11 @@
 
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
-            <div class="audit_check_registration" style="display:none;">
+            <div id="audit_form_pending" style="display:none; margin-top:5%;">
                 <div class="card text-white bg-primary my-3">
-
+                    
                     <div class="card-body">
-                        <p class="card-text">Your Application Form is checking</p>
+                        <p class="card-text">Your Audit Form is checking</p>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group">
-                                        <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+                                        <a href="#" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
                                     </div>
                                 </div>
                             </div>
@@ -92,16 +92,8 @@
                     </div>
                 </form>
             </div>
-            <div class="audit_container_pending" style="display:none; margin-top:5%;">
-                <div class="card text-white bg-primary my-3">
-                    
-                    <div class="card-body">
-                        <p class="card-text">Your Audit Form is checking</p>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-details-comment">
-                <div class="comment-form" style="display:block;">
+            <div class="blog-details-comment" id="app_form" style="display:block">
+                <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         <form id="audit_firm_form" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data">
@@ -953,7 +945,7 @@
                                                     </td>
                                                     <td width="80%">
                                                         <div class="form-group">
-                                                            <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+                                                            <a href="#" class="btn btn-sm btn-block btn-info">Choose Payment</a>
                                                             <input type="hidden" value="1000" name="form_fee">
                                                         </div>
                                                     </td>
@@ -968,7 +960,7 @@
                                                     <td width="80%">
                                                         <div class="form-group">
                                                             <div class="form-group">
-                                                            <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+                                                            <a href="#" class="btn btn-sm btn-block btn-info">Choose Payment</a>
                                                             <input type="hidden" value="100000" name="nrc_fee">
                                                         </div>
                                                         </div>
@@ -1019,5 +1011,6 @@
     audit_reg_feedback();
     auditData();
     pendingStatus();
+    // dateQuery();
 </script>
 @endpush
