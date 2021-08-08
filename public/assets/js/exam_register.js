@@ -29,7 +29,7 @@ function createDAExamRegister()
 
 $('#cpa_exam_register').submit(function(e){
     e.preventDefault();
-    alert(student_id)
+  
     var form_data = new FormData(this);
     form_data.append('form_type',$("#form_type").val());
     form_data.append('student_id',student_id);
