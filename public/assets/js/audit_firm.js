@@ -4,25 +4,30 @@ function audit_reg_feedback(){
     $.ajax({
         url: BACKEND_URL+"/getAuditFormStatus/"+student.id,
         type: 'GET',
-        contentType: false,
-        processData: false,
-        success: function(status){
-            if(approve_reject_status == 0){
-                showPending();
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            // console.log(element);
+                if(element.approve_reject_status == 0){
+                    showPending();
 
-            }else if(approve_reject_status == 1){
-                showAudit();
-            }
+                }else if(element.approve_reject_status == 1){
+                    showAudit();
+                }
+          })
         }
     }); 
 } 
 
 function showPending(){
     $('#app_form').css('display','none');
+    $('#audit_form_pending').css('display','block');
 }
 
 function showAudit(){
     $('#app_form').css('display','none');
+    $('#audit_form_pending').css('display','block');
 }
 
 function auditData(){
@@ -53,6 +58,27 @@ function showAuditList(){
     $('#audit_container').css('display','block');
     $('#audit_form_pending').css('display','none');
 }
+
+// function dateQuery(){
+//     var student =JSON.parse(localStorage.getItem("studentinfo"));
+//     $.ajax({
+//         type: "GET",
+//         url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
+//         success: function (data){
+//             console.log(data)
+//             // var audit_data = data;
+//             // audit_data.forEach(function(element){
+//             //     if(element.status == 0){
+//             //         pendingStatus();
+//             //     }else if(element.status ==1){
+//             //         $("#accountancy_firm_name").append(element.accountancy_firm_name);
+//             //         $("#updated_at").append(element.updated_at);
+//             //         showAuditList();
+//             //     }
+//             // })
+//         }
+//     })
+// }
 
 function createAuditFirm(){
     
