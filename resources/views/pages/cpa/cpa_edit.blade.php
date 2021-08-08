@@ -631,7 +631,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="နှစ်၊လ" id="direct_degree" name="direct_degree" class="form-control"  required="">
+                                                    <input type="text" placeholder="နှစ်၊လ" id="direct_degree" name="direct_degree" class="form-control"   >
                                                 </div>
                                             </div>
                                         </div>
@@ -651,7 +651,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="ခုနှစ်" id="degree_date" name="degree_date" class="form-control"  required="">
+                                                    <input type="text" placeholder="ခုနှစ်" id="degree_date" name="degree_date" class="form-control"   >
                                                 </div>
                                             </div>
                                             <!-- <div class="col-md-4">
@@ -674,7 +674,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" required="">
+                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}"  >
                                                 </div>
                                              </div>
                                         </div>

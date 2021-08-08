@@ -510,6 +510,7 @@ function cpa_edit(){
             $('#degree_rank').val(data.degree_rank);
             $('#old_certificate').val(education.certificate);
             $('#old_deg_certi').val(data.degree_certificate_image);
+            console.log(data.image,"Image")
             $('#old_image').val(data.image);
 
 

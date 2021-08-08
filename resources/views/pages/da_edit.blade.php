@@ -288,7 +288,7 @@
                                             <td width="75%">
                                                 <div class="single-form">
                                                     <input type="file" placeholder="upload photo" name="image" accept="image/*" value="{{ old('image') }}"  style="padding: 2%;">
-                                                    <input type="text" name="old_image" id="old_image">
+                                                    <input type="hidden" name="old_image" id="old_image">
 
                                                 </div>
                                             </td>
@@ -450,7 +450,7 @@
                                             <td width="75%">
                                                 <div class="single-form">
                                                     <input type="file" placeholder="upload photo" name="certificates" value="{{ old('document') }}"  style="padding: 2%;">
-                                                    <input type="text" name="old_certificate" id="old_certificate">
+                                                    <input type="hidden" name="old_certificate" id="old_certificate">
 
                                                     
                                                 </div>

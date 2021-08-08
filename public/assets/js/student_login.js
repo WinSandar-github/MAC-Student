@@ -11,6 +11,7 @@ function studentLogin(){
         success: function(result){
 
             if(result){
+                console.log(result);
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
                 // location.href= FRONTEND_URL + "/student_index";
