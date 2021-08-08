@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">Non-Audit   <span>Firm</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -62,20 +62,19 @@
 
         </div>
           <div class="container" style="overflow: hidden;">
-						<div id="non_audit_check_registration" style="display:none;">
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body">
-                        <p class="card-text">Your Application Form is checking</p>
-                    </div>
-                </div>
+						<div id="non_audit_form_pending" style="display: none;margin-top:5%;">
+							<div class="alert alert-info" role="alert">
+								Your Non-Audit Form is checking !!!
+							</div>
             </div>
+
 						<div class="row" id="non_audit_container" style="display:none; margin-top:5%;">
                 <form method="post" enctype="multipart/form-data">
                     <div class="card border-success mb-3">
                         <div class="card-body text-success">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <center><h4>Audit Firm Data</h4></center><br><br>
+                                    <center><h4>Non-Audit Firm Data</h4></center><br><br>
                                     <table class="table table-bordered input-table" width="100%">
                                         <tr>
                                             <th>Accountancy Firm Name</th>
@@ -97,15 +96,8 @@
                     </div>
                 </form>
             </div>
-						<div id="non_audit_container_pending" style="display:none; margin-top:5%;">
-                <div class="card text-white bg-primary my-3">
 
-                    <div class="card-body">
-                        <p class="card-text">Your Non-Audit Form is checking</p>
-                    </div>
-                </div>
-            </div>
-						<div id="comment-form" style="display:block;">
+						<div id="non_audit_app_form" style="display:block;">
 							<form id="non-audit-form" method="post" action="javascript:createNonAuditFirm();" enctype="multipart/form-data">
 								<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
@@ -1216,7 +1208,7 @@
   loadNonAuditOrganization();
   loadNonAuditTypeOfService();
 	auditRegFeedback();
-	nonAuditData();
+	//nonAuditData();
 	pendingStatus();
 </script>
 
