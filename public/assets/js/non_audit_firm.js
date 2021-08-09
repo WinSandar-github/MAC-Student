@@ -257,7 +257,7 @@ function createNonAuditFirm(){
             });
 }
 
-function auditRegFeedback(){
+function nonAuditRegFeedback(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
   $.ajax({
       url: BACKEND_URL+"/getAuditFormStatus/"+student.id,
@@ -267,23 +267,7 @@ function auditRegFeedback(){
               if(element.approve_reject_status == 0){
                   showPending();
               }else if(element.approve_reject_status == 1){
-                  //showAudit();
-                  $.ajax({
-                      type: "GET",
-                      url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
-                      success: function (status){
-                          status.forEach(function(element){
-                              if(element.status == 0){
-                                  //pendingStatus();
-                                  showPending();
-                              }else if(element.status ==1){
-                                  $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                                  $("#updated_at").append(element.updated_at);
-                                  showNonAuditList();
-                              }
-                          })
-                      }
-                  })
+                  showNonAudit();
               }
         })
       }
@@ -291,23 +275,26 @@ function auditRegFeedback(){
 }
 
 function showNonAudit(){
-    $('#non_audit_container').css('display','block');
+  $('#non_audit_app_form').css('display','none');
+  $('#non_audit_form_pending').css('display','block');
 }
 
 function nonAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
   $.ajax({
       type: "GET",
-      url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
+      url: BACKEND_URL+"/getNonAuditStatus/"+student.accountancy_firm_info_id,
       success: function (data){
-          var audit_data = data;
-          audit_data.forEach(function(element){
+          data.forEach(function(element){
               if(element.status == 0){
                   pendingStatus();
               }else if(element.status ==1){
                   $("#accountancy_firm_name").append(element.accountancy_firm_name);
                   $("#updated_at").append(element.updated_at);
-                  showAuditList();
+                  showNonAuditList();
+              }
+              else{
+                rejectStatus();
               }
           })
       }
@@ -323,4 +310,14 @@ function showNonAuditList(){
 function showPending(){
   $('#non_audit_app_form').css('display','none');
   $('#non_audit_form_pending').css('display','block');
+}
+
+function pendingStatus(){
+    $('#non_audit_form_pending').css('display','block');
+}
+
+function rejectStatus(){
+  $("#non_audit_form_pending").css('display','none');
+  $('#non_audit_reject').css('display','block');
+  $('#non_audit_app_form').css('display','block');
 }

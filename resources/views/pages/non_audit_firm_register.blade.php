@@ -64,7 +64,12 @@
           <div class="container" style="overflow: hidden;">
 						<div id="non_audit_form_pending" style="display: none;margin-top:5%;">
 							<div class="alert alert-info" role="alert">
-								Your Non-Audit Form is checking !!!
+								Your Non-Audit Form is checking. !!!
+							</div>
+            </div>
+						<div id="non_audit_reject" style="display: none;margin-top:5%;">
+							<div class="alert alert-danger" role="alert">
+								Your Non-Audit Form has been rejected. Please register once again. !!!
 							</div>
             </div>
 
@@ -1207,8 +1212,8 @@
   loadNonAuditStaff();
   loadNonAuditOrganization();
   loadNonAuditTypeOfService();
-	auditRegFeedback();
-	//nonAuditData();
+	nonAuditRegFeedback();
+	nonAuditData();
 	pendingStatus();
 </script>
 
