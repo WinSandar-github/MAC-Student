@@ -299,75 +299,100 @@ function createMac()
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     
+    console.log(student);
+    
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
         type: 'GET',
         contentType: false,
         processData: false,
         success: function(status){
-           console.log(status);
+           console.log(status,"Status");
  
             if(status == 0){
                 $('.check_registration').css('display','block');
-                
             }else if(status == 1){
-                $('.approve').css('display','block');
-                 
+               
+               
+
                 $.ajax({
-                    type: "get",
-                    url: BACKEND_URL+"/get_exam/"+student.id,
+                    url: BACKEND_URL+"/get_exam_status/"+student_id,
+                    type: 'GET',
                     contentType: false,
                     processData: false,
-                    success: function (result) {
-                         var exam_url;
-
-                        // if(result.course.code == 'da_1'){}
-                       
-                        
-                        if(result){
-
-                            switch(result.course.code){
-                                case 'da_1':
-                                exam_url = 'exam_register';
-                                break;
-                                case 'da_2':
-                                exam_url = 'da_two_exam_register';
-                                break;
-                                case 'cpa_1':
-                                exam_url = 'cpa_exam_register';
-                                break;
-                                case 'cpa_2':
-                                exam_url = 'cpa_two_exam_register';
-                                break;
-                                default:
-                                exam_url = 'exam_register';
-                                break;
-    
-    
-                                
-                            }
-    
-                            $('.add_exam').append(`<div>
-                            <p>${result.name} </p>
-                            <p>Exam Start Date - ${result.exam_start_date}</p>
-                            <p>Exam End Date - ${result.exam_end_date}</p>
-                            <p> Go to Exam Registration Form
-                            <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
-                            </p>
-                        </div>`)
-
+                    success: function(exam_status){
+                         if(exam_status === 0){
+                            $('.exam_feedback').css('display','block');
+                            $('.exam_text').append(`Your Exam Form is checking.`)
+                            console.log("Exam Register form Checking ")
+                        }else if(exam_status == 1){
+                            $('.exam_feedback').css('display','block');
+                            $('.exam_text').append(`Your Exam Form is approved.`)
+                        }else if(exam_status == 2){
+                            $('.exam_feedback').css('display','block');
+                            $('.exam_text').append(`Your Exam Form is reject.`)
+                        } 
+                        else{
+                            $('.approve').css('display','block');
+                            $.ajax({
+                                type: "get",
+                                url: BACKEND_URL+"/get_exam/"+student.id,
+                                contentType: false,
+                                processData: false,
+                                success: function (result) {
+                                     var exam_url;
+            
+                                   
                             
-                        }else{
-                            $('.add_exam').append(`<div>
-                                <p>The exam schedule will be announced soon</p>
-                            </div>`)
-                        }
-                      
-                    },
-                    error:function (message){
-                    }
-                })
+                                    if(result){
+            
+                                        switch(result.course.code){
+                                            case 'da_1':
+                                            exam_url = 'exam_register';
+                                            break;
+                                            case 'da_2':
+                                            exam_url = 'da_two_exam_register';
+                                            break;
+                                            case 'cpa_1':
+                                            exam_url = 'cpa_exam_register';
+                                            break;
+                                            case 'cpa_2':
+                                            exam_url = 'cpa_two_exam_register';
+                                            break;
+                                            default:
+                                            exam_url = 'exam_register';
+                                            break;
+                
+                
+                                            
+                                        }
+                                         
+                                        $('.add_exam').append(
+                                        `<div>
+                                        <p>${result.name} </p>
+                                        <p>Exam Start Date - ${result.exam_start_date}</p>
+                                        <p>Exam End Date - ${result.exam_end_date}</p>
+                                        <p> Go to Exam Registration Form
+                                        <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
+                                        </p>
+                                        </div>`)
+            
+                                        
+                                    }else{
+                                        $('.add_exam').append(`<div>
+                                            <p>The exam schedule will be announced soon</p>
+                                        </div>`)
+                                    }
+                                  
+                                },
+                                error:function (message){
+                                }
+                            })
 
+                        }
+                    }
+                });    
+                
 
         
             }else if(status == 2){
@@ -415,3 +440,4 @@ function loadExam()
         }
     })
 }
+

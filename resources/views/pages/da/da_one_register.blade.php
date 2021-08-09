@@ -350,8 +350,35 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- Exam form Feedback  -->
+                <div class="status-reject" style="display:none">
+                    <div class="card text-white bg-dark my-3">
+                        
+                        <div class="card-body">
+                            <!-- status == 2 => reject -->
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                             </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam_feedback" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body exam_text">
+                            
+                        </div>
+                    </div>
+                </div>
+               
+
+                
                   
-    </div><br/></br/>    
+    </div>
+    
+    <br/></br/>    
 </div>
 <!-- JavaScript Section -->
 <script>
