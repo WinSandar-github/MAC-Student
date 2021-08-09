@@ -75,14 +75,16 @@
                                         <tr>
                                             <th>Accountancy Firm Name</th>
                                             <th>Applied Date</th>
+                                            <th>Status</th>
                                         </tr>
                                         <tr>
                                             <td><span id="accountancy_firm_name"></span></td>
                                             <td><span id="updated_at"></span></td>
+                                            <td><span id="message"></span></td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="check_status" style="display:none;">
                                     <div class="form-group">
                                         <a href="#" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
                                     </div>
@@ -1011,6 +1013,7 @@
     audit_reg_feedback();
     auditData();
     pendingStatus();
-    // dateQuery();
+    dateQuery();
+    verifyStatus();
 </script>
 @endpush
