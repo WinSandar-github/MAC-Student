@@ -267,10 +267,13 @@
                                                     
                                                 </div>
                                                 <div class="row">
-                                                <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                    <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                    <div class="col-md-12" style="padding-top: 2%;">
+                                                        <div class="single-form text-center">
+                                                            <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                
                                             </div>
                                         </div>
                                     </div>

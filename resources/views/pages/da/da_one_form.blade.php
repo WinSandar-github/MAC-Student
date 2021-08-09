@@ -142,7 +142,7 @@
                                             </td>
                                             <td width="25%">
                                                 <div class="single-form">
-                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
+                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');" required="" maxlength="6">
                                                 </div>
                                             </td>
                                         </tr>
