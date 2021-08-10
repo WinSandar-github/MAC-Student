@@ -142,7 +142,7 @@
                                             </td>
                                             <td width="25%">
                                                 <div class="single-form">
-                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
+                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');" required="" maxlength="6">
                                                 </div>
                                             </td>
                                         </tr>
@@ -165,7 +165,7 @@
                                         <tr>
                                             <td width="25%">
                                                 <div class="single-form">
-                                                    <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်</label>
+                                                    <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်)</label>
                                                 </div>
                                             </td>
                                             <td width="75%">
@@ -512,9 +512,14 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <div class="col-md-12" style="padding-top: 2%;">
+                                    <!-- <div class="col-md-12" style="padding-top: 2%;">
                                         <div class="single-form text-center">
                                             <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                        </div>
+                                    </div> -->
+                                    <div class="row m-4">
+                                        <div class="col-md-2 offset-md-5">
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
                                         </div>
                                     </div>
                                 </div>

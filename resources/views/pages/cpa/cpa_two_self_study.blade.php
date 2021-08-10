@@ -159,9 +159,8 @@
                                 </div><br/>
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
-                                    <div class="single-form">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
-                                    </div> </div>
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                    </div> 
                                 </div>
                             </fieldset>
                         </form>
