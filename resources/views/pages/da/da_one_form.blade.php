@@ -165,7 +165,7 @@
                                         <tr>
                                             <td width="25%">
                                                 <div class="single-form">
-                                                    <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်</label>
+                                                    <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်)</label>
                                                 </div>
                                             </td>
                                             <td width="75%">
@@ -512,9 +512,14 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <div class="col-md-12" style="padding-top: 2%;">
+                                    <!-- <div class="col-md-12" style="padding-top: 2%;">
                                         <div class="single-form text-center">
                                             <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                        </div>
+                                    </div> -->
+                                    <div class="row m-4">
+                                        <div class="col-md-2 offset-md-5">
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
                                         </div>
                                     </div>
                                 </div>
