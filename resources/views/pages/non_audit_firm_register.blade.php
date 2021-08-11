@@ -1179,20 +1179,21 @@
 													</table>
 											</div>
 											<br>
-		                  <div class="row">
-													<div class="col-md-12" style="padding-top: 2%;">
-															<div class="single-form text-center">
-																	<button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Submit Now') }}</button>
-															</div>
+
+		                  					<div class="row">
+											  	<div class="col-md-3 offset-md-5">
+													<button  type="submit" class="btn btn-success btn-hover-dark w-100"  form="non-audit-form">{{ __('Submit Now') }}</button>
+														</div>
 													</div>
-		                  </div>
-		                </div>
-	              	</div>
-	            	</div>
-							</form>
+		                  						</div>
+		                					</div>
+
+	              						</div>
+	            					</div>
+								</form>
+							</div>
 						</div>
-          </div>
-        </div>
+					</div>
 
 
     </div>

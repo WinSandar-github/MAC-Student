@@ -144,7 +144,7 @@
                                             </td>
                                             <td width="25%">
                                                 <div class="single-form">
-                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
+                                                    <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');" required="" maxlength="6">
                                                 </div>
                                             </td>
                                         </tr>
@@ -519,13 +519,12 @@
                                             </td>
                                         </tr>
                                     </table> -->
-                                    <div class="col-md-12">
-                                        <!-- Form Wrapper Start -->
-                                        <div class="single-form text-center">
-                                            <button class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                    <div class="row">
+                                        <div class="col-md-2 offset-md-5">
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
                                         </div>
-                                        <!-- Form Wrapper End -->
                                     </div>
+
                                 </div>
                             </div>       
                         </form>

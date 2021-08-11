@@ -45,7 +45,7 @@ $('#cpa_exam_register').submit(function(e){
              localStorage.setItem('approve_reject', 3);
              location.href = FRONTEND_URL + "/student_course/1";
 
-            // successMessage(result);
+            successMessage(result);
       }
     });
 
