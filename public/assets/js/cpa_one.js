@@ -226,7 +226,7 @@ $('#cpa_register').submit(function(e){
                 // localStorage.setItem('studentinfo', JSON.stringify(data));
                 // localStorage.setItem('approve_reject', data.approve_reject_status);
                 // location.href = "/student_course/2";
-                if(data.name != null){
+                if(data.name_mm != null){
                 localStorage.setItem('studentinfo', JSON.stringify(data));
                 localStorage.setItem('approve_reject', data.approve_reject_status);
                 location.href = FRONTEND_URL + "/student_course/2";
