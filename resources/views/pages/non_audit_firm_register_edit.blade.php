@@ -33,7 +33,7 @@
                 <div class="page-banner-content">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Register</li>
+                        <li class="active">Edit</li>
                     </ul>
                     <h2 class="title">Non-Audit   <span>Firm</span></h2>
                 </div>
@@ -70,7 +70,7 @@
 						<div id="non_audit_reject" style="display: none;margin-top:5%;">
 							<div class="alert alert-danger" role="alert">
 								<span><strong>Your Non-Audit Form has been rejected. Please register once again. !!!</strong></span>
-								<a class="btn btn-primary" href="{{url('non_audit_firm_register_edit')}}" role="button" style="margin-left:20px;">Update</a>
+								<a class="btn btn-primary" href="{{url('non_audit_firm_register')}}" role="button" style="margin-left:20px;">Update</a>
 							</div>
             </div>
 
@@ -103,7 +103,7 @@
                 </form>
             </div>
 
-						<div id="non_audit_app_form" style="display:block;">
+						<div id="non_audit_app_form">
 							<form id="non-audit-form" method="post" action="javascript:createNonAuditFirm();" enctype="multipart/form-data">
 								<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
@@ -114,7 +114,7 @@
 											<div class="col-md-12">
 												<div class="col-md-2">
 													<select class="form-select form-select-md mb-3" id="choose_firm_type" aria-label=".form-select-md example">
-													  <option value="0" selected>Choose Firm Type</option>
+													  <option value="0">Choose Firm Type</option>
 													  <option value="1">Local</option>
 													  <option value="2">Foreign</option>
 													</select>
@@ -1145,7 +1145,7 @@
 															</td>
 															<td width="73%">
 																	<div class="form-group">
-																			<input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
+																			<input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="" required="">
 																	</div>
 															</td>
 													</tr>
@@ -1157,7 +1157,7 @@
 															</td>
 															<td width="73%">
 																	<div class="form-group">
-																			<input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+																			<input type="password" placeholder="Password" name="password" class="form-control" value="" required="">
 																	</div>
 															</td>
 													</tr>
@@ -1179,21 +1179,20 @@
 													</table>
 											</div>
 											<br>
-
-		                  					<div class="row">
-											  	<div class="col-md-3 offset-md-5">
-													<button  type="submit" class="btn btn-success btn-hover-dark w-100"  form="non-audit-form">{{ __('Submit Now') }}</button>
-														</div>
+		                  <div class="row">
+													<div class="col-md-12" style="padding-top: 2%;">
+															<div class="single-form text-center">
+																	<button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Submit Now') }}</button>
+															</div>
 													</div>
-		                  						</div>
-		                					</div>
-
-	              						</div>
-	            					</div>
-								</form>
-							</div>
+		                  </div>
+		                </div>
+	              	</div>
+	            	</div>
+							</form>
 						</div>
-					</div>
+          </div>
+        </div>
 
 
     </div>
@@ -1214,9 +1213,10 @@
   loadNonAuditStaff();
   loadNonAuditOrganization();
   loadNonAuditTypeOfService();
-	nonAuditRegFeedback();
-	nonAuditData();
-	pendingStatus();
+  getNonAuditData();
+	// nonAuditRegFeedback();
+	// nonAuditData();
+	// pendingStatus();
 </script>
 
 @endpush
