@@ -210,12 +210,10 @@
 
                                                 </div>
 
-                                                <div class="col-md-12">
-                                                    <!-- Form Wrapper Start -->
-                                                    <div class="single-form text-center" style="padding-top:2%;">
-                                                        <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
-                                                    </div>
-                                                    <!-- Form Wrapper End -->
+                                                <div class="row">
+                                                    <div class="col-md-2 offset-md-5">
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                    </div> 
                                                 </div>
                                         </div>
                                     </form>

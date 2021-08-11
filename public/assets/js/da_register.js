@@ -56,7 +56,7 @@ function createDARegister()
         processData: false,
         success: function(result){
              if(result.name_mm!=null){
-                successMessage("Insert Successfully");                
+                successMessage("You have successfully registerd!");                
                 // location.reload();
                 location.href = "/";
              }
@@ -164,8 +164,9 @@ $('#store_da_two_form').submit(function(e){
         data:formData,
         contentType: false,
         processData: false,
-        success: function(data){
+        success: function(data){            
             localStorage.setItem('approve_reject', data.approve_reject_status);
+            successMessage("You have successfully registerd!");
             location.href = "/student_course/1"; 
         },
       error:function (message){

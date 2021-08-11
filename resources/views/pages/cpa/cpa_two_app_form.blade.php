@@ -92,11 +92,12 @@
                                                 <label class=col-md-3>Payment</label>
                                                 <p class="col-md-9 text-primary">Payment System Coming Soon</p>
                                             </div>
-                                            <div class="col-md-12">
-                                                 <div class="single-form text-center">
-                                                    <button class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-2 offset-md-5">
+                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
                                                 </div>
-                                            </div>
+                                            </div><br/>
                                             
                                         </div> 
                                     </div>

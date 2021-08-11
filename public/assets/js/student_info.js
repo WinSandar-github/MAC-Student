@@ -321,7 +321,7 @@ function reg_feedback(){
                     contentType: false,
                     processData: false,
                     success: function(exam_status){
-                         if(exam_status === 0){
+                          if(exam_status === 0){
                             $('.exam_feedback').css('display','block');
                             $('.exam_text').append(`Your Exam Form is checking.`)
                             console.log("Exam Register form Checking ")
