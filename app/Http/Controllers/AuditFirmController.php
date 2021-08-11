@@ -10,4 +10,9 @@ class AuditFirmController extends Controller
     {
         return view('pages.audit_firm');
     }
+
+    public function auditFirmEdit()
+    {
+        return view('pages.audit_firm_edit');
+    }
 }

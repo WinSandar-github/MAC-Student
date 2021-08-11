@@ -3,6 +3,7 @@
 
 var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var counter = 0;
 
 var toastOptions = {
     "closeButton": true,
@@ -93,6 +94,50 @@ function addRowBranch(tbody){
     newRow.append(cols);
     $("table."+tbody).append(newRow);
     counter++;
+}
+
+function addRowPartner(tbody){
+
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
+    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="1"> Yes</td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="2"> No</td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+}
+
+function delRowPartner(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
+}
+
+function addRowDirector(tbody){
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" name="do_name[]" class="form-control" autocomplete="off"/></td>';
+    cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" /> </td>';
+    cols += '<td><input type="text" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+}
+function delRowDirector(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
 }
 
 function addRowPartnerByNonAudit(tbody){
