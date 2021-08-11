@@ -42,8 +42,10 @@ function auditData(){
                     pendingStatus();
                 }else if(element.status ==1){
                     $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                    $("#updated_at").append(element.updated_at);
+                    $("#register_date").append(element.register_date);
                     showAuditList();
+                }else{
+                    showUpdate();
                 }
             })
         }
@@ -81,7 +83,7 @@ function verifyStatus()
             var status = data;
             // console.log(data)
             status.forEach(function(element){
-                console.log(element.verify_status)
+                // console.log(element.verify_status)
                 if(element.verify_status == 1){
                     $('#check_status').css('display','none');
                 }else if(element.verify_status == 2){
@@ -90,6 +92,13 @@ function verifyStatus()
             })
         }
     })
+}
+
+function showUpdate()
+{
+    $('#audit_form_pending').css('display','none');
+    $('#audit_reject').css('display','block');
+    $('.reject').append(`<a href="/audit_firm_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
 }
 
 function createAuditFirm(){
@@ -245,57 +254,7 @@ function createAuditFirm(){
               }
             });
 }
-function getAudit(){
-  destroyDatatable("#tbl_audit", "#tbl_audit_body");
-  destroyDatatable("#tbl_non_audit", "#tbl_non_audit_body");
-  $.ajax({
-    url: BACKEND_URL+"/acc_firm_info",
-    type: 'get',
-    data:"",
-    success: function(data){
-      var audit_data=data.data;
-      audit_data.forEach(function (element) {
-        if(element.audit_firm_type_id==1){
-          var tr = "<tr>";
-          tr += "<td >" +  + "</td>";
-          tr += "<td>" + element.accountancy_firm_reg_no + "</td>";
-          tr += "<td >" + element.accountancy_firm_name + "</td>";
-        
-          tr += "<td ><div class='btn-group'>" +
-              "<button type='button' class='btn btn-info btn-xs' onClick='showAuditInfo(" + element.id + ")'>" +
-              "<li class='fa fa-edit fa-sm'></li></button> ";
-          tr += "<button type='button' class='btn btn-danger btn-xs' onClick=deleteAuditInfo(\"" + encodeURIComponent(element.accountancy_firm_name) + "\"," + element.id + ")><li class='fa fa-trash fa-sm' ></li ></button ></div ></td > ";
 
-          tr += "</tr>";
-          $("#tbl_audit_body").append(tr);
-        }else {
-          var tr = "<tr>";
-          tr += "<td >" +  + "</td>";
-          tr += "<td>" + element.accountancy_firm_reg_no + "</td>";
-          tr += "<td >" + element.accountancy_firm_name + "</td>";
-        
-          tr += "<td ><div class='btn-group'>" +
-              "<button type='button' class='btn btn-info btn-xs' onClick='showNonAuditInfo(" + element.id + ")'>" +
-              "<li class='fa fa-edit fa-sm'></li></button> ";
-          tr += "<button type='button' class='btn btn-danger btn-xs' onClick=deleteAuditInfo(\"" + encodeURIComponent(element.accountancy_firm_name) + "\"," + element.id + ")><li class='fa fa-trash fa-sm' ></li ></button ></div ></td > ";
-
-          tr += "</tr>";
-          $("#tbl_non_audit_body").append(tr);
-        }
-
-    });
-    getIndexNumber('#tbl_audit tr');
-    createDataTable("#tbl_audit");
-    getIndexNumber('#tbl_non_audit tr');
-    createDataTable("#tbl_non_audit");
-    },
-    error:function (message){
-      dataMessage(message, "#tbl_audit", "#tbl_audit_body");
-      dataMessage(message, "#tbl_non_audit", "#tbl_non_audit_body");
-  }
-  
-});
-}
 function showAuditInfo(auditId) {
   localStorage.setItem("id",auditId);
   location.href= FRONTEND_URL + "/audit-firm-show_info";
@@ -306,50 +265,45 @@ function showNonAuditInfo(nonAuditId) {
   location.href= FRONTEND_URL + "/non-audit-firm-show_info";
   
 }
+
 function autoLoadAudit(){
-  destroyDatatable("#tbl_branch", "#tbl_branch_body");
-  destroyDatatable("#tbl_partner", "#tbl_partner_body");
-  destroyDatatable("#tbl_partner", "#tbl_partner_body");
-  destroyDatatable("#tbl_non_partner", "#tbl_non_partner_body");
-  destroyDatatable("#tbl_cpa_myanmar", "#tbl_cpa_myanmar_body");
-  var id=localStorage.getItem("id");
+  var student = JSON.parse(localStorage.getItem('studentinfo'));
   $.ajax({
     type: "GET",
-    url: BACKEND_URL+"/acc_firm_info/"+id,
+    url: BACKEND_URL+'/acc_firm_info/'+student.accountancy_firm_info_id,
     success: function (data) {
-      var audit_data=data.data;
-       audit_data.forEach(function(element){
-        $("input[name=accountancy_firm_id]").val(element.id);
-        $("input[name=audit_firm_type_id]").val(element.audit_firm_type_id);
-        $("input[name=local_foreign_id]").val(element.local_foreign_id);
-        $("input[name=accountancy_firm_reg_no]").val(element.accountancy_firm_reg_no);
-        $("input[name=accountancy_firm_name]").val(element.accountancy_firm_name);
-        $("input[name=township]").val(element.township);
-        $("input[name=post_code]").val(element.postcode);
-        $("input[name=city]").val(element.city);
-        $("input[name=state]").val(element.state_region);
-        $("input[name=phone_no]").val(element.telephones);
-        $("input[name=email]").val(element.email);
-        $("input[name=website]").val(element.website);
-        $("input[name=name_sole_proprietor]").val(element.name_of_sole_proprietor);
-        $("input[name=declaration]").val(element.declaration);
-        var branch=element.branch_offices;
-        branch.forEach(function(item){
-          var tr = "<tr>";
-          tr += "<td><input type='text' name='bo_branch_name[]' class='form-control' autocomplete='off' value="+item.branch_name+"></td>";
-          tr += "<td ><input type='text' name='bo_township[]' class='form-control' autocomplete='off' value="+item.township+"></td>";
-          tr += "<td ><input type='text' name='bo_post_code[]' class='form-control' autocomplete='off' value="+item.postcode+"></td>";
-          tr += "<td ><input type='text' name='bo_city[]' class='form-control' autocomplete='off' value="+item.city+"></td>";
-          tr += "<td ><input type='text' name='bo_state_region[]' class='form-control' autocomplete='off' value="+item.state_region+"></td>";
-          tr += "<td ><input type='text' name='bo_phone[]' class='form-control' autocomplete='off' value="+item.phones+"></td>";
-          tr += "<td ><button class='btn btn-primary btn-sm' type='button' onclick=addInputTele('branch')>"+
-                "<i class='fa fa-plus'></i> </button></td>";
-          tr += "<td ><input type='text' name='bo_email[]' class='form-control' autocomplete='off' value="+item.email+"></td>";
-          tr += "<td ><input type='text' name='bo_website[]' class='form-control' autocomplete='off' value="+item.website+"></td>";
-          tr += "<td ></td>" ;
-          tr += "</tr>";
-          $("#tbl_branch_body").append(tr);
-        });
+        var audit_data = data.data;
+        audit_data.forEach(function(element){
+            console.log(element)
+            $('#accountancy_firm_reg_no').val(element.accountancy_firm_reg_no);
+            $('#accountancy_firm_name').val(element.accountancy_firm_name);
+            $('#township').val(element.township);
+            $('#post_code').val(element.postcode);
+            $('#city').val(element.city);
+            $('#state').val(element.state_region);
+            $('#phone_no').val(element.telephones);
+            $('#h_email').val(element.h_email);
+            $('#website').val(element.website);
+            $('#name_sole_proprietor').val(element.name_of_sole_proprietor);
+            $('#declaration').val(element.declaration);
+
+            var branch=element.branch_offices;
+            branch.forEach(function(item){
+              var tr = "<tr>";
+              tr += "<td><input disabled type='text' name='bo_branch_name[]' class='form-control' autocomplete='off' value="+item.branch_name+"></td>";
+              tr += "<td ><input disabled type='text' name='bo_township[]' class='form-control' autocomplete='off' value="+item.township+"></td>";
+              tr += "<td ><input disabled type='text' name='bo_post_code[]' class='form-control' autocomplete='off' value="+item.postcode+"></td>";
+              tr += "<td ><input disabled type='text' name='bo_city[]' class='form-control' autocomplete='off' value="+item.city+"></td>";
+              tr += "<td ><input disabled type='text' name='bo_state_region[]' class='form-control' autocomplete='off' value="+item.state_region+"></td>";
+              tr += "<td ><input disabled type='text' name='bo_phone[]' class='form-control' autocomplete='off' value="+item.phones+"></td>";
+              tr += "<td ><button disabled class='btn btn-primary btn-sm' type='button' onclick=addInputTele('branch')>"+
+                    "<i class='fa fa-plus'></i> </button></td>";
+              tr += "<td ><input disabled type='text' name='bo_email[]' class='form-control' autocomplete='off' value="+item.email+"></td>";
+              tr += "<td ><input disabled type='text' name='bo_website[]' class='form-control' autocomplete='off' value="+item.website+"></td>";
+              tr += "<td ></td>" ;
+              tr += "</tr>";
+              $("#tbl_branch_body").append(tr);
+            });
         $('#org'+element.organization_structure_id).prop("checked", true);
         if(element.organization_structure_id==1){
           $('#sole-proprietorship').css('display','block');
@@ -410,17 +364,17 @@ function autoLoadAudit(){
           firm_owner_audit.forEach(function(item){
             var tr = "<tr>";
             tr += "<td>" + + "</td>";
-            tr += "<td ><input type='text' value="+ item.name+" name='foa_name[]' class='form-control' autocomplete='off'></td>";
-            tr += "<td ><input type='text' value="+ item.public_private_reg_no+" name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input disabled type='text' value="+ item.name+" name='foa_name[]' class='form-control' autocomplete='off'></td>";
+            tr += "<td ><input disabled type='text' value="+ item.public_private_reg_no+" name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
             if(item.authority_to_sign==1){
-              tr += "<td ><input type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
+              tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
                     " <label class='form-check-label'>Yes</label></td>";
-              tr += "<td ><input type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" id='report_yes'>"+
+              tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" id='report_yes'>"+
                     " <label class='form-check-label'>No</label></td>";
             }else{
-              tr += "<td ><input type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" id='report_yes'>"+
+              tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" id='report_yes'>"+
                     " <label class='form-check-label'>Yes</label></td>";
-              tr += "<td ><input type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
+              tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
                     " <label class='form-check-label'>No</label></td>";
             }
             
@@ -434,10 +388,10 @@ function autoLoadAudit(){
             director_officer_audit.forEach(function(item){
               var tr = "<tr>";
               tr += "<td>" + + "</td>";
-              tr += "<td ><input type='text' value="+item.name+" name='do_name[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.position+" name='do_position[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.cpa_reg_no+" name='do_cpa_reg_no[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.public_private_reg_no+" name='do_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.name+" name='do_name[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.position+" name='do_position[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.cpa_reg_no+" name='do_cpa_reg_no[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.public_private_reg_no+" name='do_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
               tr += "<td ></td>" ;
               tr += "</tr>";
               $("#tbl_director_body").append(tr);
@@ -467,8 +421,8 @@ function autoLoadAudit(){
               firm_owner_non_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td>" + + "</td>";
-                tr += "<td ><input type='text' value="+item.name+" name='fona_name[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ><input type='text' value="+item.pass_csc_inco +" name='fona_pass_csc_inco[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input disabled type='text' value="+item.name+" name='fona_name[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input disabled type='text' value="+item.pass_csc_inco +" name='fona_pass_csc_inco[]' class='form-control' autocomplete='off'></td>";
                 
                 tr += "<td ></td>" ;
                 tr += "</tr>";
@@ -479,10 +433,10 @@ function autoLoadAudit(){
             director_officer_audit.forEach(function(item){
               var tr = "<tr>";
               tr += "<td>" + + "</td>";
-              tr += "<td ><input type='text' value="+item.name+" name='dona_name[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.position+" name='dona_position[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.passport+" name='dona_passport[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.csc_no+" name='dona_csc_no[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.name+" name='dona_name[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.position+" name='dona_position[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.passport+" name='dona_passport[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.csc_no+" name='dona_csc_no[]' class='form-control' autocomplete='off'></td>";
               tr += "<td ></td>" ;
               tr += "</tr>";
               $("#tbl_director_body").append(tr);
@@ -558,27 +512,28 @@ function autoLoadAudit(){
              cpa_myanmar.forEach(function(item){
               var tr = "<tr>";
               tr += "<td>" + + "</td>";
-              tr += "<td ><input type='text' value="+item.name+" name='mf_name[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.position+" name='mf_position[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.cpa_passed_reg_no+" name='mf_cpa_passed_reg_no[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.cpa_full_reg_no+" name='mf_cpa_full_reg_no[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input type='text' value="+item.public_practice_reg_no+" name='mf_pub_pra_reg_no[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.name+" name='mf_name[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.position+" name='mf_position[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.cpa_passed_reg_no+" name='mf_cpa_passed_reg_no[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.cpa_full_reg_no+" name='mf_cpa_full_reg_no[]' class='form-control' autocomplete='off'></td>";
+              tr += "<td ><input disabled type='text' value="+item.public_practice_reg_no+" name='mf_pub_pra_reg_no[]' class='form-control' autocomplete='off'></td>";
               tr += "<td ></td>" ;
               tr += "</tr>";
               $("#tbl_cpa_myanmar_body").append(tr);
              })
            }
        });
-       getIndexNumber('#tbl_partner tr');
-       getIndexNumber('#tbl_director tr');
-       getIndexNumber('#tbl_non_partner tr');
-       getIndexNumber('#tbl_cpa_myanmar tr');
+       // getIndexNumber('#tbl_partner tr');
+       // getIndexNumber('#tbl_director tr');
+       // getIndexNumber('#tbl_non_partner tr');
+       // getIndexNumber('#tbl_cpa_myanmar tr');
     },
     error:function (message){
       errorMessage(message);
     }
   });
 }
+
 function removeBracketed(file,divname){
   var new_file=file.replace(/[\'"[\]']+/g, '');
   var split_new_file=new_file.split(',');
@@ -592,31 +547,62 @@ function loadFile(file) {
   var myImageId = "storage/acc_firm/" + file;
   $(".modal-body #file").attr("src", myImageId);
 }
-function loadOrganization(){
+
+function loadAuditOrganization(){
   $.ajax({
     url: BACKEND_URL+"/organization_structure",
     type: 'get',
     data:"",
     success: function(result){
-     var organization_structure=result.data;
-     $('.organization_data').append("<div class='col-md-2'></div>");
-     organization_structure.forEach(function(element){
-       if(element.id!=3){
-        var radio_data="<div class='col-md-2'>"+
-        "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
-        " <label class='form-check-label'>"+element.name+"</label>";
-       }else{
-        var radio_data="<div class='col-md-3'>"+
-        "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
-        " <label class='form-check-label'>"+element.name+"</label>";
-       }
-       
-       $('.organization_data').append(radio_data);
-     })
+        // console.log(result.data);
+         var organization_structure=result.data;
+         $('.organization_data').append("<div class='col-md-3'></div>");
+         organization_structure.forEach(function(element){
+            // console.log(element)
+           if(element.id!=3){
+            var radio_data="<div class='col-md-2'>"+
+            "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
+            " <label class='form-check-label'>"+element.name+"</label>";
+           }else{
+            var radio_data="<div class='col-md-3'>"+
+            "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
+            " <label class='form-check-label'>"+element.name+"</label>";
+           }
+
+           $('.organization_data').append(radio_data);
+         })
   }
 });
 }
-function loadTypeOfService(){
+
+// function loadTypeOfService(){
+//   destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
+//     $.ajax({
+//       url: BACKEND_URL+"/type_service_provided",
+//       type: 'get',
+//       data:"",
+//       success: function(result){
+//       var type_service_provided=result.data;
+//       $('.type_service_provided').append("<div class='col-md-4'></div>");
+//       type_service_provided.forEach(function(element){
+//         if(element.audit_firm_type_id==1){
+//           var radio_data="<div class='col-md-2'>"+
+//           "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+//           " <label class='form-check-label'>"+element.name+"</label>";
+//           $('.type_service_provided').append(radio_data);
+//         }else{
+//           var tr = "<tr>";
+//           tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+//                 " <label class='form-check-label'>"+element.name+"</label>";
+//           tr += "</tr>";
+//           $('#tbl_type_service_body').append(tr);
+//         }
+//       })
+//     }
+//   });
+// }
+
+function loadAuditTypeOfService(){
   destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
     $.ajax({
       url: BACKEND_URL+"/type_service_provided",
@@ -624,6 +610,7 @@ function loadTypeOfService(){
       data:"",
       success: function(result){
       var type_service_provided=result.data;
+      // console.log(type_service_provided)
       $('.type_service_provided').append("<div class='col-md-4'></div>");
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
@@ -644,14 +631,16 @@ function loadTypeOfService(){
     }
   });
 }
+
 function loadAuditTotalStaff(){
-    destroyDatatable("#tbl_audit_total_staff", "#tbl_audit_total_staff_body");
+    // destroyDatatable("#tbl_audit_total_staff", "#tbl_audit_total_staff_body");
     $.ajax({
       url: BACKEND_URL+"/audit_total_staff_type",
       type: 'get',
       data:"",
       success: function(result){
       var audit_total_staff=result.data;
+      // console.log(audit_total_staff)
       audit_total_staff.forEach(function(element){
             var tr = "<tr>";
             tr += "<td>" + element.name + "</td>";
@@ -667,7 +656,7 @@ function loadAuditTotalStaff(){
   });
 }
 function loadAuditStaff(){
-  destroyDatatable("#tbl_audit_staff", "#tbl_audit_staff_body");
+  // destroyDatatable("#tbl_audit_staff", "#tbl_audit_staff_body");
   $.ajax({
     url: BACKEND_URL+"/audit_staff_type",
     type: 'get',
@@ -727,9 +716,10 @@ function deleteAuditInfo(accName,accId){
 function updateAuditFirm(){
     
   var send_data=new FormData();
-  var id=$("input[name=accountancy_firm_id]").val();
+  var student = JSON.parse(localStorage.getItem('studentinfo'));
+  // console.log(student.accountancy_firm_info_id);
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
-  send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
+  // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('township',$("input[name=township]").val());
@@ -737,14 +727,17 @@ function updateAuditFirm(){
   send_data.append('city',$("input[name=city]").val());
   send_data.append('state',$("input[name=state]").val());
   send_data.append('phone_no',$("input[name=phone_no]").val());
-  send_data.append('email',$("input[name=email]").val());
+  send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
-  send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
+  // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
+  send_data.append('form_fee',$("input[name=form_fee]").val());
+  send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
+
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
   $('input[name="bo_post_code[]"]').map(function(){send_data.append("bo_post_code[]",$(this).val());});
@@ -859,17 +852,18 @@ function updateAuditFirm(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
-  send_data.append('_method', 'PATCH');
+    send_data.append('_method', 'PATCH');
   
         $.ajax({
-                url: BACKEND_URL + "/acc_firm_info/"+id,
+                url: BACKEND_URL+'/acc_firm_info/'+student.accountancy_firm_info_id,
                 type: 'post',
                 data:send_data,
                 contentType: false,
                 processData: false,
                 success: function(result){
-                  successMessage(result.data);
-                  location.reload();
+                    // console.log(result)
+                  successMessage("Update Registeration Successfully");
+                  location.href = "/";   
               }
         });
 }
