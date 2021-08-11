@@ -49,6 +49,7 @@ Route::get('cpa_ff_register', 'CPAFFController@info');
 
 //Non_Audit firm
 Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
+Route::get('non_audit_firm_register_edit', 'NonAuditFirmController@edit');
 
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
@@ -97,6 +98,7 @@ Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('
 
 // Audit Firm
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
+Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
