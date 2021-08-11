@@ -110,7 +110,7 @@
                         <br/>
                         <div class="row">
                             <div class="col-md-4">
-                                <a href="{{url('cpa_one_self_study')}}">
+                                <a href="{{url('cpa_two_self_study')}}">
                                     <div class="card border-success mb-3" >
                                         <div class="card-body"  style="height:100px;">
                                             <h6 class="card-title text-center">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</h6>                                      
@@ -119,7 +119,7 @@
                                 </a>
                             </div>
                             <div class="col-md-4">
-                                <a href="{{url('cpa_one_mac')}}">
+                                <a href="{{url('cpa_two_mac')}}">
                                 <div class="card border-success mb-3">
                                     <div class="card-body col-md-12"  style="height:100px;">
                                         <h6 class="card-title text-center">MAC</h6> 
@@ -128,7 +128,7 @@
                                 </a>
                             </div>
                             <div class="col-md-4">
-                            <a href="{{url('cpa_one_private_school')}}">
+                            <a href="{{url('cpa_two_private_school')}}">
                                 <div class="card border-success mb-3">
                                     <div class="card-body" style="height:100px;">
                                         <h6 class="card-title text-center">Private School</h6>

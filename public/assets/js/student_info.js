@@ -102,10 +102,10 @@ function app_form_feedback(){
 
                                 // }else{
                                 //     course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_form/'+batch_id[i];
-                                    course_url = count == 1 ? FRONTEND_URL+ '/da_register/'+batch_id[i] : FRONTEND_URL+'/da_two_form/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+ '/da_one_form/'+batch_id[i] : FRONTEND_URL+'/da_two_form/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_register/'+batch_id[i] : FRONTEND_URL+'/cpa_two_form/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_one_form/'+batch_id[i] : FRONTEND_URL+'/cpa_two_form/'+batch_id[i];
                                 }
                                 
                              
@@ -319,8 +319,7 @@ function reg_feedback(){
                     contentType: false,
                     processData: false,
                     success: function (result) {
-                        console.log(result)
-                        var exam_url;
+                         var exam_url;
 
                         // if(result.course.code == 'da_1'){}
                        

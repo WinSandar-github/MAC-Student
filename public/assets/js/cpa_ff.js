@@ -137,7 +137,7 @@ function createCPAFFRegister(){
         contentType: false,
         processData: false,
         success: function(result){
-            successMessage("Insert Successfully");
+            successMessage("You have successfully registerd!");
             location.reload();
         },
         error:function (message){
