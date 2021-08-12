@@ -98,6 +98,7 @@
                         </li>
                         <li><a href="{{url('school_register')}}">School</a></li>
                         <li><a href="{{url('teacher_register')}}">Teacher</a></li>
+                        <li><a href="{{url('mentor_register')}}">Mentor</a></li>
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
