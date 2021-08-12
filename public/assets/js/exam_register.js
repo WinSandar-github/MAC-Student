@@ -18,8 +18,9 @@ function createDAExamRegister()
         contentType: false,
         processData: false,
         success: function(result){
-            localStorage.setItem('approve_reject', 3);
-             location.href = FRONTEND_URL + "/student_course/1";
+        
+            location.href = FRONTEND_URL + "/student_course/1";
+            localStorage.setItem('exam_status',0)
             successMessage(result);
 
       }
@@ -42,8 +43,8 @@ $('#cpa_exam_register').submit(function(e){
         processData: false,
         success: function(result){
              // location.reload();
-             localStorage.setItem('approve_reject', 3);
-             location.href = FRONTEND_URL + "/student_course/1";
+             localStorage.setItem('approve_reject', 1);
+             location.href = FRONTEND_URL + "/student_course/2";
 
             successMessage(result);
       }
