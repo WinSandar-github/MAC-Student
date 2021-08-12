@@ -96,9 +96,11 @@ function verifyStatus()
 
 function showUpdate()
 {
+    $('#app_form').css('display','none');
     $('#audit_form_pending').css('display','none');
     $('#audit_reject').css('display','block');
-    $('.reject').append(`<a href="/audit_firm_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+    // $('.reject').append(`<a href="/audit_firm_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
+    $('.reject').append(`<a href="/audit_firm_resubmit" class="btn btn-primary btn-sm xl-auto" > Go To Form </a>`)
 }
 
 function createAuditFirm(){
@@ -267,6 +269,10 @@ function showNonAuditInfo(nonAuditId) {
 }
 
 function autoLoadAudit(){
+    destroyDatatable("#tbl_branch", "#tbl_branch_body");
+    destroyDatatable("#tbl_partner", "#tbl_partner_body");
+    destroyDatatable("#tbl_non_partner", "#tbl_non_partner_body");
+    destroyDatatable("#tbl_cpa_myanmar", "#tbl_cpa_myanmar_body");
   var student = JSON.parse(localStorage.getItem('studentinfo'));
   $.ajax({
     type: "GET",
@@ -274,7 +280,7 @@ function autoLoadAudit(){
     success: function (data) {
         var audit_data = data.data;
         audit_data.forEach(function(element){
-            console.log(element)
+            // console.log(element)
             $('#accountancy_firm_reg_no').val(element.accountancy_firm_reg_no);
             $('#accountancy_firm_name').val(element.accountancy_firm_name);
             $('#township').val(element.township);
@@ -429,18 +435,20 @@ function autoLoadAudit(){
                 $("#tbl_non_partner_body").append(tr);
               });
             }
-            var director_officer_audit=element.director_officer_non_audits;
-            director_officer_audit.forEach(function(item){
-              var tr = "<tr>";
-              tr += "<td>" + + "</td>";
-              tr += "<td ><input disabled type='text' value="+item.name+" name='dona_name[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input disabled type='text' value="+item.position+" name='dona_position[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input disabled type='text' value="+item.passport+" name='dona_passport[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ><input disabled type='text' value="+item.csc_no+" name='dona_csc_no[]' class='form-control' autocomplete='off'></td>";
-              tr += "<td ></td>" ;
-              tr += "</tr>";
-              $("#tbl_director_body").append(tr);
-            });
+            var director_officer_audit=element.director_officer_audits;
+              if(director_officer_audit.length!=0){
+                director_officer_audit.forEach(function(item){
+                  var tr = "<tr>";
+                  tr += "<td>" + + "</td>";
+                  tr += "<td ><input disabled type='text' value="+item.name+" name='do_name[]' class='form-control' autocomplete='off'></td>";
+                  tr += "<td ><input disabled type='text' value="+item.position+" name='do_position[]' class='form-control' autocomplete='off'></td>";
+                  tr += "<td ><input disabled type='text' value="+item.cpa_reg_no+" name='do_cpa_reg_no[]' class='form-control' autocomplete='off'></td>";
+                  tr += "<td ><input disabled type='text' value="+item.public_private_reg_no+" name='do_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                  tr += "<td ></td>" ;
+                  tr += "</tr>";
+                  $("#tbl_director_body").append(tr);
+                });
+              }
             var audit_file=element.non_audit_firm_file;
             audit_file.forEach(function(item){
               if(item.letterhead!="null"){
@@ -523,10 +531,10 @@ function autoLoadAudit(){
              })
            }
        });
-       // getIndexNumber('#tbl_partner tr');
-       // getIndexNumber('#tbl_director tr');
-       // getIndexNumber('#tbl_non_partner tr');
-       // getIndexNumber('#tbl_cpa_myanmar tr');
+       getIndexNumber('#tbl_partner tr');
+       getIndexNumber('#tbl_director tr');
+       getIndexNumber('#tbl_non_partner tr');
+       getIndexNumber('#tbl_cpa_myanmar tr');
     },
     error:function (message){
       errorMessage(message);
@@ -546,6 +554,31 @@ function removeBracketed(file,divname){
 function loadFile(file) {
   var myImageId = "storage/acc_firm/" + file;
   $(".modal-body #file").attr("src", myImageId);
+}
+
+function loadOrganization(){
+  $.ajax({
+    url: BACKEND_URL+"/organization_structure",
+    type: 'get',
+    data:"",
+    success: function(result){
+     var organization_structure=result.data;
+     $('.organization_data').append("<div class='col-md-3'></div>");
+     organization_structure.forEach(function(element){
+       if(element.id!=3){
+        var radio_data="<div class='col-md-2'>"+
+        "<input disabled type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
+        " <label class='form-check-label'>"+element.name+"</label>";
+       }else{
+        var radio_data="<div class='col-md-3'>"+
+        "<input disabled type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
+        " <label class='form-check-label'>"+element.name+"</label>";
+       }
+       
+       $('.organization_data').append(radio_data);
+     })
+  }
+});
 }
 
 function loadAuditOrganization(){
@@ -575,32 +608,32 @@ function loadAuditOrganization(){
 });
 }
 
-// function loadTypeOfService(){
-//   destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
-//     $.ajax({
-//       url: BACKEND_URL+"/type_service_provided",
-//       type: 'get',
-//       data:"",
-//       success: function(result){
-//       var type_service_provided=result.data;
-//       $('.type_service_provided').append("<div class='col-md-4'></div>");
-//       type_service_provided.forEach(function(element){
-//         if(element.audit_firm_type_id==1){
-//           var radio_data="<div class='col-md-2'>"+
-//           "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
-//           " <label class='form-check-label'>"+element.name+"</label>";
-//           $('.type_service_provided').append(radio_data);
-//         }else{
-//           var tr = "<tr>";
-//           tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
-//                 " <label class='form-check-label'>"+element.name+"</label>";
-//           tr += "</tr>";
-//           $('#tbl_type_service_body').append(tr);
-//         }
-//       })
-//     }
-//   });
-// }
+function loadTypeOfService(){
+  destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
+    $.ajax({
+      url: BACKEND_URL+"/type_service_provided",
+      type: 'get',
+      data:"",
+      success: function(result){
+      var type_service_provided=result.data;
+      $('.type_service_provided').append("<div class='col-md-4'></div>");
+      type_service_provided.forEach(function(element){
+        if(element.audit_firm_type_id==1){
+          var radio_data="<div class='col-md-2'>"+
+          "<input disabled type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          " <label class='form-check-label'>"+element.name+"</label>";
+          $('.type_service_provided').append(radio_data);
+        }else{
+          var tr = "<tr>";
+          tr += "<td><input disabled type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+                " <label class='form-check-label'>"+element.name+"</label>";
+          tr += "</tr>";
+          $('#tbl_type_service_body').append(tr);
+        }
+      })
+    }
+  });
+}
 
 function loadAuditTypeOfService(){
   destroyDatatable("#tbl_type_service", "#tbl_type_service_body");
@@ -632,18 +665,17 @@ function loadAuditTypeOfService(){
   });
 }
 
-function loadAuditTotalStaff(){
-    // destroyDatatable("#tbl_audit_total_staff", "#tbl_audit_total_staff_body");
+function loadAuditTotalStaffReg(){
+    destroyDatatable("#tbl_audit_total_staff", "#tbl_audit_total_staff_body");
     $.ajax({
       url: BACKEND_URL+"/audit_total_staff_type",
       type: 'get',
       data:"",
       success: function(result){
       var audit_total_staff=result.data;
-      // console.log(audit_total_staff)
       audit_total_staff.forEach(function(element){
             var tr = "<tr>";
-            tr += "<td>" + element.name + "</td>";
+            tr += "<td class='font-weight-bold'>" + element.name + "</td>";
             tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'><input type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+"></td>";
             tr += "<td><input type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+"></td>";
             tr += "<td><input type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+"></td>";
@@ -655,8 +687,32 @@ function loadAuditTotalStaff(){
     }
   });
 }
-function loadAuditStaff(){
-  // destroyDatatable("#tbl_audit_staff", "#tbl_audit_staff_body");
+
+function loadAuditTotalStaff(){
+    destroyDatatable("#tbl_audit_total_staff", "#tbl_audit_total_staff_body");
+    $.ajax({
+      url: BACKEND_URL+"/audit_total_staff_type",
+      type: 'get',
+      data:"",
+      success: function(result){
+      var audit_total_staff=result.data;
+      audit_total_staff.forEach(function(element){
+            var tr = "<tr>";
+            tr += "<td class='font-weight-bold'>" + element.name + "</td>";
+            tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'><input disabled type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+"></td>";
+            tr += "<td><input disabled type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+"></td>";
+            tr += "<td><input disabled type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+"></td>";
+            tr += "</tr>";
+            $("#tbl_audit_total_staff_body").append(tr);
+        
+      })
+      
+    }
+  });
+}
+
+function loadAuditStaffReg(){
+  destroyDatatable("#tbl_audit_staff", "#tbl_audit_staff_body");
   $.ajax({
     url: BACKEND_URL+"/audit_staff_type",
     type: 'get',
@@ -665,7 +721,7 @@ function loadAuditStaff(){
     var audit_staff=result.data;
     audit_staff.forEach(function(element){
           var tr = "<tr>";
-          tr += "<td>" + element.name + "</td>";
+          tr += "<td class='font-weight-bold'>" + element.name + "</td>";
           tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'><input type='number' value='0' name='as_total[]' class='form-control' id=audit_total"+element.id+"></td>";
           tr += "<td><input type='number' value='0' name='as_full_time[]' class='form-control' id=full_time"+element.id+"></td>";
           tr += "<td><input type='number' value='0' name='as_part_time[]' class='form-control' id=part_time"+element.id+"></td>";
@@ -677,6 +733,30 @@ function loadAuditStaff(){
   }
 });
 }
+
+function loadAuditStaff(){
+  destroyDatatable("#tbl_audit_staff", "#tbl_audit_staff_body");
+  $.ajax({
+    url: BACKEND_URL+"/audit_staff_type",
+    type: 'get',
+    data:"",
+    success: function(result){
+    var audit_staff=result.data;
+    audit_staff.forEach(function(element){
+          var tr = "<tr>";
+          tr += "<td class='font-weight-bold'>" + element.name + "</td>";
+          tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'><input disabled type='number' value='0' name='as_total[]' class='form-control' id=audit_total"+element.id+"></td>";
+          tr += "<td><input disabled type='number' value='0' name='as_full_time[]' class='form-control' id=full_time"+element.id+"></td>";
+          tr += "<td><input disabled type='number' value='0' name='as_part_time[]' class='form-control' id=part_time"+element.id+"></td>";
+          tr += "</tr>";
+          $("#tbl_audit_staff_body").append(tr);
+      
+    })
+    
+  }
+});
+}
+
 function loadNonAuditStaff(){
   destroyDatatable("#tbl_non_audit_number", "#tbl_non_audit_number_body");
   $.ajax({
@@ -713,6 +793,7 @@ function deleteAuditInfo(accName,accId){
         });
     }
 }
+
 function updateAuditFirm(){
     
   var send_data=new FormData();
@@ -729,7 +810,7 @@ function updateAuditFirm(){
   send_data.append('phone_no',$("input[name=phone_no]").val());
   send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
-  send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
+  // send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
