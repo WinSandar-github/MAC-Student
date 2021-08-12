@@ -11,8 +11,13 @@ class AuditFirmController extends Controller
         return view('pages.audit_firm');
     }
 
-    public function auditFirmEdit()
+    // public function auditFirmEdit()
+    // {
+    //     return view('pages.audit_firm_edit');
+    // }
+
+    public function auditFirmReSubmit()
     {
-        return view('pages.audit_firm_edit');
+        return view('pages.audit_firm_resubmit');
     }
 }
