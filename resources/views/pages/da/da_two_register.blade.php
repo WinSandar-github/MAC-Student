@@ -75,31 +75,30 @@
                     </div>
                 </div>
                     
-                    <div class="comment-form study" style="display:none;">
-                        <input type="hidden" name="form_type" id="form_type">
-                        <div class="">
-                            <div class="form-wrapper">
-                                
-                            <div class="row align-items-center">
-                                    <div class="col-md-4">
-                                        <div class="card border-success text-center text-success" onclick="selectedRegistration(1)" id="self_study_card">
-                                            <div class="card-body ">
-                                                <label name="register_name"> Registration Self Study</label>
-                                            </div>
+                <div class="comment-form study" style="display:none;">
+                    <input type="hidden" name="form_type" id="form_type">
+                    <div class="">
+                        <div class="form-wrapper">
+                            
+                        <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <div class="card border-success text-center text-success" onclick="selectedRegistration(1)" id="self_study_card">
+                                        <div class="card-body ">
+                                            <label name="register_name"> Registration Self Study</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="card text-center" onclick="selectedRegistration(2)" id="private_card">
-                                            <div class="card-body">
-                                                <label  name="register_name"> Registration Private Shool</label>
-                                            </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center" onclick="selectedRegistration(2)" id="private_card">
+                                        <div class="card-body">
+                                            <label  name="register_name"> Registration Private Shool</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="card text-center" onclick="selectedRegistration(3)" id="mac_card">
-                                            <div class="card-body">
-                                                <label  name="register_name"> Registration Mac</label>
-                                            </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center" onclick="selectedRegistration(3)" id="mac_card">
+                                        <div class="card-body">
+                                            <label  name="register_name"> Registration Mac</label>
                                         </div>
                                     </div>
                                 </div><br/>
@@ -188,26 +187,20 @@
                                                         <div class="col-md-2">
                                                             <input type="radio" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason[]">
                                                         </div>
-                                                    </div><br/>
-                                                    <div class="row">
-                                                        <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                        <label class="col-md-8 col-form-label">{{ __('အပိုဒ် ၁ ပါ(ခ)/(ဂ)/(ဃ)/(င) အတွက်') }}</label>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <div class="single-form">
-                                                                <label class="col-form-label"></label>
-                                                            </div>
+                                                    <div class="col-md-3">
+                                                        <div class="single-form">
+                                                            <input type="text" class="form-control" name="student_regno" readonly>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-5">
-                                                            <div class="single-form">
-                                                                <input type="text" name="" class="form-control" placeholder="">
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -225,6 +218,19 @@
                                                         </div> 
                                                     </div>
 
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                </div><br/>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label"></label>
+                                                    <label class="col-md-11 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-11 d-md-flex justify-content-md-end single-form">
+                                                        <button type="submit" class="btn btn-primary btn-hover-dark" form="self_study_form">{{ __('Save') }}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -245,35 +251,35 @@
                                                             <label class="batchname col-form-label"></label>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <div class="single-form">
-                                                                <label class=" col-form-label">{{ __('၁။') }}</label> 
-                                                                
-                                                            </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label class=" col-form-label">{{ __('၁။') }}</label> 
+                                                            
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="single-form">
-                                                                <label class="col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
                                                                 <input type="text" class="form-control" name="student_regno" readonly>
                                                             </div>
                                                         </div>
-                                                    </div><br/>
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <div class="single-form">
-                                                                <label class=" col-form-label">{{ __('၂။') }}</label> 
-                                                                
-                                                            </div>
+                                                    </div>
+                                                </div><br/>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label class=" col-form-label">{{ __('၂။') }}</label> 
+                                                            
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="single-form">
-                                                                <label class="col-form-label">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်နှစ်/လ</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်နှစ်/လ</label>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
@@ -296,7 +302,18 @@
                                                             <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
                                                         </div> 
                                                     </div>
+                                                </div><br/>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    
+                                                </div><br/>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label"></label>
+                                                    <label class="col-md-11 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                    
                                                 </div>
+                                            </div>
                                             </div>
                                         </div>
                                     </form>            
@@ -331,12 +348,10 @@
                                                                 <input type="text" class="form-control" name="student_regno" readonly>
                                                             </div>
                                                         </div>
-                                                    </div><br/>
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <div class="single-form">
-                                                                <label class="col-form-label">{{ __('၂။') }}</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-form">
@@ -377,13 +392,47 @@
                                                         </div> 
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-1">  
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="single-form">
+                                                            <input type="text" name="" class="form-control" >
+                                                        </div>
+                                                    </div>  
+                                                </div><br/>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                </div><br/>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label"></label>
+                                                    <label class="col-md-11 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>  
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-10 col-sm-10"></div>
+                                                    <div class="col-md-1">
+                                                        <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>           
-                                </div>
+                                    </div>
+                                </form>           
                             </div>
                         </div>
-                    </div> 
+                    </div>
+                </div> 
+
+                 <!-- Exam Feedback Text -->
+                 <div class="exam_feedback" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body exam_text">
+                            
+                        </div>
+                    </div>
+                </div>
         </div><br/></br/> 
     </div>
 </div>
