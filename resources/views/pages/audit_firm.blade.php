@@ -68,8 +68,10 @@
                 <div class="card text-white bg-dark mb-3">
                     
                     <div class="card-body">
-                        <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
-                         </p>
+                        {{--<p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                         </p>--}}
+                        <p class="card-text reject">Your need to resubmit.Please fill your form again 
+                          </p>
                     </div>
                 </div>
             </div>
@@ -1032,8 +1034,8 @@
 <script>
     loadAuditOrganization();
     loadAuditTypeOfService();
-    loadAuditTotalStaff();
-    loadAuditStaff();
+    loadAuditTotalStaffReg();
+    loadAuditStaffReg();
     audit_reg_feedback();
     auditData();
     pendingStatus();
