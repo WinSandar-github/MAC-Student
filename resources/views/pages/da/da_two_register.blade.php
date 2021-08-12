@@ -45,7 +45,7 @@
                         <div class="">
                             <div class="form-wrapper">
                                 
-                            <div class="row align-items-center">
+                                <div class="row align-items-center">
                                     <div class="col-md-4">
                                         <div class="card border-success text-center text-success" onclick="selectedRegistration(1)" id="self_study_card">
                                             <div class="card-body ">
