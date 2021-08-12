@@ -61,49 +61,96 @@
             <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
 
         </div>
-        <div class="container" style="overflow: hidden;">
+        <div class="section section-padding">
+            <div class="container">
+                <div class="status-reject" style="display:none">
+                    <div class="card text-white bg-dark my-3">
+                        
+                        <div class="card-body">
+                            <!-- status == 2 => reject -->
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="check_registration" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your Registration Form is checking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="approve" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">You have the opportunity to attend the training  </p>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body add_exam">
+                             
+                        
+                        </div>
+                    </div>
+                </div>
             
-            <div class="row mt-5">
+                <div class="comment-form study" style="display:none;">
                                             
                 
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-                <div class="card border-success mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                        <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                        <br/>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="{{url('cpa_one_self_study')}}">
-                                    <div class="card border-success mb-3" >
-                                        <div class="card-body"  style="height:100px;">
-                                            <h6 class="card-title text-center">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</h6>                                      
+                    <div class="card border-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
+                            <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a href="{{url('cpa_one_self_study')}}">
+                                        <div class="card border-success mb-3" >
+                                            <div class="card-body"  style="height:100px;">
+                                                <h6 class="card-title text-center">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</h6>                                      
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{{url('cpa_one_mac')}}">
+                                    <div class="card border-success mb-3">
+                                        <div class="card-body col-md-12"  style="height:100px;">
+                                            <h6 class="card-title text-center">MAC</h6> 
                                         </div>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="{{url('cpa_one_mac')}}">
-                                <div class="card border-success mb-3">
-                                    <div class="card-body col-md-12"  style="height:100px;">
-                                        <h6 class="card-title text-center">MAC</h6> 
-                                    </div>
+                                    </a>
                                 </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                            <a href="{{url('cpa_one_private_school')}}">
-                                <div class="card border-success mb-3">
-                                    <div class="card-body" style="height:100px;">
-                                        <h6 class="card-title text-center">Private School</h6>
+                                <div class="col-md-4">
+                                <a href="{{url('cpa_one_private_school')}}">
+                                    <div class="card border-success mb-3">
+                                        <div class="card-body" style="height:100px;">
+                                            <h6 class="card-title text-center">Private School</h6>
+                                        </div>
                                     </div>
+                                    </a>
                                 </div>
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+
+                <!-- Exam Feedback Text -->
+                <div class="exam_feedback" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body exam_text">
+                            
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
     <!-- JavaScript Section -->
@@ -119,5 +166,8 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+reg_feedback();
+var exam_date=localStorage.getItem("exam_date");
+console.log(exam_date)
 </script>
 @endpush

@@ -18,9 +18,9 @@ class CPAOneRegisterController extends Controller
     public function private_school(){
         return view('pages.cpa.cpa_one_private_school');
     }
-    public function cpaRegister()
+    public function cpaOneForm()
     {
-        return view('pages.cpa.cpa_register');
+        return view('pages.cpa.cpa_one_form');
     }
     public function cpaEdit()
     {

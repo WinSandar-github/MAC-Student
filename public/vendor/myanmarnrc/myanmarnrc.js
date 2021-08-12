@@ -26,6 +26,7 @@ $('#nrc_state_region').on('change', function(){
 			'<option value="'+township.township_mm+'">'+
 				township.township_mm+
 			'</option>';
+			
 		} else {
 			var township_en = mmnrc_characters[township.township_mm[0]] + mmnrc_characters[township.township_mm[1]] + mmnrc_characters[township.township_mm[2]];
 
@@ -34,11 +35,15 @@ $('#nrc_state_region').on('change', function(){
 				township_en+
 			'</option>';
 		}
-		
 	});
 
 	// set townships input select options
 	$('#nrc_township').html(nrc_townships_options);
+	//$('select.state_get').html(data);
+     $('#nrc_township').niceSelect('update'); 
+	var a=document.getElementById('nrc_township');
+	//a.style.display='block';
+	console.log('a',a);
 });
 
 /**

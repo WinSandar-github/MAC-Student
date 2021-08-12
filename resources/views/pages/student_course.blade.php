@@ -46,7 +46,7 @@
                     <div class="card text-white bg-dark mb-3">
                         
                         <div class="card-body">
-                            <p class="card-text reject">Your Registration Form need to prepare.Please upate your form  
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
                              </p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                                                     <li><i class="icofont-man-in-glasses"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
                                                     <li><i class="icofont-man-in-glasses"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
 
-                                                    <li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$c['registration_end_date']}}</span></li>
+                                                    {{--<li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$c['registration_end_date']}}</span></li>--}}
                                                     
                                                     <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                                 </ul>
@@ -118,6 +118,8 @@
 
                                     
                                         </div>
+                                        @break
+                                        
                                     
                                      @endforeach
                                     @else

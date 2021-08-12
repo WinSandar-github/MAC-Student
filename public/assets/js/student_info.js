@@ -15,7 +15,44 @@ function app_form_feedback(){
                 $('.course_detail').css('display','none');
 
             }else if(approve_reject_status == 1){
-                location.href = '/student_study';
+                 
+                $.ajax({
+                    type: "get",
+                    url: BACKEND_URL+"/get_current_batch_studentId/"+student.id,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        var register_url;
+                        let batch = result.data;
+                        console.log(result.data,"Batch")
+                        localStorage.setItem('course_id',batch.course_id);
+                      
+                        if(batch){
+
+                            switch(batch.course.code){
+                                case 'da_1':
+                                register_url = '/da_one_register';
+                                break;
+                                case 'da_2':
+                                register_url = '/da_two_register';
+                                break;
+                                case 'cpa_1':
+                                register_url = '/cpa_one_register';
+                                break;
+                                case 'cpa_2':
+                                register_url = '/cpa_two_register';
+                                break;
+                                default:
+                                register_url = '/da_one_register';
+                                break;
+    
+    
+                                
+                            }
+                         location.href = FRONTEND_URL+register_url;
+                        }
+                        }
+                    })  ;     
             }else if(approve_reject_status == 2){
                 if(course_type_id == 2)
                 {
@@ -30,9 +67,7 @@ function app_form_feedback(){
                     $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                 }
             }else{
-
                 
-            
                 $('.course_detail').css('display','block');
                 $.ajax({
                     url: BACKEND_URL+"/get_exam_student/"+student_id,
@@ -40,17 +75,21 @@ function app_form_feedback(){
                     contentType: false,
                     processData: false,
                     success: function(result){  
+                        
                          
                      
                         let course_id = [$('#course_id1').val(),$('#course_id2').val()];
+                         console.log(result)
                           
                         $('.course_detail').css('display','block') 
                          let data  = result.data;
                         
                         
-                        
+                         console.log(data);
+
                         var data_course = data.filter( function(v){
                             return v.course.course_type_id == course_type});
+                            console.log(data_course)
 
                            var course_url;
                             
@@ -59,17 +98,22 @@ function app_form_feedback(){
                                 ++count;
 
                                 if(course_type == 1){
-                                    course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_register/'+batch_id[i];
+                                //     course_url = count == 1 ? '/da_register/'+batch_id[i] : '/da_two_form/'+batch_id[i];
+
+                                // }else{
+                                //     course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_form/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+ '/da_one_form/'+batch_id[i] : FRONTEND_URL+'/da_two_form/'+batch_id[i];
 
                                 }else{
-                                    course_url = count == 1 ? '/cpa_register/'+batch_id[i] : '/cpa_two_register/'+batch_id[i];
+                                    course_url = count == 1 ? FRONTEND_URL+'/cpa_one_form/'+batch_id[i] : FRONTEND_URL+'/cpa_two_form/'+batch_id[i];
                                 }
                                 
                              
                            
                             if(data_course[i])
                             {
-                                if(data_course[i].grade == 1  && data_course[i].exam_type_id == course_id[i])
+                                console.log(data_course[i].grade)
+                                if(data_course[i].grade == 1  && data_course[i].form_type == course_id[i])
                                 {
                                 $(`.check_login${count}`).append(`<p class=" text-success">You have been Sucessfully</p>`)
                                 }else{
@@ -145,7 +189,7 @@ function addCourseBatch(courseName,courseId,batchName,batchId){
     localStorage.setItem("courseId",decodeURIComponent(courseId));
     localStorage.setItem("batchName",decodeURIComponent(batchName));
     localStorage.setItem("batchId",decodeURIComponent(batchId));
-    location.href="student_study";
+    location.href=FRONTEND_URL+"student_study";
 }
 
 function loadCourse(){
@@ -200,7 +244,8 @@ function createSelfStudy()
         processData: false,
         success: function(result){
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -224,7 +269,8 @@ function createPrivateSchool()
         processData: false,
         success: function(result){            
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
@@ -243,34 +289,118 @@ function createMac()
         processData: false,
         success: function(result){
             successMessage(result);
-            location.reload();
+            // location.reload();
+            location.href = "/";
       }
     });
 }
 
+// show Register Form Feedback after approve application form in student study page
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     
- 
+    console.log(student);
+    
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
         type: 'GET',
         contentType: false,
         processData: false,
         success: function(status){
+           console.log(status,"Status");
+ 
             if(status == 0){
-           
                 $('.check_registration').css('display','block');
-                
-        
             }else if(status == 1){
-                $('.approve').css('display','block');
+               
+               
+
+                $.ajax({
+                    url: BACKEND_URL+"/get_exam_status/"+student_id,
+                    type: 'GET',
+                    contentType: false,
+                    processData: false,
+                    success: function(exam_status){
+                          if(exam_status === 0){
+                            $('.exam_feedback').css('display','block');
+                            $('.exam_text').append(`Your Exam Form is checking.`)
+                            console.log("Exam Register form Checking ")
+                        }else if(exam_status == 1){
+                            $('.exam_feedback').css('display','block');
+                            $('.exam_text').append(`Your Exam Form is approved.`)
+                        }else if(exam_status == 2){
+                            $('.exam_feedback').css('display','block');
+                            $('.exam_text').append(`Your Exam Form is reject.`)
+                        } 
+                        else{
+                            $('.approve').css('display','block');
+                            $.ajax({
+                                type: "get",
+                                url: BACKEND_URL+"/get_exam/"+student.id,
+                                contentType: false,
+                                processData: false,
+                                success: function (result) {
+                                     var exam_url;
+            
+                                   
+                            
+                                    if(result){
+            
+                                        switch(result.course.code){
+                                            case 'da_1':
+                                            exam_url = 'exam_register';
+                                            break;
+                                            case 'da_2':
+                                            exam_url = 'da_two_exam_register';
+                                            break;
+                                            case 'cpa_1':
+                                            exam_url = 'cpa_exam_register';
+                                            break;
+                                            case 'cpa_2':
+                                            exam_url = 'cpa_two_exam_register';
+                                            break;
+                                            default:
+                                            exam_url = 'exam_register';
+                                            break;
+                
+                
+                                            
+                                        }
+                                         
+                                        $('.add_exam').append(
+                                        `<div>
+                                        <p>${result.name} </p>
+                                        <p>Exam Start Date - ${result.exam_start_date}</p>
+                                        <p>Exam End Date - ${result.exam_end_date}</p>
+                                        <p> Go to Exam Registration Form
+                                        <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
+                                        </p>
+                                        </div>`)
+            
+                                        
+                                    }else{
+                                        $('.add_exam').append(`<div>
+                                            <p>The exam schedule will be announced soon</p>
+                                        </div>`)
+                                    }
+                                  
+                                },
+                                error:function (message){
+                                }
+                            })
+
+                        }
+                    }
+                });    
+                
+
         
             }else if(status == 2){
                 $('.status-reject').css('display','block');
                  // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                     
             }else{
+                $('#form_type').val(localStorage.getItem('course_id'));
                 selectedRegistration();
                 $('.study').css('display','block');
         
@@ -301,7 +431,7 @@ function loadExam()
                 exam_data.forEach(function(element){
                     if(element.status==1){
                         localStorage.setItem("exam_date",element.date);
-                        location.href = '/da_two_register';
+                        location.href = FRONTEND_URL+'/da_two_register';
                     }
                 })
                 
@@ -310,3 +440,4 @@ function loadExam()
         }
     })
 }
+
