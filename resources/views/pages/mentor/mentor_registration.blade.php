@@ -82,7 +82,7 @@
                             <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('အမည်') }}</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                         <div class="form-group">
                                             <input type="text" name="name" id="name" class="form-control"  placeholder="အမည်"  required>
                                         </div>
@@ -92,7 +92,7 @@
                                 <div class="row">
                                     <label class="col-md-1 col-form-label ">{{ __('၂။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်') }}</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                         <div class="row" >
                                             <div class="col-md-2 col-5 pr-1">
                                                 <select class="form-control" name="nrc_state_region" id="nrc_state_region" >
@@ -134,9 +134,9 @@
                                 <div class="row">
                                     <label class="col-md-1 col-form-label ">{{ __('၃။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('အဘအမည်') }}</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                         <div class="form-group">
-                                            <input type="text" name="father_name" id="father_name" class="form-control" placeholder="အဘအမည် (အင်္ဂလိပ်)" required>
+                                            <input type="text" name="father_name" id="father_name" class="form-control" placeholder="အဘအမည်" required>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                         <table class="table tbl_education table-bordered input-table">
                                             <thead>
                                                 <tr >
@@ -174,7 +174,7 @@
                                             <input type="text" name="ra_cpa_passed_yr" id="ra_cpa_passed_yr" class="form-control" placeholder="RA/CPA အောင်မြင်သောနှစ်" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <input type="text" name="own_number" id="own_number" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" required>
                                         </div>
@@ -189,7 +189,7 @@
                                             <input type="text" name="cpa_register_no" id="cpa_register_no" class="form-control" placeholder="CPA မှတ်ပုံတင်အမှတ်" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <input type="text" name="cpa_date" id="cpa_date" class="form-control" placeholder="ရက်စွဲ" required>
                                         </div>
@@ -204,7 +204,7 @@
                                             <input type="text" name="ppa_register_no" id="ppa_register_no" class="form-control" placeholder="PPA မှတ်ပုံတင်အမှတ်" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <input type="text" name="ppa_date" id="ppa_date" class="form-control" placeholder="ရက်စွဲ" required>
                                         </div>
@@ -214,7 +214,7 @@
                                 <div class="row" style="clear:both;">
                                     <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                       <div class="form-group">
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize:none;"></textarea>
                                       </div>
@@ -225,7 +225,7 @@
                                             <input type="text" name="ph_number" id="ph_number" class="form-control" placeholder="Phone Number" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <input type="text" name="fax_no" id="fax_no" class="form-control" placeholder="FAX Number" required>
                                         </div>

@@ -1,4 +1,4 @@
-let counter = 0;
+var counter = 0;
 function addRowEducation(tbody){
     $(".degree").hide();
     var newRow = $("<tr>");
@@ -20,7 +20,7 @@ function delRowEducation(tbody){
 }
 
 function addRowSubject(tbody){
-    
+
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
@@ -38,7 +38,7 @@ function addRowSubject(tbody){
 }
 
 function addRowDipSubject(tbody){
-    
+
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
@@ -65,15 +65,15 @@ function delRowSubject(tbody){
 function createTeacherRegister(){
     let formData = new FormData($( "#teacher_register_form" )[0]);
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
-    
+
     $.ajax({
         type: "POST",
         data: formData,
         url: BACKEND_URL + "/teacher",
-        async: false,  
-        cache: false,  
-        contentType: false,  
-        processData: false, 
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
         success: function (data) {
             successMessage(data.message);
             resetForm("#teacher_register_form");
@@ -84,5 +84,5 @@ function createTeacherRegister(){
         error: function (result) {
         },
     });
-    
+
 }
