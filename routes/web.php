@@ -106,3 +106,6 @@ Route::get('school_register', 'SchoolController@info');
 
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
+
+// Mentor Register Form
+Route::get('mentor_register', 'MentorController@index');
