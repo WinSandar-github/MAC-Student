@@ -78,348 +78,372 @@
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                     <div class="card border-success mb-3">
                         <div class="card-body">
-                            <form id="teacher_register_form" enctype="multipart/form-data" action="" class="needs-validation" autocomplete="off" novalidate>
-                            <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('အမည်') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" name="name" id="name" class="form-control"  placeholder="အမည်"  required>
-                                        </div>
+                            <form id="mentor_register_form" enctype="multipart/form-data" action="javascript:createMentorRegister();" class="needs-validation" autocomplete="off" novalidate>
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" id="name_mm" name="name_mm" class="form-control" placeholder="မြန်မာ" value="{{ old('name_mm') }}" required="">
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" name="name_eng" class="form-control" placeholder="အင်္ဂလိပ်" value="{{ old('name_eng') }}" required="">
+                                    </div>
+                                </div>
+                              </div>
 
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label ">{{ __('၂။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="row" >
-                                            <div class="col-md-2 col-5 pr-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" >
-                                                    @foreach($nrc_regions as $region)
-                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3 col-7 px-1">
-                                                <select class="form-control" name="nrc_township" id="nrc_township" >
-                                                    @foreach($nrc_townships as $township)
-                                                        <option value="{{ $township['township_mm'] }}">
-                                                            {{ $township['township_mm'] }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-2 col-5 px-1">
-                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
-                                                    @foreach($nrc_citizens as $citizen)
-                                                    <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                        {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
+                                <div class="col-md-7">
+                                    <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                        <div class="col-md-2 col-5 pr-1">
+                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
+                                                @foreach($nrc_regions as $region)
+                                                    <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                        {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                     </option>
-                                                    @endforeach
-                                                </select>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 col-7 px-1">
+                                            <select class="form-control" name="nrc_township" id="nrc_township" style="margin-top: 0px; margin-bottom: 0px;">
+                                                @foreach($nrc_townships as $township)
+                                                    <option value="{{ $township['township_mm'] }}">
+                                                        {{ $township['township_mm'] }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 col-5 px-1">
+                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" style="margin-top: 0px; margin-bottom: 0px;">
+                                                @foreach($nrc_citizens as $citizen)
+                                                <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                    {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-5 col-7 pl-1">
+                                            <input type="text" name="nrc_number" id="nrc_number" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" value="{{ old('nrc_number') }}" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                              </div><br>
+
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('အဘအမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                  <div class="col-md-3">
+                                      <div class="form-group">
+                                          <input type="text" id="father_name_mm" name="father_name_mm" class="form-control" placeholder="" value="{{ old('father_name_mm') }}" required="">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input type="text" name="father_name_eng" class="form-control" placeholder="" value="{{ old('father_name_eng') }}" required="">
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('လူမျိူး/ဘာသာ') }}</label>
+                                    <div class="col-md-3">
+                                          <div class="form-group">
+                                              <input type="text" name="race" class="form-control" placeholder="လူမျိုး" value="{{ old('race') }}" required="">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <input type="text" name="religion" class="form-control" placeholder="ဘာသာ" value="{{ old('religion') }}" required="">
+                                          </div>
+                                      </div>
+                              </div>
+
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('မွေးသဣရာဇ်') }}</label>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                                <input type="text" name="date_of_birth" placeholder="dd-mm-yyyy" class="form-control" value="{{ old('date_of_birth') }}" required="">
                                             </div>
-
-                                            <div class="col-md-5 col-7 pl-1">
-                                            <input type="text" name="nrc_number" id="nrc_number" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" required>
-                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <br>
+                              </div>
 
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label ">{{ __('၃။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('အဘအမည်') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" name="father_name" id="father_name" class="form-control" placeholder="အဘအမည်" required>
-                                        </div>
-                                    </div>
-                                </div>
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
+                                  <div class="col-md-7">
+                                      {{--<table class="table tbl_education table-bordered input-table">
+                                          <thead>
+                                              <tr >
+                                                  <th class="less-font-weight text-center" width="10%">စဉ်</th>
+                                                  <th class="less-font-weight text-center"  width="80%">ပညာအရည်အချင်း</th>
+                                                  <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_education")'><li class="fa fa-plus"></li></button></td>
+                                              </tr>
+                                          </thead>
+                                          <tbody class="tbl_education_body">
 
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
-                                    <div class="col-md-7">
-                                        <table class="table tbl_education table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">ပညာအရည်အချင်း</th>
-                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_education")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_education_body">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-bottom:25px;margin-top:-12px;text-align:right;">
-                                    <div class="col-md-11 pull-right">
-                                        <label class="invalid-feedback degree text-right text-danger">ပညာအရည်အချင်း ထည့်ပါ</label>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('RA/CPA အောင်မြင်သောနှစ်/ကိုယ်ပိုင်အမှတ်') }}</label>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" name="ra_cpa_passed_yr" id="ra_cpa_passed_yr" class="form-control" placeholder="RA/CPA အောင်မြင်သောနှစ်" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <input type="text" name="own_number" id="own_number" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" required>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row" style="clear:both;">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('CPA မှတ်ပုံတင်အမှတ်/ရက်စွဲ') }}</label>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" name="cpa_register_no" id="cpa_register_no" class="form-control" placeholder="CPA မှတ်ပုံတင်အမှတ်" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <input type="text" name="cpa_date" id="cpa_date" class="form-control" placeholder="ရက်စွဲ" required>
-                                        </div>
-                                    </div>
-                                </div></br>
-
-                                <div class="row" style="clear:both;">
-                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('PPA မှတ်ပုံတင်အမှတ်/ရက်စွဲ') }}</label>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" name="ppa_register_no" id="ppa_register_no" class="form-control" placeholder="PPA မှတ်ပုံတင်အမှတ်" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <input type="text" name="ppa_date" id="ppa_date" class="form-control" placeholder="ရက်စွဲ" required>
-                                        </div>
-                                    </div>
-                                </div></br>
-
-                                <div class="row" style="clear:both;">
-                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
-                                    <div class="col-md-7">
+                                          </tbody>
+                                      </table>--}}
                                       <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize:none;"></textarea>
+                                          <input type="text" name="education" class="form-control" placeholder="" value="{{ old('father_name_eng') }}" required="">
                                       </div>
-                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row" style="margin-bottom:25px;margin-top:-12px;text-align:right;">
+                                  <div class="col-md-11 pull-right">
+                                      <label class="invalid-feedback degree text-right text-danger">ပညာအရည်အချင်း ထည့်ပါ</label>
+                                  </div>
 
-                                    <div class="col-md-2 offset-md-4">
-                                        <div class="form-group">
-                                            <input type="text" name="ph_number" id="ph_number" class="form-control" placeholder="Phone Number" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <input type="text" name="fax_no" id="fax_no" class="form-control" placeholder="FAX Number" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
-                                        </div>
-                                    </div>
-                                </div></br>
+                              </div>
 
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label ">{{ __('၉။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('Audit Firm အမည်') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" name="audit_firm_name" id="audit_firm_name" class="form-control" placeholder="Audit Firm အမည်" required>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label ">{{ __('၁၀။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('စတင်တည်ထောင်သည့်နေ့') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" name="established_date" id="established_date" class="form-control" placeholder="စတင်တည်ထောင်သည့်နေ့" required>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label ">{{ __('၁၁။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('Audit Firm ဖွဲ့စည်းပုံနှင့်ဝန်ထမ်းအင်အား') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" name="structure_staff" id="structure_staff" class="form-control" placeholder="Audit Firm ဖွဲ့စည်းပုံနှင့်ဝန်ထမ်းအင်အား" required>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
-                                    <label class="col-md-11 col-form-label" style="font-weight:bold;">{{ __('လက်ရှိလက်ခံဆောင်ရွက်စစ်ဆေးပေးရသည့်လုပ်ငန်းများ') }}</label>
-                                    <label class="col-md-3 col-form-label offset-md-1 mt-1">{{ __('အများပိုင်ကုမ္ပဏီ') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                        <div class="form-group">
-                                            <input type="text" name="public_company" id="public_company" class="form-control" placeholder="အများပိုင်ကုမ္ပဏီ" required>
-                                        </div>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('လူနည်းစုကုမ္ပဏီ') }}</label>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" name="minority_company" id="minority_company" class="form-control" placeholder="လူနည်းစုကုမ္ပဏီ" required>
-                                        </div>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('တစ်ဦးတည်းပိုင်နှင့်အစုအစပ်လုပ်ငန်း') }}</label>
-                                    <div class="col-md-7">
-                                        <table class="table tbl_private_share_business table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">လုပ်ငန်းများ</th>
-                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPrivateShareBusiness("tbl_private_share_business")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_private_share_business_body">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('အစိုးရ၏အရင်းအနှီးပါဝင်သည့်ဖက်စပ်လုပ်ငန်းများ') }}</label>
-                                    <div class="col-md-7">
-                                        <table class="table tbl_government_business table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">လုပ်ငန်းများ</th>
-                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowGovBusiness("tbl_government_business")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_government_business_body">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('ပုဂ္ဂလိကဘဏ်နှင့်အာမခံလုပ်ငန်းများ') }}</label>
-                                    <div class="col-md-7">
-                                        <table class="table tbl_private_bank_insurance_business table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">လုပ်ငန်းများ</th>
-                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPrivateBandInsurBusiness("tbl_private_bank_insurance_business")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_private_bank_insurance_business_body">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('Non Government Organization') }}</label>
-                                    <div class="col-md-7">
-                                        <table class="table tbl_non_government_org table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">Organizations</th>
-                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowNonGovOrg("tbl_non_government_org")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_non_government_org_body">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('Non Statutory Audit') }}</label>
-                                    <div class="col-md-7">
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('RA/CPA အောင်မြင်သောနှစ်/ကိုယ်ပိုင်အမှတ်') }}</label>
+                                  <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" name="non_statutory_audit" id="non_statutory_audit" class="form-control" placeholder="Non Statutory Audit" required>
+                                          <input type="text" name="ra_cpa_success_year" id="ra_cpa_success_year" class="form-control" placeholder="RA/CPA အောင်မြင်သောနှစ်" required>
                                       </div>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('အခြား') }}</label>
-                                    <div class="col-md-7">
+                                  </div>
+                                  <div class="col-md-3">
                                       <div class="form-group">
-                                          <input type="text" name="others" id="others" class="form-control" placeholder="အခြား" required>
+                                          <input type="text" name="ra_cpa_personal_no" id="ra_cpa_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" required>
                                       </div>
+                                  </div>
+                              </div>
+
+                              <div class="row" style="clear:both;">
+                                  <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('CPA မှတ်ပုံတင်အမှတ်/ရက်စွဲ') }}</label>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input type="text" name="cpa_reg_no" id="cpa_reg_no" class="form-control" placeholder="CPA မှတ်ပုံတင်အမှတ်" required>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                      <div class="form-group">
+                                          <input type="text" name="cpa_reg_date" id="cpa_reg_date" class="form-control" placeholder="dd-mm-yyyy" required>
+                                      </div>
+                                  </div>
+                              </div></br>
+
+                              <div class="row" style="clear:both;">
+                                  <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('PPA မှတ်ပုံတင်အမှတ်/ရက်စွဲ') }}</label>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input type="text" name="ppa_reg_no" id="ppa_reg_no" class="form-control" placeholder="PPA မှတ်ပုံတင်အမှတ်" required>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                      <div class="form-group">
+                                          <input type="text" name="ppa_reg_date" id="ppa_reg_date" class="form-control" placeholder="dd-mm-yyyy" required>
+                                      </div>
+                                  </div>
+                              </div></br>
+
+                              <div class="row" style="clear:both;">
+                                  <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                  <div class="col-md-7">
+                                    <div class="form-group">
+                                      <textarea class="form-control" name="address" id="" rows="3" style="resize:none;"></textarea>
+                                    </div>
+                                  </div>
+                              </div></br>
+
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Phone Number/Fax Number/Email') }}</label>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <input type="text" name="phone_no" id="phone_no" class="form-control" placeholder="Phone Number" required>
                                     </div>
                                 </div>
+                                <div class="col-md-2">
+                                  <div class="form-group">
+                                      <input type="text" name="fax_no" id="fax_no" class="form-control" placeholder="FAX Number" required>
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="email" name="m_email" id="m_email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                </div>
+                              </div>
 
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label ">{{ __('၁၁။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('Audit Firm အမည်') }}</label>
+                                  <div class="col-md-7">
+                                      <div class="form-group">
+                                          <input type="text" name="audit_firm_name" id="audit_firm_name" class="form-control" placeholder="Audit Firm အမည်" required>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label ">{{ __('၁၂။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('စတင်တည်ထောင်သည့်နေ့') }}</label>
+                                  <div class="col-md-7">
+                                      <div class="form-group">
+                                          <input type="text" name="audit_started_date" id="audit_started_date" class="form-control" placeholder="dd-mm-yyyy" required>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Audit Firm ၏ဖွဲ့စည်းပုံနှင့်ဝန်ထမ်းအင်အား') }}</label>
+                                <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input type="number" name="audit_structure" class="form-control" placeholder="" value="{{ old('audit_structure') }}" required="">
+                                      </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="number" name="audit_staff_no" class="form-control" placeholder="" value="{{ old('audit_staff_no') }}" required="">
+                                    </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('လက်ရှိလက်ခံဆောင်ရွက်စစ်ဆေးပေးရသည့်လုပ်ငန်းများ') }}</label>
+                                  <div class="col-md-7">
+                                    <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;">
+                                        <option value="" disabled selected>Select Current Service</option>
+                                    </select>
+                                    <div class="col-md-5 check-service-other" style="visibility:hidden;">
+                                      <div class="form-group">
+                                          <input type="text" id="other_service" name="current_check_services_other" class="form-control" placeholder="other" >
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('ယခင်အလုပ်သင်ကြားပေးမှုအတွေ့အကြုံ ရှိ/မရှိ') }}</label>
+                                <div class="col-md-2">
+                                  <input type="radio" value="yes" name="experience"> ရှိ
+                                </div>
+                                <div class="col-md-2">
+                                  <input type="radio" value="no" name="experience"> မရှိ
+                                </div>
+                              </div>
+
+                              <div id="started_teaching" style="display:none;">
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
-                                    <label class="col-md-11 col-form-label" style="font-weight:bold;">{{ __('ယခင်အလုပ်သင်ကြားပေးမှုအတွေ့အကြုံရှိ/မရှိ') }}</label>
-
-                                    <label class="col-md-3 col-form-label offset-md-1 mt-1">{{ __('စာရင်းကိုင်အလုပ်သင်များအားအလုပ်သင်ကြားပေးမှုစတင်ခဲ့သည့်နှစ်') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                        <div class="form-group">
-                                            <input type="text" name="accountant_ojt_year" id="accountant_ojt_year" class="form-control" placeholder="စာရင်းကိုင်အလုပ်သင်များအားအလုပ်သင်ကြားပေးမှုစတင်ခဲ့သည့်နှစ်" required>
-                                        </div>
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('စာရင်းကိုင်အလုပ်သင်များအား အလုပ်သင်ကြားပေးမှု စတင်ခဲ့သည့်ခုနှစ်') }}</label>
+                                  <div class="col-md-4">
+                                    <div class="form-group">
+                                      <input type="text" name="started_teaching_year" placeholder="dd-mm-yyyy" class="form-control" value="{{ old('started_teaching_year') }}">
                                     </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('အလုပ်သင်ဦးရေလက်ခံနိုင်သည့်အရေအတွက်') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                        <div class="form-group">
-                                            <input type="text" name="accept_internship_amt" id="accept_internship_amt" class="form-control" placeholder="အလုပ်သင်ဦးရေလက်ခံနိုင်သည့်အရေအတွက်" required>
-                                        </div>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('လက်ရှိလက်ခံသင်ကြားပေးသောအလုပ်သင်ဦးရေ') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                        <div class="form-group">
-                                            <input type="text" name="current_internship_amt" id="current_internship_amt" class="form-control" placeholder="လက်ရှိလက်ခံသင်ကြားပေးသောအလုပ်သင်ဦးရေ" required>
-                                        </div>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('မွေးထုတ်ပေးခဲ့သည့်အလုပ်သင်ဦးရေ') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                        <div class="form-group">
-                                            <input type="text" name="produced_internship_amt" id="produced_internship_amt" class="form-control" placeholder="မွေးထုတ်ပေးခဲ့သည့်အလုပ်သင်ဦးရေ" required>
-                                        </div>
-                                    </div>
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('နှစ်စဉ်ဆက်တိုက်သင်ကြားနိုင်ခြင်းရှိ/မရှိ') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="can_learn_yearly" id="can_learn" value="can_learn">
-                                        <label class="form-check-label" for="can_learn">ရှိ</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="can_learn_yearly" id="cannot_learn" value="cannot_learn">
-                                        <label class="form-check-label" for="cannot_learn">မရှိ</label>
-                                      </div>
-                                    </div>
-
-                                    <label class="col-md-3 col-form-label offset-md-1">{{ __('အလုပ်သင်ကြားမှုပြတ်တောက်ခဲ့ခြင်းရှိ/မရှိ') }}</label>
-                                    <div class="col-md-7 mt-1">
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="‌absent_internship" id="absent" value="absent">
-                                        <label class="form-check-label" for="can_learn">ရှိ</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="‌absent_internship" id="not_absent" value="not_absent">
-                                        <label class="form-check-label" for="cannot_learn">မရှိ</label>
-                                      </div>
-                                    </div>
-
-                                    <label class="col-md-3 col-form-label offset-md-1 absent-reason-show" style="display:none;">{{ __('အလုပ်သင်ကြားမှုပြတ်တောက်ခဲ့ရသည့်အကြောင်းရင်း') }}</label>
-                                    <div class="col-md-7 mt-1 absent-reason-show" style="display:none;">
-                                        <div class="form-group">
-                                            <input type="text" name="absent_reason" id="absent_reason" class="form-control" placeholder="အလုပ်သင်ကြားမှုပြတ်တောက်ခဲ့ရသည့်အကြောင်းရင်း" required>
-                                        </div>
-                                    </div>
+                                  </div>
                                 </div>
+                              </div>
 
-                                {{--<div class="row">
-                                    <!-- <label class="col-md-1 col-form-label">{{ __('၉။') }}</label> -->
-                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-                                </div>--}}
+                              <div id="internship_accept" style="display:none;">
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('အလုပ်သင်ဦးရေလက်ခံနိုင်သည့်အရေအတွက်') }}</label>
+                                  <div class="col-md-4">
+                                    <div class="form-group">
+                                      <input type="number" name="internship_accept_no" class="form-control" placeholder="" value="{{ old('internship_accept_no') }}" >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="current_accept" style="display:none;">
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('လက်ရှိလက်ခံသင်ကြားပေးသော အလုပ်သင်ဦးရေ') }}</label>
+                                  <div class="col-md-4">
+                                    <div class="form-group">
+                                      <input type="number" name="current_accept_no" class="form-control" placeholder="" value="{{ old('current_accept_no') }}" >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="trained_trainees" style="display:none;">
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('မွေးထုတ်ပေးခဲ့သည့် အလုပ်သင်ဦးရေ') }}</label>
+                                  <div class="col-md-4">
+                                  <div class="form-group">
+                                    <input type="number" name="trained_trainees_no" class="form-control" placeholder="" value="{{ old('trained_trainees_no') }}" >
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="repeat_yearly" style="display:none;">
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('နှစ်စဥ်ဆက်တိုက်အလုပ်သင်ကြားနိုင်ခြင်း ရှိ/မရှိ') }}</label>
+                                  <div class="col-md-2">
+                                    <input type="radio"  value="1" name="repeat_yearly" @if(old('repeat_yearly')) checked @endif> ရှိ
+                                  </div>
+                                  <div class="col-md-2">
+                                    <input type="radio" value="0" name="repeat_yearly" @if(!old('repeat_yearly')) checked @endif> မရှိ
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="traing_absent" style="display:none;">
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('အလုပ်သင်ကြားမှုပြတ်တောက်ခဲ့ခြင်း ရှိ/မရှိ') }}</label>
+                                  <div class="col-md-2">
+                                    <input type="radio" id="yes"  name="training_absent" value="1" > ရှိ
+                                  </div>
+                                  <div class="col-md-2">
+                                    <input type="radio" id="no"  name="training_absent" value="0" > မရှိ
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="absent_reason" style="display:none;">
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label"></label>
+                                  <label class="col-md-6 col-form-label">{{ __('ရှိပါက ပြတ်တောက်ခဲ့ရသည့် အကြောင်းအရင်း') }}</label>
+                                  <div class="col-md-4">
+                                    <div class="form-group">
+                                    <textarea class="form-control" name="training_absent_reason" id="exampleFormControlTextarea1" rows="3" style="resize:none;"></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Email/Password') }}</label>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input type="email" name="email" class="form-control" placeholder="Email" value="" required="">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                      <div class="form-group">
+                                          <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required="">
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <!-- <label class="col-md-1 col-form-label">{{ __('၉။') }}</label> -->
+                                  <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
+                              </div>
 
 
                                 <!-- <div class="row">
@@ -433,7 +457,6 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
 
@@ -455,20 +478,65 @@
     </script>
 @endsection
 @push('scripts')
+<script>
+    //loadService();
+</script>
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
 <script src="{{asset('assets/js/mentor_register.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
-      $("input[name=‌absent_internship]").on("click", function(evt) {
-        var checkedValue = $("input[name='‌absent_internship']:checked").val();
-        if(checkedValue == 'absent'){
-          $(".absent-reason-show").css('display','block');
+      $("input[name=training_absent]").on("click", function(evt) {
+        var checkedValue = $("input[name='training_absent']:checked").val();
+        if(checkedValue == '1'){
+          $("#absent_reason").css('display','block');
         }
-        else if(checkedValue == 'not_absent'){
-          $(".absent-reason-show").css('display','none');
+        else if(checkedValue == '0'){
+          $("#absent_reason").css('display','none');
         }
+      });
+
+      $("input[name=experience]").on("click", function(evt) {
+        var checkedValue = $("input[name='experience']:checked").val();
+        if(checkedValue == 'yes'){
+          $("#started_teaching,#internship_accept,#current_accept,#trained_trainees,#repeat_yearly,#traing_absent").css('display','block');
+        }
+        else if(checkedValue == 'no'){
+          $("#started_teaching,#internship_accept,#current_accept,#trained_trainees,#repeat_yearly,#traing_absent,#absent_reason").css('display','none');
+          $("input[name='training_absent']").prop('checked',false);
+        }
+      });
+
+      $("#selected_service_id").change(function(){
+        checkOtherService($(this));
+      });
+
+      $("input[name='cpa_reg_date']").flatpickr({
+              enableTime: false,
+              dateFormat: "d-m-Y",
+      });
+      $("input[name='ppa_reg_date']").flatpickr({
+              enableTime: false,
+              dateFormat: "d-m-Y",
+      });
+      $("input[name='audit_started_date']").flatpickr({
+              enableTime: false,
+              dateFormat: "d-m-Y",
+      });
+      $("input[name='started_teaching_year']").flatpickr({
+              enableTime: false,
+              dateFormat: "d-m-Y",
       });
     });
 
+    function checkOtherService(option){
+      var selected_id = $(option).val();
+      if(selected_id == 9){
+        $(".check-service-other").css('visibility','visible');
+      }
+      else{
+        $(".check-service-other").css('visibility','hidden');
+      }
+    }
+    loadService();
 </script>
 @endpush
