@@ -115,11 +115,36 @@
                                 <div class="col-md-12">
                                     <div class="card border-success mb-3" style="padding:3%;">
                                         <div class="card-body">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">1</td>
+                                                    <td width="15%"><label class="col-form-label">Email</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="single-form">
+                                                            <input type="email" placeholder="email" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">2</td>
+                                                    <td width="15%"><label class="col-form-label">Password</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="single-form">
+                                                            <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+
                                             <div class="row">
                                                 <input type="hidden" value="1" name="audit_firm_type_id">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>1</label></td>
+                                                        <td width="5%"><label>3</label></td>
                                                         <td width="15%"><label>Accountancy Firm Registration No</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -133,7 +158,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>2</label></td>
+                                                        <td width="5%"><label>4</label></td>
                                                         <td width="15%"><label>Accountancy Firm Name</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -152,7 +177,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>3</label></td>
+                                                        <td width="5%"><label>5</label></td>
                                                         <td width="15%"><label>Address Of Practice(Head Office</label></td>
                                                         <td width="20%">
                                                             <div class="single-form">
@@ -205,7 +230,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>4</label></td>
+                                                        <td width="5%"><label>6</label></td>
                                                         <td width="15%"><label>Branch Office</label></td>
                                                         <td width="80%">
                                                             <div class="card">
@@ -261,7 +286,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>5</label></td>
+                                                        <td><label>7</label></td>
                                                         <td><label>Organization Structure</label></td>
                                                     </tr>
                                                 </table>
@@ -736,7 +761,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 43%;">6</label></td>
+                                                        <td><label style="margin-left: 43%;">8</label></td>
                                                         <td><label style="margin-left: 3%;">Sole Proprietor/Partners/Shareholders</label></td>
                                                     </tr>
                                                 </table>
@@ -792,7 +817,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 25%;">7</label></td>
+                                                        <td><label style="margin-left: 25%;">9</label></td>
                                                         <td><label>Director(s)/Officer(s)</label></td>
                                                     </tr>
                                                 </table>
@@ -843,7 +868,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label style="margin-left: 26%;">8</label></td>
+                                                        <td width="5%"><label style="margin-left: 26%;">10</label></td>
                                                         <td width="15%"><label>Name Of Sole Proprietor/Managing Partner</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -857,7 +882,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 10%;">9</label></td>
+                                                        <td><label style="margin-left: 10%;">11</label></td>
                                                         <td><label style="margin-left:-8%;">Total Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -895,7 +920,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 7%;">10</label></td>
+                                                        <td><label style="margin-left: 7%;">12</label></td>
                                                         <td><label style="margin-left:-17%;">Audit Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -933,37 +958,14 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 9%;">11</label></td>
+                                                        <td><label style="margin-left: 9%;">13</label></td>
                                                         <td><label style="margin-left:-5%;">Types Of Service Provided</label></td>
                                                     </tr>
                                                 </table>
                                             </div>
                                             <div class="row type_service_provided"></div><br><br>
 
-                                            <table width="100%">
-                                                <tr>
-                                                    <td width="5%">12</td>
-                                                    <td width="15%"><label class="col-form-label">အီးမေးလ်</label>
-                                                    </td>
-                                                    <td width="80%">
-                                                        <div class="single-form">
-                                                            <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table><br>
-                                            <table width="100%">
-                                                <tr>
-                                                    <td width="5%">13</td>
-                                                    <td width="15%"><label class="col-form-label">Password</label>
-                                                    </td>
-                                                    <td width="80%">
-                                                        <div class="single-form">
-                                                            <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table><br>
+                                            
 
                                             <table width="100%">
                                                 <tr>
