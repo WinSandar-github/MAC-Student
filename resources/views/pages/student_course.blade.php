@@ -80,13 +80,24 @@
                                     <div class="row">
                                         <div class="col-md-12 widget-information" >
                                             <div class="row border-bottom">
-                                                <h3 class="col-md-8 card-title text-center text-success">{{ $c['name']}} </h3>
+                                                <h2 class="col-md-7 card-title text-center text-success">{{ $c['name']}} </h2>
+
                                                 @if(!empty($c['active_batch']))
                                                     
                                                     @foreach($c['active_batch'] as $b)
-                                                        <!-- <input type="input" value="{{$b['accept_application_start_date']}}"/> -->
+                                                        
+                                                        <div class="col-md-3 pl-4">
+                                                            <div class="row">
+                                                                <div class="col-md-7"><i class="icofont-clock-time"></i> <strong>Batch Start Date</strong></div>
+                                                                <div class="col-md-5"><span>{{$b['start_date']}} </span></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"><i class="icofont-clock-time"></i> <strong>Batch End Date</strong></div>
+                                                                <div class="col-md-5"><span>{{$b['end_date']}} </span></div>
+                                                            </div>                                                            
+                                                        </div>
                                                         <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
-                                                        <div class="info-btn mb-4 col-md-4 check_login{!! $i !!}">
+                                                        <div class="info-btn mb-4 col-md-2 check_login{!! $i !!}">
                                                         
                                                         <!-- $c['id'], 'da_register' -->
                                                         <!-- sucess da         -->
@@ -101,12 +112,13 @@
                                                     
                                                     @endforeach
                                                 @else
-                                                <p class="info-btn col-md-4 mb-4 text-dark h6 ">Coming Soon...</p>
+                                                <div class="col-md-3"></div>
+                                                <p class="info-btn col-md-2 mb-4 text-dark h6 ">Coming Soon...</p>
 
                                                 @endif
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-8">
+                                                <div class="col-md-7">
                                                     <h5 class="mt-2">Requirement</h5>
                                                     <hr>
 
@@ -115,33 +127,31 @@
                                                     </ul>
                                                     <!-- <p style="height:150px;overflow:auto;">{{$c['description']}}</p> -->
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <!-- <div class="info-price">
-                                                        <span class="price">{{$c['registration_fee']}} Kyats</span>
+                                                        <span class="price">{{$c['mac_registration_fee']}} Kyats</span>
                                                     </div> -->
-                                                    <div class="info-list">
-                                                        @foreach($c['active_batch'] as $b)
-                                                            <label for="" class="bordered">{{$b['accept_application_start_date']}}</label>
-                                                            <!-- <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
-                                                            <div class="info-btn mb-4 col-md-4 check_login{!! $i !!}"> -->
-                                                            
-                                                            
+                                                    <h5 class="mt-2">Course Descriptons</h5>
+                                                    <hr>
 
-                                                        
+                                                    <div class="info-list">
+                                                        <!-- @foreach($c['active_batch'] as $b)
+                                                            <span class="border ml-5">
+                                                                <label for="" class="p-3">{{$b['accept_application_start_date']}}</label>
+                                                            </span> -->
                                                             <!-- </div> -->
-                                                            @break
-                                                           
-                                                        
-                                                        @endforeach
-                                                        <ul>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee</strong> <span>{{$c['registration_fee']}} Kyats</span></li>
                                                             
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Form Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                            <!-- @break                                                          
+                                                        
+                                                        @endforeach -->
+                                                        <ul>
+                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-man-in-glasses"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
                                                             <li><i class="icofont-man-in-glasses"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
-
-                                                            {{--<li><i class="icofont-clock-time"></i> <strong>Registration End</strong> <span>{{$c['registration_end_date']}}</span></li>--}}
-                                                            
+                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Description</strong> <span>{{$c['description']}}</span></li>                                                            
                                                             <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                                         </ul>
                                                     </div>

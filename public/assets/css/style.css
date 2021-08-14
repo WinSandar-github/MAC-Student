@@ -27526,7 +27526,7 @@ img {
 }
 
 .widget-information .info-list ul {
-  border-top: 1px solid #d1e6d9;
+  /* border-top: 1px solid #d1e6d9; */
   margin-top: 35px;
 }
 
