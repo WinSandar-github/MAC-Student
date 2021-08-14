@@ -526,7 +526,40 @@
               enableTime: false,
               dateFormat: "d-m-Y",
       });
+
+      $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
+          myanmarLetterOnly($(this));
+      });
+
+      $(document).on('keydown', '#nrc_number', function () {
+          myanmarLetterOnly($(this));
+      });
+
+      $("input[id*='name_mm'], text[id*='name_mm']").change(function(e) {
+          myanmarLetterOnly($(this));
+      });
+
+      $(document).on('keydown', '#name_mm', function () {
+          myanmarLetterOnly($(this));
+      });
+
+      $("input[id*='father_name_mm'], text[id*='father_name_mm']").change(function(e) {
+          myanmarLetterOnly($(this));
+      });
+
+      $(document).on('keydown', '#father_name_mm', function () {
+          myanmarLetterOnly($(this));
+      });
+
     });
+
+    function myanmarLetterOnly( self )
+    {
+        val = self.val();
+        if ( /[a-zA-Z0-9]+$/.test( val ) ) {
+          self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
+        }
+    }
 
     function checkOtherService(option){
       var selected_id = $(option).val();

@@ -50,7 +50,7 @@ function createMentorRegister(){
   send_data.append('cpa_reg_date', $("input[name=cpa_reg_date]").val());
   send_data.append('ppa_reg_no', $("input[name=ppa_reg_no]").val());
   send_data.append('ppa_reg_date', $("input[name=ppa_reg_date]").val());
-  send_data.append('address', $("input[name=address]").val());
+  send_data.append('address', $("textarea[name=address]").val());
   send_data.append('phone_no', $("input[name=phone_no]").val());
   send_data.append('fax_no', $("input[name=fax_no]").val());
   send_data.append('fax_no', $("input[name=fax_no]").val());
@@ -69,7 +69,7 @@ function createMentorRegister(){
   send_data.append('internship_accept_no', $("input[name=internship_accept_no]").val());
   $(':radio:checked').map(function(){send_data.append('repeat_yearly',$(this).val())});
   $(':radio:checked').map(function(){send_data.append('training_absent',$(this).val())});
-  send_data.append('training_absent_reason', $("input[name=training_absent_reason]").val());
+  send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
   send_data.append('email', $("input[name=email]").val());
   send_data.append('password', $("input[name=password]").val());
 
