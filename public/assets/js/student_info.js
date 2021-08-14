@@ -234,7 +234,7 @@ function createSelfStudy()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
-    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
+    $(':radio:checked').map(function(){send_data.append('reg_reason',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
