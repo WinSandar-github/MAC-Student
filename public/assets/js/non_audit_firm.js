@@ -243,18 +243,18 @@ function createNonAuditFirm(){
     }
   });
 
-        $.ajax({
-                url: BACKEND_URL+"/acc_firm_info",
-                type: 'post',
-                data:send_data,
-                contentType: false,
-                processData: false,
-                success: function(result){
-
-                  successMessage(result);
-                  location.reload();
-              }
-            });
+  $.ajax({
+          url: BACKEND_URL+"/acc_firm_info",
+          type: 'post',
+          data:send_data,
+          contentType: false,
+          processData: false,
+          success: function(result){
+            successMessage(result);
+            //location.reload();
+            location.href = "/";
+        }
+      });
 }
 
 function nonAuditRegFeedback(){
