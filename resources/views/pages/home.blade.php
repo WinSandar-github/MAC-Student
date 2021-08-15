@@ -160,9 +160,16 @@
                                 Course You're Success 
                                 </h5>
                                 <div class="row">
-                                    <div class="course">
-                                    </div>
+                                    <table class="table table-border">
+                                        <thead>
+                                            <th>Course Name</th>
+                                            <th>Batch Name</th>
+                                            <th>Success Year</th>
+                                        </thead>
+                                        <tbody class="course">
 
+                                        </tbody>
+                                    </table>
                                 </div>
 
                             </div>
@@ -196,6 +203,15 @@
                                         <span id="exam_date"></span> 
                                     </div>
                                 </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Next Course </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="next_course"></span> 
+                                    </div>
+                                </div>
+
 
                             </div>
                         </div>
@@ -314,15 +330,9 @@
 
                     <h5 class="border-bottom pb-2" style="font-weight:bold">Announcement</h5>
                     <div class="row m-2 mt-3 ">
- 
-                               
-                                    <span id="status"></span> 
-                                
-                            </div>
-                    
-                   
-
-                  
+                            <span id="status"></span> 
+                        
+                    </div>
                 </div>
                
                 </div>

@@ -101,18 +101,25 @@ function user_profile(){
                 let current_reg = data.student_register.pop();
     
                 document.getElementById('image').src=BASE_URL+data.image;
-                exam_register.filter(exam => exam.grade == 1)
-                .map( exam =>
-                     $('.course').append(`<h6>
-                                ${exam.course.name}
-                            </h6>`)
-                )
-    
+                var course_html;
+                 let exam = exam_register.filter(exam => exam.grade == 1)
+             
+                                    console.log(exam)
+                
+                exam.map(e => {
+                    course_html += `<tr>
+                                        <td>${e.course.name}</td>
+                                        <td>${e.batch.name}</td>
+                                        <td>${e.date}</td>
+                                    </tr>`
+                })
+             $('.course').html(course_html)
+                      
              
     
                
                 let current_exam = exam_register.pop();
-    
+                //Current Batch Information
                 $('#batch_name').text(current_class.batch.name);
                 $('#course_name').text(current_class.batch.course.name);
                 if(current_class.batch.exam_start_date != null){
@@ -120,6 +127,34 @@ function user_profile(){
                 }else{
                     $('#exam_date').text("မရှိသေးပါ")
                 }
+
+                let next_course;
+                console.log(current_class.batch.course.code)
+
+                switch(current_class.batch.course.code){
+                    case 'da_1':
+                        next_course = "DA II"
+                    break;
+                    case 'da_2':
+                        next_course = "CPA I"
+                    break;
+                    case 'cpa_1':
+                        next_course = "CPA II"
+                    break;
+                    case 'cpa_2':
+                        next_course = "Membership"
+                    break;
+                    default:
+                        next_course = "DA II"
+
+                    break;
+
+                }
+
+                $('#next_course').text(next_course)
+
+
+                
     
     
                 if(current_class.approve_reject_status == 0 )
