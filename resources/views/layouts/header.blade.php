@@ -83,7 +83,7 @@
                 <!-- Header Menu Start -->
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Dashboard</a></li>
                         <li>
                             <a href="#">Courses</a>
                             <ul class="sub-menu course_type">
@@ -155,15 +155,13 @@
                 <div class="header-sign-in-up d-none d-lg-block signed_in"  >
                     <ul>
                         <li>
-                            <div class="dropdown ">
+                            <div class="dropdown">
                             <span><a class="student_name sign-in"></a></span>
                             <div class="dropdown-content">
                                 <a onclick="logout()" href="/">Logout</a>
-
-
-
                             </div>
 
+                            
                             </div>
                         </li>
 
