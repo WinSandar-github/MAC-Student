@@ -62,7 +62,7 @@
 
         </div>
           <div class="container" style="overflow: hidden;">
-						<div id="non_audit_form_pending" style="display: none;margin-top:5%;">
+						<div id="non_audit_form_pending" class="non-audit-pending-style">
 							<div class="alert alert-info" role="alert">
 								Your Non-Audit Form is checking. !!!
 							</div>
@@ -85,14 +85,16 @@
                                         <tr>
                                             <th>Accountancy Firm Name</th>
                                             <th>Applied Date</th>
+																						<th>Status</th>
                                         </tr>
                                         <tr>
                                             <td><span id="accountancy_firm_name"></span></td>
                                             <td><span id="updated_at"></span></td>
+																						<td><span id="message"></span></td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="check_non_audit_status" style="display:none;">
                                     <div class="form-group">
                                         <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
                                     </div>
@@ -1210,6 +1212,7 @@
 
 @endsection
 @push('scripts')
+<script src="{{asset('assets/js/non_audit_firm.js')}}"></script>
 <script>
   loadNonAuditStaff();
   loadNonAuditOrganization();
@@ -1217,6 +1220,8 @@
 	nonAuditRegFeedback();
 	nonAuditData();
 	pendingStatus();
+	nonAuditFirmDateQuery();
+	nonAuditVerifyStatus();
 </script>
 
 @endpush

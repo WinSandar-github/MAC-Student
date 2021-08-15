@@ -113,7 +113,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="col-md-2">
-													<select class="form-select form-select-md mb-3" id="choose_firm_type" aria-label=".form-select-md example">
+													<select class="nice-select" id="choose_firm_type" aria-label="">
 													  <option value="0">Choose Firm Type</option>
 													  <option value="1">Local</option>
 													  <option value="2">Foreign</option>
@@ -1209,11 +1209,12 @@
 
 @endsection
 @push('scripts')
+<script src="{{asset('assets/js/non_audit_firm.js')}}"></script>
 <script>
   loadNonAuditStaff();
   loadNonAuditOrganization();
   loadNonAuditTypeOfService();
-  getNonAuditData();
+  //getNonAuditData();
 	// nonAuditRegFeedback();
 	// nonAuditData();
 	// pendingStatus();
