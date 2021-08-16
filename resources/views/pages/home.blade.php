@@ -353,7 +353,10 @@
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
-        user_profile();
+        console.log(student_id)
+        if(student_id != null){
+        user_profile(); 
+}
          
     })
  

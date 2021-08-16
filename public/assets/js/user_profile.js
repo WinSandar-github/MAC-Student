@@ -1,6 +1,5 @@
 function user_profile(){
-    console.log(student_id);
- 
+  
     $.ajax({
         url:   BACKEND_URL + "/user_profile/"+student_id,
         type: 'get',
@@ -9,6 +8,7 @@ function user_profile(){
             
             
             let data = result.data;
+            console.log(data)
           
             
 
@@ -98,7 +98,8 @@ function user_profile(){
                 $("#email").text(data.email);
                 $('#phone').text(data.phone);
                 let current_class = data.student_course_regs.pop();
-                let current_reg = data.student_register.pop();
+                let current_reg =  data.student_register.pop();
+                console.log(current_reg)
     
                 document.getElementById('image').src=BASE_URL+data.image;
                 var course_html;
@@ -163,83 +164,128 @@ function user_profile(){
                 }else if(current_class.approve_reject_status == 1)
                 {
                     //show data depend on Student Register status
-                    if(current_reg.status == 0)
-                    {
-                        $('#status').text('Your Registration Form is checking')
-                        
-                    }else if(current_reg.status == 1)
-                    {
-    
-                        if(current_exam.status == 0)
+                    if(current_reg){
+                        if(current_reg.status == 0 || current_reg == null)
                         {
-                            $('#status').text('Your Exam Form is checking')
-                        }
-                        else if(current_exam.status == 1)
-                        {
-                            if(current_exam.grade == 1)
-                            {
-                                $('#status').text(`You have been pass ${current_exam.course.name} and Join Next Class `)
-                                $('#status').append(`<a href='javascript:void()' onClick="alert('Course coming soon')">go to Course</a>`);
-                            }else
-                            {
-                                $('#status').text('Your Exam Form is Approve')
-                            }
-                        }
-                        else if(current_exam.status == 2)
-                        {
-                            $('#status').text('Your Exam Form is checking')
-    
-                        }else{
-                            $('#status').text('Your Registration Form is Approve')
-                            var date = new Date();
-                            let previous_month = date.setDate(date.getDate() - 6);
-                            var end_date = new Date(current_class.batch.exam_start_date);
-    
-                             
-                            if(previous_month <= date && end_date >= date){
-                               
-                                let exam_url ;
-                                switch(current_class.batch.course.code){
-                                    case 'da_1':
-                                    exam_url = 'exam_register';
-                                    break;
-                                    case 'da_2':
-                                    exam_url = 'da_two_exam_register';
-                                    break;
-                                    case 'cpa_1':
-                                    exam_url = 'cpa_exam_register';
-                                    break;
-                                    case 'cpa_2':
-                                    exam_url = 'cpa_two_exam_register';
-                                    break;
-                                    default:
-                                    exam_url = 'exam_register';
-                                    break;
-        
-                                }
-                                 
-                                $('#status').append(
-                                ` 
-                                    <a href=${exam_url} class="btn btn-sm btn-dark text-light"> Go to Exam Registration Form</a>
-                                `)
-    
-                                
-                            }else{
-                                $('#status').append(`<div>
-                                    <p>The exam schedule will be announced soon</p>
-                                </div>`)
-                            }
+                            $('#status').text('Your Registration Form is checking')
                             
-    
+                        }else if(current_reg.status == 1)
+                        {
+                            if(current_exam){
+                                if(current_exam.status == 0)
+                                {
+                                    $('#status').text('Your Exam Form is checking')
+                                }
+                                else if(current_exam.status == 1)
+                                {
+                                    if(current_exam.grade == 1)
+                                    {
+                                        
+                                        let course_code;
+                                        let form_url;
+                                        switch(current_exam.course.code){
+                                            case 'da_1':
+                                                course_code = "da_2",
+                                                form_url =  '/da_two_form/'
+                                            break;
+                                            case 'da_2':
+                                                course_code = "cpa_1",
+                                                form_url = '/cpa_one_form/'
+                                            break;
+                                            case 'cpa_1':
+                                                course_code = "cpa_2",
+                                                form_url    = '/cpa_two_form/'
+                                            break;
+                                            case 'cpa_2':
+                                                course_code = "Membership"
+                                            break;
+                                            default:
+                                                course_code = "da_1",
+
+                                                form_url =  '/da_one_form/'
+
                         
-    
-                        }
-                    }else  if(current_reg.status == 2)
-                    {
-                        $('#status').text('Your Registration Form is checking')
+                                            break;
                         
+                                        }
+                                        
+
+                                        get_course_by_code(course_code).then( data => {
+                                            
+                                            // let batch = data.data[0].active_batch[0];
+                                            $('#status').text(`You have been pass ${current_exam.course.name} `)
+                                            if(!data){
+                                                    let batch = data.data[0].active_batch[0];
+                                                    console.log(batch,"jSON")
+                                                if(batch != undefined){
+                                                    $('#status').append(`and Join ${data.data[0].name} Class  <a href='${FRONTEND_URL}${form_url}${batch.id}' ">go to Course</a>`);
+                                                }else{
+                                                    $('#status').append(`<a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")">go to Course</a>`);
+                                                }
+                                            }
+                                        })
+                                    }else
+                                    {
+                                        $('#status').text('Your Exam Form is Approve')
+                                    }
+                                }
+                                else 
+                                {
+                                    $('#status').text('Your Exam Form is checking')
+            
+                                }
+                            }else{
+                                $('#status').text('Your Registration Form is Approve')
+                                var date = new Date();
+                                let previous_month = date.setDate(date.getDate() - 6);
+                                var end_date = new Date(current_class.batch.exam_start_date);
+        
+                                
+                                if(previous_month <= date && end_date >= date){
+                                
+                                    let exam_url ;
+                                    switch(current_class.batch.course.code){
+                                        case 'da_1':
+                                        exam_url = 'exam_register';
+                                        break;
+                                        case 'da_2':
+                                        exam_url = 'da_two_exam_register';
+                                        break;
+                                        case 'cpa_1':
+                                        exam_url = 'cpa_exam_register';
+                                        break;
+                                        case 'cpa_2':
+                                        exam_url = 'cpa_two_exam_register';
+                                        break;
+                                        default:
+                                        exam_url = 'exam_register';
+                                        break;
+            
+                                    }
+                                    
+                                    $('#status').append(
+                                    ` 
+                                        <a href=${exam_url} class="btn btn-sm btn-success text-light"> Go to Exam Registration Form</a>
+                                    `)
+        
+                                    
+                                }else{
+                                    $('#status').append(`<div>
+                                        <p>The exam schedule will be announced soon</p>
+                                    </div>`)
+                                }
+                                
+        
+                            
+        
+                            }
+                        }else                    {
+                            $('#status').text('Your Registration Form is checking')
+                        }    
+                            
                     }else{
                         $('#status').text('Your Application Form is Approve.')
+
                         switch(current_class.batch.course.code){
                             case 'da_1':
                             register_url = '/da_one_register';
@@ -259,6 +305,7 @@ function user_profile(){
     
                             
                         }
+                        localStorage.setItem('course_id',current_class.batch.course.id);
                         
                         $('#status').append(`
                         
