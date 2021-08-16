@@ -157,7 +157,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h5 class="border-bottom mt-3 pb-2" style="font-weight:bold">
-                                Course You're Success 
+                                Course Histroy
                                 </h5>
                                 <div class="row">
                                     <table class="table table-border">
@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Exam Date</p>
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
                                     </div>
                                     <div class="col-md-6">
                                         <span id="exam_date"></span> 
@@ -324,13 +324,60 @@
                         
                     </div>
 
+                    <div class="teacher">
+                        <div class="row">
+                             
+                            <div class="col-md-12">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_name_eng"></span> / <span id="teacher_name_mm"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">NRC</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_nrc"></span>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_phone"></span>
+                                        </div>
+                                    </div>
+                                
+
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+                    
+
 
  
 
 
-                    <h5 class="border-bottom pb-2" style="font-weight:bold">Announcement</h5>
+                    <h5 class="border-bottom pb-2" style="font-weight:bold"> Status Announcement</h5>
                     <div class="row m-2 mt-3 ">
-                            <span id="status"></span> 
+                            <span class="status"></span> 
                         
                     </div>
                 </div>
