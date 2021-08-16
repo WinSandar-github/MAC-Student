@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="audit_container" style="display:none; margin-top:5%;">
+            <div class="row" id="audit_container" style="display:none; margin-top:5%;margin-bottom:5%;">
                 <form method="post" enctype="multipart/form-data">
                     <div class="card border-success mb-3">
                         <div class="card-body text-success">
