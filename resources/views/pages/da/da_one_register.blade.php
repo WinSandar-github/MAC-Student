@@ -135,7 +135,7 @@
                                                         <label class="form-check-label">(က)ယခုနှစ်</label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="radio" value="ယခုနှစ်တက်ရောက်ခြင်း" name="reg_reason[]">
+                                                        <input type="radio" value="ယခုနှစ်တက်ရောက်ခြင်း" name="reg_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -155,7 +155,7 @@
                                                         <label>(ခ)သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="radio" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" name="reg_reason[]">
+                                                        <input type="radio" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" name="reg_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -164,7 +164,7 @@
                                                         <label>(ဂ)သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="radio" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason[]">
+                                                        <input type="radio" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -173,7 +173,7 @@
                                                         <label>(ဃ)စာမေးပွဲကျရှုံးခြင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="radio" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason[]">
+                                                        <input type="radio" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -182,7 +182,7 @@
                                                         <label>(င)သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း</label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="radio" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason[]">
+                                                        <input type="radio" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row">

@@ -1,10 +1,11 @@
 if (typeof (localStorage) != "undefined")
 {
     if (localStorage.getItem("studentinfo") == null) {
-       
+       $('.non_login').show();
         
     }
     else {
+        $('.login').show();
         localStorage.removeItem('course_type');
         var student = JSON.parse(localStorage.getItem("studentinfo"));
         var student_name=student.name_eng;

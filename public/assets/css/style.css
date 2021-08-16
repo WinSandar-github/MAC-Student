@@ -27526,7 +27526,7 @@ img {
 }
 
 .widget-information .info-list ul {
-  border-top: 1px solid #d1e6d9;
+  /* border-top: 1px solid #d1e6d9; */
   margin-top: 35px;
 }
 
@@ -27574,8 +27574,8 @@ img {
 }
 
 .widget-information .info-btn {
-  text-align: center;
-  margin-top: 40px;
+  text-align: right;
+  /* margin-top: 40px; */
 }
 
 .widget-search {

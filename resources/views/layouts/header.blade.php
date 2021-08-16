@@ -15,6 +15,14 @@
     .dropdown:hover .dropdown-content{
         display:block !important;
     }
+    .header-container{
+      width: 100%;
+      padding-right: var(--bs-gutter-x,.75rem);
+      padding-left: var(--bs-gutter-x,.75rem);
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 1245px;
+    }
 
 </style>
 <div class="header-section">
@@ -61,7 +69,7 @@
 
     <!-- Header Main Start -->
     <div class="header-main">
-        <div class="container">
+        <div class="header-container">
 
             <!-- Header Main Start -->
             <div class="header-main-wrapper">
@@ -75,7 +83,7 @@
                 <!-- Header Menu Start -->
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Dashboard</a></li>
                         <li>
                             <a href="#">Courses</a>
                             <ul class="sub-menu course_type">
@@ -98,6 +106,7 @@
                         </li>
                         <li><a href="{{url('school_register')}}">School</a></li>
                         <li><a href="{{url('teacher_register')}}">Teacher</a></li>
+                        <li><a href="{{url('mentor_register')}}">Mentor</a></li>
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
@@ -146,15 +155,13 @@
                 <div class="header-sign-in-up d-none d-lg-block signed_in"  >
                     <ul>
                         <li>
-                            <div class="dropdown ">
+                            <div class="dropdown">
                             <span><a class="student_name sign-in"></a></span>
                             <div class="dropdown-content">
                                 <a onclick="logout()" href="/">Logout</a>
-
-
-
                             </div>
 
+                            
                             </div>
                         </li>
 
