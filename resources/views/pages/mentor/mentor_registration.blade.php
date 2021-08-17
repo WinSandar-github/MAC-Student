@@ -317,7 +317,7 @@
                                   <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
                                   <label class="col-md-3 col-form-label">{{ __('လက်ရှိလက်ခံဆောင်ရွက်စစ်ဆေးပေးရသည့်လုပ်ငန်းများ') }}</label>
                                   <div class="col-md-7">
-                                    <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;" readonly>
+                                    <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;">
                                         <option value="" disabled selected>Select Current Service</option>
                                     </select>
                                     <div class="col-md-5 check-service-other" style="visibility:hidden;">
