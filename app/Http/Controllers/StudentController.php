@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\CustomClass\Helper;
+
 
 class StudentController extends Controller
 {
@@ -16,25 +18,19 @@ class StudentController extends Controller
     public function study(){
         return view('pages.student_info.student_study');
     }
-    public function course()
+    public function course($course_type_id)
     {
-
-        $BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-        //$BACKEND_URL = "http://localhost:8000/api";
-
-
+         
         $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/publish_batch/'.$course_type_id)->getBody(),true);
+        
 
-        $batch = json_decode($client->request('GET', $BACKEND_URL.'/publish_batch')->getBody(),true);
+        $course = $res['course'];
+       
 
         // $batch = Http::get('http://localhost:8000/batch/'.$id);
-        // return $batch;
-
-
-
-
-        return view('pages.student_course_detail',['batch' => $batch]);
-    }
-
-
+    // return $batch;
+        return view('pages.student_course',["course" => $course]);
+    } 
 }

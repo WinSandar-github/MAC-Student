@@ -30,6 +30,8 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/student_info.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/treeview.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!--toastr-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr') }}/toastr.min.css">
@@ -85,8 +87,12 @@
     <script src="{{ asset('assets/js/auth.js') }}"></script>
     <script src="{{ asset('assets/js/exam_register.js') }}"></script>
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
-  <!--toastr-->
-  <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
+    <script src="{{ asset('assets/js/da_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script>
+    <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
     @stack('scripts')
 </body>
 

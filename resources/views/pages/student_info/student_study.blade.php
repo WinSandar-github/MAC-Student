@@ -43,7 +43,7 @@
                         
                         <div class="card-body">
                             <!-- status == 2 => reject -->
-                            <p class="card-text reject">Your Registration Form need to prepare.Please upate your form  
+                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
                              </p>
                         </div>
                     </div>
@@ -65,19 +65,28 @@
                     </div>
                 </div>
                 <div class="comment-form study" style="display:none;">
+                    <input type="hidden" name="form_type">
                     <div class="form-wrapper">
                         <div class="">
-                            <div class="card border-success">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <input type="radio" value="1" name="register_name" onclick="selectedRegistration()" checked> <label class='form-check-label'> Registration Self Study</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-success text-center text-success" onclick="selectedRegistration(1)" id="self_study_card">
+                                        <div class="card-body ">
+                                            <label name="register_name"> Registration Self Study</label>
                                         </div>
-                                        <div class="col-md-4">
-                                            <input type="radio" value="2" name="register_name" onclick="selectedRegistration()"> <label class='form-check-label'> Registration Private Shool</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center" onclick="selectedRegistration(2)" id="private_card">
+                                        <div class="card-body">
+                                            <label  name="register_name"> Registration Private Shool</label>
                                         </div>
-                                        <div class="col-md-4">
-                                            <input type="radio" value="3" name="register_name" onclick="selectedRegistration()"> <label class='form-check-label'> Registration Mac</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card text-center" onclick="selectedRegistration(3)" id="mac_card">
+                                        <div class="card-body">
+                                            <label  name="register_name"> Registration Mac</label>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +95,7 @@
                                 <form id="self_study_form" method="post" action="javascript:createSelfStudy();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
-                                        <div class="card-body ">
+                                        <div class="card-body text-success">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
@@ -210,7 +219,7 @@
                                 <form method="post" action="javascript:createPrivateSchool();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
-                                        <div class="card-body ">
+                                        <div class="card-body text-success">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
@@ -227,8 +236,10 @@
                                                             <label class="col-form-label">{{ __('၁။') }}</label> 
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5 single-form">
-                                                        <label>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                    <div class="col-md-6 ">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="single-form">
@@ -259,7 +270,7 @@
                             <div class="row" id="mac_container">
                                 <form method="post" action="javascript:createMac();" enctype="multipart/form-data">
                                     <div class="card border-success mb-3">
-                                        <div class="card-body ">
+                                        <div class="card-body text-success">
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
@@ -276,8 +287,10 @@
                                                             <label class="col-form-label">{{ __('၁။') }}</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5 single-form">
-                                                        <label>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                    <div class="col-md-6 ">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="single-form">
@@ -327,7 +340,8 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
+                  
     </div><br/></br/>    
 </div>
 <!-- JavaScript Section -->
@@ -344,7 +358,7 @@
 @push('scripts')
 <script type="text/javascript">
     loadCourse();
-    
+    loadExam();
     reg_feedback();
     $("input[name='mac_date']").flatpickr({
         enableTime: false,
