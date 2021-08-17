@@ -321,7 +321,12 @@ function user_profile(){
                 })
 
                  //redirect application form depend on last exam success
-                if(last_exam[0].grade == 1 && current_class_reg[0].approve_reject_status == 1 && current_reg[0].approve_reject_status == 1 && last_exam[0].approve_reject_status == 1 ){
+                if(last_exam[0].grade == 1 && 
+                    current_class_reg[0].approve_reject_status == 1 &&
+                    current_class_reg[0].batch.course.id == current_reg[0].form_type &&
+                    current_class_reg[0].batch.course.id == last_exam[0].course.id &&
+                    current_reg[0].status == 1 &&
+                    last_exam[0].status == 1 ){
                     let course_code;
                     let form_url;
                     switch(last_exam[0].course.code){
