@@ -79,34 +79,12 @@
                     <a href="/"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
                 </div>
                 <!-- Header Logo End -->
-
+                
                 <!-- Header Menu Start -->
                 <div class="header-menu d-none d-lg-block">
-                    <ul class="nav-menu">
-                        <li><a href="/">Dashboard</a></li>
-                        <li>
-                            <a href="#">Courses</a>
-                            <ul class="sub-menu course_type">
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Firm</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{ url('/audit_firm') }}">Audit Firm</a></li>
-                                <li><a href="{{url('non_audit_firm_register')}}">Non Audit Firm</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Membership</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{url('cpa_ff_register')}}">CPA Full Fleged</a></li>
-                                <li><a href="{{url('student_papp')}}">PAPP</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{url('school_register')}}">School</a></li>
-                        <li><a href="{{url('teacher_register')}}">Teacher</a></li>
-                        <li><a href="{{url('mentor_register')}}">Mentor</a></li>
+                    <ul class="nav-menu" id="navbar">
+                        
+                     
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
@@ -145,7 +123,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li><a href="contact.html">Contact</a></li>
+                     
                     </ul>
 
                 </div>
