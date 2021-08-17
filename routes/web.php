@@ -54,7 +54,12 @@ Route::get('non_audit_firm_register_edit', 'NonAuditFirmController@edit');
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
 Route::get('cpa_one_register', 'CPAOneRegisterController@register');
-Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+// Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+
+//AA Registeration Form
+Route::get('aa_mac_form/{id}', 'CPAOneRegisterController@aaMacRegister');
+Route::get('aa_self_form/{id}', 'CPAOneRegisterController@aaSelfRegister');
+Route::get('aa_private_form/{id}', 'CPAOneRegisterController@aaPrivateRegister');
 
 
 Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
