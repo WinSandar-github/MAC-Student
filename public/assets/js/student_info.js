@@ -8,13 +8,21 @@ function app_form_feedback(){
     
     //show data depend login or no
     if(student != null){
-       
-            if(approve_reject_status == 0){
+ 
+        $.ajax({
+            type:"get",
+            url: BACKEND_URL+"/student_info/"+student.id,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                let student_status = result.data.approve_reject_status;
+                
+            if(student_status == 0){
             
                 $('.check_registration').css('display','block');
                 $('.course_detail').css('display','none');
 
-            }else if(approve_reject_status == 1){
+            }else if(student_status == 1){
                  
                 $.ajax({
                     type: "get",
@@ -53,7 +61,7 @@ function app_form_feedback(){
                         }
                         }
                     })  ;     
-            }else if(approve_reject_status == 2){
+            }else if(student_status == 2){
                 if(course_type_id == 2)
                 {
                     $('.status-reject').css('display','block');
@@ -134,7 +142,16 @@ function app_form_feedback(){
     
             }   
        
-        }
+
+
+
+            }    
+
+
+
+        })
+       
+    }
     else
     {
          
@@ -342,7 +359,7 @@ function reg_feedback(){
                                 success: function(data){
                                     var student_data = data.data;
                                     student_data.forEach(function(element){
-                                    // console.log(element.type);
+                                   
                                         if(element.type == 0){
                                             $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
                                             // createAASelfStudy();
