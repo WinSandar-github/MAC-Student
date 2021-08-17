@@ -1,3 +1,8 @@
 #cpa,#ra,#accredited_foreign_degree,.dir_cpa_app_form,.da_to_cpa{
     display: none;
 }
+
+.non_login,.login,.da_cpa,.acc_firm,.school,.teacher{
+    display: none;
+}
+

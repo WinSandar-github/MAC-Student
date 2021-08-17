@@ -54,7 +54,12 @@ Route::get('non_audit_firm_register_edit', 'NonAuditFirmController@edit');
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
 Route::get('cpa_one_register', 'CPAOneRegisterController@register');
-Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+// Route::get('cpa_one_register', 'CPAOneRegisterController@register');
+
+//AA Registeration Form
+Route::get('aa_mac_form/{id}', 'CPAOneRegisterController@aaMacRegister');
+Route::get('aa_self_form/{id}', 'CPAOneRegisterController@aaSelfRegister');
+Route::get('aa_private_form/{id}', 'CPAOneRegisterController@aaPrivateRegister');
 
 
 Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
@@ -98,10 +103,14 @@ Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('
 
 // Audit Firm
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
-Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
+// Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
+Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
 
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
+
+// Mentor Register Form
+Route::get('mentor_register', 'MentorController@index');

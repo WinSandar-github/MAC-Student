@@ -1,3 +1,9 @@
 #sole-proprietorship,#partnership,#company,.cpa_myanmar,.self_study_container{
     display: none;
 }
+.non-audit-pending-style{
+  display: none;
+  margin-top:5%;
+  font-size: 19px;
+  font-weight: 600;
+}
