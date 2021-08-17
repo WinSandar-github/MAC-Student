@@ -165,7 +165,7 @@
                                                 
                                                     <div class="col-md-5">
                                                         <div class="single-form">
-                                                            <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" required="" maxlength="6">
+                                                            <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');" required="" maxlength="6">
                                                     </div>
                                                 </div>    
 
@@ -258,7 +258,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" value="{{ old('date_of_birth') }}" id="date_of_birth"  required>
+                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" id="date_of_birth"  required>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +347,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}"  style="padding: 2%;">
+                                                    <input type="file" placeholder="upload photo" name="image" value="{{ old('image') }}"  accept="image/*"   style="padding: 2%;">
                                                     <input type="text" name="old_image" id="old_image"/>
                                                 </div>
                                             </div>
@@ -631,7 +631,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="နှစ်၊လ" id="direct_degree" name="direct_degree" class="form-control"  required="">
+                                                    <input type="text" placeholder="နှစ်၊လ" id="direct_degree" name="direct_degree" class="form-control"   >
                                                 </div>
                                             </div>
                                         </div>
@@ -651,7 +651,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="ခုနှစ်" id="degree_date" name="degree_date" class="form-control"  required="">
+                                                    <input type="text" placeholder="ခုနှစ်" id="degree_date" name="degree_date" class="form-control"   >
                                                 </div>
                                             </div>
                                             <!-- <div class="col-md-4">
@@ -674,7 +674,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" required="">
+                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}"  >
                                                 </div>
                                              </div>
                                         </div>
@@ -802,13 +802,12 @@
 
                                             </div>
                                         </div>  -->
-                                        <div class="col-md-12">
-                                            <!-- Form Wrapper Start -->
-                                            <div class="single-form text-center">
-                                                <button class="btn btn-primary btn-hover-dark">Submit Now</button>
-                                            </div>
-                                            <!-- Form Wrapper End -->
-                                        </div>  
+
+                                        <div class="row">
+                                            <div class="col-md-2 offset-md-5">
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                            </div> 
+                                        </div>
                                        
 
 

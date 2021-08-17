@@ -2,7 +2,7 @@
     display: none;
 }
 
-#direct,#da_pass{
+#direct,#entry_pass,#active_entrance,#non_active{
     display: none;
 }
 

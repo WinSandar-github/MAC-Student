@@ -9,6 +9,8 @@ use App\StudentJobHistroy;
 use App\EducationHistroy;
 use Hash;
 use Alert;
+use App\Http\Controllers\CustomClass\Helper;
+
 
 class DAController extends Controller
 {
@@ -90,5 +92,14 @@ class DAController extends Controller
     public function da_edit()
     {      
         return view('pages.da_edit');
+    }
+
+    public function daTwoAppForm($id)
+    {       
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+        $batch = $res['data'];
+        return view('pages.da.da_two_app_form',compact('batch'));
     }
 }

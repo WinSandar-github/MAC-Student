@@ -18,8 +18,11 @@ function createDAExamRegister()
         contentType: false,
         processData: false,
         success: function(result){
-            // console.log(result)
+        
+            location.href = FRONTEND_URL + "/student_course/1";
+            localStorage.setItem('exam_status',0)
             successMessage(result);
+
       }
     });
 }
@@ -27,9 +30,10 @@ function createDAExamRegister()
 
 $('#cpa_exam_register').submit(function(e){
     e.preventDefault();
+  
     var form_data = new FormData(this);
     form_data.append('form_type',$("#form_type").val());
-    console.log(student_id)
+    form_data.append('student_id',student_id);
     console.log('form_type',$("input[name=form_type]").val());
     $.ajax({
         url: BACKEND_URL+"/cpa_exam_register",
@@ -38,8 +42,11 @@ $('#cpa_exam_register').submit(function(e){
         contentType: false,
         processData: false,
         success: function(result){
-             location.reload();
-            // successMessage(result);
+             // location.reload();
+             localStorage.setItem('approve_reject', 1);
+             location.href = FRONTEND_URL + "/student_course/2";
+
+            successMessage(result);
       }
     });
 

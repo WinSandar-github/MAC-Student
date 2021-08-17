@@ -137,7 +137,7 @@ function createCPAFFRegister(){
         contentType: false,
         processData: false,
         success: function(result){
-            successMessage("Insert Successfully");
+            successMessage("You have successfully registerd!");
             location.reload();
         },
         error:function (message){
@@ -150,15 +150,14 @@ function createCPAFFRegister(){
 
 function selectEntry(){
     var radioValue = $("input[name='selected_name']:checked").val();
-    console.log(radioValue);
-    
+     
     if(radioValue==1){
         
         $('#direct').css('display','block');
-        $('#da_pass').css('display','none');
+        $('#entry_pass').css('display','none');
      }else
      {
-        $('#da_pass').css('display','block');
+        $('#entry_pass').css('display','block');
         $('#direct').css('display','none');
      }
 }
@@ -166,7 +165,7 @@ function selectEntry(){
 function isLoginCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student == null){
-        location.href = '/login';
+        location.href = FRONTEND_URL + '/login';
     }
     else{
         var a=new Date(student.date_of_birth);
@@ -212,7 +211,7 @@ function form_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==y && now.getMonth()==7){                            
+                        if(now.getFullYear()==y && now.getMonth()==11){                            
                             document.getElementById('approved').style.display='none';
                             document.getElementById('cpaff_renew_form').style.display='block';
                         }
@@ -224,7 +223,7 @@ function form_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==year && now.getMonth()==7){                            
+                        if(now.getFullYear()==year && now.getMonth()==11){                            
                             document.getElementById('approved').style.display='none';
                             document.getElementById('cpaff_renew_form').style.display='block';
                         }

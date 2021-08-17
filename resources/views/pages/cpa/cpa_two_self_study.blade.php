@@ -82,64 +82,13 @@
                                 </div>
                             </div>      
                         </div>
-                        <div class="row">
-                            <div class="col-md-1 col-form-label pt-4">{{ __('၁။') }}</div>
-                            <div class="col-md-4 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
-                            <div class="col-md-7">
-                                <div class="row">
-                                    <div class="col-md-2  px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region">
-                                                @foreach($nrc_regions as $region)
-                                                    <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                        {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_township" id="nrc_township">
-                                                @foreach($nrc_townships as $township)
-                                                    <option value="{{ $township['township_mm'] }}">
-                                                        {{ $township['township_mm'] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
-                                                @foreach($nrc_citizens as $citizen)
-                                                <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                    {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 pl-1">
-                                        <div class="single-form">
-                                        <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"   maxlength="6">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <div class="single-form">
-                                            <button type="submit" onclick="SearchCPAOneByNRC()"  class="btn btn-primary btn-hover-dark">Search</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
+                        
                         <form  method="post" action="javascript:CPA2_Self_Study_Submit();" enctype="multipart/form-data">
-                            <fieldset id="fieldset" disabled>
+                            <fieldset id="fieldset" >
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                            <label class="col-form-label">{{ _('၁။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-11">
@@ -155,7 +104,7 @@
                                     
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="enrol_no_exam" >
+                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam"  name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -165,7 +114,7 @@
                                     
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="attendance" >
+                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance"  name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -174,7 +123,7 @@
                                             <label class="col-form-label">{{ _('(ဂ) စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="fail_exam" >
+                                        <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam"  name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -183,13 +132,13 @@
                                         <label class="col-form-label">{{ _('(ဃ) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
                                     </div>
                                     <div class="col-md-6" style="padding-top:10px">
-                                        <input type="checkbox" value="" id="resigned" >
+                                        <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned"  name="reg_reason[]">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၃။') }}</label>
+                                            <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -199,39 +148,19 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-1">
                                     </div>
                                     <div class="col-md-4">
-                                            <label class="col-form-label">{{ _('(က) သင်တန်းအမှတ်စဥ်') }}</label>
+                                            <label class="col-form-label">{{ _(' သင်တန်းအမှတ်စဥ်/အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div>
                                     <div class="col-md-4">
-                                            <input type="text" class="form-control" id="batch_session_no" value="" >
-                                    </div>
-                                </div><br/>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                    </div>
-                                    <div class="col-md-4">
-                                            <label class="col-form-label">{{ _('(ခ) အပိုင်း') }}</label>
-                                    </div>
-                                    <div class="col-md-4">
-                                            <input type="text" class="form-control" id="entrance_part" value="" >
-                                    </div>
-                                </div><br/>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                    </div>
-                                    <div class="col-md-4">
-                                            <label class="col-form-label">{{ _('(ဂ) ကိုယ်ပိုင်အမှတ်') }}</label>
-                                    </div>
-                                    <div class="col-md-4">
-                                            <input type="text" class="form-control" id="entrance_exam_no" value="" >
+                                            <input type="text" class="form-control" id="batch_part_no" value="" >
                                     </div>
                                 </div><br/>
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Save') }}</button>
-                                    </div>
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                    </div> 
                                 </div>
                             </fieldset>
                         </form>

@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.app')
 
 @section('content')
     <div class="main-wrapper">
@@ -69,7 +69,7 @@
                                     <br/>
                                     <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" id="form_type" class="form-control" value="cpa two">
+                                        <input type="hidden" id="form_type" class="form-control" name="form_type">
                                         <div class="col-md-12">
                                                 <div class="row">
                                                         <div class="col-md-1">
@@ -77,7 +77,7 @@
                                                                 <label >၁။</label>
                                                             </div>
                                                         </div>
-                                                    
+
                                                         <div class="col-md-3">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
@@ -88,7 +88,7 @@
                                                                 <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" required="">
                                                             </div>
                                                         </div>
-                                                    
+
                                                 </div>
 
                                                 <div class="row">
@@ -97,18 +97,18 @@
                                                                 <label >၂။</label>
                                                             </div>
                                                         </div>
-                                                    
+
                                                         <div class="col-md-10">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်</label>
                                                             </div>
                                                         </div>
-                                                    
+
                                                 </div>
 
                                                 <div class="row">
                                                 <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
-                                                    
+
                                                         <div class="col-md-5 offset-md-1">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">(က) နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
@@ -129,19 +129,19 @@
                                                                 <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
                                                             </div>
                                                         </div>
-                                                    
+
                                                 </div>
-                                                
-                                                
+
+
                                                 <div class="row">
-                                                    
+
                                                         <div class="col-md-11 offset-md-1">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">(ခ) အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန်</label>
                                                             </div>
                                                         </div>
-                                                      
-                                                    
+
+
                                                 </div>
                                                 <div class="row">
                                                         <div class="col-md-8 offset-md-4 mt-2">
@@ -154,7 +154,7 @@
                                                         </div>
                                                 </div>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-3 offset-md-1">
                                                         <div class="single-form">
                                                             <label class="col-form-label">(ဂ)ယခုဖြေဆိုမည့် Module</label>
@@ -172,7 +172,7 @@
                                                             <label for="2">All Modules</label>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                                 <div class="row">
@@ -181,7 +181,7 @@
                                                                 <label >၃။</label>
                                                             </div>
                                                         </div>
-                                                    
+
                                                         <div class="col-md-3">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့်ပြေစာအမှတ်</label>
@@ -202,20 +202,18 @@
                                                                 <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
                                                             </div>
                                                         </div>
-                                                    
+
                                                 </div>
                                                 <div class="row">
-                                                    
-                                                       
-                                                    
+
+
+
                                                 </div>
 
-                                                <div class="col-md-12">
-                                                    <!-- Form Wrapper Start -->
-                                                    <div class="single-form text-center" style="padding-top:2%;">
-                                                        <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
+                                                <div class="row">
+                                                    <div class="col-md-2 offset-md-5">
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
                                                     </div>
-                                                    <!-- Form Wrapper End -->
                                                 </div>
                                         </div>
                                     </form>
@@ -223,7 +221,7 @@
 
                             </div>
 
-                        </div>    
+                        </div>
                     </div>
                 <!-- Form Wrapper End -->
                 </div><br><br>
@@ -235,13 +233,16 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
+        $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "m-Y",
+                allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
+                allowInput: true,
         });
     });
 </script>

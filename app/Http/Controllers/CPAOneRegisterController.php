@@ -18,9 +18,9 @@ class CPAOneRegisterController extends Controller
     public function private_school(){
         return view('pages.cpa.cpa_one_private_school');
     }
-    public function cpaRegister()
+    public function cpaOneForm()
     {
-        return view('pages.cpa.cpa_register');
+        return view('pages.cpa.cpa_one_form');
     }
     public function cpaEdit()
     {
@@ -29,5 +29,17 @@ class CPAOneRegisterController extends Controller
     public function cpaExamRegister()
     {
         return view('pages.cpa.cpa_exam_register');
+    }
+    public function aaMacRegister()
+    {
+        return view('pages.aa_register.aa_mac_register');
+    }
+    public function aaSelfRegister()
+    {
+        return view('pages.aa_register.aa_self_register');
+    }
+    public function aaPrivateRegister()
+    {
+        return view('pages.aa_register.aa_private_register');
     }
 }

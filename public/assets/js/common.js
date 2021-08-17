@@ -1,6 +1,11 @@
-// var BACKEND_URL="http://localhost:8000/api";
-var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
-var FRONTEND_URL="https://demo.aggademo.me/MAC_Student/public/index.php";
+var BACKEND_URL="http://localhost:8080/api";
+var FRONTEND_URL="http://localhost:8000";
+// var BASE_URL = "http://localhost:8000";
+
+//var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+//var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var counter = 0;
+
 var toastOptions = {
     "closeButton": true,
     "debug": false,
@@ -31,7 +36,7 @@ $('document').ready(function(){
         type:'GET',
         success:function(response){
             $.each(response.data,function(i,v){
-                var course = `<li><a href='/student_course/${v.id}'>${v.name}</a></li>`;
+                var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.name}</a></li>`;
 
                 $('.course_type').append(course);
 
@@ -45,6 +50,67 @@ function formatDate(date){
     var income_date=date.split('-');
     var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
     return date;
+}
+
+function addRowEducation(tbody){
+    $(".degree").hide();
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" name="degrees[]" class="form-control" placeholder="ပညာအရည်အချင်း" required/></td>';
+    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+}
+function delRowEducation(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
+}
+
+function addRowSubject(tbody){
+
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" class="form-control" name="certificates[]" placeholder="လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း" required/></td>';
+    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowSubject("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+    var certificate = $('.tbl_certificate_body tr').length;
+    var diploma = $('.tbl_diploma_body tr').length;
+    if(certificate && diploma){
+        $(".certificate").hide();
+    }
+}
+function addRowDipSubject(tbody){
+
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" class="form-control" name="diplomas[]" placeholder="လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း" required/></td>';
+    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowSubject("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+    var certificate = $('.tbl_certificate_body tr').length;
+    var diploma = $('.tbl_diploma_body tr').length;
+    if(certificate && diploma){
+        $(".certificate").hide();
+    }
+}
+
+function delRowSubject(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
 }
 
 function addInputTele(tbody){
@@ -90,6 +156,50 @@ function addRowBranch(tbody){
     newRow.append(cols);
     $("table."+tbody).append(newRow);
     counter++;
+}
+
+function addRowPartner(tbody){
+
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
+    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="1"> Yes</td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="2"> No</td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+}
+
+function delRowPartner(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
+}
+
+function addRowDirector(tbody){
+    var newRow = $("<tr>");
+    var cols = "";
+    var row=$('.'+tbody+' tr').length;
+    cols += '<td>'+ (row)+'</td>';
+    cols += '<td><input type="text" name="do_name[]" class="form-control" autocomplete="off"/></td>';
+    cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" /> </td>';
+    cols += '<td><input type="text" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    counter++;
+}
+function delRowDirector(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
 }
 
 function addRowPartnerByNonAudit(tbody){
@@ -236,3 +346,10 @@ function resetForm(form){
       });
     }, false);
   })();
+
+
+async function get_course_by_code(course_code){
+    let response = await fetch(BACKEND_URL+"/course_by_course_code/"+course_code)
+    let data = await response.json()
+    return data;
+}
