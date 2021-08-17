@@ -88,11 +88,11 @@
                                                         
                                                         <div class="col-md-4 pl-4">
                                                             <div class="row">
-                                                                <div class="col-md-8"><i class="icofont-clock-time"></i> <strong>Accept Application Start Date</strong></div>
+                                                                <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong></div>
                                                                 <div class="col-md-4"><span>{{$b['accept_application_start_date']}} </span></div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-md-8"><i class="icofont-clock-time"></i> <strong>Accept Application End Date</strong></div>
+                                                                <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong></div>
                                                                 <div class="col-md-4"><span>{{$b['accept_application_end_date']}} </span></div>
                                                             </div>                                                            
                                                         </div>
@@ -149,12 +149,12 @@
                                                         @endforeach -->
                                                         <ul>
                                                             <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Description</strong> <span>{{$c['description']}}</span></li>                                                            
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-ui-note"></i> <strong>Description</strong> <span>{{$c['description']}}</span></li>                                                            
                                                             <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                                         </ul>
                                                     </div>

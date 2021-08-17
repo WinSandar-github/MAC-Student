@@ -124,7 +124,7 @@
                                                     </div>
                                                     <div class="col-md-10">
                                                         <div class="single-form">
-                                                            <label class="col-form-label">{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း{အမှန်ခြစ်အမှတ်အသားပြုရန်}') }}</label>
+                                                            <label class="col-form-label">{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                                             
                                                         </div>
                                                     </div>  
