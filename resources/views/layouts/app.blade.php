@@ -91,6 +91,8 @@
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <script src="assets/js/plugins.min.js"></script> -->
+    <script src="{{ asset('assets/js/navbar.js') }}"></script>
+    
 
 
     <!-- Main JS -->

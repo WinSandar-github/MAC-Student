@@ -30,6 +30,8 @@ function successMessage(message) {
 }
 
 $('document').ready(function(){
+    
+     
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
