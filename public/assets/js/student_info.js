@@ -299,7 +299,7 @@ function createMac()
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     
-    console.log(student);
+    // console.log(student);
     
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
@@ -340,18 +340,24 @@ function reg_feedback(){
                                 url: BACKEND_URL+"/get_type/"+student_id,
                                 type: 'GET',
                                 success: function(data){
+                                    // console.log(data)
                                     var student_data = data.data;
                                     student_data.forEach(function(element){
+                                    var course_data = element.course.code;
+                                    // console.log(course_data)
                                     // console.log(element.type);
-                                        if(element.type == 0){
+                                        if(element.type == 0 && course_data == 'cpa_1'){
                                             $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
                                             // createAASelfStudy();
-                                        }else if(element.type == 1){
+                                        }else if(element.type == 1 && course_data == 'cpa_1'){
                                             $('.aa').append(`<a href="/aa_private_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
                                             // createAAPrivate();
-                                        }else{
+                                        }else if(element.type == 2 && course_data == 'cpa_1'){
                                             $('.aa').append(`<a href="/aa_mac_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`)
                                             // createAAMac();
+                                        }
+                                        else{
+                                            //
                                         }
                                   })
                                 }

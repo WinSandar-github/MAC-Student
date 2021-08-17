@@ -69,9 +69,7 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="30%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Choose Mentor</label>
-                                                </div>
+                                                <label class="col-form-label">Choose Mentor</label>
                                             </td>
                                             <td width="70%">
                                                 <div class="form-group"> 
@@ -86,20 +84,9 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="30%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Choose Register Type</label>
-                                                </div>
+                                                <label class="col-form-label">Choose Register Type</label>
                                             </td>
                                             <td width="40%">
-                                                {{--<div class="courses-select">
-                                                    <select class="form-control" name="current_check_service_id" id="selected_service_id" >
-                                                        @foreach($services as $service)
-                                                        <option value="{{ $service['id'] }}">
-                                                            {{ $service['name'] }}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>--}}
                                                 <div class="form-group">                                
                                                     <select class="form-control" name="current_check_service_id" id="selected_service_id" style="width: 100%;">
                                                         <option value="" disabled selected>Select Current Service</option>
@@ -117,9 +104,7 @@
                                     <table width="100%">
                                         <tr>
                                             <td width="30%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Recommend Letter (jpg,pdf)</label>
-                                                </div>
+                                                <label class="col-form-label">Recommend Letter (jpg,pdf)</label>
                                             </td>
                                             <td width="70%">
                                                 <div class="">
@@ -127,7 +112,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table><br>
 
                                     <div class="row mt-4">
                                         <div class="col-md-3 offset-md-5">
@@ -149,7 +134,7 @@
 @push('scripts')
 <script>
     // $('#form_type').val(localStorage.getItem('course_id'));
-    loadServiceType();
+    loadCheckServiceSelf();
     loadMentor();
 </script>
 @endpush
