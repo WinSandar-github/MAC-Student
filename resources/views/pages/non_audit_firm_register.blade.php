@@ -1186,7 +1186,7 @@
 
 		                  					<div class="row">
 											  	<div class="col-md-3 offset-md-5">
-													<button  type="submit" class="btn btn-success btn-hover-dark w-100"  form="non-audit-form">{{ __('Submit Now') }}</button>
+													<button  type="submit" class="btn btn-success btn-hover-dark w-100"  form="non-audit-form">{{ __('Submit') }}</button>
 														</div>
 													</div>
 		                  						</div>

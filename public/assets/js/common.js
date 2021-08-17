@@ -30,6 +30,8 @@ function successMessage(message) {
 }
 
 $('document').ready(function(){
+    
+     
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
@@ -50,6 +52,16 @@ function formatDate(date){
     var income_date=date.split('-');
     var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
     return date;
+}
+
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    } 
+    else{
+    document.getElementById("submit_btn").disabled = true;
+    }
 }
 
 function addRowEducation(tbody){
