@@ -82,14 +82,31 @@
                     </div>
                 </div>
                 <div class="approve" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-                        
-                        <div class="card-body">
-                            <p class="card-text">You have the opportunity to attend the training  </p>
-                            
-                            
-                        </div>
-                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td width="80%">
+                                <div class="card text-white bg-primary my-3">
+                                    
+                                    <div class="card-body">
+                                        <p class="card-text">You have the opportunity to attend the training  </p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td width="20%">
+                                <div class="card text-white bg-primary my-3" id="aa_form" style="display:none;">
+                                    
+                                    <div class="card-body">
+                                        <p class="card_text aa" style="text-align:center;"></p>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body add_exam">

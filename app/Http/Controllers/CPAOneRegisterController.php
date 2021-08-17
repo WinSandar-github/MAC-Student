@@ -30,4 +30,16 @@ class CPAOneRegisterController extends Controller
     {
         return view('pages.cpa.cpa_exam_register');
     }
+    public function aaMacRegister()
+    {
+        return view('pages.aa_register.aa_mac_register');
+    }
+    public function aaSelfRegister()
+    {
+        return view('pages.aa_register.aa_self_register');
+    }
+    public function aaPrivateRegister()
+    {
+        return view('pages.aa_register.aa_private_register');
+    }
 }

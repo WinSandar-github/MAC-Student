@@ -346,3 +346,10 @@ function resetForm(form){
       });
     }, false);
   })();
+
+
+async function get_course_by_code(course_code){
+    let response = await fetch(BACKEND_URL+"/course_by_course_code/"+course_code)
+    let data = await response.json()
+    return data;
+}  

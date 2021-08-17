@@ -182,7 +182,7 @@
                                     <div class="col-md-6" style="padding-top:10px">
                                         <input type="radio" value="ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"  name="internship"  id="after_second_exam">
                                     </div>
-                                </div>
+                                </div><br>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <label class="col-form-label">{{ _('၅။') }}</label>                                   
@@ -211,7 +211,7 @@
                                         <input type="file" class="form-control" value="" id="no_crime_file" required>
                                     </div>
                                 </div>
-                            <br/>
+                            <br/><br>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <label class="col-form-label">{{ _('၆။') }}</label>                                   
@@ -235,7 +235,7 @@
                                             </div>
                                         </div>                                      
                                     </div>
-                                </div>                            
+                                </div><br>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
