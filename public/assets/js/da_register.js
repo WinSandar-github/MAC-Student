@@ -1,3 +1,14 @@
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    } 
+    else{
+    document.getElementById("submit_btn").disabled = true;
+    }
+}
+
+
 function createDARegister()
 {
     var send_data = new FormData();
