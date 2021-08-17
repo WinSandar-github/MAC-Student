@@ -234,7 +234,7 @@ function createSelfStudy()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
-    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
+    $(':radio:checked').map(function(){send_data.append('reg_reason',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -334,6 +334,29 @@ function reg_feedback(){
                         } 
                         else{
                             $('.approve').css('display','block');
+                            $('#aa_form').css('display','block');
+                            // console.log(student_id);
+                            $.ajax({
+                                url: BACKEND_URL+"/get_type/"+student_id,
+                                type: 'GET',
+                                success: function(data){
+                                    var student_data = data.data;
+                                    student_data.forEach(function(element){
+                                    // console.log(element.type);
+                                        if(element.type == 0){
+                                            $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
+                                            // createAASelfStudy();
+                                        }else if(element.type == 1){
+                                            $('.aa').append(`<a href="/aa_private_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
+                                            // createAAPrivate();
+                                        }else{
+                                            $('.aa').append(`<a href="/aa_mac_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`)
+                                            // createAAMac();
+                                        }
+                                  })
+                                }
+                            }); 
+                           
                             $.ajax({
                                 type: "get",
                                 url: BACKEND_URL+"/get_exam/"+student.id,

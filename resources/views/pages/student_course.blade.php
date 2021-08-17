@@ -80,20 +80,20 @@
                                     <div class="row">
                                         <div class="col-md-12 widget-information" >
                                             <div class="row border-bottom">
-                                                <h2 class="col-md-7 card-title text-center text-success">{{ $c['name']}} </h2>
+                                                <h2 class="col-md-6 card-title text-center text-success">{{ $c['name']}} </h2>
 
                                                 @if(!empty($c['active_batch']))
                                                     
                                                     @foreach($c['active_batch'] as $b)
                                                         
-                                                        <div class="col-md-3 pl-4">
+                                                        <div class="col-md-4 pl-4">
                                                             <div class="row">
-                                                                <div class="col-md-7"><i class="icofont-clock-time"></i> <strong>Batch Start Date</strong></div>
-                                                                <div class="col-md-5"><span>{{$b['start_date']}} </span></div>
+                                                                <div class="col-md-8"><i class="icofont-clock-time"></i> <strong>Accept Application Start Date</strong></div>
+                                                                <div class="col-md-4"><span>{{$b['accept_application_start_date']}} </span></div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-md-7"><i class="icofont-clock-time"></i> <strong>Batch End Date</strong></div>
-                                                                <div class="col-md-5"><span>{{$b['end_date']}} </span></div>
+                                                                <div class="col-md-8"><i class="icofont-clock-time"></i> <strong>Accept Application End Date</strong></div>
+                                                                <div class="col-md-4"><span>{{$b['accept_application_end_date']}} </span></div>
                                                             </div>                                                            
                                                         </div>
                                                         <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
@@ -148,7 +148,7 @@
                                                         
                                                         @endforeach -->
                                                         <ul>
-                                                            <li><i class="icofont-man-in-glasses"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
                                                             <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-man-in-glasses"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>

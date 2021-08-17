@@ -1,5 +1,6 @@
 var BACKEND_URL="http://localhost:8000/api";
 var FRONTEND_URL="http://localhost:8001";
+var BASE_URL = "http://localhost:8000";
 
 // var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 // var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
@@ -345,3 +346,10 @@ function resetForm(form){
       });
     }, false);
   })();
+
+
+async function get_course_by_code(course_code){
+    let response = await fetch(BACKEND_URL+"/course_by_course_code/"+course_code)
+    let data = await response.json()
+    return data;
+}  

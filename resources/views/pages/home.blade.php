@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-     <!-- Overlay Start -->
-     <div class="overlay"></div>
+         <!-- Overlay Start -->
+         <div class="overlay"></div>
      <!-- Overlay End -->
 
      <!-- Slider Start -->
-     <div class="section slider-section">
+     <div class="non_login section slider-section">
 
          <!-- Slider Shape Start -->
          <div class="slider-shape">
@@ -59,4 +59,353 @@
             </div>
         </div>
         <!-- Call to Action End -->
+     </div>
+
+     <div class="login main-wrapper">
+        <!-- Page Banner Start -->
+        <div class="section page-banner">
+            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
+            <div class="container">
+                <!-- Page Banner Start -->
+                <div class="page-banner-content">
+                    <!-- <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">User Profile</li>
+                    </ul> -->
+                    <h2 class="title-hearder">User  <span>Dashboard</span></h2>
+                </div>
+                <!-- Page Banner End -->
+                
+            </div>
+            <!-- Shape Icon Box Start -->
+            <div class="shape-icon-box">
+                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
+                <div class="box-content">
+                    <div class="box-wrapper">
+                        <i class="flaticon-badge"></i>
+                    </div>
+                </div>
+                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
+            </div>
+            <!-- Shape Icon Box End -->
+            <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
+            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+        </div>
+        <div class=" section section-padding mt-n10">
+            <div class="container">
+            <div class="card text-center">
+                <div class="card-header title text-dark h5" style="background-color:#E7F8EE;">
+                </div>
+                <div class="card-body">
+                    <!-- Student  da cpa-->
+                    <div class="da_cpa">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img  class="img-fluid" 
+                                id="image"
+                                style="height : 200px;width:auto;"
+                                />
+                            </div>
+                            <div class="col-md-9">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="name_eng"></span> / <span id="name_mm"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">NRC</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="nrc"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Date of Birth</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="date_of_birth"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="phone"></span>
+                                        </div>
+                                    </div>
+                                
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="border-bottom mt-3 pb-2" style="font-weight:bold">
+                                Course Histroy
+                                </h5>
+                                <div class="row">
+                                    <table class="table table-border">
+                                        <thead>
+                                            <th>Course Name</th>
+                                            <th>Batch Name</th>
+                                            <th>Success Year</th>
+                                        </thead>
+                                        <tbody class="course">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                    
+                            <div class="col-md-6">
+                                <h5 class="border-bottom mt-3 pb-2" style="font-weight:bold">
+                                လက်ရှိတက်ရောက်နေသော အတန်း
+                                </h5>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="batch_name"></span> 
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Course Name</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="course_name"></span> 
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="exam_date"></span> 
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Next Course </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="next_course"></span> 
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="acc_firm">
+                        <div class="row">
+                            
+                            <div class="col-md-12">
+                                    <div class="row m-2  mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm Registration No</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                             <span class="text-start" id="acc_firm_reg_no"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row  mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm Name</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                             <span class="text-start text-bold" id="acc_firm_name"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Head Office Address</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="text-start" id="head_office"></span>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p  style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="text-start email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="text-start phone"></span>
+                                        </div>
+                                    </div>
+                                
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="school">
+                        <div class="row">
+                             
+                            <div class="col-md-12">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="sch_name_eng"></span> / <span id="sch_name_mm"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">NRC</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="sch_nrc"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Date of Birth</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="sch_date_of_birth"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="sch_email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="sch_phone"></span>
+                                        </div>
+                                    </div>
+                                
+
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="teacher">
+                        <div class="row">
+                             
+                            <div class="col-md-12">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_name_eng"></span> / <span id="teacher_name_mm"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">NRC</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_nrc"></span>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="teacher_phone"></span>
+                                        </div>
+                                    </div>
+                                
+
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+                    
+
+
+ 
+
+
+                    <h5 class="border-bottom pb-2" style="font-weight:bold"> Status Announcement</h5>
+                    <div class="row m-2 mt-3 ">
+                            <span class="status"></span> 
+                        
+                    </div>
+                </div>
+               
+                </div>
+                
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+        <!-- Call to Action End -->
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    $('document').ready(function(){
+        console.log(student_id)
+        if(student_id != null){
+        user_profile(); 
+}
+         
+    })
+ 
+</script>
+@endpush
