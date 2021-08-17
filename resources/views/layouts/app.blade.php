@@ -131,6 +131,8 @@
 
     <!-- <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script> -->
     <script src="{{ asset('assets/js/da_register.js') }}"></script>
+    <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script>
+    <script src="{{ asset('assets/js/mentor_mac.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script> -->
 
     <script src="{{ asset('assets/js/teacher_register.js') }}"></script>
