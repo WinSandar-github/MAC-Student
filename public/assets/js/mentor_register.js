@@ -34,10 +34,10 @@ function createMentorRegister(){
   var send_data=new FormData();
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
-  send_data.append('nrc_state_region', nrc_state_region);
-  send_data.append('nrc_township', nrc_township);
-  send_data.append('nrc_citizen', nrc_citizen);
-  send_data.append('nrc_number', $("input[name=nrc_number]").val());
+  send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
+  send_data.append('nrc_township', $("#nrc_township + .nice-select span span").text().trim());
+  send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
+  send_data.append('nrc_number', $("#nrc_number").val());
   send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
   send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
   send_data.append('race', $("input[name=race]").val());
@@ -72,6 +72,8 @@ function createMentorRegister(){
   send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
   send_data.append('email', $("input[name=email]").val());
   send_data.append('password', $("input[name=password]").val());
+  send_data.append('type', $("input[name=type]").val());
+  send_data.append('status', $("input[name=status]").val());
 
   $.ajax({
       type: "POST",

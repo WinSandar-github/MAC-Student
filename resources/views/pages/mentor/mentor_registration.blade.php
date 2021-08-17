@@ -317,7 +317,7 @@
                                   <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
                                   <label class="col-md-3 col-form-label">{{ __('လက်ရှိလက်ခံဆောင်ရွက်စစ်ဆေးပေးရသည့်လုပ်ငန်းများ') }}</label>
                                   <div class="col-md-7">
-                                    <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;">
+                                    <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;" readonly>
                                         <option value="" disabled selected>Select Current Service</option>
                                     </select>
                                     <div class="col-md-5 check-service-other" style="visibility:hidden;">
@@ -443,6 +443,8 @@
                               <div class="row">
                                   <!-- <label class="col-md-1 col-form-label">{{ __('၉။') }}</label> -->
                                   <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
+                                  <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
+                                  <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
                               </div>
 
 
