@@ -218,6 +218,11 @@ function Mac_Submit(){
 
 //store cpa  app form
 $('#cpa_register').submit(function(e){
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
     e.preventDefault();
   
     let batch_id = url.substring(url.lastIndexOf('/')+1);

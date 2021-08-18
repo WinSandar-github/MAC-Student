@@ -67,10 +67,19 @@
                         @endphp
                        
                         @foreach($course as $c)
+
                         
                         
-                     
-                         @php ++$i;  @endphp
+                    
+                         @php ++$i;
+                          $course_req_arr = json_decode($c['requirement_id'],true); 
+                          $req_str_arr = explode(",",$course_req_arr[0])
+                        
+                          
+                          @endphp
+                        
+
+                        
                         <input type="hidden" value="{{$c['id']}}" id="course_id{!! $i !!}"/>
                             <div class="card col-md-12 mb-3">
                                 <!-- <div class="card-header">
@@ -87,14 +96,14 @@
                                                     @foreach($c['active_batch'] as $b)
                                                         
                                                         <div class="col-md-4 pl-4">
-                                                            <div class="row">
+                                                            <!-- <div class="row">
                                                                 <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong></div>
                                                                 <div class="col-md-4"><span>{{$b['accept_application_start_date']}} </span></div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong></div>
                                                                 <div class="col-md-4"><span>{{$b['accept_application_end_date']}} </span></div>
-                                                            </div>                                                            
+                                                            </div>                                                             -->
                                                         </div>
                                                         <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
                                                         <div class="info-btn mb-4 col-md-2 check_login{!! $i !!}">
@@ -119,12 +128,26 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-7">
-                                                    <h5 class="mt-2">Requirement</h5>
+                                                    <h5 class="mt-2">Description</h5>
                                                     <hr>
 
                                                     <ul class="requirement_lists">
                                                     
-                                                        <li><i class="icofont-man-in-glasses"></i> <strong>Requirement</strong> <span>{{$c['requirement_id']}} Kyats</span></li>
+                                                        <li><i class="icofont-man-in-glasses"></i> <strong>Requirement</strong> <span>
+                                                             @foreach($requirements as $require)
+                                                                @foreach($req_str_arr as $course_req)
+                                                               
+                                                                @if($require['id'] == $course_req)
+                                                                <p>{{$require['name']}} </p>
+                                                                 @endif
+                                                               
+                                                                
+                                                                 @endforeach
+                                                              @endforeach     
+
+                                                           
+                                                                
+                                                         </span></li>
                                                     
 
                                                     </ul>
@@ -134,7 +157,7 @@
                                                     <!-- <div class="info-price">
                                                         <span class="price">{{$c['mac_registration_fee']}} Kyats</span>
                                                     </div> -->
-                                                    <h5 class="mt-2">Course Descriptons</h5>
+                                                    <h5 class="mt-2">Course Fees</h5>
                                                     <hr>
 
                                                     <div class="info-list">
@@ -156,6 +179,11 @@
                                                             <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
                                                             <li><i class="icofont-ui-note"></i> <strong>Description</strong> <span>{{$c['description']}}</span></li>                                                            
                                                             <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
+                                                            <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
+                                                              <span>{{$b['accept_application_start_date']}} </span></li>
+                                                            <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
+                                                                <span>{{$b['accept_application_end_date']}} </span></li> 
+                                                        
                                                         </ul>
                                                     </div>
                                                 </div>
