@@ -116,7 +116,11 @@ function verifyStatus()
 // }
 
 function createAuditFirm(){
-    
+  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+  {
+      alert("Your password and confirm password do not match!");
+      return;
+  }
   var send_data=new FormData();
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());

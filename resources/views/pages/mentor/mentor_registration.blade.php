@@ -98,6 +98,15 @@
                                   </div>
                               </div>
                               <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>                                  
+                                  <div class="col-md-7">
+                                      <div class="form-group">
+                                          <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" autocomplete="off" required="">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
                                 <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
                                 <div class="col-md-3">

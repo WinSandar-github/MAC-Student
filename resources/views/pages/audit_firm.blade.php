@@ -139,12 +139,23 @@
                                                     </td>
                                                 </tr>
                                             </table><br>
-
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="5%">3</td>
+                                                    <td width="15%"><label class="col-form-label">Confirm Password</label>
+                                                    </td>
+                                                    <td width="80%">
+                                                        <div class="single-form">
+                                                            <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table><br>
                                             <div class="row">
                                                 <input type="hidden" value="1" name="audit_firm_type_id">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>3</label></td>
+                                                        <td width="5%"><label>4</label></td>
                                                         <td width="15%"><label>Accountancy Firm Registration No</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -158,7 +169,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>4</label></td>
+                                                        <td width="5%"><label>5</label></td>
                                                         <td width="15%"><label>Accountancy Firm Name</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -177,7 +188,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>5</label></td>
+                                                        <td width="5%"><label>6</label></td>
                                                         <td width="15%"><label>Address Of Practice(Head Office</label></td>
                                                         <td width="20%">
                                                             <div class="single-form">
@@ -230,7 +241,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>6</label></td>
+                                                        <td width="5%"><label>7</label></td>
                                                         <td width="15%"><label>Branch Office</label></td>
                                                         <td width="80%">
                                                             <div class="card">
@@ -286,7 +297,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>7</label></td>
+                                                        <td><label>8</label></td>
                                                         <td><label>Organization Structure</label></td>
                                                     </tr>
                                                 </table>
@@ -761,7 +772,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 43%;">8</label></td>
+                                                        <td><label style="margin-left: 43%;">9</label></td>
                                                         <td><label style="margin-left: 3%;">Sole Proprietor/Partners/Shareholders</label></td>
                                                     </tr>
                                                 </table>
@@ -817,7 +828,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 25%;">9</label></td>
+                                                        <td><label style="margin-left: 25%;">10</label></td>
                                                         <td><label>Director(s)/Officer(s)</label></td>
                                                     </tr>
                                                 </table>
@@ -868,7 +879,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label style="margin-left: 26%;">10</label></td>
+                                                        <td width="5%"><label style="margin-left: 26%;">11</label></td>
                                                         <td width="15%"><label>Name Of Sole Proprietor/Managing Partner</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -882,7 +893,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 10%;">11</label></td>
+                                                        <td><label style="margin-left: 10%;">12</label></td>
                                                         <td><label style="margin-left:-8%;">Total Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -920,7 +931,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 7%;">12</label></td>
+                                                        <td><label style="margin-left: 7%;">13</label></td>
                                                         <td><label style="margin-left:-17%;">Audit Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -958,7 +969,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label style="margin-left: 9%;">13</label></td>
+                                                        <td><label style="margin-left: 9%;">14</label></td>
                                                         <td><label style="margin-left:-5%;">Types Of Service Provided</label></td>
                                                     </tr>
                                                 </table>
@@ -969,7 +980,7 @@
 
                                             <table width="100%">
                                                 <tr>
-                                                    <td width="5%">14</td>
+                                                    <td width="5%">15</td>
                                                     <td width="15%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
                                                     </td>
                                                     <td width="80%">
@@ -983,7 +994,7 @@
 
                                             <table width="100%">
                                                 <tr>
-                                                    <td width="5%">15</td>
+                                                    <td width="5%">16</td>
                                                     <td width="15%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
                                                     </td>
                                                     <td width="80%">
