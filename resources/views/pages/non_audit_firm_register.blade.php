@@ -96,7 +96,8 @@
                                 </div>
                                 <div class="row" id="check_non_audit_status" style="display:none;">
                                     <div class="form-group">
-                                        <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+                                        <!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a> -->
+																				<p class="col-md-9 text-primary">Payment System Coming Soon</p>
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +245,7 @@
 		                                              <th class="less-font-weight">Post Code</th>
 		                                              <th class="less-font-weight">City</th>
 		                                              <th class="less-font-weight">State/Region</th>
-		                                              <th class="less-font-weight" colspan="2">Telephone</th>
+		                                              <th class="less-font-weight">Telephone</th>
 		                                              <th class="less-font-weight">Email</th>
 		                                              <th class="less-font-weight">Website</th>
 		                                              <th >
@@ -262,14 +263,16 @@
 		                                              <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off"></td>
 		                                              <td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off"></td>
 		                                              <td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off"></td>
-		                                              <td>
+		                                              {{--<td>
 		                                                  <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputTele("branch_non_audit")'>
 		                                                      <i class="fa fa-plus"></i>
 		                                                  </button>
-		                                              </td>
+		                                              </td>--}}
 		                                              <td><input type="text" name="bo_email[]" class="form-control" autocomplete="off"></td>
 		                                              <td><input type="text" name="bo_website[]" class="form-control" autocomplete="off"></td>
-		                                              <td></td>
+																									<td>
+																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch_non_audit")'><i class="fa fa-trash"></i></button>
+																									</td>
 		                                          </tr>
 		                                      </tbody>
 		                                  </table>
@@ -284,11 +287,11 @@
 
 		                  </div>
 		                  <div class="row">
-		                      <div class="col-md-3"></div>
+		                      <div class="col-md-3 col-form-label"></div>
 		                      <div class="col-md-9">
 		                          <div class="card">
 		                              <div class="card-body">
-		                                  <table id="myTable" class="table non_partner table-bordered">
+		                                  <table id="myTable" class="table non_partner table-bordered input-table">
 		                                      <thead>
 		                                          <tr>
 		                                              <th class="less-font-weight" rowspan="2">Sr</th>
@@ -307,10 +310,11 @@
 		                                              <td>1</td>
 		                                              <td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off"></td>
 		                                              <td>
-
 		                                                  <input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off">
 		                                              </td>
-		                                              <td></td>
+																									<td>
+																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartnerByNonAudit("non_partner")'><i class="fa fa-trash"></i></button>
+																									</td>
 		                                          </tr>
 		                                      </tbody>
 		                                  </table>
@@ -355,7 +359,9 @@
 
 		                                              </td>
 		                                              <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off"></td>
-		                                              <td></td>
+																									<td>
+																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorByNonAudit("non_director")'><i class="fa fa-trash"></i></button>
+																									</td>
 		                                          </tr>
 		                                      </tbody>
 		                                  </table>
@@ -1097,7 +1103,8 @@
 															</td>
 															<td width="73%">
 																	<div class="form-group">
-																			<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																			<!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
+																			<p class="col-md-9 text-primary">Payment System Coming Soon</p>
 																			<input type="hidden" value="1000" name="form_fee">
 																	</div>
 															</td>
@@ -1156,7 +1163,9 @@
 		                                                <td><input type="text" value="" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"></td>
 		                                                <td><input type="text" value="" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"></td>
 		                                                <td><input type="text" value="" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"></td>
-		                                                <td></td>
+																										<td>
+																											<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorCPA("director_cpa_initial")'><i class="fa fa-trash"></i></button>
+																										</td>
 		                                            </tr>
 		                                        </tbody>
 		                                    </table>
@@ -1166,7 +1175,7 @@
 		                    </div>
 		                  </div>
 		                  <br>
-											
+
 		                  <!-- Declaration  -->
 											<div class="row">
 													<table width="100%">
