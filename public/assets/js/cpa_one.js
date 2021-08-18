@@ -19,6 +19,16 @@ $("#photo").change(function(){
     readURL(this);
 });
 
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    } 
+    else{
+    document.getElementById("submit_btn").disabled = true;
+    }
+}
+
 // var studentID=null;
 // async function SearchStudentByNRC(){
 //     var nrc_state_region = $("#nrc_state_region").val();

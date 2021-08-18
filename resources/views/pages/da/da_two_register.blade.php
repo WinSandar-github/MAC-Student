@@ -205,7 +205,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                        <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                        <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     </div><br/>
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"></label>
@@ -214,14 +214,14 @@
 
                                                     <div class="row">
                                                         <div class="col-md-2 offset-md-5">
-                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form">{{ __('Submit Now') }}</button>
+                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                                         </div> 
                                                     </div>
 
                                                 </div>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label"></label>
@@ -229,7 +229,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-11 d-md-flex justify-content-md-end single-form">
-                                                        <button type="submit" class="btn btn-primary btn-hover-dark" form="self_study_form">{{ __('Save') }}</button>
+                                                        <button type="submit" class="btn btn-primary btn-hover-dark" form="self_study_form" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -289,7 +289,7 @@
                                                     </div><br/>
                                                     <div class="row">
                                                         <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                        <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                        <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                         
                                                     </div><br/>
                                                     <div class="row mb-3">
@@ -299,13 +299,13 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-2 offset-md-5">
-                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                                         </div> 
                                                     </div>
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     
                                                 </div><br/>
                                                 <div class="row">
@@ -372,7 +372,7 @@
                                                     </div><br/>--}}
                                                     <div class="row">
                                                         <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                        <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                        <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     </div><br/>
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"></label>
@@ -388,7 +388,7 @@
 
                                                     <div class="row">
                                                         <div class="col-md-2 offset-md-5">
-                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                                         </div> 
                                                     </div>
                                                 </div>
@@ -403,7 +403,7 @@
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-11 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label"></label>
@@ -412,7 +412,7 @@
                                                 <div class="row">
                                                     <div class="col-md-10 col-sm-10"></div>
                                                     <div class="col-md-1">
-                                                        <button type="submit" class="btn btn-primary btn-hover-dark">{{ __('Save') }}</button>
+                                                        <button type="submit" class="btn btn-primary btn-hover-dark" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
                                             </div>
