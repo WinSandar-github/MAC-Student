@@ -68,9 +68,9 @@
                 <div class="card text-white bg-dark mb-3">
                     
                     <div class="card-body">
-                        {{--<p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                        {{--<p class="card-text reject">Your Audit Firm Registration Form need to prepare.Please update your form  
                          </p>--}}
-                        <p class="card-text reject">Your need to resubmit.Please fill your form again 
+                        <p class="card-text reject">Your need to resubmit your audit firm registration form. Please fill your form again.
                           </p>
                     </div>
                 </div>
