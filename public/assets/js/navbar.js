@@ -2,12 +2,7 @@ $(document).ready(function(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student){
         var navbar  = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>
-                        <li>
-                            <a href="#">Courses</a>
-                            <ul class="sub-menu course_type">
-
-                            </ul>
-                        </li>
+                      
                         `;
         if(student.accountancy_firm_info_id != null ){
             navbar +=   `<li>
@@ -28,7 +23,13 @@ $(document).ready(function(){
 
         }else{
 
-            navbar += `<li><a href="${FRONTEND_URL}/school_register">School</a></li>
+            navbar += `  <li>
+                            <a href="#">Courses</a>
+                            <ul class="sub-menu course_type">
+
+                            </ul>
+                        </li>
+                        <li><a href="${FRONTEND_URL}/school_register">School</a></li>
             
                         <li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>
                         <li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>
@@ -39,6 +40,7 @@ $(document).ready(function(){
                                 <li><a href="${FRONTEND_URL}/student_papp">PAPP</a></li>
                             </ul>
                         </li>
+                        
                         <li><a href="contact.html">Contact</a></li>`
         }
     }else{
