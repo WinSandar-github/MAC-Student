@@ -159,7 +159,8 @@ function Papp_Submit(){
     processData: false,
     success: function(result){
         successMessage("You have successfully registerd!");
-            location.reload();
+            // location.reload();
+            location.href = FRONTEND_URL+'/';
         },
     error:function (message){
         console.log(message);
@@ -301,7 +302,8 @@ function RenewPAPP(){
                     processData: false,
                     success: function(result){
                         successMessage("Insert Successfully");
-                        location.reload();
+                        // location.reload();
+                        location.href = FRONTEND_URL+'/';
                         document.getElementById('approved').style.display='none';
                         document.getElementById('rejected').style.display='none';
                         document.getElementById('pending').style.display='none';

@@ -42,6 +42,7 @@ function auditData(){
         success: function (data){
             var audit_data = data;
             audit_data.forEach(function(element){
+              var resubmit_url = FRONTEND_URL + "/audit_firm_resubmit";
                 if(element.status == 0){
                     $('#audit_form_pending').css('display','block');
                     // pendingStatus();
@@ -57,7 +58,7 @@ function auditData(){
                     $('#audit_form_pending').css('display','none');
                     $('#audit_reject').css('display','block');
                     // $('.reject').append(`<a href="/audit_firm_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
-                    $('.reject').append(`<a href="/audit_firm_resubmit" class="btn btn-primary btn-sm xl-auto" > Go To Form </a>`)
+                    $('.reject').append(`<a href= ${resubmit_url} class="btn btn-primary btn-sm xl-auto" > Go To Form </a>`)
                 }
             })
         }
@@ -264,7 +265,8 @@ function createAuditFirm(){
                  
                   successMessage("Insert Successfully");                
                   // location.reload();
-                  location.href = "/";
+                  // location.href = "/";
+                  location.href = FRONTEND_URL+'/';
               }
             });
 }

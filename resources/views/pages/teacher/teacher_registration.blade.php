@@ -71,12 +71,27 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-            
+            <div id="teacher_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your Teacher Registeration Form is checking</p>
+                    </div>
+                </div>
+            </div>
+            <div id="teacher_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your Teacher Registeration Form is approved!</p>
+                    </div>
+                </div>
+            </div>
             <div class="row mt-5">
                                             
                 
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-                    <div class="card border-success mb-3">
+                    <div id="teacher_form" class="card border-success mb-3">
                         <div class="card-body">
                             <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:createTeacherRegister();" class="needs-validation" autocomplete="off" novalidate>
                                 <div class="row">
@@ -388,6 +403,7 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
+        teacher_reg_feedback();
     });
    
 </script>

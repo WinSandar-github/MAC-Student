@@ -186,7 +186,7 @@ function createAAMacRegister()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -212,7 +212,7 @@ function createAASelfRegister()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -238,7 +238,7 @@ function createAAPrivateRegister()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }

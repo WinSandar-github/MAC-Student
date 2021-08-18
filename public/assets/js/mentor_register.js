@@ -100,7 +100,8 @@ function createMentorRegister(){
         console.log(data);
           successMessage(data.message);
           resetForm("#mentor_register_form");
-          location.reload();
+          // location.reload();
+          location.href = FRONTEND_URL+'/';
           //$(".tbl_education").empty();
       },
       error: function (result) {

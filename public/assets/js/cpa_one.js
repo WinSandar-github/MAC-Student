@@ -127,10 +127,12 @@ function Private_School_Submit(){
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
+                location.href = FRONTEND_URL+'/';
             }   
             else{       
                 successMessage(result.message);
-                location.reload();
+                // location.reload();
+                location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){

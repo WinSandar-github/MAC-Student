@@ -262,7 +262,7 @@ function createSelfStudy()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -287,7 +287,7 @@ function createPrivateSchool()
         success: function(result){            
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -307,7 +307,7 @@ function createMac()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -361,17 +361,18 @@ function reg_feedback(){
                                     var student_data = data.data;
                                     student_data.forEach(function(element){
                                     var course_data = element.course.code;
+                                    var self_url = FRONTEND_URL+"/aa_self_form/"+ student_id;
+                                    var private_url = FRONTEND_URL+"/aa_private_form/"+ student_id;
+                                    var mac_url = FRONTEND_URL+"/aa_mac_form/"+ student_id;
                                     // console.log(course_data)
                                     // console.log(element.type);
                                         if(element.type == 0 && course_data == 'cpa_1'){
-                                            $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
-                                            // createAASelfStudy();
+                                            // $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
+                                            $('#aa').append(`<a href = ${self_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`);
                                         }else if(element.type == 1 && course_data == 'cpa_1'){
-                                            $('.aa').append(`<a href="/aa_private_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
-                                            // createAAPrivate();
+                                            $('#aa').append(`<a href = ${private_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`);
                                         }else if(element.type == 2 && course_data == 'cpa_1'){
-                                            $('.aa').append(`<a href="/aa_mac_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`)
-                                            // createAAMac();
+                                            $('#aa').append(`<a href = ${mac_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`);
                                         }
                                         else{
                                             //

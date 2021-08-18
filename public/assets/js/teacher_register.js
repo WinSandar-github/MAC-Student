@@ -116,6 +116,7 @@ function createTeacherRegister(){
         processData: false,
         success: function (data) {
             successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
             resetForm("#teacher_register_form");
             $(".tbl_degree_body").empty();
             $(".tbl_certificate_body").empty();
@@ -126,3 +127,32 @@ function createTeacherRegister(){
     });
 
 }
+
+function teacher_reg_feedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/getTeacherStatus/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            // console.log(element.approve_reject_status);
+                if(element.approve_reject_status == 0){
+                    // showPending();
+                    $('#teacher_pending').css('display','block');
+                    $('#teacher_form').css('display','none');
+
+                }else if(element.approve_reject_status == 1){
+                    $('#teacher_approve').css('display','block');
+                    $('#teacher_form').css('display','none');
+                    $('#teacher_pending').css('display','none');
+                }
+                else{
+                    //
+                }
+          })
+        }
+    }); 
+} 

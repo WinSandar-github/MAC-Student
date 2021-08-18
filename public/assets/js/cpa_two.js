@@ -123,7 +123,7 @@ $('#store_cpa_two_form').submit(function(e){
         processData: false,
         success: function(data){
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = "/student_course/2"; 
+            location.href = FRONTEND_URL+"/student_course/2"; 
         },
       error:function (message){
         errorMessage(message);
