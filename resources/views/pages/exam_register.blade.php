@@ -105,7 +105,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                    <input type="text" name="date" class="form-control" placeholder="mm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -223,7 +223,7 @@
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "M-Y",
                 allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
