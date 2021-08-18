@@ -1,11 +1,15 @@
-// var BACKEND_URL="http://localhost:8000/api";
-// var FRONTEND_URL="http://localhost:8001";
-// var BASE_URL = "http://localhost:8000";
+var BACKEND_URL="http://localhost:8000/api";
+var FRONTEND_URL="http://localhost:8001";
+var BASE_URL = "http://localhost:8000";
 
-var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
-var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+// var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
 
+<<<<<<< HEAD
 var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+=======
+// var BASE_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+>>>>>>> ca47440fe8cbd7dc7a21ca987c1bf6f00068cbd6
 
 var counter = 0;
 
@@ -56,6 +60,18 @@ function formatDate(date){
     var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
     return date;
 }
+
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    } 
+    else{
+    document.getElementById("submit_btn").disabled = true;
+    }
+}
+
+
 
 function addRowEducation(tbody){
     $(".degree").hide();
