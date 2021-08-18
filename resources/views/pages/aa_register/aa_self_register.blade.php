@@ -135,6 +135,6 @@
 <script>
     // $('#form_type').val(localStorage.getItem('course_id'));
     loadCheckServiceSelf();
-    loadMentor();
+    loadMentorSelfandPrivate();
 </script>
 @endpush
