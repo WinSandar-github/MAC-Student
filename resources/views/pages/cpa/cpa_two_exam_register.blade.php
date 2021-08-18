@@ -71,7 +71,7 @@
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
                                         <div class="col-md-12">
-                                                <div class="row">
+                                                <div class="row" id="is_private_school">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
                                                                 <label >၁။</label>

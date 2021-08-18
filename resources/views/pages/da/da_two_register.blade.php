@@ -98,7 +98,7 @@
                                 <div class="col-md-4">
                                     <div class="card text-center" onclick="selectedRegistration(2)" id="private_card">
                                         <div class="card-body">
-                                            <label  name="register_name"> Registration Private Shool</label>
+                                            <label  name="register_name"> Registration Private School</label>
                                         </div>
                                     </div>
                                 </div>

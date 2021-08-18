@@ -286,10 +286,11 @@ function selectedRegistration(radioValue){
 
 function createSelfStudy()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
-    $(':radio:checked').map(function(){send_data.append('reg_reason',$(this).val())});
+    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -307,7 +308,7 @@ function createSelfStudy()
 
 function createPrivateSchool()
 {
-    
+    localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
@@ -332,6 +333,7 @@ function createPrivateSchool()
 
 function createMac()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
@@ -433,6 +435,7 @@ function reg_feedback(){
                                         switch(result.course.code){
                                             case 'da_1':
                                             exam_url = 'exam_register';
+                                            
                                             break;
                                             case 'da_2':
                                             exam_url = 'da_two_exam_register';

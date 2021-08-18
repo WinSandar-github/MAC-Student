@@ -312,7 +312,7 @@
                                                         <label class="form-check-label">(က)</label>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း" name="reg_reason">
+                                                        <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း" name="reg_reason[]">
                                                     </div>
                                                     <div class="col-md-9">
                                                         <label class="form-check-label">ယခုနှစ်တက်ရောက်ခြင်း</label>
@@ -326,7 +326,7 @@
                                                         <label class="form-check-label">(ခ)</label>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" name="reg_reason">
+                                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" name="reg_reason[]">
                                                     </div>
                                                     <div class="col-md-9">
                                                         <label>သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
@@ -339,7 +339,7 @@
                                                         <label class="form-check-label">(ဂ)</label>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason">
+                                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" name="reg_reason[]">
                                                     </div>
                                                     <div class="col-md-9">
                                                         <label>သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
@@ -352,7 +352,7 @@
                                                         <label class="form-check-label">(ဃ)</label>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason">
+                                                        <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" name="reg_reason[]">
                                                     </div>
                                                     <div class="col-md-9">
                                                         <label>စာမေးပွဲကျရှုံးခြင်း</label>
@@ -365,7 +365,7 @@
                                                         <label class="form-check-label">(င)</label>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason">
+                                                        <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" name="reg_reason[]">
                                                     </div>
                                                     <div class="col-md-9">
                                                         <label>သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း</label>
