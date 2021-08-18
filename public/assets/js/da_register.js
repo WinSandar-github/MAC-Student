@@ -74,7 +74,7 @@ function createDARegister()
              if(result.name_mm!=null){
                 successMessage("You have successfully registerd!");                
                 // location.reload();
-                location.href = "/";
+                location.href = FRONTEND_URL ;
              }
              else{
                 successMessage(result);
