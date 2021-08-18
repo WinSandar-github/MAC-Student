@@ -3,9 +3,7 @@
 // var BASE_URL = "http://localhost:8000";
 
 var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-
-var FRONTEND_URL = window.location.href ;
+var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
 
 var BASE_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
 
