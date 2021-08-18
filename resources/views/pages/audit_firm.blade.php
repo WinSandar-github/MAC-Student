@@ -166,7 +166,7 @@
                                                 <table width="100%">
                                                     <tr>
                                                         <td width="5%"><label>4</label></td>
-                                                        <td width="15%"><label>Accountancy Firm Registration No</label></td>
+                                                        <td width="15%"><label>Accountancy Firm Registration Number</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
                                                                 <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">

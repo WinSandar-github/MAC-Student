@@ -173,7 +173,7 @@
 						<br>
 		                  <div class="row">
 		                    <label class="col-md-1 col-form-label">{{ __('4') }}</label>
-		                    <label class="col-md-2 col-form-label">{{ __('Firm Registration No') }}</label>
+		                    <label class="col-md-2 col-form-label">{{ __('Firm Registration Number') }}</label>
 		                    <div class="col-md-8">
 		                        <div class="form-group">
 		                            <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Firm Registration No" autocomplete="off">
