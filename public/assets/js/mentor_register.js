@@ -41,6 +41,11 @@ function ConfirmSubmit(){
 }
 
 function createMentorRegister(){
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
   var send_data=new FormData();
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());

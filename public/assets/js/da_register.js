@@ -11,6 +11,11 @@ function ConfirmSubmit(){
 
 function createDARegister()
 {
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
     var send_data = new FormData();
 
     var image = $('#image')[0].files[0];

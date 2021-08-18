@@ -103,6 +103,11 @@ function delRowSubject(tbody){
 }
 
 function createTeacherRegister(){
+  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+  {
+      alert("Your password and confirm password do not match!");
+      return;
+  }
     let formData = new FormData($( "#teacher_register_form" )[0]);
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
 

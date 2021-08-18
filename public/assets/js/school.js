@@ -1,4 +1,9 @@
 function createSchoolRegister(){
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
     var formData = new FormData($( "#school_register_form" )[0]); 
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
     $.ajax({

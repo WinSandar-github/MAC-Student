@@ -98,8 +98,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                        <label class="col-md-2 col-form-label">{{ __('စကားဝှက်အတည်ပြုခြင်း') }}</label>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="password" name="confirm_password" class="form-control" autocomplete='off' required>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -119,7 +128,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('အဘအမည် (မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -139,7 +148,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label ">{{ __('၅။') }}</label>
+                                    <label class="col-md-1 col-form-label ">{{ __('၆။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="row" >
@@ -180,7 +189,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('တယ်လီဖုန်းနံပါတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -192,7 +201,7 @@
                                
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း (ရရှိထားသော တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ)') }}</label>
                                     <div class="col-md-8">
                                         <table class="table tbl_degree table-bordered input-table">
@@ -217,7 +226,7 @@
                                    
                                 </div>
                                 <div class="row" style="clear:both;">
-                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
                                     <div class="col-md-7">
                                         <div class="row">
@@ -238,7 +247,7 @@
                                 </div></br>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                     <label class="col-md-4 col-form-label">{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</label>
                                     <div class="col-md-6 pull-right" style="text-align:right;">
                                         <label class="invalid-feedback col-form-label certificate text-danger">သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ ထည့်ပါ</label><br>
@@ -285,7 +294,7 @@
                                 </div>                                                             
                                     
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">

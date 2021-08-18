@@ -73,6 +73,53 @@
                             @csrf
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+                                <table width="100%">
+                                        <tr>
+                                            <td width="25%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">အီးမေးလ်</label>
+                                                </div>
+                                            </td>
+                                            <td width="75%">
+                                                <div class="single-form">
+                                                    <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                </div>
+                                                @if ($errors->has('email'))
+                                                    <span class="text-danger">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="25%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">Password</label>
+                                                </div>
+                                            </td>
+                                            <td width="75%">
+                                                <div class="single-form">
+                                                    <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="25%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">Confirm Password</label>
+                                                </div>
+                                            </td>
+                                            <td width="75%">
+                                                <div class="single-form">
+                                                    <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control" required="">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <table width="100%">
                                         <tr>
                                             <td width="25%">
@@ -479,39 +526,7 @@
                                         </tr>
                                     </table>
 
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="25%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">အီးမေးလ်</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
-                                                </div>
-                                                @if ($errors->has('email'))
-                                                    <span class="text-danger">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="25%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Password</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    
                                     <!-- <div class="col-md-12" style="padding-top: 2%;">
                                         <div class="single-form text-center">
                                             <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
