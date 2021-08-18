@@ -116,7 +116,11 @@ function verifyStatus()
 // }
 
 function createAuditFirm(){
-
+  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+  {
+      alert("Your password and confirm password do not match!");
+      return;
+  }
   var send_data=new FormData();
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
@@ -640,7 +644,7 @@ function loadTypeOfService(){
       data:"",
       success: function(result){
       var type_service_provided=result.data;
-      $('.type_service_provided').append("<div class='col-md-4'></div>");
+      $('.type_service_provided').append("<div class='col-md-2'></div>");
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
           var radio_data="<div class='col-md-2'>"+

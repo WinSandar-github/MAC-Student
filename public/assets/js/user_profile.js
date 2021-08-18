@@ -358,9 +358,7 @@ function user_profile(){
                     get_course_by_code(course_code).then( data => {
                         
                         // let batch = data.data[0].active_batch[0];
-                        console.log(FRONTEND_URL)
                         
-                        console.log(form_url)
                         if(data){
                              
                             let batch = data.data[0].active_batch[0];

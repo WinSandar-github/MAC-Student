@@ -68,9 +68,9 @@
                 <div class="card text-white bg-dark mb-3">
 
                     <div class="card-body">
-                        {{--<p class="card-text reject">Your Registration Form need to prepare.Please update your form
+                        {{--<p class="card-text reject">Your Audit Firm Registration Form need to prepare.Please update your form
                          </p>--}}
-                        <p class="card-text reject">Your need to resubmit.Please fill your form again
+                        <p class="card-text reject">Your need to resubmit your audit firm registration form. Please fill your form again.
                           </p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                                               <table width="100%">
                                                   <tr>
                                                       <td width="5%">1</td>
-                                                      <td width="15%"><label>Email</label>
+                                                      <td width="15%"><label class="col-form-label">Email</label>
                                                       </td>
                                                       <td width="80%">
                                                           <div class="single-form">
@@ -128,13 +128,13 @@
                                                       </td>
                                                   </tr>
                                               </table>
-                                            </div><br>
+                                            </div>
 
                                             <div class="row">
                                               <table width="100%">
                                                   <tr>
                                                       <td width="5%">2</td>
-                                                      <td width="15%"><label>Password</label>
+                                                      <td width="15%"><label class="col-form-label">Password</label>
                                                       </td>
                                                       <td width="80%">
                                                           <div class="single-form">
@@ -143,13 +143,29 @@
                                                       </td>
                                                   </tr>
                                               </table>
-                                            </div><br>
+                                            </div>
+
+                                            <div class="row">
+                                              <table width="100%">
+                                                  <tr>
+                                                      <td width="5%">3</td>
+                                                      <td width="15%"><label class="col-form-label">Confirm Password</label>
+                                                      </td>
+                                                      <td width="80%">
+                                                          <div class="single-form">
+                                                              <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
+                                                          </div>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                            </div>
+                                            <br>
 
                                             <div class="row">
                                                 <input type="hidden" value="1" name="audit_firm_type_id">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>3</label></td>
+                                                        <td width="5%"><label>4</label></td>
                                                         <td width="15%"><label>Accountancy Firm Registration No</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -163,7 +179,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>4</label></td>
+                                                        <td width="5%"><label>5</label></td>
                                                         <td width="15%"><label>Accountancy Firm Name</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
@@ -182,7 +198,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>5</label></td>
+                                                        <td width="5%"><label>6</label></td>
                                                         <td width="15%"><label>Address Of Practice(Head Office</label></td>
                                                         <td width="20%">
                                                             <div class="single-form">
@@ -235,7 +251,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>6</label></td>
+                                                        <td width="5%"><label>7</label></td>
                                                         <td width="15%"><label>Branch Office</label></td>
                                                         <td width="80%">
                                                             <div class="card">
@@ -293,7 +309,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>7</label></td>
+                                                        <td style="width:5%;"><label>8</label></td>
                                                         <td><label>Organization Structure</label></td>
                                                     </tr>
                                                 </table>
@@ -768,7 +784,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td style="width:6%"><label>8</label></td>
+                                                        <td style="width:5%"><label>9</label></td>
                                                         <td><label>Sole Proprietor/Partners/Shareholders</label></td>
                                                     </tr>
                                                 </table>
@@ -826,7 +842,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td style="width:6%;"><label>9</label></td>
+                                                        <td style="width:5%;"><label>10</label></td>
                                                         <td><label>Director(s)/Officer(s)</label></td>
                                                     </tr>
                                                 </table>
@@ -879,17 +895,8 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><label>10</label></td>
-                                                        <td><label>Name Of Sole Proprietor/Managing Partner</label></td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>
-
-                                            <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"></td>
-                                                        <td width="15%"></td>
+                                                        <td width="5%"><label>11</label></td>
+                                                        <td width="15%"><label>Name Of Sole Proprietor/Managing Partner</label></td>
                                                         <td width="80%">
                                                             <div class="single-form">
                                                                 <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" required="">
@@ -902,7 +909,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td style="width:6%;"><label>11</label></td>
+                                                        <td style="width:5%;"><label>12</label></td>
                                                         <td><label>Total Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -940,7 +947,7 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td style="width:6%;"><label>12</label></td>
+                                                        <td style="width:5%;"><label>13</label></td>
                                                         <td><label>Audit Staff</label></td>
                                                     </tr>
                                                 </table>
@@ -978,8 +985,8 @@
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td style="width:6%;"><label>13</label></td>
-                                                        <td style="width:19%;"><label>Types Of Service Provided</label></td>
+                                                        <td style="width:5%;"><label>14</label></td>
+                                                        <td style="width:5%;"><label>Types Of Service Provided</label></td>
                                                         <td><div class="row type_service_provided"></div></td>
                                                     </tr>
                                                 </table>
@@ -990,10 +997,10 @@
                                             <div class="row">
                                               <table width="100%">
                                                   <tr>
-                                                      <td width="6%">14</td>
+                                                      <td width="5%">15</td>
                                                       <td width="15%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
                                                       </td>
-                                                      <td width="60%">
+                                                      <td width="80%">
                                                           <div class="form-group">
                                                               <!-- <a href="#" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
                                                               <p class="col-md-9 text-primary">Payment System Coming Soon</p>
@@ -1003,15 +1010,14 @@
                                                   </tr>
                                               </table>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                               <table width="100%">
                                                   <tr>
-                                                      <td width="6%">15</td>
+                                                      <td width="5%">16</td>
                                                       <td width="15%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
                                                       </td>
-                                                      <td width="60%">
+                                                      <td width="80%">
                                                           <div class="form-group">
                                                               <div class="form-group">
                                                               <!-- <a href="#" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
@@ -1023,7 +1029,6 @@
                                                   </tr>
                                               </table>
                                             </div>
-                                            <br>
 
                                             <div class="row">
                                                 <table width="100%">

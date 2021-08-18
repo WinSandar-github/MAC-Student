@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">CPA One Exam Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>

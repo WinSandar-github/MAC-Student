@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -68,7 +68,7 @@
                         
                         <div class="card-body">
                             <!-- status == 2 => reject -->
-                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                            <p class="card-text reject">Your CPA 1 Registration Form need to prepare.Please update your form  
                                 </p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body">
-                            <p class="card-text">Your Registration Form is checking</p>
+                            <p class="card-text">Your CPA 1 Registration Form is checking</p>
                         </div>
                     </div>
                 </div>
