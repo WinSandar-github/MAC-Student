@@ -1182,7 +1182,7 @@
 		                  <div class="row">
 													<div class="col-md-12" style="padding-top: 2%;">
 															<div class="single-form text-center">
-																	<button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Submit Now') }}</button>
+																	<button  type="submit" class="btn btn-primary btn-round "  form="non-audit-form">{{ __('Submit') }}</button>
 															</div>
 													</div>
 		                  </div>

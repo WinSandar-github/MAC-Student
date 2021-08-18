@@ -81,7 +81,7 @@
                                         </tr>
                                     </table>
 
-                                    <table width="100%">
+                                    {{--<table width="100%">
                                         <tr>
                                             <td>
                                                 <div class="single-form">
@@ -89,7 +89,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table>--}}
 
                                     <table width="100%">
                                         <tr>
@@ -202,7 +202,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-3 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
 

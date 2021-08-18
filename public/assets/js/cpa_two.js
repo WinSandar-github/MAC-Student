@@ -5,6 +5,16 @@ $("input[id='cpa_one_pass_date']").flatpickr({
 });
 var cpaOneID;
 
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    } 
+    else{
+    document.getElementById("submit_btn").disabled = true;
+    }
+}
+
 function CPA2_Private_School_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();

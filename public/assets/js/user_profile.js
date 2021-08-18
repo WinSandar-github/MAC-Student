@@ -276,11 +276,11 @@ function user_profile(){
             
                                 }
                             }else                    {
-                                $('.status').append('Your Registration Form is checking')
+                                $('.status').append('<P>Your Registration Form is checking</P>')
                             }    
                                 
                         }else{
-                            $('.status').append('Your Application Form is Approve.')
+                           
 
                             switch(current_class.batch.course.code){
                                 case 'da_1':
