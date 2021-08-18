@@ -1,3 +1,37 @@
+function ConfirmSubmitSS(){
+    var radio = document.getElementById("submit_confirm_ss");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_ss").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_ss").disabled = true;
+    }
+}
+function ConfirmSubmitPP(){
+    var radio = document.getElementById("submit_confirm_pp");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_pp").disabled= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_pp").disabled = true;
+    }
+}
+function ConfirmSubmitMac(){
+    var radio = document.getElementById("submit_confirm_mac");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_mac").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_mac").disabled = true;
+    }
+}
+
 function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     let url = location.pathname;

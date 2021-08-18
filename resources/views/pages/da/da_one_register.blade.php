@@ -208,7 +208,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                 </div><br/>
                                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label"></label>
@@ -216,7 +216,7 @@
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form" id="submit_btn" disabled>{{ __('Submit') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form" id="submit_btn_ss" disabled>{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -258,7 +258,7 @@
                                                 </div><br/>
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     
                                                 </div><br/>
                                                 <div class="row mb-3">
@@ -268,7 +268,7 @@
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>Submit</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_pp" disabled>Submit</button>
                                                     </div>                                                    
                                                 </div>
 
@@ -333,7 +333,7 @@
                                                 </div><br/> -->
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-11 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm_mac" onclick="ConfirmSubmitMac()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                 </div><br/>
                                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label"></label>
@@ -341,7 +341,7 @@
                                                 </div>
                                                 <div class="row mt-3">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_mac" disabled>{{ __('Submit') }}</button>
                                                     </div> 
                                                 </div>
                                             </div>
