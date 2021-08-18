@@ -2,8 +2,10 @@
 // var FRONTEND_URL="http://localhost:8001";
 // var BASE_URL = "http://localhost:8000";
 
-// var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+
 var counter = 0;
 
 var toastOptions = {
@@ -30,6 +32,8 @@ function successMessage(message) {
 }
 
 $('document').ready(function(){
+    
+     
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',

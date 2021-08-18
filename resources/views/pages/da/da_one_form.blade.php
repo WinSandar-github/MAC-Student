@@ -519,7 +519,7 @@
                                     </div> -->
                                     <div class="row m-4">
                                         <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -556,7 +556,7 @@
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "M-Y",
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {

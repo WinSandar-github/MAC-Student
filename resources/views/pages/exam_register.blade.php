@@ -81,7 +81,7 @@
                                         </tr>
                                     </table>
 
-                                    <table width="100%">
+                                    {{--<table width="100%">
                                         <tr>
                                             <td>
                                                 <div class="single-form">
@@ -89,7 +89,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table>--}}
 
                                     <table width="100%">
                                         <tr>
@@ -105,7 +105,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                    <input type="text" name="date" class="form-control" placeholder="mm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -202,7 +202,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-3 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
 
@@ -223,7 +223,7 @@
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "M-Y",
                 allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
