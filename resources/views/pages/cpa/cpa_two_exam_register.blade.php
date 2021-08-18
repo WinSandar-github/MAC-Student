@@ -207,7 +207,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                        <div class="col-md-1">
+                                                        {{--<div class="col-md-1">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">၃။</label>
                                                             </div>
@@ -217,10 +217,10 @@
                                                             <div class="single-form">
                                                                 <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့်ပြေစာအမှတ်</label>
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
                                                         <div class="col-md-5">
                                                             <!-- <div class="single-form"> --><br/>
-                                                                <input type="file" id="invoice_image" class="form-control"  name="invoice_image" required="">
+                                                                <input type="hidden" id="invoice_image" class="form-control"  name="invoice_image" required="" value="invoice_image">
                                                             <!-- </div> -->
                                                         </div>
                                                     </div>
