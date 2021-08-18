@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">CPA Exam Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -434,7 +434,7 @@
                                       </td>
                                       <td width="15%">
                                         <div class="single-form">
-                                            <input type="text" name="paid_exam_fees_receipt_no" class="form-control" placeholder="" required>
+                                            <input type="hidden" name="paid_exam_fees_receipt_no" class="form-control" placeholder="" required>
                                         </div>
                                       </td>
                                       <td width="5%">

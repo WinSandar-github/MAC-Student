@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA One Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -226,7 +226,21 @@
                             <br/><br>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <label class="col-form-label">{{ _('၆။') }}</label>                                   
+                                        
+                                            <label class="col-form-label">{{ _('၆။') }}</label>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
+                                    </div>
+                                    <div class="col-md-5 single-form">
+                                            <input type="text" class="form-control" id="batch_part_no" value="" >
+                                    </div>
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label class="col-form-label">{{ _('၇။') }}</label>                                   
                                     </div>
                                     <div class="col-md-6">
                                             <label class="col-form-label">{{ _('ဖြေဆိုမည့် Module') }}</label>                                   
@@ -254,7 +268,7 @@
                                 
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></div>
                                     <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 </div><br/>

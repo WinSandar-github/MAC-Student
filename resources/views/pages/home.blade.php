@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="call-to-action-btn">
-                                <a class="btn btn-primary btn-hover-dark" href="contact.html">Drop Information</a>
+                                <a class="btn btn-primary btn-hover-dark" href="{{('contact')}}">Drop Information</a>
                             </div>
                         </div>
                     </div>
@@ -370,10 +370,6 @@
                         
                     </div>
                     
-
-
- 
-
 
                     <h5 class="border-bottom pb-2" style="font-weight:bold"> Status Announcement</h5>
                     <div class="row m-2 mt-3 ">
