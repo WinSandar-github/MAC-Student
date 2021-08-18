@@ -66,7 +66,7 @@ $(document).ready(function(){
                     <li><a href="${FRONTEND_URL}/school_register">School</a></li>
                     <li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>
                     <li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>
-                    <li><a href="contact.html">Contact</a></li>`
+                     <li><a href="contact.html">Contact</a></li>`
 
     }
      $('#navbar').append(navbar);
