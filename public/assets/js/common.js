@@ -4,6 +4,8 @@
 
 var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+
 var counter = 0;
 
 var toastOptions = {
@@ -52,16 +54,6 @@ function formatDate(date){
     var income_date=date.split('-');
     var date=income_date[2]+'-'+income_date[1]+'-'+income_date[0];
     return date;
-}
-
-function ConfirmSubmit(){
-    var radio = document.getElementById("submit_confirm");
-    if (radio.checked == true){
-        document.getElementById("submit_btn").disabled= false;
-    } 
-    else{
-    document.getElementById("submit_btn").disabled = true;
-    }
 }
 
 function addRowEducation(tbody){

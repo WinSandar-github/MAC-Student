@@ -556,7 +556,7 @@
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "M-Y",
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
