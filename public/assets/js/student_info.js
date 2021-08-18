@@ -256,13 +256,13 @@ function loadCourse(){
     
 }
 function selectedRegistration(radioValue){
-    if(radioValue==1){
-        $('#self_study_container').css('display','block');
-        $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','none');
-        $('#self_study_card').addClass("text-success border-success");
+    if(radioValue==3){
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none');        
+        $('#mac_card').addClass("text-success border-success");
         $("#private_card").removeClass("text-success border-success");
-        $('#mac_card').removeClass("text-success border-success");
+        $('#self_study_card').removeClass("text-success border-success");
     }else if(radioValue==2){
         $('#private_school_container').css('display','block');
         $('#self_study_container').css('display','none');
@@ -270,13 +270,17 @@ function selectedRegistration(radioValue){
         $('#self_study_card').removeClass("text-success border-success");
         $("#private_card").addClass("text-success border-success");
         $('#mac_card').removeClass("text-success border-success");
-    }else if(radioValue==3){
-        $('#self_study_container').css('display','none');
+    }else if(radioValue==1){
+        $('#self_study_container').css('display','block');
         $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','block');
-        $('#self_study_card').removeClass("text-success border-success");
+        $('#mac_container').css('display','none');
+        $('#self_study_card').addClass("text-success border-success");
         $('#private_card').removeClass("text-success border-success");
-        $("#mac_card").addClass("text-success border-success");
+        $("#mac_card").removeClass("text-success border-success");
+    }else{
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none'); 
     }
 }
 

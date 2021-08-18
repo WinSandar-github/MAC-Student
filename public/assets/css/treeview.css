@@ -14,3 +14,7 @@
 .custom-btn{
     margin: 0px 0px 0px 0px!important;
 }
+
+#self_study_container{
+    display: none;
+}
