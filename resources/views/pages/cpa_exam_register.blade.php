@@ -279,7 +279,7 @@
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
-                                            <label class="col-form-label"id="label2">၂။</label>
+                                            <label class="col-form-label" id="label2">၂။</label>
                                         </div>
                                       </td>
                                       <td width="95%">
