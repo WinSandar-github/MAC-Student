@@ -187,31 +187,34 @@ function isLoginCPAFF(){
                 console.log(exam,"exam"); 
                 if(exam!=null) {
                     console.log(exam[0].course.code,exam.grade);
-                if(exam[0].course.code=="cpa_2" && exam[0].grade=="1"){
-                    console.log("test");
-                    var a=new Date(student.date_of_birth);
-                    var diff_ms = Date.now() - a.getTime();
-                    var age_dt = new Date(diff_ms); 
-                    var age=Math.abs(age_dt.getUTCFullYear() - 1970);
-                    if(age>=21){
-                        $("#age").append(age+" years");
-                        document.getElementById('fieldset').disabled=false;
-                        document.getElementById('pass_cpa_two').style.display='none';
-                    }
-                    else{
-                        $("#age").append(age+" years");
-                        document.getElementById('fieldset').disabled=true;
-                        document.getElementById('check_age').style.display='block';
-                        document.getElementById('pass_cpa_two').style.display='none';
-                    }
-                }
-                else{
-                    console.log("test test");
-                    document.getElementById('fieldset').disabled=true;
-                    document.getElementById('pass_cpa_two').style.display='block';
-                }
-            }
+                    exam.forEach(function(element){
+                        if(element.course.code=="cpa_2" && element.grade=="1"){
+                            console.log("test");
+                            var a=new Date(student.date_of_birth);
+                            var diff_ms = Date.now() - a.getTime();
+                            var age_dt = new Date(diff_ms); 
+                            var age=Math.abs(age_dt.getUTCFullYear() - 1970);
+                            if(age>=21){
+                                $("#age").append(age+" years");
+                                document.getElementById('fieldset').disabled=false;
+                                document.getElementById('pass_cpa_two').style.display='none';
+                            }
+                            else{
+                                $("#age").append(age+" years");
+                                document.getElementById('fieldset').disabled=true;
+                                document.getElementById('check_age').style.display='block';
+                                document.getElementById('pass_cpa_two').style.display='none';
+                            }
+                        }
+                        else{
+                            console.log("test test");
+                            document.getElementById('fieldset').disabled=true;
+                            document.getElementById('pass_cpa_two').style.display='block';
+                        }
+                        
                 
+                    });
+                }
             },
             error:function (message){
                 console.log(message);
