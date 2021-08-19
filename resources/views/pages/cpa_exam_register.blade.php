@@ -269,7 +269,7 @@
                                       </td>
                                       <td width="65%">
                                         <div class="single-form">
-                                            <input type="text" name="private_school_name" class="form-control" placeholder="" required>
+                                            <input type="text" name="private_school_name" class="form-control" placeholder="">
                                         </div>
                                       </td>
                                     </tr>

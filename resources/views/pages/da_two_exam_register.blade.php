@@ -137,7 +137,7 @@
                                                     <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                     <div class="col-md-7 single-form">
-                                                        <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="" required="">
+                                                        <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="" >
                                                     </div>
                                                 </div><br/>
 
