@@ -6,8 +6,8 @@ $(document).ready(function(){
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
-      $("#email_num").text("13");
-      $("#password_num").text("14");
+      // $("#email_num").text("13");
+      // $("#password_num").text("14");
     }
     else if($(this).val() == "2"){
       //foreign
@@ -15,8 +15,8 @@ $(document).ready(function(){
       $("#local_header").css("display","none");
       $("#director_staffmembers").css("display","block");
       $("input[name=local_foreign_type]").val("2");
-      $("#email_num").text("14");
-      $("#password_num").text("15");
+      // $("#email_num").text("14");
+      // $("#password_num").text("15");
     }
     else{
       //local
@@ -24,8 +24,8 @@ $(document).ready(function(){
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
-      $("#email_num").text("13");
-      $("#password_num").text("14");
+      // $("#email_num").text("13");
+      // $("#password_num").text("14");
     }
   });
 });
@@ -254,7 +254,7 @@ function createNonAuditFirm(){
           contentType: false,
           processData: false,
           success: function(result){
-            successMessage(result);
+            successMessage("Insert Successfully");
             //location.reload();
             location.href = FRONTEND_URL+"/";
         }
