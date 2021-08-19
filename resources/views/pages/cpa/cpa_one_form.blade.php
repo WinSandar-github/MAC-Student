@@ -74,8 +74,8 @@
                                     <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
                                     <br/>
-                                
-                                
+
+
                                 <form method="Post" id="cpa_register" enctype="multipart/form-data">
                                     @csrf
                                     <div class="col-md-12">
@@ -83,9 +83,9 @@
                                                  <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('၁။') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                            
+
                                                 <div class="col-md-2">
                                                     <div class="single-form">
                                                         <label>အီးမေးလ်</label>
@@ -107,9 +107,9 @@
                                             <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('၂။') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                            
+
                                                 <div class="col-md-2">
                                                     <div class="single-form">
                                                         <label>Password</label>
@@ -126,9 +126,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၃။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>Confirm Password</label>
@@ -144,7 +144,7 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၄။') }}</label>
-                                                </div>    
+                                                </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="single-form">
@@ -161,9 +161,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၅။') }}</label>
-                                                </div>    
+                                                </div>
                                             </div>
-                                        
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>အမည်(အင်္ဂလိပ်)</label>
@@ -179,9 +179,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၆။') }}</label>
-                                                </div>    
+                                                </div>
                                             </div>
-                                        
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်</label>
@@ -190,7 +190,7 @@
                                             <div class="col-md-8">
                                                 <div class="single-form">
                                                     <div class="row">
-                                                    
+
                                                         <div class="courses-select col-md-2">
                                                             <select class="form-control" name="nrc_state_region" id="nrc_state_region">
                                                                 @foreach($nrc_regions as $region)
@@ -200,7 +200,7 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                
+
                                                         <div class="courses-select col-md-3">
                                                             <select class="form-control" name="nrc_township" id="nrc_township">
                                                                 @foreach($nrc_townships as $township)
@@ -210,7 +210,7 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                    
+
                                                         <div class="courses-select col-md-2">
                                                             <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
                                                                 @foreach($nrc_citizens as $citizen)
@@ -220,12 +220,12 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                    
+
                                                         <div class="col-md-5">
                                                             <div class="single-form">
                                                                 <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');" required="" maxlength="6">
                                                         </div>
-                                                    </div>    
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -234,9 +234,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၇။') }}</label>
-                                                </div>    
+                                                </div>
                                             </div>
-                                        
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>အဘအမည်(မြန်မာ)</label>
@@ -252,9 +252,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၈။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>အဘအမည်(အင်္ဂလိပ်)</label>
@@ -265,15 +265,15 @@
                                                     <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}" required="">
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၉။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>လူမျိူး</label>
@@ -289,9 +289,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၀။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>ဘာသာ</label>
@@ -307,9 +307,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __(' ၁၁။') }}</label>
-                                                </div>   
-                                            </div>                                            
-                                            
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>မွေးသဣရာဇ်</label>
@@ -325,7 +325,7 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၂။') }}</label>
-                                                </div>    
+                                                </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="single-form">
@@ -342,9 +342,9 @@
                                             <div   div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၃။') }}</label>
-                                                </div>    
-                                            </div>    
-                                            
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>နေရပ်လိပ်စာ</label>
@@ -360,10 +360,10 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၄။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
 
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>အမြဲတမ်းနေရပ်လိပ်စာ</label>
@@ -378,7 +378,7 @@
 
                                         <input type="hidden" name="registration_no" value="1">
                                         <!-- <div class="row">
-                                            
+
                                                 <div class="col-md-2">
                                                     <div class="single-form">
                                                         <label>ရက်စွဲ</label>
@@ -396,9 +396,9 @@
                                         <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၅။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>Upload Photo</label>
@@ -415,9 +415,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၆။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>လက်ရှိအလုပ်အကိုင်</label>
@@ -433,9 +433,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>ရာထူး</label>
@@ -451,9 +451,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>ဌာန</label>
@@ -469,9 +469,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>အဖွဲ့အစည်း</label>
@@ -487,9 +487,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>ကုမ္ပဏီအမည်</label>
@@ -505,10 +505,10 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                        
-                                        
+
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>လစာနှင့်လစာနှုန်း</label>
@@ -524,10 +524,10 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
-                                            
+
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>ရုံးလိပ်စာ</label>
@@ -543,10 +543,10 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
-                                            
+
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
@@ -566,7 +566,7 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၇။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
                                             <div class="col-md-11">
                                                 <div class="single-form">
@@ -574,7 +574,7 @@
                                                 </div>
 
                                             </div>
-                                            
+
 
                                         </div>
 
@@ -582,10 +582,10 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
-                                            
+
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>(က) တက္ကသိုလ်အမည်</label>
@@ -601,10 +601,10 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
-                                            
+
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>(ခ) ဘွဲ့အမည်</label>
@@ -620,9 +620,9 @@
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
-                                            
+
                                             <div class="col-md-2">
                                                 <div class="single-form">
                                                     <label>(ဃ) ခုံအမှတ်</label>
@@ -638,10 +638,10 @@
                                                 <div class="col-md-1">
                                                     <div class="single-form">
                                                         <label> </label>
-                                                    </div>   
+                                                    </div>
                                                 </div>
-                                        
-                                        
+
+
                                                 <div class="col-md-2">
                                                     <div class="single-form">
                                                         <label> (ဃ) Certificate</label>
@@ -650,19 +650,19 @@
                                                 <div class="col-md-8">
                                                     <div class="single-form">
                                                         <input type="file" placeholder="upload photo" name="certificates"  value="{{ old('document') }}"  style="padding: 2%;">
-                                                      
+
                                                     </div>
                                                 </div>
 
                                             </div>
-                                        
-                                       
+
+
 
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
                                                     <label>{{ __('၁၈။') }}</label>
-                                                </div>   
+                                                </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="single-form">
@@ -682,7 +682,7 @@
                                                     <input type="radio" value="2" name="selected_name" onclick="selectEntry()"   > <label class='form-check-label'> Entry Pass</label>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                         <!-- Direct or DA Pass -->
@@ -692,10 +692,10 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                            
-                                            
+
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>Attched Certificate</label>
@@ -713,7 +713,7 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-11">
                                                         <div class="single-form">
@@ -721,17 +721,17 @@
                                                         </div>
 
                                                     </div>
-                                                    
-                                                    
+
+
                                                 </div>
-                                                
+
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>(က) အောင်မြင်ထားသည်အဆင့် </label>
@@ -743,15 +743,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                
+
+
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>(ခ) ခုနှစ်/လ</label>
@@ -772,9 +772,9 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>(ဂ) မှတ်ပုံတင်အမှတ်</label>
@@ -790,10 +790,10 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label> </label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                            
-                                            
+
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>(ဃ) Attched Certificate</label>
@@ -807,9 +807,9 @@
 
                                                 </div>
                                             </div>
-                                         
-                                            
-                                         </div> 
+
+
+                                         </div>
                                         <div class="row" id="entry_pass">
                                             <div class="col-md-12  " >
                                                  <!--
@@ -817,9 +817,9 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>ခုနှစ်/လ</label>
@@ -840,10 +840,10 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label> </label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                            
-                                            
+
+
                                                     <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>Attched Certificate</label>
@@ -861,30 +861,30 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                      <div class="col-md-2">
                                                         <div class="single-form">
                                                             <label>ဝင်ခွင့်စာမေးပွဲ ဖြေဆိုမယ်</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8 mt-4" >
-                                                        
+
                                                             <input type="checkbox" name="qt_entry"  id="qt_entry" value="1"  >
-                                                        
+
                                                     </div>
-                
+
                                                 </div>
                                                 </div>
                                                 <div class="col-md-4 offset-md-1 mt-1 " id="non_active">
                                                     <p class="">ဝင်ခွင့်စာမေးပွဲ မရှိသေးပါ</p>
                                                 </div>
 
-                                               
-                                                
+
+
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="row m-4">
                                             <div class="col-md-2 offset-md-5">
                                                 <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
@@ -899,10 +899,10 @@
                         </div>
 
                         </div>
-                        
+
                     </div>
                 <!-- Form Wrapper Start -->
-                   
+
                 <!-- Form Wrapper End -->
                 </div><br><br>
             </div>
@@ -925,51 +925,51 @@
                                             <div class="row">
                                                 <div class=col-md-3>
                                                     <div class="single-form">
-                                                        
+
                                                         <label >Batch Name</label>
                                                     </div>
-                                                
+
                                                 </div>
                                                 <div class=col-md-9>
                                                     <div class="single-form">
                                                         <p id="batch_name" > </p>
                                                     </div>
-                                                </div>             
-                                                
-                                                               
+                                                </div>
+
+
                                             </div>
                                             <div class="row">
                                             <div class=col-md-3>
                                                     <div class="single-form">
                                                         <label>Payment</label>
-                                                         
+
                                                     </div>
-                                                </div>   
+                                                </div>
                                             <div class=col-md-9>
                                                 <div class="single-form">
                                                     <p class="text-primary">Payment System Coming Soon...</p>
                                                 </div>
-                                            </div>           
+                                            </div>
                                             </div>
                                             <div class="row">
-                                                    
+
                                                     <div class="col-md-12">
                                                         <div class="single-form">
                                                             <label>ACCA/CIMA တက်ရောက်နေသူ -</label>
                                                         </div>
 
                                                     </div>
-                                                    
-                                                    
+
+
                                                 </div>
-                                                
+
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('(က)') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-3">
                                                         <div class="single-form">
                                                             <label> အောင်မြင်ထားသည်အဆင့် </label>
@@ -981,15 +981,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                
+
+
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('(ခ)') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-3">
                                                         <div class="single-form">
                                                             <label> ခုနှစ်/လ</label>
@@ -1000,15 +1000,15 @@
                                                             <input type="text" placeholder="ခုနှစ်/လ" id="degree_date" name="degree_date" class="form-control year"  >
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            
-                                                        </div>   
+
+                                                        </div>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-3">
                                                         <div class="single-form">
                                                             <label> မှတ်ပုံတင်အမှတ်</label>
@@ -1024,10 +1024,10 @@
                                                     <div class="col-md-1">
                                                         <div class="single-form">
                                                             <label>{{ __('(ဃ)') }}</label>
-                                                        </div>   
+                                                        </div>
                                                     </div>
-                                            
-                                            
+
+
                                                     <div class="col-md-3">
                                                         <div class="single-form">
                                                             <label> Attched Certificate</label>
@@ -1039,24 +1039,24 @@
                                                         </div>
                                                     </div>
 
-                                                </div>                                   
+                                                </div>
 
                                                 <div class="row m-4">
                                                     <div class="col-md-2 offset-md-5">
                                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
-                                            
-                                            
-                                        </div> 
+
+
+                                        </div>
                                     </div>
                                 </form>
                             </div>
 
                         </div>
-                        
+
                     </div>
-                
+
                 </div><br><br>
 
 
@@ -1083,18 +1083,20 @@
         direct_or_da();
 
 
-       
 
         // $("#degree_date").flatpickr({
         //         enableTime: false,
         //         dateFormat: "d-m-Y",
-
-        // });
-        $("input[name='degree_date']").flatpickr({
+        $("#degree_date").flatpickr({
                 enableTime: false,
-                dateFormat: "M-Y",
-                allowInput: true,
+                 dateFormat: "M-Y",
+
         });
+        // $("input[name='degree_date']").flatpickr({
+        //         enableTime: false,
+        //         dateFormat: "M-Y",
+        //         allowInput: true,
+        // });
         $(".month").flatpickr({
                 enableTime: false,
                  dateFormat: "m",
@@ -1152,10 +1154,10 @@
             }
         }
 
-         
 
-        
+
+
     });
-     
+
 </script>
 @endpush

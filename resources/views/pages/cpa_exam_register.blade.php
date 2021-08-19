@@ -434,7 +434,7 @@
                                       </td>
                                       <td width="15%">
                                         <div class="single-form">
-                                            <input type="text" name="paid_exam_fees_receipt_no" class="form-control" placeholder="" required>
+                                            <input type="hidden" name="paid_exam_fees_receipt_no" class="form-control" placeholder="" required>
                                         </div>
                                       </td>
                                       <td width="5%">

@@ -9,8 +9,11 @@ function studentLogin(){
             password:password
             },
         success: function(result){
+<<<<<<< HEAD
+=======
             console.log(result)
             
+>>>>>>> 3c0201f5067e19ae13704aea00a0a277a693acaf
 
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));

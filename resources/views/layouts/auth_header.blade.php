@@ -116,7 +116,8 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li><a href="contact.html">Contact</a></li>
+                        
+                        <li><a href="{{url('contact')}}">Contact</a></li>
                     </ul>
 
                 </div>
@@ -185,7 +186,7 @@
                         <li><a href="courses-details.html">Certified Public Accountant (CPA)</a></li>
                     </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{url('contact')}}">Contact</a></li>
         </ul>
 
     </div>

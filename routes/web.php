@@ -19,7 +19,7 @@ use App\Http\Controllers\FileUploadController;
 Route::get('/', function () {
     return view('pages.home');
 });
-
+Route::post('/loginValidate', 'LoginController@loginValidate');
 //Frontend DA Register Form
 Route::get('da', 'DAController@daform');
 Route::get('da_edit', 'DAController@da_edit');
@@ -46,6 +46,9 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+
+//Contact Page
+Route::get('contact', 'ContactController@info');
 
 //Non_Audit firm
 Route::get('non_audit_firm_register', 'NonAuditFirmController@index');

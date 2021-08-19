@@ -91,7 +91,7 @@
                                             <label class="col-form-label">{{ _('၁။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                         </div>
@@ -108,7 +108,7 @@
                                             <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('ပညာသင်နှစ်') }}</label>
                                         </div>
@@ -125,7 +125,7 @@
                                             <label class="col-form-label">{{ _('၃။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
                                         </div>
@@ -136,13 +136,14 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('၄။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
                                         </div>
@@ -152,21 +153,34 @@
                                             <input type="text" id="entry_success_no" class="form-control" value="" required>
                                         </div>
                                     </div>
-                                </div>
-                                                    
+                                </div><br/>
+
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        
                                             <label class="col-form-label">{{ _('၅။') }}</label>
-                                        </div>
+                                        
                                     </div>
-                                    <div class="col-md-10">
-                                        <div class="single-form">
-                                            <label class="col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ _('အထက်ဖော်ပြပါ အချက်များအားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                            <label class="col-form-label">{{ _('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                        </div>
+                                    <div class="col-md-5">
+                                            <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div>
+                                    <div class="col-md-5 single-form">
+                                            <input type="text" class="form-control" id="batch_part_no" value="" >
+                                    </div>
+                                </div><br/>              
+                                
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></div>
+                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 </div><br/>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-2 col-form-label"></label>
+                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
