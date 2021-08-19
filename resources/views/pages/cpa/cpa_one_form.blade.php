@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration <span>Form</span></h2>
+                    <h2 class="title">Application <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -80,9 +80,70 @@
                                     @csrf
                                     <div class="col-md-12">
                                         <div class="row">
+                                                 <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('၁။') }}</label>
+                                                        </div>   
+                                                    </div>
+                                            
+                                                <div class="col-md-2">
+                                                    <div class="single-form">
+                                                        <label>အီးမေးလ်</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="single-form">
+                                                        <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                    </div>
+                                                    @if ($errors->has('email'))
+                                                        <span class="text-danger">
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                        <div class="single-form">
+                                                            <label>{{ __('၂။') }}</label>
+                                                        </div>   
+                                                    </div>
+                                            
+                                                <div class="col-md-2">
+                                                    <div class="single-form">
+                                                        <label>Password</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="single-form">
+                                                        <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁။') }}</label>
+                                                    <label>{{ __('၃။') }}</label>
+                                                </div>   
+                                            </div>
+                                            
+                                            <div class="col-md-2">
+                                                <div class="single-form">
+                                                    <label>Confirm Password</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="single-form">
+                                                    <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="single-form">
+                                                    <label>{{ __('၄။') }}</label>
                                                 </div>    
                                             </div>
                                             <div class="col-md-2">
@@ -99,7 +160,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၂။') }}</label>
+                                                    <label>{{ __('၅။') }}</label>
                                                 </div>    
                                             </div>
                                         
@@ -117,7 +178,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၃။') }}</label>
+                                                    <label>{{ __('၆။') }}</label>
                                                 </div>    
                                             </div>
                                         
@@ -172,7 +233,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၄။') }}</label>
+                                                    <label>{{ __('၇။') }}</label>
                                                 </div>    
                                             </div>
                                         
@@ -190,7 +251,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၅။') }}</label>
+                                                    <label>{{ __('၈။') }}</label>
                                                 </div>   
                                             </div>
                                             
@@ -209,7 +270,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၆။') }}</label>
+                                                    <label>{{ __('၉။') }}</label>
                                                 </div>   
                                             </div>
                                             
@@ -227,7 +288,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၇။') }}</label>
+                                                    <label>{{ __('၁၀။') }}</label>
                                                 </div>   
                                             </div>
                                             
@@ -245,7 +306,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __(' ၈။') }}</label>
+                                                    <label>{{ __(' ၁၁။') }}</label>
                                                 </div>   
                                             </div>                                            
                                             
@@ -263,7 +324,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၉။') }}</label>
+                                                    <label>{{ __('၁၂။') }}</label>
                                                 </div>    
                                             </div>
                                             <div class="col-md-2">
@@ -280,7 +341,7 @@
                                         <div class="row">
                                             <div   div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁၀။') }}</label>
+                                                    <label>{{ __('၁၃။') }}</label>
                                                 </div>    
                                             </div>    
                                             
@@ -298,7 +359,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁၁။') }}</label>
+                                                    <label>{{ __('၁၄။') }}</label>
                                                 </div>   
                                             </div>
 
@@ -334,7 +395,7 @@
                                         <div class="row">
                                         <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁၂။') }}</label>
+                                                    <label>{{ __('၁၅။') }}</label>
                                                 </div>   
                                             </div>
                                             
@@ -353,7 +414,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁၃။') }}</label>
+                                                    <label>{{ __('၁၆။') }}</label>
                                                 </div>   
                                             </div>
                                             
@@ -504,7 +565,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁၄။') }}</label>
+                                                    <label>{{ __('၁၇။') }}</label>
                                                 </div>   
                                             </div>
                                             <div class="col-md-11">
@@ -600,7 +661,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div class="single-form">
-                                                    <label>{{ __('၁၅။') }}</label>
+                                                    <label>{{ __('၁၈။') }}</label>
                                                 </div>   
                                             </div>
                                             <div class="col-md-2">
@@ -823,62 +884,14 @@
                                                
                                                 
                                             </div>
-                                        </div>   
-                                            
-                                            
-                                            
-                                        
-
-                                        <div class="row">
-                                                 <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label>{{ __('၁၆။') }}</label>
-                                                        </div>   
-                                                    </div>
-                                            
-                                                <div class="col-md-2">
-                                                    <div class="single-form">
-                                                        <label>အီးမေးလ်</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="single-form">
-                                                        <input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="{{ old('email') }}" required="">
-                                                    </div>
-                                                    @if ($errors->has('email'))
-                                                        <span class="text-danger">
-                                                            <strong>{{ $errors->first('email') }}</strong>
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label>{{ __('၁၇။') }}</label>
-                                                        </div>   
-                                                    </div>
-                                            
-                                                <div class="col-md-2">
-                                                    <div class="single-form">
-                                                        <label>Password</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="single-form">
-                                                        <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                        </div> 
                                         <div class="row m-4">
                                             <div class="col-md-2 offset-md-5">
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                             </div>
                                         </div>
 
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -934,7 +947,7 @@
                                                 </div>   
                                             <div class=col-md-9>
                                                 <div class="single-form">
-                                                    <p class="text-primary">Payment System Coming Soon</p>
+                                                    <p class="text-primary">Payment System Coming Soon...</p>
                                                 </div>
                                             </div>           
                                             </div>
@@ -953,13 +966,13 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label>{{ __('') }}</label>
+                                                            <label>{{ __('(က)') }}</label>
                                                         </div>   
                                                     </div>
                                                     
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(က) အောင်မြင်ထားသည်အဆင့် </label>
+                                                            <label> အောင်မြင်ထားသည်အဆင့် </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -973,13 +986,13 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label>{{ __('') }}</label>
+                                                            <label>{{ __('(ခ)') }}</label>
                                                         </div>   
                                                     </div>
                                                     
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(ခ) ခုနှစ်/လ</label>
+                                                            <label> ခုနှစ်/လ</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -992,13 +1005,13 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label>{{ __('') }}</label>
+                                                            
                                                         </div>   
                                                     </div>
                                                     
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(ဂ) မှတ်ပုံတင်အမှတ်</label>
+                                                            <label> မှတ်ပုံတင်အမှတ်</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -1006,23 +1019,23 @@
                                                             <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div><br/>
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label> </label>
+                                                            <label>{{ __('(ဃ)') }}</label>
                                                         </div>   
                                                     </div>
                                             
                                             
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(ဃ) Attched Certificate</label>
+                                                            <label> Attched Certificate</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-8">
-                                                        <div class="single-form">
-                                                            <input type="file" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                    <div class="col-md-8 mt-2">
+                                                        <div class="">
+                                                            <input type="file" class="form-control"placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}">
                                                         </div>
                                                     </div>
 
@@ -1030,7 +1043,7 @@
 
                                                 <div class="row m-4">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
                                             
@@ -1071,10 +1084,16 @@
 
 
        
-        $("#degree_date").flatpickr({
-                enableTime: false,
-                 dateFormat: "d-m-Y",
 
+        // $("#degree_date").flatpickr({
+        //         enableTime: false,
+        //         dateFormat: "d-m-Y",
+
+        // });
+        $("input[name='degree_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
         });
         $(".month").flatpickr({
                 enableTime: false,

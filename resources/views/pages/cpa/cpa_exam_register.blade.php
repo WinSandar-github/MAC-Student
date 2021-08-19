@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">CPA One Exam Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -212,7 +212,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                                     </div> 
                                                 </div>
                                         </div>

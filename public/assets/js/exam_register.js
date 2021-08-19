@@ -1,9 +1,8 @@
+
 function createDAExamRegister()
 {
-
     var send_data = new FormData();
     var invoice_image = $('#invoice_image')[0].files[0];
-
     send_data.append('student_id',student_id);
     send_data.append('private_school_name', $("input[name=private_school_name]").val());
     send_data.append('invoice_image', invoice_image);

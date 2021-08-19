@@ -9,19 +9,30 @@ function studentLogin(){
             password:password
             },
         success: function(result){
+<<<<<<< HEAD
+=======
+            console.log(result)
+            
+>>>>>>> 3c0201f5067e19ae13704aea00a0a277a693acaf
 
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                location.href= FRONTEND_URL + "/student_index";
-                location.href= FRONTEND_URL + "/";
+                 location.href= FRONTEND_URL + "/";
             }else{
                 $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
                 $('#password').val("");
 
            }
-      }
+        },error:function(errors){
+            if(errors.status == 401){
+                $('#err_msg').text("Password and Email do not match");
+                $("#email").val("");
+                $('#password').val("");
+
+            }
+        }
 
     });
 }

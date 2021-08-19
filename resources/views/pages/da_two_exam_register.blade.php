@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">DA Exam Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -133,7 +133,7 @@
                                         <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
-                                                <div class="row">
+                                                <div class="row" id="is_private_school" style="display=none;">
                                                     <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                     <div class="col-md-7 single-form">
@@ -196,8 +196,8 @@
                                                 </div><br/>
 
                                                 <div class="row">
-                                                    <div class="col-md-3 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                                    <div class="col-md-2 offset-md-5">
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -238,6 +238,15 @@
                 enableTime: false,
                 dateFormat: "d-m-Y",
         });
+        var boo=localStorage.getItem("isPrivateSchool");
+        if(boo=="true" ){
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='block';}
+        }
+        else{
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='none';}
+        }
     });
 </script>
 @endpush

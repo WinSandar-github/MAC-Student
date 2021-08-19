@@ -1,3 +1,37 @@
+function ConfirmSubmitSS(){
+    var radio = document.getElementById("submit_confirm_ss");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_ss").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_ss").disabled = true;
+    }
+}
+function ConfirmSubmitPP(){
+    var radio = document.getElementById("submit_confirm_pp");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_pp").disabled= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_pp").disabled = true;
+    }
+}
+function ConfirmSubmitMac(){
+    var radio = document.getElementById("submit_confirm_mac");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_mac").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_mac").disabled = true;
+    }
+}
+
 function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     let url = location.pathname;
@@ -8,13 +42,21 @@ function app_form_feedback(){
     
     //show data depend login or no
     if(student != null){
-       
-            if(approve_reject_status == 0){
+ 
+        $.ajax({
+            type:"get",
+            url: BACKEND_URL+"/student_info/"+student.id,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                let student_status = result.data.approve_reject_status;
+                
+            if(student_status == 0){
             
                 $('.check_registration').css('display','block');
                 $('.course_detail').css('display','none');
 
-            }else if(approve_reject_status == 1){
+            }else if(student_status == 1){
                  
                 $.ajax({
                     type: "get",
@@ -53,7 +95,7 @@ function app_form_feedback(){
                         }
                         }
                     })  ;     
-            }else if(approve_reject_status == 2){
+            }else if(student_status == 2){
                 if(course_type_id == 2)
                 {
                     $('.status-reject').css('display','block');
@@ -134,7 +176,16 @@ function app_form_feedback(){
     
             }   
        
-        }
+
+
+
+            }    
+
+
+
+        })
+       
+    }
     else
     {
          
@@ -205,13 +256,13 @@ function loadCourse(){
     
 }
 function selectedRegistration(radioValue){
-    if(radioValue==1){
-        $('#self_study_container').css('display','block');
-        $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','none');
-        $('#self_study_card').addClass("text-success border-success");
+    if(radioValue==3){
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none');        
+        $('#mac_card').addClass("text-success border-success");
         $("#private_card").removeClass("text-success border-success");
-        $('#mac_card').removeClass("text-success border-success");
+        $('#self_study_card').removeClass("text-success border-success");
     }else if(radioValue==2){
         $('#private_school_container').css('display','block');
         $('#self_study_container').css('display','none');
@@ -219,22 +270,27 @@ function selectedRegistration(radioValue){
         $('#self_study_card').removeClass("text-success border-success");
         $("#private_card").addClass("text-success border-success");
         $('#mac_card').removeClass("text-success border-success");
-    }else if(radioValue==3){
-        $('#self_study_container').css('display','none');
+    }else if(radioValue==1){
+        $('#self_study_container').css('display','block');
         $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','block');
-        $('#self_study_card').removeClass("text-success border-success");
+        $('#mac_container').css('display','none');
+        $('#self_study_card').addClass("text-success border-success");
         $('#private_card').removeClass("text-success border-success");
-        $("#mac_card").addClass("text-success border-success");
+        $("#mac_card").removeClass("text-success border-success");
+    }else{
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none'); 
     }
 }
 
 function createSelfStudy()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
-    $(':radio:checked').map(function(){send_data.append('reg_reason',$(this).val())});
+    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -245,14 +301,14 @@ function createSelfStudy()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
 
 function createPrivateSchool()
 {
-    
+    localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
@@ -270,13 +326,14 @@ function createPrivateSchool()
         success: function(result){            
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
 
 function createMac()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
@@ -290,7 +347,7 @@ function createMac()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -299,7 +356,7 @@ function createMac()
 function reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     
-    console.log(student);
+    // console.log(student);
     
     $.ajax({
         url: BACKEND_URL+"/getStatus/"+student.id,
@@ -340,18 +397,25 @@ function reg_feedback(){
                                 url: BACKEND_URL+"/get_type/"+student_id,
                                 type: 'GET',
                                 success: function(data){
+                                    // console.log(data)
                                     var student_data = data.data;
                                     student_data.forEach(function(element){
+                                    var course_data = element.course.code;
+                                    var self_url = FRONTEND_URL+"/aa_self_form/"+ student_id;
+                                    var private_url = FRONTEND_URL+"/aa_private_form/"+ student_id;
+                                    var mac_url = FRONTEND_URL+"/aa_mac_form/"+ student_id;
+                                    // console.log(course_data)
                                     // console.log(element.type);
-                                        if(element.type == 0){
-                                            $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
-                                            // createAASelfStudy();
-                                        }else if(element.type == 1){
-                                            $('.aa').append(`<a href="/aa_private_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
-                                            // createAAPrivate();
-                                        }else{
-                                            $('.aa').append(`<a href="/aa_mac_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`)
-                                            // createAAMac();
+                                        if(element.type == 0 && course_data == 'cpa_1'){
+                                            // $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
+                                            $('#aa').append(`<a href = ${self_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`);
+                                        }else if(element.type == 1 && course_data == 'cpa_1'){
+                                            $('#aa').append(`<a href = ${private_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`);
+                                        }else if(element.type == 2 && course_data == 'cpa_1'){
+                                            $('#aa').append(`<a href = ${mac_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`);
+                                        }
+                                        else{
+                                            //
                                         }
                                   })
                                 }
@@ -372,6 +436,7 @@ function reg_feedback(){
                                         switch(result.course.code){
                                             case 'da_1':
                                             exam_url = 'exam_register';
+                                            
                                             break;
                                             case 'da_2':
                                             exam_url = 'da_two_exam_register';

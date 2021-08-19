@@ -1,4 +1,4 @@
-function loadServiceType(){
+function loadCheckServiceMAC(){
     var select = document.getElementById("selected_service_id");
     $.ajax({
         url: BACKEND_URL+"/check_service",
@@ -37,15 +37,118 @@ function checkOtherService(option)
     }
 }
 
-function loadMentor(){
-    var select = document.getElementById("selected_mentor_id");
+function loadCheckServicePrivate(){
+    var select = document.getElementById("selected_service_id");
     $.ajax({
-        url: BACKEND_URL+"/check_mentor",
+        url: BACKEND_URL+"/check_service_private",
         type: 'get',
         data:"",
         success: function(data){
-            // console.log(data)
+            var service_data = data.data;
+            // console.log(service_data.type == 1)
+            service_data.forEach(function (element) {
+                // console.log(element)
+                var option = document.createElement('option');
+                option.text = element.name;
+                option.value = element.id;
+                select.add(option, 1);
+                $("#selected_service_id").css('display','inline');
+                $("#selected_service_id").siblings(".nice-select").css('display','none');
+                $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+            });
+        },
+        error:function (message){
+            //
+        }
+    });
+}
+
+function loadCheckServicePrivate(){
+    var select = document.getElementById("selected_service_id");
+    $.ajax({
+        url: BACKEND_URL+"/check_service_private",
+        type: 'get',
+        data:"",
+        success: function(data){
+            var service_data = data.data;
+            // console.log(service_data.type == 1)
+            service_data.forEach(function (element) {
+                // console.log(element)
+                var option = document.createElement('option');
+                option.text = element.name;
+                option.value = element.id;
+                select.add(option, 1);
+                $("#selected_service_id").css('display','inline');
+                $("#selected_service_id").siblings(".nice-select").css('display','none');
+                $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+            });
+        },
+        error:function (message){
+            //
+        }
+    });
+}
+
+function loadCheckServiceSelf(){
+    var select = document.getElementById("selected_service_id");
+    $.ajax({
+        url: BACKEND_URL+"/check_service_self",
+        type: 'get',
+        data:"",
+        success: function(data){
+            var service_data = data.data;
+            // console.log(service_data.type == 1)
+            service_data.forEach(function (element) {
+                // console.log(element)
+                var option = document.createElement('option');
+                option.text = element.name;
+                option.value = element.id;
+                select.add(option, 1);
+                $("#selected_service_id").css('display','inline');
+                $("#selected_service_id").siblings(".nice-select").css('display','none');
+                $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+            });
+        },
+        error:function (message){
+            //
+        }
+    });
+}
+
+function loadMentorMAC(){
+    var select = document.getElementById("selected_mentor_id");
+    $.ajax({
+        url: BACKEND_URL+"/check_mentor_mac",
+        type: 'get',
+        data:"",
+        success: function(data){
             var mentor_data = data.data;
+            // console.log(mentor_data)
+            mentor_data.forEach(function (element) {
+                var option = document.createElement('option');
+                option.text = element.name_mm;
+                option.value = element.id;
+                select.add(option, 1);
+                $("#selected_mentor_id").css('display','inline');
+                $("#selected_mentor_id").siblings(".nice-select").css('display','none');
+                $("#selected_mentor_id").siblings(".check-service-other").css('display','inline-table');
+            });
+        },
+        error:function (message){
+            //
+        }
+    });
+}
+
+function loadMentorSelfandPrivate(){
+    var select = document.getElementById("selected_mentor_id");
+    $.ajax({
+        url: BACKEND_URL+"/check_mentor_self_private",
+        type: 'get',
+        data:"",
+        success: function(data){
+            var mentor_data = data.data;
+            console.log(mentor_data)
             mentor_data.forEach(function (element) {
                 var option = document.createElement('option');
                 option.text = element.name_mm;
@@ -83,7 +186,7 @@ function createAAMacRegister()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -109,7 +212,7 @@ function createAASelfRegister()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -135,7 +238,7 @@ function createAAPrivateRegister()
         success: function(result){
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }

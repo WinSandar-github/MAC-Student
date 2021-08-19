@@ -66,6 +66,7 @@
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+                                <div class="col-md-12"  id="is_private_school" style="display:none">
                                     <table width="100%">
                                         <tr>
                                             <td width="45%">
@@ -75,13 +76,13 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" required="">
+                                                    <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}">
                                                 </div>
                                             </td>
                                         </tr>
                                     </table>
-
-                                    <table width="100%">
+                                    </div>
+                                    {{--<table width="100%">
                                         <tr>
                                             <td>
                                                 <div class="single-form">
@@ -89,7 +90,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table>--}}
 
                                     <table width="100%">
                                         <tr>
@@ -105,7 +106,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                    <input type="text" name="date" class="form-control" placeholder="mm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -201,8 +202,8 @@
                                     </table>
 
                                     <div class="row mt-4">
-                                        <div class="col-md-3 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                        <div class="col-md-2 offset-md-5">
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
 
@@ -223,7 +224,7 @@
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "M-Y",
                 allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
@@ -231,6 +232,17 @@
                 dateFormat: "d-m-Y",
                 allowInput: true,
         });
-    });
+        var boo=localStorage.getItem("isPrivateSchool");
+        if(boo=="true" ){
+            console.log(boo,"true");
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='block';}
+        }
+        else{
+            console.log(boo,"false");
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='none';}
+        }
+    }); 
 </script>
 @endpush

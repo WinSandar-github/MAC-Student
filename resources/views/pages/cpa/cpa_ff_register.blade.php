@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">CPAFF Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -74,7 +74,7 @@
                     <div id="rejected" style="display:none">
                         <div class="card text-white bg-dark my-3">                            
                             <div class="card-body">
-                                <p class="card-text reject">Your registration form is rejected. Please update your information. 
+                                <p class="card-text reject">Your CPAFF registration form is rejected. Please update your information. 
                                 </p>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                         <div class="card text-white bg-primary my-3">
                             
                             <div class="card-body">
-                                <p class="card-text">Your registration form is being checked.</p>
+                                <p class="card-text">Your CPAFF registration form is being checked.</p>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                             <div class="card text-white bg-primary my-3">
                                 
                                 <div class="card-body">
-                                    <p class="card-text">Your registration form is approved.</p>
+                                    <p class="card-text">Your CPAFF registration form is approved.</p>
                                 </div>
                             </div>
                         
@@ -399,14 +399,14 @@
                                         
                                     <div class="row">
                                         <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                        <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                        <label class="col-md-10 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                         
                                     </div>                           
                                 
                                 
                                     <div class="row">
                                         <div class="col-md-3 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                         </div>
                                     </div>	
                                 </fieldset>
@@ -456,7 +456,7 @@
                                     </div><br/>
                                     <div class="row">
                                         <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                         </div>
                                     </div>	
                                 </div>

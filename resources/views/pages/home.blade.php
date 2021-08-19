@@ -371,10 +371,6 @@
                     </div>
                     
 
-
- 
-
-
                     <h5 class="border-bottom pb-2" style="font-weight:bold"> Status Announcement</h5>
                     <div class="row m-2 mt-3 ">
                             <span class="status"></span> 

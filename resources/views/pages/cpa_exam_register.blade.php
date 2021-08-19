@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">CPA Exam Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -70,7 +70,7 @@
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
 
-                        <form runat="server" method="post" action="javascript:createCpaExamRegister();" enctype="multipart/form-data">
+                        <form runat="server" method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                             @csrf
                             <!-- <div class="row">
                               <div class="col-md-12">
@@ -254,7 +254,7 @@
                                       </td>
                                     </tr>
                                 </table> -->
-
+                              <div class="col-md-12" id="is_private_school">
                                 <table width="100%">
                                     <tr>
                                       <td width="5%">
@@ -273,7 +273,7 @@
                                         </div>
                                       </td>
                                     </tr>
-                                </table>
+                                </table></div>
 
                                 <table width="100%">
                                     <tr>
@@ -458,7 +458,7 @@
 
                             <div class="row">
                               <div class="col-md-2 offset-md-5">
-                                  <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                  <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                               </div>
                             </div>
                             
@@ -487,7 +487,15 @@
                 enableTime: false,
                 dateFormat: "d-m-Y",
         });
-
+        var boo=localStorage.getItem("isPrivateSchool");
+        if(boo=="true" ){
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='block';}
+        }
+        else{
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='none';}
+        }
     });
 
 </script>

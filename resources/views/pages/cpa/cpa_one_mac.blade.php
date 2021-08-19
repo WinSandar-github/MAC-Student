@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA One Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -88,7 +88,7 @@
                                             <label class="col-form-label">{{ _('၁။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('ပညာသင်နှစ်') }}</label>
                                         </div>
@@ -105,7 +105,7 @@
                                             <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
                                         </div>
@@ -122,7 +122,7 @@
                                             <label class="col-form-label">{{ _('၃။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
                                         </div>
@@ -147,8 +147,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
+                                    <div class="col-md-1 col-form-label">(က)</div>
                                     <div class="col-md-6">                                    
-                                        <label class="col-form-label">{{ _('(က) သင်တန်းကာလအတွင်း အောက်ပါအတိုင်း အလုပ်သင်ဆင်းလိုပါသည်-') }}</label>
+                                        <label class="col-form-label">{{ _(' သင်တန်းကာလအတွင်း အောက်ပါအတိုင်း အလုပ်သင်ဆင်းလိုပါသည်-') }}</label>
                                     </div>
                                     <!-- <div class="col-md-6">
                                         <input type="checkbox" value="" id="cpa_check" >
@@ -156,32 +157,41 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-2"></div>
-                                    <div class="col-md-4">
-                                        <label class="col-form-label">{{ _('(၁) အစိုးရ ဌာနတွင်') }}</label>
+                                    <div class="col-md-1">
+                                        <label class="col-form-label">{{ _('(၁)') }}</label>
                                     </div>
-                                    <div class="col-md-4" style="padding-top:10px">
+                                    <div class="col-md-1" style="padding-top:10px">
                                         <input type="radio" name="internship" value="အစိုးရ ဌာနတွင်" id="gov_department" >
                                     </div>
+                                    <div class="col-md-8">
+                                        <label class="col-form-label">{{ _('အစိုးရ ဌာနတွင်') }}</label>
+                                    </div>                                    
                                 </div><br/>
+
                                 <div class="row">
                                     <div class="col-md-2"></div>
-                                    <div class="col-md-4">
-                                        <label class="col-form-label">{{ _('(၂) ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်') }}</label>
-                                    
+                                    <div class="col-md-1">
+                                        <label class="col-form-label">{{ _('(၂)') }}</label>
                                     </div>
-                                    <div class="col-md-4" style="padding-top:10px">
+                                    <div class="col-md-1" style="padding-top:10px">
                                             <input type="radio" name="internship"  value="ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်" id="personal_acc_training">
                                     </div>
+                                    <div class="col-md-8">
+                                        <label class="col-form-label">{{ _('ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်') }}</label>                                    
+                                    </div>                                    
                                 </div><br/>
+
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-5">
-                                            <label class="col-form-label">{{ _('(ခ) ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်') }}</label>
-                                    
-                                    </div>
-                                    <div class="col-md-6" style="padding-top:10px">
+                                    <div class="col-md-2 col-form-label">(ခ)</div>
+                                    <div class="col-md-1" style="padding-top:10px">
                                         <input type="radio" value="ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"  name="internship"  id="after_second_exam">
                                     </div>
+                                    <div class="col-md-8">
+                                            <label class="col-form-label">{{ _('ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်') }}</label>
+                                    
+                                    </div>
+                                    
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-1">
@@ -193,21 +203,23 @@
                                 </div> 
                                 <div class="row">
                                     <div class="col-md-1"></div>
+                                    <div class="col-md-1 col-form-label">(က) </div>
                                     <div class="col-md-5">
-                                        <label class="col-form-label">{{ _('(က) အကျင့်စာရိတ္တကောင်းမွန်ကြောင်းထောက်ခံချက်') }}</label>
+                                        <label class="col-form-label">{{ _('အကျင့်စာရိတ္တကောင်းမွန်ကြောင်းထောက်ခံချက်') }}</label>
                                     
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                             <input type="file" id="good_morale_file" class="form-control" value="" required>
                                     </div>
                                 </div><br/>
                                 <div class="row">
                                     <div class="col-md-1"></div>
+                                    <div class="col-md-1 col-form-label">(ခ)</div>
                                     <div class="col-md-5">
-                                            <label class="col-form-label">{{ _('(ခ) ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်') }}</label>
+                                            <label class="col-form-label">{{ _(' ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်') }}</label>
                                     
                                     </div>
-                                    <div class="col-md-4" >
+                                    <div class="col-md-5" >
                                         <input type="file" class="form-control" value="" id="no_crime_file" required>
                                     </div>
                                 </div>
@@ -216,42 +228,45 @@
                                     <div class="col-md-1">
                                         <label class="col-form-label">{{ _('၆။') }}</label>                                   
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                             <label class="col-form-label">{{ _('ဖြေဆိုမည့် Module') }}</label>                                   
                                     </div>
                                     <div class="col-md-4">
                                         <div class="row">
                                             <div class="col-md-4">
+                                                <input type="radio"  name="module" value="1" id="module1" > 
                                                 <label class="col-form-label">{{ _('Module-1') }}</label> 
-                                                <input type="radio"  name="module" value="1" id="module1" >
+                                                
                                             </div>
                                             <div class="col-md-4">
-                                                <label class="col-form-label">{{ _('Module-2') }}</label> 
                                                 <input type="radio" name="module" value="2" id="module2" >
+                                                <label class="col-form-label">{{ _('Module-2') }}</label> 
+                                                
                                             </div>
                                             <div class="col-md-4">
+                                                <input type="radio" name="module" value="3" id="allmodule" >
                                                 <label class="col-form-label">{{ _('All Module') }}</label> 
-                                                <input type="radio" name="module" value="3" id="allmodule" >  
+                                                  
                                             </div>
                                         </div>                                      
                                     </div>
                                 </div><br>
+                                
+
                                 <div class="row">
-                                    <div class="col-md-1">
-                                        <div class="single-form">
-                                            <label class="col-form-label">{{ _('၇။') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="single-form">
-                                            <label class="col-form-label">{{ _('အထက်ဖော်ပြပါ အချက်များအားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                            <label class="col-form-label">{{ _('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                        </div>
-                                    </div>
+                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></div>
+                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 </div><br/>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-2 col-form-label"></label>
+                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit Now') }}</button>
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                     </div>
                                 </div>
                             </form>

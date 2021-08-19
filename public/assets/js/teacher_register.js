@@ -1,4 +1,14 @@
 var counter = 0;
+function ConfirmSubmit(){
+  var radio = document.getElementById("submit_confirm");
+  if (radio.checked == true){
+      document.getElementById("submit_btn").disabled= false;
+  } 
+  else{
+  document.getElementById("submit_btn").disabled = true;
+  }
+}
+
 function addRowEducation(tbody){
     $(".degree").hide();
     var newRow = $("<tr>");
@@ -93,6 +103,11 @@ function delRowSubject(tbody){
 }
 
 function createTeacherRegister(){
+  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+  {
+      alert("Your password and confirm password do not match!");
+      return;
+  }
     let formData = new FormData($( "#teacher_register_form" )[0]);
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
 
@@ -106,6 +121,7 @@ function createTeacherRegister(){
         processData: false,
         success: function (data) {
             successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
             resetForm("#teacher_register_form");
             $(".tbl_degree_body").empty();
             $(".tbl_certificate_body").empty();
@@ -116,3 +132,32 @@ function createTeacherRegister(){
     });
 
 }
+
+function teacher_reg_feedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/getTeacherStatus/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            // console.log(element.approve_reject_status);
+                if(element.approve_reject_status == 0){
+                    // showPending();
+                    $('#teacher_pending').css('display','block');
+                    $('#teacher_form').css('display','none');
+
+                }else if(element.approve_reject_status == 1){
+                    $('#teacher_approve').css('display','block');
+                    $('#teacher_form').css('display','none');
+                    $('#teacher_pending').css('display','none');
+                }
+                else{
+                    //
+                }
+          })
+        }
+    }); 
+} 
