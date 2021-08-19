@@ -414,20 +414,20 @@ function reg_feedback(){
                                         if(element.type == 0 && course_data == 'cpa_1'){
                                             
                                             student_mentor = element.mentor_id;
-                                            $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
+                                            $('#aa').append(`<a href=${self_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
                                             // createAASelfStudy();
                                         }else if(element.type == 1 && course_data == 'cpa_1'){
                                             
                                             student_mentor = element.mentor_id;
 
-                                            $('.aa').append(`<a href="/aa_private_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
+                                            $('#aa').append(`<a href=${private_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
                                             // createAAPrivate();
                                         }else if(element.type == 2 && course_data == 'cpa_1'){
                                              
 
                                             student_mentor = element.mentor_id;
 
-                                            $('.aa').append(`<a href="/aa_mac_form/${student_id}/" class="btn btn-success btn-sm xl-auto" pl-auto>AA Register Form(MAC)</a>`)
+                                            $('#aa').append(`<a href=${mac_url} class="btn btn-success btn-sm xl-auto" pl-auto>AA Register Form(MAC)</a>`)
                                             // createAAMac();
                                         }
                                         else{
@@ -481,6 +481,7 @@ function reg_feedback(){
                                         <p>Exam End Date - ${result.exam_end_date}</p>
                                         
                                         </div>`)
+                                        console.log(student_mentor);
 
                                         if(student_mentor !== null){
                                             $('.add_exam').append(`
