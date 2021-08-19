@@ -9,9 +9,6 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-            console.log(result)
-            
-
             if(result){
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
@@ -46,10 +43,10 @@ function check_login(){
     }
 }
 
-function logout(){
+function logout(url){
 
     localStorage.clear();
-    location.href=FRONTEND_URL+"/student_index";
+    location.href = url ;
 
 }
 

@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA Two Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -99,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-3"><div class="single-form">
+                                    <div class="col-md-4"><div class="single-form">
                                             <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
                                     </div></div>
                                     <div class="col-md-4"> <div class="single-form">
@@ -109,7 +109,7 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-3"><div class="single-form">
+                                    <div class="col-md-4"><div class="single-form">
                                             <label class="col-form-label">{{ _('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div></div>
                                     <div class="col-md-4"><div class="single-form">
@@ -119,13 +119,31 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-3"><div class="single-form">
+                                    <div class="col-md-4"><div class="single-form">
                                             <label class="col-form-label">{{ _('(ဂ) အဆင့်') }}</label>
                                     </div></div>
                                     <div class="col-md-4"><div class="single-form">
                                             <input type="text" class="form-control" id="cpa_one_success_no" value="" required>
                                     </div></div>
                                 </div><br/>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-1">
+                                        <div class="single-form">
+                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="single-form">
+                                            <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့် သင်တန်းအမှတ်စဥ်/အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-md-4 single-form mt-2">
+                                            <input type="text" class="form-control" id="batch_part_no" value="" >
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>

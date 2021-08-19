@@ -129,8 +129,49 @@
 		                  <h4>Foreign Firm Information</h4>
 		                </div>
 		                <div class="card-body">
+						<div class="row">
+							<table width="100%">
+								<tr>
+									<td width="8%" id="email_num">1</td>
+									<td width="17%"><label class="col-form-label">အီးမေးလ်</label>
+									</td>
+									<td width="73%">
+										<div class="form-group">
+											<input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="" required="">
+										</div>
+									</td>
+								</tr>
+							</table></div><br>
+							<div class="row">
+							<table width="100%">
+								<tr>
+									<td width="8%" id="password_num">2</td>
+									<td width="17%"><label class="col-form-label">Password</label>
+									</td>
+									<td width="73%">
+										<div class="form-group">
+											<input type="password" placeholder="Password" name="password" class="form-control" value="" required="">
+										</div>
+									</td>
+								</tr>
+							</table></div>
+							<br>
+							<div class="row">
+							<table width="100%">
+								<tr>
+									<td width="8%" id="confirm_password_num">3</td>
+									<td width="17%"><label class="col-form-label">Confirm Password</label>
+									</td>
+									<td width="73%">
+										<div class="form-group">
+											<input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control" required="">
+										</div>
+									</td>
+								</tr>
+							</table></div>
+							<br>
 		                  <div class="row">
-		                    <label class="col-md-1 col-form-label">{{ __('1') }}</label>
+		                    <label class="col-md-1 col-form-label">{{ __('4') }}</label>
 		                    <label class="col-md-2 col-form-label">{{ __('Firm Registration No') }}</label>
 		                    <div class="col-md-8">
 		                        <div class="form-group">
@@ -140,7 +181,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('2') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('5') }}</label>
 		                      <label class="col-md-2 col-form-label">{{ __('Firm Name') }}</label>
 		                      <div class="col-md-8">
 		                          <div class="form-group">
@@ -155,7 +196,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('3') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('6') }}</label>
 		                      <label class="col-md-2 col-form-label">{{ __('Address Of Practice(Head Office)') }}</label>
 		                      <div class="col-md-2">
 		                          <div class="form-group">
@@ -199,7 +240,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('4') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('7') }}</label>
 		                      <label class="col-md-2 col-form-label">{{ __('Branch Office') }}</label>
 
 		                  </div>
@@ -251,7 +292,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('5') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('8') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 
 		                  </div>
@@ -292,7 +333,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('6') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('9') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 
 		                  </div>
@@ -337,7 +378,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('7') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('10') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Organization Structure') }}</label>
 
 
@@ -994,7 +1035,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('8') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('11') }}</label>
 		                      <label class="col-md-8 col-form-label">{{ __('Name Of Managing Director') }}</label>
 
 		                  </div>
@@ -1008,7 +1049,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('9') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('12') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Total Staff') }}</label>
 
 		                  </div>
@@ -1036,7 +1077,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('10') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('13') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Types Of Service Provided') }}</label>
 
 		                  </div>
@@ -1064,7 +1105,7 @@
 		                  <br>
 											<table width="100%">
 													<tr>
-															<td width="8%">11</td>
+															<td width="8%">14</td>
 															<td width="17%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
 															</td>
 															<td width="73%">
@@ -1077,7 +1118,7 @@
 											</table><br>
 											<table width="100%">
 													<tr>
-															<td width="8%">12</td>
+															<td width="8%">15</td>
 															<td width="17%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
 															</td>
 															<td width="73%">
@@ -1093,7 +1134,7 @@
 
 		                  <div id="director_staffmembers" style="display:none;">
 		                    <div class="row">
-		                        <label class="col-md-1 col-form-label">{{ __('13') }}</label>
+		                        <label class="col-md-1 col-form-label">{{ __('16') }}</label>
 		                        <label class="col-md-10 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 		                    </div>
@@ -1138,31 +1179,7 @@
 		                    </div>
 		                  </div>
 		                  <br>
-											<table width="100%">
-													<tr>
-															<td width="8%" id="email_num">13</td>
-															<td width="17%"><label class="col-form-label">အီးမေးလ်</label>
-															</td>
-															<td width="73%">
-																	<div class="form-group">
-																			<input type="email" placeholder="အီးမေးလ်" name="email" class="form-control" value="" required="">
-																	</div>
-															</td>
-													</tr>
-											</table><br>
-											<table width="100%">
-													<tr>
-															<td width="8%" id="password_num">14</td>
-															<td width="17%"><label class="col-form-label">Password</label>
-															</td>
-															<td width="73%">
-																	<div class="form-group">
-																			<input type="password" placeholder="Password" name="password" class="form-control" value="" required="">
-																	</div>
-															</td>
-													</tr>
-											</table>
-											<br>
+							
 		                  <!-- Declaration  -->
 											<div class="row">
 													<table width="100%">

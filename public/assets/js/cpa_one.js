@@ -3,6 +3,17 @@ $("input[name='date_of_birth']").flatpickr({
     enableTime: false,
     dateFormat: "d-m-Y",
 });
+var boo=localStorage.getItem("isPrivateSchool");
+if(boo=="true" ){
+    console.log(boo,"true");
+    if(document.getElementById('is_private_school'))
+    {document.getElementById('is_private_school').style.display='block';}
+}
+else{
+    console.log(boo,"false");
+    if(document.getElementById('is_private_school'))
+    {document.getElementById('is_private_school').style.display='none';}
+}
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -107,6 +118,7 @@ function ConfirmSubmit(){
 // }
 
 function Private_School_Submit(){
+    localStorage.setItem("isPrivateSchool",true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id)
@@ -127,10 +139,12 @@ function Private_School_Submit(){
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
+                location.href = FRONTEND_URL+'/';
             }   
             else{       
                 successMessage(result.message);
-                location.reload();
+                // location.reload();
+                location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){
@@ -140,6 +154,7 @@ function Private_School_Submit(){
 }
 
 function Self_Study_Submit(){
+    localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id);
@@ -175,6 +190,7 @@ function Self_Study_Submit(){
 }
 
 function Mac_Submit(){
+    localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
@@ -216,6 +232,11 @@ function Mac_Submit(){
 
 //store cpa  app form
 $('#cpa_register').submit(function(e){
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
     e.preventDefault();
   
     let batch_id = url.substring(url.lastIndexOf('/')+1);

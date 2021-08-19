@@ -3,6 +3,17 @@ $("input[id='cpa_one_pass_date']").flatpickr({
     dateFormat: "d-m-Y",
     allowInput: true,
 });
+var boo=localStorage.getItem("isPrivateSchool");
+if(boo=="true" ){
+    console.log(boo,"true");
+    if(document.getElementById('is_private_school'))
+    {document.getElementById('is_private_school').style.display='block';}
+}
+else{
+    console.log(boo,"false");
+    if(document.getElementById('is_private_school'))
+    {document.getElementById('is_private_school').style.display='none';}
+}
 var cpaOneID;
 
 function ConfirmSubmit(){
@@ -16,6 +27,7 @@ function ConfirmSubmit(){
 }
 
 function CPA2_Private_School_Submit(){
+    localStorage.setItem("isPrivateSchool",true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id);
@@ -47,6 +59,7 @@ function CPA2_Private_School_Submit(){
         });
 }
 function CPA2_Mac_Submit(){
+    localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id);
@@ -78,6 +91,7 @@ function CPA2_Mac_Submit(){
         });
 }
 function CPA2_Self_Study_Submit(){
+    localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id);
@@ -123,7 +137,7 @@ $('#store_cpa_two_form').submit(function(e){
         processData: false,
         success: function(data){
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = "/student_course/2"; 
+            location.href = FRONTEND_URL+"/student_course/2"; 
         },
       error:function (message){
         errorMessage(message);

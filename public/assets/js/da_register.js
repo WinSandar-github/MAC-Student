@@ -11,6 +11,11 @@ function ConfirmSubmit(){
 
 function createDARegister()
 {
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
     var send_data = new FormData();
 
     var image = $('#image')[0].files[0];
@@ -69,7 +74,7 @@ function createDARegister()
              if(result.name_mm!=null){
                 successMessage("You have successfully registerd!");                
                 // location.reload();
-                location.href = FRONTEND_URL ;
+                location.href = FRONTEND_URL+'/' ;
              }
              else{
                 successMessage(result);
@@ -178,7 +183,7 @@ $('#store_da_two_form').submit(function(e){
         success: function(data){            
             localStorage.setItem('approve_reject', data.approve_reject_status);
             successMessage("You have successfully registerd!");
-            location.href = "/student_course/1"; 
+            location.href = FRONTEND_URL+"/student_course/1"; 
         },
       error:function (message){
         errorMessage(message);

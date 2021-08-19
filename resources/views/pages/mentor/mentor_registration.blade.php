@@ -98,6 +98,15 @@
                                   </div>
                               </div>
                               <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>                                  
+                                  <div class="col-md-7">
+                                      <div class="form-group">
+                                          <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" autocomplete="off" required="">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
                                 <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
                                 <div class="col-md-3">
@@ -445,9 +454,11 @@
 
 
 
-                              <div class="row">
+                              <div class="row mb-3">
 
-                                  <label class="col-md-10 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
+                                  <div class="col-md-1"></div>
+                                  <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
+                                  <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
                                   <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
                                   <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
                               </div>
