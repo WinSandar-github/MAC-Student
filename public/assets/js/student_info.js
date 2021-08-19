@@ -50,6 +50,7 @@ function app_form_feedback(){
             processData: false,
             success: function (result) {
                 let student_status = result.data.approve_reject_status;
+                 
                 
             if(student_status == 0){
             
@@ -73,6 +74,7 @@ function app_form_feedback(){
 
                             switch(batch.course.code){
                                 case 'da_1':
+ 
                                 register_url = '/da_one_register';
                                 break;
                                 case 'da_2':
@@ -91,8 +93,9 @@ function app_form_feedback(){
     
                                 
                             }
-                         location.href = FRONTEND_URL+register_url;
-                        }
+                            
+                            location.href = FRONTEND_URL+register_url;
+                            }
                         }
                     })  ;     
             }else if(student_status == 2){
@@ -378,11 +381,13 @@ function reg_feedback(){
                     contentType: false,
                     processData: false,
                     success: function(exam_status){
+ 
                           if(exam_status === 0){
                             $('.exam_feedback').css('display','block');
                             $('.exam_text').append(`Your Exam Form is checking.`)
                             console.log("Exam Register form Checking ")
                         }else if(exam_status == 1){
+                           
                             $('.exam_feedback').css('display','block');
                             $('.exam_text').append(`Your Exam Form is approved.`)
                         }else if(exam_status == 2){
@@ -393,12 +398,12 @@ function reg_feedback(){
                             $('.approve').css('display','block');
                             $('#aa_form').css('display','block');
                             // console.log(student_id);
+                            var student_mentor
                             $.ajax({
                                 url: BACKEND_URL+"/get_type/"+student_id,
                                 type: 'GET',
                                 success: function(data){
-                                    // console.log(data)
-                                    var student_data = data.data;
+                                     var student_data = data.data;
                                     student_data.forEach(function(element){
                                     var course_data = element.course.code;
                                     var self_url = FRONTEND_URL+"/aa_self_form/"+ student_id;
@@ -407,12 +412,23 @@ function reg_feedback(){
                                     // console.log(course_data)
                                     // console.log(element.type);
                                         if(element.type == 0 && course_data == 'cpa_1'){
-                                            // $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
-                                            $('#aa').append(`<a href = ${self_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`);
+                                            
+                                            student_mentor = element.mentor_id;
+                                            $('#aa').append(`<a href=${self_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
+                                            // createAASelfStudy();
                                         }else if(element.type == 1 && course_data == 'cpa_1'){
-                                            $('#aa').append(`<a href = ${private_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`);
+                                            
+                                            student_mentor = element.mentor_id;
+
+                                            $('#aa').append(`<a href=${private_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
+                                            // createAAPrivate();
                                         }else if(element.type == 2 && course_data == 'cpa_1'){
-                                            $('#aa').append(`<a href = ${mac_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`);
+                                             
+
+                                            student_mentor = element.mentor_id;
+
+                                            $('#aa').append(`<a href=${mac_url} class="btn btn-success btn-sm xl-auto" pl-auto>AA Register Form(MAC)</a>`)
+                                            // createAAMac();
                                         }
                                         else{
                                             //
@@ -420,7 +436,8 @@ function reg_feedback(){
                                   })
                                 }
                             }); 
-                           
+
+                            
                             $.ajax({
                                 type: "get",
                                 url: BACKEND_URL+"/get_exam/"+student.id,
@@ -428,7 +445,9 @@ function reg_feedback(){
                                 processData: false,
                                 success: function (result) {
                                      var exam_url;
-            
+                                     console.log(result)
+ 
+                                    
                                    
                             
                                     if(result){
@@ -460,10 +479,17 @@ function reg_feedback(){
                                         <p>${result.name} </p>
                                         <p>Exam Start Date - ${result.exam_start_date}</p>
                                         <p>Exam End Date - ${result.exam_end_date}</p>
-                                        <p> Go to Exam Registration Form
-                                        <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
-                                        </p>
+                                        
                                         </div>`)
+                                        console.log(student_mentor);
+
+                                        if(student_mentor !== null){
+                                            $('.add_exam').append(`
+                                            <p> Go to Exam Registration Form
+                                            <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
+                                            </p>
+                                            `)
+                                        }
             
                                         
                                     }else{
