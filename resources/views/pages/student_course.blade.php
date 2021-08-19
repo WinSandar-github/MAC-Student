@@ -94,7 +94,6 @@
                                                 @if(!empty($c['active_batch']))
 
                                                     @foreach($c['active_batch'] as $b)
-
                                                         <div class="col-md-4 pl-4">
                                                             <!-- <div class="row">
                                                                 <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong></div>
@@ -179,11 +178,32 @@
                                                             <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
                                                             <li><i class="icofont-ui-note"></i> <strong>Description</strong> <span>{{$c['description']}}</span></li>
                                                             <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
+<<<<<<< HEAD
+                                                            @if(!empty($c['active_batch']))
+                                                                @foreach($c['active_batch'] as $b)
+                                                                <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
+                                                    
+                                                                <span> {{ $b['accept_application_start_date'] }} </span></li>
+                                                                <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
+                                                                <span>  {{ $b['accept_application_end_date']}} </span></li> 
+                                                                @break
+                                                        
+                                                    
+                                                            @endforeach
+                                                            @else
+                                                            <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
+                                                    
+                                                                <span class="mr-3"> - </span></li>
+                                                                <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
+                                                                <span class="mr-3">  - </span></li> 
+                                                            @endif
+=======
                                                             <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong>
                                                               <span>{{$b['accept_application_start_date']}} </span></li>
                                                             <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
                                                                 <span>{{$b['accept_application_end_date']}} </span></li>
 
+>>>>>>> e77418365f87e753f7b1292d3d3d903722159d9b
                                                         </ul>
                                                     </div>
                                                 </div>

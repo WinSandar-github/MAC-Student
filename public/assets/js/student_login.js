@@ -55,7 +55,16 @@ function login_page(batch_id,course_id,course_type){
     if(course_id == 1){
 
         localStorage.setItem('batch_id',batch_id);
-        location.href = FRONTEND_URL+"/login";
+        let ls_course_type = localStorage.getItem('course_type');
+        if(ls_course_type == 2){
+
+            location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
+        }else{
+            location.href = FRONTEND_URL+`/da_one_form/${batch_id}`;
+
+
+        }
+
     }else{
         if(course_type == 1){
             alert("You need to Pass DA I")
