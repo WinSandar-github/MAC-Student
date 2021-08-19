@@ -17,7 +17,7 @@ function createSchoolRegister(){
         success: function (data) {
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
-            resetForm("#school_register_form");
+            //resetForm("#school_register_form");
         },
         error: function (result) {
         },
