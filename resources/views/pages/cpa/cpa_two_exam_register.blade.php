@@ -85,7 +85,7 @@
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
-                                                                <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" required="">
+                                                                <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" >
                                                             </div>
                                                         </div>
 

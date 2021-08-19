@@ -122,10 +122,10 @@ function createTeacherRegister(){
         success: function (data) {
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
-            resetForm("#teacher_register_form");
-            $(".tbl_degree_body").empty();
-            $(".tbl_certificate_body").empty();
-            $(".tbl_diploma_body").empty();
+            //resetForm("#teacher_register_form");
+            //$(".tbl_degree_body").empty();
+            //$(".tbl_certificate_body").empty();
+            //$(".tbl_diploma_body").empty();
         },
         error: function (result) {
         },

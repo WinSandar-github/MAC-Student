@@ -259,7 +259,7 @@
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
-                                            <label class="col-form-label">၁။</label>
+                                            <label class="col-form-label" id="label1">၁။</label>
                                         </div>
                                       </td>
                                       <td width="30%">
@@ -269,7 +269,7 @@
                                       </td>
                                       <td width="65%">
                                         <div class="single-form">
-                                            <input type="text" name="private_school_name" class="form-control" placeholder="" required>
+                                            <input type="text" name="private_school_name" class="form-control" placeholder="">
                                         </div>
                                       </td>
                                     </tr>
@@ -279,7 +279,7 @@
                                     <tr>
                                       <td width="5%">
                                         <div class="single-form">
-                                            <label class="col-form-label">၂။</label>
+                                            <label class="col-form-label"id="label2">၂။</label>
                                         </div>
                                       </td>
                                       <td width="95%">
@@ -490,11 +490,16 @@
         var boo=localStorage.getItem("isPrivateSchool");
         if(boo=="true" ){
             if(document.getElementById('is_private_school'))
-            {document.getElementById('is_private_school').style.display='block';}
+            {document.getElementById('is_private_school').style.display='block';
+            document.getElementById('label1').innerHTML="၁။";
+            document.getElementById('label2').innerHTML="၂။";
+            }
         }
         else{
             if(document.getElementById('is_private_school'))
-            {document.getElementById('is_private_school').style.display='none';}
+            {document.getElementById('is_private_school').style.display='none';
+            document.getElementById('label2').innerHTML="၁။";
+            }
         }
     });
 
