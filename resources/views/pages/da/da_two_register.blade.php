@@ -425,7 +425,7 @@
                 </div> 
 
                  <!-- Exam Feedback Text -->
-                 <div class="exam_feedback" style="display:none;">
+                 <div class="exam_feedback" style="display:none; margin-left: 7%; margin-right: 7%;">
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body exam_text">

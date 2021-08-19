@@ -256,7 +256,7 @@ function createNonAuditFirm(){
           success: function(result){
             successMessage(result);
             //location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
         }
       });
 }

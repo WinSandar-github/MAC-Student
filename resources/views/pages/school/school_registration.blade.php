@@ -70,13 +70,27 @@
             <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
 
         </div>
+        
         <div class="container" style="overflow: hidden;">
-            
+            <div id="school_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your School Registeration Form is checking</p>
+                    </div>
+                </div>
+            </div>
+            <div id="school_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your School Registeration Form is approved!</p>
+                    </div>
+                </div>
+            </div>
             <div class="row mt-5">
-                                            
-                
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-                    <div class="card border-success mb-3">
+                    <div id="school_form" class="card border-success mb-3">
                         <div class="card-body">
                             <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
                                 <div class="row">
@@ -363,6 +377,7 @@ $(document).ready(function (e) {
           self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
         }
     }
+    school_reg_feedback();
 });
 </script>
 @endpush

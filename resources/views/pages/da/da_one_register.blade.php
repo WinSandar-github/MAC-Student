@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="check_registration" style="display:none;">
+                <div class="check_registration" style="display:none; margin-top: 5%;">
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body">
@@ -366,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="exam_feedback" style="display:none;">
+                <div class="exam_feedback" style="display:none; margin-top:5%;">
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body exam_text">

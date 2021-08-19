@@ -51,8 +51,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="check_registration" style="display:none;">
-                    <div class="card text-white bg-primary mb-3">
+                <div class="check_registration" style="display:none; margin-left: 7%; margin-right: 7%;">
+                    <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body">
                             <p class="card-text">Your Application Form is checking</p>

@@ -84,7 +84,7 @@
                 <div class="approve" style="display:none;">
                     <table width="100%">
                         <tr>
-                            <td width="80%">
+                            <td width="75%">
                                 <div class="card text-white bg-primary my-3">
                                     
                                     <div class="card-body">
@@ -94,11 +94,11 @@
                                     </div>
                                 </div>
                             </td>
-                            <td width="20%">
+                            <td width="25%">
                                 <div class="card text-white bg-primary my-3" id="aa_form" style="display:none;">
                                     
                                     <div class="card-body">
-                                        <p class="card_text aa" style="text-align:center;"></p>
+                                        <p id="aa" style="text-align:center;"></p>
                                         
                                         
                                     </div>
