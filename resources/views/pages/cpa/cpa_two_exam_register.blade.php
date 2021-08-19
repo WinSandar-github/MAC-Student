@@ -74,7 +74,7 @@
                                                 <div class="row" id="is_private_school">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">၁။</label>
+                                                                <label class="col-form-label" id="cpa2_label1">၁။</label>
                                                             </div>
                                                         </div>
 
@@ -94,7 +94,7 @@
                                                 <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">၂။</label>
+                                                                <label class="col-form-label" id="cpa2_label2">၂။</label>
                                                             </div>
                                                         </div>
 
@@ -281,6 +281,20 @@
                 dateFormat: "d-m-Y",
                 allowInput: true,
         });
+        var boo=localStorage.getItem("isPrivateSchool");
+        if(boo=="true" ){
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='block';
+            document.getElementById('cpa2_label1').innerHTML="၁။";
+            document.getElementById('cpa2_label2').innerHTML="၂။";
+            }
+        }
+        else{
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='none';
+            document.getElementById('cpa2_label2').innerHTML="၁။";
+            }
+        }
     });
 </script>
 @endpush
