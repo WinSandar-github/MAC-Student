@@ -134,15 +134,15 @@
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
                                                 <div class="row" id="is_private_school" style="display=none;">
-                                                    <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
+                                                    <div class="col-md-1 col-form-label" id="da2_label1">{{ _('၁။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                     <div class="col-md-7 single-form">
-                                                        <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="" required="">
+                                                        <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="" >
                                                     </div>
                                                 </div><br/>
 
                                                 <div class="row">
-                                                    <div class="col-md-1 col-form-label">{{ _('၂။') }}</div>
+                                                    <div class="col-md-1 col-form-label"  id="da2_label2">{{ _('၂။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}</label>
                                                 </div><br/>
 
@@ -241,11 +241,15 @@
         var boo=localStorage.getItem("isPrivateSchool");
         if(boo=="true" ){
             if(document.getElementById('is_private_school'))
-            {document.getElementById('is_private_school').style.display='block';}
+            {document.getElementById('is_private_school').style.display='block';
+            document.getElementById('da2_label1').innerHTML="၁။";
+            document.getElementById('da2_label2').innerHTML="၂။";
+            }
         }
         else{
             if(document.getElementById('is_private_school'))
-            {document.getElementById('is_private_school').style.display='none';}
+            {document.getElementById('is_private_school').style.display='none';
+                document.getElementById('da2_label2').innerHTML="၁။";}
         }
     });
 </script>

@@ -234,33 +234,51 @@ function user_profile(){
                                     var date = new Date();
                                     let previous_month = date.setDate(date.getDate() - 6);
                                     var end_date = new Date(current_class.batch.exam_start_date);
+                                    console.log(data.student_register[i],"Student Register")
 
 
                                     if(previous_month <= date && end_date >= date){
 
                                         let exam_url ;
+                                        let exam_text = "Go to Exam Registration Form";
                                         switch(current_class.batch.course.code){
                                             case 'da_1':
-                                            exam_url = 'exam_register';
+                                            exam_url = '/exam_register';
                                             break;
                                             case 'da_2':
-                                            exam_url = 'da_two_exam_register';
+                                            exam_url = '/da_two_exam_register';
                                             break;
                                             case 'cpa_1':
-                                            exam_url = 'cpa_exam_register';
+                                                if(data.student_register[i].mentor_id === null){
+                                                    if(data.student_register[i].type == 0){
+                                                        exam_url = "/aa_self_form/"+student_id
+                                                        exam_text = "AA Register Form(Self Study)"
+                                                    }else if(data.student_register[i].type == 1){
+                                                        exam_url = "/aa_private_form/"+student_id
+                                                        exam_text = "AA Register Form(Private)"
+                                                    }else{
+                                                        exam_url = "/aa_private_form/"+student_id
+                                                        exam_text = "AA Register Form(MAC)"
+                                                    }
+                                                }else{
+
+                                                    exam_url = '/cpa_exam_register';
+                                                }
                                             break;
                                             case 'cpa_2':
-                                            exam_url = 'cpa_two_exam_register';
+                                            exam_url = '/cpa_two_exam_register';
                                             break;
                                             default:
-                                            exam_url = 'exam_register';
+                                            exam_url = '/exam_register';
                                             break;
 
                                         }
 
+
+
                                         $('.status').append(
                                         `
-                                            <a href=${exam_url} class="btn btn-sm btn-success text-light"> Go to Exam Registration Form</a>
+                                            <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
                                         `)
 
 
@@ -304,7 +322,7 @@ function user_profile(){
 
                             $('.status').append(`
 
-                            <a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-primary">go to Registration Form</a>`);
+                            <a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-success">go to Registration Form</a>`);
 
                         }
 
@@ -343,6 +361,7 @@ function user_profile(){
                         break;
                         case 'cpa_2':
                             course_code = "Membership"
+                            form_url = "/cpa_ff_register"
                         break;
                         default:
                             course_code = "da_1",
@@ -351,6 +370,7 @@ function user_profile(){
                         break;
 
                     }
+
                     console.log(course_code,FRONTEND_URL)
 
 
@@ -358,15 +378,22 @@ function user_profile(){
 
                         // let batch = data.data[0].active_batch[0];
 
+                        if(Object.keys(data.data).length === 0){
+
+                            $('.status').append(`<p>and Join  Class  <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" >go to Membership Form</a></p>`);
+
+                           
+                        }else{
                         if(data){
+
 
                             let batch = data.data[0].active_batch[0];
                             if(batch != undefined){
-                                $('.status').append(`<p>and Join ${data.data[0].name} Class  <a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-primary" >go to Course</a></p>`);
+                                $('.status').append(`<p>and Join ${data.data[0].name} Class  <a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" >go to ${data.data[0].name} form</a></p>`);
                             }else{
                                 $('.status').append(`<a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")">go to Course</a>`);
                             }
-                        }
+                        } }
                     })
                 }
 
