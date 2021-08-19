@@ -1,19 +1,19 @@
 function user_profile(){
-  
+
     $.ajax({
         url:   BACKEND_URL + "/user_profile/"+student_id,
         type: 'get',
-      
+
         success: function(result){
-            
-            
+
+
             let data = result.data;
             console.log(data)
-          
-            
+
+
 
             if(data.accountancy_firm_info_id){
-                
+
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
                 let acc_firm = data.accountancy_firm;
@@ -23,7 +23,7 @@ function user_profile(){
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                 $("#head_office").text(acc_firm.township+" Township," +acc_firm.city
                 + " City, "+acc_firm.state_region+" State,");
-                
+
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
 
@@ -43,14 +43,14 @@ function user_profile(){
                 $('.school').show();
                 let school = data.school;
                 console.log(school)
- 
+
                 $('#sch_name_mm').text(school.name_mm);
                 $('#sch_name_eng').text(school.name_eng);
                 $("#sch_nrc").text(school.nrc_state_region+"/" +school.nrc_township+ "("+school.nrc_citizen+")"+school.nrc_number );
                 $("#sch_date_of_birth").text(school.date_of_birth);
                 $("#sch_email").text(school.email);
-                $('#sch_phone').text(school.phone);    
-                
+                $('#sch_phone').text(school.phone);
+
                 if(school.approve_reject_status == 0)
                 {
                     $('.status').append('School Registration is checking.');
@@ -67,7 +67,7 @@ function user_profile(){
                 $('.teacher').show();
                 let teacher = data.teacher;
                 console.log(teacher)
- 
+
                 $('#teacher_name_mm').text(teacher.name_mm);
                 $('#teacher_name_eng').text(teacher.name_eng);
                 $("#teacher_nrc").text(teacher.nrc_state_region+"/" +teacher.nrc_township+ "("+teacher.nrc_citizen+")"+teacher.nrc_number );
@@ -75,8 +75,8 @@ function user_profile(){
                 // $("#sch_date_of_birth").hide();
 
                 $("#teacher_email").text(teacher.email);
-                $('#teacher_phone').text(teacher.phone);    
-                
+                $('#teacher_phone').text(teacher.phone);
+
                 if(teacher.approve_reject_status == 0)
                 {
                     $('.status').append('Teacher Registration is checking.');
@@ -93,31 +93,30 @@ function user_profile(){
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
-                console.log(mentor)
- 
+
                 $('#sch_name_mm').text(mentor.name_mm);
                 $('#sch_name_eng').text(mentor.name_eng);
                 $("#sch_nrc").text(mentor.nrc_state_region+"/" +mentor.nrc_township+ "("+mentor.nrc_citizen+")"+mentor.nrc_number );
                 $("#sch_date_of_birth").text(mentor.date_of_birth);
                 $("#sch_email").text(mentor.m_email);
-                $('#sch_phone').text(mentor.phone_no);    
-                
-                // if(mentor.approve_reject_status == 0)
-                // {
-                //     $('.status').append('School Registration is checking');
-                // }else if(mentor.approve_reject_status == 1 ){
-                //     $('.status').append('School Registration is Approve');
+                $('#sch_phone').text(mentor.phone_no);
 
-                // }else{
-                //     $('.status').append('Your Audit Firm Form is Reject');
+                if(mentor.status == 0)
+                {
+                    $('.status').append('Mentor Registration is checking.');
+                }else if(mentor.status == 1 ){
+                    $('.status').append('Mentor Registration is Approved.');
 
-                // }
+                }else{
+                    $('.status').append('Mentor Registration is Rejected.');
+
+                }
 
             }
             else{
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
-                
+
                 let exam_register = data.exam_registers;
                 $('#name_mm').text(data.name_mm);
                 $('#name_eng').text(data.name_eng);
@@ -125,16 +124,16 @@ function user_profile(){
                 $("#date_of_birth").text(data.date_of_birth);
                 $("#email").text(data.email);
                 $('#phone').text(data.phone);
-               
+
                 let current_class_reg = data.student_course_regs.slice(-1)
                 let current_reg =  data.student_register.slice(-1);
                 let last_exam =  data.exam_registers.slice(-1);
-      
+
                 document.getElementById('image').src=BASE_URL+data.image;
                 var course_html;
                  let exam = exam_register.filter(exam => exam.grade == 1)
-             
-                
+
+
                 exam.map(e => {
                     course_html += `<tr>
                                         <td>${e.course.name}</td>
@@ -143,10 +142,10 @@ function user_profile(){
                                     </tr>`
                 })
              $('.course').html(course_html)
-                      
-             
-    
-               
+
+
+
+
                 //Current Batch Information
                 $('#batch_name').text(current_class_reg[0].batch.name);
                 $('#course_name').text(current_class_reg[0].batch.course.name);
@@ -157,7 +156,7 @@ function user_profile(){
                 }
 
                 let next_course;
- 
+
                 switch(current_class_reg[0].batch.course.code){
                     case 'da_1':
                         next_course = "DA II"
@@ -181,14 +180,14 @@ function user_profile(){
                 $('#next_course').text(next_course)
 
 
-                
-    
+
+
                 console.log(data.student_course_regs,"Student ")
-              
+
                 $.each(data.student_course_regs,function(i,current_class){
 
                     $('.status').append(`<h6 class="my-2">${current_class.batch.course.name}</h6><hr>`);
-                    
+
 
                     if(current_class.approve_reject_status == 0 )
                     {
@@ -196,18 +195,18 @@ function user_profile(){
                     }else if(current_class.approve_reject_status == 1)
                     {
 
-                        
+
                         $('.status').append(`<p>Your ${current_class.batch.course.name}  Application Form is Approved.</p>`)
                         //show data depend on Student Register status
                         if(data.student_register[i]){
                             if(data.student_register[i].status == 0 || data.student_register[i] == null)
                             {
                                 $('.status').append('<p>Your Registration Form is checking.</p>')
-                                
+
                             }else if(data.student_register[i].status == 1)
                             {
                                 $('.status').append('<p>Your Registration Form is Approved.</p>')
-                                 
+
                                 if(data.exam_registers[i]){
                                     if(data.exam_registers[i].status == 0)
                                     {
@@ -216,29 +215,29 @@ function user_profile(){
                                     else if(data.exam_registers[i].status == 1)
                                     {
                                         $('.status').append('Your Exam Form is Approved.')
-                                      
+
                                         if(data.exam_registers[i].grade == 1){
                                             $('.status').append(`<p>You have been pass ${data.exam_registers[i].course.name} </p>`)
 
                                         }
-                                           
-                                           
-                                        
+
+
+
                                     }
-                                    else 
+                                    else
                                     {
                                         $('.status').append('<p>Your Exam Form is checking</p>')
-                
+
                                     }
                                 }else{
-                                   
+
                                     var date = new Date();
                                     let previous_month = date.setDate(date.getDate() - 6);
                                     var end_date = new Date(current_class.batch.exam_start_date);
-            
-                                    
+
+
                                     if(previous_month <= date && end_date >= date){
-                                    
+
                                         let exam_url ;
                                         switch(current_class.batch.course.code){
                                             case 'da_1':
@@ -256,31 +255,31 @@ function user_profile(){
                                             default:
                                             exam_url = 'exam_register';
                                             break;
-                
+
                                         }
-                                        
+
                                         $('.status').append(
-                                        ` 
+                                        `
                                             <a href=${exam_url} class="btn btn-sm btn-success text-light"> Go to Exam Registration Form</a>
                                         `)
-            
-                                        
+
+
                                     }else{
                                         $('.status').append(`<div>
                                             <p>The exam schedule will be announced soon</p>
                                         </div>`)
                                     }
-                                    
-            
-                                
-            
+
+
+
+
                                 }
                             }else                    {
                                 $('.status').append('<P>Your Registration Form is checking</P>')
-                            }    
-                                
+                            }
+
                         }else{
-                           
+
 
                             switch(current_class.batch.course.code){
                                 case 'da_1':
@@ -298,30 +297,30 @@ function user_profile(){
                                 default:
                                 register_url = '/da_one_register';
                                 break;
-        
-                                
+
+
                             }
                             localStorage.setItem('course_id',current_class.batch.course.id);
-                            
+
                             $('.status').append(`
-                            
+
                             <a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-primary">go to Registration Form</a>`);
-        
+
                         }
-                        
-        
+
+
                     }else {
                         $('.status').append('Your Application Form is Reject')
                     }
 
-                   
 
-                    
-                        
+
+
+
                 })
 
                  //redirect application form depend on last exam success
-                if(last_exam[0].grade == 1 && 
+                if(last_exam[0].grade == 1 &&
                     current_class_reg[0].approve_reject_status == 1 &&
                     current_class_reg[0].batch.course.id == current_reg[0].form_type &&
                     current_class_reg[0].batch.course.id == last_exam[0].course.id &&
@@ -348,19 +347,19 @@ function user_profile(){
                         default:
                             course_code = "da_1",
                             form_url =  '/da_one_form/'
-    
+
                         break;
-    
+
                     }
                     console.log(course_code,FRONTEND_URL)
-                    
+
 
                     get_course_by_code(course_code).then( data => {
-                        
+
                         // let batch = data.data[0].active_batch[0];
-                        
+
                         if(data){
-                             
+
                             let batch = data.data[0].active_batch[0];
                             if(batch != undefined){
                                 $('.status').append(`<p>and Join ${data.data[0].name} Class  <a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-primary" >go to Course</a></p>`);
@@ -370,17 +369,17 @@ function user_profile(){
                         }
                     })
                 }
-    
+
 
             }
 
-            
-
-         
-           
 
 
-            
+
+
+
+
+
       }
 
     });
