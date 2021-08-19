@@ -70,7 +70,14 @@
                     <br/>  
                     <br/>  
                     <br/>  
-                    </div>           
+                    </div>          
+                    <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="pass_cpa_two" id="pass_cpa_two">
+                        <label class="col-md-12 col-form-label">{{ __('CPA 2 မအောင်မြင်သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
+                               
+                    <br/>  
+                    <br/>  
+                    <br/>  
+                    </div>       
                     <div id="rejected" style="display:none">
                         <div class="card text-white bg-dark my-3">                            
                             <div class="card-body">

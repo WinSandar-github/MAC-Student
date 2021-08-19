@@ -178,19 +178,49 @@ function isLoginCPAFF(){
         location.href = FRONTEND_URL + '/login';
     }
     else{
-        var a=new Date(student.date_of_birth);
-        var diff_ms = Date.now() - a.getTime();
-        var age_dt = new Date(diff_ms); 
-        var age=Math.abs(age_dt.getUTCFullYear() - 1970);
-        if(age>=21){
-            $("#age").append(age+" years");
-            document.getElementById('fieldset').disabled=false;
-        }
-        else{
-            $("#age").append(age+" years");
-            document.getElementById('fieldset').disabled=true;
-            document.getElementById('check_age').style.display='block';
-        }
+        $.ajax({
+            url: BACKEND_URL+"/get_exam_student/"+student.id,
+            type: 'get',
+            data:"",
+            success: function(result){
+                var exam=result.data;
+                console.log(exam,"exam"); 
+                if(exam!=null) {
+                    console.log(exam[0].course.code,exam.grade);
+                    exam.forEach(function(element){
+                        if(element.course.code=="cpa_2" && element.grade=="1"){
+                            console.log("test");
+                            var a=new Date(student.date_of_birth);
+                            var diff_ms = Date.now() - a.getTime();
+                            var age_dt = new Date(diff_ms); 
+                            var age=Math.abs(age_dt.getUTCFullYear() - 1970);
+                            if(age>=21){
+                                $("#age").append(age+" years");
+                                document.getElementById('fieldset').disabled=false;
+                                document.getElementById('pass_cpa_two').style.display='none';
+                            }
+                            else{
+                                $("#age").append(age+" years");
+                                document.getElementById('fieldset').disabled=true;
+                                document.getElementById('check_age').style.display='block';
+                                document.getElementById('pass_cpa_two').style.display='none';
+                            }
+                        }
+                        else{
+                            console.log("test test");
+                            document.getElementById('fieldset').disabled=true;
+                            document.getElementById('pass_cpa_two').style.display='block';
+                        }
+                        
+                
+                    });
+                }
+            },
+            error:function (message){
+                console.log(message);
+                }
+            });
+        
     }
 }
 

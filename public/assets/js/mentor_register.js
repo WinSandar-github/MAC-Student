@@ -41,6 +41,7 @@ function ConfirmSubmit(){
 }
 
 function createMentorRegister(){
+    console.log($("#nrc_township + .nice-select span span").text().trim());
   var send_data=new FormData();
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
