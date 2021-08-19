@@ -257,7 +257,7 @@ function user_profile(){
                                                         exam_url = "/aa_private_form/"+student_id
                                                         exam_text = "AA Register Form(Private)"
                                                     }else{
-                                                        exam_url = "/aa_private_form/"+student_id
+                                                        exam_url = "/aa_mac_form/"+student_id
                                                         exam_text = "AA Register Form(MAC)"
                                                     }
                                                 }else{
