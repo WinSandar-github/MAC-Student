@@ -132,3 +132,30 @@ function loadService(){
         }
     });
 }
+
+function mentorRegisterFeedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/getMentorStatus/"+student.id,
+        type: 'GET',
+        success: function(data){
+          var form_data = data;
+          form_data.forEach(function(element){
+                if(element.approve_reject_status == 0){
+                    // showPending();
+                    $('#mentor_pending').css('display','block');
+                    $('#mentor_reg_container').css('display','none');
+
+                }else if(element.approve_reject_status == 1){
+                    $('#mentor_approve').css('display','block');
+                    $('#mentor_reg_container').css('display','none');
+                    $('#mentor_pending').css('display','none');
+                }
+                else{
+                    //
+                }
+          })
+        }
+    });
+}
