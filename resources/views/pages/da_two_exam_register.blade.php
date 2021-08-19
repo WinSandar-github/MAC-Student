@@ -178,17 +178,17 @@
                                                 </div><br/>
 
                                                 <div class="row">
-                                                    <div class="col-md-1 col-form-label">{{ _('') }}</div>
+                                                    {{--<div class="col-md-1 col-form-label">{{ _('') }}</div>
                                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
-                                                    <label class="col-md-3 col-form-label">{{ __('စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်') }}</label>
+                                                    <label class="col-md-3 col-form-label">{{ __('စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်') }}</label>--}}
                                                     <div class="col-md-7">
-                                                    <input type="file" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" required="">
+                                                        <input type="hidden" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" value="invoice_image">
                                                     </div>
                                                 </div><br/>
 
                                                 <div class="row">
                                                     <div class="col-md-1 col-form-label">{{ _('') }}</div>
-                                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                                     <label class="col-md-3 col-form-label">{{ __('ရက်စွဲ') }}</label>
                                                     <div class="col-md-7 single-form">
                                                         <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>

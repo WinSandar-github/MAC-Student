@@ -174,14 +174,14 @@
 
                                     <table width="100%">
                                         <tr>
-                                            <td width="45%">
+                                            {{--<td width="45%">
                                                 <div class="single-form">
                                                     <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်</label>
                                                 </div>
-                                            </td>
+                                            </td>--}}
                                             <td width="55%">
                                                 <div class="">
-                                                    <input type="file" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" required="">
+                                                    <input type="hidden" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" value="invoice_image">
                                                 </div>
                                             </td>
                                         </tr>

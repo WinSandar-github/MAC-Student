@@ -99,43 +99,51 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-5">
-                                            <label class="col-form-label">{{ _('(က) သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
-                                    
-                                    </div>
-                                    <div class="col-md-6" style="padding-top:10px">
+                                    <div class="col-md-1 col-form-label">(က) </div>
+                                    <div class="col-md-1" style="padding-top:10px">
                                         <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam"  name="reg_reason[]">
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-5">
-                                            <label class="col-form-label">{{ _('(ခ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
+                                    <div class="col-md-9">
+                                            <label class="col-form-label">{{ _('သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
                                     
                                     </div>
-                                    <div class="col-md-6" style="padding-top:10px">
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 col-form-label">(ခ)</div>
+                                    <div class="col-md-1" style="padding-top:10px">
                                         <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance"  name="reg_reason[]">
                                     </div>
+                                    <div class="col-md-9">
+                                            <label class="col-form-label">{{ _(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
+                                    
+                                    </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-5">
-                                            <label class="col-form-label">{{ _('(ဂ) စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
-                                    </div>
-                                    <div class="col-md-6" style="padding-top:10px">
+                                    <div class="col-md-1 col-form-label">(ဂ)</div>
+                                    <div class="col-md-1" style="padding-top:10px">
                                         <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam"  name="reg_reason[]">
                                     </div>
+                                    <div class="col-md-9">
+                                            <label class="col-form-label">{{ _(' စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
+                                    </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-5">
-                                        <label class="col-form-label">{{ _('(ဃ) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
-                                    </div>
-                                    <div class="col-md-6" style="padding-top:10px">
+                                    <div class="col-md-1 col-form-label">(ဃ)</div>
+                                    <div class="col-md-1" style="padding-top:10px">
                                         <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned"  name="reg_reason[]">
                                     </div>
+                                    <div class="col-md-9">
+                                        <label class="col-form-label">{{ _(' သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
+                                    </div>
+                                    
                                 </div>
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-md-1">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('၂။') }}</label>
@@ -143,21 +151,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('အပိုဒ် (က) မှ (င) အတွက် တက်ရောက်ခွင့်ရရှိသည့်') }}</label>
+                                            <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့် သင်တန်းအမှတ်စဥ်/အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-4">
-                                            <label class="col-form-label">{{ _(' သင်တန်းအမှတ်စဥ်/အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
-                                    </div>
-                                    <div class="col-md-4">
+                                   
+                                    <div class="col-md-5 single-form mt-2">
                                             <input type="text" class="form-control" id="batch_part_no" value="" >
                                     </div>
-                                </div><br/>
-                                <div class="row">
+                                </div>
+                                
+                                <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                     </div> 

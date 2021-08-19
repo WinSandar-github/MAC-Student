@@ -3,8 +3,8 @@
 
 var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+
 var BASE_URL = "https://demo.aggademo.me/MAC/public/";
-// var BASE_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
 
 var counter = 0;
 
