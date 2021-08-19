@@ -76,15 +76,15 @@
 
                 <!-- Header Logo Start -->
                 <div class="header-logo">
-                    <a href="/"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
                 </div>
                 <!-- Header Logo End -->
-                
+
                 <!-- Header Menu Start -->
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu" id="navbar">
-                        
-                     
+
+
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
@@ -123,7 +123,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-                     
+
                     </ul>
 
                 </div>
@@ -139,7 +139,7 @@
                                 <a onclick="logout()" href="/">Logout</a>
                             </div>
 
-                            
+
                             </div>
                         </li>
 
