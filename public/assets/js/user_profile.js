@@ -29,12 +29,12 @@ function user_profile(){
 
                 if(acc_firm.status == 0)
                 {
-                    $('.status').append('Your Audit Firm Form is checking');
+                    $('.status').append('Your Audit Firm Form is checking.');
                 }else if(acc_firm.status == 1 ){
-                    $('.status').append('Your Audit Firm Form is Approve');
+                    $('.status').append('Your Audit Firm Form is Approved.');
 
                 }else{
-                    $('.status').append('Your Audit Firm Form is Reject');
+                    $('.status').append('Your Audit Firm Form is Rejected.');
 
                 }
 
@@ -53,12 +53,12 @@ function user_profile(){
                 
                 if(school.approve_reject_status == 0)
                 {
-                    $('.status').append('School Registration is checking');
+                    $('.status').append('School Registration is checking.');
                 }else if(school.approve_reject_status == 1 ){
-                    $('.status').append('School Registration is Approve');
+                    $('.status').append('School Registration is Approved.');
 
                 }else{
-                    $('.status').append('School Registration is Reject');
+                    $('.status').append('School Registration is Rejected.');
 
                 }
 
@@ -79,12 +79,12 @@ function user_profile(){
                 
                 if(teacher.approve_reject_status == 0)
                 {
-                    $('.status').append('Teacher Registration is checking');
+                    $('.status').append('Teacher Registration is checking.');
                 }else if(teacher.approve_reject_status == 1 ){
-                    $('.status').append('Teacher Registration is Approve');
+                    $('.status').append('Teacher Registration is Approved.');
 
                 }else{
-                    $('.status').append('Teacher Registration is Reject');
+                    $('.status').append('Teacher Registration is Rejected.');
 
                 }
 
@@ -192,30 +192,30 @@ function user_profile(){
 
                     if(current_class.approve_reject_status == 0 )
                     {
-                        $('.status').append('Your Application Form is checking')
+                        $('.status').append('Your Application Form is checking.')
                     }else if(current_class.approve_reject_status == 1)
                     {
 
                         
-                        $('.status').append(`<p>Your ${current_class.batch.course.name}  Application Form is Approve.</p>`)
+                        $('.status').append(`<p>Your ${current_class.batch.course.name}  Application Form is Approved.</p>`)
                         //show data depend on Student Register status
                         if(data.student_register[i]){
                             if(data.student_register[i].status == 0 || data.student_register[i] == null)
                             {
-                                $('.status').append('<p>Your Registration Form is checking</p>')
+                                $('.status').append('<p>Your Registration Form is checking.</p>')
                                 
                             }else if(data.student_register[i].status == 1)
                             {
-                                $('.status').append('<p>Your Registration Form is Approve</p>')
+                                $('.status').append('<p>Your Registration Form is Approved.</p>')
                                  
                                 if(data.exam_registers[i]){
                                     if(data.exam_registers[i].status == 0)
                                     {
-                                        $('.status').append('<p>Your Exam Form is checking</p>')
+                                        $('.status').append('<p>Your Exam Form is checking.</p>')
                                     }
                                     else if(data.exam_registers[i].status == 1)
                                     {
-                                        $('.status').append('Your Exam Form is Approve')
+                                        $('.status').append('Your Exam Form is Approved.')
                                       
                                         if(data.exam_registers[i].grade == 1){
                                             $('.status').append(`<p>You have been pass ${data.exam_registers[i].course.name} </p>`)

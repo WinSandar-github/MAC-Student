@@ -1,3 +1,37 @@
+function ConfirmSubmitSS(){
+    var radio = document.getElementById("submit_confirm_ss");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_ss").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_ss").disabled = true;
+    }
+}
+function ConfirmSubmitPP(){
+    var radio = document.getElementById("submit_confirm_pp");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_pp").disabled= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_pp").disabled = true;
+    }
+}
+function ConfirmSubmitMac(){
+    var radio = document.getElementById("submit_confirm_mac");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_mac").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_mac").disabled = true;
+    }
+}
+
 function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     let url = location.pathname;
@@ -222,13 +256,13 @@ function loadCourse(){
     
 }
 function selectedRegistration(radioValue){
-    if(radioValue==1){
-        $('#self_study_container').css('display','block');
-        $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','none');
-        $('#self_study_card').addClass("text-success border-success");
+    if(radioValue==3){
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none');        
+        $('#mac_card').addClass("text-success border-success");
         $("#private_card").removeClass("text-success border-success");
-        $('#mac_card').removeClass("text-success border-success");
+        $('#self_study_card').removeClass("text-success border-success");
     }else if(radioValue==2){
         $('#private_school_container').css('display','block');
         $('#self_study_container').css('display','none');
@@ -236,22 +270,27 @@ function selectedRegistration(radioValue){
         $('#self_study_card').removeClass("text-success border-success");
         $("#private_card").addClass("text-success border-success");
         $('#mac_card').removeClass("text-success border-success");
-    }else if(radioValue==3){
-        $('#self_study_container').css('display','none');
+    }else if(radioValue==1){
+        $('#self_study_container').css('display','block');
         $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','block');
-        $('#self_study_card').removeClass("text-success border-success");
+        $('#mac_container').css('display','none');
+        $('#self_study_card').addClass("text-success border-success");
         $('#private_card').removeClass("text-success border-success");
-        $("#mac_card").addClass("text-success border-success");
+        $("#mac_card").removeClass("text-success border-success");
+    }else{
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none'); 
     }
 }
 
 function createSelfStudy()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
-    $(':radio:checked').map(function(){send_data.append('reg_reason',$(this).val())});
+    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -269,7 +308,7 @@ function createSelfStudy()
 
 function createPrivateSchool()
 {
-    
+    localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
@@ -294,6 +333,7 @@ function createPrivateSchool()
 
 function createMac()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
@@ -396,6 +436,7 @@ function reg_feedback(){
                                         switch(result.course.code){
                                             case 'da_1':
                                             exam_url = 'exam_register';
+                                            
                                             break;
                                             case 'da_2':
                                             exam_url = 'da_two_exam_register';

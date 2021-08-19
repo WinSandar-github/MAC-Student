@@ -947,7 +947,7 @@
                                                 </div>   
                                             <div class=col-md-9>
                                                 <div class="single-form">
-                                                    <p class="text-primary">Payment System Coming Soon</p>
+                                                    <p class="text-primary">Payment System Coming Soon...</p>
                                                 </div>
                                             </div>           
                                             </div>
@@ -966,13 +966,13 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label>{{ __('') }}</label>
+                                                            <label>{{ __('(က)') }}</label>
                                                         </div>   
                                                     </div>
                                                     
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(က) အောင်မြင်ထားသည်အဆင့် </label>
+                                                            <label> အောင်မြင်ထားသည်အဆင့် </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -986,13 +986,13 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label>{{ __('') }}</label>
+                                                            <label>{{ __('(ခ)') }}</label>
                                                         </div>   
                                                     </div>
                                                     
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(ခ) ခုနှစ်/လ</label>
+                                                            <label> ခုနှစ်/လ</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -1005,13 +1005,13 @@
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label>{{ __('') }}</label>
+                                                            
                                                         </div>   
                                                     </div>
                                                     
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(ဂ) မှတ်ပုံတင်အမှတ်</label>
+                                                            <label> မှတ်ပုံတင်အမှတ်</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -1019,23 +1019,23 @@
                                                             <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div><br/>
                                                 <div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
-                                                            <label> </label>
+                                                            <label>{{ __('(ဃ)') }}</label>
                                                         </div>   
                                                     </div>
                                             
                                             
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <div class="single-form">
-                                                            <label>(ဃ) Attched Certificate</label>
+                                                            <label> Attched Certificate</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-8">
-                                                        <div class="single-form">
-                                                            <input type="file" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"  style="padding: 2%;">
+                                                    <div class="col-md-8 mt-2">
+                                                        <div class="">
+                                                            <input type="file" class="form-control"placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}">
                                                         </div>
                                                     </div>
 
@@ -1084,10 +1084,16 @@
 
 
        
-        $("#degree_date").flatpickr({
-                enableTime: false,
-                 dateFormat: "M-Y",
 
+        // $("#degree_date").flatpickr({
+        //         enableTime: false,
+        //         dateFormat: "d-m-Y",
+
+        // });
+        $("input[name='degree_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
         });
         $(".month").flatpickr({
                 enableTime: false,
