@@ -186,10 +186,8 @@ function isLoginCPAFF(){
                 var exam=result.data;
                 console.log(exam,"exam"); 
                 if(exam!=null) {
-                    console.log(exam[0].course.code,exam.grade);
-                    exam.forEach(function(element){
+                    exam.every(function(element){
                         if(element.course.code=="cpa_2" && element.grade=="1"){
-                            console.log("test");
                             var a=new Date(student.date_of_birth);
                             var diff_ms = Date.now() - a.getTime();
                             var age_dt = new Date(diff_ms); 
@@ -205,11 +203,12 @@ function isLoginCPAFF(){
                                 document.getElementById('check_age').style.display='block';
                                 document.getElementById('pass_cpa_two').style.display='none';
                             }
+                            return false;
                         }
                         else{
-                            console.log("test test");
                             document.getElementById('fieldset').disabled=true;
                             document.getElementById('pass_cpa_two').style.display='block';
+                            return true;
                         }
                         
                 
@@ -232,7 +231,6 @@ function form_feedback(){
         contentType: false,
         processData: false,
         success: function(cData){
-            console.log(cData.data);
             var data=cData.data;
             if(data!=null){
                 if(data.status==0 || data.renew_status==0)
