@@ -18,7 +18,7 @@ use App\Http\Controllers\FileUploadController;
 // Auth::routes();
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name("home");
 Route::post('/loginValidate', 'LoginController@loginValidate');
 //Frontend DA Register Form
 Route::get('da', 'DAController@daform');
