@@ -136,7 +136,7 @@
                             <div class="dropdown">
                             <span><a class="student_name sign-in"></a></span>
                             <div class="dropdown-content">
-                                <a onclick="logout({{ route("home") }})" href="/">Logout</a>
+                                <a onclick="logout('{{ route("home") }}')">Logout</a>
                             </div>
 
 
