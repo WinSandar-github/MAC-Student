@@ -71,8 +71,21 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-
-            <div class="row mt-5">
+          <div id="mentor_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+              <div class="card text-white bg-primary my-3">
+                  <div class="card-body">
+                      <p class="card-text">Your Mentor Registration Form is checking</p>
+                  </div>
+              </div>
+          </div>
+          <div id="mentor_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+              <div class="card text-white bg-primary my-3">
+                  <div class="card-body">
+                      <p class="card-text">Your Mentor Registration Form is approved!</p>
+                  </div>
+              </div>
+          </div>
+            <div class="row mt-5" id="mentor_reg_container">
 
 
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
@@ -99,7 +112,7 @@
                               </div>
                               <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                <label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>                                  
+                                <label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>
                                   <div class="col-md-7">
                                       <div class="form-group">
                                           <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" autocomplete="off" required="">
@@ -591,5 +604,6 @@
       }
     }
     loadService();
+    mentorRegisterFeedback();
 </script>
 @endpush
