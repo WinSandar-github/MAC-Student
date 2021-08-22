@@ -45,7 +45,7 @@ function createMentorRegister(){
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
   send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
-  send_data.append('nrc_township', $("#nrc_township + .nice-select span span").text().trim());
+  send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
   send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
   send_data.append('nrc_number', $("#nrc_number").val());
   send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
@@ -88,16 +88,19 @@ function createMentorRegister(){
   send_data.append('type', $("input[name=type]").val());
   send_data.append('status', $("input[name=status]").val());
 
+  show_loader();
+
   $.ajax({
       type: "POST",
       data: send_data,
       url: BACKEND_URL + "/mentor",
-      async: false,
+    //   async: false,
       cache: false,
       contentType: false,
       processData: false,
       success: function (data) {
         console.log(data);
+            EasyLoading.hide();
           successMessage(data.message);
           resetForm("#mentor_register_form");
           // location.reload();
