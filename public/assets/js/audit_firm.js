@@ -798,7 +798,7 @@ function loadNonAuditStaff(){
     non_audit_total_staff.forEach(function(element){
           var tr = "<tr>";
           tr += "<td>" + element.name + "</td>";
-          tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'><input type='number' value='0' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+"></td>";
+          tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'><input type='number' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+" required></td>";
           tr += "</tr>";
           $("#tbl_non_audit_number_body").append(tr);
 

@@ -267,8 +267,11 @@
                                       </div>
                                   </div>
                                   <div class="col-md-3">
-                                      <div class="form-group">
+                                      <!-- <div class="form-group">
                                           <input type="text" name="cpa_reg_date" id="cpa_reg_date" class="form-control" placeholder="dd-mm-yyyy" required>
+                                      </div> -->
+                                      <div class="form-group">
+                                          <input type="text" id="cpa_reg_date" name="cpa_reg_date" placeholder="dd-mm-yyyy" class="form-control" autocomplete='off' required>
                                       </div>
                                   </div>
                               </div></br>
@@ -293,7 +296,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
                                   <div class="col-md-7">
                                     <div class="form-group">
-                                      <textarea class="form-control" name="address" id="" rows="3" style="resize:none;"></textarea>
+                                      <textarea class="form-control" name="address" id="" rows="3" style="resize:none;" required></textarea>
                                     </div>
                                   </div>
                               </div></br>
@@ -357,12 +360,14 @@
                                   <label class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
                                   <label class="col-md-3 col-form-label">{{ __('လက်ရှိလက်ခံဆောင်ရွက်စစ်ဆေးပေးရသည့်လုပ်ငန်းများ') }}</label>
                                   <div class="col-md-7">
-                                    <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;">
-                                        <option value="" disabled selected>Select Current Service</option>
-                                    </select>
-                                    <div class="col-md-5 check-service-other" style="visibility:hidden;">
-                                      <div class="form-group">
-                                          <input type="text" id="other_service" name="current_check_services_other" class="form-control" placeholder="other" >
+                                    <div class="form-group">
+                                      <select class="form-control form-select" name="current_check_service_id" id="selected_service_id" style="width:57%;margin-right:3px;" required>
+                                          <option value="" disabled selected>Select Current Service</option>
+                                      </select>
+                                      <div class="col-md-5 check-service-other" style="visibility:hidden;">
+                                        <div class="form-group">
+                                            <input type="text" id="other_service" name="current_check_services_other" class="form-control" placeholder="other" >
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -544,18 +549,22 @@
       $("input[name='cpa_reg_date']").flatpickr({
               enableTime: false,
               dateFormat: "d-m-Y",
+              allowInput: true
       });
       $("input[name='ppa_reg_date']").flatpickr({
               enableTime: false,
               dateFormat: "d-m-Y",
+              allowInput: true
       });
       $("input[name='audit_started_date']").flatpickr({
               enableTime: false,
               dateFormat: "d-m-Y",
+              allowInput: true
       });
       $("input[name='started_teaching_year']").flatpickr({
               enableTime: false,
               dateFormat: "d-m-Y",
+              allowInput: true
       });
 
       $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {

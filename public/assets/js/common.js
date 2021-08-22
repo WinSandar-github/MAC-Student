@@ -160,15 +160,15 @@ function addRowBranch(tbody){
     var newRow = $("<tr>");
     var cols = "";
 
-    cols += '<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><input type="text" name="bo_state_region[]" class="form-control"  autocomplete="off"/></td>';
-    cols += '<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off"/></td>';
+    cols += '<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_state_region[]" class="form-control"  autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off" required/></td>';
     //cols += '<td><button class="btn btn-primary btn-sm" type="button" onclick=addInputTele("'+tbody+'")><i class="fa fa-plus"></i></button></td>';
-    cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" /></td>';
-    cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" required /></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -236,8 +236,8 @@ function addRowPartnerByNonAudit(tbody){
     var cols = "";
     var row=$('.'+tbody+' tr').length;
     cols += '<td>'+ (row)+'</td>';
-    cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off"></td>';
-    cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off"></td>';
+    cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -270,10 +270,10 @@ function addRowDirectorByNonAudit(tbody){
     var cols = "";
     var row=$('.'+tbody+' tr').length;
     cols += '<td>'+ (row)+'</td>';
-    cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off"></td>';
-    cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off"></td>';
-    cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off"></td>';
-    cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off"></td>';
+    cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -335,21 +335,145 @@ function getOrganization(){
         $('#sole-proprietorship').css('display','block');
         $('#partnership').css('display','none');
         $('#company').css('display','none');
+        $('#org_validate').css('display','none');
+        $('#sole_proprietorship_box input[name="letterheads[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="pass_photos[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="owner_profiles[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="edu_certs[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="work_exps[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="nrc_passports[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="tax_clearances[]"]').prop('required',true);
+        $('#sole_proprietorship_box input[name="representatives[]"]').prop('required',true);
+
+        $('#partnership_box input[name="certi_or_regs[]"]').prop('required',false);
+        $('#partnership_box input[name="deeds_memos[]"]').prop('required',false);
+        $('#partnership_box input[name="letterheads[]"]').prop('required',false);
+        $('#partnership_box input[name="pass_photos[]"]').prop('required',false);
+        $('#partnership_box input[name="owner_profiles[]"]').prop('required',false);
+        $('#partnership_box input[name="edu_certs[]"]').prop('required',false);
+        $('#partnership_box input[name="work_exps[]"]').prop('required',false);
+        $('#partnership_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#partnership_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#partnership_box input[name="representatives[]"]').prop('required',false);
+
+        $('#company_box input[name="certificate_incors[]"]').prop('required',false);
+        $('#company_box input[name="permit_foreigns[]"]').prop('required',false);
+        $('#company_box input[name="financial_statements[]"]').prop('required',false);
+        $('#company_box input[name="tax_reg_certificate[]"]').prop('required',false);
+        $('#company_box input[name="letterheads[]"]').prop('required',false);
+        $('#company_box input[name="edu_certs[]"]').prop('required',false);
+        $('#company_box input[name="work_exps[]"]').prop('required',false);
+        $('#company_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#company_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#company_box input[name="representatives[]"]').prop('required',false);
     }
     else if(radioValue==2){
         $('#sole-proprietorship').css('display','none');
         $('#partnership').css('display','block');
         $('#company').css('display','none');
+        $('#org_validate').css('display','none');
+        $('#partnership_box input[name="certi_or_regs[]"]').prop('required',true);
+        $('#partnership_box input[name="deeds_memos[]"]').prop('required',true);
+        $('#partnership_box input[name="letterheads[]"]').prop('required',true);
+        $('#partnership_box input[name="pass_photos[]"]').prop('required',true);
+        $('#partnership_box input[name="owner_profiles[]"]').prop('required',true);
+        $('#partnership_box input[name="edu_certs[]"]').prop('required',true);
+        $('#partnership_box input[name="work_exps[]"]').prop('required',true);
+        $('#partnership_box input[name="nrc_passports[]"]').prop('required',true);
+        $('#partnership_box input[name="tax_clearances[]"]').prop('required',true);
+        $('#partnership_box input[name="representatives[]"]').prop('required',true);
+
+        $('#sole_proprietorship_box input[name="letterheads[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="pass_photos[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="owner_profiles[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="edu_certs[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="work_exps[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="representatives[]"]').prop('required',false);
+
+        $('#company_box input[name="certificate_incors[]"]').prop('required',false);
+        $('#company_box input[name="permit_foreigns[]"]').prop('required',false);
+        $('#company_box input[name="financial_statements[]"]').prop('required',false);
+        $('#company_box input[name="tax_reg_certificate[]"]').prop('required',false);
+        $('#company_box input[name="letterheads[]"]').prop('required',false);
+        $('#company_box input[name="edu_certs[]"]').prop('required',false);
+        $('#company_box input[name="work_exps[]"]').prop('required',false);
+        $('#company_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#company_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#company_box input[name="representatives[]"]').prop('required',false);
     }
     else if(radioValue==3){
         $('#sole-proprietorship').css('display','none');
         $('#partnership').css('display','none');
         $('#company').css('display','block');
+        $('#org_validate').css('display','none');
+        $('#company_box input[name="certificate_incors[]"]').prop('required',true);
+        $('#company_box input[name="permit_foreigns[]"]').prop('required',true);
+        $('#company_box input[name="financial_statements[]"]').prop('required',true);
+        $('#company_box input[name="tax_reg_certificate[]"]').prop('required',true);
+        $('#company_box input[name="letterheads[]"]').prop('required',true);
+        $('#company_box input[name="edu_certs[]"]').prop('required',true);
+        $('#company_box input[name="work_exps[]"]').prop('required',true);
+        $('#company_box input[name="nrc_passports[]"]').prop('required',true);
+        $('#company_box input[name="tax_clearances[]"]').prop('required',true);
+        $('#company_box input[name="representatives[]"]').prop('required',true);
+
+        $('#sole_proprietorship_box input[name="letterheads[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="pass_photos[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="owner_profiles[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="edu_certs[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="work_exps[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="representatives[]"]').prop('required',false);
+
+        $('#partnership_box input[name="certi_or_regs[]"]').prop('required',false);
+        $('#partnership_box input[name="deeds_memos[]"]').prop('required',false);
+        $('#partnership_box input[name="letterheads[]"]').prop('required',false);
+        $('#partnership_box input[name="pass_photos[]"]').prop('required',false);
+        $('#partnership_box input[name="owner_profiles[]"]').prop('required',false);
+        $('#partnership_box input[name="edu_certs[]"]').prop('required',false);
+        $('#partnership_box input[name="work_exps[]"]').prop('required',false);
+        $('#partnership_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#partnership_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#partnership_box input[name="representatives[]"]').prop('required',false);
     }
     else{
         $('#sole-proprietorship').css('display','none');
         $('#partnership').css('display','none');
         $('#company').css('display','none');
+        $('#org_validate').css('display','none');
+        $('#sole_proprietorship_box input[name="letterheads[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="pass_photos[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="owner_profiles[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="edu_certs[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="work_exps[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#sole_proprietorship_box input[name="representatives[]"]').prop('required',false);
+
+        $('#partnership_box input[name="certi_or_regs[]"]').prop('required',false);
+        $('#partnership_box input[name="deeds_memos[]"]').prop('required',false);
+        $('#partnership_box input[name="letterheads[]"]').prop('required',false);
+        $('#partnership_box input[name="pass_photos[]"]').prop('required',false);
+        $('#partnership_box input[name="owner_profiles[]"]').prop('required',false);
+        $('#partnership_box input[name="edu_certs[]"]').prop('required',false);
+        $('#partnership_box input[name="work_exps[]"]').prop('required',false);
+        $('#partnership_box input[name="nrc_passports[]"]').prop('required',false);
+        $('#partnership_box input[name="tax_clearances[]"]').prop('required',false);
+        $('#partnership_box input[name="representatives[]"]').prop('required',false);
+
+        $('#company_box input[name="certificate_incors[]"]').prop('required',true);
+        $('#company_box input[name="permit_foreigns[]"]').prop('required',true);
+        $('#company_box input[name="financial_statements[]"]').prop('required',true);
+        $('#company_box input[name="tax_reg_certificate[]"]').prop('required',true);
+        $('#company_box input[name="letterheads[]"]').prop('required',true);
+        $('#company_box input[name="edu_certs[]"]').prop('required',true);
+        $('#company_box input[name="work_exps[]"]').prop('required',true);
+        $('#company_box input[name="nrc_passports[]"]').prop('required',true);
+        $('#company_box input[name="tax_clearances[]"]').prop('required',true);
+        $('#company_box input[name="representatives[]"]').prop('required',true);
     }
 }
 

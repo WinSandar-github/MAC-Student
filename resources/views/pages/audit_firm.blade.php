@@ -109,7 +109,7 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form id="audit_firm_form" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data">
+                        <form id="audit_firm_form" class="needs-validation" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
