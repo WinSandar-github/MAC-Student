@@ -106,7 +106,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="mm/yyyy" required>
+                                                    <input type="text" name="date" class="form-control" placeholder="mmm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
