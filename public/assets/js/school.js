@@ -6,15 +6,21 @@ function createSchoolRegister(){
     }
     var formData = new FormData($( "#school_register_form" )[0]); 
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
+    show_loader();
     $.ajax({
         type: "POST",
         data: formData,
         url: BACKEND_URL + "/school",
-        async: false,  
+        // async: false,  
         cache: false,  
         contentType: false,  
         processData: false, 
         success: function (data) {
+            setTimeout(() => {
+                Easyloading.hide()
+                
+            }, 2000);
+            
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
             //resetForm("#school_register_form");

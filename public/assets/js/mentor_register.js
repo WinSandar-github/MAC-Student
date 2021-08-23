@@ -83,21 +83,24 @@ function createMentorRegister(){
   send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
   send_data.append('training_absent', $("input[name=training_absent]:checked").val());
   send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
-  send_data.append('email', $("input[name=email]").val());
-  send_data.append('password', $("input[name=password]").val());
+//   send_data.append('email', $("input[name=email]").val());
+//   send_data.append('password', $("input[name=password]").val());
   send_data.append('type', $("input[name=type]").val());
   send_data.append('status', $("input[name=status]").val());
+
+  show_loader();
 
   $.ajax({
       type: "POST",
       data: send_data,
       url: BACKEND_URL + "/mentor",
-      async: false,
+    //   async: false,
       cache: false,
       contentType: false,
       processData: false,
       success: function (data) {
         console.log(data);
+            EasyLoading.hide();
           successMessage(data.message);
           resetForm("#mentor_register_form");
           // location.reload();
