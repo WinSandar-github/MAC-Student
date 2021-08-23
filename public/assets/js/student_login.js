@@ -1,6 +1,9 @@
 function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
+
+    show_loader();
+  
     $.ajax({
         url:   BACKEND_URL + "/loginValidate",
         type: 'post',
@@ -10,10 +13,14 @@ function studentLogin(){
             },
         success: function(result){
             if(result){
+                
+                EasyLoading.hide() 
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                 location.href= FRONTEND_URL + "/";
+                location.href= FRONTEND_URL + "/";
             }else{
+                EasyLoading.hide();
+
                 $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
                 $('#password').val("");
@@ -21,6 +28,8 @@ function studentLogin(){
            }
         },error:function(errors){
             if(errors.status == 401){
+                 EasyLoading.hide()
+
                 $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
                 $('#password').val("");

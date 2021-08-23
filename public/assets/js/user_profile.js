@@ -1,15 +1,16 @@
 function user_profile(){
-
+     
+    show_loader();
+   
     $.ajax({
         url:   BACKEND_URL + "/user_profile/"+student_id,
         type: 'get',
-
         success: function(result){
+           EasyLoading.hide();
 
 
             let data = result.data;
-            console.log(data)
-
+ 
 
 
             if(data.accountancy_firm_info_id){
@@ -199,7 +200,7 @@ function user_profile(){
                         $('.status').append(`<p>Your ${current_class.batch.course.name}  Application Form is Approved.</p>`)
                         //show data depend on Student Register status
                         if(data.student_register[i]){
-                            if(data.student_register[i].status == 0 || data.student_register[i] == null)
+                             if(data.student_register[i].status == 0 || data.student_register[i] == null)
                             {
                                 $('.status').append('<p>Your Registration Form is checking.</p>')
 
