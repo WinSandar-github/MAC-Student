@@ -108,6 +108,7 @@ function createMentorRegister(){
           //$(".tbl_education").empty();
       },
       error: function (result) {
+        EasyLoading.hide();
       },
   });
 }
