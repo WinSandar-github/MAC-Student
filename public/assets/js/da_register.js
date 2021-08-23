@@ -173,12 +173,8 @@ $('#da_update').submit(function(e){
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
    
-   
-
     var formData = new FormData(this);
-
-  
-    
+   
     formData.append('student_id',student_id);
     show_loader();
     $.ajax({
@@ -191,9 +187,11 @@ $('#store_da_two_form').submit(function(e){
             EasyLoading.hide();      
             localStorage.setItem('approve_reject', data.approve_reject_status);
             successMessage("You have successfully registerd!");
-            location.href = FRONTEND_URL+"/student_course/1"; 
+            location.href = FRONTEND_URL+"/"; 
         },
       error:function (message){
+        EasyLoading.hide();      
+
         errorMessage(message);
           }
         // },

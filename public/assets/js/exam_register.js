@@ -22,7 +22,7 @@ function createDAExamRegister()
         success: function(result){
             EasyLoading.hide();
 
-            location.href = FRONTEND_URL + "/student_course/1";
+            location.href = FRONTEND_URL + "/";
             localStorage.setItem('exam_status',0)
             successMessage(result);
 
@@ -48,7 +48,7 @@ $('#cpa_exam_register').submit(function(e){
         success: function(result){
              EasyLoading.hide();
              localStorage.setItem('approve_reject', 1);
-             location.href = FRONTEND_URL + "/student_course/2";
+             location.href = FRONTEND_URL + "/";
 
             successMessage(result);
       }
