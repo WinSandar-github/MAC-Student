@@ -359,14 +359,14 @@
                                 <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                 <label class="col-md-3 col-form-label">{{ __('ယခင်အလုပ်သင်ကြားပေးမှုအတွေ့အကြုံ ရှိ/မရှိ') }}</label>
                                 <div class="col-md-2">
-                                  <input type="radio" value="1" name="experience"> ရှိ
+                                  <input type="radio" value="1" name="experience" checked="true"> ရှိ
                                 </div>
                                 <div class="col-md-2">
                                   <input type="radio" value="0" name="experience"> မရှိ
                                 </div>
                               </div>
 
-                              <div id="started_teaching" style="display:none;">
+                              <div id="started_teaching" >
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-6 col-form-label">{{ __('စာရင်းကိုင်အလုပ်သင်များအား အလုပ်သင်ကြားပေးမှု စတင်ခဲ့သည့်ခုနှစ်') }}</label>
@@ -378,7 +378,7 @@
                                 </div>
                               </div>
 
-                              <div id="internship_accept" style="display:none;">
+                              <div id="internship_accept" >
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-6 col-form-label">{{ __('အလုပ်သင်ဦးရေလက်ခံနိုင်သည့်အရေအတွက်') }}</label>
@@ -390,7 +390,7 @@
                                 </div>
                               </div>
 
-                              <div id="current_accept" style="display:none;">
+                              <div id="current_accept" >
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-6 col-form-label">{{ __('လက်ရှိလက်ခံသင်ကြားပေးသော အလုပ်သင်ဦးရေ') }}</label>
@@ -402,7 +402,7 @@
                                 </div>
                               </div>
 
-                              <div id="trained_trainees" style="display:none;">
+                              <div id="trained_trainees" >
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-6 col-form-label">{{ __('မွေးထုတ်ပေးခဲ့သည့် အလုပ်သင်ဦးရေ') }}</label>
@@ -414,7 +414,7 @@
                                 </div>
                               </div>
 
-                              <div id="repeat_yearly" style="display:none;">
+                              <div id="repeat_yearly" >
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-6 col-form-label">{{ __('နှစ်စဥ်ဆက်တိုက်အလုပ်သင်ကြားနိုင်ခြင်း ရှိ/မရှိ') }}</label>
@@ -427,7 +427,20 @@
                                 </div>
                               </div>
 
-                              <div id="traing_absent" style="display:none;">
+                              <div id="training_absent" >
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                  <label class="col-md-6 col-form-label">{{ __('အလုပ်သင်ကြားမှုပြတ်တောက်ခဲ့ခြင်း ရှိ/မရှိ') }}</label>
+                                  <div class="col-md-2">
+                                    <input type="radio"  value="1" name="training_absent"> ရှိ
+                                  </div>
+                                  <div class="col-md-2">
+                                    <input type="radio" value="0" name="training_absent" checked> မရှိ
+                                  </div>
+                                </div>
+                              </div>
+
+                              {{--<div id="traing_absent" >
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-6 col-form-label">{{ __('အလုပ်သင်ကြားမှုပြတ်တောက်ခဲ့ခြင်း ရှိ/မရှိ') }}</label>
@@ -438,7 +451,7 @@
                                     <input type="radio" id="no"  name="training_absent" value="0" > မရှိ
                                   </div>
                                 </div>
-                              </div>
+                              </div>--}}
 
                               <div id="absent_reason" style="display:none;">
                                 <div class="row">
@@ -502,26 +515,26 @@
 <script src="{{asset('assets/js/mentor_register.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
-      $("input[name=training_absent]").on("click", function(evt) {
-        var checkedValue = $("input[name='training_absent']:checked").val();
-        if(checkedValue == '1'){
-          $("#absent_reason").css('display','block');
-        }
-        else if(checkedValue == '0'){
-          $("#absent_reason").css('display','none');
-        }
-      });
+      // $("input[name=training_absent]").on("click", function(evt) {
+      //   var checkedValue = $("input[name='training_absent']:checked").val();
+      //   if(checkedValue == '1'){
+      //     $("#absent_reason").css('display','block');
+      //   }
+      //   else if(checkedValue == '0'){
+      //     $("#absent_reason").css('display','none');
+      //   }
+      // });
 
-      $("input[name=experience]").on("click", function(evt) {
-        var checkedValue = $("input[name='experience']:checked").val();
-        if(checkedValue == '1'){
-          $("#started_teaching,#internship_accept,#current_accept,#trained_trainees,#repeat_yearly,#traing_absent").css('display','block');
-        }
-        else if(checkedValue == '0'){
-          $("#started_teaching,#internship_accept,#current_accept,#trained_trainees,#repeat_yearly,#traing_absent,#absent_reason").css('display','none');
-          $("input[name='training_absent']").prop('checked',false);
-        }
-      });
+      // $("input[name=experience]").on("click", function(evt) {
+      //   var checkedValue = $("input[name='experience']:checked").val();
+      //   if(checkedValue == '1'){
+      //     $("#started_teaching,#internship_accept,#current_accept,#trained_trainees,#repeat_yearly,#traing_absent").css('display','block');
+      //   }
+      //   else if(checkedValue == '0'){
+      //     $("#started_teaching,#internship_accept,#current_accept,#trained_trainees,#repeat_yearly,#traing_absent,#absent_reason").css('display','none');
+      //     $("input[name='training_absent']").prop('checked',false);
+      //   }
+      // });
 
       $("#selected_service_id").change(function(){
         checkOtherService($(this));
