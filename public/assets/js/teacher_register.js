@@ -103,23 +103,28 @@ function delRowSubject(tbody){
 }
 
 function createTeacherRegister(){
-  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
-  {
-      alert("Your password and confirm password do not match!");
-      return;
-  }
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        alert("Your password and confirm password do not match!");
+        return;
+    }
     let formData = new FormData($( "#teacher_register_form" )[0]);
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
+     
+      show_loader()
+    
+
 
     $.ajax({
         type: "POST",
         data: formData,
         url: BACKEND_URL + "/teacher",
-        async: false,
-        cache: false,
+        // async: false,
+        // cache: false,
         contentType: false,
         processData: false,
         success: function (data) {
+            EasyLoading.hide();
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
             //resetForm("#teacher_register_form");

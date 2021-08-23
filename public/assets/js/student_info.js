@@ -295,6 +295,7 @@ function createSelfStudy()
     send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -302,6 +303,7 @@ function createSelfStudy()
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";
@@ -319,6 +321,7 @@ function createPrivateSchool()
     if($("input[name='form_type']").val()=="da two"){
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
     }
+    show_loader();
     
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -326,7 +329,8 @@ function createPrivateSchool()
         data:send_data,
         contentType: false,
         processData: false,
-        success: function(result){            
+        success: function(result){    
+            EasyLoading.hide();        
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";
@@ -341,6 +345,7 @@ function createMac()
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -348,6 +353,7 @@ function createMac()
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";

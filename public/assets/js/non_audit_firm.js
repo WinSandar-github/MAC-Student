@@ -246,6 +246,7 @@ function createNonAuditFirm(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
+  show_loader();
 
   $.ajax({
           url: BACKEND_URL+"/acc_firm_info",
@@ -254,6 +255,7 @@ function createNonAuditFirm(){
           contentType: false,
           processData: false,
           success: function(result){
+            EasyLoading.hide()
             successMessage("Insert Successfully");
             //location.reload();
             location.href = FRONTEND_URL+"/";

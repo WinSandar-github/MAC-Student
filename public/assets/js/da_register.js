@@ -63,6 +63,8 @@ function createDARegister()
     
 
     send_data.append('batch_id', batch_id);
+    show_loader();
+
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -72,11 +74,13 @@ function createDARegister()
         processData: false,
         success: function(result){
              if(result.name_mm!=null){
+                 EasyLoading.hide();
                 successMessage("You have successfully registerd!");                
                 // location.reload();
                 location.href = FRONTEND_URL+'/' ;
              }
              else{
+                EasyLoading.hide();
                 successMessage(result);
              }
       },
@@ -165,27 +169,29 @@ $('#da_update').submit(function(e){
 
 })
 
+//store Da Application Form
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
    
-   
-
     var formData = new FormData(this);
-  
-    
+   
     formData.append('student_id',student_id);
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
         type: 'post',
         data:formData,
         contentType: false,
         processData: false,
-        success: function(data){            
+        success: function(data){      
+            EasyLoading.hide();      
             localStorage.setItem('approve_reject', data.approve_reject_status);
             successMessage("You have successfully registerd!");
-            location.href = FRONTEND_URL+"/student_course/1"; 
+            location.href = FRONTEND_URL+"/"; 
         },
       error:function (message){
+        EasyLoading.hide();      
+
         errorMessage(message);
           }
         // },

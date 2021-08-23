@@ -36,6 +36,7 @@ function CPA2_Private_School_Submit(){
     data.append('cpa_one_success_no', $("#cpa_one_success_no").val());
     data.append('type', 1);
     data.append('form_type',localStorage.getItem('course_id'));
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -43,6 +44,7 @@ function CPA2_Private_School_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
@@ -68,6 +70,7 @@ function CPA2_Mac_Submit(){
     data.append('cpa_one_success_no', $("#cpa_one_success_no").val());
     data.append('type', 2);
     data.append('form_type',localStorage.getItem('course_id'));
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -75,6 +78,7 @@ function CPA2_Mac_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
@@ -99,6 +103,7 @@ function CPA2_Self_Study_Submit(){
     data.append('batch_part_no',$("#batch_part_no").val() );
     data.append('type',0);
     data.append('form_type',localStorage.getItem('course_id'));
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -106,6 +111,7 @@ function CPA2_Self_Study_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading();
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
@@ -129,6 +135,7 @@ $('#store_cpa_two_form').submit(function(e){
 
     var formData = new FormData(this);
     formData.append('student_id',student_id);
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
         type: 'post',
@@ -136,6 +143,7 @@ $('#store_cpa_two_form').submit(function(e){
         contentType: false,
         processData: false,
         success: function(data){
+            EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
             location.href = FRONTEND_URL+"/student_course/2"; 
         },
