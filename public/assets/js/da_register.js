@@ -41,7 +41,7 @@ function createDARegister()
     $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
-    send_data.append('date', $("input[name=date]").val());
+    // send_data.append('date', $("input[name=date]").val());
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
 

@@ -71,21 +71,8 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-          <div id="mentor_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-              <div class="card text-white bg-primary my-3">
-                  <div class="card-body">
-                      <p class="card-text">Your Mentor Registration Form is checking</p>
-                  </div>
-              </div>
-          </div>
-          <div id="mentor_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-              <div class="card text-white bg-primary my-3">
-                  <div class="card-body">
-                      <p class="card-text">Your Mentor Registration Form is approved!</p>
-                  </div>
-              </div>
-          </div>
-            <div class="row mt-5" id="mentor_reg_container">
+
+            <div class="row mt-5">
 
 
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
@@ -112,7 +99,7 @@
                               </div>
                               <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                <label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>                                  
                                   <div class="col-md-7">
                                       <div class="form-group">
                                           <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" autocomplete="off" required="">
@@ -467,11 +454,9 @@
 
 
 
-                              <div class="row mb-3">
+                              <div class="row">
 
-                                  <div class="col-md-1"></div>
-                                  <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-                                  <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
+                                  <label class="col-md-10 col-form-label"><input type="radio" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
                                   <input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
                                   <input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
                               </div>
@@ -604,6 +589,5 @@
       }
     }
     loadService();
-    mentorRegisterFeedback();
 </script>
 @endpush

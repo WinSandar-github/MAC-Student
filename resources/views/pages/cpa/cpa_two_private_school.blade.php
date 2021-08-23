@@ -104,7 +104,7 @@
                                             <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
                                     </div></div>
                                     <div class="col-md-4"> <div class="single-form">
-                                            <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="cpa_one_pass_date" value="" required>
+                                            <input type="text" class="form-control" placeholder="mmm/yyyy" id="cpa_one_pass_date" value="" required>
                                     </div></div>
                                 </div>
                                 <div class="row">
@@ -171,6 +171,13 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-
+$(document).ready(function (e) 
+{
+    $("#cpa_one_pass_date").flatpickr({
+            enableTime: false,
+            dateFormat: "M-Y",
+            allowInput: true,
+    });
+});
 </script>
 @endpush

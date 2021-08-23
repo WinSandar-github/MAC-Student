@@ -98,11 +98,11 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-10">
+                                                        {{--<div class="col-md-10">
                                                             <div class="single-form">
                                                                 <label class="col-form-label">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်</label>
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
 
                                                 </div>
 
@@ -139,7 +139,7 @@
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
-                                                                <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                                <input type="text" name="date" class="form-control" placeholder="mmm/yyyy" required>
                                                             </div>
                                                         </div>
 
@@ -225,7 +225,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-3" style="display:none;">
                                                         <div class="col-md-1">
                                                             
                                                         </div>
@@ -236,11 +236,11 @@
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
-                                                                <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                                <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" >
                                                             </div>
                                                         </div>
 
-                                                </div>
+                                                    </div>
                                                 <div class="row">
 
 
@@ -273,7 +273,7 @@
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "m-Y",
+                dateFormat: "M-Y",
                 allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
