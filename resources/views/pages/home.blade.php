@@ -154,6 +154,12 @@
 
                         </div>
 
+                        <h5 class="border-bottom py-2 my-2" style="font-weight:bold;background-color:#E7F8EE;"> Status Announcement</h5>
+                        <div class="row m-2 mt-3 ">
+                                <span class="status"></span> 
+                            
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <h5 class="border-bottom mt-3 pb-2" style="font-weight:bold">
@@ -197,6 +203,32 @@
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
+                                        <p class="ml-2 text-bold regi_fee_txt" style="font-weight:bold"></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="registration_fee"></span> 
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom self_study" style="display:none;">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold " style="font-weight:bold">Selfstudy Registration Fees</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="selfstudy_fee"></span> 
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom private_school" style="display:none;">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold " style="font-weight:bold">Private School Registration Fees</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="pschool_fee"></span> 
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
                                     </div>
                                     <div class="col-md-6">
@@ -217,6 +249,7 @@
                         </div>
 
                     </div>
+                   
 
                     <div class="acc_firm">
                         <div class="row">
@@ -371,9 +404,9 @@
                     </div>
                     
 
-                    <h5 class="border-bottom pb-2" style="font-weight:bold"> Status Announcement</h5>
+                    <h5 class="border-bottom pb-2" style="font-weight:bold"> Announcement Histroy</h5>
                     <div class="row m-2 mt-3 ">
-                            <span class="status"></span> 
+                            <span class="status_history"></span> 
                         
                     </div>
                 </div>
@@ -396,7 +429,7 @@
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
-         
+        
         if(student_id != null){
         user_profile(); 
     }
