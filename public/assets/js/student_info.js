@@ -1,3 +1,37 @@
+function ConfirmSubmitSS(){
+    var radio = document.getElementById("submit_confirm_ss");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_ss").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_ss").disabled = true;
+    }
+}
+function ConfirmSubmitPP(){
+    var radio = document.getElementById("submit_confirm_pp");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_pp").disabled= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+        document.getElementById("submit_confirm_mac").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_pp").disabled = true;
+    }
+}
+function ConfirmSubmitMac(){
+    var radio = document.getElementById("submit_confirm_mac");
+    if (radio.checked == true){
+        document.getElementById("submit_btn_mac").disabled= false;
+        document.getElementById("submit_confirm_pp").checked= false;
+        document.getElementById("submit_confirm_ss").checked= false;
+    } 
+    else{
+    document.getElementById("submit_btn_mac").disabled = true;
+    }
+}
+
 function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     let url = location.pathname;
@@ -16,6 +50,7 @@ function app_form_feedback(){
             processData: false,
             success: function (result) {
                 let student_status = result.data.approve_reject_status;
+                 
                 
             if(student_status == 0){
             
@@ -39,6 +74,7 @@ function app_form_feedback(){
 
                             switch(batch.course.code){
                                 case 'da_1':
+ 
                                 register_url = '/da_one_register';
                                 break;
                                 case 'da_2':
@@ -57,8 +93,9 @@ function app_form_feedback(){
     
                                 
                             }
-                         location.href = FRONTEND_URL+register_url;
-                        }
+                            
+                            location.href = FRONTEND_URL+register_url;
+                            }
                         }
                     })  ;     
             }else if(student_status == 2){
@@ -222,13 +259,13 @@ function loadCourse(){
     
 }
 function selectedRegistration(radioValue){
-    if(radioValue==1){
-        $('#self_study_container').css('display','block');
-        $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','none');
-        $('#self_study_card').addClass("text-success border-success");
+    if(radioValue==3){
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none');        
+        $('#mac_card').addClass("text-success border-success");
         $("#private_card").removeClass("text-success border-success");
-        $('#mac_card').removeClass("text-success border-success");
+        $('#self_study_card').removeClass("text-success border-success");
     }else if(radioValue==2){
         $('#private_school_container').css('display','block');
         $('#self_study_container').css('display','none');
@@ -236,23 +273,29 @@ function selectedRegistration(radioValue){
         $('#self_study_card').removeClass("text-success border-success");
         $("#private_card").addClass("text-success border-success");
         $('#mac_card').removeClass("text-success border-success");
-    }else if(radioValue==3){
-        $('#self_study_container').css('display','none');
+    }else if(radioValue==1){
+        $('#self_study_container').css('display','block');
         $('#private_school_container').css('display','none');
-        $('#mac_container').css('display','block');
-        $('#self_study_card').removeClass("text-success border-success");
+        $('#mac_container').css('display','none');
+        $('#self_study_card').addClass("text-success border-success");
         $('#private_card').removeClass("text-success border-success");
-        $("#mac_card").addClass("text-success border-success");
+        $("#mac_card").removeClass("text-success border-success");
+    }else{
+        $('#mac_container').css('display','block');
+        $('#self_study_container').css('display','none');
+        $('#private_school_container').css('display','none'); 
     }
 }
 
 function createSelfStudy()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 0);
-    $(':radio:checked').map(function(){send_data.append('reg_reason',$(this).val())});
+    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -260,16 +303,17 @@ function createSelfStudy()
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
 
 function createPrivateSchool()
 {
-    
+    localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 1);
@@ -277,6 +321,7 @@ function createPrivateSchool()
     if($("input[name='form_type']").val()=="da two"){
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
     }
+    show_loader();
     
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -284,20 +329,23 @@ function createPrivateSchool()
         data:send_data,
         contentType: false,
         processData: false,
-        success: function(result){            
+        success: function(result){    
+            EasyLoading.hide();        
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
 
 function createMac()
 {
+    localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -305,9 +353,10 @@ function createMac()
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -338,11 +387,13 @@ function reg_feedback(){
                     contentType: false,
                     processData: false,
                     success: function(exam_status){
+ 
                           if(exam_status === 0){
                             $('.exam_feedback').css('display','block');
                             $('.exam_text').append(`Your Exam Form is checking.`)
                             console.log("Exam Register form Checking ")
                         }else if(exam_status == 1){
+                           
                             $('.exam_feedback').css('display','block');
                             $('.exam_text').append(`Your Exam Form is approved.`)
                         }else if(exam_status == 2){
@@ -353,24 +404,36 @@ function reg_feedback(){
                             $('.approve').css('display','block');
                             $('#aa_form').css('display','block');
                             // console.log(student_id);
+                            var student_mentor
                             $.ajax({
                                 url: BACKEND_URL+"/get_type/"+student_id,
                                 type: 'GET',
                                 success: function(data){
-                                    // console.log(data)
-                                    var student_data = data.data;
+                                     var student_data = data.data;
                                     student_data.forEach(function(element){
                                     var course_data = element.course.code;
+                                    var self_url = FRONTEND_URL+"/aa_self_form/"+ student_id;
+                                    var private_url = FRONTEND_URL+"/aa_private_form/"+ student_id;
+                                    var mac_url = FRONTEND_URL+"/aa_mac_form/"+ student_id;
                                     // console.log(course_data)
                                     // console.log(element.type);
                                         if(element.type == 0 && course_data == 'cpa_1'){
-                                            $('.aa').append(`<a href="/aa_self_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
+                                            
+                                            student_mentor = element.mentor_id;
+                                            $('#aa').append(`<a href=${self_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Self Study)</a>`)
                                             // createAASelfStudy();
                                         }else if(element.type == 1 && course_data == 'cpa_1'){
-                                            $('.aa').append(`<a href="/aa_private_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
+                                            
+                                            student_mentor = element.mentor_id;
+
+                                            $('#aa').append(`<a href=${private_url} class="btn btn-success btn-sm xl-auto" >AA Register Form(Private)</a>`)
                                             // createAAPrivate();
                                         }else if(element.type == 2 && course_data == 'cpa_1'){
-                                            $('.aa').append(`<a href="/aa_mac_form/${student_id}/" class="btn btn-success btn-sm xl-auto" >AA Register Form(MAC)</a>`)
+                                             
+
+                                            student_mentor = element.mentor_id;
+
+                                            $('#aa').append(`<a href=${mac_url} class="btn btn-success btn-sm xl-auto" pl-auto>AA Register Form(MAC)</a>`)
                                             // createAAMac();
                                         }
                                         else{
@@ -379,7 +442,8 @@ function reg_feedback(){
                                   })
                                 }
                             }); 
-                           
+
+                            
                             $.ajax({
                                 type: "get",
                                 url: BACKEND_URL+"/get_exam/"+student.id,
@@ -387,7 +451,9 @@ function reg_feedback(){
                                 processData: false,
                                 success: function (result) {
                                      var exam_url;
-            
+                                     console.log(result)
+ 
+                                    
                                    
                             
                                     if(result){
@@ -395,6 +461,7 @@ function reg_feedback(){
                                         switch(result.course.code){
                                             case 'da_1':
                                             exam_url = 'exam_register';
+                                            
                                             break;
                                             case 'da_2':
                                             exam_url = 'da_two_exam_register';
@@ -418,10 +485,17 @@ function reg_feedback(){
                                         <p>${result.name} </p>
                                         <p>Exam Start Date - ${result.exam_start_date}</p>
                                         <p>Exam End Date - ${result.exam_end_date}</p>
-                                        <p> Go to Exam Registration Form
-                                        <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
-                                        </p>
+                                        
                                         </div>`)
+                                        console.log(student_mentor);
+
+                                        if(student_mentor !== null){
+                                            $('.add_exam').append(`
+                                            <p> Go to Exam Registration Form
+                                            <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
+                                            </p>
+                                            `)
+                                        }
             
                                         
                                     }else{

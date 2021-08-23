@@ -170,23 +170,27 @@ function createAAMacRegister()
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('type', 2);
+  
     send_data.append('mentor_id',$('#selected_mentor_id').val());
     send_data.append('current_check_service_id',$('#selected_service_id').val());
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
     send_data.append('recommend_file', recommend_file);
+    show_loader();
+    
+    
     // send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/update_mentor",
         type: 'post',
         data:send_data,
         contentType: false,
         processData: false,
         success: function(result){
-            successMessage(result);
-            // location.reload();
-            location.href = "/";
+            EasyLoading.hide();
+            successMessage(result.message);
+            location.reload();
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -202,17 +206,19 @@ function createAASelfRegister()
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
     send_data.append('recommend_file', recommend_file);
+    show_loader();
     // send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/update_mentor",
         type: 'post',
         data:send_data,
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -224,21 +230,23 @@ function createAAPrivateRegister()
     send_data.append('student_id',student.id);
     send_data.append('type', 1);
     send_data.append('mentor_id',$('#selected_mentor_id').val());
-    send_data.append('current_check_service_id',$('#selected_service_id').val());
+    send_data.append('',$('#selected_service_id').val());
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
-    send_data.append('recommend_file', recommend_file);
+    send_data.current_check_service_idappend('recommend_file', recommend_file);
     // send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/update_mentor",
         type: 'post',
         data:send_data,
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
       }
     });
 }

@@ -66,6 +66,7 @@
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+                                <div class="col-md-12"  id="is_private_school" style="display:none">
                                     <table width="100%">
                                         <tr>
                                             <td width="45%">
@@ -75,12 +76,12 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" required="">
+                                                    <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}">
                                                 </div>
                                             </td>
                                         </tr>
                                     </table>
-
+                                    </div>
                                     {{--<table width="100%">
                                         <tr>
                                             <td>
@@ -173,14 +174,14 @@
 
                                     <table width="100%">
                                         <tr>
-                                            <td width="45%">
+                                            {{--<td width="45%">
                                                 <div class="single-form">
                                                     <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်</label>
                                                 </div>
-                                            </td>
+                                            </td>--}}
                                             <td width="55%">
                                                 <div class="">
-                                                    <input type="file" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" required="">
+                                                    <input type="hidden" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" value="invoice_image">
                                                 </div>
                                             </td>
                                         </tr>
@@ -201,7 +202,7 @@
                                     </table>
 
                                     <div class="row mt-4">
-                                        <div class="col-md-3 offset-md-5">
+                                        <div class="col-md-2 offset-md-5">
                                             <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
@@ -231,6 +232,17 @@
                 dateFormat: "d-m-Y",
                 allowInput: true,
         });
-    });
+        var boo=localStorage.getItem("isPrivateSchool");
+        if(boo=="true" ){
+            console.log(boo,"true");
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='block';}
+        }
+        else{
+            console.log(boo,"false");
+            if(document.getElementById('is_private_school'))
+            {document.getElementById('is_private_school').style.display='none';}
+        }
+    }); 
 </script>
 @endpush

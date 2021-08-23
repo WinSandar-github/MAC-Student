@@ -6,8 +6,8 @@ $(document).ready(function(){
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
-      $("#email_num").text("13");
-      $("#password_num").text("14");
+      // $("#email_num").text("13");
+      // $("#password_num").text("14");
     }
     else if($(this).val() == "2"){
       //foreign
@@ -15,8 +15,8 @@ $(document).ready(function(){
       $("#local_header").css("display","none");
       $("#director_staffmembers").css("display","block");
       $("input[name=local_foreign_type]").val("2");
-      $("#email_num").text("14");
-      $("#password_num").text("15");
+      // $("#email_num").text("14");
+      // $("#password_num").text("15");
     }
     else{
       //local
@@ -24,8 +24,8 @@ $(document).ready(function(){
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
-      $("#email_num").text("13");
-      $("#password_num").text("14");
+      // $("#email_num").text("13");
+      // $("#password_num").text("14");
     }
   });
 });
@@ -106,7 +106,11 @@ function loadNonAuditTypeOfService(){
 }
 
 function createNonAuditFirm(){
-
+  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+  {
+      alert("Your password and confirm password do not match!");
+      return;
+  }
   var send_data=new FormData();
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
@@ -242,6 +246,7 @@ function createNonAuditFirm(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
+  show_loader();
 
   $.ajax({
           url: BACKEND_URL+"/acc_firm_info",
@@ -250,9 +255,10 @@ function createNonAuditFirm(){
           contentType: false,
           processData: false,
           success: function(result){
-            successMessage(result);
+            EasyLoading.hide()
+            successMessage("Insert Successfully");
             //location.reload();
-            location.href = "/";
+            location.href = FRONTEND_URL+"/";
         }
       });
 }

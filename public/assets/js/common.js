@@ -1,10 +1,11 @@
-// var BACKEND_URL="http://localhost:8000/api";
 // var FRONTEND_URL="http://localhost:8001";
 // var BASE_URL = "http://localhost:8000";
+// var BACKEND_URL="http://localhost:8000/api";
+
 
 var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-var BASE_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -32,8 +33,8 @@ function successMessage(message) {
 }
 
 $('document').ready(function(){
-    
-     
+
+
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
@@ -56,6 +57,18 @@ function formatDate(date){
     return date;
 }
 
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    }
+    else{
+    document.getElementById("submit_btn").disabled = true;
+    }
+}
+
+
+
 function addRowEducation(tbody){
     $(".degree").hide();
     var newRow = $("<tr>");
@@ -76,7 +89,7 @@ function delRowEducation(tbody){
 }
 
 function addRowSubject(tbody){
-    
+
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
@@ -93,7 +106,7 @@ function addRowSubject(tbody){
     }
 }
 function addRowDipSubject(tbody){
-    
+
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
@@ -153,7 +166,7 @@ function addRowBranch(tbody){
     cols += '<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off"/></td>';
     cols += '<td><input type="text" name="bo_state_region[]" class="form-control"  autocomplete="off"/></td>';
     cols += '<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><button class="btn btn-primary btn-sm" type="button" onclick=addInputTele("'+tbody+'")><i class="fa fa-plus"></i></button></td>';
+    //cols += '<td><button class="btn btn-primary btn-sm" type="button" onclick=addInputTele("'+tbody+'")><i class="fa fa-plus"></i></button></td>';
     cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
@@ -180,8 +193,14 @@ function addRowPartner(tbody){
 
 function delRowPartner(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+      counter -= 1
+      // order numer to be serial
+      $(siblings).each(function(index,row){
+        $(row).find("td:first-child").text(index + 1);
+      });
     });
 }
 
@@ -201,8 +220,14 @@ function addRowDirector(tbody){
 }
 function delRowDirector(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+      counter -= 1
+      // order numer to be serial
+      $(siblings).each(function(index,row){
+        $(row).find("td:first-child").text(index + 1);
+      });
     });
 }
 
@@ -228,8 +253,14 @@ function delRowBranch(tbody){
 
 function delRowPartnerByNonAudit(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1;
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+      counter -= 1
+      // order numer to be serial
+      $(siblings).each(function(index,row){
+        $(row).find("td:first-child").text(index + 1);
+      });
 
     });
 }
@@ -251,8 +282,14 @@ function addRowDirectorByNonAudit(tbody){
 
 function delRowDirectorByNonAudit(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+      counter -= 1
+      // order numer to be serial
+      $(siblings).each(function(index,row){
+        $(row).find("td:first-child").text(index + 1);
+      });
     });
 }
 
@@ -272,17 +309,23 @@ function addRowDirectorCPA(tbody){
     counter++;
 }
 
-function delRowDirector(tbody){
-    $("table."+tbody).on("click", ".delete", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1
-    });
-}
+// function delRowDirector(tbody){
+//     $("table."+tbody).on("click", ".delete", function (event) {
+//         $(this).closest("tr").remove();
+//         counter -= 1
+//     });
+// }
 
 function delRowDirectorCPA(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
-        $(this).closest("tr").remove();
-        counter -= 1
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+      counter -= 1
+      // order numer to be serial
+      $(siblings).each(function(index,row){
+        $(row).find("td:first-child").text(index + 1);
+      });
     });
 }
 
@@ -332,7 +375,7 @@ function resetForm(form){
     $(form).removeClass('was-validated');
     form.reset();
 }
-// form validation 
+// form validation
 (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -356,4 +399,4 @@ async function get_course_by_code(course_code){
     let response = await fetch(BACKEND_URL+"/course_by_course_code/"+course_code)
     let data = await response.json()
     return data;
-}  
+}

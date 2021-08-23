@@ -5,6 +5,7 @@ if (typeof (localStorage) != "undefined")
         
     }
     else {
+        
         $('.login').show();
         
         localStorage.removeItem('course_type');
@@ -12,8 +13,8 @@ if (typeof (localStorage) != "undefined")
         var student = JSON.parse(localStorage.getItem("studentinfo"));
         let user = (student.accountancy_firm) ? student.accountancy_firm : (student.school) 
                     ? student.school : (student.mentor) ? student.mentor : (student.teacher) ? student.teacher  : student
-        console.log(user,"User");
-        var student_name=user.name_eng;
+        var student_name= (student.accountancy_firm) ? user.accountancy_firm_name  : user.name_eng;
+         
         var approve_reject_status=localStorage.getItem("approve_reject");
         var student_id=student.id;
         var student_regno=student.registration_no;

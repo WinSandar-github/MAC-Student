@@ -34,7 +34,7 @@ function ConfirmSubmit(){
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
-    } 
+    }
     else{
     document.getElementById("submit_btn").disabled = true;
     }
@@ -45,7 +45,7 @@ function createMentorRegister(){
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
   send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
-  send_data.append('nrc_township', $("#nrc_township + .nice-select span span").text().trim());
+  send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
   send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
   send_data.append('nrc_number', $("#nrc_number").val());
   send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
@@ -71,33 +71,40 @@ function createMentorRegister(){
   send_data.append('audit_staff_no', $("input[name=audit_staff_no]").val());
   send_data.append('current_check_service_id',$('#selected_service_id').val());
 
-  send_data.append('service_other', $("input[name=service_other]").val());
-  $(':radio:checked').map(function(){send_data.append('experience',$(this).val())});
+  send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
+  //$(':radio:checked').map(function(){send_data.append('experience',$(this).val())});
+  send_data.append('experience', $("input[name=experience]:checked").val());
   send_data.append('started_teaching_year', $("input[name=started_teaching_year]").val());
   send_data.append('current_accept_no', $("input[name=current_accept_no]").val());
   send_data.append('trained_trainees_no', $("input[name=trained_trainees_no]").val());
   send_data.append('internship_accept_no', $("input[name=internship_accept_no]").val());
-  $(':radio:checked').map(function(){send_data.append('repeat_yearly',$(this).val())});
-  $(':radio:checked').map(function(){send_data.append('training_absent',$(this).val())});
+  //$(':radio:checked').map(function(){send_data.append('repeat_yearly',$(this).val())});
+  //$(':radio:checked').map(function(){send_data.append('training_absent',$(this).val())});
+  send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
+  send_data.append('training_absent', $("input[name=training_absent]:checked").val());
   send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
   send_data.append('email', $("input[name=email]").val());
   send_data.append('password', $("input[name=password]").val());
   send_data.append('type', $("input[name=type]").val());
   send_data.append('status', $("input[name=status]").val());
 
+  show_loader();
+
   $.ajax({
       type: "POST",
       data: send_data,
       url: BACKEND_URL + "/mentor",
-      async: false,
+    //   async: false,
       cache: false,
       contentType: false,
       processData: false,
       success: function (data) {
         console.log(data);
+            EasyLoading.hide();
           successMessage(data.message);
           resetForm("#mentor_register_form");
-          location.reload();
+          // location.reload();
+          location.href = FRONTEND_URL+'/';
           //$(".tbl_education").empty();
       },
       error: function (result) {
@@ -125,6 +132,33 @@ function loadService(){
         },
         error:function (message){
 
+        }
+    });
+}
+
+function mentorRegisterFeedback(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/getMentorStatus/"+student.id,
+        type: 'GET',
+        success: function(data){
+          var form_data = data;
+          form_data.forEach(function(element){
+                if(element.approve_reject_status == 0){
+                    // showPending();
+                    $('#mentor_pending').css('display','block');
+                    $('#mentor_reg_container').css('display','none');
+
+                }else if(element.approve_reject_status == 1){
+                    $('#mentor_approve').css('display','block');
+                    $('#mentor_reg_container').css('display','none');
+                    $('#mentor_pending').css('display','none');
+                }
+                else{
+                    //
+                }
+          })
         }
     });
 }

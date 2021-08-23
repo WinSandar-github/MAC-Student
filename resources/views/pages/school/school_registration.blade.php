@@ -70,13 +70,27 @@
             <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
 
         </div>
+        
         <div class="container" style="overflow: hidden;">
-            
+            <div id="school_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your School Registeration Form is checking</p>
+                    </div>
+                </div>
+            </div>
+            <div id="school_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
+                <div class="card text-white bg-primary my-3">
+                    
+                    <div class="card-body">
+                        <p class="card-text">Your School Registeration Form is approved!</p>
+                    </div>
+                </div>
+            </div>
             <div class="row mt-5">
-                                            
-                
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-                    <div class="card border-success mb-3">
+                    <div id="school_form" class="card border-success mb-3">
                         <div class="card-body">
                             <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
                                 <div class="row">
@@ -104,7 +118,16 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                  <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက် အတည်ပြုခြင်း') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="password" name="confirm_password" class="form-control" autocomplete='off' required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                   <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
                                   <div class="col-md-8">
                                       <div class="form-group">
@@ -124,7 +147,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="row">
@@ -163,7 +186,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('အဘအမည်(မြန်မာ)') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -185,7 +208,7 @@
                                 </div>
 	                                  
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('မွေးသဣရာဇ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -195,7 +218,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -205,7 +228,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
                                     <label class="col-md-10 col-form-label">{{ __('လုပ်ငန်းဖွဲ့စည်းမှုပုံစံကျောင်းကို အောက်ဖော်ပြပါလုပ်ငန်းဖွဲ့စည်းမှုပုံစံဖြင့်ဆောင်ရွက်ပါမည်(ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ရန်)') }} </label>
                                    
                                 </div>
@@ -243,7 +266,7 @@
                                 </div><br>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                     <label class="col-md-6 col-form-label">{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}</label>
                                     <div class="col-md-4">
                                         <div class="mb-3 col-auto">
@@ -253,7 +276,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -263,7 +286,7 @@
                                 </div>
 	                                    
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -308,7 +331,6 @@
 @endsection
 @push('scripts')
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
-<script src="{{asset('assets/js/school.js')}}"></script>
 <script type="text/javascript">
 
 $(document).ready(function (e) {
@@ -354,6 +376,7 @@ $(document).ready(function (e) {
           self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
         }
     }
+    school_reg_feedback();
 });
 </script>
 @endpush

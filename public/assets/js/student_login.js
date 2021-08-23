@@ -1,6 +1,9 @@
 function studentLogin(){
     var email=$("input[name=email]").val();
     var password=$("input[name=password]").val();
+
+    show_loader();
+  
     $.ajax({
         url:   BACKEND_URL + "/loginValidate",
         type: 'post',
@@ -9,14 +12,15 @@ function studentLogin(){
             password:password
             },
         success: function(result){
-            console.log(result)
-            
-
             if(result){
+                
+                EasyLoading.hide() 
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
-                 location.href= FRONTEND_URL + "/";
+                location.href= FRONTEND_URL + "/";
             }else{
+                EasyLoading.hide();
+
                 $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
                 $('#password').val("");
@@ -24,6 +28,8 @@ function studentLogin(){
            }
         },error:function(errors){
             if(errors.status == 401){
+                 EasyLoading.hide()
+
                 $('#err_msg').text("Password and Email do not match");
                 $("#email").val("");
                 $('#password').val("");
@@ -46,10 +52,10 @@ function check_login(){
     }
 }
 
-function logout(){
+function logout(url){
 
     localStorage.clear();
-    location.href=FRONTEND_URL+"/student_index";
+    location.href = url ;
 
 }
 
@@ -58,7 +64,16 @@ function login_page(batch_id,course_id,course_type){
     if(course_id == 1){
 
         localStorage.setItem('batch_id',batch_id);
-        location.href = FRONTEND_URL+"/login";
+        let ls_course_type = localStorage.getItem('course_type');
+        if(ls_course_type == 2){
+
+            location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
+        }else{
+            location.href = FRONTEND_URL+`/da_one_form/${batch_id}`;
+
+
+        }
+
     }else{
         if(course_type == 1){
             alert("You need to Pass DA I")

@@ -96,7 +96,8 @@
                                 </div>
                                 <div class="row" id="check_non_audit_status" style="display:none;">
                                     <div class="form-group">
-                                        <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+                                        <!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a> -->
+																				<p class="col-md-9 text-primary">Payment System Coming Soon</p>
                                     </div>
                                 </div>
                             </div>
@@ -157,9 +158,22 @@
 								</tr>
 							</table>
 						<br>
+						<table width="100%">
+								<tr>
+									<td width="8%" id="password_confirm_num">3</td>
+									<td width="17%"><label class="col-form-label">Confirm Password</label>
+									</td>
+									<td width="73%">
+											<div class="form-group">
+													<input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
+											</div>
+									</td>
+								</tr>
+							</table>
+						<br>
 		                  <div class="row">
-		                    <label class="col-md-1 col-form-label">{{ __('3') }}</label>
-		                    <label class="col-md-2 col-form-label">{{ __('Firm Registration No') }}</label>
+		                    <label class="col-md-1 col-form-label">{{ __('4') }}</label>
+		                    <label class="col-md-2 col-form-label">{{ __('Firm Registration Number') }}</label>
 		                    <div class="col-md-8">
 		                        <div class="form-group">
 		                            <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Firm Registration No" autocomplete="off">
@@ -168,7 +182,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('4') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('5') }}</label>
 		                      <label class="col-md-2 col-form-label">{{ __('Firm Name') }}</label>
 		                      <div class="col-md-8">
 		                          <div class="form-group">
@@ -183,7 +197,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('5') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('6') }}</label>
 		                      <label class="col-md-2 col-form-label">{{ __('Address Of Practice(Head Office)') }}</label>
 		                      <div class="col-md-2">
 		                          <div class="form-group">
@@ -227,7 +241,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('6') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('7') }}</label>
 		                      <label class="col-md-2 col-form-label">{{ __('Branch Office') }}</label>
 
 		                  </div>
@@ -244,7 +258,7 @@
 		                                              <th class="less-font-weight">Post Code</th>
 		                                              <th class="less-font-weight">City</th>
 		                                              <th class="less-font-weight">State/Region</th>
-		                                              <th class="less-font-weight" colspan="2">Telephone</th>
+		                                              <th class="less-font-weight">Telephone</th>
 		                                              <th class="less-font-weight">Email</th>
 		                                              <th class="less-font-weight">Website</th>
 		                                              <th >
@@ -262,14 +276,16 @@
 		                                              <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off"></td>
 		                                              <td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off"></td>
 		                                              <td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off"></td>
-		                                              <td>
+		                                              {{--<td>
 		                                                  <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputTele("branch_non_audit")'>
 		                                                      <i class="fa fa-plus"></i>
 		                                                  </button>
-		                                              </td>
+		                                              </td>--}}
 		                                              <td><input type="text" name="bo_email[]" class="form-control" autocomplete="off"></td>
 		                                              <td><input type="text" name="bo_website[]" class="form-control" autocomplete="off"></td>
-		                                              <td></td>
+																									<td>
+																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch_non_audit")'><i class="fa fa-trash"></i></button>
+																									</td>
 		                                          </tr>
 		                                      </tbody>
 		                                  </table>
@@ -279,16 +295,16 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('7') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('8') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 
 		                  </div>
 		                  <div class="row">
-		                      <div class="col-md-3"></div>
+		                      <div class="col-md-3 col-form-label"></div>
 		                      <div class="col-md-9">
 		                          <div class="card">
 		                              <div class="card-body">
-		                                  <table id="myTable" class="table non_partner table-bordered">
+		                                  <table id="myTable" class="table non_partner table-bordered input-table">
 		                                      <thead>
 		                                          <tr>
 		                                              <th class="less-font-weight" rowspan="2">Sr</th>
@@ -307,10 +323,11 @@
 		                                              <td>1</td>
 		                                              <td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off"></td>
 		                                              <td>
-
 		                                                  <input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off">
 		                                              </td>
-		                                              <td></td>
+																									<td>
+																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartnerByNonAudit("non_partner")'><i class="fa fa-trash"></i></button>
+																									</td>
 		                                          </tr>
 		                                      </tbody>
 		                                  </table>
@@ -320,7 +337,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('8') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('9') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 
 		                  </div>
@@ -355,7 +372,9 @@
 
 		                                              </td>
 		                                              <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off"></td>
-		                                              <td></td>
+																									<td>
+																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorByNonAudit("non_director")'><i class="fa fa-trash"></i></button>
+																									</td>
 		                                          </tr>
 		                                      </tbody>
 		                                  </table>
@@ -365,7 +384,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('9') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('10') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Organization Structure') }}</label>
 
 
@@ -1022,7 +1041,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('10') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('11') }}</label>
 		                      <label class="col-md-8 col-form-label">{{ __('Name Of Managing Director') }}</label>
 
 		                  </div>
@@ -1036,7 +1055,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('11') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('12') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Total Staff') }}</label>
 
 		                  </div>
@@ -1064,7 +1083,7 @@
 		                  </div>
 		                  <br>
 		                  <div class="row">
-		                      <label class="col-md-1 col-form-label">{{ __('12') }}</label>
+		                      <label class="col-md-1 col-form-label">{{ __('13') }}</label>
 		                      <label class="col-md-4 col-form-label">{{ __('Types Of Service Provided') }}</label>
 
 		                  </div>
@@ -1092,12 +1111,13 @@
 		                  <br>
 											<table width="100%">
 													<tr>
-															<td width="8%">13</td>
+															<td width="8%">14</td>
 															<td width="17%"><label class="col-form-label">လျှောက်လွှာကြေး(၁၀၀၀ ကျပ်)</label>
 															</td>
 															<td width="73%">
 																	<div class="form-group">
-																			<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																			<!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
+																			<p class="col-md-9 text-primary">Payment System Coming Soon</p>
 																			<input type="hidden" value="1000" name="form_fee">
 																	</div>
 															</td>
@@ -1105,13 +1125,14 @@
 											</table><br>
 											<table width="100%">
 													<tr>
-															<td width="8%">14</td>
+															<td width="8%">15</td>
 															<td width="17%"><label class="col-form-label">မှတ်ပုံတင်ကြေး Audit Report တွင်လက်မှတ်ရေးထိုးမည့်သူတစ်ဦးလျှင်(၁၀၀,၀၀၀ ကျပ်)</label>
 															</td>
 															<td width="73%">
 																	<div class="form-group">
 																			<div class="form-group">
-																			<a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a>
+																			<!-- <a href="{{ url('payment') }}" class="btn btn-sm btn-block btn-info">Choose Payment</a> -->
+																			<p class="col-md-9 text-primary">Payment System Coming Soon</p>
 																			<input type="hidden" value="100000" name="nrc_fee">
 																	</div>
 																	</div>
@@ -1121,7 +1142,7 @@
 
 		                  <div id="director_staffmembers" style="display:none;">
 		                    <div class="row">
-		                        <label class="col-md-1 col-form-label">{{ __('15') }}</label>
+		                        <label class="col-md-1 col-form-label">{{ __('16') }}</label>
 		                        <label class="col-md-10 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 		                    </div>
@@ -1156,7 +1177,9 @@
 		                                                <td><input type="text" value="" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"></td>
 		                                                <td><input type="text" value="" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"></td>
 		                                                <td><input type="text" value="" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"></td>
-		                                                <td></td>
+																										<td>
+																											<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorCPA("director_cpa_initial")'><i class="fa fa-trash"></i></button>
+																										</td>
 		                                            </tr>
 		                                        </tbody>
 		                                    </table>
@@ -1166,7 +1189,7 @@
 		                    </div>
 		                  </div>
 		                  <br>
-											
+
 		                  <!-- Declaration  -->
 											<div class="row">
 													<table width="100%">

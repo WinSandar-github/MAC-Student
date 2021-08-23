@@ -76,15 +76,15 @@
 
                 <!-- Header Logo Start -->
                 <div class="header-logo">
-                    <a href="/"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
                 </div>
                 <!-- Header Logo End -->
-                
+
                 <!-- Header Menu Start -->
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu" id="navbar">
-                        
-                     
+
+
                         {{-- <li>
                             <a href="#">Pages </a>
                             <ul class="sub-menu">
@@ -123,7 +123,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-                     
+
                     </ul>
 
                 </div>
@@ -136,10 +136,10 @@
                             <div class="dropdown">
                             <span><a class="student_name sign-in"></a></span>
                             <div class="dropdown-content">
-                                <a onclick="logout()" href="/">Logout</a>
+                                <a onclick="logout('{{ route("home") }}')">Logout</a>
                             </div>
 
-                            
+
                             </div>
                         </li>
 
@@ -210,7 +210,7 @@
                         <li><a href="courses-details.html">Certified Public Accountant (CPA)</a></li>
                     </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{url('contact')}}">Contact</a></li>
         </ul>
 
     </div>

@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA Two Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -68,7 +68,7 @@
                         
                         <div class="card-body">
                             <!-- status == 2 => reject -->
-                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form  
+                            <p class="card-text reject">Your CPA 2 Registration Form need to prepare.Please update your form.  
                                 </p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body">
-                            <p class="card-text">Your Registration Form is checking</p>
+                            <p class="card-text">Your CPA 2 Registration Form is checking</p>
                         </div>
                     </div>
                 </div>
@@ -110,15 +110,6 @@
                             <br/>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <a href="{{url('cpa_two_self_study')}}">
-                                        <div class="card border-success mb-3" >
-                                            <div class="card-body"  style="height:100px;">
-                                                <h6 class="card-title text-center">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</h6>                                      
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-4">
                                     <a href="{{url('cpa_two_mac')}}">
                                     <div class="card border-success mb-3">
                                         <div class="card-body col-md-12"  style="height:100px;">
@@ -127,6 +118,16 @@
                                     </div>
                                     </a>
                                 </div>
+                                <div class="col-md-4">
+                                    <a href="{{url('cpa_two_self_study')}}">
+                                        <div class="card border-success mb-3" >
+                                            <div class="card-body"  style="height:100px;">
+                                                <h6 class="card-title text-center">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</h6>                                      
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                
                                 <div class="col-md-4">
                                 <a href="{{url('cpa_two_private_school')}}">
                                     <div class="card border-success mb-3">

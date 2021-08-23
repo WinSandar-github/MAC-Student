@@ -1,4 +1,4 @@
-(function ($) {
+reateSelfStudy(function ($) {
     "use strict";
 
     /*--
