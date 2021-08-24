@@ -261,7 +261,7 @@ function form_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==year && now.getMonth()==11){                            
+                        if(now.getFullYear()==year){                            
                             document.getElementById('approved').style.display='none';
                             document.getElementById('cpaff_renew_form').style.display='block';
                         }
