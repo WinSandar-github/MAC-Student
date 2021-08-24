@@ -159,7 +159,7 @@ function user_profile(){
                         next_course = "CPA II"
                     break;
                     case 'cpa_2':
-                        next_course = "Membership"
+                        next_course = "CPA Full Fleged"
                     break;
                     default:
                         next_course = "DA II"
@@ -169,6 +169,8 @@ function user_profile(){
                 }
                 $('#next_course').text(next_course)
 
+                console.log(data)
+
                 
 
               
@@ -176,6 +178,7 @@ function user_profile(){
 
                 //show status annoumance
                 if(latest_course_reg[0]){
+
                     $('#batch_name').text(latest_course_reg[0].batch.name) ;
                     $('#course_name').text(latest_course_reg[0].batch.course.name);
                     $('.regi_fee_txt').text('Mac Registration Fees')
@@ -191,16 +194,36 @@ function user_profile(){
                     }else{
                         $('#exam_date').text("မရှိသေးပါ")
                     }
+                    
+
+                    let status_course ;
 
                     if(latest_course_reg[0].approve_reject_status == 0 )
                     {
-                        $('.status').append('Your Application Form is checking.')
+                        $('.status').append(`
+                        <tr>
+                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                            <td>-</td>
+                            <td>Checking</td>
+                        </tr>
+                        `);
+                      
                     }else if(latest_course_reg[0].approve_reject_status == 1)
                     {
+                        $('.status').append(`
+                        <tr>
+                            <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                            <td>Approve</td>
+                        </tr>
+                        `);
+
                     
-                        $('.status').append(`<p>Your ${latest_course_reg[0].batch.course.name}  Your Application Form was approved by mac on the  ${formatDate(latest_course_reg[0].updated_at)} .</p>`)
+                        // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                         //show data depend on Student Register status
-                        console.log(latest_stu_reg[0])
+                        
                         if(latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code )
                         {
                             $('.regi_fee_txt').text('Exam Registration Fees')
@@ -209,21 +232,44 @@ function user_profile(){
                             $('#registration_fee').text(latest_course_reg[0].batch.course.exam_fee);
                             if(latest_stu_reg[0].status == 0 || latest_stu_reg[0] == null)
                             {
-                                $('.status').append('<p>Your Registration Form is checking.</p>')
+                                $('.status').append(`
+                                        <tr>
+                                            <td>${latest_course_reg[0].batch.course.name} Registraion Form</td>
+                                            <td>${formatDate(latest_stu_reg[0].created_at)}</td>
+                                            <td>-</td>
+                                            <td>checking</td>
+                                        </tr>
+                                        `);
+                                // $('.status').append('<p>Your Registration Form is checking.</p>')
 
                             }else if(latest_stu_reg[0].status == 1)
                             {
-                                $('.status').append(`<p>Your Registration Form is Approved by mac on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
-
+                                // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
+                                $('.status').append(`
+                                <tr>
+                                    <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                    <td>${formatDate(latest_stu_reg[0].created_at)}</td>
+                                    <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
+                                    <td>Approve</td>
+                                </tr>
+                                `);
                                 if(last_exam[0] && last_exam[0].course.code == latest_course_reg[0].batch.course.code){
                                     if(last_exam[0].status == 0)
                                     {
-                                        $('.status').append('<p>Your Exam Form is checking.</p>')
+                                        $('.status').append(`
+                                                        <tr>
+                                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                            <td>${formatDate(last_exam[0].created_at)}</td>
+                                                            <td>-</td>
+                                                            <td>Checking</td>
+                                                        </tr>
+                                                        `);
+                                        
                                     }
                                     else if(last_exam[0].status == 1)
                                     {
-                                        $('.status').append(`<p>Your Exam Form is Approved by mac on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>   `)
-
+                                        // $('.status').append(`<p>Your Exam Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>   `)
+                                       
                                         if(last_exam[0].grade == 1){
                                                 $('.regi_fee_txt').text('Application Form Fees')
                                                 $('#batch_name').text('-');
@@ -231,7 +277,15 @@ function user_profile(){
                                                 $('#exam_date').text('-');
 
                                                 
-                                                $('.status').append(`<p>You have been pass ${last_exam[0].course.name} </p>`)
+                                                // $('.status').append(`<p>You have been pass ${last_exam[0].course.name} </p>`)
+                                                $('.status').append(`
+                                                <tr>
+                                                    <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                    <td>${formatDate(last_exam[0].created_at)}</td>
+                                                    <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                    <td>Pass</td>
+                                                </tr>
+                                                `);
 
                                                 let course_code;
                                                 let form_url;
@@ -264,29 +318,48 @@ function user_profile(){
                             
                             
                                                 get_course_by_code(course_code).then( data => {
+                                                   
                             
                                                     // let batch = data.data[0].active_batch[0];
                                                     console.log(data.data)
                             
                                                     if(Object.keys(data.data).length === 0){
                             
-                                                        $('.status').append(`<p>and Join  Class  <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" >go to Membership Form</a></p>`);
+                                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Flaged Form</a></td></tr>`);
                             
                                                     
                                                     }else{
                                                     if(data){
                             
                                                         $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)
-                            
+
+                                                        
                             
                                                         let batch = data.data[0].active_batch[0];
                                                         if(batch != undefined){
-                                                            $('.status').append(`<p>and Join ${data.data[0].name} Class  <a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" >go to ${data.data[0].name} form</a></p>`);
+                                                            
+                                                            
+                                                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} form</a></td></tr>`);
+                                                           
                                                         }else{
-                                                            $('.status').append(`<a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")">go to Course</a>`);
+                                                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td></td><a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")"> Course</a></td></tr>`);
                                                         }
+
+                                                       
+                              
+                                                        
                                                     } }
                                                 })
+
+                                        }else{
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                <td>${formatDate(last_exam[0].created_at)}</td>
+                                                <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                <td>Approve</td>
+                                            </tr>
+                                            `);
 
                                         }
 
@@ -295,7 +368,14 @@ function user_profile(){
                                     }
                                     else
                                     {
-                                        $('.status').append('<p>Your Exam Form is checking</p>')
+                                        $('.status').append(`
+                                        <tr>
+                                            <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                            <td>${formatDate(last_exam[0].created_at)}</td>
+                                            <td>${formatDate(last_exam[0].updated_at)}</td>
+                                            <td>Reject</td>
+                                        </tr>
+                                        `);
 
                                     }
                                 }else{
@@ -309,7 +389,7 @@ function user_profile(){
                                     if(previous_month <= date && end_date >= date){
 
                                         let exam_url ;
-                                        let exam_text = "Go to Exam Registration Form";
+                                        let exam_text = " Exam Registration Form";
                                         switch(latest_course_reg[0].batch.course.code){
                                             case 'da_1':
                                             exam_url = '/exam_register';
@@ -342,28 +422,45 @@ function user_profile(){
                                             break;
 
                                         }
-                                        console.log(exam_url)
+                                        
+                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td>
+                                            <td>
+                                                <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>                                            
+                                            </td>
+                                        </tr>
+            
+                                        `);
 
 
 
-                                        $('.status').append(
-                                        `
-                                            <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
-                                        `)
+                                       
 
 
                                     }else{
-                                        $('.status').append(`<div>
+                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td>
+                                            <td></td>
                                             <p>The exam schedule will be announced soon</p>
-                                        </div>`)
+                                            </td>
+                                            </tr>
+                
+                                            `);
                                     }
 
 
 
 
                                 }
-                            }else                    {
-                                $('.status').append('<P>Your Registration Form is checking</P>')
+                            }else                    
+                            {
+                                // $('.status').append('<P>Your Registration Form is checking</P>')
+                                $('.status').append(`
+                                <tr>
+                                    <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                    <td>${formatDate(latest_stu_reg[0].created_at)}</td>
+                                    <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
+                                    <td>Reject</td>
+                                </tr>
+                                `);
                             }
 
                         }else{
@@ -389,17 +486,36 @@ function user_profile(){
 
                             }
                             localStorage.setItem('course_id',latest_course_reg[0].batch.course.id);
+                            let action_url;
+                             $('.status').append( `
+                                <tr><td colspan=2></td><td>Action</td>
+                                <td><a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-success"> Registration Form</a></td>
+                                </tr>
 
-                            $('.status').append(`
-
-                            <a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-success">go to Registration Form</a>`);
+                            `);
 
                         }
 
 
                     }else {
-                        $('.status').append('Your Application Form is Reject')
+                        status_course = (`
+                        <tr>
+                            <td>${latest_course_reg[0].batch.course.name}</td>
+                            <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                            <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                            <td>Reject</td>
+                        </tr>
+                        `);
+                        // $('.status').append('Your Application Form is Reject')
                     }
+
+                    // if(latest_course_reg[0] || las[0] || last_exam[0])
+                    // {
+                    //     $('.status').append(status_course);
+                    // }
+
+                    // $('.status').append(status_course)
+                   
                 }
 
 
@@ -407,50 +523,97 @@ function user_profile(){
                 
 
                
-                
                 //show History of Student record
                 $.each(data.student_course_regs,function(i,current_class){
                     
                  
                     if(i < (data.student_course_regs.length - 1) ){
+                       
+                        
+                      
 
-                        $('.status_history').append(`<h6 class="my-2">${current_class.batch.course.name}</h6><hr>`);
+                        // $('.status_history').append(`<h6 class=" text-center"">${current_class.batch.course.name}</h6><hr>`);
 
 
                         if(current_class.approve_reject_status == 0 )
                         {
-                            $('.status_history').append('Your Application Form is checking.')
+                            $('.status_history').append(`<tr>
+                                <td>${current_class.batch.course.name} Application Form</td>
+                                <td>${formatDate(current_class.created_at)}</td>
+                                <td>-</td>
+                                <td>Checking</td>
+                            </tr>
+                            `);
                         }else if(current_class.approve_reject_status == 1)
                         {
-                        
-                            let anyDate = new Date(current_class.updated_at);
-
-                        
+                                               
 
 
-                            $('.status_history').append(`<p>Your ${current_class.batch.course.name}  Your Application Form was approved by mac on the  ${formatDate(current_class.updated_at)} .</p>`)
+                             $('.status_history').append(`<tr>
+                                <td>${current_class.batch.course.name} Application Form</td>
+                                <td>${formatDate(current_class.created_at)}</td>
+                                <td>${formatDate(current_class.updated_at)}</td>
+                                <td>Approve</td>
+                            </tr>
+                            `);
                             //show data depend on Student Register status
                             if(data.student_register[i]){
                                 if(data.student_register[i].status == 0 || data.student_register[i] == null)
                                 {
-                                    $('.status_history').append('<p>Your Registration Form is checking.</p>')
+                                    // $('.status_history').append('<p>Your Registration Form is checking.</p>')
+                                    $('.status_history').append(`<tr>
+                                        <td>${current_class.batch.course.name} Registration Form</td>
+                                        <td>${formatDate(data.student_register[i].created_at)}</td>
+                                        <td>-</td>
+                                        <td>Checking</td>
+                                    </tr>
+                                    `);
+                                    
 
                                 }else if(data.student_register[i].status == 1)
                                 {
-                                    $('.status_history').append(`<p>Your Registration Form is Approved by mac on the  ${formatDate(current_class.updated_at)}.</p>`)
-
+                                    // $('.status_history').append(`<p>Your Registration Form is Approved  on the  ${formatDate(current_class.updated_at)}.</p>`)
+                                    $('.status_history').append(`<tr>
+                                        <td>${current_class.batch.course.name} Registration Form</td>
+                                        <td>${formatDate(data.student_register[i].created_at)}</td>
+                                        <td>${formatDate(data.student_register[i].updated_at)}</td>
+                                        <td>Approve</td>
+                                    </tr>
+                                    `);
                                     if(data.exam_registers[i]){
                                         if(data.exam_registers[i].status == 0)
                                         {
-                                            $('.status_history').append('<p>Your Exam Form is checking.</p>')
+                                            // $('.status_history').append('<p>Your Exam Form is checking.</p>')
+                                            $('.status_history').append(`<tr>
+                                                <td>${current_class.batch.course.name} Exam Form</td>
+                                                <td>${formatDate(data.exam_register[i].created_at)}</td>
+                                                <td>-</td>
+                                                <td>Checking</td>
+                                            </tr>
+                                        `);
                                         }
                                         else if(data.exam_registers[i].status == 1)
                                         {
-                                            $('.status_history').append(`<p>Your Exam Form is Approved by mac on the  ${formatDate(current_class.updated_at)}.</p>`)
-
+                                            // $('.status_history').append(`<p>Your Exam Form is Approved  on the  ${formatDate(current_class.updated_at)}.</p>`)
+                                           
                                             if(data.exam_registers[i].grade == 1){
-                                                $('.status_history').append(`<p>You have been pass ${data.exam_registers[i].course.name} </p>`)
+                                                // $('.status_history').append(`<p>You have been pass ${data.exam_registers[i].course.name} </p>`)
+                                                $('.status_history').append(`<tr>
+                                                <td>${current_class.batch.course.name} Exam Form</td>
+                                                <td>${formatDate(data.exam_registers[i].created_at)}</td>
+                                                <td>${formatDate(data.exam_registers[i].updated_at)}</td>
+                                                <td>Pass</td>
+                                            </tr>
+                                            `);
 
+                                            }else{
+                                                $('.status_history').append(`<tr>
+                                                <td>${current_class.batch.course.name} Exam Form</td>
+                                                <td>${formatDate(data.exam_registers[i].created_at)}</td>
+                                                <td>${formatDate(data.exam_registers[i].updated_at)}</td>
+                                                <td>Approve</td>
+                                            </tr>
+                                            `);
                                             }
 
 
@@ -458,7 +621,14 @@ function user_profile(){
                                         }
                                         else
                                         {
-                                            $('.status_history').append('<p>Your Exam Form is checking</p>')
+                                            // $('.status_history').append('<p>Your Exam Form is checking</p>')
+                                            $('.status_history').append(`<tr>
+                                                <td>${current_class.batch.course.name} Exam Form</td>
+                                                <td>${formatDate(data.exam_register[i].created_at)}</td>
+                                                <td>-</td>
+                                                <td>Approve</td>
+                                            </tr>
+                                            `);
 
                                         }
                                     }else{
@@ -472,7 +642,7 @@ function user_profile(){
                                         if(previous_month <= date && end_date >= date){
 
                                             let exam_url ;
-                                            let exam_text = "Go to Exam Registration Form";
+                                            let exam_text = " Exam Registration Form";
                                             switch(current_class.batch.course.code){
                                                 case 'da_1':
                                                 exam_url = '/exam_register';
@@ -508,16 +678,17 @@ function user_profile(){
 
 
 
-                                            $('.status_history').append(
-                                            `
-                                                <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
-                                            `)
+                                            // $('.status_history').append(
+                                            // `
+                                            //     <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
+                                            // `)
+                                            
 
 
                                         }else{
-                                            $('.status_history').append(`<div>
-                                                <p>The exam schedule will be announced soon</p>
-                                            </div>`)
+                                            // $('.status_history').append(`<div>
+                                            //     <p>The exam schedule will be announced soon</p>
+                                            // </div>`)
                                         }
 
 
@@ -525,7 +696,14 @@ function user_profile(){
 
                                     }
                                 }else                    {
-                                    $('.status_history').append('<P>Your Registration Form is checking</P>')
+                                    // $('.status_history').append('<P>Your Registration Form is checking</P>')
+                                    $('.status_history').append(`<tr>
+                                        <td>${current_class.batch.course.name} Registration Form</td>
+                                        <td>${formatDate(current_class.created_at)}</td>
+                                        <td>${formatDate(current_class.updated_at)}</td>
+                                        <td>Approve</td>
+                                    </tr>
+                                    `);
                                 }
 
                             }else{
@@ -554,15 +732,23 @@ function user_profile(){
 
                                 $('.status_history').append(`
 
-                                <a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-success">go to Registration Form</a>`);
+                                <a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-success"> Registration Form</a>`);
 
                             }
 
 
                         }else {
-                            $('.status_history').append('Your Application Form is Reject')
+                            // $('.status_history').append('Your Application Form is Reject')
+                            $('.status_history').append(`<tr>
+                                <td>${current_class.batch.course.name} Application Form</td>
+                                <td>${formatDate(current_class.created_at)}</td>
+                                <td>${formatDate(current_class.updated_at)}</td>
+                                <td>Reject</td>
+                            </tr>
+                            `);
                         }
                     }
+                    console.log()
 
                 })
 

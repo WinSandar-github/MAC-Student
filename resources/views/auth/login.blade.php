@@ -107,7 +107,7 @@
                                         <button type="button" onclick="studentLogin();" class="btn btn-success btn-hover-dark w-100">Login</button>
                                         
                                     </div>
-                                    <div class="single-form route_reg">
+                                    <!-- <div class="single-form route_reg"> -->
                                         
                                     </div>
                                     <!-- Single Form End -->
