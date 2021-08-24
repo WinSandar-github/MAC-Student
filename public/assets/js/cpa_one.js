@@ -151,6 +151,7 @@ function Private_School_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -189,6 +190,7 @@ function Self_Study_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -276,6 +278,7 @@ $('#cpa_register').submit(function(e){
                 }
             },
             error:function (message){
+                EasyLoading.hide();
             }
         })
 

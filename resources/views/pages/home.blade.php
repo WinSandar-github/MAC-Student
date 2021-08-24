@@ -239,7 +239,7 @@
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Submit Date</th>
-                                                    <th>Approve</th>
+                                                    <th>Status Date</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
@@ -281,7 +281,7 @@
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Submit Date</th>
-                                                    <th>Approve</th>
+                                                    <th>Status Date</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>

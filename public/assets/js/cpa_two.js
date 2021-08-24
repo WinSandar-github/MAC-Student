@@ -57,6 +57,7 @@ function CPA2_Private_School_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -91,6 +92,7 @@ function CPA2_Mac_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -124,6 +126,7 @@ function CPA2_Self_Study_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -149,6 +152,7 @@ $('#store_cpa_two_form').submit(function(e){
         },
       error:function (message){
         errorMessage(message);
+        EasyLoading.hide();
           }
         // },
         // error:function (message){
