@@ -586,7 +586,7 @@ function user_profile(){
                                             // $('.status_history').append('<p>Your Exam Form is checking.</p>')
                                             $('.status_history').append(`<tr>
                                                 <td>${current_class.batch.course.name} Exam Form</td>
-                                                <td>${formatDate(data.exam_register[i].created_at)}</td>
+                                                <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>-</td>
                                                 <td>Checking</td>
                                             </tr>
@@ -624,7 +624,7 @@ function user_profile(){
                                             // $('.status_history').append('<p>Your Exam Form is checking</p>')
                                             $('.status_history').append(`<tr>
                                                 <td>${current_class.batch.course.name} Exam Form</td>
-                                                <td>${formatDate(data.exam_register[i].created_at)}</td>
+                                                <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>-</td>
                                                 <td>Approve</td>
                                             </tr>

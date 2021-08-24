@@ -80,7 +80,7 @@ function CPA2_Mac_Submit(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.log(result);  
+              
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -113,13 +113,15 @@ function CPA2_Self_Study_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            EasyLoading();
+            EasyLoading.hide();
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
             }   
-            else{       
+            else{    
+             EasyLoading.hide();
+
                 successMessage(result.message);
                 location.href = FRONTEND_URL+'/';
             }
