@@ -144,6 +144,7 @@ function createAuditFirm(){
   send_data.append('form_fee',$("input[name=form_fee]").val());
   send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
 
+  
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
   $('input[name="bo_post_code[]"]').map(function(){send_data.append("bo_post_code[]",$(this).val());});
@@ -180,18 +181,18 @@ function createAuditFirm(){
   $('input[name="mf_cpa_passed_reg_no[]"]').map(function(){send_data.append("mf_cpa_passed_reg_no[]",$(this).val());});
   $('input[name="mf_cpa_full_reg_no[]"]').map(function(){send_data.append("mf_cpa_full_reg_no[]",$(this).val());});
   $('input[name="mf_pub_pra_reg_no[]"]').map(function(){send_data.append("mf_pub_pra_reg_no[]",$(this).val());});
-
-   $('input[name="ppa_certis[]"]').map(function(){
+  
+  $('input[name="ppa_certis[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('ppa_certis[]',$(this).get(0).files[i]);
     }
-
+    
   });
   $('input[name="letterheads[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('letterheads[]',$(this).get(0).files[i]);
     }
-
+    
   });
   $('input[name="representatives[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
@@ -258,14 +259,16 @@ function createAuditFirm(){
       send_data.append('tax_reg_certificate[]',$(this).get(0).files[i]);
     }
   });
-
+  show_loader();
+  
         $.ajax({
-                url: BACKEND_URL+"/acc_firm_info",
+          url: BACKEND_URL+"/acc_firm_info",
                 type: 'post',
                 data:send_data,
                 contentType: false,
                 processData: false,
                 success: function(result){
+                  EasyLoading.hide();
 
                   successMessage("Insert Successfully");
                   // location.reload();

@@ -106,7 +106,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="mm/yyyy" required>
+                                                    <input type="text" name="date" class="form-control" placeholder="mmm/yyyy" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -186,7 +186,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table width="100%">
+                                    <table width="100%" style="display:none;">
                                         <tr>
                                             <td width="45%">
                                                 <div class="single-form">
@@ -195,7 +195,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                    <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </td>
                                         </tr>

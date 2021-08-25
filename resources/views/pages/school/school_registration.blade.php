@@ -331,7 +331,6 @@
 @endsection
 @push('scripts')
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
-<script src="{{asset('assets/js/school.js')}}"></script>
 <script type="text/javascript">
 
 $(document).ready(function (e) {

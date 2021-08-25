@@ -176,6 +176,9 @@ function createAAMacRegister()
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
     send_data.append('recommend_file', recommend_file);
+    send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
+    
     
     // send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
@@ -185,10 +188,10 @@ function createAAMacRegister()
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result,"Student Register")
+            EasyLoading.hide();
             successMessage(result.message);
-            // location.reload();
-            // location.href = FRONTEND_URL+"/";
+            location.reload();
+            location.href = FRONTEND_URL+"/";
       }
     });
 }
@@ -204,7 +207,8 @@ function createAASelfRegister()
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
     send_data.append('recommend_file', recommend_file);
-    // send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
+    send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/update_mentor",
         type: 'post',
@@ -212,6 +216,7 @@ function createAASelfRegister()
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";
@@ -229,8 +234,9 @@ function createAAPrivateRegister()
     send_data.append('',$('#selected_service_id').val());
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
-    send_data.current_check_service_idappend('recommend_file', recommend_file);
-    // send_data.append('form_type', $("input[name='form_type']").val());
+    send_data.append('recommend_file', recommend_file);
+    send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/update_mentor",
         type: 'post',
@@ -238,6 +244,7 @@ function createAAPrivateRegister()
         contentType: false,
         processData: false,
         success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";

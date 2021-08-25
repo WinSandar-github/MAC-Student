@@ -75,6 +75,11 @@
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                 <table width="100%">
                                         <tr>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">အီးမေးလ်</label>
                                             </td>
@@ -94,6 +99,11 @@
 
                                     <table width="100%">
                                         <tr>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၂။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">Password</label>
                                             </td>
@@ -105,6 +115,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၃။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">Confirm Password</label>
                                             </td>
@@ -116,6 +131,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၄။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">အမည်(မြန်မာ)</label>
                                             </td>
@@ -127,6 +147,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">အမည်(အင်္ဂလိပ်)</label>
                                             </td>
@@ -138,6 +163,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၅။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">နိုင်ငံသားစီစစ်ရေးကတ်ပြားအမှတ်</label>
                                             </td>
@@ -181,6 +211,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၆။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">အဘအမည်(မြန်မာ)</label>
                                             </td>
@@ -192,6 +227,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">အဘအမည်(အင်္ဂလိပ်)</label>
                                             </td>
@@ -203,6 +243,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၇။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">လူမျိူး</label>
                                             </td>
@@ -214,17 +259,27 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၈။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
-                                                <label class="col-form-label">ဘာသာ</label>
+                                                <label class="col-form-label">ကိုးကွယ်သည့်ဘာသာ</label>
                                             </td>
                                             <td width="75%">
-                                                <input type="text" placeholder="ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="">
+                                                <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="">
                                             </td>
                                         </tr>
                                     </table>
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၉။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">မွေးသဣရာဇ်</label>
                                             </td>
@@ -236,6 +291,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁၀။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">ဖုန်းနံပါတ်</label>
                                             </td>
@@ -247,6 +307,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁၁။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">နေရပ်လိပ်စာ</label>
                                             </td>
@@ -258,6 +323,11 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁၂။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             </td>
@@ -268,8 +338,13 @@
                                     </table>
 																		<br>
                                     <input type="hidden" name="registration_no" value="1">
-                                    <table width="100%">
+                                    <table width="100%" style="display:none;">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">ရက်စွဲ</label>
                                             </td>
@@ -282,10 +357,15 @@
                                     <input type="hidden" name="approve_reject_status">
                                     <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁၃။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
                                                 <label class="col-form-label">Upload Photo</label>
                                             </td>
-                                            <td width="75%" class="pt-3">
+                                            <td width="70%" class="pt-3">
                                                 <!-- <div class="single-form"> -->
                                                     <input type="file" id="image" class="form-control" name="image" value="{{ old('image') }}"  accept="image/*" required="" >
                                                 <!-- </div> -->
@@ -350,30 +430,74 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">လစာနှင့်လစာနှုန်း</label>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('') }}</label>
+                                                </div>
                                             </td>
-                                            <td width="75%">
-                                                <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" class="form-control" value="{{ old('salary') }}" required="">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(စ)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">လစာနှင့်လစာနှုန်း</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" class="form-control" value="{{ old('salary') }}" required="">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
 																		<br>
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">ရုံးလိပ်စာ</label>
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('') }}</label>
+                                                </div>
                                             </td>
-                                            <td width="75%">
-                                                <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" class="form-control" value="{{ old('office_address') }}" required="">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(ဆ)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">ရုံးလိပ်စာ</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" class="form-control" value="{{ old('office_address') }}" required="">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
 																		<br>
                                     <!-- <table width="100%">
                                         <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁၅။') }}</label>
+                                                </div>
+                                            </td>
                                             <td width="25%">
-                                                <label class="col-form-label">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                <div class="single-form">
+                                                    <label class="col-form-label">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="radio" id="yes" name="gov_staff" value="1" style="margin-left: 3%;" @if(old('gov_staff')) checked @endif >
+                                                    <label for="yes">ဟုတ်</label>
+
+                                                    <input type="radio" id="no" name="gov_staff" value="0" style="margin-left: 3%;" @if(!old('gov_staff')) checked @endif >
+                                                    <label for="no">မဟုတ်</label>
+                                                </div>
                                             </td>
                                             <td width="15%">
 																								<div class="form-check pt-2">
@@ -389,56 +513,97 @@
 																							</div>
 																						</td>
                                         </tr>
-                                    </table> -->
-																		<br>
-																		<div class="row">
-																				<div class="col-md-3">
-																						<label>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
-																				</div>
+                                    </table>
 
-																				<div class="col-md-2">
-																					<div class="form-check pt-2">
-																						<input type="radio" class="form-check-input" value="1" id="yes" name="gov_staff" value="1" required>
-																						<label class="form-check-label" for="">ဟုတ်</label>
-																					</div>
-																				</div>
-																				<div class="col-md-3">
-																					<div class="form-check pt-2">
-																						<input type="radio" class="form-check-input" value="0" id="no" name="gov_staff" value="0" required>
-																						<label class="form-check-label" for="">မဟုတ်</label>
-																						<label class="form-check-label invalid-feedback" for="">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</label>
-																					</div>
-																				</div>
-																		</div>
+                                    <table width="100%" class="mb-0">
+                                        <tr>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('၁၆။') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="95%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">တက္ကသိုလ်တစ်ခုခုမှ အောင်မြင်ပြီးခဲ့သော</label>
+                                                </div>
+                                            </td>
+                                            <!-- <td width="75%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" class="form-control" value="{{ old('university_name') }}" required="">
+                                                </div>
+                                            </td> -->
+                                        </tr>
+                                    </table>
 																		<br>
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">အသိမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော တက္ကသိုလ်အမည်</label>
+
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label"></label>
+                                                </div>
                                             </td>
-                                            <td width="75%">
-                                                <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" class="form-control" value="{{ old('university_name') }}" required="">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(က)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">ဘွဲ့အမည်</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" required="">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
 																		<br>
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">ဘွဲ့အမည်</label>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label"></label>
+                                                </div>
                                             </td>
-                                            <td width="75%">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" required="">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(ခ)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">တက္ကသိုလ်အမည်</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="တက္ကသိုလ်အမည်" name="university_name" class="form-control" value="{{ old('university_name') }}" required="">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
-																		<br>
+
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">Attached Certificate</label>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label"></label>
+                                                </div>
                                             </td>
-                                            <td width="75%" class="pt-3">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(ဂ)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">Attached Certificate</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%" class="pt-3">
                                                 <!-- <div class="single-form"> -->
                                                     <input type="file" id="certificate" class="form-control"  name="certificate" value="{{ old('certificate') }}" required="">
                                                 <!-- </div> -->
@@ -448,32 +613,54 @@
 																		<br>
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">နှစ်၊လ</label>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label"></label>
+                                                </div>
                                             </td>
-                                            <td width="75%">
-                                                <input type="text" placeholder="နှစ်၊လ" name="qualified_date" autocomplete="off" class="form-control"  required="">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(ဃ)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">နှစ်၊လ</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="နှစ်၊လ" name="qualified_date" class="form-control"  required="">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
 																		<br>
                                     <table width="100%">
                                         <tr>
-                                            <td width="25%">
-                                                <label class="col-form-label">ခုံအမှတ်</label>
+                                        <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label"></label>
+                                                </div>
                                             </td>
-                                            <td width="75%">
-                                                <input type="text" placeholder="ခုံအမှတ်" name="roll_number" class="form-control" value="{{ old('roll_number') }}" required="">
+                                            <td width="5%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">{{ __('(င)') }}</label>
+                                                </div>
+                                            </td>
+                                            <td width="20%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">ခုံအမှတ်</label>
+                                                </div>
+                                            </td>
+                                            <td width="70%">
+                                                <div class="single-form">
+                                                    <input type="text" placeholder="ခုံအမှတ်" name="roll_number" class="form-control" value="{{ old('roll_number') }}" required="">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
-																		<br>
 
-                                    <!-- <div class="col-md-12" style="padding-top: 2%;">
-                                        <div class="single-form text-center">
-                                            <button type="submit" class="btn btn-primary btn-hover-dark">Submit Now</button>
-                                        </div>
-                                    </div> -->
                                     <div class="row m-4">
                                         <div class="col-md-2 offset-md-5">
                                             <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>

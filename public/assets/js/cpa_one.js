@@ -128,6 +128,7 @@ function Private_School_Submit(){
     data.append('entry_success_no', $("#entry_success_no").val());
     data.append('form_type',localStorage.getItem('course_id'));
     data.append('type', 1);
+    show_loader();
 
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -137,6 +138,7 @@ function Private_School_Submit(){
         processData: false,
         success: function(result){
             console.log(result);  
+            EasyLoading.hide();
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -149,6 +151,7 @@ function Private_School_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -166,6 +169,7 @@ function Self_Study_Submit(){
     data.append('batch_part_no', $("#batch_part_no").val());
     data.append('type', 0);
     data.append('form_type',localStorage.getItem('course_id'));
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -173,8 +177,9 @@ function Self_Study_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result);  
+            EasyLoading.hide();
             if(result.message==undefined){
+
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
             }   
@@ -185,6 +190,7 @@ function Self_Study_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -205,6 +211,7 @@ function Mac_Submit(){
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('type', 2);
     data.append('form_type',localStorage.getItem('course_id'));
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
         type: 'post',
@@ -212,17 +219,18 @@ function Mac_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result);  
+             EasyLoading.hide();
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
             }   
-            else{       
-                successMessage(result.message);
+            else{  
+                 successMessage(result.message);
                 location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){
+            EasyLoading.hide();
             console.log(message);
             }
         });
@@ -244,7 +252,10 @@ $('#cpa_register').submit(function(e){
     var formData = new FormData(this);
     
     
-     formData.append('batch_id',batch_id)
+    formData.append('batch_id',batch_id)
+    show_loader(); 
+
+
      
         $.ajax({
             type: "POST",
@@ -253,6 +264,7 @@ $('#cpa_register').submit(function(e){
             processData: false,
             data: formData,
             success: function (data) {
+                EasyLoading.hide();
               
                 // localStorage.setItem('studentinfo', JSON.stringify(data));
                 // localStorage.setItem('approve_reject', data.approve_reject_status);
@@ -260,12 +272,13 @@ $('#cpa_register').submit(function(e){
                 if(data.name_mm != null){
                 localStorage.setItem('studentinfo', JSON.stringify(data));
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = FRONTEND_URL + "/student_course/2";
+                location.href = FRONTEND_URL + "/";
                 }else{
                     location.reload();
                 }
             },
             error:function (message){
+                EasyLoading.hide();
             }
         })
 
@@ -359,7 +372,7 @@ $('#cpa_update').submit(function(e){
             data: formData,
             success: function (data) {
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = FRONTEND_URL + "/student_course/"+data.course_type_id;
+                location.href = FRONTEND_URL + "/";
             },
             error:function (message){
             }

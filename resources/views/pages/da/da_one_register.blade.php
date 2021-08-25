@@ -132,7 +132,7 @@
                                                             <input type="text" class="form-control" name="student_regno" readonly>
                                                         </div>
                                                     </div>
-                                                </div><br/>
+                                                </div>
                                                 {{--<div class="row mb-3">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
@@ -173,6 +173,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="row">                                                    
                                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
                                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_mac" onclick="ConfirmSubmitMac()"></div>
@@ -223,7 +224,7 @@
                                                             <input type="text" class="form-control" name="student_regno" readonly>
                                                         </div>
                                                     </div>
-                                                </div><br/>
+                                                </div>
 
                                                 <div class="row">
                                                     <div class="col-md-1">
@@ -296,9 +297,11 @@
                                                 </div><br/>--}}
 
                                                 <div class="row mb-3">
-                                                    <div class="col-md-1"><label class="form-check-label">၁။</label></div>                                                    
-                                                    <div class="col-md-6 single-form">
-                                                        <label>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                    <div class="col-md-1 "><div class="single-form"><label class="col-form-label">၁။</label></div></div>                                                    
+                                                    <div class="col-md-6 single-form ">
+                                                        <div class="single-form">
+                                                            <label class="col-form-label">တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="single-form">
