@@ -29,7 +29,7 @@ $("#selected_service_id").change(function(){
 function checkOtherService(option)
 {
     var selected_service_id = $(option).val();
-    if(selected_service_id == 9){
+    if(option == 9){
         $(".check-service-other").css('visibility','visible');
     }
     else{
