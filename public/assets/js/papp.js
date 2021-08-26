@@ -42,10 +42,40 @@ function Degree_Check(){
 
 var count=1;
 function Add(){
-    $("#edu").append('<div class="row" id="edu'+count+'">'+
-    '<div class="col-md-9"><input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required=""></div>'+
-    '<div class="col-md-3 text-center" style="padding-top:10px;padding-bottom:10px;" id="edu'+count+'_remove"><a id="myLink" onclick="remove(edu'+count+')">'+
-    '<span class="fa fa-trash danger text-danger"></span></a></div></div>');
+    $("#edu").append(
+        '<div class="row mb-2" id="degree_name'+count+'">'+  
+            '<div class="col-md-1"></div>'+                                                     
+            '<div class="col-md-4 col-auto">'+                                                              
+                '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
+            '</div>'+
+            '<div class="col-md-6 col-auto">'+                                                            
+                '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
+            '</div>'+                                                           
+        '</div>'+
+        '<div class="row mb-2" id="degree_year'+count+'">'+  
+            '<div class="col-md-1"></div>'+                                                         
+            '<div class="col-md-4 col-auto">'+                                                              
+                '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
+            '</div>'+
+            '<div class="col-md-6 col-auto">'+                                                              
+                '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
+            '</div>'+                                                           
+        '</div>'+
+
+        '<div class="row" id="edu'+count+'">'+
+            '<div class="col-md-1"></div>'+
+            '<div class="col-md-4 col-auto">'+                                                             
+                '<label for="" class="col-form-labe"> Attached Certificate</label>'+
+            '</div>'+
+            '<div class="col-md-6">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
+            '</div>'+
+            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                    '<i class="fa fa-trash "></i>'+
+                '</button>'+
+            '</div>'+
+        '</div>');
     count++;
 
 }
