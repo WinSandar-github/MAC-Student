@@ -109,7 +109,7 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form id="audit_firm_form" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data">
+                        <form id="audit_firm_form" class="needs-validation" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
@@ -122,14 +122,14 @@
                                                       <td width="15%"><label class="col-form-label">Email</label>
                                                       </td>
                                                       <td width="80%">
-                                                          <div class="single-form">
+                                                          <div>
                                                               <input type="email" placeholder="email" name="email" class="form-control" value="{{ old('email') }}" required="">
                                                           </div>
                                                       </td>
                                                   </tr>
                                               </table>
                                             </div>
-
+                                            <br>
                                             <div class="row">
                                               <table width="100%">
                                                   <tr>
@@ -137,14 +137,14 @@
                                                       <td width="15%"><label class="col-form-label">Password</label>
                                                       </td>
                                                       <td width="80%">
-                                                          <div class="single-form">
+                                                          <div>
                                                               <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
                                                           </div>
                                                       </td>
                                                   </tr>
                                               </table>
                                             </div>
-
+                                            <br>
                                             <div class="row">
                                               <table width="100%">
                                                   <tr>
@@ -152,7 +152,7 @@
                                                       <td width="15%"><label class="col-form-label">Confirm Password</label>
                                                       </td>
                                                       <td width="80%">
-                                                          <div class="single-form">
+                                                          <div>
                                                               <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
                                                           </div>
                                                       </td>
@@ -168,21 +168,21 @@
                                                         <td width="5%"><label>4</label></td>
                                                         <td width="15%"><label>Accountancy Firm Registration Number</label></td>
                                                         <td width="80%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
                                                             </div>
                                                         </td>
                                                     </tr>
                                                 </table>
-                                            </div><br>
-
+                                            </div>
+                                            <br>
                                             <div class="row">
                                                 <table width="100%">
                                                     <tr>
                                                         <td width="5%"><label>5</label></td>
                                                         <td width="15%"><label>Accountancy Firm Name</label></td>
                                                         <td width="80%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Accountancy Firm Name" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
                                                             </div>
                                                         </td>
@@ -201,22 +201,22 @@
                                                         <td width="5%"><label>6</label></td>
                                                         <td width="15%"><label>Address Of Practice(Head Office</label></td>
                                                         <td width="20%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="20%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="20%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="20%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
                                                             </div>
                                                         </td>
@@ -230,17 +230,17 @@
                                                         <td width="20%">
                                                         </td>
                                                         <td width="25%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="30%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
                                                             </div>
                                                         </td>
                                                         <td width="30%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
                                                             </div>
                                                         </td>
@@ -277,13 +277,13 @@
                                                                         <thead>
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off"></td>
-                                                                                <td><input type="text" name="bo_township[]" class="form-control" autocomplete="off"></td>
-                                                                                <td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off"></td>
-                                                                                <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off"></td>
-                                                                                <td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off"></td>
+                                                                                <td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off" required></td>
                                                                                 <td>
-                                                                                    <input type="text" name="bo_phone[]" class="form-control" autocomplete="off">
+                                                                                    <input type="text" name="bo_phone[]" class="form-control" autocomplete="off" required>
                                                                                 </td>
                                                                                 {{--<td>
                                                                                     <button class="btn btn-primary btn-sm" type="button" onclick='addInputTele("branch")'>
@@ -291,8 +291,8 @@
                                                                                     </button>
 
                                                                                 </td>--}}
-                                                                                <td><input type="text" name="bo_email[]" class="form-control" autocomplete="off"></td>
-                                                                                <td><input type="text" name="bo_website[]" class="form-control" autocomplete="off"></td>
+                                                                                <td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" required></td>
                                                                                 <td>
                                                                                   <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch")'><i class="fa fa-trash"></i></button>
                                                                                 </td>
@@ -317,11 +317,20 @@
                                             <div class='row organization_data'>
 
                                             </div><br/>
+
+                                            <div class="row">
+                      		                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                      		                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                      												<div class="col-md-8" id="audit_org_validate" style="display:none;">
+                      														<label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
+                      												</div>
+                      		                  </div><br/>
+
                                             <div id="sole-proprietorship">
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
                                                         <div class="col-md-10">
-                                                            <div class="card">
+                                                            <div class="card" id="audit_sole_proprietorship">
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <label class="col-md-12 col-form-label"><b>For Sole Proprietorship</b></label>
@@ -419,7 +428,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
                                                         <div class="col-md-10">
-                                                            <div class="card">
+                                                            <div class="card" id="audit_partnership">
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <label class="col-md-12 col-form-label"><b>For Partnership</b></label>
@@ -569,7 +578,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
                                                         <div class="col-md-10">
-                                                            <div class="card">
+                                                            <div class="card" id="audit_company">
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <label class="col-md-12 col-form-label"><b>For Company Incorporated</b></label>
@@ -805,7 +814,6 @@
                                                                                 <th class="less-font-weight" rowspan="2">Public Private Reg.No</th>
                                                                                 <th class="less-font-weight" colspan="2">Have authority to sing Auditors' report?</th>
                                                                                 <th class="less-font-weight" rowspan="2" style="text-align: right;">
-
                                                                                     <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
                                                                                         <i class="fa fa-plus"></i>
                                                                                     </button>
@@ -816,14 +824,14 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>1</td>
-                                                                                <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off"></td>
-                                                                                <td><input type="text" value="" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off"></td>
+                                                                                <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" value="" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" required></td>
                                                                                 <td>
-                                                                                    <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes">
+                                                                                    <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" required>
                                                                                     <label class="form-check-label">Yes</label>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes">
+                                                                                    <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes" required>
                                                                                     <label class="form-check-label">No</label>
                                                                                 </td>
                                                                                 <td>
@@ -875,10 +883,10 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>1</td>
-                                                                            <td><input type="text" value="" name="do_name[]" class="form-control" autocomplete="off"></td>
-                                                                            <td><input type="text" value="" name="do_position[]" class="form-control" autocomplete="off"></td>
-                                                                            <td><input type="text" value="" name="do_cpa_reg_no[]" class="form-control" autocomplete="off"></td>
-                                                                            <td><input type="text" value="" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off"></td>
+                                                                            <td><input type="text" value="" name="do_name[]" class="form-control" autocomplete="off" required></td>
+                                                                            <td><input type="text" value="" name="do_position[]" class="form-control" autocomplete="off" required></td>
+                                                                            <td><input type="text" value="" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" required></td>
+                                                                            <td><input type="text" value="" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" required></td>
                                                                             <td>
                           																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirector("director")'><i class="fa fa-trash"></i></button>
                           																									</td>
@@ -898,7 +906,7 @@
                                                         <td width="5%"><label>11</label></td>
                                                         <td width="15%"><label>Name Of Sole Proprietor/Managing Partner</label></td>
                                                         <td width="80%">
-                                                            <div class="single-form">
+                                                            <div>
                                                                 <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" required="">
                                                             </div>
                                                         </td>
@@ -988,11 +996,14 @@
                                                         <td style="width:5%;"><label>14</label></td>
                                                         <td style="width:5%;"><label>Types Of Service Provided</label></td>
                                                         <td><div class="row type_service_provided"></div></td>
+                                                        <td style="width:20%;">
+                                                          <div class="" id="t_s_p_id_validate" style="display:none;" >
+                                  														<label class="text-danger">Type of Service Provided ရွေးချယ်ပါ</label>
+                                  												</div>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </div>
-
-
 
                                             <div class="row">
                                               <table width="100%">
@@ -1031,19 +1042,21 @@
                                             </div>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"></td>
-                                                        <td width="15%"><label>Declaration</label></td>
-                                                        <td width="80%">
-                                                            <div class="form-group">
-                                                                I <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror" autocomplete="off" value="{{ old('declaration') }}" required="">
-                                                                (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>
+                      												<label class="col-md-1 col-form-label">{{ __('') }}</label>
+                      												<label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
+                      												<label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
+                      												<div class="col-md-2">
+                      													<div class="form-group">
+                      															<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" required>
+                      													</div>
+                      												</div>
+                      												<div class="col-md-6">
+                      													<div class="form-group">
+                      															(sole proprietor/ managing partner) representing all the members of the
+                      													</div>
+                      												</div>
+                      											</div>
+                                            <br>
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
@@ -1067,6 +1080,24 @@
 @endpush
 @push('scripts')
 <script>
+$(document).ready(function(){
+  $("#audit_firm_form").submit(function(event){
+    if($("input[name='t_s_p_id']:checked").length == 0){
+    	$('#t_s_p_id_validate').css('display','block');
+    }
+    else{
+    	$('#t_s_p_id_validate').css('display','none');
+    }
+
+    // organization_structure radio button required validation
+	  if($("input[name='org_stru_id']:checked").length == 0){
+			$('#audit_org_validate').css('display','block');
+		}
+		else{
+			$('#audit_org_validate').css('display','none');
+		}
+  });
+
     loadAuditOrganization();
     loadAuditTypeOfService();
     loadAuditTotalStaffReg();
@@ -1076,5 +1107,8 @@
     pendingStatus();
     dateQuery();
     verifyStatus();
+
+    });
+
 </script>
 @endpush
