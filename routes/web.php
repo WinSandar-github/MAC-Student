@@ -69,10 +69,10 @@ Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
 Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 
 //CPA Two
-Route::get('cpa_two_self_study', 'CPATwoRegisterController@self_study');
-Route::get('cpa_two_mac', 'CPATwoRegisterController@mac');
-Route::get('cpa_two_private_school', 'CPATwoRegisterController@private_school');
-Route::get('cpa_two_register', 'CPATwoRegisterController@register');
+Route::get('cpa_two_self_study/{id}', 'CPATwoRegisterController@self_study');
+Route::get('cpa_two_mac/{id}', 'CPATwoRegisterController@mac');
+Route::get('cpa_two_private_school/{id}', 'CPATwoRegisterController@private_school');
+Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
@@ -94,10 +94,10 @@ Route::get('login','LoginController@login')->name('login');
 // show application form of da one
 Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
 
-Route::get('da_two_register', 'DARegisterController@da_two_register');
+Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
 //Da Two application form
-Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+// Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
 

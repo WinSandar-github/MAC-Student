@@ -94,12 +94,13 @@ class DAController extends Controller
         return view('pages.da_edit');
     }
 
-    public function daTwoAppForm($id)
+    public function da_two_register($id)
     {       
         $client = new \GuzzleHttp\Client();
        
         $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+       
         $batch = $res['data'];
-        return view('pages.da.da_two_app_form',compact('batch'));
+        return view('pages.da.da_two_register',compact('batch'));
     }
 }

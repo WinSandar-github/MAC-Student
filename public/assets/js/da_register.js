@@ -201,3 +201,101 @@ $('#store_da_two_form').submit(function(e){
         // }
     });
 });
+
+
+
+function createDaTwoSelfStudy()
+{
+     
+    localStorage.setItem("isPrivateSchool",false);
+    var send_data = new FormData();
+    send_data.append('student_id',student_id);
+    send_data.append('batch_id',$("input[name='batch_id']").val())
+    send_data.append('type', 0);
+    $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
+    send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL+"/store_student_app_reg",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            EasyLoading.hide();
+            successMessage(result);
+            // location.reload();
+            location.href = FRONTEND_URL+"/";
+        },
+        error:function(message){
+            EasyLoading.hide();
+
+        }
+
+    });
+}
+
+function createDaTwoPrivateSchool()
+{
+
+ 
+    localStorage.setItem("isPrivateSchool",true);
+    var send_data = new FormData();
+    send_data.append('student_id',student_id);
+    send_data.append('batch_id',$("input[name='batch_id']").val())
+
+    send_data.append('type', 1);
+    send_data.append('form_type', $("input[name='form_type']").val());
+    if($("input[name='form_type']").val()=="da two"){
+        send_data.append('date', formatDate($("input[name='exam_date']").val()));
+    }
+    show_loader();
+    
+    $.ajax({
+        url: BACKEND_URL+"/store_student_app_reg",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){    
+            EasyLoading.hide();        
+            successMessage(result);
+            // location.reload();
+            location.href = FRONTEND_URL+"/";
+      },
+      error:function(message){
+        EasyLoading.hide();
+
+    }
+    });
+}
+
+function createDaTwoMac()
+{
+    
+    localStorage.setItem("isPrivateSchool",false);
+    var send_data = new FormData();
+    send_data.append('student_id',student_id);
+    send_data.append('batch_id',$("input[name='batch_id']").val())
+
+    send_data.append('type', 2);
+    send_data.append('form_type', $("input[name='form_type']").val());
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL+"/store_student_app_reg",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            EasyLoading.hide();
+            successMessage(result);
+            // location.reload();
+            location.href = FRONTEND_URL+"/";
+        }, 
+        error:function(message){
+            EasyLoading.hide();
+
+    }
+    });
+}
