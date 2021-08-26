@@ -62,11 +62,11 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-            
+
             <div class="row mt-5">
                 <div class="card border-success mb-3">
                     <div class="card-body">
-                        <div class="row">    
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -75,39 +75,39 @@
                                         <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
                                     </div>
                                 </div>
-                                
-                            </div>   
-                                
-                            </div>   
+
+                            </div>
+
+                            </div>
                         </div>
                         <div>
-                            <form  method="post" action="javascript:Self_Study_Submit();" enctype="multipart/form-data">
-                                
+                            <form id="cpa_one_self_study_form" class="needs-validation" method="post" action="javascript:Self_Study_Submit();" enctype="multipart/form-data" novalidate>
+
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၁။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('ပညာသင်နှစ်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <input type="text" id="academic_year" class="form-control" value="" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                         </div>
                                     </div>
@@ -115,122 +115,105 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(က)</div>
-                                    <div class="col-md-1" style="padding-top:10px">
-                                        <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]">
+                                    <div class="col-md-9 form-check" style="padding-top:10px">
+                                        <input type="checkbox" class="" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]" >
+																				<label class="">{{ _('ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း') }}</label>
                                     </div>
-                                    <div class="col-md-9">                                    
-                                        <label class="col-form-label">{{ _('ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း') }}</label>
-                                    </div>
-                                    
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3"></div>
-                                    
+
                                     <div class="col-md-4">
                                         <label class="col-form-label">{{ _('(၁) တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်') }}</label>
                                     </div>
-                                    <div class="col-md-5 single-form">
-                                        <input type="text" id="direct_access_no" class="form-control" value="" >
+                                    <div class="col-md-5">
+                                        <input type="text" id="direct_access_no" class="form-control" value="" required>
                                     </div>
                                 </div><br/>
                                 <div class="row">
-                                    <div class="col-md-3"></div>                                    
+                                    <div class="col-md-3"></div>
                                     <div class="col-md-4">
                                         <label class="col-form-label">{{ _('(၂) ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်') }}</label>
-                                    
+
                                     </div>
-                                    <div class="col-md-5 single-form">
-                                            <input type="text" id="entry_success_no" class="form-control" value="" >
+                                    <div class="col-md-5">
+                                            <input type="text" id="entry_success_no" class="form-control" value="" required >
                                     </div>
                                 </div><br/>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ခ)</div>
-                                    <div class="col-md-1" style="padding-top:10px">
-                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam" name="reg_reason[]">
+                                    <div class="col-md-9 form-check" style="padding-top:10px">
+																			<input type="checkbox" class="" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam" name="reg_reason[]" >
+																			<label class="">{{ _(' သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
                                     </div>
-                                    <div class="col-md-9">
-                                            <label class="col-form-label">{{ _(' သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
-                                    
-                                    </div>
-                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ဂ)</div>
-                                    <div class="col-md-1" style="padding-top:10px">
-                                        <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance" name="reg_reason[]">
+                                    <div class="col-md-4 form-check" style="padding-top:10px">
+																			<input type="checkbox" class="" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance" name="reg_reason[]" >
+																			<label class="">{{ _(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
                                     </div>
-                                    <div class="col-md-9">
-                                            <label class="col-form-label">{{ _(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
-                                    
-                                    </div>
-                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ဃ)</div>
-                                    <div class="col-md-1" style="padding-top:10px">
-                                        <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam" name="reg_reason[]">
+                                    <div class="col-md-4 form-check" style="padding-top:10px">
+                                        <input type="checkbox" class="" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam" name="reg_reason[]" >
+																				<label class="">{{ _(' စာမေးပွဲကျရှုံးခြင်း') }}</label>
                                     </div>
-                                    <div class="col-md-9">
-                                            <label class="col-form-label">{{ _(' စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
-                                    </div>                                    
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(င) </div>
-                                    <div class="col-md-1" style="padding-top:10px">
-                                        <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned" name="reg_reason[]">
+                                    <div class="col-md-4 form-check" style="padding-top:10px">
+                                        <input type="checkbox" class="" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned" name="reg_reason[]" >
+																				<label class="">{{ _('သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>
                                     </div>
-                                    <div class="col-md-9">
-                                        <label class="col-form-label">{{ _('သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
-                                    </div>
-                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-2 col-form-label">(စ)</div>
                                     <div class="col-md-4">
-                                            <label class="col-form-label">{{ _('ဖြေဆိုမည့် Module') }}</label>                                   
+                                            <label class="col-form-label">{{ _('ဖြေဆိုမည့် Module') }}</label>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="row">
-                                            <div class="col-md-4">
-                                                <input type="radio" name="module" value="" id="module1" >
-                                                <label class="col-form-label">{{ _('Module-1') }}</label> 
-                                                
+                                            <div class="col-md-4 form-check">
+                                                <input type="radio" class="form-check-input" name="module" value="" id="module1" required>
+                                                <label class="form-check-label">{{ _('Module-1') }}</label>
                                             </div>
-                                            <div class="col-md-4">
-                                                <input type="radio"  name="module" value="" id="module2" >
-                                                <label class="col-form-label">{{ _('Module-2') }}</label> 
-                                                
+                                            <div class="col-md-4 form-check">
+                                                <input type="radio" class="form-check-input" name="module" value="" id="module2" >
+                                                <label class="form-check-label">{{ _('Module-2') }}</label>
                                             </div>
-                                            <div class="col-md-4">
-                                                <input type="radio" name="module" value="" id="allmodule" >
-                                                <label class="col-form-label">{{ _('All Module') }}</label> 
-                                                  
+                                            <div class="col-md-4 form-check">
+                                                <input type="radio" class="form-check-input" name="module" value="" id="allmodule" >
+                                                <label class="form-check-label">{{ _('All Module') }}</label>
+																								<div class="invalid-feedback mt-3">ဖြေဆိုမည့် Module ရွေးချယ်ပါ</div>
                                             </div>
-                                        </div>                                      
+                                        </div>
                                     </div>
                                 </div><br/>
-                                
+
                                 <div class="row">
                                     <div class="col-md-1">
-                                        
+
                                             <label class="col-form-label">{{ _('၃။') }}</label>
-                                        
+
                                     </div>
                                     <div class="col-md-6">
                                             <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div>
-                                    <div class="col-md-5 single-form">
-                                            <input type="text" class="form-control" id="batch_part_no" value="" >
+                                    <div class="col-md-5">
+                                            <input type="text" class="form-control" id="batch_part_no" value="" required >
                                     </div>
                                 </div><br/>
-                               
-                                
+
+
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -249,7 +232,7 @@
                                     </div>
                                 </div><br/>
                             </form>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,5 +252,26 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+	$(document).ready(function(){
+		$("#cpa_one_self_study_form").submit(function( event ) {
+			var fields = $("input[name='reg_reason[]']").serializeArray();
+	    if (fields.length === 0)
+	    {
+	        //alert('nothing selected');
+					$("input[name='reg_reason[]']").siblings("label").css('color','red');
+	        return false;
+	    }
+	    else
+	    {
+				$("input[name='reg_reason[]']").siblings("label").css('color','#212529');
+	        //alert(fields.length + " items selected");
+	    }
+
+		});
+
+		$("input[name='reg_reason[]']").change(function(){
+			$("input[name='reg_reason[]']").siblings("label").css('color','#212529');
+		});
+	});
 </script>
 @endpush

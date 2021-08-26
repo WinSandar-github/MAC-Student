@@ -681,12 +681,12 @@ function loadAuditTypeOfService(){
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
           var radio_data="<div class='col-md-2'>"+
-          "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);
         }else{
           var tr = "<tr>";
-          tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
                 " <label class='form-check-label'>"+element.name+"</label>";
           tr += "</tr>";
           $('#tbl_type_service_body').append(tr);
@@ -696,6 +696,12 @@ function loadAuditTypeOfService(){
       })
     }
   });
+}
+
+function checkTypeofServiceProvided(){
+    var radioValue = $("input[name='t_s_p_id']:checked").val();
+    $("#t_s_p_id_validate").css('display','none');
+    //$(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
 }
 
 function loadAuditTotalStaffReg(){
@@ -709,9 +715,9 @@ function loadAuditTotalStaffReg(){
       audit_total_staff.forEach(function(element){
             var tr = "<tr>";
             tr += "<td class='font-weight-bold'>" + element.name + "</td>";
-            tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'><input type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+"></td>";
-            tr += "<td><input type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+"></td>";
-            tr += "<td><input type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+"></td>";
+            tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'><input type='number' value='' name='ats_total[]' class='form-control' id=total_staff"+element.id+" required></td>";
+            tr += "<td><input type='number' value='' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required></td>";
+            tr += "<td><input type='number' value='' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required></td>";
             tr += "</tr>";
             $("#tbl_audit_total_staff_body").append(tr);
 
@@ -755,9 +761,9 @@ function loadAuditStaffReg(){
     audit_staff.forEach(function(element){
           var tr = "<tr>";
           tr += "<td class='font-weight-bold'>" + element.name + "</td>";
-          tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'><input type='number' value='0' name='as_total[]' class='form-control' id=audit_total"+element.id+"></td>";
-          tr += "<td><input type='number' value='0' name='as_full_time[]' class='form-control' id=full_time"+element.id+"></td>";
-          tr += "<td><input type='number' value='0' name='as_part_time[]' class='form-control' id=part_time"+element.id+"></td>";
+          tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'><input type='number' value='' name='as_total[]' class='form-control' id=audit_total"+element.id+" required></td>";
+          tr += "<td><input type='number' value='' name='as_full_time[]' class='form-control' id=full_time"+element.id+" required></td>";
+          tr += "<td><input type='number' value='' name='as_part_time[]' class='form-control' id=part_time"+element.id+" required></td>";
           tr += "</tr>";
           $("#tbl_audit_staff_body").append(tr);
 
@@ -801,7 +807,7 @@ function loadNonAuditStaff(){
     non_audit_total_staff.forEach(function(element){
           var tr = "<tr>";
           tr += "<td>" + element.name + "</td>";
-          tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'><input type='number' value='0' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+"></td>";
+          tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'><input type='number' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+" required></td>";
           tr += "</tr>";
           $("#tbl_non_audit_number_body").append(tr);
 

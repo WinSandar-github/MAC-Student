@@ -62,14 +62,14 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-            
+
             <div class="row mt-5">
-                                            
-                
+
+
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                 <div class="card border-success mb-3">
                     <div class="card-body">
-                        <div class="row">   
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -78,97 +78,99 @@
                                     </div>
                                 </div>
                                 <br/>
-                                
-                            </div>   
+
+                            </div>
                         </div>
                         <div>
-                            
-                            <form  method="post" action="javascript:Private_School_Submit();" enctype="multipart/form-data">
-                                
+
+                            <form class="needs-validation" method="post" action="javascript:Private_School_Submit();" enctype="multipart/form-data" novalidate>
+
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၁။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <input type="text" id="private_school_name" class="form-control" value="" required>
                                         </div>
                                     </div>
                                 </div>
+																<br>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('ပညာသင်နှစ်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <input type="text" id="academic_year" class="form-control" value="" required>
                                         </div>
                                     </div>
                                 </div>
+																<br>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၃။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <input type="text" id="direct_access_no" class="form-control" value="" required>
                                         </div>
                                     </div>
                                 </div>
-
+																<br>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၄။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <input type="text" id="entry_success_no" class="form-control" value="" required>
                                         </div>
                                     </div>
                                 </div><br/>
-
+																
                                 <div class="row">
                                     <div class="col-md-1">
-                                        
+
                                             <label class="col-form-label">{{ _('၅။') }}</label>
-                                        
+
                                     </div>
                                     <div class="col-md-5">
                                             <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div>
-                                    <div class="col-md-5 single-form">
-                                            <input type="text" class="form-control" id="batch_part_no" value="" >
+                                    <div class="col-md-5">
+                                            <input type="text" class="form-control" id="batch_part_no" value="" required >
                                     </div>
-                                </div><br/>              
-                                
+                                </div><br/>
+
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -187,7 +189,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>

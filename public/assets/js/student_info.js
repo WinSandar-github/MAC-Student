@@ -574,3 +574,25 @@ function loadExam()
     })
 }
 
+function updateCode()
+{
+    var code = $("input[name='verify_code']").val();
+    // console.log(code);
+    var verify_code =JSON.parse(localStorage.getItem("code"));
+    var id =JSON.parse(localStorage.getItem("id"));
+    if(verify_code == code)
+    {
+        $.ajax({
+        url: BACKEND_URL+"/check_code/"+id,
+        type: 'patch',
+        success: function (data) {
+            // console.log(data)
+            successMessage("You are verified!");
+            location.href = FRONTEND_URL+'/login';
+        }
+    });
+    }
+    else{
+        alert("You code is not correct.Please check your email inbox again!");
+    }
+}

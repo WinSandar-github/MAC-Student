@@ -100,9 +100,8 @@ Route::get('da_two_register/{id}', 'DAController@da_two_register');
 // Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
-
-
-
+//Eamil Validation
+Route::get('verify_email', 'LoginController@verifyEmail');
 
 // Audit Firm
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
