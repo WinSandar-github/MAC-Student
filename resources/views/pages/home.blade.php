@@ -94,322 +94,409 @@
         </div>
         <div class=" section section-padding mt-n10">
             <div class="container">
-            <div class="card text-center">
-                <div class="card-header title text-dark h5" style="background-color:#E7F8EE;">
-                </div>
-                <div class="card-body">
-                    <!-- Student  da cpa-->
-                    <div class="da_cpa">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img  class="img-fluid" 
-                                id="image"
-                                style="height : 200px;width:auto;"
-                                />
-                            </div>
-                            <div class="col-md-9">
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                <div class="card ">
+                    <div class="card-header title text-center text-dark h5" style="background-color:#E7F8EE;">
+                    </div>
+                    <div class="card-body">
+                        <!-- Student  da cpa-->
+                        <div class="da_cpa">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img  class="img-fluid" 
+                                    id="image"
+                                    style="height : 200px;width:auto;"
+                                    />
+                                </div>
+                                <div class="col-md-9">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="name_eng"></span> / <span id="name_mm"></span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <span id="name_eng"></span> / <span id="name_mm"></span>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="nrc"></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">NRC</p>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Date of Birth</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="date_of_birth"></span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <span id="nrc"></span>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="email"></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Date of Birth</p>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="phone"></span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <span id="date_of_birth"></span>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6 mb-2">
+                                                <button class="btn btn-success btn-sm" disabled >Change Password</button>
+                                            </div>
+                                           
+                                            <div class="col-md-6 mb-2">
+                                                <button class="btn btn-success btn-sm" disabled>Update Profile</button>
+                                            </div>
+                                             
                                         </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Email</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="email"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Phone</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="phone"></span>
-                                        </div>
-                                    </div>
-                                
+                                    
 
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5 class="text-center border-bottom  py-2 my-2" style="font-weight:bold; background-color:#E7F8EE;">
+                                    လက်ရှိတက်ရောက်နေသော အတန်း
+                                    </h5>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="batch_name"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Course Name</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="course_name"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold regi_fee_txt" style="font-weight:bold"></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="registration_fee"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom self_study" style="display:none;">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold " style="font-weight:bold">Selfstudy Registration Fees</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="selfstudy_fee"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom private_school" style="display:none;">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold " style="font-weight:bold">Private School Registration Fees</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="pschool_fee"></span> 
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="exam_date"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Next Action </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="next_course"></span> 
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-8 ">
+                                    <h5 class="text-center border-bottom py-2 my-2" style="font-weight:bold;background-color:#E7F8EE;">Application Status</h5>
+                                    <div class="row m-2 mt-3 ">
+                                            <!-- <span class="status"><x/span>  -->
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Submit Date</th>
+                                                    <th>Status Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="status">
+
+                                            </tbody>
+                                        </table>    
+                                        
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-3 ">
+                                <div class="col-md-4">
+                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold; background-color:#E7F8EE;">
+                                    Course Histroy
+                                    </h5>
+                                    <div class="row">
+                                        <table class="table table-border">
+                                            <thead>
+                                                <th>Course Name</th>
+                                                <th>Batch Name</th>
+                                                <th>Success Year</th>
+                                            </thead>
+                                            <tbody class="course">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-8 ml-1">
+                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Histroy</h5>
+                                    <div class="row ">
+                                        <table class="table table-border ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Submit Date</th>
+                                                    <th>Status Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="status_history">
+                                                 
+
+                                            </tbody>
+                                        </table>    
+                                        
+                                        
+                                    </div>
+                                </div>
+
+                        
+                                
+                            </div>
+                    
+
+
+                        </div>
+                            
+
+                           
+
+                        
+                        <div class="acc_firm">
+                            <div class="row">
+                                
+                                <div class="col-md-8 offset-md-2">
+                                        <div class="row   mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm Registration No</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="text-start" id="acc_firm_reg_no"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row  mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm Name</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="text-start text-bold" id="acc_firm_name"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row  mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Head Office Address</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="text-start" id="head_office"></span>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row  mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p  style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="text-start email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="text-start phone"></span>
+                                            </div>
+                                        </div>
+                                    
+
+                                </div>
+
+                            </div>
+                            <div class="row my-2">
+                              
+                                
+                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+                                    
+                                        <div class="text-center status_history">
+
+                                        </div>
+                                        
+                                    
+                        
+                                
                             </div>
 
                         </div>
 
-                        <h5 class="border-bottom py-2 my-2" style="font-weight:bold;background-color:#E7F8EE;"> Status Announcement</h5>
-                        <div class="row m-2 mt-3 ">
-                                <span class="status"></span> 
+                        <div class="school">
+                            <div class="row">
+                                
+                                <div class="col-md-8 offset-md-2">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_name_eng"></span> / <span id="sch_name_mm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_nrc"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Date of Birth</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_date_of_birth"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_phone"></span>
+                                            </div>
+                                        </div>
+                                    
+
+                                </div>
+
+                            </div>
+
+                            <div class="row my-2">
+                              
+                                
+                              <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+                              
+                                  <div class="text-center status_history">
+
+                                  </div>
+                            </div>
+
                             
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5 class="border-bottom mt-3 pb-2" style="font-weight:bold">
-                                Course Histroy
-                                </h5>
-                                <div class="row">
-                                    <table class="table table-border">
-                                        <thead>
-                                            <th>Course Name</th>
-                                            <th>Batch Name</th>
-                                            <th>Success Year</th>
-                                        </thead>
-                                        <tbody class="course">
+                        <div class="teacher">
+                            <div class="row">
+                                
+                                <div class="col-md-8 offset-md-2">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_name_eng"></span> / <span id="teacher_name_mm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_nrc"></span>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_phone"></span>
+                                            </div>
+                                        </div>
+                                    
 
-                                        </tbody>
-                                    </table>
                                 </div>
 
                             </div>
 
-                    
-                            <div class="col-md-6">
-                                <h5 class="border-bottom mt-3 pb-2" style="font-weight:bold">
-                                လက်ရှိတက်ရောက်နေသော အတန်း
-                                </h5>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="batch_name"></span> 
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Course Name</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="course_name"></span> 
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold regi_fee_txt" style="font-weight:bold"></p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="registration_fee"></span> 
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom self_study" style="display:none;">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold " style="font-weight:bold">Selfstudy Registration Fees</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="selfstudy_fee"></span> 
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom private_school" style="display:none;">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold " style="font-weight:bold">Private School Registration Fees</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="pschool_fee"></span> 
-                                    </div>
-                                </div>
+                            <div class="row my-2">
+                              
                                 
-                                
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="exam_date"></span> 
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Next Course </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="next_course"></span> 
-                                    </div>
-                                </div>
+                              <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+                              
+                                  <div class="text-center status_history">
 
-
+                                  </div>
                             </div>
-                        </div>
 
-                    </div>
-                   
-
-                    <div class="acc_firm">
-                        <div class="row">
                             
-                            <div class="col-md-12">
-                                    <div class="row m-2  mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm Registration No</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                             <span class="text-start" id="acc_firm_reg_no"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row  mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm Name</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                             <span class="text-start text-bold" id="acc_firm_name"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Head Office Address</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="text-start" id="head_office"></span>
-                                        </div>
-                                    </div>
-                                  
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p  style="font-weight:bold">Email</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="text-start email"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Phone</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="text-start phone"></span>
-                                        </div>
-                                    </div>
-                                
-
-                            </div>
-
                         </div>
 
-                    </div>
 
-                    <div class="school">
-                        <div class="row">
-                             
-                            <div class="col-md-12">
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="sch_name_eng"></span> / <span id="sch_name_mm"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">NRC</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="sch_nrc"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Date of Birth</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="sch_date_of_birth"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Email</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="sch_email"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Phone</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="sch_phone"></span>
-                                        </div>
-                                    </div>
-                                
-
-                            </div>
-
-                        </div>
+                        
 
                         
                     </div>
-
-                    <div class="teacher">
-                        <div class="row">
-                             
-                            <div class="col-md-12">
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="teacher_name_eng"></span> / <span id="teacher_name_mm"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">NRC</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="teacher_nrc"></span>
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Email</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="teacher_email"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">Phone</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="teacher_phone"></span>
-                                        </div>
-                                    </div>
-                                
-
-                            </div>
-
-                        </div>
-
-                        
-                    </div>
-                    
-
-                    <h5 class="border-bottom pb-2" style="font-weight:bold"> Announcement Histroy</h5>
-                    <div class="row m-2 mt-3 ">
-                            <span class="status_history"></span> 
-                        
-                    </div>
-                </div>
                
                 </div>
                 

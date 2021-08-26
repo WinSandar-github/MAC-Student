@@ -151,7 +151,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                     <label class="col-md-3 col-form-label">{{ __('နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ') }}</label>
                                                     <div class="col-md-7 single-form">
-                                                        <input type="text" placeholder="dd/mm/yyyy" name="last_exam_date" class="form-control" value="" required="">
+                                                        <input type="text" placeholder="mmm/yyyy" name="last_exam_date" class="form-control" value="" required="">
                                                     </div>
                                                 </div><br/>
 
@@ -186,12 +186,12 @@
                                                     </div>
                                                 </div><br/>
 
-                                                <div class="row">
+                                                <div class="row" style="display:none;">
                                                     <div class="col-md-1 col-form-label">{{ _('') }}</div>
                                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                                     <label class="col-md-3 col-form-label">{{ __('ရက်စွဲ') }}</label>
                                                     <div class="col-md-7 single-form">
-                                                        <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                        <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy">
                                                     </div>
                                                 </div><br/>
 
@@ -232,11 +232,12 @@
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='last_exam_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "M-Y",
         });
         $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
+                allowInput: true,
         });
         var boo=localStorage.getItem("isPrivateSchool");
         if(boo=="true" ){

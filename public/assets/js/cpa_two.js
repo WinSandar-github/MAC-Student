@@ -57,6 +57,7 @@ function CPA2_Private_School_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -79,7 +80,7 @@ function CPA2_Mac_Submit(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.log(result);  
+              
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -91,6 +92,7 @@ function CPA2_Mac_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -111,19 +113,22 @@ function CPA2_Self_Study_Submit(){
         contentType: false,
         processData: false,
         success: function(result){
-            EasyLoading();
+            EasyLoading.hide();
             console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
             }   
-            else{       
+            else{    
+             EasyLoading.hide();
+
                 successMessage(result.message);
                 location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -145,10 +150,11 @@ $('#store_cpa_two_form').submit(function(e){
         success: function(data){
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = FRONTEND_URL+"/student_course/2"; 
+            location.href = FRONTEND_URL+"/"; 
         },
       error:function (message){
         errorMessage(message);
+        EasyLoading.hide();
           }
         // },
         // error:function (message){

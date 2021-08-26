@@ -2,7 +2,7 @@ function ConfirmSubmit(){
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
-    } 
+    }
     else{
     document.getElementById("submit_btn").disabled = true;
     }
@@ -18,7 +18,7 @@ function getCPAEducation(){
     else if(checkedValue==2){
         $('#cpa').css('display','none');
         $('#ra').css('display','block');
-        $('#accredited_foreign_degree').css('display','none');         
+        $('#accredited_foreign_degree').css('display','none');
     }
     else if(checkedValue==3){
         $('#cpa').css('display','none');
@@ -41,7 +41,7 @@ function addInputFile(divname,diventry){
             .removeClass('btn-add').addClass('btn-remove')
             .removeClass('btn-primary').addClass('btn-danger')
             .attr("onclick","delInputFile('"+diventry+"')")
-            .html('<span class="fa fa-trash"></span>');           
+            .html('<span class="fa fa-trash"></span>');
 
 }
 
@@ -82,7 +82,7 @@ function delInputFile(diventry){
 //             }
 //         });
 
-    
+
 // }
 
 function createCPAFFRegister(){
@@ -117,7 +117,7 @@ function createCPAFFRegister(){
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
           send_data.append('foreign_degree[]',$(this).get(0).files[i]);
         }
-        
+
     });
 
     if(cpa_part_2.checked==true){
@@ -130,7 +130,7 @@ function createCPAFFRegister(){
     }else{
         send_data.append('cpa_part_2',0);
         send_data.append('qt_pass',0);
-    }   
+    }
 
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
@@ -154,21 +154,22 @@ function createCPAFFRegister(){
             console.log(message);
         }
     });
-    
+
 }
 
 
 function selectEntry(){
     var radioValue = $("input[name='selected_name']:checked").val();
-     
+
     if(radioValue==1){
-        
         $('#direct').css('display','block');
         $('#entry_pass').css('display','none');
+        $("#direct").find('input').prop('required',true);
      }else
      {
         $('#entry_pass').css('display','block');
         $('#direct').css('display','none');
+        $("#direct").find('input').prop('required',false);
      }
 }
 
@@ -184,13 +185,13 @@ function isLoginCPAFF(){
             data:"",
             success: function(result){
                 var exam=result.data;
-                console.log(exam,"exam"); 
+                console.log(exam,"exam");
                 if(exam!=null) {
                     exam.every(function(element){
                         if(element.course.code=="cpa_2" && element.grade=="1"){
                             var a=new Date(student.date_of_birth);
                             var diff_ms = Date.now() - a.getTime();
-                            var age_dt = new Date(diff_ms); 
+                            var age_dt = new Date(diff_ms);
                             var age=Math.abs(age_dt.getUTCFullYear() - 1970);
                             if(age>=21){
                                 $("#age").append(age+" years");
@@ -210,8 +211,8 @@ function isLoginCPAFF(){
                             document.getElementById('pass_cpa_two').style.display='block';
                             return true;
                         }
-                        
-                
+
+
                     });
                 }
             },
@@ -219,7 +220,7 @@ function isLoginCPAFF(){
                 console.log(message);
                 }
             });
-        
+
     }
 }
 
@@ -249,7 +250,7 @@ function form_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==y && now.getMonth()==11){                            
+                        if(now.getFullYear()==y && now.getMonth()==11){
                             document.getElementById('approved').style.display='none';
                             document.getElementById('cpaff_renew_form').style.display='block';
                         }
@@ -261,13 +262,13 @@ function form_feedback(){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
                         var now=new Date(Date.now());
-                        if(now.getFullYear()==year && now.getMonth()==11){                            
+                        // if(now.getFullYear()==year){
                             document.getElementById('approved').style.display='none';
                             document.getElementById('cpaff_renew_form').style.display='block';
-                        }
-                        else{
-                            document.getElementById('approved').style.display='block';
-                        }
+                        // }
+                        // else{
+                        //     document.getElementById('approved').style.display='block';
+                        // }
                     }
                 }
                 else if(data.status==2 || data.renew_status==2)
@@ -284,7 +285,7 @@ function form_feedback(){
 
 function RenewCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    
+
     $.ajax({
         url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
         type: 'get',

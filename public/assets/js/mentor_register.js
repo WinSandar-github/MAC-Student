@@ -83,8 +83,8 @@ function createMentorRegister(){
   send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
   send_data.append('training_absent', $("input[name=training_absent]:checked").val());
   send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
-  send_data.append('email', $("input[name=email]").val());
-  send_data.append('password', $("input[name=password]").val());
+//   send_data.append('email', $("input[name=email]").val());
+//   send_data.append('password', $("input[name=password]").val());
   send_data.append('type', $("input[name=type]").val());
   send_data.append('status', $("input[name=status]").val());
 
@@ -108,6 +108,7 @@ function createMentorRegister(){
           //$(".tbl_education").empty();
       },
       error: function (result) {
+        EasyLoading.hide();
       },
   });
 }
