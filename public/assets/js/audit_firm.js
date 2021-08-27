@@ -649,16 +649,16 @@ function loadTypeOfService(){
       data:"",
       success: function(result){
       var type_service_provided=result.data;
-      $('.type_service_provided').append("<div class='col-md-2'></div>");
+      $('.type_service_provided').append("<div class='col-md-1'></div>");
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
-          var radio_data="<div class='col-md-2'>"+
-          "<input disabled type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          var radio_data="<div class='col-md-4'>"+
+          "<input disabled type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);
         }else{
           var tr = "<tr>";
-          tr += "<td><input disabled type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          tr += "<td><input disabled type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
                 " <label class='form-check-label'>"+element.name+"</label>";
           tr += "</tr>";
           $('#tbl_type_service_body').append(tr);
@@ -677,16 +677,16 @@ function loadAuditTypeOfService(){
       success: function(result){
       var type_service_provided=result.data;
       // console.log(type_service_provided)
-      $('.type_service_provided').append("<div class='col-md-2'></div>");
+      $('.type_service_provided').append("<div class='col-md-1'></div>");
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
-          var radio_data="<div class='col-md-2'>"+
-          "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
+          var radio_data="<div class='col-md-4'>"+
+          "<input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);
         }else{
           var tr = "<tr>";
-          tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
+          tr += "<td><input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
                 " <label class='form-check-label'>"+element.name+"</label>";
           tr += "</tr>";
           $('#tbl_type_service_body').append(tr);
@@ -711,20 +711,48 @@ function loadAuditTotalStaffReg(){
       type: 'get',
       data:"",
       success: function(result){
-      var audit_total_staff=result.data;
-      audit_total_staff.forEach(function(element){
-            var tr = "<tr>";
-            tr += "<td class='font-weight-bold'>" + element.name + "</td>";
-            tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'><input type='number' value='' name='ats_total[]' class='form-control' id=total_staff"+element.id+" required></td>";
-            tr += "<td><input type='number' value='' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required></td>";
-            tr += "<td><input type='number' value='' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required></td>";
-            tr += "</tr>";
-            $("#tbl_audit_total_staff_body").append(tr);
+        var audit_total_staff=result.data;
+        audit_total_staff.forEach(function(element){
+              var tr = "<tr>";
+              tr += "<td class='font-weight-bold'>" + element.name + "</td>";
+              
+              tr += "<td><input type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+              tr += "<td><input type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required  onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+              
+              tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'>"+
+              "<input type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+" required onmouseup=getTotalStaff("+element.id+") onkeyup=getTotalStaff("+element.id+")></td>";
+              tr += "</tr>";
+              
+              
+              $("#tbl_audit_total_staff_body").append(tr);
+        });
 
-      })
-
-    }
+      }
   });
+}
+
+var total =[];
+function getTotalAudit(id){
+  // var total =[];
+  
+  
+  $("#total_staff"+id).val(parseInt($("#audit_staff"+id).val())+parseInt($("#nonaudit_staff"+id).val()));
+
+  total.push($("#audit_staff"+id).val());
+console.log(total);
+  for(var i=0;i<total.length;total++){
+    alert((total[i]));
+     $('#total_staff_total').val(parseInt(total[i]));
+  }
+
+  // $("#total_staff_total").val($("input[name='ats_audit_staff[]']").val());
+
+  // $("input[id=audit_staff]"+id).val() 
+
+}
+
+function getTotalStaff(id){
+  // $("#total_staff"+id).val(parseInt($("#audit_staff"+id).val())+parseInt($("#nonaudit_staff"+id).val()));  
 }
 
 function loadAuditTotalStaff(){
@@ -745,6 +773,7 @@ function loadAuditTotalStaff(){
             $("#tbl_audit_total_staff_body").append(tr);
 
       })
+      
 
     }
   });

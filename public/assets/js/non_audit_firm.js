@@ -45,7 +45,7 @@ function loadNonAuditOrganization(){
         " <label class='form-check-label'>"+element.name+"</label>";
        }
        else if(element.id == 4){
-         var radio_data="<div class='col-md-1'>"+
+         var radio_data="<div class='col-md-3'>"+
          "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()' >"+
          " <label class='form-check-label'>"+element.name+"</label>";
        }
@@ -94,12 +94,12 @@ function loadNonAuditTypeOfService(){
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
           var radio_data="<div class='col-md-2'>"+
-          "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
+          "<input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);
         }else{
           var tr = "<tr>";
-          tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
+          tr += "<td><input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
                 " <label class='form-check-label'>"+element.name+"</label>";
           tr += "</tr>";
           $('#tbl_type_service_body').append(tr);
