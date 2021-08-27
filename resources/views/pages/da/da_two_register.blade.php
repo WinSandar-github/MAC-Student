@@ -105,8 +105,10 @@
                                 
                             </div><br/>
                                 <div class="row" id="self_study_container">
-                                    <form id="self_study_form" method="post" action="javascript:createSelfStudy();" enctype="multipart/form-data">
+                                    <form id="self_study_form" method="post" action="javascript:createDaTwoSelfStudy();" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
+
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
                                                 <div class="col-md-12">
@@ -133,9 +135,29 @@
                                                             </div>
                                                         </div>  
                                                     </div><br/> --}}
-                                                    <div class="row mb-3">
+                                                    <div class="row ">
                                                         
                                                         <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
+                                                        <div class="col-md-5 col-form-label">တက်ရောက်မယ် သင်တန်းအမှတ်စဥ်</div>
+                                                        <div class="col-md-5">
+                                                            <div class="single-form">
+                                                                <input type="text" class="form-control" readonly value="{{$batch['name']}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row ">
+                                                        
+                                                        <div class="col-md-1 col-form-label">{{ __('၂။') }}</div>
+                                                        <div class="col-md-5 col-form-label">တက်ရောက်မယ် သင်တန်းအမှတ်စဥ်</div>
+                                                        <div class="col-md-5">
+                                                            <div class="single-form">
+                                                                <input type="text" class="form-control" readonly value="{{$batch['name']}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        
+                                                        <div class="col-md-1 col-form-label">{{ __('၃။') }}</div>
                                                         <div class="col-md-5 col-form-label">တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
@@ -211,7 +233,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">{{ __('၂။') }}</label>
+                                                                <label class="col-form-label">{{ __('၄။') }}</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -226,7 +248,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
                                                         <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     </div><br/>
@@ -260,8 +282,10 @@
                                     </form>
                                 </div>
                                 <div class="row" id="private_school_container">
-                                    <form method="post" action="javascript:createPrivateSchool();" enctype="multipart/form-data">
+                                    <form method="post" action="javascript:createDaTwoPrivateSchool();" enctype="multipart/form-data">
                                         @csrf
+                                        <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
+
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
                                                 <div class="col-md-12">
@@ -274,11 +298,21 @@
                                                             <label class="batchname col-form-label"></label>
                                                         </div>
                                                     </div>
+                                                    <div class="row ">
+                                                        
+                                                        <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
+                                                        <div class="col-md-6 col-form-label">တက်ရောက်မယ် သင်တန်းအမှတ်စဥ်</div>
+                                                        <div class="col-md-5">
+                                                            <div class="single-form">
+                                                                <input type="text" class="form-control" readonly value="{{$batch['name']}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                     <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class=" col-form-label">{{ __('၁။') }}</label> 
+                                                                <label class=" col-form-label">{{ __('၂။') }}</label> 
                                                                 
                                                             </div>
                                                         </div>
@@ -298,7 +332,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class=" col-form-label">{{ __('၂။') }}</label> 
+                                                                <label class=" col-form-label">{{ __('၃။') }}</label> 
                                                                 
                                                             </div>
                                                         </div>
@@ -318,7 +352,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class=" col-form-label">{{ __('၃။') }}</label> 
+                                                                <label class=" col-form-label">{{ __('၄။') }}</label> 
                                                                 
                                                             </div>
                                                         </div>
@@ -336,7 +370,7 @@
                                                     <br/>                                                    
 
                                                     <div class="row">
-                                                        <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()"></div>
                                                         <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                         
@@ -360,7 +394,9 @@
                                     </form>            
                                 </div>
                                 <div class="row" id="mac_container">
-                                    <form method="post" action="javascript:createMac();" enctype="multipart/form-data">
+                                    
+                                    <form method="post" action="javascript:createDaTwoMac();" enctype="multipart/form-data">
+                                    <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
                                                 <div class="col-md-12">
@@ -374,9 +410,19 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
+                                                        
+                                                        <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
+                                                        <div class="col-md-6  col-form-label">တက်ရောက်မယ် သင်တန်းအမှတ်စဥ်</div>
+                                                        <div class="col-md-5">
+                                                            <div class="single-form">
+                                                                <input type="text" class="form-control" readonly value="{{$batch['name']}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">{{ __('၁။') }}</label>
+                                                                <label class="col-form-label">{{ __('၂။') }}</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 ">
@@ -393,7 +439,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">{{ __('၂။') }}</label>
+                                                                <label class="col-form-label">{{ __('၃။') }}</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -410,7 +456,7 @@
                                                     {{--<div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">{{ __('၂။') }}</label>
+                                                                <label class="col-form-label">{{ __('၄။') }}</label>
                                                             </div>
                                                         </div>
                                                                                                               
@@ -434,7 +480,7 @@
                                                         
                                                     </div><br/>--}}
                                                     <div class="row">
-                                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_mac" onclick="ConfirmSubmitMac()"></div>
                                                         <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     </div><br/>
