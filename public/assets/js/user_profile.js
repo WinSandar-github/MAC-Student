@@ -197,7 +197,7 @@ function user_profile(){
                     
 
                     let status_course ;
-
+ 
                     if(latest_course_reg[0].approve_reject_status == 0 )
                     {
                         $('.status').append(`
@@ -224,7 +224,9 @@ function user_profile(){
                         // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                         //show data depend on Student Register status
                         
+                        console.log(latest_course_reg[0].batch.course.code,latest_stu_reg[0].course.code)
                         if(latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code )
+
                         {
                             $('.regi_fee_txt').text('Exam Registration Fees')
                             $('.self_study').hide();
@@ -244,6 +246,7 @@ function user_profile(){
 
                             }else if(latest_stu_reg[0].status == 1)
                             {
+                              
                                 // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
                                 $('.status').append(`
                                 <tr>
@@ -289,18 +292,24 @@ function user_profile(){
 
                                                 let course_code;
                                                 let form_url;
+                                                let show_text;
                                                 switch(last_exam[0].course.code){
                                                     case 'da_1':
                                                         course_code = "da_2",
-                                                        form_url =  '/da_two_form/'
+                                                        form_url =  '/da_two_register/',
+                                                        show_text = "Registration Form"
+                                                        
                                                     break;
                                                     case 'da_2':
                                                         course_code = "cpa_1",
-                                                        form_url = '/cpa_one_form/'
+                                                        form_url = '/cpa_one_form/',
+                                                        show_text = "Application form"
                                                     break;
                                                     case 'cpa_1':
                                                         course_code = "cpa_2",
-                                                        form_url    = '/cpa_two_form/'
+                                                        form_url    = '/cpa_two_register/',
+                                                        show_text = "Registration Form"
+
                                                     break;
                                                     case 'cpa_2':
                                                         course_code = "Membership"
@@ -313,6 +322,8 @@ function user_profile(){
                                                     break;
                             
                                                 }
+                                                localStorage.setItem('exam_grade',last_exam[0].grade)
+
                             
                                                 console.log(course_code,FRONTEND_URL)
                             
@@ -336,10 +347,12 @@ function user_profile(){
                                                         
                             
                                                         let batch = data.data[0].active_batch[0];
+                                                        console.log(batch,"Batchhhhh")
                                                         if(batch != undefined){
                                                             
+                                                            localStorage.setItem('course_id',batch.course.id);
                                                             
-                                                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} form</a></td></tr>`);
+                                                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr>`);
                                                            
                                                         }else{
                                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td></td><a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")"> Course</a></td></tr>`);
@@ -381,12 +394,14 @@ function user_profile(){
                                 }else{
                                 
                                     var date = new Date();
-                                    let previous_month = date.setDate(date.getDate() - 6);
-                                    var end_date = new Date(latest_course_reg[0].batch.exam_start_date);
-                                    // console.log(data.student_register[i],"Student Register")
+                                    var current_month = date.getMonth();
+ 
+                                    let previous_month = current_month - 1;
+                                     var end_date = new Date(latest_course_reg[0].batch.exam_start_date).getMonth();
+                                     // console.log(data.student_register[i],"Student Register")
 
 
-                                    if(previous_month <= date && end_date >= date){
+                                    if(previous_month <= current_month && end_date >= current_month){
 
                                         let exam_url ;
                                         let exam_text = " Exam Registration Form";
@@ -431,18 +446,12 @@ function user_profile(){
             
                                         `);
 
-
-
-                                       
-
-
                                     }else{
-                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td>
-                                            <td></td>
+                                         $('.status').append(`<tr><td colspan=2></td><td>Action</td>
+                                            <td>
                                             <p>The exam schedule will be announced soon</p>
                                             </td>
                                             </tr>
-                
                                             `);
                                     }
 
