@@ -29,7 +29,9 @@ function ConfirmSubmit(){
 function CPA2_Private_School_Submit(){
     localStorage.setItem("isPrivateSchool",true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
     var data = new FormData();
+    data.append('batch_id',$("input[name='batch_id']").val())
     data.append('student_id',student.id);
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
@@ -38,7 +40,7 @@ function CPA2_Private_School_Submit(){
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/store_student_app_reg",
         type: 'post',
         data:data,
         contentType: false,
@@ -64,7 +66,9 @@ function CPA2_Private_School_Submit(){
 function CPA2_Mac_Submit(){
     localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
     var data = new FormData();
+    data.append('batch_id',$("input[name='batch_id']").val())
     data.append('student_id',student.id);
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
@@ -73,7 +77,7 @@ function CPA2_Mac_Submit(){
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/store_student_app_reg",
         type: 'post',
         data:data,
         contentType: false,
@@ -99,7 +103,9 @@ function CPA2_Mac_Submit(){
 function CPA2_Self_Study_Submit(){
     localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
     var data = new FormData();
+    data.append('batch_id',$("input[name='batch_id']").val())
     data.append('student_id',student.id);
     $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
     data.append('batch_part_no',$("#batch_part_no").val() );
@@ -107,7 +113,7 @@ function CPA2_Self_Study_Submit(){
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/store_student_app_reg",
         type: 'post',
         data:data,
         contentType: false,

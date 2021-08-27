@@ -84,11 +84,23 @@
                         </div>
                         
                         <form  method="post" action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data">
-                        <fieldset id="fieldset" >
+                        <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
+
+                            <fieldset id="fieldset" >
+                                <div class="row ">
+                                                        
+                                    <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
+                                    <div class="col-md-5 col-form-label">တက်ရောက်မယ် သင်တန်းအမှတ်စဥ်</div>
+                                    <div class="col-md-4">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" readonly value="{{$batch['name']}}">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၁။') }}</label>
+                                            <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-11">
@@ -131,7 +143,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                            <label class="col-form-label">{{ _('၃။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
