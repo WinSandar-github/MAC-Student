@@ -12,12 +12,12 @@ $(document).ready(function(){
                         </li>`
 
         }else if(student.school_id != null){
-            navbar += `<li><a href="${FRONTEND_URL}/school_register">School</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/school_information">School</a></li>`;
         }else if(student.teacher_id){
-            navbar += `<li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>`;
 
         }else if(student.mentor_id != null){
-            navbar += `<li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>`;
 
         }else{
 
@@ -27,10 +27,9 @@ $(document).ready(function(){
 
                             </ul>
                         </li>
-                        <li><a href="${FRONTEND_URL}/school_register">School</a></li>
-
-                        <li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>
-                        <li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>
+                        <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                        <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
+                        <li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>
                         <li>
                             <a href="#">Membership</a>
                             <ul class="sub-menu">
@@ -63,9 +62,9 @@ $(document).ready(function(){
                             <li><a href="${FRONTEND_URL}/student_papp">PAPP</a></li>
                         </ul>
                     </li>
-                    <li><a href="${FRONTEND_URL}/school_register">School</a></li>
-                    <li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>
-                    <li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>
+                    <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                    <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
+                    <li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>
                      <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
 
     }

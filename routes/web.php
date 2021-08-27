@@ -111,8 +111,14 @@ Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
 
+// School Information Page
+Route::get('school_information', 'SchoolInfoController@info');
+
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
+
+// Teacher Information Page
+Route::get('teacher_information', 'TeacherInfoController@info');
 
 // Mentor Register Form
 Route::get('mentor_register', 'MentorController@index');

@@ -62,28 +62,28 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-            
+
             <div class="row mt-5">
-                                            
-                
+
+
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                 <div class="card border-success mb-3">
                     <div class="card-body">
-                        <div class="row">   
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-8">
                                         <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                                       
+
                                     </div>
                                     <div class="col-md-2"></div>
                                 </div>
-                            </div>      
+                            </div>
                         </div>
-                        
-                        <form  method="post" action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data">
+
+                        <form  method="post" class="needs-validation" novalidate action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data">
                         <fieldset id="fieldset" >
                                 <div class="row">
                                     <div class="col-md-1">
@@ -97,51 +97,57 @@
                                         </div>
                                     </div>
                                 </div>
+																<br>
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-4"><div class="single-form">
-                                            <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
-                                    </div></div>
-                                    <div class="col-md-4"> <div class="single-form">
+                                    <div class="col-md-4">
+																			<div>
+                                    		<label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
+                                    	</div>
+																		</div>
+                                    <div class="col-md-4"> <div>
                                             <input type="text" class="form-control" placeholder="mmm/yyyy" id="cpa_one_pass_date" value="" required>
                                     </div></div>
                                 </div>
+																<br>
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-4"><div class="single-form">
+                                    <div class="col-md-4"><div>
                                             <label class="col-form-label">{{ _('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div></div>
-                                    <div class="col-md-4"><div class="single-form">
+                                    <div class="col-md-4"><div>
                                             <input type="text" class="form-control" id="cpa_one_access_no" value="" required>
                                     </div></div>
                                 </div>
+																<br>
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-4"><div class="single-form">
+                                    <div class="col-md-4"><div>
                                             <label class="col-form-label">{{ _('(ဂ) အဆင့်') }}</label>
                                     </div></div>
-                                    <div class="col-md-4"><div class="single-form">
+                                    <div class="col-md-4"><div>
                                             <input type="text" class="form-control" id="cpa_one_success_no" value="" required>
                                     </div></div>
-                                </div><br/>
+                                </div>
+																<br/>
 
                                 <div class="row mb-3">
                                     <div class="col-md-1">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="single-form">
+                                        <div>
                                             <label class="col-form-label">{{ _('တက်ရောက်ခွင့်ရရှိသည့် သင်တန်းအမှတ်စဥ်/အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
                                         </div>
                                     </div>
-                                   
-                                    <div class="col-md-4 single-form mt-2">
-                                            <input type="text" class="form-control" id="batch_part_no" value="" >
+
+                                    <div class="col-md-4 mt-2">
+                                            <input type="text" class="form-control" id="batch_part_no" value="" required>
                                     </div>
                                 </div>
 
@@ -171,7 +177,7 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-$(document).ready(function (e) 
+$(document).ready(function (e)
 {
     $("#cpa_one_pass_date").flatpickr({
             enableTime: false,
