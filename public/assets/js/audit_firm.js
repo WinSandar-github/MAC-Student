@@ -47,8 +47,9 @@ function auditData(){
                     $('#audit_form_pending').css('display','block');
                     // pendingStatus();
                 }else if(element.status ==1){
-                    $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                    $("#register_date").append(element.register_date);
+                    // $('#name_mm').val(mentor_data.name_mm);
+                    $("#accountancy_firm_name").val(element.accountancy_firm_name);
+                    $("#register_date").val(element.register_date);
                     // showAuditList();
                     $('#audit_container').css('display','block');
                     $('#audit_form_pending').css('display','none');
@@ -81,7 +82,7 @@ function dateQuery(){
         url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
         success: function (data){
             // console.log(data)
-            $("#message").append(data);
+            $("#message").val(data);
         }
     })
 }
@@ -98,11 +99,27 @@ function verifyStatus()
             status.forEach(function(element){
                 // console.log(element.verify_status)
                 if(element.verify_status == 1){
-                    $('#check_status').css('display','none');
+                    $('#check_renew').css('display','none');
                 }else if(element.verify_status == 2){
-                    $('#check_status').css('display','block');
+                    $('#check_renew').css('display','none');
+                }else{
+                    $('#check_renew').css('display','block');
                 }
             })
+        }
+    })
+}
+
+function renewSubscribe()
+{
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        url: BACKEND_URL+"/renew_subscribe/"+student.accountancy_firm_info_id,
+        type: "patch",
+        success: function (data){
+            // console.log(data)
+            successMessage("Your new subscription is success!");
+            location.href = FRONTEND_URL+'/audit_firm';
         }
     })
 }
