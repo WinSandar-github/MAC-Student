@@ -11,14 +11,32 @@ class CPATwoRegisterController extends Controller
     public function register(){
         return view('pages.cpa.cpa_two_register');
     }
-    public function self_study(){
-        return view('pages.cpa.cpa_two_self_study');
+    public function self_study($id){
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+       
+        $batch = $res['data'];
+        return view('pages.cpa.cpa_two_self_study',compact('batch'));
     }
-    public function mac(){
-        return view('pages.cpa.cpa_two_mac');
+    public function mac($id){
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+       
+        $batch = $res['data'];
+
+        return view('pages.cpa.cpa_two_mac',compact('batch'));
     }
-    public function private_school(){
-        return view('pages.cpa.cpa_two_private_school');
+    public function private_school($id){
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+       
+        $batch = $res['data'];
+
+        
+        return view('pages.cpa.cpa_two_private_school',compact('batch'));
     }
 
     public function cpaTwoExamRegister()

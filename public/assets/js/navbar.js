@@ -42,7 +42,7 @@ $(document).ready(function(){
                         <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
         }
     }else{
-        navbar = `   <li class="navbar"><a href="${FRONTEND_URL}">Dashboard</a></li>
+        navbar = `   <li class="navbar"><a href="${FRONTEND_URL}">Home</a></li>
                     <li>
                         <a href="#">Courses</a>
                         <ul class="sub-menu course_type">
