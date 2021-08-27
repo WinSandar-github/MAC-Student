@@ -107,6 +107,7 @@ Route::get('verify_email', 'LoginController@verifyEmail');
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
+Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
 
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
