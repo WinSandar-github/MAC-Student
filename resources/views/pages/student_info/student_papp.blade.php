@@ -248,6 +248,7 @@
                                                     <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
                                                 </div>                                                           
                                             </div>
+                                            
                                             <div class="row mb-4" id="edu0" > 
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-4 col-auto">                                                              
@@ -350,7 +351,7 @@
                                     </div>
                                     <div class="col-md-6">
                                     <!-- <div class="single-form"> -->
-                                        <input type="text" class="form-control" value="" name="used_firm_level"></div>
+                                        <input type="text" class="form-control" value="" name="used_firm_level" placeholder="Principal/ Managing Partner/ Partner"></div>
                                     <!-- </div> -->
                                 </div>
 
@@ -362,7 +363,7 @@
                                     </div>
                                     <div class="col-md-6">
                                     <!-- <div class="single-form"> -->
-                                        <input type="text" class="form-control" name="staff_firm_name" value=""></div>
+                                        <input type="text" class="form-control" name="staff_firm_name" value="" placeholder="ဝန်ထမ်းအနေဖြင့် ဆောင်ရွက်နေသည့် လုပ်ငန်းအမည်"></div>
                                     <!-- </div> -->
                                 </div>
 
@@ -474,7 +475,7 @@
                                     </div>
                                 </div><br/>
 
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>
                                     </div>

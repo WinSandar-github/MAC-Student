@@ -62,7 +62,7 @@ function Add(){
             '</div>'+                                                           
         '</div>'+
 
-        '<div class="row" id="edu'+count+'">'+
+        '<div class="row mb-4" id="edu'+count+'">'+
             '<div class="col-md-1"></div>'+
             '<div class="col-md-4 col-auto">'+                                                             
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
@@ -76,6 +76,12 @@ function Add(){
                 '</button>'+
             '</div>'+
         '</div>');
+
+        $('input[name="degree_pass_year'+count+'"]').flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
+    });
     count++;
 
 }

@@ -35,7 +35,7 @@
                         <li><a href="/">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Application <span>Form</span></h2>
+                    <h2 class="title">DA 1 Application <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -73,7 +73,21 @@
                             @csrf
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
-                                <table width="100%">
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                        <label for="" class="col-md-3 col-form-label">Email</label>
+                                        <div class="col-md-8">
+                                            <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                            @if ($errors->has('email'))
+                                                    <span class="text-danger">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
+                                        </div>                                              
+                                    </div><br>
+
+                                    <!-- <table width="100%">
                                         <tr>
                                             <td width="5%">
                                                 <div>
@@ -96,7 +110,7 @@
                                                 @endif
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table> -->
 																		<br>
                                     <table width="100%">
                                         <tr>
@@ -319,12 +333,12 @@
                                             </td>
                                             <td width="25%">
                                                 <div>
-                                                    <label class="col-form-label">မွေးသဣရာဇ်</label>
+                                                    <label class="col-form-label">မွေးသက္ကရာဇ်</label>
                                                 </div>
                                             </td>
                                             <td width="70%">
                                                 <div>
-                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                    <input type="text" name="date_of_birth" class="form-control" placeholder="DD-MMM-YYYY" required>
                                                 </div>
                                             </td>
                                         </tr>
@@ -368,8 +382,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
-																		<br>
+                                    </table><br>
+
                                     <table width="100%">
                                         <tr>
                                         <td width="5%">
@@ -388,8 +402,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
-																		<br>
+                                    </table><br>
+
                                     <input type="hidden" name="registration_no" value="1">
                                     <table width="100%" style="display:none;">
                                         <tr>
@@ -636,9 +650,10 @@
 																					</td>
                                       </tr>
                                     </table>--}}
-																		<br>
-																		<div class="row">
-			                                <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
+
+                                        <br>
+                                        <div class="row">
+			                                <label class="col-sm-1 col-form-label">{{ __('၁၅။') }}</label>
 			                                <label class="col-md-3 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
 			                                <div class="col-md-2 pt-2">
 																				<div class="form-check">
@@ -685,9 +700,9 @@
                                                 </div>
                                             </td>
                                             <td width="5%">
-                                                <div class="single-form">
+                                                <!-- <div class="single-form"> -->
                                                     <label class="col-form-label">{{ __('(က)') }}</label>
-                                                </div>
+                                                <!-- </div> -->
                                             </td>
                                             <td width="20%">
                                                 <div>
@@ -727,7 +742,7 @@
                                         </tr>
                                     </table>
 																		<br>
-                                    <table width="100%">
+                                    {{--<table width="100%">
                                         <tr>
                                         <td width="5%">
                                                 <div>
@@ -750,7 +765,22 @@
                                                 <!-- </div> -->
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table>--}}
+
+                                    <div class="row mb-4" id="edu0" > 
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-4 ">                                                              
+                                            <label for="" class="col-form-labe"> Attached Certificate</label>
+                                        </div> 
+                                        <div class="col-md-6"  id="degree_edu" >
+                                            <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                        </div>
+                                        <div class="col-md-1" id="add_div" >
+                                            <button type="button" class="btn btn-primary" id="add_btn" onclick="Add()" >
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
 																		<br>
                                     <table width="100%">
                                         <tr>
@@ -771,7 +801,7 @@
                                             </td>
                                             <td width="70%">
                                                 <div>
-                                                    <input type="text" placeholder="နှစ်၊လ" name="qualified_date" class="form-control"  required="">
+                                                    <input type="text" placeholder="နှစ်၊လ(MMM-YYYY)" name="qualified_date" class="form-control"  required="">
                                                 </div>
                                             </td>
                                         </tr>
@@ -839,12 +869,12 @@
         $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
-								allowInput: true,
+				allowInput: true,
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
-								allowInput: true,
+				allowInput: true,
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {

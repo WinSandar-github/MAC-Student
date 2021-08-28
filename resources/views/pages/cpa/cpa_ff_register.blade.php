@@ -180,8 +180,8 @@
                         </div>
 
                         <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
-                            <fieldset id="fieldset" disabled>
-                            <!-- <fieldset id="fieldset" > -->
+                            <!-- <fieldset id="fieldset" disabled> -->
+                            <fieldset id="fieldset" >
                                 <input type="hidden" name="status">
                                 <div class="row">
                                     <label class="col-md-1 col-form-label"></label>
@@ -229,7 +229,7 @@
                                         </div>
                                         
                                         
-                                        <div id="accredited_foreign_degree">
+                                        {{--<div id="accredited_foreign_degree">
                                             <div class="file1">
                                                 <div class="fileupload1">
                                                     <div class="row mb-2">  
@@ -238,7 +238,7 @@
                                                             <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                         </div>
                                                         <div class="col-md-6 col-auto">                                                              
-                                                            <input type="text"  class="form-control" name="degree_name" placeholder="ဘွဲ့အမည်">
+                                                            <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                         </div>                                                           
                                                     </div>
                                                     <div class="row mb-2">  
@@ -247,7 +247,7 @@
                                                             <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                         </div>
                                                         <div class="col-md-6 col-auto">                                                              
-                                                            <input type="type"  class="form-control" name="degree_pass_year" placeholder="DD-MMM-YYYY">
+                                                            <input type="text"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">
                                                         </div>                                                           
                                                     </div>
 
@@ -269,7 +269,44 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                            
+                                        </div>--}}    
+
+                                        <div  id="edu" style="display:none;">  
+                                            <div class="row mb-2" id="degree_name0">  
+                                                <div class="col-md-1"></div>                                                         
+                                                <div class="col-md-4 col-auto">                                                              
+                                                    <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
+                                                </div>
+                                                <div class="col-md-6 col-auto">                                                              
+                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                </div>                                                           
+                                            </div>
+                                            <div class="row mb-2" id="degree_year0">  
+                                                <div class="col-md-1"></div>                                                         
+                                                <div class="col-md-4 col-auto">                                                              
+                                                    <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
+                                                </div>
+                                                <div class="col-md-6 col-auto">                                                              
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
+                                                </div>                                                           
+                                            </div>
+                                            
+                                            <div class="row mb-4" id="edu0" > 
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">                                                              
+                                                    <label for="" class="col-form-labe"> Attached Certificate</label>
+                                                </div> 
+                                                <div class="col-md-6"  id="degree_edu" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                </div>
+                                                <div class="col-md-1" id="add_div" >
+                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>     
                                 </div><br/>
 
@@ -297,8 +334,8 @@
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value="" required="">
+                                    <div class="col-md-1 mt-2">
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value="" required="" onClick="CheckPartTwo()">
                                     </div>
                                     <!-- <div class="col-md-10">  
                                         <div class="row">
@@ -314,12 +351,40 @@
                                         </div>  
                                     </div> -->
                                     <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို အောင်မြင်ပါသည်။</label>
-                                </div><br/>                       
+                                </div><br/>  
+
+                                <div class="pass_batch_two" style="display:none">
+                                    <div class="row mb-3">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4">အောင်မြင်သည့် သင်တန်းအမှတ်စဉ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="pass_batch_no" placeholder="သင်တန်းအမှတ်စဉ်">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 " >
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4">ကိုယ်ပိုင်အမှတ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="pass_personal_no" placeholder="ကိုယ်ပိုင်အမှတ်">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                    
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value="" required="">                                    
+                                    <div class="col-md-1 mt-2">
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value="" required="" onClick="CheckQTPass()">                                    
                                     </div>    
                                     <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
                                     <!-- <div class="col-md-10">
@@ -354,7 +419,35 @@
                                         </div> 
                                     </div> -->
                                     
-                                </div><br/>                           
+                                </div><br/> 
+
+                                <div class="qt_pass" style="display:none">
+                                    <div class="row mb-3">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4">အောင်မြင်သည့် ခုနှစ်/လ</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control qt_pass_date" name="qt_pass_date"  placeholder="ခုနှစ်/လ (MMM-YYYY)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 " >
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4">ခုံအမှတ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control qt_pass_seat_no" name="qt_pass_seat_no" placeholder="ခုံအမှတ်">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                           
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -409,9 +502,18 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <label class="col-md-6 col-form-label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4">                                        
+                                        <input type="file"  class="form-control" name="cpd_record" required="" >
                                         
-                                                <input type="file"  class="form-control" name="cpd_record" required="" >
+                                    </div>
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
+                                    <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
+                                    <div class="col-md-4">                                        
+                                        <input type="text"  class="form-control" name="total_hours" required="" placeholder="စုစုပေါင်း နာရီ">
                                         
                                     </div>
                                 </div><br/>
@@ -427,18 +529,30 @@
                                         
                                     </div>
                                 </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
                                     
-                                <div class="row mb-3">
+                                    <div class="col-md-6 col-form-label">(၃) နှစ်ပြည့်ကြောင်း ထောက်ခံချက်</div>
+                                    <div class="col-md-4">
+                                        
+                                                <input type="file"  class="form-control" name="three_years_full" required="" >
+                                        
+                                    </div>
+                                </div><br/>
+                                    
+                                {{--<div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
                                     <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
                                     
-                                </div>                           
+                                </div>--}}                          
                             
                             
-                                <div class="row">
-                                    <div class="col-md-3 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
+                                <div class="row mb-3">
+                                    <div class="col-md-2 offset-md-5">
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" >{{ __('Submit') }}</button>
                                     </div>
                                 </div>	
                             </fieldset>
@@ -515,10 +629,16 @@
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
-    $("input[name='degree_pass_year']").flatpickr({
-                enableTime: false,
-                dateFormat: "d-M-Y",
-                allowInput: true,
-        });
+    $(".degree_pass_year").flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
+    });
+
+    $("input[name='qt_pass_date']").flatpickr({
+            enableTime: false,
+            dateFormat: "M-Y",
+            allowInput: true,
+    });
 </script>
 @endpush
