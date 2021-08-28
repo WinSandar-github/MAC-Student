@@ -8,7 +8,7 @@ class AuditFirmController extends Controller
 {
     public function auditFirm()
     {
-        return view('pages.audit_firm');
+        return view('pages.firm.audit_firm');
     }
 
     // public function auditFirmEdit()
@@ -18,6 +18,11 @@ class AuditFirmController extends Controller
 
     public function auditFirmReSubmit()
     {
-        return view('pages.audit_firm_resubmit');
+        return view('pages.firm.audit_firm_resubmit');
+    }
+
+    public function auditFirmRenew()
+    {
+        return view('pages.firm.audit_firm_renew');
     }
 }
