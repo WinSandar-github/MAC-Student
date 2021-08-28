@@ -189,8 +189,8 @@
                             </div>
                         </div>
                         <form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data">
-                            <!-- <fieldset id="fieldset" disabled="disabled"> -->
-                            <fieldset id="fieldset" >
+                            <fieldset id="fieldset" disabled="disabled">
+                            <!-- <fieldset id="fieldset" > -->
                                 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label"></label>
