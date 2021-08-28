@@ -6,8 +6,8 @@ $(document).ready(function(){
             navbar +=   `<li>
                             <a href="#">Firm</a>
                             <ul class="sub-menu">
-                                <li><a href="${FRONTEND_URL}/audit_firm">Audit Firm</a></li>
-                                <li><a href="${FRONTEND_URL}/non_audit_firm_register">Non Audit Firm</a></li>
+                                <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
+                                <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                             </ul>
                         </li>`
 
@@ -33,8 +33,8 @@ $(document).ready(function(){
                         <li>
                             <a href="#">Membership</a>
                             <ul class="sub-menu">
-                                <li><a href="${FRONTEND_URL}/cpa_ff_register">CPA Full Fleged</a></li>
-                                <li><a href="${FRONTEND_URL}/student_papp">PAPP</a></li>
+                                <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fleged</a></li>
+                                <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
                             </ul>
                         </li>
 
@@ -51,15 +51,15 @@ $(document).ready(function(){
                     <li>
                         <a href="#">Firm</a>
                         <ul class="sub-menu">
-                            <li><a href="${FRONTEND_URL}/audit_firm">Audit Firm</a></li>
-                            <li><a href="${FRONTEND_URL}/non_audit_firm_register">Non Audit Firm</a></li>
+                            <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
+                            <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#">Membership</a>
                         <ul class="sub-menu">
-                            <li><a href="${FRONTEND_URL}/cpa_ff_register">CPA Full Fleged</a></li>
-                            <li><a href="${FRONTEND_URL}/student_papp">PAPP</a></li>
+                            <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fleged</a></li>
+                            <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
                         </ul>
                     </li>
                     <li><a href="${FRONTEND_URL}/school_information">School</a></li>

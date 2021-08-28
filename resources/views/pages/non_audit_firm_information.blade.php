@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">School <span>Detail</span></h2>
+                    <h2 class="title">Non-Audit Firm <span>Detail</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -63,53 +63,50 @@
 									<div class="row">
 										<div class="col-md-12 widget-information">
 											<div class="row border-bottom">
-	                      <h2 class="col-md-6 card-title text-center text-success">School</h2>
+	                      <h2 class="col-md-6 card-title text-center text-success">Non-Audit Firm</h2>
                         <div class="col-md-3"></div>
-
               				</div>
 											<!-- Description -->
 											<div class="row">
 												<div class="col-md-7">
 														<h5 class="mt-2"><strong>Description</strong></h5>
 														<hr>
-														<ul id="school_description_lists">
+														<ul id="audit_firm_description_lists">
 																<li>
 																	<span>
 																		<!-- <i class="icofont-file-document"></i> -->
-																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 																 </span>
 															 </li>
 														</ul>
 														{{--<p style="height:150px;overflow:auto;">{{$c['description']}}</p>--}}
-
-														<!-- Requirement -->
-														<div class="row">
-															<div class="col-md-12">
-																	<h5 class="mt-2"><strong>Requirement</strong></h5>
-																	<hr>
-																	<div class="info-list">
-																		<ul>
-																			<?php
-																				if (is_array($requirements) || is_object($requirements))
-																					{
-																					    foreach ($requirements as $value)
-																					    {
-																					        if($value['type'] == "SCHOOL"){
-																			?>
-																							<li>
-																								<!-- <i class="icofont-man-in-glasses"></i> -->
-																								<?php echo $value['name'] ?>
-																							</li>
-																			<?php
-																								}
-																					    }
-																					}
-																			?>
-																		</ul>
-																	</div>
-															</div>
-														</div>
+                            <!-- Requirement -->
+      											<div class="row">
+      												<div class="col-md-12">
+      														<h5 class="mt-2"><strong>Requirement</strong></h5>
+      														<hr>
+      														<div class="info-list">
+      															<ul>
+      																<?php
+      																	if (is_array($requirements) || is_object($requirements))
+      																		{
+      																		    foreach ($requirements as $value)
+      																		    {
+      																		        if($value['type'] == "NON_AUDIT_FIRM"){
+      																?>
+      																				<li>
+      																					<!-- <i class="icofont-man-in-glasses"></i> -->
+      																					<?php echo $value['name'] ?>
+      																				</li>
+      																<?php
+      																					}
+      																		    }
+      																		}
+      																?>
+      															</ul>
+      														</div>
+      												</div>
+      											</div>
 												</div>
 												<div class="col-md-5">
 														<h5 class="mt-2"><strong>Form Fees</strong></h5>
@@ -124,17 +121,15 @@
 																		<li><i class="icofont-money"></i> <strong>Tution Fee</strong></li>
 																		<li><i class="icofont-ui-note"></i> <strong>Description</strong></li>
 																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
-																		<div class="pull-right mt-4">
+                                    <div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('school_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
+																				<a href="{{url('non_audit_firm_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
 																			</p>
 																		</div>
 																</ul>
 														</div>
-
 												</div>
 											</div>
-
 										</div>
 									</div>
 								</div>

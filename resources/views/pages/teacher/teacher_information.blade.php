@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">School <span>Detail</span></h2>
+                    <h2 class="title">Teacher <span>Detail</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -63,16 +63,15 @@
 									<div class="row">
 										<div class="col-md-12 widget-information">
 											<div class="row border-bottom">
-	                      <h2 class="col-md-6 card-title text-center text-success">School</h2>
+	                      <h2 class="col-md-6 card-title text-center text-success">Teacher</h2>
                         <div class="col-md-3"></div>
-
               				</div>
 											<!-- Description -->
 											<div class="row">
 												<div class="col-md-7">
 														<h5 class="mt-2"><strong>Description</strong></h5>
 														<hr>
-														<ul id="school_description_lists">
+														<ul id="teacher_description_lists">
 																<li>
 																	<span>
 																		<!-- <i class="icofont-file-document"></i> -->
@@ -82,7 +81,6 @@
 															 </li>
 														</ul>
 														{{--<p style="height:150px;overflow:auto;">{{$c['description']}}</p>--}}
-
 														<!-- Requirement -->
 														<div class="row">
 															<div class="col-md-12">
@@ -95,7 +93,7 @@
 																					{
 																					    foreach ($requirements as $value)
 																					    {
-																					        if($value['type'] == "SCHOOL"){
+																					        if($value['type'] == "TEACHER"){
 																			?>
 																							<li>
 																								<!-- <i class="icofont-man-in-glasses"></i> -->
@@ -126,15 +124,13 @@
 																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
 																		<div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('school_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
+																				<a href="{{url('teacher_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
 																			</p>
 																		</div>
 																</ul>
 														</div>
-
 												</div>
 											</div>
-
 										</div>
 									</div>
 								</div>
