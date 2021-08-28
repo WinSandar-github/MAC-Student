@@ -584,14 +584,14 @@ function loadOrganization(){
     data:"",
     success: function(result){
      var organization_structure=result.data;
-     $('.organization_data').append("<div class='col-md-3'></div>");
+     $('.organization_data').append("<div class='col-md-2'></div>");
      organization_structure.forEach(function(element){
        if(element.id!=3){
         var radio_data="<div class='col-md-2'>"+
         "<input disabled type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
         " <label class='form-check-label'>"+element.name+"</label>";
        }else{
-        var radio_data="<div class='col-md-3'>"+
+        var radio_data="<div class='col-md-2'>"+
         "<input disabled type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
         " <label class='form-check-label'>"+element.name+"</label>";
        }
@@ -611,18 +611,7 @@ function loadAuditOrganization(){
         // console.log(result.data);
          var organization_structure=result.data;
          $('.organization_data').append("<div class='col-md-2'></div>");
-         organization_structure.forEach(function(element){
-            // console.log(element)
-
-           // if(element.id!=3){
-           //  var radio_data="<div class='col-md-3'>"+
-           //  "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
-           //  " <label class='form-check-label'>"+element.name+"</label>";
-           // }else{
-           //  var radio_data="<div class='col-md-2'>"+
-           //  "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
-           //  " <label class='form-check-label'>"+element.name+"</label>";
-           // }
+         organization_structure.forEach(function(element){            
 
            if(element.id == 3 || element.id == 1){
              var radio_data="<div class='col-md-3'>"+
@@ -716,11 +705,11 @@ function loadAuditTotalStaffReg(){
               var tr = "<tr>";
               tr += "<td class='font-weight-bold'>" + element.name + "</td>";
               
-              tr += "<td><input type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
-              tr += "<td><input type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required  onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+              tr += "<td><input type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
+              tr += "<td><input type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required  onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
               
               tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'>"+
-              "<input type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+" required onmouseup=getTotalStaff("+element.id+") onkeyup=getTotalStaff("+element.id+")></td>";
+              "<input type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+" required onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
               tr += "</tr>";
               
               
@@ -732,28 +721,46 @@ function loadAuditTotalStaffReg(){
 }
 
 var total =[];
-function getTotalAudit(id){
-  // var total =[];
-  
+function getTotal(id){ 
   
   $("#total_staff"+id).val(parseInt($("#audit_staff"+id).val())+parseInt($("#nonaudit_staff"+id).val()));
-
-  total.push($("#audit_staff"+id).val());
-console.log(total);
-  for(var i=0;i<total.length;total++){
-    alert((total[i]));
-     $('#total_staff_total').val(parseInt(total[i]));
-  }
-
-  // $("#total_staff_total").val($("input[name='ats_audit_staff[]']").val());
-
-  // $("input[id=audit_staff]"+id).val() 
+  getAuditTotal();
+  getNonAuditTotal();
+  getTotalStaff();  
 
 }
 
-function getTotalStaff(id){
-  // $("#total_staff"+id).val(parseInt($("#audit_staff"+id).val())+parseInt($("#nonaudit_staff"+id).val()));  
+function getAuditTotal() {
+  var total = 0;
+  $('#tbl_audit_total_staff tbody tr').each(function () {
+    // console.log($(this).find('td:eq(1) input').val());
+      var value = parseInt($(this).find('td:eq(1) input').val());
+      total += value;
+      
+  });
+  
+  $("#total_audit").val(total);
+  
 }
+
+function getNonAuditTotal() {
+  var total = 0;
+  $('#tbl_audit_total_staff tbody tr').each(function () {
+    // console.log($(this).find('td:eq(2) input').val());
+      var value = parseInt($(this).find('td:eq(2) input').val());
+      total += value;
+      
+  });
+  
+  $("#total_non_audit").val(total);
+  
+}
+
+function getTotalStaff() {
+  $("#total_staff").val(parseInt($("#total_audit").val())+parseInt($("#total_non_audit").val()));
+  
+}
+
 
 function loadAuditTotalStaff(){
     destroyDatatable("#tbl_audit_total_staff", "#tbl_audit_total_staff_body");
@@ -790,9 +797,11 @@ function loadAuditStaffReg(){
     audit_staff.forEach(function(element){
           var tr = "<tr>";
           tr += "<td class='font-weight-bold'>" + element.name + "</td>";
-          tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'><input type='number' value='' name='as_total[]' class='form-control' id=audit_total"+element.id+" required></td>";
-          tr += "<td><input type='number' value='' name='as_full_time[]' class='form-control' id=full_time"+element.id+" required></td>";
-          tr += "<td><input type='number' value='' name='as_part_time[]' class='form-control' id=part_time"+element.id+" required></td>";
+          
+          tr += "<td><input type='number' value='0' name='as_full_time[]' class='form-control' id=full_time"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+          tr += "<td><input type='number' value='0' name='as_part_time[]' class='form-control' id=part_time"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+          tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'>"+
+                      "<input type='number' value='0' name='as_total[]' class='form-control' id=audit_total"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
           tr += "</tr>";
           $("#tbl_audit_staff_body").append(tr);
 
@@ -800,6 +809,47 @@ function loadAuditStaffReg(){
 
   }
 });
+}
+
+var total_staff =[];
+function getTotalAudit(id){ 
+  
+  $("#audit_total"+id).val(parseInt($("#full_time"+id).val())+parseInt($("#part_time"+id).val()));
+  getFullAuditTotal();
+  getPartAuditTotal();
+  getAuditTime();  
+
+}
+
+function getFullAuditTotal() {
+  var total_staff = 0;
+  $('#tbl_audit_staff tbody tr').each(function () {
+    // console.log($(this).find('td:eq(1) input').val());
+      var value = parseInt($(this).find('td:eq(1) input').val());
+      total_staff += value;
+      
+  });
+  
+  $("#total_full_time").val(total_staff);
+  
+}
+
+function getPartAuditTotal() {
+  var total_staff = 0;
+  $('#tbl_audit_staff tbody tr').each(function () {
+    // console.log($(this).find('td:eq(2) input').val());
+      var value = parseInt($(this).find('td:eq(2) input').val());
+      total_staff += value;
+      
+  });
+  
+  $("#total_part_time").val(total_staff);
+  
+}
+
+function getAuditTime() {
+  $("#total_time").val(parseInt($("#total_full_time").val())+parseInt($("#total_part_time").val()));
+  
 }
 
 function loadAuditStaff(){

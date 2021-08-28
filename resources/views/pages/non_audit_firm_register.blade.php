@@ -138,7 +138,7 @@
 								<label class="col-md-3 col-form-label">{{ __('Email') }}</label>
 								<div class="col-md-8">
 									<div class="form-group">
-											<input type="email" placeholder="Email" name="email" class="form-control" value="{{ old('email') }}" required="">
+											<input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
 									</div>
 								</div>
 							</div><br>
@@ -149,7 +149,7 @@
 								<label class="col-md-3 col-form-label">{{ __('Password') }}</label>
 								<div class="col-md-8">
 									<div class="form-group">
-											<input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+											<input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
 									</div>
 								</div>
 							</div><br>							
@@ -159,7 +159,7 @@
 								<label class="col-md-3 col-form-label">{{ __('Confirm Password') }}</label>
 								<div class="col-md-8">
 									<div class="form-group">
-											<input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
+											<input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
 									</div>
 								</div>
 							</div><br>
@@ -175,11 +175,11 @@
 							</div><br>--}}
 							
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('5') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
 								<label class="col-md-3 col-form-label">{{ __('Firm Name') }}</label>
 								<div class="col-md-8">
 									<div class="form-group">
-										<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Firm Name" autofocus autocomplete="off" required>
+										<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" required>
 									</div>
 								</div>
 								@error('name')
@@ -190,7 +190,7 @@
 							</div><br>							
 
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('6') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
 								<label class="col-md-3 col-form-label">{{ __('Address Of Practice(Head Office)') }}</label>
 								<div class="col-md-2">
 									<div class="form-group">
@@ -209,7 +209,7 @@
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
-										<input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" required>
+										<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off" required>
 									</div>
 								</div>
 							</div><br>
@@ -235,7 +235,7 @@
 		                  
 
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 								<label class="col-md-11 col-form-label">{{ __('Branch Office') }}</label>
 
 							</div>
@@ -290,7 +290,7 @@
 							<br>
 
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
 								<label class="col-md-11 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 
 							</div>
@@ -304,7 +304,7 @@
 													<tr>
 														<th class="less-font-weight" rowspan="2">Sr</th>
 														<th class="less-font-weight" rowspan="2">Name</th>
-														<th class="less-font-weight" rowspan="2">Passport/ CSC No./ Incorporation Certificate</th>
+														<th class="less-font-weight" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
 														<th >
 															<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowPartnerByNonAudit("non_partner")'>
 																<i class="fa fa-plus"></i>
@@ -332,7 +332,7 @@
 							</div>
 							<br>
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('9') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 								<label class="col-md-11 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 
 							</div>
@@ -347,8 +347,8 @@
 														<th class="less-font-weight">Sr</th>
 														<th class="less-font-weight">Name</th>
 														<th class="less-font-weight">Position</th>
-														<th class="less-font-weight" >Passport</th>
-														<th class="less-font-weight" >CSC No.</th>
+														<th class="less-font-weight" >Passport / CSC No.</th>
+														<!-- <th class="less-font-weight" >CSC No.</th> -->
 														<th >
 															<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowDirectorByNonAudit("non_director")'>
 																<i class="fa fa-plus"></i>
@@ -366,7 +366,7 @@
 															<input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required>
 
 														</td>
-														<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>
+														<!-- <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td> -->
 														<td>
 															<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorByNonAudit("non_director")'><i class="fa fa-trash"></i></button>
 														</td>
@@ -379,7 +379,7 @@
 							</div>
 							<br>
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('10') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 								<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
 							</div>
 							<div class="row">
@@ -834,7 +834,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(c)Copy of recent audited financial statements</label>
+														<label class="form-label">(c) Copy of recent audited financial statements</label>
 													</div>
 												</div>
 												<div class="controls21">
@@ -854,7 +854,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(d)Copy of commercial tax registration certificate</label>
+														<label class="form-label">(d) Copy of commercial tax registration certificate</label>
 													</div>
 												</div>
 												<div class="controls22">
@@ -874,7 +874,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(e)Copy of letterhead to be used</label>
+														<label class="form-label">(e) Copy of letterhead to be used</label>
 													</div>
 												</div>
 												<div class="controls23">
@@ -894,7 +894,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(f)Copy of Education Certificates of the professional staff</label>
+														<label class="form-label">(f) Copy of Education Certificates of the professional staff</label>
 													</div>
 												</div>
 												<div class="controls24">
@@ -914,7 +914,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(g)Letter outlining past work experiences of the professional staff</label>
+														<label class="form-label">(g) Letter outlining past work experiences of the professional staff</label>
 													</div>
 												</div>
 												<div class="controls25">
@@ -934,7 +934,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(h)Copy of shareholder’s and directors’ NRC Card/ Passport</label>
+														<label class="form-label">(h) Copy of shareholder’s and directors’ NRC Card/ Passport</label>
 													</div>
 												</div>
 												<div class="controls26">
@@ -954,7 +954,7 @@
 
 												<div class="row mb-3">
 													<div class="form-group">
-														<label class="form-label">(i)Copy of Tax clearance from Internal Revenue Department</label>
+														<label class="form-label">(i) Copy of Tax clearance from Internal Revenue Department</label>
 													</div>
 												</div>
 												<div class="controls27">
@@ -998,11 +998,11 @@
 							</div>
 							<br>
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('11') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
 								<label class="col-md-3 col-form-label">{{ __('Name Of Managing Director') }}</label>
 								<div class="col-md-8 col-form-label">
 									<div class="form-group">
-										<input type="text" name="name_sole_proprietor"  class="form-control"  autofocus autocomplete="off" required>
+										<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" required>
 									</div>
 								</div>
 
@@ -1010,7 +1010,7 @@
 							
 							<br>
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('12') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
 								<label class="col-md-11 col-form-label">{{ __('Total Staff') }}</label>
 
 							</div>
@@ -1031,6 +1031,13 @@
 												<tbody id="tbl_non_audit_number_body">
 
 												</tbody>
+
+												<tfoot id="tbl_non_audit_number_foot">
+													<tr>
+														<td>Total</td>
+														<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>														
+													</tr>
+												</tfoot>
 											</table>
 										</div>
 									</div>
@@ -1038,7 +1045,7 @@
 							</div>
 							<br>
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('13') }}</label>
+								<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
 								<label class="col-md-11 col-form-label">{{ __('Types Of Service Provided') }}</label>
 
 							</div>
@@ -1047,17 +1054,22 @@
 								<div class="col-md-11">
 									<div class="card type-service-card">
 										<div class="card-body">
-											<table id="tbl_type_service" class="table ">
+											<table id="tbl_type_service" class="table">
 												<thead>
 													<tr>
 														<th class="less-font-weight" rowspan="2">Accountancy Services(Non-Audit)</th>
-
 													</tr>
 
 												</thead>
 												<tbody id="tbl_type_service_body">
 
 												</tbody>
+												<tfoot id="tbl_type_service_foot">
+													<tr style='display:none' id='tr_other'>
+														<td style="width:1000px;"><input type="text" class="form-control" name="other" id="other"></td>
+													</tr>
+												</tfoot>
+												
 											</table>
 										</div>
 									</div>
@@ -1070,7 +1082,7 @@
 								<div class="col-md-8" id="type_service_validate" style="display:none;">
 										<label class="text-danger">Service Provided အမျိုးအစားရွေးချယ်ပါ</label>
 								</div>
-							</div><br/><br>
+							</div>
 
 							{{--<table width="100%">
 								<tr>
@@ -1105,13 +1117,13 @@
 
 							<div id="director_staffmembers" style="display:none;">
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('16.') }}</label>
-									<label class="col-md-10 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
+									<label class="col-md-1 col-form-label" id="label1">13.</label>
+									<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 								</div>
 								<div class="row">
-									<div class="col-md-3"></div>
-									<div class="col-md-9">
+									<div class="col-md-1"></div>
+									<div class="col-md-11">
 										<div class="card">
 											<div class="card-body">
 												<table id="myTable" class="table director_cpa_initial table-bordered">
@@ -1121,7 +1133,7 @@
 															<th class="less-font-weight" rowspan="2">Name</th>
 															<th class="less-font-weight" rowspan="2">Position</th>
 															<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
-															<th class="less-font-weight" rowspan="2">CPA (Full-fiedged) Reg.No</th>
+															<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
 															<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
 															<th class="less-font-weight" style="text-align: right;">
 																<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
@@ -1154,42 +1166,44 @@
 
 		                  <!-- Declaration  -->
 							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('') }}</label>
+								<label class="col-md-1 col-form-label" id="label2">13.</label>
+								<label class="col-md-1 col-form-label" id="label3" style="display:none" >14.</label>
 								<label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
 								<label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
-								<div class="col-md-2">
+								<div class="col-md-4">
 									<div class="form-group">
 											<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group">
-											(sole proprietor/ managing partner) representing all the members of the ffirm, confirm that the particulars stated in this form, attached supporting documents are correct.
+											(sole proprietor/ managing partner)  
 									</div>
 								</div>
 							</div>
 
-							<div class="row">
-								<label class="col-md-1 col-form-label">{{ __('') }}</label>
-								<label class="col-md-2 col-form-label">{{ __('') }}</label>
+							<div class="row  mb-3">
+								<label class="col-md-3 col-form-label">{{ __('') }}</label>								
 								<div class="col-md-9">
 									<div class="form-group">
-											firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+									representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
 									</div>
 								</div>
-							</div><br>
+							</div>
+
 							
-							<div class="row mb-3">
+							
+							{{--<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
 									<label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
 									<input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
 									<input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
-							</div>
+							</div>--}}
 
-							<div class="row">
+							<div class="row mb-3">
 								<div class="col-md-2 offset-md-5">
-									<button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" form="non-audit-form" disabled>{{ __('Submit') }}</button>
+									<button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" form="non-audit-form" >{{ __('Submit') }}</button>
 								</div>
 							</div>
 						</div>
@@ -1223,7 +1237,7 @@
 $(document).ready(function(){
 	$("#non-audit-form").submit(function( event ) {
 		// organization_structure radio button required validation
-	  if($("input[name='org_stru_id']:checked").length == 0){
+		if($("input[name='org_stru_id']:checked").length == 0){
 			$('#org_validate').css('display','block');
 		}
 		else{
@@ -1239,9 +1253,9 @@ $(document).ready(function(){
 			$('#type_service_validate').css('display','none');
 			$(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
 		}
-		});
-
 	});
+
+});
 
 
 loadNonAuditStaff();

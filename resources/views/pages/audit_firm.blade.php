@@ -119,7 +119,7 @@
                                                 <label for="" class="col-md-1 col-form-label">1.</label>
                                                 <label for="" class="col-md-3 col-form-label">Email</label>
                                                 <div class="col-md-8">
-                                                    <input type="email" placeholder="example123@gmail.com" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                    <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
                                                 </div>                                              
                                             </div><br>
                                             
@@ -127,7 +127,7 @@
                                                 <label for="" class="col-md-1 col-form-label">2.</label>
                                                 <label for="" class="col-md-3 col-form-label">Password</label>
                                                 <div class="col-md-8">
-                                                    <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                    <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
                                                 </div>
                                                 
                                             </div><br>
@@ -136,7 +136,7 @@
                                                 <label for="" class="col-md-1 col-form-label">3.</label>
                                                 <label for="" class="col-md-3 col-form-label">Confirm Password</label>
                                                 <div class="col-md-8">
-                                                    <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
+                                                    <input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
                                                 </div>                                                
                                             </div><br>
                                             
@@ -160,7 +160,7 @@
                                                 <label for="" class="col-md-1 col-form-label">4.</label>
                                                 <label for="" class="col-md-3 col-form-label">Accountancy Firm Name</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Accountancy Firm Name" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
+                                                    <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Accountancy Firm Name!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
                                                 </div>
                                                     @error('name')
                                                         <span class="invalid-feedback" role="alert">
@@ -268,7 +268,7 @@
                                                         <label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
                                                 </div>
                       		                </div><br>
-                                              
+
                                             <div class='row organization_data'></div><br/>                                           
 
                                             <div id="sole-proprietorship">
@@ -831,7 +831,7 @@
                                                 <label for="" class="col-md-1 col-form-label">10.</label>
                                                 <label for="" class="col-md-3 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Name Of Sole Proprietor/ Managing Partner" required="">
+                                                    <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" required="">
                                                 </div>
                                             </div><br>
 
@@ -863,9 +863,9 @@
                                                                 <tfoot id="tbl_audit_total_staff_foot">
                                                                     <tr>
                                                                         <td>Total</td>
-                                                                        <td><input  type='number' value='0' name='total_staff[]' class='form-control' id="total_staff_total" ></td>
-                                                                        <td><input  type='number' value='0' name='total_audit_staff[]' class='form-control' id="total_audit_staff_total"></td>
-                                                                        <td><input  type='number' value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff_total" ></td>
+                                                                        <td><input  type='number' disabled value='0' name='total_staff[]' class='form-control' id="total_audit"  ></td>
+                                                                        <td><input  type='number' disabled value='0' name='total_audit_staff[]' class='form-control' id="total_non_audit"></td>
+                                                                        <td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_staff"></td>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>
@@ -887,10 +887,10 @@
                                                             <table id="tbl_audit_staff" class="table text-nowrap">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th class="less-font-weight" ></th>
-                                                                        <th class="less-font-weight">Total</th>
+                                                                        <th class="less-font-weight" ></th>                                                                        
                                                                         <th class="less-font-weight" >Full Time</th>
                                                                         <th class="less-font-weight" >Part Time</th>
+                                                                        <th class="less-font-weight">Total Time</th>
 
                                                                     </tr>
 
@@ -901,9 +901,9 @@
                                                                 <tfoot id="tbl_audit_staff_foot">
                                                                     <tr>
                                                                         <td>Total</td>
-                                                                        <td><input  type='number' value='0' name='total_audit_staff[]' class='form-control' id=""></td>
-                                                                        <td><input  type='number' value='0' name='total_full_time[]' class='form-control' id=""></td>
-                                                                        <td><input  type='number' value='0' name='total_part_time[]' class='form-control' id=""></td>
+                                                                        <td><input  disabled type='number' value='0' name='total_audit_staff[]' class='form-control' id="total_full_time"></td>
+                                                                        <td><input  disabled type='number' value='0' name='total_full_time[]' class='form-control' id="total_part_time"></td>
+                                                                        <td><input  disabled type='number' value='0' name='total_part_time[]' class='form-control' id="total_time"></td>
                                                                     </tr>
                                                                 </tfoot>
 
@@ -956,27 +956,31 @@
                                                       </td>
                                                   </tr>
                                               </table>
-                                            </div>--}}
+                                            </div>--}}                            
 
                                             <div class="row">
                                                 <label class="col-md-1 col-form-label">{{ __('14.') }}</label>
                                                 <label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="col-md-2 col-form-label">{{ __('') }}</label>
                                                 <label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
-                                                <div class="col-md-3">                                                    
-                                                    <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
-                                                    
-                                                </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                            (sole proprietor/ managing partner) representing all the members of the firm , confirm that the particulars stated in this form, attached supporting documents are correct.
-                                                            <!-- (sole proprietor/ managing partner) representing all the members of the firm, confirm that the particulars state in this form, attached supporting documents are correct. -->
+                                                        <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                            (sole proprietor/ managing partner) 
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br>
+                                            <div class="row  mb-3">
+                                                <label class="col-md-3 col-form-label">{{ __('') }}</label>								
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                    representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+                                                    </div>
+                                                </div>
+                                            </div><br>
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
@@ -1017,7 +1021,7 @@ $(document).ready(function(){
 			$('#audit_org_validate').css('display','none');
 		}
   });
-
+    
     loadAuditOrganization();
     loadAuditTypeOfService();
     loadAuditTotalStaffReg();
@@ -1027,6 +1031,8 @@ $(document).ready(function(){
     pendingStatus();
     dateQuery();
     verifyStatus();
+
+    // getTotalStaff();
 
     });
 
