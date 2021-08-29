@@ -105,9 +105,11 @@
                             <div class="row" id="mac_container">
                                 <form method="post" action="javascript:createMac();" enctype="multipart/form-data">
                                     <div class="card border-success mb-3">
+                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                    <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
                                         <div class="card-body">
                                             <div class="col-md-12">
-                                                <h6>Mac</h6>
+                                               
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -198,9 +200,10 @@
                                 <form method="post" action="javascript:createPrivateSchool();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
+                                        <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> (ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5>
                                         <div class="card-body">
                                             <div class="col-md-12">
-                                            <h6>Private School</h6>
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -272,9 +275,13 @@
                                 <form id="self_study_form" method="post" action="javascript:createSelfStudy();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
+                                        <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
+                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                       
                                         <div class="card-body">
                                             <div class="col-md-12">
-                                            <h6>Self Study</h6>
+                                           
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>

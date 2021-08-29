@@ -380,6 +380,7 @@ function app_form_feedback(){
                             $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                         }
                     }else{
+                        
                         // if(code == da)
                         $('.application').show();
                          
@@ -448,6 +449,7 @@ function app_form_feedback(){
                                              $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your have been pass ${data_course[exam_count].course.name}')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
 
                                         }else{
+                                            alert("da two")
 
                                             if(code == "da_2" || code == "cpa_2")
                                             {
@@ -510,70 +512,137 @@ function app_form_feedback(){
                                         
                                     }else
                                     {  
+                                        
                                         if(code == "da_2" || code == "cpa_2")
                                         {
-                                            console.log(previous_exam)
-                                            
-                                            if(previous_exam[0].course.code == "da_1" || previous_exam[0].course.code == "cpa_1"){
-                                                 $.ajax({
-                                                    url: BACKEND_URL+"/batch/"+batch_id,
-                                                    type: 'get',
-                                                    contentType: false,
-                                                    processData: false,
-                                                    async:false,
-                                                    success: function(result){  
-                                                        let batch = result.data;
-                                                        let date = new Date();
-                              
-                                                    
-                              
-                                                        // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
-                                                        var mac_start_date  = new Date(batch.mac_reg_start_date );
-                                                        var mac_end_date    = new Date(batch.mac_reg_end_date);
-                                                        var self_start_date  = new Date(batch.self_reg_start_date );
-                                                        var self_end_date    = new Date(batch.self_reg_end_date);
-                                                        var private_start_date  = new Date(batch.private_reg_start_date );
-                                                        var private_end_date    = new Date(batch.private_reg_end_date);
-                                                        if(mac_start_date <= date && mac_end_date >= date){
-                                                            if(course_type == 2){
- 
-                                                                course_url = "/cpa_two_mac/"+batch.id
-                                                                }
-                                                             $(`.check_login${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
-                                                        } 
-                
-                                                        if(self_start_date <= date && self_end_date >= date){
-                                                            if(course_type == 2){
-
-                                                                course_url = "/cpa_two_self_study/"+batch.id
-                                                                }
-                                                            
-                                                            
-                                                            $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
-                                                        } 
-                
-                                                        if(private_start_date <= date && private_end_date >= date){
-                                                            if(course_type == 2){
-
-                                                                course_url = "/cpa_two_private_school/"+batch.id
-                                                                }
-                                          
-                                                            $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
-                                                        } 
-                                                     }
-
-                                                    })
+                                            if(course_type == 1){
+                                                if(previous_exam[0].course.code == "da_1" ){
+                                                    alert("Da")
+                                                    $.ajax({
+                                                       url: BACKEND_URL+"/batch/"+batch_id,
+                                                       type: 'get',
+                                                       contentType: false,
+                                                       processData: false,
+                                                       async:false,
+                                                       success: function(result){  
+                                                           let batch = result.data;
+                                                           let date = new Date();
+                                 
+                                                       
+                                 
+                                                           // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+                                                           var mac_start_date  = new Date(batch.mac_reg_start_date );
+                                                           var mac_end_date    = new Date(batch.mac_reg_end_date);
+                                                           var self_start_date  = new Date(batch.self_reg_start_date );
+                                                           var self_end_date    = new Date(batch.self_reg_end_date);
+                                                           var private_start_date  = new Date(batch.private_reg_start_date );
+                                                           var private_end_date    = new Date(batch.private_reg_end_date);
+                                                           if(mac_start_date <= date && mac_end_date >= date){
+                                                               if(course_type == 2){
+    
+                                                                   course_url = "/cpa_two_mac/"+batch.id
+                                                                   }
+                                                                $(`.check_login${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(self_start_date <= date && self_end_date >= date){
+                                                               if(course_type == 2){
+   
+                                                                   course_url = "/cpa_two_self_study/"+batch.id
+                                                                   }
+                                                               
+                                                               
+                                                               $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(private_start_date <= date && private_end_date >= date){
+                                                               if(course_type == 2){
+   
+                                                                   course_url = "/cpa_two_private_school/"+batch.id
+                                                                   }
+                                             
+                                                               $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
+                                                           } 
+                                                        }
+   
+                                                       })
+   
+                                               }else{
+                                                   $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+   
+                                                   
+                                               }
 
                                             }else{
-                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
-
+                                                if( previous_exam[0].course.code == "cpa_1"){
                                                 
-                                            }
-                                         }else{
-                                           
-                                            $(`.check_login${i}`).append(`<a href="${course_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Enroll now </a>`) 
+                                                    $.ajax({
+                                                       url: BACKEND_URL+"/batch/"+batch_id,
+                                                       type: 'get',
+                                                       contentType: false,
+                                                       processData: false,
+                                                       async:false,
+                                                       success: function(result){  
+                                                           let batch = result.data;
+                                                           let date = new Date();
+                                 
+                                                       
+                                 
+                                                           // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+                                                           var mac_start_date  = new Date(batch.mac_reg_start_date );
+                                                           var mac_end_date    = new Date(batch.mac_reg_end_date);
+                                                           var self_start_date  = new Date(batch.self_reg_start_date );
+                                                           var self_end_date    = new Date(batch.self_reg_end_date);
+                                                           var private_start_date  = new Date(batch.private_reg_start_date );
+                                                           var private_end_date    = new Date(batch.private_reg_end_date);
+                                                           if(mac_start_date <= date && mac_end_date >= date){
+                                                               if(course_type == 2){
+    
+                                                                   course_url = "/cpa_two_mac/"+batch.id
+                                                                   }
+                                                                $(`.check_login${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(self_start_date <= date && self_end_date >= date){
+                                                               if(course_type == 2){
+   
+                                                                   course_url = "/cpa_two_self_study/"+batch.id
+                                                                   }
+                                                               
+                                                               
+                                                               $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(private_start_date <= date && private_end_date >= date){
+                                                               if(course_type == 2){
+   
+                                                                   course_url = "/cpa_two_private_school/"+batch.id
+                                                                   }
+                                             
+                                                               $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
+                                                           } 
+                                                        }
+   
+                                                       })
+   
+                                               }else{
+                                                   $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+   
+                                                   
+                                               }
 
-                                         }
+                                            }
+                                            
+                                         
+                                        }else{
+                                            if(previous_exam[0].course.code == "da_2"){
+                                                alert("da pass")
+                                            $(`.check_login${i}`).append(`<a href="${course_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Enroll now </a>`) 
+                                            }else{
+                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass  Da Two')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+
+                                            }
+                                        }
 
                  
                                     } 
@@ -666,7 +735,9 @@ function loadCourse(){
     $("input[name='student_regno']").val(student_regno);
     
 }
+
 function selectedRegistration(radioValue){
+    alert(radioValue)
     if(radioValue==3){
         $('#mac_container').css('display','block');
         $('#self_study_container').css('display','none');
@@ -782,7 +853,7 @@ function reg_feedback(){
         processData: false,
         success: function(status){
            console.log(status,"Status");
-
+ 
            let exam_grade = localStorage.getItem('exam_grade');
                         
            if(exam_grade == 1){
@@ -937,6 +1008,7 @@ function reg_feedback(){
                     // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                         
                 }else{
+                    alert("hello")
                     $('#form_type').val(localStorage.getItem('course_id'));
                     const queryString = location.search;
                     const urlParams = new URLSearchParams(queryString);

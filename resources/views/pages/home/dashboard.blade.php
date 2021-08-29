@@ -106,20 +106,21 @@
                                     <h5 class="text-center border-bottom  py-2 my-2" style="font-weight:bold; background-color:#E7F8EE;">
                                     လက်ရှိတက်ရောက်နေသော အတန်း
                                     </h5>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="batch_name"></span> 
-                                        </div>
-                                    </div>
+                                    
                                     <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Course Name</p>
                                         </div>
                                         <div class="col-md-6">
                                             <span id="course_name"></span> 
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="batch_name"></span> 
                                         </div>
                                     </div>
                                     <div class="row m-2 mt-3 border-bottom">

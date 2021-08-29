@@ -110,9 +110,12 @@
                                         <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
 
                                         <div class="card border-success mb-3">
+                                        <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
+                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                       
                                             <div class="card-body">
-                                            <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                                                <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                            
                                                 <br/>
                                                 <div class="col-md-12">
                                                     <div class="row">
@@ -282,8 +285,8 @@
 
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
-                                                <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                                                <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                            <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                            <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> (ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5>
                                                 <br/>
                                                 <div class="col-md-12">
                                                     <div class="row">
@@ -396,9 +399,9 @@
                                     <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
-                                            <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                                            <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                                            <br/>
+                                            <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                            <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                        
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-4 single-form">
@@ -535,14 +538,14 @@
                 </div> 
 
                  <!-- Exam Feedback Text -->
-                 <div class="exam_feedback" style="display:none; margin-left: 7%; margin-right: 7%;">
+                 <!-- <div class="exam_feedback" style="display:none; margin-left: 7%; margin-right: 7%;">
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body exam_text">
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
         </div><br/></br/> 
     </div>
 </div>

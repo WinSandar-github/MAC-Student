@@ -75,14 +75,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="audit_container" style="display:none; margin-top:5%;margin-bottom:5%;">
+            <div class="row" id="audit_container" style="display:none; margin:5%;">
                 <form method="post" enctype="multipart/form-data">
                     <div class="card border-success mb-3">
                         <div class="card-body text-success">
                             <div class="col-md-12">
-                                <div class="row">
+                                {{--<div class="row">
                                     <center><h4>Audit Firm Data</h4></center><br><br>
-                                    <table class="table table-bordered input-table" width="100%">
+                                    <table class="table table-bordered input-table border-success" width="100%" style="text-align:center;">
                                         <tr>
                                             <th>Accountancy Firm Name</th>
                                             <th>Applied Date</th>
@@ -94,10 +94,60 @@
                                             <td><span id="message"></span></td>
                                         </tr>
                                     </table>
+                                    <div class="row" id="check_renew" style="display:none;">
+                                        <div class="form-group">
+                                            <a href="{{ url('/audit_firm_renew') }}" class="btn btn-sm btn-block btn-info pull-right">Audit Firm Renew Form</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row" id="check_status" style="display:none;">
                                     <div class="form-group">
                                         <a href="#" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+                                    </div>
+                                </div>--}}
+                                <table width="100%">
+                                    <tr>
+                                        <td width="15%">
+                                            <div class="single-form">
+                                                <label class="col-form-label">Accountancy Firm Name</label>
+                                            </div>
+                                        </td>
+                                        <td width="85%">
+                                            <div class="single-form">
+                                                <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%">
+                                            <div class="single-form">
+                                                <label class="col-form-label">Applied Date</label>
+                                            </div>
+                                        </td>
+                                        <td width="85%">
+                                            <div class="single-form">
+                                                <input type="text" class="form-control" id="register_date" readonly="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%">
+                                            <div class="single-form">
+                                                <label class="col-form-label">Status</label>
+                                            </div>
+                                        </td>
+                                        <td width="85%">
+                                            <div class="single-form">
+                                                <input type="text" class="form-control" id="message" readonly="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
+                                    <div class="form-group">
+                                        <center>
+                                            <a href="{{ url('/audit_firm_renew') }}" class="btn btn-sm btn-block btn-info">Audit Firm Renew Form</a>
+                                        </center>
                                     </div>
                                 </div>
                             </div>

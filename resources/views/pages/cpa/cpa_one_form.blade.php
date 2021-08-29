@@ -1052,7 +1052,7 @@
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div>
-                                                          <input type="text" placeholder="ခုနှစ်/လ" id="degree_date" name="degree_date" class="form-control year"  >
+                                                          <input type="text" placeholder="ခုနှစ်/လ" id="degree_date" name="degree_date" class="form-control year" required >
                                                       </div>
                                                   </div>
 
@@ -1072,7 +1072,7 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div>
-                                                            <input type="text" placeholder="သင်တန်သားမှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
+                                                            <input type="text" placeholder="သင်တန်သားမှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" required>
                                                         </div>
                                                     </div>
                                                 </div><br/>

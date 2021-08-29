@@ -8,8 +8,14 @@ use App\Http\Controllers\CustomClass\Helper;
 
 class CPATwoRegisterController extends Controller
 {
-    public function register(){
-        return view('pages.cpa.cpa_two_register');
+    public function register($id){
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/batch/'.$id)->getBody(),true);
+       
+        $batch = $res['data'];
+        return view('pages.cpa.cpa_two_register',compact('batch'));
+        
     }
     public function self_study($id){
         $client = new \GuzzleHttp\Client();

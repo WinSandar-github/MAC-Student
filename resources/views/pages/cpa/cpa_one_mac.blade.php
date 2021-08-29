@@ -80,7 +80,7 @@
                         </div>
                         <!-- <h5 class="card-title text-center">(ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5> -->
                         <div>
-                            <form  method="post" class="needs-validation" action="javascript:Mac_Submit();" enctype="multipart/form-data" novalidate>
+                        <form  method="post" class="needs-validation" action="javascript:Mac_Submit();" enctype="multipart/form-data" novalidate>
 
                                 <div class="row">
                                     <div class="col-md-1">
@@ -285,7 +285,7 @@
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" disabled>{{ __('Submit') }}</button>
                                     </div>
                                 </div>
-                            </form>
+                        </form>
                         </div>
                     </div>
                 </div>

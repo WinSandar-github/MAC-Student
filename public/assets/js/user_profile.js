@@ -224,7 +224,6 @@ function user_profile(){
                         // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                         //show data depend on Student Register status
                         
-                        console.log(latest_course_reg[0].batch.course.code,latest_stu_reg[0].course.code)
                         if(latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code )
 
                         {
@@ -351,8 +350,31 @@ function user_profile(){
                                                         if(batch != undefined){
                                                             
                                                             localStorage.setItem('course_id',batch.course.id);
+                                                            if(last_exam[0].course.code == "da_1" ||  last_exam[0].course.code == "cpa_1")
+                                                            {
+                                                                $('.status').append( `
+                                                                <tr><td colspan=2></td><td>Action</td>
+                                                                <td>
+                                
+                                                               
+                                                                    <span class="nav-item dropdown ">
+                                                                    <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">${show_text} </a>
+                                                                    <div class="dropdown-menu">
+                                                                        <a href="${FRONTEND_URL+form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
+                                                                        <a href="${FRONTEND_URL+form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                        <a href="${FRONTEND_URL+form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
+                                                                    </div>
+                                                                </span>
+                                                                <td>
+                                                                </td>
+                                                                </tr>
+                                
+                                                            `);
+                                                            }else{
+
+                                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr>`);
+                                                            }
                                                             
-                                                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr>`);
                                                            
                                                         }else{
                                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td></td><a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")"> Course</a></td></tr>`);
@@ -498,7 +520,19 @@ function user_profile(){
                             let action_url;
                              $('.status').append( `
                                 <tr><td colspan=2></td><td>Action</td>
-                                <td><a href="${FRONTEND_URL+register_url}" class="btn btn-sm btn-success"> Registration Form</a></td>
+                                <td>
+
+                               
+                                    <span class="nav-item dropdown ">
+                                    <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Registration Form</a>
+                                    <div class="dropdown-menu">
+                                        <a href="${FRONTEND_URL+register_url}?study_type=3" class="dropdown-item">Mac</a>
+                                        <a href="${FRONTEND_URL+register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                        <a href="${FRONTEND_URL+register_url}?study_type=2" class="dropdown-item">Private School</a>
+                                    </div>
+                                </span>
+                                <td>
+                                </td>
                                 </tr>
 
                             `);
