@@ -159,7 +159,7 @@ function user_profile(){
                         next_course = "CPA II"
                     break;
                     case 'cpa_2':
-                        next_course = "CPA Full Fleged"
+                        next_course = "CPA Full Fledged"
                     break;
                     default:
                         next_course = "DA II"
@@ -336,7 +336,7 @@ function user_profile(){
                             
                                                     if(Object.keys(data.data).length === 0){
                             
-                                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Flaged Form</a></td></tr>`);
+                                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr>`);
                             
                                                     
                                                     }else{

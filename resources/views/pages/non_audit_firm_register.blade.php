@@ -506,11 +506,27 @@
 														<label class="form-label">(f) Copy of owner’s NRC Card/ Passport</label>
 													</div>
 												</div>
+
 												<div class="controls6">
 													<div class="entry6">
 														<div class="row mb-3">
-															<div class="col-md-11 col-auto">
-																<input type="file" class="form-control" name="nrc_passports[]" >
+															<div class="col-md-1"></div>
+															<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
+															<div class="col-md-7 col-auto">
+																<input type="file" class="form-control" name="nrc_passports_front[]" >
+															</div>
+															<!-- <div class="col-md-1 col-auto">
+																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
+																	<i class="fa fa-plus"></i>
+																</button>
+															</div> -->
+														</div>
+
+														<div class="row mb-5">
+															<div class="col-md-1"></div>
+															<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
+															<div class="col-md-7 col-auto">
+																<input type="file" class="form-control" name="nrc_passports_back[]" >
 															</div>
 															<div class="col-md-1 col-auto">
 																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -724,8 +740,23 @@
 												<div class="controls16">
 													<div class="entry16">
 														<div class="row mb-3">
-															<div class="col-md-11 col-auto">
-																<input type="file" class="form-control" name="nrc_passports[]" >
+															<div class="col-md-1"></div>
+															<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
+															<div class="col-md-7 col-auto">
+																<input type="file" class="form-control" name="nrc_passports_front[]" >
+															</div>
+															<!-- <div class="col-md-1 col-auto">
+																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
+																	<i class="fa fa-plus"></i>
+																</button>
+															</div> -->
+														</div>
+
+														<div class="row mb-5">
+															<div class="col-md-1"></div>
+															<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
+															<div class="col-md-7 col-auto">
+																<input type="file" class="form-control" name="nrc_passports_back[]" >
 															</div>
 															<div class="col-md-1 col-auto">
 																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls16","entry16")'>
@@ -940,8 +971,23 @@
 												<div class="controls26">
 													<div class="entry26">
 														<div class="row mb-3">
-															<div class="col-md-11 col-auto">
-																<input type="file" class="form-control" name="nrc_passports[]" >
+															<div class="col-md-1"></div>
+															<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
+															<div class="col-md-7 col-auto">
+																<input type="file" class="form-control" name="nrc_passports_front[]" >
+															</div>
+															<!-- <div class="col-md-1 col-auto">
+																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
+																	<i class="fa fa-plus"></i>
+																</button>
+															</div> -->
+														</div>
+
+														<div class="row mb-5">
+															<div class="col-md-1"></div>
+															<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
+															<div class="col-md-7 col-auto">
+																<input type="file" class="form-control" name="nrc_passports_back[]" >
 															</div>
 															<div class="col-md-1 col-auto">
 																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>

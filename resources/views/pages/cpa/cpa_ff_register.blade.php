@@ -180,8 +180,8 @@
                         </div>
 
                         <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
-                            <!-- <fieldset id="fieldset" disabled> -->
-                            <fieldset id="fieldset" >
+                            <fieldset id="fieldset" disabled>
+                            <!-- <fieldset id="fieldset" > -->
                                 <input type="hidden" name="status">
                                 <div class="row">
                                     <label class="col-md-1 col-form-label"></label>
@@ -229,47 +229,7 @@
                                         </div>
                                         
                                         
-                                        {{--<div id="accredited_foreign_degree">
-                                            <div class="file1">
-                                                <div class="fileupload1">
-                                                    <div class="row mb-2">  
-                                                        <div class="col-md-1"></div>                                                         
-                                                        <div class="col-md-4 col-auto">                                                              
-                                                            <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
-                                                        </div>
-                                                        <div class="col-md-6 col-auto">                                                              
-                                                            <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
-                                                        </div>                                                           
-                                                    </div>
-                                                    <div class="row mb-2">  
-                                                        <div class="col-md-1"></div>                                                         
-                                                        <div class="col-md-4 col-auto">                                                              
-                                                            <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
-                                                        </div>
-                                                        <div class="col-md-6 col-auto">                                                              
-                                                            <input type="text"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">
-                                                        </div>                                                           
-                                                    </div>
-
-                                                    <div class="row mb-4">
-                                                        <div class="col-md-1"></div>
-                                                        <div class="col-md-4 col-auto">                                                              
-                                                            <label for="" class="col-form-labe"> Attached Certificate</label>
-                                                        </div>
-                                                        <div class="col-md-6 col-auto">
-                                                            <!-- <div class="single-form"> -->
-                                                                <input type="file"  class="form-control" name="foreign_degree[]" >
-                                                            <!-- </div> -->
-                                                        </div>
-                                                        <div class="col-md-1 col-auto">
-                                                            <button class="btn btn-primary btn-add" type="button" onclick='addInputFile("file1","fileupload1")'>
-                                                                <i class="fa fa-plus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>--}}    
+                                           
 
                                         <div  id="edu" style="display:none;">  
                                             <div class="row mb-2" id="degree_name0">  

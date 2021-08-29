@@ -40,6 +40,26 @@ function ConfirmSubmit(){
     }
 }
 
+var count=1;
+function AddCPAEdu(){
+    $("#edu").append(        
+
+        '<div class="row mb-4" id="edu'+count+'">'+
+            '<div class="col-md-5"></div>'+            
+            '<div class="col-md-6">'+
+                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate'+count+'" required="">'+
+            '</div>'+
+            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                    '<i class="fa fa-trash "></i>'+
+                '</button>'+
+            '</div>'+
+        '</div>');
+        
+    count++;
+
+}
+
 // var studentID=null;
 // async function SearchStudentByNRC(){
 //     var nrc_state_region = $("#nrc_state_region").val();

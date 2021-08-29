@@ -44,59 +44,62 @@
                                     style="height : 200px;width:auto;"
                                     />
                                 </div>
-                                <div class="col-md-9">
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="name_eng"></span> / <span id="name_mm"></span>
-                                            </div>
+                                <div class="col-md-6">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
                                         </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">NRC</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="nrc"></span>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <span id="name_eng"></span> / <span id="name_mm"></span>
                                         </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Date of Birth</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="date_of_birth"></span>
-                                            </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">NRC</p>
                                         </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Email</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="email"></span>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <span id="nrc"></span>
                                         </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="phone"></span>
-                                            </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Date of Birth</p>
                                         </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6 mb-2">
-                                                <button class="btn btn-success btn-sm" disabled >Change Password</button>
-                                            </div>
-                                           
-                                            <div class="col-md-6 mb-2">
-                                                <button class="btn btn-success btn-sm" disabled>Update Profile</button>
-                                            </div>
-                                             
+                                        <div class="col-md-6">
+                                            <span id="date_of_birth"></span>
                                         </div>
-                                    
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="phone"></span>
+                                        </div>
+                                    </div>
+                                                                       
 
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100" disabled>{{ __('Change Password') }}</button>
+                                            </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100" disabled>{{ __('Update Profile') }}</button>
+                                            </div> 
+                                    </div>
                                 </div>
 
                             </div>
@@ -108,20 +111,21 @@
                                     </h5>
                                     <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
-                                            <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="batch_name"></span> 
-                                        </div>
-                                    </div>
-                                    <div class="row m-2 mt-3 border-bottom">
-                                        <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Course Name</p>
                                         </div>
                                         <div class="col-md-6">
                                             <span id="course_name"></span> 
                                         </div>
                                     </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Batch Name</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="batch_name"></span> 
+                                        </div>
+                                    </div>
+                                    
                                     <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold regi_fee_txt" style="font-weight:bold"></p>
