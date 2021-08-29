@@ -77,9 +77,9 @@
                     <input type="hidden" name="form_type" id="form_type">
                     <div class="form-wrapper">
                         <div class="">
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-4">
-                                    <div class="card text-center border-success text-success" onclick="selectedRegistration(3)" id="mac_card">
+                                    <div disabled class="card text-center border-success text-success" onclick="selectedRegistration(3)" id="mac_card">
                                         <div class="card-body">
                                             <label  name="register_name"> Registration Mac</label>
                                         </div>
@@ -100,13 +100,14 @@
                                     </div>
                                 </div>
                                                              
-                            </div><br/>
+                            </div><br/> -->
 
                             <div class="row" id="mac_container">
                                 <form method="post" action="javascript:createMac();" enctype="multipart/form-data">
                                     <div class="card border-success mb-3">
                                         <div class="card-body">
                                             <div class="col-md-12">
+                                                <h6>Mac</h6>
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -199,6 +200,7 @@
                                     <div class="card border-success mb-3">
                                         <div class="card-body">
                                             <div class="col-md-12">
+                                            <h6>Private School</h6>
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -272,6 +274,7 @@
                                     <div class="card border-success mb-3">
                                         <div class="card-body">
                                             <div class="col-md-12">
+                                            <h6>Self Study</h6>
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -462,9 +465,19 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+    $('document').ready(function(){
+        const queryString = location.search;
+        const urlParams = new URLSearchParams(queryString);
+        
+
+
+        selectedRegistration(urlParams.get("study_type"))
+        
+    })
     loadCourse();
     loadExam();
     reg_feedback();
+   
     $("input[name='mac_date']").flatpickr({
         enableTime: false,
         dateFormat: "d-m-Y",
