@@ -190,7 +190,7 @@ function user_profile(){
 
 
                     if(latest_course_reg[0].batch.exam_start_date != null){
-                        $('#exam_date').text(`${latest_course_reg[0].batch.exam_start_date} to ${latest_course_reg[0].batch.exam_end_date}`);
+                        $('#exam_date').text(`${formatDate(latest_course_reg[0].batch.exam_start_date)} to ${formatDate(latest_course_reg[0].batch.exam_end_date)}`);
                     }else{
                         $('#exam_date').text("မရှိသေးပါ")
                     }
