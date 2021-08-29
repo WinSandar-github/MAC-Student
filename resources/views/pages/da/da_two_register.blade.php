@@ -39,11 +39,11 @@
     </div>
     <div class="section section-padding">
         <div class="container">
-                <div class="status-reject" style="display:none">
+                <!-- <div class="status-reject" style="display:none">
                     <div class="card text-white bg-dark my-3">
                         
                         <div class="card-body">
-                            <!-- status == 2 => reject -->
+                            status == 2 => reject
                             <p class="card-text reject">Your DA 2 Registration Form need to prepare.Please update your form  
                              </p>
                         </div>
@@ -73,7 +73,7 @@
                         
                         </div>
                     </div>
-                </div>
+                </div> -->
                     
                 <div class="comment-form study" style="display:none;">
                     <input type="hidden" name="form_type" id="form_type">
@@ -81,7 +81,7 @@
                         <div class="">
                             
                             <div class="row">
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="card text-center border-success text-success" onclick="selectedRegistration(3)" id="mac_card">
                                         <div class="card-body">
                                             <label  name="register_name"> Registration Mac</label>
@@ -101,7 +101,7 @@
                                             <label  name="register_name"> Registration Private School</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 
                             </div><br/>
                                 <div class="row" id="self_study_container">
@@ -110,7 +110,13 @@
                                         <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
 
                                         <div class="card border-success mb-3">
+                                        <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
+                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                       
                                             <div class="card-body">
+                                            
+                                                <br/>
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-4 single-form">
@@ -135,6 +141,7 @@
                                                             </div>
                                                         </div>  
                                                     </div><br/> --}}
+                                                  
                                                     <div class="row ">
                                                         
                                                         <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
@@ -145,19 +152,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row ">
-                                                        
-                                                        <div class="col-md-1 col-form-label">{{ __('၂။') }}</div>
-                                                        <div class="col-md-5 col-form-label">တက်ရောက်မယ် သင်တန်းအမှတ်စဥ်</div>
-                                                        <div class="col-md-5">
-                                                            <div class="single-form">
-                                                                <input type="text" class="form-control" readonly value="{{$batch['name']}}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="row mb-3">
                                                         
-                                                        <div class="col-md-1 col-form-label">{{ __('၃။') }}</div>
+                                                        <div class="col-md-1 col-form-label">{{ __('၂။') }}</div>
                                                         <div class="col-md-5 col-form-label">တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
@@ -233,7 +230,7 @@
                                                     <div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
-                                                                <label class="col-form-label">{{ __('၄။') }}</label>
+                                                                <label class="col-form-label">{{ __('၃။') }}</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -248,7 +245,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                                         <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
                                                         <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                     </div><br/>
@@ -288,6 +285,9 @@
 
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
+                                            <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                            <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> (ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5>
+                                                <br/>
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-4 single-form">
@@ -399,6 +399,9 @@
                                     <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                         <div class="card border-success mb-3">
                                             <div class="card-body">
+                                            <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                            <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                        
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-4 single-form">
@@ -535,14 +538,14 @@
                 </div> 
 
                  <!-- Exam Feedback Text -->
-                 <div class="exam_feedback" style="display:none; margin-left: 7%; margin-right: 7%;">
+                 <!-- <div class="exam_feedback" style="display:none; margin-left: 7%; margin-right: 7%;">
                     <div class="card text-white bg-primary my-3">
                         
                         <div class="card-body exam_text">
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
         </div><br/></br/> 
     </div>
 </div>
@@ -559,6 +562,15 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+    $('document').ready(function(){
+        const queryString = location.search;
+        const urlParams = new URLSearchParams(queryString);
+        
+
+
+        selectedRegistration(urlParams.get("study_type"))
+        
+    })
   
     loadCourse();
     reg_feedback();

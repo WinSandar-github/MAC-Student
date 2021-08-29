@@ -83,10 +83,11 @@ function createDARegister()
                 EasyLoading.hide();
                 successMessage(result);
              }
-      },
-      error:function (message){
-        errorMessage(message);
-          }
+        },
+        error:function (message){
+            EasyLoading.hide();
+            errorMessage(message);
+            }
         // },
         // error:function (message){
         //   // console.log(message)
