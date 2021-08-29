@@ -77,9 +77,9 @@
                     <input type="hidden" name="form_type" id="form_type">
                     <div class="form-wrapper">
                         <div class="">
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-4">
-                                    <div class="card text-center border-success text-success" onclick="selectedRegistration(3)" id="mac_card">
+                                    <div disabled class="card text-center border-success text-success" onclick="selectedRegistration(3)" id="mac_card">
                                         <div class="card-body">
                                             <label  name="register_name"> Registration Mac</label>
                                         </div>
@@ -100,13 +100,16 @@
                                     </div>
                                 </div>
                                                              
-                            </div><br/>
+                            </div><br/> -->
 
                             <div class="row" id="mac_container">
                                 <form method="post" action="javascript:createMac();" enctype="multipart/form-data">
                                     <div class="card border-success mb-3">
+                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                    <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
                                         <div class="card-body">
                                             <div class="col-md-12">
+                                               
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -206,6 +209,8 @@
                                 <form method="post" action="javascript:createPrivateSchool();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
+                                        <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> (ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5>
                                         <div class="card-body">
                                             <div class="col-md-12">
                                                 <div class="row">
@@ -287,8 +292,13 @@
                                 <form id="self_study_form" method="post" action="javascript:createSelfStudy();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
+                                        <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
+                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                       
                                         <div class="card-body">
                                             <div class="col-md-12">
+                                           
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -491,9 +501,19 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+    $('document').ready(function(){
+        const queryString = location.search;
+        const urlParams = new URLSearchParams(queryString);
+        
+
+
+        selectedRegistration(urlParams.get("study_type"))
+        
+    })
     loadCourse();
     loadExam();
     reg_feedback();
+   
     $("input[name='mac_date']").flatpickr({
         enableTime: false,
         dateFormat: "d-m-Y",

@@ -69,10 +69,15 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
+                        
                         <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+
+                                <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
+                                <br/>
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>

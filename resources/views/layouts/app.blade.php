@@ -62,6 +62,16 @@
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dataTables/dataTables.bootstrap5.min.css') }}">
 
+    <style>
+     
+      .dropdown:hover .dropdown-menu{
+        display: block;
+    }
+    .dropdown-menu{
+        margin-top: 0;
+    }
+</style>
+
 </head>
 <body>
 
@@ -147,10 +157,10 @@
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
     <script src="{{ asset('assets/js/common.js') }}"></script>
     <script src="{{ asset('assets/js/exam_register.js') }}"></script>
+    <script src="{{ asset('assets/js/da_register.js') }}"></script>
     <script src="{{ asset('assets/js/user_profile.js') }}"></script>
 
     <!-- <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script> -->
-    <script src="{{ asset('assets/js/da_register.js') }}"></script>
     <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script>
     <script src="{{ asset('assets/js/mentor_mac.js') }}"></script>
 
