@@ -217,3 +217,30 @@ function addRowTeacherBio(tbody){
   });
   counter++;
 }
+
+function loadSchoolList(){
+    var select = document.getElementById("selected_school_id");
+    $.ajax({
+        url: BACKEND_URL+"/school",
+        type: 'get',
+        data:"",
+        success: function(data){
+
+            var school_data=data.data;
+            console.log('school_data',school_data)
+            school_data.forEach(function (element) {
+                console.log('element',element)
+                var option = document.createElement('option');
+                option.text = element.name_mm+"/"+element.name_eng;
+                option.value = element.id;
+                select.add(option, 1);
+
+
+            });
+        },
+        error:function (message){
+
+        }
+
+    });
+}

@@ -133,43 +133,50 @@
                                         <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
-                                                <div class="row" id="is_private_school" style="display=none;">
-                                                    <div class="col-md-1 col-form-label" id="da2_label1">{{ _('၁။') }}</div>
-                                                    <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
-                                                    <div class="col-md-7 single-form">
-                                                        <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="" >
-                                                    </div>
-                                                </div><br/>
+                                                <div id="is_private_school" style="display=none;">
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label" id="da2_label1">{{ _('၁။') }}</label>
+                                                        <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">                                
+                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
+                                                                    <option value="" disabled selected>Select School</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div><br/>
+                                                </div>
+                                                
 
-                                                <div class="row">
+                                                {{--<div class="row">
                                                     <div class="col-md-1 col-form-label"  id="da2_label2">{{ _('၂။') }}</div>
                                                     <label class="col-md-4 col-form-label">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}</label>
-                                                </div><br/>
+                                                </div><br/>--}}
 
-                                                <div class="row">
-                                                    <div class="col-md-1 col-form-label">{{ _('') }}</div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-1 col-form-label" id="da2_label2">{{ _('၂။') }}</div>
                                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                                    <label class="col-md-3 col-form-label">{{ __('နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ') }}</label>
-                                                    <div class="col-md-7 single-form">
-                                                        <input type="text" placeholder="mmm/yyyy" name="last_exam_date" class="form-control" value="" required="">
+                                                    <label class="col-md-4 col-form-label">{{ __('နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ') }}</label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="last_exam_date" class="form-control" value="" required="">
                                                     </div>
                                                 </div><br/>
 
                                                 <div class="row">
                                                     <div class="col-md-1 col-form-label">{{ _('') }}</div>
                                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                                    <label class="col-md-3 col-form-label">{{ __('ယခုဖြေဆိုမည့် Module') }}</label>
-                                                    <div class="col-md-7">
+                                                    <label class="col-md-4 col-form-label">{{ __('ယခုဖြေဆိုမည့် Module') }}</label>
+                                                    <div class="col-md-6">
                                                         <div class="row">
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-4">
                                                                 <input type="radio" id="0" name="is_full_module" value="0">
                                                                 <label for="0">Module 1</label>
                                                             </div>
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-4">
                                                                 <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
                                                                 <label for="1">Module 2</label>
                                                             </div>
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-4">
                                                                 <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
                                                                 <label for="2">All Modules</label>
                                                             </div>
@@ -228,6 +235,8 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+    loadSchoolList();
+
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='last_exam_date']").flatpickr({
@@ -253,5 +262,7 @@
                 document.getElementById('da2_label2').innerHTML="၁။";}
         }
     });
+
+
 </script>
 @endpush

@@ -1,8 +1,8 @@
-// var FRONTEND_URL="http://localhost:8001";
+// var FRONTEND_URL="http://localhost:8080";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL="http://localhost:8000/api";
 
-var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+ var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
 var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
@@ -279,7 +279,7 @@ function addRowDirectorByNonAudit(tbody){
     cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required></td>';
-    cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>';
+    // cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);

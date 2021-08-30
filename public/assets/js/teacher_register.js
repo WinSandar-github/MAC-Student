@@ -145,7 +145,7 @@ function teacher_reg_feedback(){
         url: BACKEND_URL+"/getTeacherStatus/"+student.id,
         type: 'GET',
         success: function(data){
-            // console.log(data);
+             //console.log(data);
           var form_data = data;
           form_data.forEach(function(element){
             // console.log(element.approve_reject_status);
@@ -155,7 +155,9 @@ function teacher_reg_feedback(){
                     $('#teacher_form').css('display','none');
 
                 }else if(element.approve_reject_status == 1){
-                    $('#teacher_approve').css('display','block');
+                    loadRenewTeacher(localStorage.getItem("teacher_id"));
+                    $('#teacher_renew').css('display','block');
+                    $('#teacher_approve').css('display','none');
                     $('#teacher_form').css('display','none');
                     $('#teacher_pending').css('display','none');
                 }
@@ -164,5 +166,53 @@ function teacher_reg_feedback(){
                 }
           })
         }
+    });
+}
+function loadRenewTeacher(id){
+  $.ajax({
+    type : 'GET',
+    url : BACKEND_URL+"/teacher/"+id,
+    success: function (result) {
+        var teacher=result.data;
+        var today=new Date();
+        var current_date=today.getFullYear()+'-'+String(today.getMonth() + 1).padStart(2, '0')+'-'+String(today.getDate()).padStart(2, '0');
+        var renew=new Date(teacher.renew_date);
+        var renew_date=renew.getFullYear()+1+"-"+String(renew.getMonth() + 1).padStart(2, '0')+"-"+String(renew.getDate()).padStart(2, '0');
+        $('#regno').val(teacher.id);
+        $('#register_date').val(teacher.renew_date);
+        if(current_date>=renew_date){
+          $('#message').val("Your registeration is expired! You need to submit new registeration form again.");
+          $('.renew_submit').prop('disabled', false);
+        }else if(String(renew.getMonth() + 1).padStart(2, '0')=='10' || String(renew.getMonth() + 1).padStart(2, '0')=='11' || String(renew.getMonth() + 1).padStart(2, '0')=='12'){
+          $('#message').val("Your registeration will start in next year!");
+          $('.renew_submit').prop('disabled', true);
+        }else{
+          $('#message').val("You are verified!");
+          $('.renew_submit').prop('disabled', true);
+        }
+    },
+    error: function (result) {
+    },
+});
+}
+function renewTeacher(){
+  var send_data=new FormData();
+  var id=localStorage.getItem("teacher_id");
+  send_data.append('_method', 'PATCH');
+  show_loader()
+    $.ajax({
+        url: BACKEND_URL+'/teacher/'+id,
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+            
+        },
+        error: function (result) {
+        },
     });
 }

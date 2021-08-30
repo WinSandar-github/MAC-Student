@@ -93,62 +93,58 @@
                     <div id="school_form" class="card border-success mb-3">
                         <div class="card-body">
                             <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
-                                <div class="row">
+                                {{--<div class="row">
                                   <label class="col-md-1 col-form-label"></label>
                                   <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏အချက်အလက်များ') }}</label>
 
-                                </div>
+                                </div>--}}
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('အီးမေးလ်') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('အီးမေးလ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control" autocomplete='off' required>
+                                            <input type="email" name="email" class="form-control" autocomplete='off' required placeholder="အီးမေးလ်လိပ်စာထည့်ပါ။">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက်') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" autocomplete='off' required>
+                                            <input type="password" name="password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('စကားဝှက် အတည်ပြုခြင်း') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ် အတည်ပြုခြင်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="password" name="confirm_password" class="form-control" autocomplete='off' required>
+                                            <input type="password" name="confirm_password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                  <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                  <label class="col-md-2 col-form-label">{{ __('အမည်(မြန်မာ)') }}</label>
-                                  <div class="col-md-8">
-                                      <div class="form-group">
-                                          <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' required>
-                                      </div>
-                                  </div>
-                                </div>
 
                                 <div class="row">
-                                  <label class="col-md-1 col-form-label"></label>
-                                  <label class="col-md-2 col-form-label">{{ __('အမည်(အင်္ဂလိပ်)') }}</label>
-                                  <div class="col-md-8">
+                                  <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                  <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                  <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" name="name_eng" class="form-control" autocomplete='off' required>
+                                          <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' placeholder="အမည်(မြန်မာ)" required>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input type="text" name="name_eng" class="form-control" placeholder="အမည်(အင်္ဂလိပ်)" autocomplete='off' required>
                                       </div>
                                   </div>
                                 </div>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="row">
                                           <div class="col-md-2 col-5 pr-1">
@@ -179,29 +175,39 @@
                                               </select>
                                           </div>
                                           <div class="col-md-5 col-7 pl-1">
-                                              <input type="text" name="nrc_number" id="nrc_number" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" required>
+                                              <input type="text" name="nrc_number" id="nrc_number" placeholder="ဥပမာ။ ။၁၂၃၄၅၆" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" required>
                                           </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                    <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                    <div class="col-md-8">
+                                        <input type="file" name="nrc_front" class="form-control">
+                                    </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                    <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                    <div class="col-md-8">
+                                        <input type="file" name="nrc_back" class="form-control">
+                                    </div>
+                                </div><br>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('အဘအမည်(မြန်မာ)') }}</label>
-                                    <div class="col-md-8">
+                                    <label class="col-md-3 col-form-label">{{ __('အဘအမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" autocomplete='off' required>
+                                            <input type="text" name="father_name_mm" id="father_name_mm" placeholder="အဘအမည်(မြန်မာ)" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label"></label>
-                                    <label class="col-md-2 col-form-label">{{ __('အဘအမည်(အင်္ဂလိပ်)') }}</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" name="father_name_eng" class="form-control" autocomplete='off' required>
+                                            <input type="text" name="father_name_eng" class="form-control" placeholder="အဘအမည်(အင်္ဂလိပ်)" autocomplete='off' required>
                                         </div>
                                     </div>
 
@@ -209,20 +215,20 @@
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('မွေးသဣရာဇ်') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('မွေးသက္ကရာဇ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy" class="form-control" autocomplete='off' required>
+                                            <input type="text" id="dob" name="dob" placeholder="ရက်၊လ၊နှစ် (DD-MMM-YYYY)" class="form-control" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="degree" class="form-control" autocomplete='off' required>
+                                            <input type="text" name="degree" class="form-control" placeholder="ပညာအရည်အချင်း" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
@@ -270,7 +276,7 @@
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                     <label class="col-md-6 col-form-label">{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}</label>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="mb-3 col-auto">
                                             <input type="file" id="attachment" name="attachment" class="form-control" accept="application/pdf"  required />
                                         </div>
@@ -279,7 +285,7 @@
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <textarea type="text" name="address" style="resize:none;" class="form-control" autocomplete='off' required></textarea>
@@ -289,10 +295,10 @@
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
-                                    <label class="col-md-2 col-form-label">{{ __('ဖုန်းနံပါတ်') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" name="phone" class="form-control" autocomplete='off' required>
+                                            <input type="text" name="phone" class="form-control" placeholder="ဖုန်းနံပါတ်" autocomplete='off' required>
                                         </div>
                                     </div>
                                 </div>
