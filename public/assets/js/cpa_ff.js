@@ -108,7 +108,7 @@ function AddCPAFFDegree(){
 
         $('input[name="degree_pass_year'+count+'"]').flatpickr({
             enableTime: false,
-            dateFormat: "d-M-Y",
+            dateFormat: "M-Y",
             allowInput: true,
     });
     count++;
