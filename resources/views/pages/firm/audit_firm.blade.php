@@ -163,59 +163,39 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="card border-success mb-3" style="padding:3%;">
+                                    <div class="card border-success mb-3 p-3">
                                         <div class="card-body">
                                             <div class="row">
-                                              <table width="100%">
-                                                  <tr>
-                                                      <td width="5%">1</td>
-                                                      <td width="15%"><label class="col-form-label">Email</label>
-                                                      </td>
-                                                      <td width="80%">
-                                                          <div>
-                                                              <input type="email" placeholder="email" name="email" class="form-control" value="{{ old('email') }}" required="">
-                                                          </div>
-                                                      </td>
-                                                  </tr>
-                                              </table>
-                                            </div>
-                                            <br>
+                                                <label for="" class="col-md-1 col-form-label">1.</label>
+                                                <label for="" class="col-md-3 col-form-label">Email</label>
+                                                <div class="col-md-8">
+                                                    <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                </div>                                              
+                                            </div><br>
+                                            
                                             <div class="row">
-                                              <table width="100%">
-                                                  <tr>
-                                                      <td width="5%">2</td>
-                                                      <td width="15%"><label class="col-form-label">Password</label>
-                                                      </td>
-                                                      <td width="80%">
-                                                          <div>
-                                                              <input type="password" placeholder="Password" name="password" class="form-control" value="{{ old('password') }}" required="">
-                                                          </div>
-                                                      </td>
-                                                  </tr>
-                                              </table>
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                              <table width="100%">
-                                                  <tr>
-                                                      <td width="5%">3</td>
-                                                      <td width="15%"><label class="col-form-label">Confirm Password</label>
-                                                      </td>
-                                                      <td width="80%">
-                                                          <div>
-                                                              <input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control"  required="">
-                                                          </div>
-                                                      </td>
-                                                  </tr>
-                                              </table>
-                                            </div>
-                                            <br>
+                                                <label for="" class="col-md-1 col-form-label">2.</label>
+                                                <label for="" class="col-md-3 col-form-label">Password</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                </div>
+                                                
+                                            </div><br>
 
                                             <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">3.</label>
+                                                <label for="" class="col-md-3 col-form-label">Confirm Password</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
+                                                </div>                                                
+                                            </div><br>
+                                            
+
+                                            {{--<div class="row">
                                                 <input type="hidden" value="1" name="audit_firm_type_id">
                                                 <table width="100%">
                                                     <tr>
-                                                        <td width="5%"><label>4</label></td>
+                                                        <td width="5%"><label>4.</label></td>
                                                         <td width="15%"><label>Accountancy Firm Registration Number</label></td>
                                                         <td width="80%">
                                                             <div>
@@ -224,170 +204,135 @@
                                                         </td>
                                                     </tr>
                                                 </table>
-                                            </div>
-                                            <br>
+                                            </div>--}}
+                                            
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label>5</label></td>
-                                                        <td width="15%"><label>Accountancy Firm Name</label></td>
-                                                        <td width="80%">
-                                                            <div>
-                                                                <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Accountancy Firm Name" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <label for="" class="col-md-1 col-form-label">4.</label>
+                                                <label for="" class="col-md-3 col-form-label">Accountancy Firm Name</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Accountancy Firm Name!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
+                                                </div>
                                                     @error('name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @enderror
-                                                </table>
+                                                    @enderror                                                
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label>6</label></td>
-                                                        <td width="15%"><label>Address Of Practice(Head Office</label></td>
-                                                        <td width="20%">
-                                                            <div>
-                                                                <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                        <td width="20%">
-                                                            <div>
-                                                                <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                        <td width="20%">
-                                                            <div>
-                                                                <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                        <td width="20%">
-                                                            <div>
-                                                                <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <label for="" class="col-md-1 col-form-label">5.</label>
+                                                <label for="" class="col-md-3 col-form-label">Address Of Practice(Head Office)</label>
+                                                <div class="col-md-2">
+                                                    <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" required="">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" required="">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
+                                                </div>                                                
+                                            </div><br>
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-form-label"></div>
+                                                <div class="col-md-2">
+                                                    <input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" required="">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
+                                                </div>
+                                            </div><br>
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">6.</label>
+                                                <label for="" class="col-md-11 col-form-label">Branch Office</label>
                                             </div>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="20%">
-                                                        </td>
-                                                        <td width="25%">
-                                                            <div>
-                                                                <input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                        <td width="30%">
-                                                            <div>
-                                                                <input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                        <td width="30%">
-                                                            <div>
-                                                                <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <div class="col-md-1 col-form-label"></div>
+                                                <div class="col-md-11 col-form-label">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table class="table branch table-bordered input-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="less-font-weight">Name</th>
+                                                                        <th class="less-font-weight">Township</th>
+                                                                        <th class="less-font-weight">Post Code</th>
+                                                                        <th class="less-font-weight">City</th>
+                                                                        <th class="less-font-weight">State/Region</th>
+                                                                        <th class="less-font-weight">Telephone</th>
+                                                                        <th class="less-font-weight">Email</th>
+                                                                        <th class="less-font-weight">Website</th>
+                                                                        <th >
+
+                                                                            <button class="btn btn-primary btn-sm" type="button" onclick='addRowBranch("branch")'>
+                                                                                <i class="fa fa-plus"></i>
+                                                                            </button>
+                                                                        </th>
+                                                                    </tr>
+                                                                <thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td>
+                                                                            <input type="text" name="bo_phone[]" class="form-control" autocomplete="off" required>
+                                                                        </td>
+                                                                        {{--<td>
+                                                                            <button class="btn btn-primary btn-sm" type="button" onclick='addInputTele("branch")'>
+                                                                                <i class="fa fa-plus"></i>
+                                                                            </button>
+
+                                                                        </td>--}}
+                                                                        <td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td>
+                                                                            <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch")'><i class="fa fa-trash"></i></button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label>7</label></td>
-                                                        <td width="15%"><label>Branch Office</label></td>
-                                                        <td width="80%">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <table class="table branch table-bordered input-table">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="less-font-weight">Name</th>
-                                                                                <th class="less-font-weight">Township</th>
-                                                                                <th class="less-font-weight">Post Code</th>
-                                                                                <th class="less-font-weight">City</th>
-                                                                                <th class="less-font-weight">State</th>
-                                                                                <th class="less-font-weight">Telephone</th>
-                                                                                <th class="less-font-weight">Email</th>
-                                                                                <th class="less-font-weight">Website</th>
-                                                                                <th >
-
-                                                                                    <button class="btn btn-primary btn-sm" type="button" onclick='addRowBranch("branch")'>
-                                                                                        <i class="fa fa-plus"></i>
-                                                                                    </button>
-                                                                                </th>
-                                                                            </tr>
-                                                                        <thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td>
-                                                                                    <input type="text" name="bo_phone[]" class="form-control" autocomplete="off" required>
-                                                                                </td>
-                                                                                {{--<td>
-                                                                                    <button class="btn btn-primary btn-sm" type="button" onclick='addInputTele("branch")'>
-                                                                                        <i class="fa fa-plus"></i>
-                                                                                    </button>
-
-                                                                                </td>--}}
-                                                                                <td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td>
-                                                                                  <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch")'><i class="fa fa-trash"></i></button>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>
-
-                                            <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td style="width:5%;"><label>8</label></td>
-                                                        <td><label>Organization Structure</label></td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>
-                                            <div class='row organization_data'>
-
-                                            </div><br/>
-
+                                                <label for="" class="col-md-1 col-form-label">7.</label>
+                                                <label for="" class="col-md-11 col-form-label">Organization Structure</label>
+                                            </div>
                                             <div class="row">
                       		                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                      		                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                      												<div class="col-md-8" id="audit_org_validate" style="display:none;">
-                      														<label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
-                      												</div>
-                      		                  </div><br/>
+                      		                    <!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
+                                                <div class="col-md-8" id="audit_org_validate" style="display:none;">
+                                                        <label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
+                                                </div>
+                      		                </div><br>
+
+                                            <div class='row organization_data'></div><br/>                                           
 
                                             <div id="sole-proprietorship">
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
-                                                        <div class="col-md-10">
+                                                        <div class="col-md-11">
                                                             <div class="card" id="audit_sole_proprietorship">
                                                                 <div class="card-body">
                                                                     <div class="row">
-                                                                        <label class="col-md-12 col-form-label"><b>For Sole Proprietorship</b></label>
+                                                                        <label class="col-md-12 col-form-label"><b> For Sole Proprietorship</b></label>
                                                                     </div>
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(a)Copy of Public Practice Accountant Certificate</label>
+                                                                            <label class="form-label">(a) Copy of Public Practice Accountant Certificate</label>
 
                                                                         </div>
                                                                     </div>
@@ -409,7 +354,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(b)Copy of stationery/letterhead to be used in signing of auditor's report</label>
+                                                                            <label class="form-label">(b) Copy of stationery/letterhead to be used in signing of auditor's report</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="controls2">
@@ -429,7 +374,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(c)Copy of Tax clearance from Internal Revenue Department</label>
+                                                                            <label class="form-label">(c) Copy of Tax clearance from Internal Revenue Department</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="controls3">
@@ -447,9 +392,9 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="row mb-3">
+                                                                    {{--<div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(d)Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
+                                                                            <label class="form-label">(d) Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="controls4">
@@ -465,7 +410,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div>--}}
 
 
                                                                 </div>
@@ -477,16 +422,16 @@
                                             <div id="partnership">
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
-                                                        <div class="col-md-10">
+                                                        <div class="col-md-11">
                                                             <div class="card" id="audit_partnership">
                                                                 <div class="card-body">
                                                                     <div class="row">
-                                                                        <label class="col-md-12 col-form-label"><b>For Partnership</b></label>
+                                                                        <label class="col-md-12 col-form-label"><b> For Partnership</b></label>
                                                                     </div>
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(a)Copy of Public Practice Accountant Certificate all partners</label>
+                                                                            <label class="form-label">(a) Copy of Public Practice Accountant Certificate all partners</label>
 
                                                                         </div>
                                                                     </div>
@@ -508,7 +453,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(b)Copy of Certificate or Registration, if any</label>
+                                                                            <label class="form-label">(b) Copy of Certificate or Registration, if any</label>
 
                                                                         </div>
                                                                     </div>
@@ -530,7 +475,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(c)Copy of signed Partnership Deeds/ Memorandum of Agreement</label>
+                                                                            <label class="form-label">(c) Copy of signed Partnership Deeds/ Memorandum of Agreement</label>
 
                                                                         </div>
                                                                     </div>
@@ -552,7 +497,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(d)Copy of stationery/letterhead to be used in signing of auditor's report</label>
+                                                                            <label class="form-label">(d) Copy of stationery/letterhead to be used in signing of auditor's report</label>
 
                                                                         </div>
                                                                     </div>
@@ -574,7 +519,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(e)Copy of Tax clearance from Internal Revenue Department</label>
+                                                                            <label class="form-label">(e) Copy of Tax clearance from Internal Revenue Department</label>
 
                                                                         </div>
                                                                     </div>
@@ -594,7 +539,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="row mb-3">
+                                                                    {{--<div class="row mb-3">
                                                                         <div class="form-group">
                                                                             <label class="form-label">(f)Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
 
@@ -614,9 +559,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-
-
+                                                                    </div>--}}
 
                                                                 </div>
                                                             </div>
@@ -631,12 +574,12 @@
                                                             <div class="card" id="audit_company">
                                                                 <div class="card-body">
                                                                     <div class="row">
-                                                                        <label class="col-md-12 col-form-label"><b>For Company Incorporated</b></label>
+                                                                        <label class="col-md-12 col-form-label"><b> For Company Incorporated</b></label>
                                                                     </div>
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(a)Copy of Public Practice Accountant Certificate all shareholders</label>
+                                                                            <label class="form-label">(a) Copy of Public Practice Accountant Certificate all shareholders</label>
 
                                                                         </div>
                                                                     </div>
@@ -659,7 +602,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(b)Copy of Certificate of Incorporation</label>
+                                                                            <label class="form-label">(b) Copy of Certificate of Incorporation</label>
 
                                                                         </div>
                                                                     </div>
@@ -681,7 +624,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(c)Copy of signed Memorandum of Associations and Articles of Associations or constitution</label>
+                                                                            <label class="form-label">(c) Copy of signed Memorandum of Associations and Articles of Associations or constitution</label>
 
                                                                         </div>
                                                                     </div>
@@ -701,7 +644,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="row mb-3">
+                                                                    {{--<div class="row mb-3">
                                                                         <div class="form-group">
                                                                             <label class="form-label">(d)Copy of Form 6, Form 26 and Form E</label>
 
@@ -721,9 +664,9 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div>--}}
 
-                                                                    <div class="row mb-3">
+                                                                    {{--<div class="row mb-3">
                                                                         <div class="form-group">
                                                                             <label class="form-label">(e)Copy of Form A1 and/or Additional Form</label>
 
@@ -743,11 +686,11 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div>--}}
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(f)Copy of commercial tax registration certificate</label>
+                                                                            <label class="form-label">(d) Copy of commercial tax registration certificate</label>
 
                                                                         </div>
                                                                     </div>
@@ -769,7 +712,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(g)Copy of stationery/letterhead to be used in signing of auditor's report</label>
+                                                                            <label class="form-label">(e) Copy of stationery/letterhead to be used in signing of auditor's report</label>
 
                                                                         </div>
                                                                     </div>
@@ -791,7 +734,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(h)Copy of Tax clearance from Internal Revenue Department</label>
+                                                                            <label class="form-label">(f) Copy of Tax clearance from Internal Revenue Department</label>
 
                                                                         </div>
                                                                     </div>
@@ -811,7 +754,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="row mb-3">
+                                                                    {{--<div class="row mb-3">
                                                                         <div class="form-group">
                                                                             <label class="form-label">(i)Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
 
@@ -831,7 +774,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div>--}}
 
 
                                                                 </div>
@@ -841,12 +784,8 @@
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td style="width:5%"><label>9</label></td>
-                                                        <td><label>Sole Proprietor/Partners/Shareholders</label></td>
-                                                    </tr>
-                                                </table>
+                                                <label for="" class="col-md-1 col-form-label">8.</label>
+                                                <label for="" class="col-md-11 col-form-label">Sole Proprietor/Partners/Shareholders</label>
                                             </div><br>
 
                                             <div class="row">
@@ -898,164 +837,146 @@
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td style="width:5%;"><label>10</label></td>
-                                                        <td><label>Director(s)/Officer(s)</label></td>
-                                                    </tr>
-                                                </table>
+                                                <label for="" class="col-md-1 col-form-label">9.</label>
+                                                <label for="" class="col-md-11 col-form-label">Director(s)/Officer(s)</label>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                    <td width="20%"></td>
-                                                    <td width="80%">
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <table id="myTable" class="table director table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="less-font-weight">Sr</th>
-                                                                            <th class="less-font-weight">Name</th>
-                                                                            <th class="less-font-weight">Position</th>
-                                                                            <th class="less-font-weight" >CPA Reg.No/Qualification</th>
-                                                                            <th class="less-font-weight" >Public Private Reg.No</th>
-                                                                            <th class="less-font-weight" style="text-align: right;">
+                                                <div class="col-md-1 col-form-label"></div>
+                                                <div class="col-md-11 col-form-label">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table id="myTable" class="table director table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="less-font-weight">Sr</th>
+                                                                        <th class="less-font-weight">Name</th>
+                                                                        <th class="less-font-weight">Position</th>
+                                                                        <th class="less-font-weight" >CPA Reg.No/Qualification</th>
+                                                                        <th class="less-font-weight" >Public Practice Reg.No</th>
+                                                                        <th class="less-font-weight" style="text-align: right;">
 
-                                                                                <button class="btn btn-primary btn-sm" type="button" onclick='addRowDirector("director")'>
-                                                                                    <i class="fa fa-plus"></i>
-                                                                                </button>
-                                                                            </th>
-                                                                        </tr>
+                                                                            <button class="btn btn-primary btn-sm" type="button" onclick='addRowDirector("director")'>
+                                                                                <i class="fa fa-plus"></i>
+                                                                            </button>
+                                                                        </th>
+                                                                    </tr>
 
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td><input type="text" value="" name="do_name[]" class="form-control" autocomplete="off" required></td>
-                                                                            <td><input type="text" value="" name="do_position[]" class="form-control" autocomplete="off" required></td>
-                                                                            <td><input type="text" value="" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" required></td>
-                                                                            <td><input type="text" value="" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" required></td>
-                                                                            <td>
-                          																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirector("director")'><i class="fa fa-trash"></i></button>
-                          																									</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td><input type="text" value="" name="do_name[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" value="" name="do_position[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" value="" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td><input type="text" value="" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" required></td>
+                                                                        <td>
+                                                                                                                            <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirector("director")'><i class="fa fa-trash"></i></button>
+                                                                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                                </table>
+                                                    </div>
+                                                </div>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label>11</label></td>
-                                                        <td width="15%"><label>Name Of Sole Proprietor/Managing Partner</label></td>
-                                                        <td width="80%">
-                                                            <div>
-                                                                <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <label for="" class="col-md-1 col-form-label">10.</label>
+                                                <label for="" class="col-md-3 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" required="">
+                                                </div>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td style="width:5%;"><label>12</label></td>
-                                                        <td><label>Total Staff</label></td>
-                                                    </tr>
-                                                </table>
+                                                <label for="" class="col-md-1 col-form-label">11.</label>
+                                                <label for="" class="col-md-2 col-form-label">Total Staff</label>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="20%"></td>
-                                                        <td width="80%">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <table id="tbl_audit_total_staff" class="table text-nowrap">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="less-font-weight" ></th>
-                                                                                <th class="less-font-weight">Total</th>
-                                                                                <th class="less-font-weight">Audit Staff</th>
-                                                                                <th class="less-font-weight">Non-Audit Staff</th>
+                                                <div class="col-md-1 col-form-label"></div>
+                                                <div class="col-md-11 col-form-label">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table id="tbl_audit_total_staff" class="table text-nowrap">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="less-font-weight" ></th>
+                                                                        
+                                                                        <th class="less-font-weight">Audit Staff</th>
+                                                                        <th class="less-font-weight">Non-Audit Staff</th>
+                                                                        <th class="less-font-weight">Total</th>
 
-                                                                            </tr>
+                                                                    </tr>                                                                    
 
-                                                                        </thead>
-                                                                        <tbody id="tbl_audit_total_staff_body">
+                                                                </thead>
+                                                                <tbody id="tbl_audit_total_staff_body">                                                                    
 
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                                </tbody>
+                                                                <tfoot id="tbl_audit_total_staff_foot">
+                                                                    <tr>
+                                                                        <td>Total</td>
+                                                                        <td><input  type='number' disabled value='0' name='total_staff[]' class='form-control' id="total_audit"  ></td>
+                                                                        <td><input  type='number' disabled value='0' name='total_audit_staff[]' class='form-control' id="total_non_audit"></td>
+                                                                        <td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_staff"></td>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td style="width:5%;"><label>13</label></td>
-                                                        <td><label>Audit Staff</label></td>
-                                                    </tr>
-                                                </table>
+                                                <label for="" class="col-md-1 col-form-label">12.</label>
+                                                <label for="" class="col-md-2 col-form-label">Audit Staff</label>
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="20%"></td>
-                                                        <td width="80%">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <table id="tbl_audit_staff" class="table text-nowrap">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="less-font-weight" ></th>
-                                                                                <th class="less-font-weight">Total</th>
-                                                                                <th class="less-font-weight" >Full Time</th>
-                                                                                <th class="less-font-weight" >Part Time</th>
+                                                <div class="col-md-1 col-form-label"></div>
+                                                <div class="col-md-11 col-form-label">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table id="tbl_audit_staff" class="table text-nowrap">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="less-font-weight" ></th>                                                                        
+                                                                        <th class="less-font-weight" >Full Time</th>
+                                                                        <th class="less-font-weight" >Part Time</th>
+                                                                        <th class="less-font-weight">Total Time</th>
 
-                                                                            </tr>
+                                                                    </tr>
 
-                                                                        </thead>
-                                                                        <tbody id="tbl_audit_staff_body">
+                                                                </thead>
+                                                                <tbody id="tbl_audit_staff_body">
 
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                                </tbody>
+                                                                <tfoot id="tbl_audit_staff_foot">
+                                                                    <tr>
+                                                                        <td>Total</td>
+                                                                        <td><input  disabled type='number' value='0' name='total_audit_staff[]' class='form-control' id="total_full_time"></td>
+                                                                        <td><input  disabled type='number' value='0' name='total_full_time[]' class='form-control' id="total_part_time"></td>
+                                                                        <td><input  disabled type='number' value='0' name='total_part_time[]' class='form-control' id="total_time"></td>
+                                                                    </tr>
+                                                                </tfoot>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div><br><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td style="width:5%;"><label>14</label></td>
-                                                        <td style="width:5%;"><label>Types Of Service Provided</label></td>
-                                                        <td><div class="row type_service_provided"></div></td>
-                                                        <td style="width:20%;">
-                                                          <div class="" id="t_s_p_id_validate" style="display:none;" >
-                                  														<label class="text-danger">Type of Service Provided ရွေးချယ်ပါ</label>
-                                  												</div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
+                                                <label for="" class="col-md-1 col-form-label">13.</label>
+                                                <label for="" class="col-md-3 col-form-label">Types Of Service Provided</label>
+                                                <div class="col-md-4"><div class="row type_service_provided mt-1"></div></div>
+                                                <div class="col-md-4 col-form-label text-danger" id="t_s_p_id_validate" style="display:none;" >
+                                                        Type of Service Provided ရွေးချယ်ပါ
+                                                </div>
+                                            </div><br>
 
-                                            <div class="row">
+                                            {{--<div class="row">
                                               <table width="100%">
                                                   <tr>
                                                       <td width="5%">15</td>
@@ -1070,9 +991,9 @@
                                                       </td>
                                                   </tr>
                                               </table>
-                                            </div>
+                                            </div>--}}
 
-                                            <div class="row">
+                                            {{--<div class="row">
                                               <table width="100%">
                                                   <tr>
                                                       <td width="5%">16</td>
@@ -1089,24 +1010,31 @@
                                                       </td>
                                                   </tr>
                                               </table>
-                                            </div>
+                                            </div>--}}                            
 
                                             <div class="row">
-                      												<label class="col-md-1 col-form-label">{{ __('') }}</label>
-                      												<label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
-                      												<label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
-                      												<div class="col-md-2">
-                      													<div class="form-group">
-                      															<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" required>
-                      													</div>
-                      												</div>
-                      												<div class="col-md-6">
-                      													<div class="form-group">
-                      															(sole proprietor/ managing partner) representing all the members of the
-                      													</div>
-                      												</div>
-                      											</div>
-                                            <br>
+                                                <label class="col-md-1 col-form-label">{{ __('14.') }}</label>
+                                                <label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
+                                                <label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                            (sole proprietor/ managing partner) 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row  mb-3">
+                                                <label class="col-md-3 col-form-label">{{ __('') }}</label>								
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                    representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+                                                    </div>
+                                                </div>
+                                            </div><br>
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
@@ -1147,7 +1075,7 @@ $(document).ready(function(){
 			$('#audit_org_validate').css('display','none');
 		}
   });
-
+    
     loadAuditOrganization();
     loadAuditTypeOfService();
     loadAuditTotalStaffReg();
@@ -1157,6 +1085,12 @@ $(document).ready(function(){
     pendingStatus();
     dateQuery();
     verifyStatus();
+<<<<<<< HEAD
+=======
+
+    // getTotalStaff();
+
+>>>>>>> 5a31fe5a8675e2ab76acb2e1b418d654416d81da
     });
 
 </script>
