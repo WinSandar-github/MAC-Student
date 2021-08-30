@@ -17,6 +17,7 @@ else{
 var cpaOneID;
 
 function ConfirmSubmit(){
+    alert("hello")
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;

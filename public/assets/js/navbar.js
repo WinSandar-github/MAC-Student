@@ -6,18 +6,18 @@ $(document).ready(function(){
             navbar +=   `<li>
                             <a href="#">Firm</a>
                             <ul class="sub-menu">
-                                <li><a href="${FRONTEND_URL}/audit_firm">Audit Firm</a></li>
-                                <li><a href="${FRONTEND_URL}/non_audit_firm_register">Non Audit Firm</a></li>
+                                <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
+                                <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                             </ul>
                         </li>`
 
         }else if(student.school_id != null){
-            navbar += `<li><a href="${FRONTEND_URL}/school_register">School</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/school_information">School</a></li>`;
         }else if(student.teacher_id){
-            navbar += `<li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>`;
 
         }else if(student.mentor_id != null){
-            navbar += `<li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>`;
 
         }else{
 
@@ -27,15 +27,14 @@ $(document).ready(function(){
 
                             </ul>
                         </li>
-                        <li><a href="${FRONTEND_URL}/school_register">School</a></li>
-
-                        <li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>
-                        <li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>
+                        <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                        <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
+                        <li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>
                         <li>
                             <a href="#">Membership</a>
                             <ul class="sub-menu">
-                                <li><a href="${FRONTEND_URL}/cpa_ff_register">CPA Full Fleged</a></li>
-                                <li><a href="${FRONTEND_URL}/student_papp">PAPP</a></li>
+                                <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fledged</a></li>
+                                <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
                             </ul>
                         </li>
 
@@ -52,20 +51,20 @@ $(document).ready(function(){
                     <li>
                         <a href="#">Firm</a>
                         <ul class="sub-menu">
-                            <li><a href="${FRONTEND_URL}/audit_firm">Audit Firm</a></li>
-                            <li><a href="${FRONTEND_URL}/non_audit_firm_register">Non Audit Firm</a></li>
+                            <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
+                            <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#">Membership</a>
                         <ul class="sub-menu">
-                            <li><a href="${FRONTEND_URL}/cpa_ff_register">CPA Full Fleged</a></li>
-                            <li><a href="${FRONTEND_URL}/student_papp">PAPP</a></li>
+                            <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fleged</a></li>
+                            <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
                         </ul>
                     </li>
-                    <li><a href="${FRONTEND_URL}/school_register">School</a></li>
-                    <li><a href="${FRONTEND_URL}/teacher_register">Teacher</a></li>
-                    <li><a href="${FRONTEND_URL}/mentor_register">Mentor</a></li>
+                    <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                    <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
+                    <li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>
                      <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
 
     }

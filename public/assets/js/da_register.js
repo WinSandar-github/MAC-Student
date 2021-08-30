@@ -8,6 +8,26 @@ function ConfirmSubmit(){
     }
 }
 
+var count=1;
+function AddDAEdu(){
+    $("#edu").append(        
+
+        '<div class="row mb-4" id="edu'+count+'">'+
+            '<div class="col-md-5"></div>'+            
+            '<div class="col-md-6">'+
+                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate'+count+'" required="">'+
+            '</div>'+
+            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                    '<i class="fa fa-trash "></i>'+
+                '</button>'+
+            '</div>'+
+        '</div>');
+        
+    count++;
+
+}
+
 
 function createDARegister()
 {
@@ -19,7 +39,7 @@ function createDARegister()
     var send_data = new FormData();
 
     var image = $('#image')[0].files[0];
-    var certificate = $('#certificate')[0].files[0];
+    var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
@@ -83,10 +103,11 @@ function createDARegister()
                 EasyLoading.hide();
                 successMessage(result);
              }
-      },
-      error:function (message){
-        errorMessage(message);
-          }
+        },
+        error:function (message){
+            EasyLoading.hide();
+            errorMessage(message);
+            }
         // },
         // error:function (message){
         //   // console.log(message)

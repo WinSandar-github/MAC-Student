@@ -41,11 +41,17 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
 
+//PAPP Information Page
+Route::get('student_papp_information','PAPPInfoController@info');
+
 Route::get('student_index', 'StudentController@index');
 // Route::get('student_da/{id}', 'StudentController@course_detail');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+
+// CPA_FF Information Page
+Route::get('cpa_ff_information', 'CPAFFInfoController@info');
 
 //Contact Page
 Route::get('contact', 'ContactController@info');
@@ -53,6 +59,9 @@ Route::get('contact', 'ContactController@info');
 //Non_Audit firm
 Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
 Route::get('non_audit_firm_register_edit', 'NonAuditFirmController@edit');
+
+// Non Audit Firm Information
+Route::get('non_audit_firm_information', 'NonAuditFirmInfoController@info');
 
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
@@ -105,6 +114,10 @@ Route::get('verify_email', 'LoginController@verifyEmail');
 
 // Audit Firm
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
+
+// Audit Firm Information
+Route::get('audit_firm_information', 'AuditFirmInfoController@info');
+
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
@@ -112,8 +125,17 @@ Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
 
+// School Information Page
+Route::get('school_information', 'SchoolInfoController@info');
+
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
 
+// Teacher Information Page
+Route::get('teacher_information', 'TeacherInfoController@info');
+
 // Mentor Register Form
 Route::get('mentor_register', 'MentorController@index');
+
+// Mentor Information Page
+Route::get('mentor_information', 'MentorInfoController@info');
