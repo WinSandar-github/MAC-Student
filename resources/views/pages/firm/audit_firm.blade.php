@@ -875,7 +875,7 @@
                                                                             <tr>
                                                                                 <td>1</td>
                                                                                 <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" value="" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id)" class="form-control" autocomplete="off" required></td>
                                                                                 <td>
                                                                                     <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" required>
                                                                                     <label class="form-check-label">Yes</label>
@@ -1110,7 +1110,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1157,7 +1157,6 @@ $(document).ready(function(){
     pendingStatus();
     dateQuery();
     verifyStatus();
-
     });
 
 </script>

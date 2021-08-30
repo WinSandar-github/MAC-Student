@@ -250,9 +250,16 @@ $('#cpa_register').submit(function(e){
     let batch_id = url.substring(url.lastIndexOf('/')+1);
 
     var formData = new FormData(this);
-    
-    
-    formData.append('batch_id',batch_id)
+    // $('input[name="uni_degree_name[]"]').map(function(){formData.append("uni_degree_name[]",$(this).val());});
+    // $('input[name="uni_name[]"]').map(function(){formData.append("uni_name[]",$(this).val());});
+    // $('input[name="uni_roll_no[]"]').map(function(){formData.append("uni_roll_no[]",$(this).val());});
+
+    // $('input[name="uni_certificate[]"]').map(function(){
+    //     for (var i = 0; i < $(this).get(0).files.length; ++i) {
+    //         formData.append('uni_certificate[]',$(this).get(0).files[i]);
+    //     }
+    // });
+    formData.append('batch_id',batch_id);
     show_loader(); 
 
 
@@ -265,7 +272,7 @@ $('#cpa_register').submit(function(e){
             data: formData,
             success: function (data) {
                 EasyLoading.hide();
-              
+              console.log("response",data);
                 // localStorage.setItem('studentinfo', JSON.stringify(data));
                 // localStorage.setItem('approve_reject', data.approve_reject_status);
                 // location.href = "/student_course/2";
