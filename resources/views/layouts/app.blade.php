@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/student_info.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/non_audit_firm.css') }}">
 
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <!-- Bootstrap JS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> -->
@@ -53,11 +56,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('EasyLoading/jquery-ui.min.css')}} ">
-  
+
 
 
     <link rel="stylesheet" href="{{ asset('EasyLoading/css/easy-loading.css')}}">
- 
+
     <!-- dataTables -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dataTables/dataTables.bootstrap5.min.css') }}">
@@ -90,11 +93,14 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
     <script src="{{ asset('assets/js/plugins/flatpickr/flatpickr.js') }}"></script>
 
+    <!-- select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!--toastr-->
     <!-- <script src="{{ asset('assets/toastr/toastr.main.js') }}"></script> -->
     <script src="{{ asset('assets/toastr') }}/toastr.min.js"></script>
 
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -111,7 +117,7 @@
     <script src="{{ asset('EasyLoading/js/easy-loading.js')}}"></script>
     <script src="{{ asset('assets/js/easyloading.js') }}"></script>
 
-    
+
 
 
     <!-- Main JS -->
@@ -126,7 +132,6 @@
     <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
     <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
-    <script src="{{asset('assets/js/school.js')}}"></script>
 
 
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -142,7 +147,7 @@
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"> -->
     <script src="{{ asset('assets/js/plugins/dataTables/dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/dataTables/dataTables.bootstrap5.min.js') }}"></script>
-   
+
 
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
     <script src="{{ asset('assets/js/common.js') }}"></script>
@@ -163,11 +168,11 @@
 show_loader()
 setTimeout(() => {
     EasyLoading.hide();
-    
+
 }, 3000);
     </script> -->
-    @stack('scripts') 
-</body> 
+    @stack('scripts')
+</body>
 
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 @include('sweetalert::alert')

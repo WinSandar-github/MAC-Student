@@ -3,7 +3,7 @@ function ConfirmSubmit(){
   var radio = document.getElementById("submit_confirm");
   if (radio.checked == true){
       document.getElementById("submit_btn").disabled= false;
-  } 
+  }
   else{
   document.getElementById("submit_btn").disabled = true;
   }
@@ -110,9 +110,9 @@ function createTeacherRegister(){
     }
     let formData = new FormData($( "#teacher_register_form" )[0]);
     formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
-     
+
       show_loader()
-    
+
 
 
     $.ajax({
@@ -164,5 +164,5 @@ function teacher_reg_feedback(){
                 }
           })
         }
-    }); 
-} 
+    });
+}

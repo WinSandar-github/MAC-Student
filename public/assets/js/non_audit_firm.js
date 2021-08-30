@@ -118,7 +118,6 @@ function validateRequired(){
 }
 
 function createNonAuditFirm(){
-  console.log("youte tal");
   if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
   {
       alert("Your password and confirm password do not match!");
