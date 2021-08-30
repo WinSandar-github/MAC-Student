@@ -70,7 +70,8 @@
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         
-                        <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>
+                        {{--<form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>--}}
+                            <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
@@ -808,7 +809,11 @@
 																		<br>
                                     <div class="row m-4">
                                         <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                            {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
+                                            <!-- Button trigger modal -->
+                                            <button type="submit" onclick="send_email()" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                Submit
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -820,6 +825,79 @@
             </div>
         </div>
     </div>
+
+   <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
+        @csrf
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                    <label>You need to verify your email address.Please check your registered email's inbox!</label>
+                </div>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Enter your Verification Code</label>
+                    <input type="text" class="form-control" name="verify_code" placeholder="Enter your Verification Code">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <center>
+                    <button type="submit" id="btn1" onclick="choose_payment()" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
+                    </button>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+
+    <!-- Modal 2 -->
+     <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <div class="row justify-content-center mb-4 radio-group">
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'> 
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
+                            </div><br>
+                            <h5>CBPay</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'> 
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
+                            </div><br>
+                            <h5>MPU</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'> 
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
+                            </div><br>
+                            <h5>CASH</h5>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                    </div>
+               </div><br>
+               <div class="modal-footer">
+                 <center>
+                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
+                 </center>
+               </div>
+             </div>
+           </div>
+         </div>
+     </form>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -882,6 +960,17 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
+
+        $('#btn1').click(function() {
+            setTimeout(function() {$('#exampleModal').modal('hide');}, 1000);
+        });
+
+        $('#btn2').click(function() {
+            setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
+            successMessage("You have successfully registerd!"); 
+            location.href = FRONTEND_URL + '/';
+        });
+
     });
 
 </script>

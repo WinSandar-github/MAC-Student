@@ -139,3 +139,8 @@ Route::get('mentor_register', 'MentorController@index');
 
 // Mentor Information Page
 Route::get('mentor_information', 'MentorInfoController@info');
+
+//Payment Page
+Route::get('payment', 'PaymentController@payment');
+Route::get('cash', 'PaymentController@cash');
+Route::get('da_verify_email', 'PaymentController@verifyEmail');
