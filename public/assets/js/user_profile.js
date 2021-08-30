@@ -67,7 +67,7 @@ function user_profile(){
                 $('.teacher').show();
                 let teacher = data.teacher;
                 console.log(teacher)
-
+                localStorage.setItem("teacher_id",teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
                 $('#teacher_name_eng').text(teacher.name_eng);
                 $("#teacher_nrc").text(teacher.nrc_state_region+"/" +teacher.nrc_township+ "("+teacher.nrc_citizen+")"+teacher.nrc_number );

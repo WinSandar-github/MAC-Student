@@ -224,36 +224,27 @@ function Papp_feedback(){
                 }
                 else if(data.status==1 || data.renew_status==1)
                 {
+                    document.getElementById('approved').style.display='none';
+                    document.getElementById('papp_renew_form').style.display='block';
                     var accept=new Date(data.renew_accepted_date);
                     var month=accept.getMonth();
                     var year=accept.getFullYear();
                     var y=year+1;
-                    console.log(year);
-                    console.log(month);
-                    if(month>8){
-                        document.getElementById('expiry_card').style.display='block';
-                        $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
-                        var now=new Date(Date.now());
-                        if(now.getFullYear()==y && now.getMonth()==11){                            
-                            document.getElementById('approved').style.display='none';
-                           // document.getElementById('cpaff_renew_form').style.display='block';
-                        }
-                        else{
-                            document.getElementById('approved').style.display='block';
-                        }
+                    var now=new Date(Date.now());
+                    $('#regno').val(data.id);
+                    $('#register_date').val(data.renew_accepted_date);
+                    if(now.getFullYear()==y && now.getMonth()==month){
+                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        $('.renew_submit').prop('disabled', false);
+                        
+                    }else if(month=='10' || month=='11' || month=='12'){
+                        $("#message").val("Your registeration will start in "+y+" year!");
+                        $('.renew_submit').prop('disabled', true);
+                    }else{
+                        $('#message').val("You are verified!");
+                        $('.renew_submit').prop('disabled', true);
                     }
-                    else{
-                        document.getElementById('expiry_card').style.display='block';
-                        $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
-                        var now=new Date(Date.now());
-                        if(now.getFullYear()==year && now.getMonth()==11){                            
-                            document.getElementById('approved').style.display='none';
-                            document.getElementById('papp_renew_form').style.display='block';
-                        }
-                        else{
-                            document.getElementById('approved').style.display='block';
-                        }
-                    }
+                    
                 }
                 else if(data.status==2 || data.renew_status==2)
                 {
