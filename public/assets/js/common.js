@@ -1,8 +1,8 @@
-// var FRONTEND_URL="http://localhost:8080";
+// var FRONTEND_URL="http://localhost:8001";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL="http://localhost:8000/api";
 
- var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
 var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
 var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
@@ -182,7 +182,7 @@ function addRowPartner(tbody){
     var row=$('.'+tbody+' tr').length;
     cols += '<td>'+ (row)+'</td>';
     cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" required /></td>';
+    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no'+row+'" onchange="checkPAPPExist(this.value,this.id)" class="form-control"  class="form-control" autocomplete="off" required /></td>';
     cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="1" required> Yes</td>';
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
@@ -439,4 +439,77 @@ async function get_course_by_code(course_code){
     let response = await fetch(BACKEND_URL+"/course_by_course_code/"+course_code)
     let data = await response.json()
     return data;
+}
+
+function createDataTable(table) {
+
+    $(table).DataTable({
+        'destroy': true,
+        'paging': true,
+        'lengthChange': false,
+        "pageLength": 5,
+        'searching': false,
+        'ordering': true,
+        'info': false,
+        'autoWidth': false,
+        "scrollX": true,
+        'select': false,
+        "order": [[0, "desc"]],
+
+    });
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+        $($.fn.dataTable.tables(true)).DataTable()
+           .columns.adjust();
+     });
+}
+function createDataTableWithAsc(table) {
+
+    $(table).DataTable({
+        'destroy': true,
+        'paging': true,
+        'lengthChange': false,
+        "pageLength": 5,
+        'searching': false,
+        'ordering': true,
+        'info': false,
+        'autoWidth': false,
+        "scrollX": true,
+        'select': false,
+        "order": [[0, "asc"]],
+
+    });
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+        $($.fn.dataTable.tables(true)).DataTable()
+           .columns.adjust();
+     });
+}
+function destroyDatatable(table, tableBody) {
+    if ($.fn.DataTable.isDataTable(table)) {
+        $(table).DataTable().destroy();
+    }
+    $(tableBody).empty();
+}
+
+
+function dataMessage(message, table, tableBody) {
+    var dataMsg = message.responseText;
+    var noOfColumn = countColumn(table);
+    var tr = "<tr>";
+    tr += "<td class='text-center' colspan='" + noOfColumn + "'>"+dataMsg+"</td>";
+    tr += "</tr>";
+    $(tableBody).append(tr);
+    if(noOfColumn>=11){
+      $(table).addClass('table-responsive');
+    }
+
+}
+function getIndexNumber(table){
+    $(table).each(function(){
+        $( this ).find( "td" ).first().html( $(this).index() + 1 );
+      });
+}
+function numberRows() {
+    $('table tbody tr').each(function (idx) {
+        $(this).children(":eq(0)").html(idx + 1);
+    });
 }

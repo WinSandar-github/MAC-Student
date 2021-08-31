@@ -120,8 +120,8 @@ function loadService(){
         type: 'get',
         data:"",
         success: function(data){
-            var course_data=data.data;
-            course_data.forEach(function (element) {
+            var service_data=data.data;
+            service_data.forEach(function (element) {
                 var option = document.createElement('option');
                 option.text = element.name;
                 option.value = element.id;

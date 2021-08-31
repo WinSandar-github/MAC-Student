@@ -108,7 +108,7 @@ function AddCPAFFDegree(){
 
         $('input[name="degree_pass_year'+count+'"]').flatpickr({
             enableTime: false,
-            dateFormat: "d-M-Y",
+            dateFormat: "M-Y",
             allowInput: true,
     });
     count++;
@@ -218,7 +218,8 @@ function createCPAFFRegister(){
         processData: false,
         success: function(result){
             successMessage("You have successfully registerd!");
-            location.reload();
+            // location.reload();
+            location.href = FRONTEND_URL+"/";
         },
         error:function (message){
             console.log(message);
