@@ -391,7 +391,7 @@
                                             <label for="" class="col-md-3 col-form-labe mt-1"> Attached Certificate</label>
                                             
                                             <div class="col-md-6"  id="degree_edu" >
-                                                <input type="file"  class="form-control" id="certificate0"  name="certificate0" required="">
+                                                <input type="file"  class="form-control" id="certificate0"  name="certificate[]" autocomplete="off" required="">
                                             </div>
                                             <div class="col-md-1" id="add_div" >
                                                 <button type="button" class="btn btn-primary" id="add_btn" onclick="AddDAEdu()" >
@@ -444,7 +444,7 @@
               </div>
               <div class="modal-footer">
                 <center>
-                    <button type="submit" id="btn1" onclick="choose_payment()" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
+                    <button type="submit" id="btn1" onclick="check_email()" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
                     </button>
                 </center>
               </div>
@@ -564,8 +564,8 @@
 
         $('#btn2').click(function() {
             setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
-            successMessage("You have successfully registerd!"); 
-            location.href = FRONTEND_URL + '/';
+            // successMessage("You have successfully registerd!"); 
+            // location.href = FRONTEND_URL + '/';
         });
 
     });
