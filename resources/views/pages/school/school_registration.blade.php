@@ -953,7 +953,7 @@ $(document).ready(function (e) {
 
     $("input[name='dob']").flatpickr({
             enableTime: false,
-            dateFormat: "d-m-Y",
+            dateFormat: "d-M-Y",
             allowInput: true
     });
 

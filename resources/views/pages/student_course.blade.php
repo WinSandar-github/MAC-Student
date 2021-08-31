@@ -177,7 +177,7 @@
                                                              <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                                             @if(!empty($c['active_batch']))
                                                                 @foreach($c['active_batch'] as $b)
-                                                                <input type="text" value="{{$b['id']}}" class="batch_id{!! $i !!}"/>
+                                                                <input type="hidden" value="{{$b['id']}}" class="batch_id{!! $i !!}"/>
 
                                                                 <div class="application">
                                                                     <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
