@@ -139,7 +139,7 @@
                                                         <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-6">
                                                             <div class="form-group">                                
-                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
+                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
                                                             </div>
