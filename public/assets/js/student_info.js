@@ -83,6 +83,9 @@ function app_form_feedback(){
                             contentType: false,
                             processData: false,
                             async:false,
+                            headers: {
+                                'Access-Control-Allow-Origin': '*',
+                              },
                             success: function(reg_status){
                                console.log(reg_status,"Status");
                     
@@ -361,7 +364,7 @@ function app_form_feedback(){
                           
                                 
                           }
-                        });
+                        })
 
                        
                         
@@ -525,28 +528,19 @@ function app_form_feedback(){
                                                            var private_start_date  = new Date(batch.private_reg_start_date );
                                                            var private_end_date    = new Date(batch.private_reg_end_date);
                                                            if(mac_start_date <= date && mac_end_date >= date){
-                                                               if(course_type == 2){
-    
-                                                                   course_url = "/cpa_two_mac/"+batch.id
-                                                                   }
+                                                               
                                                                 $(`.check_login${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
                                                            } 
                    
                                                            if(self_start_date <= date && self_end_date >= date){
-                                                               if(course_type == 2){
-   
-                                                                   course_url = "/cpa_two_self_study/"+batch.id
-                                                                   }
+                                                               
                                                                
                                                                
                                                                $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
                                                            } 
                    
                                                            if(private_start_date <= date && private_end_date >= date){
-                                                               if(course_type == 2){
-   
-                                                                   course_url = "/cpa_two_private_school/"+batch.id
-                                                                   }
+                                                              
                                              
                                                                $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
                                                            } 

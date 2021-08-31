@@ -155,8 +155,8 @@ function teacher_reg_feedback(){
                     $('#teacher_form').css('display','none');
 
                 }else if(element.approve_reject_status == 1){
-                    loadRenewTeacher(localStorage.getItem("teacher_id"));
-                    $('#teacher_renew').css('display','block');
+                    
+                    
                     $('#teacher_approve').css('display','none');
                     $('#teacher_form').css('display','none');
                     $('#teacher_pending').css('display','none');
@@ -174,22 +174,32 @@ function loadRenewTeacher(id){
     url : BACKEND_URL+"/teacher/"+id,
     success: function (result) {
         var teacher=result.data;
-        var today=new Date();
-        var current_date=today.getFullYear()+'-'+String(today.getMonth() + 1).padStart(2, '0')+'-'+String(today.getDate()).padStart(2, '0');
-        var renew=new Date(teacher.renew_date);
-        var renew_date=renew.getFullYear()+1+"-"+String(renew.getMonth() + 1).padStart(2, '0')+"-"+String(renew.getDate()).padStart(2, '0');
-        $('#regno').val(teacher.id);
-        $('#register_date').val(teacher.renew_date);
-        if(current_date>=renew_date){
-          $('#message').val("Your registeration is expired! You need to submit new registeration form again.");
-          $('.renew_submit').prop('disabled', false);
-        }else if(String(renew.getMonth() + 1).padStart(2, '0')=='10' || String(renew.getMonth() + 1).padStart(2, '0')=='11' || String(renew.getMonth() + 1).padStart(2, '0')=='12'){
-          $('#message').val("Your registeration will start in next year!");
-          $('.renew_submit').prop('disabled', true);
+        if(teacher.approve_reject_status==1){
+          $('#teacher_initial').css('display','none');
+          $('#teacher_renew').css('display','block');
+                var accept=new Date(teacher.renew_date);
+                var month=accept.getMonth()+1;
+                var year=accept.getFullYear();
+                var y=year+1;
+                var now=new Date();
+                $('#regno').val(teacher.id);
+                $('#register_date').val(teacher.renew_date);
+                if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                    $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                    $('.renew_submit').prop('disabled', false);
+                    
+                }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                    $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                    $('.renew_submit').prop('disabled', true);
+                }else{
+                    $('#message').val("You are verified!");
+                    $('.renew_submit').prop('disabled', true);
+                }
         }else{
-          $('#message').val("You are verified!");
-          $('.renew_submit').prop('disabled', true);
+          $('#teacher_initial').css('display','block');
+          $('#teacher_renew').css('display','none');
         }
+        
     },
     error: function (result) {
     },
@@ -199,7 +209,7 @@ function renewTeacher(){
   var send_data=new FormData();
   var id=localStorage.getItem("teacher_id");
   send_data.append('_method', 'PATCH');
-  show_loader()
+  show_loader();
     $.ajax({
         url: BACKEND_URL+'/teacher/'+id,
         type: 'post',
