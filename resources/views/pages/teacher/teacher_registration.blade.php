@@ -87,62 +87,7 @@
                     </div>
                 </div>
             </div><br/>
-            <div class="row" id="teacher_renew" style="display:none;">
-                    <div class="card border-success mb-3">
-                        <div class="card-body">
-                            <div class="col-md-12">
-                            <h5 class="card-title text-center">သင်တန်းဆရာ မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
-                                <form enctype="multipart/form-data" action="javascript:renewTeacher();">
-
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="20%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="text" class="form-control" id="regno" readonly>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="20%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Applied Date</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="text" class="form-control" id="register_date" readonly>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="20%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Status</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="text" class="form-control" id="message" readonly="">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><br/>
-                                    <div class="row ">
-                                        <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            
             <div class="row mt-5">
 
 

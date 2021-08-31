@@ -263,17 +263,17 @@ function Papp_feedback(){
                     document.getElementById('approved').style.display='none';
                     document.getElementById('papp_renew_form').style.display='block';
                     var accept=new Date(data.renew_accepted_date);
-                    var month=accept.getMonth();
+                    var month=accept.getMonth()+1;
                     var year=accept.getFullYear();
                     var y=year+1;
-                    var now=new Date(Date.now());
+                    var now=new Date();
                     $('#regno').val(data.id);
                     $('#register_date').val(data.renew_accepted_date);
-                    if(now.getFullYear()==y && now.getMonth()==month){
+                    if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                         $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                         $('.renew_submit').prop('disabled', false);
                         
-                    }else if(month=='10' || month=='11' || month=='12'){
+                    }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                         $("#message").val("Your registeration will start in "+y+" year!");
                         $('.renew_submit').prop('disabled', true);
                     }else{
@@ -293,10 +293,56 @@ function Papp_feedback(){
         }
     });
 }
-
+function loadPAPP(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(cData){
+            console.log(cData.data);
+            var data=cData.data;
+            if(data!=null){
+                if(data.status==1 || data.renew_status==1)
+                {
+                    document.getElementById('papp_initial').style.display='none';
+                    document.getElementById('papp_renew_form').style.display='block';
+                    var accept=new Date(data.renew_accepted_date);
+                    var month=accept.getMonth()+1;
+                    var year=accept.getFullYear();
+                    var y=year+1;
+                    var now=new Date();
+                    $('#regno').val(data.id);
+                    $('#register_date').val(data.renew_accepted_date);
+                    if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        $('.renew_submit').prop('disabled', false);
+                        
+                    }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                        $("#message").val("Your registeration will start in "+y+" year!");
+                        $('.renew_submit').prop('disabled', true);
+                    }else{
+                        $('#message').val("You are verified!");
+                        $('.renew_submit').prop('disabled', true);
+                    }
+                    
+                }else{
+                    document.getElementById('papp_initial').style.display='block';
+                    document.getElementById('papp_renew_form').style.display='none';
+                }
+                
+            }
+            else{
+                document.getElementById('papp_initial').style.display='block';
+                document.getElementById('papp_renew_form').style.display='none';
+            }
+        }
+    });
+}
 function RenewPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    
+    show_loader()
     $.ajax({
         url: BACKEND_URL+"/papp_by_stuId/"+student.id,
         type: 'get',
@@ -328,7 +374,8 @@ function RenewPAPP(){
                     contentType: false,
                     processData: false,
                     success: function(result){
-                        successMessage("Insert Successfully");
+                        EasyLoading.hide();
+                        successMessage(result.message);
                         // location.reload();
                         location.href = FRONTEND_URL+'/';
                         document.getElementById('approved').style.display='none';

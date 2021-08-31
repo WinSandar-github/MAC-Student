@@ -311,12 +311,13 @@ function form_feedback(){
                 }
                 else if(data.status==1 || data.renew_status==1)
                 {
+                    document.getElementById('approved').style.display='none';
                     var accept=new Date(data.renew_accepted_date);
-                    var month=accept.getMonth();
+                    var month=accept.getMonth()+1;
                     var year=accept.getFullYear();
                     var y=year+1;
-                    console.log(year);
-                    console.log(month);
+                    var now=new Date();
+                    
                     if(month>8){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
@@ -353,10 +354,56 @@ function form_feedback(){
         }
     });
 }
-
+function loadCPAFF(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+        success: function(cData){
+            var data=cData.data;
+            if(data!=null){
+                if(data.status==1 || data.renew_status==1)
+                {
+                    document.getElementById('cpa_initial').style.display='none';
+                    document.getElementById('cpaff_renew_form').style.display='block';
+                    var accept=new Date(data.renew_accepted_date);
+                    var month=accept.getMonth()+1;
+                    var year=accept.getFullYear();
+                    var y=year+1;
+                    var now=new Date();
+                    $('#regno').val(data.id);
+                    $('#register_date').val(data.renew_accepted_date);
+                    if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        $('.renew_submit').prop('disabled', false);
+                        
+                    }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                        $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                        $('.renew_submit').prop('disabled', true);
+                    }else{
+                        $('#message').val("You are verified!");
+                        $('.renew_submit').prop('disabled', true);
+                    }
+                    
+                }
+                else
+                {
+                    document.getElementById('cpa_initial').style.display='blocknone';
+                    document.getElementById('cpaff_renew_form').style.display='none';
+                }
+            }
+            else{
+                document.getElementById('cpa_initial').style.display='block';
+                document.getElementById('cpaff_renew_form').style.display='none';
+            }
+        }
+    });
+}
 function RenewCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-
+    show_loader()
     $.ajax({
         url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
         type: 'get',
@@ -365,15 +412,15 @@ function RenewCPAFF(){
             // successMessage("Insert Successfully");
             // location.reload();
             if(result.data!=null){
-                var renew_file =   $("input[name=renew_file]")[0].files[0];
-                var renew_micpa    =   $("input[name=renew_micpa]")[0].files[0];
-                var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
-                var renew_cpaff_reg        =   $("input[name=renew_cpaff_reg]")[0].files[0];
+                // var renew_file =   $("input[name=renew_file]")[0].files[0];
+                // var renew_micpa    =   $("input[name=renew_micpa]")[0].files[0];
+                // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
+                // var renew_cpaff_reg        =   $("input[name=renew_cpaff_reg]")[0].files[0];
                 var data = new FormData();
-                data.append('renew_file', renew_file);
-                data.append('renew_micpa', renew_micpa);
-                data.append('renew_cpd', renew_cpd);
-                data.append('renew_cpaff_reg', renew_cpaff_reg);
+                // data.append('renew_file', renew_file);
+                // data.append('renew_micpa', renew_micpa);
+                // data.append('renew_cpd', renew_cpd);
+                // data.append('renew_cpaff_reg', renew_cpaff_reg);
                 data.append('_method', 'PUT');
                 $.ajax({
                     url: BACKEND_URL+"/cpa_ff/"+result.data.id,
@@ -382,9 +429,9 @@ function RenewCPAFF(){
                     contentType: false,
                     processData: false,
                     success: function(result){
-                        successMessage("Insert Successfully");
-                        // location.reload();
-                        location.href = FRONTEND_URL+"/";
+                        EasyLoading.hide();
+                        successMessage(result.message);
+                        location.reload();
                         document.getElementById('approved').style.display='none';
                         document.getElementById('rejected').style.display='none';
                         document.getElementById('pending').style.display='none';
