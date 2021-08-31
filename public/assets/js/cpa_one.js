@@ -291,6 +291,7 @@ $('#cpa_register').submit(function(e){
             success: function (data) {
                 console.log("cpaonedata",data);
                 EasyLoading.hide();
+              console.log("response",data);
                 successMessage("You have successfully registerd!");
                
               

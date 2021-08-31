@@ -789,47 +789,51 @@
                                             </div><br>
 
                                             <div class="row">
-                                                <div class="col-md-1 col-form-label"></div>
-                                                <div class="col-md-11 col-form-label">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <table id="myTable" class="table partner_list table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th class="less-font-weight" rowspan="2">Sr</th>
-                                                                        <th class="less-font-weight" rowspan="2">Name</th>
-                                                                        <th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-                                                                        <th class="less-font-weight" colspan="2">Have authority to sign Auditors' report?</th>
-                                                                        <th class="less-font-weight" rowspan="2" style="text-align: right;">
-                                                                            <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
-                                                                                <i class="fa fa-plus"></i>
-                                                                            </button>
-                                                                        </th>
-                                                                    </tr>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td width="20%"></td>
+                                                        <td width="80%">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <table id="myTable" class="table partner_list table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class="less-font-weight" rowspan="2">Sr</th>
+                                                                                <th class="less-font-weight" rowspan="2">Name</th>
+                                                                                <th class="less-font-weight" rowspan="2">Public Private Reg.No</th>
+                                                                                <th class="less-font-weight" colspan="2">Have authority to sing Auditors' report?</th>
+                                                                                <th class="less-font-weight" rowspan="2" style="text-align: right;">
+                                                                                    <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
+                                                                                        <i class="fa fa-plus"></i>
+                                                                                    </button>
+                                                                                </th>
+                                                                            </tr>
 
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>1</td>
-                                                                        <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" required></td>
-                                                                        <td><input type="text" value="" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" required></td>
-                                                                        <td>
-                                                                            <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" required>
-                                                                            <label class="form-check-label">Yes</label>
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes" required>
-                                                                            <label class="form-check-label">No</label>
-                                                                        </td>
-                                                                        <td>
-                                                                                                                            <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
-                                                                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" required></td>
+                                                                                <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id)" class="form-control" autocomplete="off" required></td>
+                                                                                <td>
+                                                                                    <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" required>
+                                                                                    <label class="form-check-label">Yes</label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes" required>
+                                                                                    <label class="form-check-label">No</label>
+                                                                                </td>
+                                                                                <td>
+                              																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
+                              																									</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </div><br>
 
                                             <div class="row">
@@ -1034,7 +1038,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1081,9 +1085,12 @@ $(document).ready(function(){
     pendingStatus();
     dateQuery();
     verifyStatus();
+<<<<<<< HEAD
+=======
 
     // getTotalStaff();
 
+>>>>>>> 5a31fe5a8675e2ab76acb2e1b418d654416d81da
     });
 
 </script>
