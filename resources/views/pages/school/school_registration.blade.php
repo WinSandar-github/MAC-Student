@@ -185,7 +185,7 @@
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_front" class="form-control">
+                                        <input type="file" name="nrc_front" class="form-control" required>
                                     </div>
                                 </div><br>
 
@@ -193,7 +193,7 @@
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_back" class="form-control">
+                                        <input type="file" name="nrc_back" class="form-control" required>
                                     </div>
                                 </div><br>
 
@@ -242,33 +242,33 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8 form-check">
-                                        <input class="form-check-input" type="checkbox" name="school_type[]" value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' required>
-                                        <label class="form-check-label">တစ်ဦးတည်းပိုင်လုပ်ငန်း </label>
-                                        {{--<label class="form-check-label type text-danger" style='display:none;float:right;'>ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ပေးပါ</label>--}}
+                                        <input class="" type="checkbox" name="school_type[]" value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' >
+                                        <label class="">တစ်ဦးတည်းပိုင်လုပ်ငန်း </label>
+                                        <label class="form-check-label type text-danger" style='display:none;float:right;'>ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ပေးပါ</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8 form-check">
-                                        <input class="form-check-input" type="checkbox" name="school_type[]" value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' required>
-                                        <label class="form-check-label">နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း</label>
+                                        <input class="" type="checkbox" name="school_type[]" value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' >
+                                        <label class="">နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8 form-check">
-                                        <input type="checkbox" class="form-check-input" name="school_type[]" value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ' required>
-                                        <label class="form-check-label">တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ</label>
+                                        <input type="checkbox" class="" name="school_type[]" value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ' >
+                                        <label class="">တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8 form-check">
-                                        <input type="checkbox" class="form-check-input" name="school_type[]" value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်' required>
-                                        <label class="form-check-label">တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း</label>
+                                        <input type="checkbox" class="" name="school_type[]" value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်' >
+                                        <label class="">တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း</label>
                                     </div>
                                 </div><br>
 
@@ -321,8 +321,9 @@
                                     <label class="col-md-2 col-form-label">{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group col-md-5">
-                                          <select name="attend_course[]" class="form-control attend_course multiple-attend-course" multiple="multiple" required style="width:100%">
+                                          <select name="attend_course[]" class="form-control multiple-attend-course" multiple="multiple" required style="width:100%">
                                           </select>
+
                                         </div>
                                     </div>
                                 </div>
@@ -341,15 +342,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="own_type[]" id="private" value="private" required>
+                                            <input class="form-check-input" type="radio" name="own_type[]" id="private" value="private" required>
                                             <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="own_type[]" id="rent" value="rent" required>
+                                            <input class="form-check-input" type="radio" name="own_type[]" id="rent" value="rent" required>
                                             <label class="form-check-label" for="">အငှား</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="own_type[]" id="use_sharing" value="use_sharing" required>
+                                            <input class="form-check-input" type="radio" name="own_type[]" id="use_sharing" value="use_sharing" required>
                                             <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                           </div>
                                         </div>
@@ -357,7 +358,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                     <label class="col-md-2 col-form-label">{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -371,15 +372,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="branch_sch_own_type[]" id="" value="private" required>
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="private" required>
                                             <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="branch_sch_own_type[]" id="" value="rent" required>
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="rent" required>
                                             <label class="form-check-label" for="">အငှား</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="branch_sch_own_type[]" id="" value="use_sharing" required>
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="use_sharing" required>
                                             <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                           </div>
                                         </div>
@@ -396,7 +397,7 @@
                                     <label class="col-md-3 col-form-label">{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"  required />
+                                          <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"   />
                                       </div>
                                     </div>
                                 </div>
@@ -406,7 +407,7 @@
                                     <label class="col-md-3 col-form-label">{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"  required />
+                                          <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"   />
                                       </div>
                                     </div>
                                 </div>
@@ -416,7 +417,7 @@
                                     <label class="col-md-3 col-form-label">{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf"  required />
+                                          <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf"   />
                                       </div>
                                     </div>
                                 </div>
@@ -427,7 +428,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -437,7 +438,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -447,7 +448,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('အဖွဲ့အစည်းဖြစ်ပါက သက်ဆိုင်ရာအဖွဲ့အစည်း၏ အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၃)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -457,7 +458,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၄)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -467,7 +468,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -477,7 +478,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('ကျောင်းတည်နေရာလိပ်စာ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -487,7 +488,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('ကျောင်းအဆောက်အဦ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -497,7 +498,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('စာသင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -507,7 +508,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('သန့်စင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -517,7 +518,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('စီမံရုံးခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -527,7 +528,7 @@
                                   <label class="col-md-3 col-form-label">{{ __('အထောက်အကူအခင်းအကျင်းများကိုဓါတ်ပုံနှင့်တကွဖော်ပြချက်') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf"  required />
+                                        <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
                                 </div>
@@ -538,15 +539,15 @@
                                   <div class="col-md-7">
                                       <div class="form-group">
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="checkbox" name="using_type[]" id="" value="private" required>
+                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="private" required>
                                           <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="checkbox" name="using_type[]" id="" value="rent" required>
+                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="rent" required>
                                           <label class="form-check-label" for="">အငှား</label>
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="checkbox" name="using_type[]" id="" value="use_sharing" required>
+                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="use_sharing" required>
                                           <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                         </div>
                                       </div>
@@ -912,6 +913,8 @@
 <script type="text/javascript">
 
 $(document).ready(function (e) {
+    $('.js-example-basic-multiple').select2();
+
     $( "#school_register_form" ).submit(function( event ) {
         var tbl_establish = $('.tbl_sch_established_persons_body tr').length;
         var tbl_governs = $('.tbl_sch_governs_body tr').length;
@@ -935,6 +938,14 @@ $(document).ready(function (e) {
             event.preventDefault();
         }
 
+        //validate school_type checkbox
+        var checkedNum = $('input[name="school_type[]"]:checked').length;
+        if (!checkedNum) {
+            $(".type").show();
+        }
+        else {
+            $(".type").hide();
+        }
     });
 
     $('.multiple-attend-course').select2({

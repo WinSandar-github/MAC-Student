@@ -12,24 +12,128 @@ function createSchoolRegister(){
     send_data.append('password',$("input[name=password]").val());
     send_data.append('name_mm',$("input[name=name_mm]").val());
     send_data.append('name_eng',$("input[name=name_eng]").val());
+    send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
+    send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
+    send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
+    send_data.append('nrc_number', $("#nrc_number").val());
+    send_data.append('father_name_mm',$("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng',$("input[name=father_name_eng]").val());
+    send_data.append('dob',$("input[name=dob]").val());
+    send_data.append('degree',$("input[name=degree]").val());
+    var val = [];
+        $("input[name=school_type]:checked").each(function(i){
+          val[i] = $(this).val();
+        });
+        console.log("val >>>",val);
+    send_data.append('school_type',val);
+    send_data.append('attachment',$("input[name=attachment]").val());
+    send_data.append('address',$("textarea[name=address]").val());
+    send_data.append('phone',$("input[name=phone]").val());
+
+    // သင်တန်းကျောင်းအချက်အလက်များ
+    send_data.append('school_name',$("input[name=school_name]").val());
+    // attend_course multi select
+    var selected = $('.multiple-attend-course').find(':selected').val();
+    for (var i = 0; i <= selected.length-1; i++) {
+                console.log("sel .>>",selected[i].text);
+            }
+
+
+    send_data.append('school_address',$("input[name=school_address]").val());
+    send_data.append('own_type',$('input[name=own_type]:checked').val());
+    send_data.append('branch_school_address',$("textarea[name=branch_school_address]").val());
+    send_data.append('branch_sch_own_type',$('input[name=branch_sch_own_type]:checked').val());
+
+    // ပူးတွဲတင်ပြသည့်အထောက်အထားများ
+    send_data.append('business_license',$("input[name=business_license]").val());
+    send_data.append('company_reg',$("input[name=company_reg]").val());
+    send_data.append('org_reg_origin_and_copy',$("input[name=org_reg_origin_and_copy]").val());
+    send_data.append('estiblisher_list_and_bio',$("input[name=estiblisher_list_and_bio]").val());
+    send_data.append('governer_list_and_bio',$("input[name=governer_list_and_bio]").val());
+    send_data.append('org_member_list_and_bio',$("input[name=org_member_list_and_bio]").val());
+    send_data.append('teacher_list_and_bio',$("input[name=teacher_list_and_bio]").val());
+    send_data.append('teacher_reg_copy',$("input[name=teacher_reg_copy]").val());
+    send_data.append('school_location_attach',$("input[name=school_location_attach]").val());
+    send_data.append('school_building_attach',$("input[name=school_building_attach]").val());
+    send_data.append('classroom_attach',$("input[name=classroom_attach]").val());
+    send_data.append('toilet_attach',$("input[name=toilet_attach]").val());
+    send_data.append('manage_room_attach',$("input[name=manage_room_attach]").val());
+    send_data.append('supporting_structure_photo',$("input[name=supporting_structure_photo]").val());
+    send_data.append('using_type',$("input[name=using_type]:checked").val());
+    send_data.append('relevant_evidence_contracts',$("input[name=relevant_evidence_contracts]").val());
+    send_data.append('sch_establish_notes_attach',$("input[name=sch_establish_notes_attach]").val());
+
+    //  ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ) table
+    $('input[name="establisher_name[]"]').map(function(){send_data.append('establisher_name[]',$(this).val())});
+    $('input[name="establisher_nrc[]"]').map(function(){send_data.append('establisher_nrc[]',$(this).val())});
+    $('input[name="establisher_cpa_papp_no[]"]').map(function(){send_data.append('establisher_cpa_papp_no[]',$(this).val())});
+    $('input[name="establisher_education[]"]').map(function(){send_data.append('establisher_education[]',$(this).val())});
+    $('input[name="establisher_address[]"]').map(function(){send_data.append('establisher_address[]',$(this).val())});
+    $('input[name="establisher_ph_number[]"]').map(function(){send_data.append('establisher_ph_number[]',$(this).val())});
+    $('input[name="establisher_email[]"]').map(function(){send_data.append('establisher_email[]',$(this).val())});
+
+    //  ကျောင်းစီမံအုပ်ချုပ်သူများ table
+    $('input[name="govern_name[]"]').map(function(){send_data.append('govern_name[]',$(this).val())});
+    $('input[name="govern_nrc[]"]').map(function(){send_data.append('govern_nrc[]',$(this).val())});
+    $('input[name="govern_cpa_papp_no[]"]').map(function(){send_data.append('govern_cpa_papp_no[]',$(this).val())});
+    $('input[name="govern_education[]"]').map(function(){send_data.append('govern_education[]',$(this).val())});
+    $('input[name="govern_responsibility[]"]').map(function(){send_data.append('govern_responsibility[]',$(this).val())});
+    $('input[name="govern_ph_number[]"]').map(function(){send_data.append('govern_ph_number[]',$(this).val())});
+    $('input[name="govern_email[]"]').map(function(){send_data.append('govern_email[]',$(this).val())});
+
+    // အဖွဲ့အစည်း၏အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ
+    $('input[name="member_name[]"]').map(function(){send_data.append('member_name[]',$(this).val())});
+    $('input[name="member_nrc[]"]').map(function(){send_data.append('member_nrc[]',$(this).val())});
+    $('input[name="member_cpa_papp_no[]"]').map(function(){send_data.append('member_cpa_papp_no[]',$(this).val())});
+    $('input[name="member_education[]"]').map(function(){send_data.append('member_education[]',$(this).val())});
+    $('input[name="member_responsibility[]"]').map(function(){send_data.append('member_responsibility[]',$(this).val())});
+    $('input[name="member_ph_number[]"]').map(function(){send_data.append('member_ph_number[]',$(this).val())});
+    $('input[name="member_email[]"]').map(function(){send_data.append('member_email[]',$(this).val())});
+
+    // သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ
+    $('input[name="teacher_name[]"]').map(function(){send_data.append('teacher_name[]',$(this).val())});
+    $('input[name="teacher_nrc[]"]').map(function(){send_data.append('teacher_nrc[]',$(this).val())});
+    $('input[name="teacher_nrc[]"]').map(function(){send_data.append('teacher_nrc[]',$(this).val())});
+    $('input[name="teacher_education[]"]').map(function(){send_data.append('teacher_education[]',$(this).val())});
+    $('input[name="teaching_subject[]"]').map(function(){send_data.append('teaching_subject[]',$(this).val())});
+    $('input[name="teacher_ph_number[]"]').map(function(){send_data.append('teacher_ph_number[]',$(this).val())});
+    $('input[name="teacher_email[]"]').map(function(){send_data.append('teacher_email[]',$(this).val())});
+
+    send_data.append('school_location',$("textarea[name=school_location]").val());
+    send_data.append('branch_school_location',$("input[name=branch_school_location]").val());
+
+    send_data.append('bulding_type',$("input[name=bulding_type]").val());
+    send_data.append('building_measurement',$("input[name=building_measurement]").val());
+    send_data.append('floor_numbers',$("input[name=floor_numbers]").val());
+
+    send_data.append('classroom_number',$("input[name=classroom_number]").val());
+    send_data.append('classroom_measurement',$("input[name=classroom_measurement]").val());
+    send_data.append('student_num_limit',$("input[name=student_num_limit]").val());
+    send_data.append('air_con',$("input[name=air_con]").val());
+
+    send_data.append('toilet_type',$("input[name=toilet_type]").val());
+    send_data.append('toilet_number',$("input[name=toilet_number]").val());
+
+    send_data.append('manage_room_numbers',$("input[name=manage_room_numbers]").val());
+    send_data.append('manage_room_measurement',$("input[name=manage_room_measurement]").val());
 
     show_loader();
     $.ajax({
         type: "POST",
-        data: formData,
+        data: send_data,
         url: BACKEND_URL + "/school",
         // async: false,
         cache: false,
         contentType: false,
         processData: false,
         success: function (data) {
-            setTimeout(() => {
-                Easyloading.hide()
-
-            }, 2000);
-
-            successMessage(data.message);
-            location.href=FRONTEND_URL+'/';
+            // setTimeout(() => {
+            //     Easyloading.hide()
+            //
+            // }, 2000);
+            //
+            // successMessage(data.message);
+            // location.href=FRONTEND_URL+'/';
             //resetForm("#school_register_form");
         },
         error: function (result) {
@@ -68,39 +172,16 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
-  var select = document.getElementsByClassName("attend_course");
-  // $.ajax({
-  //     url: BACKEND_URL+"/get_courses",
-  //     type: 'get',
-  //     data:"",
-  //     success: function(data){
-  //         //EasyLoading.hide();
-  //         var courses = data.data;
-  //         courses.forEach(function (element) {
-  //             var option = document.createElement('option');
-  //             option.text = element.name;
-  //             option.value = element.id;
-  //             select.add(option, 1);
-  //             $(".attend_course").css('display','inline');
-  //             $(".attend_course").siblings(".nice-select").css('display','none');
-  //             //$("#attend_course").siblings(".check-service-other").css('display','inline-table');
-  //         });
-  //     },
-  //     error:function (message){
-  //
-  //     }
-  // });
-
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
       success:function(response){
-           var opt = '<option value="" >Select</option>';
+           var opt;
           $.each(response.data,function(i,v){
               opt += `<option value=${v.id}  >${v.name}</option>`;
           })
-          $(".attend_course").append(opt);
-          $(".attend_course").siblings(".nice-select").css('display','none');
+          $(".multiple-attend-course").append(opt);
+          //$(".attend_course").siblings(".nice-select").css('display','none');
       }
   });
 }
@@ -111,13 +192,13 @@ function addRowSchEstablishPerson(tbody){
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
   cols += '<td><input type="text" class="form-control" value="" /></td>';
-  cols += '<td><input type="text" name="name[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="nrc[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="cpa_papp_no[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="education[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="address[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="ph_number[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="email[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_name[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_nrc[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_cpa_papp_no[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_education[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_address[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_ph_number[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="establisher_email[]" class="form-control" placeholder="" required/></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRow("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -149,13 +230,13 @@ function addRowSchGoverns(tbody){
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
   cols += '<td><input type="text" class="form-control" value="" /></td>';
-  cols += '<td><input type="text" name="name[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="nrc[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="cpa_papp_no[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="education[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="responsibility[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="ph_number[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="email[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_name[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_nrc[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_cpa_papp_no[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_education[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_responsibility[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_ph_number[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="govern_email[]" class="form-control" placeholder="" required/></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRow("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -174,13 +255,13 @@ function addRowMembershipBio(tbody){
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
   cols += '<td><input type="text" class="form-control" value="" /></td>';
-  cols += '<td><input type="text" name="name[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="nrc[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="cpa_papp_no[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="education[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="responsibility[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="ph_number[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="email[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_name[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_nrc[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_cpa_papp_no[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_education[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_responsibility[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_ph_number[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="member_email[]" class="form-control" placeholder="" required/></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRow("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -199,13 +280,13 @@ function addRowTeacherBio(tbody){
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
   cols += '<td><input type="text" class="form-control" value="" /></td>';
-  cols += '<td><input type="text" name="name[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="nrc[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="teacher_name[]" class="form-control" placeholder="" required/></td>';
   cols += '<td><input type="text" name="teacher_nrc[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="education[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="teacher_nrc[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="teacher_education[]" class="form-control" placeholder="" required/></td>';
   cols += '<td><input type="text" name="teaching_subject[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="ph_number[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="email[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="teacher_ph_number[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="teacher_email[]" class="form-control" placeholder="" required/></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRow("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
