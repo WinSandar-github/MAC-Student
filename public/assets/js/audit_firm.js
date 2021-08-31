@@ -929,6 +929,32 @@ function deleteAuditInfo(accName,accId){
     }
 }
 
+function checkPAPPExist(value,id){
+  console.log(id);
+  $.ajax({
+    type: "get",
+    url: BACKEND_URL + '/papp/'+value,
+    success: function (data) {
+        console.log(data.data.length);
+       // var a=localStorage.getItem('isPAPPExist');
+        if(data.data.length==0){
+          alert("PAPP Registration No. does not exist!");
+          document.getElementById('btn_submit_audit_firm').disabled=true;
+          document.getElementById(id).style.borderColor="red";
+          //localStorage.setItem('isPAPPExist',false);
+        }
+        else{
+          document.getElementById('btn_submit_audit_firm').disabled=false;
+          document.getElementById(id).style.borderColor="#ced4da";
+        } 
+
+    },
+    error: function (message) {
+        errorMessage(message);
+    }
+});
+}
+
 // function updateAuditFirm(){
 
 //   var send_data=new FormData();
