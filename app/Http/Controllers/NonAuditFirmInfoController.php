@@ -12,6 +12,6 @@ class NonAuditFirmInfoController extends Controller
     $res_requirement = json_decode($client->request('GET', Helper::$domain.'/get_requirement_id')->getBody(),true);
     $requirements  = $res_requirement['data'];
 
-    return view('pages.non_audit_firm_information',['requirements' => $requirements]);
+    return view('pages.firm.non_audit_firm_information',['requirements' => $requirements]);
   }
 }

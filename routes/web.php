@@ -58,6 +58,8 @@ Route::get('contact', 'ContactController@info');
 
 //Non_Audit firm
 Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
+Route::get('non_audit_firm_renew', 'NonAuditFirmController@nonAuditFirmRenew');
+Route::get('non_audit_firm_resubmit', 'NonAuditFirmController@nonAuditFirmReSubmit');
 Route::get('non_audit_firm_register_edit', 'NonAuditFirmController@edit');
 
 // Non Audit Firm Information

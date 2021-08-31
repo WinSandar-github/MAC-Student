@@ -142,6 +142,21 @@ function validateRequired(){
     $(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
 }
 
+
+function nonAuditRenewSubscribe()
+{
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    $.ajax({
+        url: BACKEND_URL+"/renew_subscribe/"+student.accountancy_firm_info_id,
+        type: "patch",
+        success: function (data){
+            // console.log(data)
+            successMessage("Your new subscription is success!");
+            location.href = FRONTEND_URL+'/non_audit_firm_register';
+        }
+    })
+}
+
 function createNonAuditFirm(){
   console.log("youte tal");
   if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
@@ -190,7 +205,7 @@ function createNonAuditFirm(){
   $('input[name="dona_name[]"]').map(function(){send_data.append("dona_name[]",$(this).val());});
   $('input[name="dona_position[]"]').map(function(){send_data.append("dona_position[]",$(this).val());});
   $('input[name="dona_passport[]"]').map(function(){send_data.append("dona_passport[]",$(this).val());});
-  $('input[name="dona_csc_no[]"]').map(function(){send_data.append("dona_csc_no[]",$(this).val());});
+  // $('input[name="dona_csc_no[]"]').map(function(){send_data.append("dona_csc_no[]",$(this).val());});
   $('input[name="ats_total[]"]').map(function(){send_data.append("ats_total[]",$(this).val());});
   $('input[name="ats_audit_staff[]"]').map(function(){send_data.append("ats_audit_staff[]",$(this).val());});
   $('input[name="ats_non_audit_staff[]"]').map(function(){send_data.append("ats_non_audit_staff[]",$(this).val());});
