@@ -147,3 +147,7 @@ Route::get('exam_registration_list/{course_id}','ReportController@exam_list');
 Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 
 
+//Payment Page
+Route::get('payment', 'PaymentController@payment');
+Route::get('cash', 'PaymentController@cash');
+Route::get('da_verify_email', 'PaymentController@verifyEmail');

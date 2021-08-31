@@ -8,27 +8,51 @@ function ConfirmSubmit(){
     }
 }
 
+function CheckPartTwo(){
+    var radio = document.getElementById("cpa_part_2_check");
+    if(radio.checked == true){
+        $('.pass_batch_two').css('display','block');  
+        $('.qt_pass').css('display','none');      
+    }
+    else{
+        $('.pass_batch_two').css('display','none');  
+        $('.qt_pass').css('display','none');  
+    }
+}
+
+function CheckQTPass(){
+    var radio = document.getElementById("qt_pass_check");
+    if(radio.checked == true){
+        $('.pass_batch_two').css('display','none');  
+        $('.qt_pass').css('display','block');        
+    }
+    else{
+        $('.pass_batch_two').css('display','none');  
+        $('.qt_pass').css('display','none');  
+    }
+}
+
 function getCPAEducation(){
     var checkedValue = $("input[name='education']:checked").val();
     if(checkedValue==1){
         $('#cpa').css('display','block');
         $('#ra').css('display','none');
-        $('#accredited_foreign_degree').css('display','none');
+        $('#edu').css('display','none');
     }
     else if(checkedValue==2){
         $('#cpa').css('display','none');
         $('#ra').css('display','block');
-        $('#accredited_foreign_degree').css('display','none');
+        $('#edu').css('display','none');
     }
     else if(checkedValue==3){
         $('#cpa').css('display','none');
         $('#ra').css('display','none');
-        $('#accredited_foreign_degree').css('display','block');
+        $('#edu').css('display','block');
     }
     else{
         $('#cpa').css('display','none');
         $('#ra').css('display','none');
-        $('#foreign_degree').css('display','none');
+        $('#edu').css('display','none');
     }
 }
 
@@ -42,6 +66,52 @@ function addInputFile(divname,diventry){
             .removeClass('btn-primary').addClass('btn-danger')
             .attr("onclick","delInputFile('"+diventry+"')")
             .html('<span class="fa fa-trash"></span>');
+
+}
+
+var count=1;
+function AddCPAFFDegree(){
+    $("#edu").append(
+        '<div class="row mb-2" id="degree_name'+count+'">'+  
+            '<div class="col-md-1"></div>'+                                                     
+            '<div class="col-md-4 col-auto">'+                                                              
+                '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
+            '</div>'+
+            '<div class="col-md-6 col-auto">'+                                                            
+                '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
+            '</div>'+                                                           
+        '</div>'+
+        '<div class="row mb-2" id="degree_year'+count+'">'+  
+            '<div class="col-md-1"></div>'+                                                         
+            '<div class="col-md-4 col-auto">'+                                                              
+                '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
+            '</div>'+
+            '<div class="col-md-6 col-auto">'+                                                              
+                '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
+            '</div>'+                                                           
+        '</div>'+
+
+        '<div class="row mb-4" id="edu'+count+'">'+
+            '<div class="col-md-1"></div>'+
+            '<div class="col-md-4 col-auto">'+                                                             
+                '<label for="" class="col-form-labe"> Attached Certificate</label>'+
+            '</div>'+
+            '<div class="col-md-6">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
+            '</div>'+
+            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                    '<i class="fa fa-trash "></i>'+
+                '</button>'+
+            '</div>'+
+        '</div>');
+
+        $('input[name="degree_pass_year'+count+'"]').flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
+    });
+    count++;
 
 }
 

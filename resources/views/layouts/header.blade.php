@@ -76,7 +76,7 @@
 
                 <!-- Header Logo Start -->
                 <div class="header-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets') }}/images/logo1.png" alt="Logo"></a>
+                    <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img src="{{ asset('assets') }}/images/maclogo1.png" alt="Logo"> <label for="" class="" style="font-weight:bold;font-size:20px;">MAC</label> </a>
                 </div>
                 <!-- Header Logo End -->
 
