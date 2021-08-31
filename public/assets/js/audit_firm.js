@@ -939,7 +939,7 @@ function checkPAPPExist(value,id){
        // var a=localStorage.getItem('isPAPPExist');
         if(data.data.length==0){
           alert("PAPP Registration No. does not exist!");
-          document.getElementById('btn_submit_audit_firm').disabled=false;
+          document.getElementById('btn_submit_audit_firm').disabled=true;
           document.getElementById(id).style.borderColor="red";
           //localStorage.setItem('isPAPPExist',false);
         }
