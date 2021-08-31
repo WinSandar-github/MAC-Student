@@ -103,4 +103,6 @@ class DAController extends Controller
         $batch = $res['data'];
         return view('pages.da.da_two_register',compact('batch'));
     }
+
+  
 }
