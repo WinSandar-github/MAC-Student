@@ -444,7 +444,7 @@
               </div>
               <div class="modal-footer">
                 <center>
-                    <button type="submit" id="btn1" onclick="choose_payment()" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
+                    <button type="submit" id="btn1" onclick="check_email()" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
                     </button>
                 </center>
               </div>
@@ -564,8 +564,8 @@
 
         $('#btn2').click(function() {
             setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
-            successMessage("You have successfully registerd!"); 
-            location.href = FRONTEND_URL + '/';
+            // successMessage("You have successfully registerd!"); 
+            // location.href = FRONTEND_URL + '/';
         });
 
     });

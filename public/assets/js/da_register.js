@@ -128,16 +128,9 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-            var verify_code = localStorage.getItem("code");
-             if(result.verify_code == verify_code){
-                // EasyLoading.hide();
-                successMessage("You have successfully registerd!");                
-                location.href = FRONTEND_URL+'/' ;
-             }
-             else{
-                EasyLoading.hide();
-                successMessage(result);
-             }
+            console.log(result)
+            successMessage("You have successfully registerd!");                
+            location.href = FRONTEND_URL+'/' ;
         },
         error:function (message){
             EasyLoading.hide();
@@ -163,7 +156,7 @@ function send_email()
         processData: false,
         success: function(data){
             console.log(data)
-            localStorage.setItem("code", data);
+            localStorage.setItem('verify_code', JSON.stringify(data));
             successMessage("Your email is sending to MAC");  
         },
         error:function (message){
@@ -176,6 +169,17 @@ function send_email()
         //   successMessage(result);
         // }
     });
+}
+
+function check_email()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        alert("You code is not correct.Please check your email inbox again!");
+    } 
 }
 
 function da_edit(){
