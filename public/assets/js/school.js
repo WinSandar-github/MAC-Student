@@ -5,7 +5,7 @@ function createSchoolRegister(){
         return;
     }
     var formData = new FormData($( "#school_register_form" )[0]); 
-    formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
+    //formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
     show_loader();
     $.ajax({
         type: "POST",
@@ -48,6 +48,7 @@ function school_reg_feedback(){
                     $('#school_form').css('display','none');
 
                 }else if(element.approve_reject_status == 1){
+                    loadRenewSchool(localStorage.getItem("school_id"));
                     $('#school_approve').css('display','block');
                     $('#school_form').css('display','none');
                     $('#school_pending').css('display','none');
@@ -86,3 +87,61 @@ function loadSchoolList(){
     
     });
 }
+function loadRenewSchool(id){
+    $.ajax({
+      type : 'GET',
+      url : BACKEND_URL+"/school/"+id,
+      success: function (result) {
+          var school=result.data;
+          if(school.approve_reject_status==1){
+                document.getElementById('school').style.display='none';
+                document.getElementById('school_renew_form').style.display='block';
+                var accept=new Date(school.renew_date);
+                var month=accept.getMonth()+1;
+                var year=accept.getFullYear();
+                var y=year+1;
+                var now=new Date();
+                $('#regno').val(school.id);
+                $('#register_date').val(school.renew_date);
+                if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                    $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                    $('.renew_submit').prop('disabled', false);
+                    
+                }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                    $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                    $('.renew_submit').prop('disabled', true);
+                }else{
+                    $('#message').val("You are verified!");
+                    $('.renew_submit').prop('disabled', true);
+                }
+          }else{
+            document.getElementById('school_renew_form').style.display='none';
+            document.getElementById('school').style.display='block';
+          }
+          
+      },
+      error: function (result) {
+      },
+  });
+  }
+  function renewSchool(){
+    var send_data=new FormData();
+    var id=localStorage.getItem("school_id");
+    send_data.append('_method', 'PATCH');
+    show_loader();
+      $.ajax({
+          url: BACKEND_URL+'/school/'+id,
+          type: 'post',
+          data:send_data,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+              EasyLoading.hide();
+              successMessage(data.message);
+              location.href=FRONTEND_URL+'/';
+              
+          },
+          error: function (result) {
+          },
+      });
+  }
