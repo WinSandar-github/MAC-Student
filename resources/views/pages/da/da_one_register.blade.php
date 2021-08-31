@@ -156,7 +156,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
+                                                            <input type="text" name="batch_no_mac" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
                                                         
                                                     </div>
                                                 </div>
@@ -167,7 +167,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no" class="form-control" placeholder="အပိုင်း" id="">
+                                                            <input type="text" name="part_no_mac" class="form-control" placeholder="အပိုင်း" id="">
                                                         
                                                     </div>
                                                 </div>
@@ -178,7 +178,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                        <input type="text" name="personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                        <input type="text" name="personal_no_mac" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
                                                        
                                                     </div>
                                                 </div>  
@@ -238,7 +238,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
+                                                            <input type="text" name="batch_no_private" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
                                                         
                                                     </div>
                                                 </div>
@@ -249,7 +249,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no" class="form-control" placeholder="အပိုင်း" id="">
+                                                            <input type="text" name="part_no_private" class="form-control" placeholder="အပိုင်း" id="">
                                                         
                                                     </div>
                                                 </div>
@@ -260,7 +260,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                        <input type="text" name="personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                        <input type="text" name="personal_no_private" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
                                                        
                                                     </div>
                                                 </div> 
@@ -407,7 +407,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
+                                                            <input type="text" name="batch_no_self" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
                                                         
                                                     </div>
                                                 </div>
@@ -418,7 +418,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no" class="form-control" placeholder="အပိုင်း" id="">
+                                                            <input type="text" name="part_no_self" class="form-control" placeholder="အပိုင်း" id="">
                                                         
                                                     </div>
                                                 </div>
@@ -429,7 +429,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                        <input type="text" name="personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                        <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
                                                        
                                                     </div>
                                                 </div>
