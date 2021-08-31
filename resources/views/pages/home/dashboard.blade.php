@@ -105,7 +105,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 current_course" style="display:none;">
                                     <h5 class="text-center border-bottom  py-2 my-2" style="font-weight:bold; background-color:#E7F8EE;">
                                     လက်ရှိတက်ရောက်နေသော အတန်း
                                     </h5>
@@ -171,6 +171,90 @@
                                     </div>
 
 
+                                </div>
+                                <div class="col-md-4 cpaff" style="display:none;">
+                                <h5 class="text-center border-bottom  py-2 my-2" style="font-weight:bold; background-color:#E7F8EE;">
+                                    ကနဦးမှတ်ပုံတင်ခြင်း
+                                    </h5>
+                                    
+                                   
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold" >CPA(FF)လျှောက်လွှာကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>1000</span> 
+                                        </div>
+                                    </div>
+
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">CPA(FF)မှတ်ပုံတင်ကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>10000</span> 
+                                        </div>
+                                    </div>
+                                  
+                                    
+                                   
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold" >PAPPလျှောက်လွှာကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>1000</span> 
+                                        </div>
+                                    </div>
+
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">PAPP မှတ်ပုံတင်ကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>10000</span> 
+                                        </div>
+                                    </div>
+                                    <h5 class="text-center border-bottom  py-2 my-2" style="font-weight:bold; background-color:#E7F8EE;">
+                                    သက်တမ်းတိုးခြင်း
+                                    </h5>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold" >CPA(FF) လျှောက်လွှာကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>1000</span> 
+                                        </div>
+                                    </div>
+
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">CPA(FF) မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>10000</span> 
+                                        </div>
+                                    </div>
+                                  
+                                    
+                                   
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold" >PAPP လျှောက်လွှာကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>1000</span> 
+                                        </div>
+                                    </div>
+
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">PAPP မှတ်ပုံတင်သက်တမ်းတိုးကြေး</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span>10000</span> 
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-8 ">
                                     <h5 class="text-center border-bottom py-2 my-2" style="font-weight:bold;background-color:#E7F8EE;">Application Status</h5>

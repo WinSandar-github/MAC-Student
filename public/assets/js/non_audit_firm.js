@@ -165,7 +165,7 @@ function createNonAuditFirm(){
       return;
   }
   var send_data=new FormData();
-  send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
+  // send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('township',$("input[name=township]").val());
   send_data.append('post_code',$("input[name=post_code]").val());
@@ -182,8 +182,8 @@ function createNonAuditFirm(){
   send_data.append('declaration',$("input[name=declaration]").val());
   send_data.append('email',$("input[name=email]").val());
   send_data.append('password',$("input[name=password]").val());
-  send_data.append('form_fee',$("input[name=form_fee]").val());
-  send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
+  // send_data.append('form_fee',$("input[name=form_fee]").val());
+  // send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
@@ -234,11 +234,11 @@ function createNonAuditFirm(){
     }
 
   });
-  $('input[name="representatives[]"]').map(function(){
-    for (var i = 0; i < $(this).get(0).files.length; ++i) {
-      send_data.append('representatives[]',$(this).get(0).files[i]);
-    }
-  });
+  // $('input[name="representatives[]"]').map(function(){
+  //   for (var i = 0; i < $(this).get(0).files.length; ++i) {
+  //     send_data.append('representatives[]',$(this).get(0).files[i]);
+  //   }
+  // });
   $('input[name="pass_photos[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('pass_photos[]',$(this).get(0).files[i]);
@@ -259,11 +259,19 @@ function createNonAuditFirm(){
       send_data.append('work_exps[]',$(this).get(0).files[i]);
     }
   });
-  $('input[name="nrc_passports[]"]').map(function(){
+
+  $('input[name="nrc_passports_front[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
-      send_data.append('nrc_passports[]',$(this).get(0).files[i]);
+      send_data.append('nrc_passports_front[]',$(this).get(0).files[i]);
     }
   });
+
+  $('input[name="nrc_passports_back[]"]').map(function(){
+    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+      send_data.append('nrc_passports_back[]',$(this).get(0).files[i]);
+    }
+  });
+
   $('input[name="tax_clearances[]"]').map(function(){
     for (var i = 0; i < $(this).get(0).files.length; ++i) {
       send_data.append('tax_clearances[]',$(this).get(0).files[i]);
@@ -324,19 +332,19 @@ function nonAuditRegFeedback(){
       success: function(data){
         data.forEach(function(element){
               if(element.approve_reject_status == 0){
-                  showPending();
+                  // showPending();
+                  $('#non_audit_app_form').css('display','none');
+                  $('#non_audit_form_pending').css('display','block');
               }else if(element.approve_reject_status == 1){
-                  showNonAudit();
+                  // showNonAudit();
+                  $('#non_audit_app_form').css('display','none');
+                  $('#non_audit_form_pending').css('display','block');
               }
         })
       }
   });
 }
 
-function showNonAudit(){
-  $('#non_audit_app_form').css('display','none');
-  $('#non_audit_form_pending').css('display','block');
-}
 
 function nonAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
@@ -345,50 +353,79 @@ function nonAuditData(){
       url: BACKEND_URL+"/getNonAuditStatus/"+student.accountancy_firm_info_id,
       success: function (data){
           data.forEach(function(element){
+            console.log('loadnonaudit',element)
+
+            var resubmit_url = FRONTEND_URL + "/non_audit_firm_resubmit";
               if(element.status == 0){
-                  pendingStatus();
+                $("#non_audit_form_pending").css('display','block');
+                  // pendingStatus();
               }else if(element.status ==1){
-                  $("#accountancy_firm_name").append(element.accountancy_firm_name);
-                  $("#updated_at").append(element.register_date);
-                  showNonAuditList();
+                // console.log('loadnonaudit',)
+                  $("#accountancy_firm_name").val(element.accountancy_firm_name);
+                  $("#register_date").val(element.register_date);
+                  // $("#message").val("Approve");
+
+                  $('#non_audit_container').css('display','block');
+                  $('#non_audit_form_pending').css('display','none');
+                  // showNonAuditList();
               }
               else{
-                rejectStatus();
+                  $('#non_audit_app_form').css('display','none');
+                  $("#non_audit_form_pending").css('display','none');
+                  $('#non_audit_reject').css('display','block');
+                  $('.reject').append(`<a href= ${resubmit_url} class="btn btn-primary btn-sm xl-auto" > Go To Form </a>`);
+                  // rejectStatus();
               }
           })
       }
   })
 }
 
-function showNonAuditList(){
-    $('#non_audit_container').css('display','block');
-    $('#non_audit_form_pending').css('display','none');
-    //$('#non_audit_app_form').css('display','none');
-}
+// function showNonAuditList(){
+//     $('#non_audit_container').css('display','block');
+//     $('#non_audit_form_pending').css('display','none');
+//     //$('#non_audit_app_form').css('display','none');
+// }
 
-function showPending(){
-  $('#non_audit_app_form').css('display','none');
-  $('#non_audit_form_pending').css('display','block');
-}
 
-function pendingStatus(){
-    $('#non_audit_form_pending').css('display','block');
-}
 
-function rejectStatus(){
-  $('#non_audit_app_form').css('display','none');
-  $("#non_audit_form_pending").css('display','none');
-  $('#non_audit_reject').css('display','block');
+// function pendingStatus(){
+//     $('#non_audit_form_pending').css('display','block');
+// }
+
+// function rejectStatus(){
+//   $('#non_audit_app_form').css('display','none');
+//   $("#non_audit_form_pending").css('display','none');
+//   $('#non_audit_reject').css('display','block');
+// }
+
+function getNonAuditData(){
+  var student =JSON.parse(localStorage.getItem("studentinfo"));
+  $.ajax({
+      type: "GET",
+      url: BACKEND_URL+"/getNonAuditStatus/"+student.accountancy_firm_info_id,
+      success: function (data){
+          var audit_data = data;
+          audit_data.forEach(function(element){
+            console.log('get_audit_data',element);
+            $("#accountancy_firm_name").val(element.accountancy_firm_name);
+            $("#accountancy_firm_reg_no").val(element.accountancy_firm_reg_no);
+            $("#register_date").val(element.register_date);
+
+            
+          })
+      }
+  })
 }
 
 function nonAuditFirmDateQuery(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     $.ajax({
         type: "GET",
-        url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
+        url: BACKEND_URL+"/getNonAuditDateRange/"+student.accountancy_firm_info_id,
         success: function (data){
             // console.log(data)
-            $("#message").append(data);
+            $("#message").val(data);
         }
     })
 }
@@ -398,16 +435,20 @@ function nonAuditVerifyStatus()
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     $.ajax({
         type: "GET",
-        url: BACKEND_URL+"/checkVerify/"+student.accountancy_firm_info_id,
+        url: BACKEND_URL+"/nonAuditCheckVerify/"+student.accountancy_firm_info_id,
         success: function (data){
             var status = data;
             // console.log(data)
             status.forEach(function(element){
                 // console.log(element.verify_status)
                 if(element.verify_status == 1){
-                    $('#check_status').css('display','none');
+                    // $('#check_status').css('display','none');
+                    $('#check_non_audit_renew').css('display','none');
                 }else if(element.verify_status == 2){
-                    $('#check_status').css('display','block');
+                    // $('#check_status').css('display','block');
+                    $('#check_non_audit_renew').css('display','none');
+                }else{
+                  $('#check_non_audit_renew').css('display','block');
                 }
             })
         }

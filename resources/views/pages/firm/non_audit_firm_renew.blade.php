@@ -36,10 +36,56 @@
                 <div class="card border-success mb-3">
                     <div class="card-body">
                         <div class="col-md-12">
+
+                            <table width="100%">
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <label class="col-form-label">Accountancy Firm Name</label>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                        </div>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <label class="col-form-label">Accountancy Firm Registeration No</label>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
+                                        </div>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <label class="col-form-label">Applied Date</label>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="register_date" readonly="">
+                                        </div>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                            </table>
+
                             <table width="100%">
                                 <tr>
                                     <td>
-                                        <div class="single-form">
+                                        <div class="text-center mt-4">
                                             <label class="col-form-label"><h3>Your registeration is expired.You need to subscribe again!</h3></label>
                                         </div>
                                     </td>
@@ -58,3 +104,10 @@
         </div>
     </div>
 </div>
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        getNonAuditData();
+    });
+</script>
+@endpush
