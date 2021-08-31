@@ -1085,12 +1085,9 @@ $(document).ready(function(){
     pendingStatus();
     dateQuery();
     verifyStatus();
-<<<<<<< HEAD
-=======
 
     // getTotalStaff();
 
->>>>>>> 5a31fe5a8675e2ab76acb2e1b418d654416d81da
     });
 
 </script>

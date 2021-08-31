@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/maclogo1.png') }}">
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icofont.min.css') }}">
