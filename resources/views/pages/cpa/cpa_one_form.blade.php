@@ -600,19 +600,7 @@
                                                     <label>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော -</label>
                                                 </div>
                                             </div>
-                                        </div>
-										<br>
-                                       <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>(က)</label>
-                                                </div>
-                                            </div>
+                                        </div><br>
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -669,55 +657,8 @@
                                             </div>
                                         </div><br>
 
-                                        </div>
-										<br>
-                                        {{--<div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="10%"></td>
-                                                        <td width="90%">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <table id="myTable" class="table university_list table-bordered">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="less-font-weight" rowspan="2">Sr</th>
-                                                                                <th class="less-font-weight" rowspan="2">ဘွဲ့အမည်</th>
-                                                                                <th class="less-font-weight" rowspan="2">တက္ကသိုလ်အမည်</th>
-                                                                                <th class="less-font-weight" rowspan="2">ခုံအမှတ်</th>
-                                                                                <th class="less-font-weight" rowspan="2">Certificate</th>
-                                                                                <th class="less-font-weight" rowspan="2" style="text-align: right;">
-                                                                                    <button class="btn btn-primary btn-sm" type="button" onclick='addRowUniversity("university_list")'>
-                                                                                        <i class="fa fa-plus"></i>
-                                                                                    </button>
-                                                                                </th>
-                                                                            </tr>
-
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td><input type="text" value="" name="uni_degree_name[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" value="" name="uni_name[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" value="" name="uni_roll_no[]" id="foa_pub_pri_reg_no" class="form-control" autocomplete="off" required></td>
-                                                                                <td>
-                                                                                    <div>
-                                                                                        <input type="file" class="form-control" placeholder="upload photo" name="uni_certificate[]"  value="{{ old('document') }}"  style="padding: 2%;" required>
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowUniversity("university_list")'><i class="fa fa-trash"></i></button>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div><br>--}}
-                                        {{--<div class="row">
+                                        
+                                        <div class="row">
                                             <div class="col-md-1">
                                                 <div>
                                                     <label>{{ __('၁၉။') }}</label>
@@ -742,7 +683,7 @@
 																									<div class="invalid-feedback">ဝင်ခွင့်ပုံစံ ရွေးချယ်ပါ</div>
 																							</div>
 						                                </div>
-                                        </div>--}}
+                                        </div>
 																				<br>
                                         <!-- Direct or DA Pass -->
                                         <div class="row" id="direct">
