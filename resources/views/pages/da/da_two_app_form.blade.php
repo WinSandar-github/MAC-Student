@@ -77,7 +77,6 @@
                                         <div class="card-body">
                                             <h4>Da Two Form</h4>
 
-                                           <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
                                             <div class="row">
                                                 
                                                 <label class=col-md-3>Batch Name</label>

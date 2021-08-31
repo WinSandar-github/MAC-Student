@@ -40,6 +40,26 @@ function ConfirmSubmit(){
     }
 }
 
+var count=1;
+function AddCPAEdu(){
+    $("#edu").append(        
+
+        '<div class="row mb-4" id="edu'+count+'">'+
+            '<div class="col-md-5"></div>'+            
+            '<div class="col-md-6">'+
+                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate'+count+'" required="">'+
+            '</div>'+
+            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                    '<i class="fa fa-trash "></i>'+
+                '</button>'+
+            '</div>'+
+        '</div>');
+        
+    count++;
+
+}
+
 // var studentID=null;
 // async function SearchStudentByNRC(){
 //     var nrc_state_region = $("#nrc_state_region").val();
@@ -151,6 +171,7 @@ function Private_School_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -189,6 +210,7 @@ function Self_Study_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -270,12 +292,13 @@ $('#cpa_register').submit(function(e){
                 if(data.name_mm != null){
                 localStorage.setItem('studentinfo', JSON.stringify(data));
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = FRONTEND_URL + "/student_course/2";
+                location.href = FRONTEND_URL + "/";
                 }else{
                     location.reload();
                 }
             },
             error:function (message){
+                EasyLoading.hide();
             }
         })
 
@@ -369,7 +392,7 @@ $('#cpa_update').submit(function(e){
             data: formData,
             success: function (data) {
                 localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = FRONTEND_URL + "/student_course/"+data.course_type_id;
+                location.href = FRONTEND_URL + "/";
             },
             error:function (message){
             }

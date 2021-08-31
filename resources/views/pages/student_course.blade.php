@@ -42,7 +42,7 @@
         </div>
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
-                <div class="status-reject" style="display:none">
+                <!-- <div class="status-reject" >
                     <div class="card text-white bg-dark mb-3">
 
                         <div class="card-body">
@@ -51,20 +51,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="check_registration" style="display:none; margin-left: 7%; margin-right: 7%;">
+                <div class="check_registration" style= "margin-left: 7%; margin-right: 7%;">
                     <div class="card text-white bg-primary my-3">
 
                         <div class="card-body">
                             <p class="card-text">Your Application Form is checking</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="course_detail">
                     <div class="row" >
 
                         @php $i=0; $date=Date('Y-m-d');
 
+
                         @endphp
+                         <input type="hidden" id="course_length" value={{sizeof($course)}}>
 
                         @foreach($course as $c)
 
@@ -79,6 +81,7 @@
                           @endphp
 
 
+                        <input type="hidden"  class="code{!! $i !!}" value="{{$c['code']}}">
 
                         <input type="hidden" value="{{$c['id']}}" id="course_id{!! $i !!}"/>
                             <div class="card col-md-12 mb-3">
@@ -89,23 +92,17 @@
                                     <div class="row">
                                         <div class="col-md-12 widget-information" >
                                             <div class="row border-bottom">
-                                                <h2 class="col-md-6 card-title text-center text-success">{{ $c['name']}} </h2>
+                                                <h2 class="col-md-4 card-title text-center text-success">{{ $c['name']}}  
 
                                                 @if(!empty($c['active_batch']))
 
                                                     @foreach($c['active_batch'] as $b)
-                                                        <div class="col-md-4 pl-4">
-                                                            <!-- <div class="row">
-                                                                <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong></div>
-                                                                <div class="col-md-4"><span>{{$b['accept_application_start_date']}} </span></div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-8"><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong></div>
-                                                                <div class="col-md-4"><span>{{$b['accept_application_end_date']}} </span></div>
-                                                            </div>                                                             -->
+                                                     ({{$b['name']}})</h2>
+                                                        <!-- <div class="col-md-4 pl-4">
+                                                                                                    
                                                         </div>
                                                         <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
-                                                        <div class="info-btn mb-4 col-md-2 check_login{!! $i !!}">
+                                                        <div class="info-btn mb-4 col-md-2 check_login{!! $i !!}"> -->
 
                                                         <!-- $c['id'], 'da_register' -->
                                                         <!-- sucess da         -->
@@ -114,40 +111,41 @@
                                                         <!-- <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none  logined" >Enroll Now </a> -->
 
 
-                                                        </div>
+                                                        <!-- </div> -->
                                                         @break
 
 
                                                     @endforeach
                                                 @else
-                                                <div class="col-md-3"></div>
-                                                <p class="info-btn col-md-2 mb-4 text-dark h6 ">Coming Soon...</p>
-
+                                               
                                                 @endif
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-7">
                                                     <h5 class="mt-2">Description</h5>
                                                     <hr>
+                                                    <p style="height: 200px;">{{$c['description']}}</p>
+                                                    <h5 class="mt-2">Requirement</h5>
+                                                    <hr>
 
-                                                    <ul class="requirement_lists">
+                                                     
+                                                    @foreach($requirements as $require)
+                                                        @foreach($req_str_arr as $course_req)
 
-                                                        <li><i class="icofont-man-in-glasses"></i> <strong>Requirement</strong> <span>
-                                                             @foreach($requirements as $require)
-                                                                @foreach($req_str_arr as $course_req)
-
-                                                                @if($require['id'] == $course_req)
+                                                            @if($require['id'] == $course_req)
                                                                 <p>{{$require['name']}} </p>
-                                                                 @endif
+                                                            @endif
 
 
-                                                                 @endforeach
-                                                              @endforeach
+                                                        @endforeach
+                                                    @endforeach
 
+                                                    
 
+                                                     
+                                                  
 
-                                                         </span></li>
-
+ 
 
                                                     </ul>
                                                     <!-- <p style="height:150px;overflow:auto;">{{$c['description']}}</p> -->
@@ -176,27 +174,78 @@
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-ui-note"></i> <strong>Description</strong> <span>{{$c['description']}}</span></li>
-                                                            <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
+                                                             <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
                                                             @if(!empty($c['active_batch']))
                                                                 @foreach($c['active_batch'] as $b)
-                                                                <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
-                                                    
-                                                                <span> {{ $b['accept_application_start_date'] }} </span></li>
-                                                                <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
-                                                                <span>  {{ $b['accept_application_end_date']}} </span></li> 
+                                                                <input type="hidden" value="{{$b['id']}}" class="batch_id{!! $i !!}"/>
+
+                                                                <div class="application">
+                                                                    <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
+                                                        
+                                                                    <span> {{ $b['accept_application_start_date'] }} </span></li>
+                                                                    <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
+                                                                    <span>  {{ $b['accept_application_end_date']}} </span></li> 
+
+                                                                </div>
+
+                                                                <div class="registration">
+                                                                    <li><i class="icofont-calendar"></i> <strong> MAC Registration Start Date</strong> 
+                                                        
+                                                                    <span> {{ $b['mac_reg_start_date'] }} </span></li>
+                                                                    <li><i class="icofont-calendar"></i> <strong>MAC Registration End Date</strong>
+                                                                    <span>  {{ $b['mac_reg_end_date']}} </span></li> 
+                                                                    <li><i class="icofont-calendar"></i> <strong> SelfStudy Registration Start Date</strong> 
+                                                        
+                                                                    <span> {{ $b['mac_reg_start_date'] }} </span></li>
+                                                                    <li><i class="icofont-calendar"></i> <strong>SelfStudy Registration End Date</strong>
+                                                                    <span>  {{ $b['mac_reg_end_date']}} </span></li> 
+                                                                    <li><i class="icofont-calendar"></i> <strong> Private School Registration Start Date</strong> 
+                                                        
+                                                                    <span> {{ $b['private_reg_start_date'] }} </span></li>
+                                                                    <li><i class="icofont-calendar"></i> <strong>Privater Schoo   Registration End Date</strong>
+                                                                    <span>  {{ $b['private_reg_end_date']}} </span></li> 
+
+                                                                </div>
+
+                                                                <div class="exam">
+                                                                    <li><i class="icofont-calendar"></i> <strong>Exam Registration Start Date</strong> 
+                                                                    
+                                                                    <span> {{ $b['exam_start_date'] }} </span></li>
+                                                                    <li><i class="icofont-calendar"></i> <strong>Exam Registration End Date</strong>
+                                                                    <span>  {{ $b['exam_end_date']}} </span></li> 
+
+                                                                </div>
+                                                                
+                                                            </ul>
+
+                                                             
+                                                                <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
+                                                                <div class="d-flex   flex-column     info-btn mb-4   check_login{!! $i !!}">
+        
+                                                                <!-- $c['id'], 'da_register' -->
+                                                                <!-- sucess da         -->
+                                                                <!-- <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none " >Enroll Now </a> -->
+        
+                                                                <!-- <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none  logined" >Enroll Now </a> -->
+        
+        
+                                                                </div>
                                                                 @break
                                                         
                                                     
                                                             @endforeach
                                                             @else
-                                                            <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
+                                                                <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
                                                     
                                                                 <span class="mr-3"> - </span></li>
                                                                 <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong>
                                                                 <span class="mr-3">  - </span></li> 
+                                                            </ul>    
+                                                            <div class="col-md-3"></div>
+                                                            <p class="info-btn d-flex justify-content-center mb-4 text-dark h6 ">Coming Soon...</p>
+
                                                             @endif
-                                                        </ul>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

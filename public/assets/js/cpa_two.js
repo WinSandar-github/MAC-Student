@@ -17,6 +17,7 @@ else{
 var cpaOneID;
 
 function ConfirmSubmit(){
+    alert("hello")
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
@@ -29,7 +30,9 @@ function ConfirmSubmit(){
 function CPA2_Private_School_Submit(){
     localStorage.setItem("isPrivateSchool",true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
     var data = new FormData();
+    data.append('batch_id',$("input[name='batch_id']").val())
     data.append('student_id',student.id);
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
@@ -38,7 +41,7 @@ function CPA2_Private_School_Submit(){
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/store_student_app_reg",
         type: 'post',
         data:data,
         contentType: false,
@@ -57,13 +60,16 @@ function CPA2_Private_School_Submit(){
         },
         error:function (message){
             console.log(message);
+            EasyLoading.hide();
             }
         });
 }
 function CPA2_Mac_Submit(){
     localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
     var data = new FormData();
+    data.append('batch_id',$("input[name='batch_id']").val())
     data.append('student_id',student.id);
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
@@ -72,7 +78,43 @@ function CPA2_Mac_Submit(){
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
     $.ajax({
-        url: BACKEND_URL+"/student_register",
+        url: BACKEND_URL+"/store_student_app_reg",
+        type: 'post',
+        data:data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            EasyLoading.hide();
+              
+            if(result.message==undefined){
+                successMessage(result);
+                location.href = FRONTEND_URL+'/';
+            }   
+            else{       
+                successMessage(result.message);
+                location.href = FRONTEND_URL+'/';
+            }
+        },
+        error:function (message){
+            console.log(message);
+            EasyLoading.hide();
+            }
+        });
+}
+function CPA2_Self_Study_Submit(){
+    localStorage.setItem("isPrivateSchool",false);
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    
+    var data = new FormData();
+    data.append('batch_id',$("input[name='batch_id']").val())
+    data.append('student_id',student.id);
+    $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    data.append('batch_part_no',$("#batch_part_no").val() );
+    data.append('type',0);
+    data.append('form_type',localStorage.getItem('course_id'));
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL+"/store_student_app_reg",
         type: 'post',
         data:data,
         contentType: false,
@@ -84,46 +126,16 @@ function CPA2_Mac_Submit(){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
             }   
-            else{       
+            else{    
+             EasyLoading.hide();
+
                 successMessage(result.message);
                 location.href = FRONTEND_URL+'/';
             }
         },
         error:function (message){
             console.log(message);
-            }
-        });
-}
-function CPA2_Self_Study_Submit(){
-    localStorage.setItem("isPrivateSchool",false);
-    var student = JSON.parse(localStorage.getItem('studentinfo'));
-    var data = new FormData();
-    data.append('student_id',student.id);
-    $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
-    data.append('batch_part_no',$("#batch_part_no").val() );
-    data.append('type',0);
-    data.append('form_type',localStorage.getItem('course_id'));
-    show_loader();
-    $.ajax({
-        url: BACKEND_URL+"/student_register",
-        type: 'post',
-        data:data,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            EasyLoading();
-            console.log(result);  
-            if(result.message==undefined){
-                successMessage(result);
-                location.href = FRONTEND_URL+'/';
-            }   
-            else{       
-                successMessage(result.message);
-                location.href = FRONTEND_URL+'/';
-            }
-        },
-        error:function (message){
-            console.log(message);
+            EasyLoading.hide();
             }
         });
 }
@@ -145,10 +157,11 @@ $('#store_cpa_two_form').submit(function(e){
         success: function(data){
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = FRONTEND_URL+"/student_course/2"; 
+            location.href = FRONTEND_URL+"/"; 
         },
       error:function (message){
         errorMessage(message);
+        EasyLoading.hide();
           }
         // },
         // error:function (message){

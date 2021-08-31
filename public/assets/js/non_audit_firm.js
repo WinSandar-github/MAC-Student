@@ -15,6 +15,9 @@ $(document).ready(function(){
       $("#local_header").css("display","none");
       $("#director_staffmembers").css("display","block");
       $("input[name=local_foreign_type]").val("2");
+
+      $("#label3").css("display","block");
+      $("#label2").css("display","none");
       // $("#email_num").text("14");
       // $("#password_num").text("15");
     }
@@ -37,13 +40,19 @@ function loadNonAuditOrganization(){
     data:"",
     success: function(result){
      var organization_structure=result.data;
-     $('.organization_data').append("<div class='col-md-3'></div>");
+     $('.organization_data').append("<div class='col-md-2'></div>");
      organization_structure.forEach(function(element){
-       if(element.id!=3){
+       if(element.id == 1 || element.id == 2){
         var radio_data="<div class='col-md-2'>"+
-        "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
+        "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()' >"+
         " <label class='form-check-label'>"+element.name+"</label>";
-       }else{
+       }
+       else if(element.id == 4){
+         var radio_data="<div class='col-md-2'>"+
+         "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()' >"+
+         " <label class='form-check-label'>"+element.name+"</label>";
+       }
+       else{
         var radio_data="<div class='col-md-3'>"+
         "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()'>"+
         " <label class='form-check-label'>"+element.name+"</label>";
@@ -66,7 +75,8 @@ function loadNonAuditStaff(){
     non_audit_total_staff.forEach(function(element){
           var tr = "<tr>";
           tr += "<td>" + element.name + "</td>";
-          tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'><input type='number' value='0' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+"></td>";
+          tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'>"+
+                "<input type='number' value='0' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+" required onmouseup=getNonAuditTotalNum("+element.id+") onkeyup=getNonAuditTotalNum("+element.id+")></td>";
           tr += "</tr>";
           $("#tbl_non_audit_number_body").append(tr);
 
@@ -74,6 +84,21 @@ function loadNonAuditStaff(){
 
   }
 });
+}
+
+function getNonAuditTotalNum(id) {
+  var total = 0;
+  $('#tbl_non_audit_number tbody tr').each(function () {
+
+    // alert($(this).find('td:eq(1) input[type=number]').val());
+
+      var value = parseInt($(this).find('td:eq(1) input[type=number]').val());
+      total += value;
+      
+  });
+  
+  $("#total_non_audit_staff").val(total);
+  
 }
 
 function loadNonAuditTypeOfService(){
@@ -88,12 +113,12 @@ function loadNonAuditTypeOfService(){
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
           var radio_data="<div class='col-md-2'>"+
-          "<input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          "<input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);
         }else{
           var tr = "<tr>";
-          tr += "<td><input type='radio' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+">"+
+          tr += "<td><input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
                 " <label class='form-check-label'>"+element.name+"</label>";
           tr += "</tr>";
           $('#tbl_type_service_body').append(tr);
@@ -105,7 +130,20 @@ function loadNonAuditTypeOfService(){
   });
 }
 
+
+
+function validateRequired(){
+    var radioValue = $("input[name='t_s_p_id']:checked").val();
+    if(radioValue==8){
+      $("#tr_other").css('display','block');
+    }
+
+    $("#type_service_validate").css('display','none');
+    $(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
+}
+
 function createNonAuditFirm(){
+  console.log("youte tal");
   if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
   {
       alert("Your password and confirm password do not match!");

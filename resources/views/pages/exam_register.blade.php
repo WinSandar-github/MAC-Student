@@ -67,7 +67,18 @@
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                 <div class="col-md-12"  id="is_private_school" style="display:none">
-                                    <table width="100%">
+                                    <div class="row mb-3">
+                                        <label class="col-md-6 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                        <div class="col-md-6">
+                                            <div class="form-group">                                
+                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
+                                                    <option value="" disabled selected>Select School</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    {{--<table width="100%">
                                         <tr>
                                             <td width="45%">
                                                 <div class="single-form">
@@ -80,8 +91,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
-                                    </div>
+                                    </table>--}}
+                                
                                     {{--<table width="100%">
                                         <tr>
                                             <td>
@@ -92,25 +103,15 @@
                                         </tr>
                                     </table>--}}
 
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="10%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">(က)</label>
-                                                </div>
-                                            </td>
-                                            <td width="35%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
-                                                </div>
-                                            </td>
-                                            <td width="55%">
-                                                <div class="single-form">
-                                                    <input type="text" name="date" class="form-control" placeholder="mm/yyyy" required>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div class="row mb-3">
+                                        <label class="col-md-1 col-form-label">(က)</label>
+                                        <label class="col-md-5 col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="date" class="form-control" placeholder="MMM-YYYY" required>
+                                        </div>
+                                    </div>
+
+                                    
                                     {{--<table width="100%">
                                         <tr>
                                             <td width="35%">
@@ -128,65 +129,45 @@
                                             </td>
                                         </tr>
                                     </table>--}}
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="10%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">(ခ)</label>
-                                                </div>
-                                            </td>
-                                            <td width="35%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">ယခုဖြေဆိုမည့် Module</label>
-                                                </div>
-                                            </td>
-                                            {{--<td width="65%">
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 1
-                                                </label>
-                                                <label class="checkbox-inline" style="margin-left:3%">
-                                                    <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;Module 2
-                                                </label>
-                                                <label class="checkbox-inline" style="margin-left:3%">
-                                                    <input type="checkbox" name="is_full_module" id="is_full_module" value="1">&nbsp;All Modules
-                                                </label>
-                                            </td>--}}
-                                            <td width="55%">
-                                                <div class="single-form" style="margin-bottom: 4%; margin-top: 5%;">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <input type="radio" id="0" name="is_full_module" value="0">
-                                                            <label for="0">Module 1</label>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
-                                                            <label for="1">Module 2</label>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
-                                                            <label for="2">All Modules</label>
-                                                        </div>
-                                                    </div>                                                 
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
 
-                                    <table width="100%">
+                                    <div class="row mb-3">
+                                        <label class="col-md-1 col-form-label">(ခ)</label>
+                                        <label class="col-md-5 col-form-label">ယခုဖြေဆိုမည့် Module</label>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <input type="radio" id="0" name="is_full_module" value="0">
+                                                    <label for="0">Module 1</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
+                                                    <label for="1">Module 2</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
+                                                    <label for="2">All Modules</label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    {{--<table width="100%">
                                         <tr>
-                                            {{--<td width="45%">
+                                            <td width="45%">
                                                 <div class="single-form">
                                                     <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်</label>
                                                 </div>
-                                            </td>--}}
+                                            </td>
                                             <td width="55%">
                                                 <div class="">
                                                     <input type="hidden" id="invoice_image" class="form-control" placeholder="upload photo" name="invoice_image" value="invoice_image">
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
-                                    <table width="100%">
+                                    </table>--}}
+                                    {{--<table width="100%" style="display:none;">
                                         <tr>
                                             <td width="45%">
                                                 <div class="single-form">
@@ -195,11 +176,11 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                    <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table>--}}
 
                                     <div class="row mt-4">
                                         <div class="col-md-2 offset-md-5">
@@ -244,5 +225,7 @@
             {document.getElementById('is_private_school').style.display='none';}
         }
     }); 
+
+    loadSchoolList();
 </script>
 @endpush

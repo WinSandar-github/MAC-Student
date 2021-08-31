@@ -70,28 +70,29 @@
                                     <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
-                                        <div class="col-md-12">
-                                                <div class="row">
+                                        <div class="col-md-12 mt-3">
+                                                <div class="row mb-3">
                                                         <div class="col-md-1">
-                                                            <div class="single-form">
                                                                 <label >၁။</label>
-                                                            </div>
+                                                            
                                                         </div>
 
                                                         <div class="col-md-6">
-                                                            <div class="single-form">
                                                                 <label class="col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
-                                                            </div>
+                                                            
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <div class="single-form">
-                                                                <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}" required="">
+                                                            <div class="form-group">                                
+                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
+                                                                    <option value="" disabled selected>Select School</option>
+                                                                </select>
                                                             </div>
+                                                            
                                                         </div>
 
                                                 </div>
 
-                                                <div class="row">
+                                                {{--<div class="row">
                                                         <div class="col-md-1">
                                                             <div class="single-form">
                                                                 <label >၂။</label>
@@ -104,62 +105,58 @@
                                                             </div>
                                                         </div>
 
-                                                </div>
+                                                </div>--}}
 
-                                                <div class="row">
+                                                <div class="row mb-3">
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
-                                                    <div class="col-md-1"></div>
                                                     <div class="col-md-1">
-                                                        <div class="single-form">
+                                                                <label >၂။</label>
+                                                            
+                                                        </div>
+                                                    <div class="col-md-1">
                                                             <label class="col-form-label">(က)</label>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <div class="single-form">
                                                             <label class="col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <div class="single-form">
-                                                            <input type="text" name="last_ans_exam_no" class="form-control" >
-                                                        </div>
+                                                            <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" >
+                                                        
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-2"></div>
-                                                    <div class="col-md-5">
-                                                        <div class="single-form">
-                                                            <label for="" class="col-form-label">ကျင်းပသည့် ခုနှစ်/လ</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <div class="single-form">
-                                                            <input type="text" name="date" class="form-control" placeholder="dd/mm/yyyy" required>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-                                                <div class="row">
+                                                <div class="row mb-3">
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-1">
-                                                        <div class="single-form">
                                                             <label class="col-form-label">(ခ)</label>
-                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                            <label for="" class="col-form-label">ကျင်းပသည့် ခုနှစ်/လ</label>
+                                                       
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                            <input type="text" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" required>
+                                                        
                                                     </div>
 
-                                                    <div class="col-md-10">
-                                                        <div class="single-form">
-                                                            <label class="col-form-label"> အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန်</label>
-                                                        </div>
-                                                    </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-5"></div>
-                                                    <div class="col-md-7">
+
+                                                <div class="row mb-3">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-1">
+                                                            <label class="col-form-label">(ဂ)</label>
+                                                        
+                                                    </div>
+
+                                                    <div class="col-md-5">
+                                                            <label class="col-form-label"> ဖြေဆိုအောင်မြင်ခဲ့သည့် Module</label>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-5">
                                                         <label class="checkbox-inline">
                                                             <input type="checkbox" name="last_ans_module"  value="1">&nbsp;Module 1
                                                         </label>
@@ -168,20 +165,20 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+
+                                                
+                                                <div class="row mb-3">
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label class="col-form-label">(ဂ)</label>
-                                                        </div>
+                                                            <label class="col-form-label">(ဃ)</label>
+                                                        
                                                     </div>
 
-                                                    <div class="col-md-3">
-                                                        <div class="single-form">
+                                                    <div class="col-md-5">
                                                             <label class="col-form-label">ယခုဖြေဆိုမည့် Module</label>
-                                                        </div>
+                                                        
                                                     </div>
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-5">
                                                         <div class="single-form" style="margin-bottom: 4%; margin-top: 5%;">
                                                             <input type="radio" id="0" name="is_full_module" value="0">
                                                             <label for="0">Module 1</label>
@@ -196,8 +193,8 @@
 
                                                 </div>
 
-                                                <div class="row">
-                                                        {{--<div class="col-md-1">
+                                                {{--<div class="row">
+                                                        <!-- <div class="col-md-1">
                                                             <div class="single-form">
                                                                 <label >၃။</label>
                                                             </div>
@@ -207,7 +204,7 @@
                                                             <div class="single-form">
                                                                 <label class="col-form-label">စာမေးပွဲကြေးပေးသွင်းပြီးသည့်ပြေစာအမှတ်</label>
                                                             </div>
-                                                        </div>--}}
+                                                        </div> -->
                                                         <div class="col-md-5 mt-3">
                                                             <div class="">
                                                                 <input type="hidden" id="invoice_image" class="form-control"  name="invoice_image" required="" value="invoice_image">
@@ -215,7 +212,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row">
+                                                    <div class="row" style="display:none;">
                                                         <div class="col-md-1">
                                                             
                                                         </div>
@@ -226,11 +223,12 @@
                                                         </div>
                                                         <div class="col-md-5">
                                                             <div class="single-form">
-                                                                <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                                                <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy">
                                                             </div>
                                                         </div>
 
-                                                </div><br/>
+                                                </div><br/>--}}
+
                                                 <div class="row">
 
 
@@ -259,15 +257,20 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+
+loadSchoolList();
+
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "m-Y",
+                dateFormat: "M-Y",
+                allowInput: true,
         });
         $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
+                allowInput: true,
         });
     });
 </script>

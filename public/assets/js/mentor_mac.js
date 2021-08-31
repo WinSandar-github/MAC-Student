@@ -29,7 +29,7 @@ $("#selected_service_id").change(function(){
 function checkOtherService(option)
 {
     var selected_service_id = $(option).val();
-    if(selected_service_id == 9){
+    if(option == 9){
         $(".check-service-other").css('visibility','visible');
     }
     else{
@@ -176,6 +176,7 @@ function createAAMacRegister()
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
     send_data.append('recommend_file', recommend_file);
+    send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
     
     
@@ -207,7 +208,7 @@ function createAASelfRegister()
     var recommend_file = $('#recommend_file')[0].files[0];
     send_data.append('recommend_file', recommend_file);
     show_loader();
-    // send_data.append('form_type', $("input[name='form_type']").val());
+    send_data.append('form_type', $("input[name='form_type']").val());
     $.ajax({
         url: BACKEND_URL+"/update_mentor",
         type: 'post',
@@ -233,8 +234,8 @@ function createAAPrivateRegister()
     send_data.append('',$('#selected_service_id').val());
     send_data.append('current_check_services_other', $("input[name=current_check_services_other]").val());
     var recommend_file = $('#recommend_file')[0].files[0];
-    send_data.current_check_service_idappend('recommend_file', recommend_file);
-    // send_data.append('form_type', $("input[name='form_type']").val());
+    send_data.append('recommend_file', recommend_file);
+    send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/update_mentor",

@@ -41,11 +41,17 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
 
+//PAPP Information Page
+Route::get('student_papp_information','PAPPInfoController@info');
+
 Route::get('student_index', 'StudentController@index');
 // Route::get('student_da/{id}', 'StudentController@course_detail');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+
+// CPA_FF Information Page
+Route::get('cpa_ff_information', 'CPAFFInfoController@info');
 
 //Contact Page
 Route::get('contact', 'ContactController@info');
@@ -53,6 +59,9 @@ Route::get('contact', 'ContactController@info');
 //Non_Audit firm
 Route::get('non_audit_firm_register', 'NonAuditFirmController@index');
 Route::get('non_audit_firm_register_edit', 'NonAuditFirmController@edit');
+
+// Non Audit Firm Information
+Route::get('non_audit_firm_information', 'NonAuditFirmInfoController@info');
 
 //CPA One
 Route::get('cpa_one_self_study', 'CPAOneRegisterController@self_study');
@@ -69,10 +78,10 @@ Route::get('cpa_one_mac', 'CPAOneRegisterController@mac');
 Route::get('cpa_one_private_school', 'CPAOneRegisterController@private_school');
 
 //CPA Two
-Route::get('cpa_two_self_study', 'CPATwoRegisterController@self_study');
-Route::get('cpa_two_mac', 'CPATwoRegisterController@mac');
-Route::get('cpa_two_private_school', 'CPATwoRegisterController@private_school');
-Route::get('cpa_two_register', 'CPATwoRegisterController@register');
+Route::get('cpa_two_self_study/{id}', 'CPATwoRegisterController@self_study');
+Route::get('cpa_two_mac/{id}', 'CPATwoRegisterController@mac');
+Route::get('cpa_two_private_school/{id}', 'CPATwoRegisterController@private_school');
+Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
@@ -94,26 +103,51 @@ Route::get('login','LoginController@login')->name('login');
 // show application form of da one
 Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
 
-Route::get('da_two_register', 'DARegisterController@da_two_register');
+Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
 //Da Two application form
-Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+// Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
-
-
-
+//Eamil Validation
+Route::get('verify_email', 'LoginController@verifyEmail');
 
 // Audit Firm
 Route::get('audit_firm', 'AuditFirmController@auditFirm');
+
+// Audit Firm Information
+Route::get('audit_firm_information', 'AuditFirmInfoController@info');
+
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
+Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
 
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
 
+// School Information Page
+Route::get('school_information', 'SchoolInfoController@info');
+
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
 
+// Teacher Information Page
+Route::get('teacher_information', 'TeacherInfoController@info');
+
 // Mentor Register Form
 Route::get('mentor_register', 'MentorController@index');
+
+// Mentor Information Page
+Route::get('mentor_information', 'MentorInfoController@info');
+
+//list of all result
+Route::get('application_list/{course_id}','ReportController@app_list');
+
+Route::get('exam_registration_list/{course_id}','ReportController@exam_list');
+Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
+
+
+//Payment Page
+Route::get('payment', 'PaymentController@payment');
+Route::get('cash', 'PaymentController@cash');
+Route::get('da_verify_email', 'PaymentController@verifyEmail');
