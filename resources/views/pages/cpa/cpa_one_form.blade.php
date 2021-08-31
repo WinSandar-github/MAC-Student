@@ -602,7 +602,7 @@
                                             </div>
                                         </div>
 										<br>
-                                        {{--<div class="row">
+                                       <div class="row">
                                             <div class="col-md-1">
                                                 <div>
                                                     <label>{{ __('') }}</label>
@@ -669,8 +669,8 @@
                                         </div><br>
 
                                         </div>
-										<br>--}}
-                                        <div class="row">
+										<br>
+                                        {{--<div class="row">
                                                 <table width="100%">
                                                     <tr>
                                                         <td width="10%"></td>
@@ -715,7 +715,7 @@
                                                         </td>
                                                     </tr>
                                                 </table>
-                                            </div><br>
+                                            </div><br>--}}
                                         {{--<div class="row">
                                             <div class="col-md-1">
                                                 <div>
