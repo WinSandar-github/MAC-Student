@@ -259,7 +259,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                         <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
                                         <div class="col-md-7">
-                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('name') }}" required="">
+                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="">
                                         </div>                                                
                                     </div><br>
 
@@ -390,7 +390,7 @@
                                             <label for="" class="col-md-3 col-form-labe mt-1"> Attached Certificate</label>
                                             
                                             <div class="col-md-6"  id="degree_edu" >
-                                                <input type="file"  class="form-control" id="certificate0"  name="certificate0" required="">
+                                                <input type="file"  class="form-control" id="certificate0"  name="certificate[]" autocomplete="off" required="">
                                             </div>
                                             <div class="col-md-1" id="add_div" >
                                                 <button type="button" class="btn btn-primary" id="add_btn" onclick="AddDAEdu()" >

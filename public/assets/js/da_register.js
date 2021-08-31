@@ -15,7 +15,7 @@ function AddDAEdu(){
         '<div class="row mb-4" id="edu'+count+'">'+
             '<div class="col-md-5"></div>'+            
             '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate'+count+'" required="">'+
+                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
@@ -39,7 +39,9 @@ function createDARegister()
     var send_data = new FormData();
 
     var image = $('#image')[0].files[0];
-    var certificate = $('#certificate0')[0].files[0];
+    var nrc_front = $("input[name=nrc_front]")[0].files[0];
+    var nrc_back = $("input[name=nrc_back]")[0].files[0];
+    // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
@@ -50,6 +52,8 @@ function createDARegister()
     send_data.append('nrc_township', nrc_township);
     send_data.append('nrc_citizen', nrc_citizen);
     send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
     send_data.append('race', $("input[name=race]").val());
@@ -75,7 +79,12 @@ function createDARegister()
 
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
-    send_data.append('certificate', certificate);
+    // send_data.append('certificate', certificate);
+    $('input[name="certificate[]"]').map(function(){
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            send_data.append('certificate[]',$(this).get(0).files[i]);
+        }
+    });
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
     var url = location.pathname;
