@@ -78,13 +78,48 @@ function createDARegister()
     send_data.append('certificate', certificate);
     send_data.append('qualified_date', $("input[name=qualified_date]").val());
     send_data.append('roll_number', $("input[name=roll_number]").val());
+
+
+    send_data.append('verify_status', $("input[name=verify_status]").val());
+    send_data.append('payment_method', $("input[name=payment_method]").val());
+    send_data.append('verify_code', $("input[name=verify_code]").val());
+
     var url = location.pathname;
     var batch_id = url.substring(url.lastIndexOf('/')+1);
     
 
     send_data.append('batch_id', batch_id);
     show_loader();
+    // var verify_code = localStorage.getItem("code");
 
+    // $.ajax({
+    //     url: BACKEND_URL+"/da_register",
+    //     type: 'post',
+    //     data:send_data,
+    //     contentType: false,
+    //     processData: false,
+    //     success: function(result){
+    //          if(result.name_mm!=null){
+    //              EasyLoading.hide();
+    //             successMessage("You have successfully registerd!");                
+    //             // location.reload();
+    //             location.href = FRONTEND_URL+'/' ;
+    //          }
+    //          else{
+    //             EasyLoading.hide();
+    //             successMessage(result);
+    //          }
+    //     },
+    //     error:function (message){
+    //         EasyLoading.hide();
+    //         errorMessage(message);
+    //         }
+    //     // },
+    //     // error:function (message){
+    //     //   // console.log(message)
+    //     //   successMessage(result);
+    //     // }
+    // });
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -93,16 +128,43 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-             if(result.name_mm!=null){
-                 EasyLoading.hide();
+            var verify_code = localStorage.getItem("code");
+             if(result.verify_code == verify_code){
+                // EasyLoading.hide();
                 successMessage("You have successfully registerd!");                
-                // location.reload();
                 location.href = FRONTEND_URL+'/' ;
              }
              else{
                 EasyLoading.hide();
                 successMessage(result);
              }
+        },
+        error:function (message){
+            EasyLoading.hide();
+            errorMessage(message);
+            }
+        // },
+        // error:function (message){
+        //   // console.log(message)
+        //   successMessage(result);
+        // }
+    });
+}
+
+function send_email()
+{
+    var send_data = new FormData();
+    send_data.append('email', $("input[name=email]").val());
+    $.ajax({
+        url: BACKEND_URL+"/send_email",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(data){
+            console.log(data)
+            localStorage.setItem("code", data);
+            successMessage("Your email is sending to MAC");  
         },
         error:function (message){
             EasyLoading.hide();
