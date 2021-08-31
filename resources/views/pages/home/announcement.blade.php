@@ -78,8 +78,14 @@
 
 
     <div class="main-wrapper">
-        @include('layouts.header')
-        @yield('content')
+
+        <!-- <h5 class="text-center m-3"> {{$course['name']}} တက်ရောက်ခွင့်ရသူများစာရင်း</h5> -->
+        <div class="section"> <!-- section-padding mt-n10 -->
+            <div class="container mt-5"> <!-- container-fluid p-4 -->
+                @yield('content')
+            </div>
+        </div>
+        
     </div>
 
 
@@ -111,6 +117,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 
+    
+    <!-- dataTables JS -->
+    <script src="{{ asset('js/dataTables') }}/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('js/dataTables') }}/dataTables.bootstrap5.min.js"></script>
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <script src="assets/js/plugins.min.js"></script> -->
@@ -131,13 +141,14 @@
     <script src="{{ asset('assets/js/student_info.js') }}"></script>
     <script src="{{ asset('assets/js/auth.js') }}"></script>
 
-    <script src="{{ asset('assets/js/papp.js') }}"></script>
-    <script src="{{ asset('assets/js/cpa_one.js') }}"></script>
-    <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
-    <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
+  
     <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
     <script src="{{asset('assets/js/school.js')}}"></script>
+    <script src="{{asset('assets/js/report.js')}}"></script>
+
+
+
 
 
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -169,6 +180,7 @@
 
 
     <script src="{{ asset('assets/js/teacher_register.js') }}"></script>
+   
 
     <!-- <script>
 show_loader()

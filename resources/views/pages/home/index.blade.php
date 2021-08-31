@@ -1,4 +1,5 @@
-<div class="non_login "  ">
+
+<div class="non_login  ">
     <div class="section slider-section">
 
         <!-- Slider Shape Start -->
@@ -86,6 +87,9 @@
 
                         <!-- All Courses Wrapper Start -->
                         <div class="courses-wrapper ">
+                            <button class="btn btn-success p-2 course_list" value="app">တက်ရောက်ခွင့်ရသူများစာရင်း</button>
+                            <button class="btn btn-success p-2 course_list" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                            <button class="btn btn-success p-2 course_list" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
                                     <!-- Single Courses Start -->
@@ -137,6 +141,25 @@
 
         
             
+</div>
+
+<div class="modal fade" id="showCourseList" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" style="max-width: 600px !important">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Course List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body course d-flex mx-auto ">
+          
+         
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div> -->
+    </div>
+  </div>
 </div>
     
         
