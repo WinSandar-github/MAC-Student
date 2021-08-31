@@ -67,7 +67,7 @@ function user_profile(){
                 $('.teacher').show();
                 let teacher = data.teacher;
                 console.log(teacher)
-
+                localStorage.setItem("teacher_id",teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
                 $('#teacher_name_eng').text(teacher.name_eng);
                 $("#teacher_nrc").text(teacher.nrc_state_region+"/" +teacher.nrc_township+ "("+teacher.nrc_citizen+")"+teacher.nrc_number );
@@ -829,3 +829,52 @@ function formatDate(value) {
     const year = date.toLocaleString('default', { year: 'numeric' });
     return day + '-' + month + '-' + year;
 }
+
+
+$('#update_profile').click(function(){
+    $('#profileModel').modal('show')
+
+})
+
+$('.course_list').click(function(){
+    var type = $(this).val();
+    let show_url;
+    switch(type){
+        case 'app':
+            show_url =  '/application_list/'
+             
+        break;
+        case 'exam':
+            show_url = '/exam_registration_list/'
+         break;
+        case 'result':
+            show_url    = '/exam_result_list/'
+
+        break;
+      
+        default:
+            show_url =  '/application_list/'
+
+        break;
+
+    }
+    $('.course').html("")
+   
+    $.ajax({
+        url: BACKEND_URL+"/course",
+        type:'GET',
+        success:function(res){
+            let course = res.data;
+            console.log(typeof course)
+            $.each(course,function(i,v){
+                $('.course').append(`
+                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success mx-3">${v.name}</a>
+                `)
+            })
+        }
+        
+    })
+
+    
+    $('#showCourseList').modal('toggle');
+})
