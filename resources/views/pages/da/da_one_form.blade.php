@@ -260,7 +260,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                         <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
                                         <div class="col-md-7">
-                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('name') }}" required="">
+                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="">
                                         </div>                                                
                                     </div><br>
 

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/magnific-popup.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/apexcharts.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/jqvmap.min.css') }}">
 
@@ -93,7 +93,7 @@
     <script src="{{ asset('assets/js/plugins/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/video-playlist.js') }}"></script>
-    <!-- <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script> -->
+    <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/ajax-contact.js') }}"></script>
 
     <!-- flatpickr JS -->

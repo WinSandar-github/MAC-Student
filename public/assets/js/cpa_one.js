@@ -45,9 +45,9 @@ function AddCPAEdu(){
     $("#edu").append(        
 
         '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+            
-            '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate'+count+'" required="">'+
+            '<div class="col-md-4"></div>'+            
+            '<div class="col-md-7">'+
+                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificates">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
@@ -270,13 +270,18 @@ $('#cpa_register').submit(function(e){
     let batch_id = url.substring(url.lastIndexOf('/')+1);
 
     var formData = new FormData(this);
+
+    // $('input[name="certificates[]"]').map(function(){
+    //     for (var i = 0; i < $(this).get(0).files.length; ++i) {
+    //         formData.append('certificates[]',$(this).get(0).files[i]);
+    //     }
+        
+    //   });
     
     
     formData.append('batch_id',batch_id)
     show_loader(); 
 
-
-     
         $.ajax({
             type: "POST",
             url: BACKEND_URL+"/cpa_register",
@@ -284,17 +289,21 @@ $('#cpa_register').submit(function(e){
             processData: false,
             data: formData,
             success: function (data) {
+                console.log("cpaonedata",data);
                 EasyLoading.hide();
+                successMessage("You have successfully registerd!");
+               
               
                 // localStorage.setItem('studentinfo', JSON.stringify(data));
                 // localStorage.setItem('approve_reject', data.approve_reject_status);
                 // location.href = "/student_course/2";
                 if(data.name_mm != null){
-                localStorage.setItem('studentinfo', JSON.stringify(data));
-                localStorage.setItem('approve_reject', data.approve_reject_status);
-                location.href = FRONTEND_URL + "/";
+                    localStorage.setItem('studentinfo', JSON.stringify(data));
+                    localStorage.setItem('approve_reject', data.approve_reject_status);
+                    location.href = FRONTEND_URL + "/";
                 }else{
-                    location.reload();
+                    // location.reload();
+                    location.href = FRONTEND_URL + "/";
                 }
             },
             error:function (message){
