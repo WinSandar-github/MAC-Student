@@ -64,6 +64,7 @@
                         <form method="post" action="javascript:void();" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
+                            <input type="hidden" name="is_private" id="is_private" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                 <div class="col-md-12"  id="is_private_school" style="display:none">
@@ -256,6 +257,7 @@
                 allowInput: true,
         });
         var boo=localStorage.getItem("isPrivateSchool");
+        $('#is_private').val(boo);
         if(boo=="true" ){
             console.log(boo,"true");
             if(document.getElementById('is_private_school'))
