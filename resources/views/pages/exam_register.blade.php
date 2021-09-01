@@ -224,8 +224,10 @@
             if(document.getElementById('is_private_school'))
             {document.getElementById('is_private_school').style.display='none';}
         }
+
+        loadSchoolList();
     }); 
 
-    loadSchoolList();
+    
 </script>
 @endpush

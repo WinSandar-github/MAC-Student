@@ -12,7 +12,7 @@
                     <li><a href="#">Home</a></li>
                     <li class="active">Register</li>
                 </ul>
-                <h2 class="title">Audit Firm Renew <span>Form</span></h2>
+                <h2 class="title">Non_Audit Firm Renew <span>Form</span></h2>
             </div>
             <!-- Page Banner End -->
         </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
-            <form method="post" action="javascript:renewSubscribe();" enctype="multipart/form-data">
+            <form method="post" action="javascript:nonAuditRenewSubscribe();" enctype="multipart/form-data">
                 <div class="card border-success mb-3">
                     <div class="card-body">
                         <div class="col-md-12">
@@ -81,7 +81,6 @@
                                     <td width="20%"></td>
                                 </tr>
                             </table>
-                            
 
                             <table width="100%">
                                 <tr>
@@ -105,11 +104,10 @@
         </div>
     </div>
 </div>
-
 @push('scripts')
 <script>
     $(document).ready(function(){
-        getAuditData();
+        getNonAuditData();
     });
 </script>
 @endpush

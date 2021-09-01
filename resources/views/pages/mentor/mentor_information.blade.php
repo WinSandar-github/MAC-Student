@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-								<div class="card-body">
+								<div class="card-body " id="mentor">
 									<div class="row">
 										<div class="col-md-12 widget-information">
 											<div class="row border-bottom">
@@ -133,7 +133,58 @@
 									</div>
 								</div>
 
-
+                <div class="card border-success mb-3" id="mentor_renew_form" style="display:none;"><br/>
+                    <h5 class="card-title text-center">ကျောင်းမှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားလွှာ</h5> <br/>                   
+                    <form method="post" action="javascript:renewMentor();" enctype="multipart/form-data">
+                    
+                        <div class="card-body">
+                                        <table width="100%">
+                                            <tr>
+                                                <td width="15%">
+                                                    <div class="single-form">
+                                                        <label class="col-form-label">ကျောင်းမှတ်ပုံတင်အမှတ်</label>
+                                                    </div>
+                                                </td>
+                                                <td width="85%">
+                                                    <div class="single-form">
+                                                        <input type="text" class="form-control" id="regno" readonly>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td width="20%">
+                                                    <div class="single-form">
+                                                        <label class="col-form-label">Applied Date</label>
+                                                    </div>
+                                                </td>
+                                                <td width="75%">
+                                                    <div class="single-form">
+                                                        <input type="text" class="form-control" id="register_date" readonly>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="20%">
+                                                    <div class="single-form">
+                                                        <label class="col-form-label">Status</label>
+                                                    </div>
+                                                </td>
+                                                <td width="75%">
+                                                    <div class="single-form">
+                                                        <input type="text" class="form-control" id="message" readonly="">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table><br/>
+                                        <div class="row ">
+                                            <div class="col-md-2 offset-md-5">
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -156,7 +207,11 @@
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
         localStorage.setItem('course_type',course_type[2])
+            
         }
+        if(student.approve_reject_status == 1){
+                loadRenewMentor(localStorage.getItem("mentor_id"));
+            }
         // if(course_type[2]==1){
         //     // console.log("DA");
         //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";

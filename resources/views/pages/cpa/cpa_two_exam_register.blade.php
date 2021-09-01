@@ -67,7 +67,8 @@
                                     <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ</h5>
                                     <br/>
-                                    <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
+                                    {{--<form method="post" id="cpa_exam_register" enctype="multipart/form-data">--}}
+                                    <form method="post" action="javascript:void();" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
                                                 <div class="col-md-12" id="is_private_school">
@@ -231,7 +232,9 @@
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-2 offset-md-5">
-                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                            {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
+                                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 
@@ -247,6 +250,51 @@
             </div>
         </div>
     </div>
+
+    <!-- DA2 Exam Register -->
+     <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
+         @csrf
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <div class="row justify-content-center mb-4 radio-group">
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'> 
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
+                            </div><br>
+                            <h5>CBPay</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'> 
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
+                            </div><br>
+                            <h5>MPU</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'> 
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
+                            </div><br>
+                            <h5>CASH</h5>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                    </div>
+               </div><br>
+               <div class="modal-footer">
+                 <center>
+                     <button type="submit" id="btn1" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
+                 </center>
+               </div>
+             </div>
+           </div>
+         </div>
+     </form>
+
+
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
@@ -281,5 +329,10 @@ loadSchoolList();
             }
         }
     });
+
+    $('#btn1').click(function() {
+        setTimeout(function() {$('#exampleModal').modal('hide');}, 1000);
+    });
+    
 </script>
 @endpush
