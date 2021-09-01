@@ -214,10 +214,10 @@ function app_form_feedback(){
                                                                     
                                                                 }
                                                                 
-                                                                console.log(code,result.course.code)
+                                                               
+                                                                localStorage.setItem('course_id',result.course.id);
                                                                 if(result.course.code == code){
-                                                                    alert(code)
-                                                                    console.log(i)
+
                                                                     
                                                                     $(`.check_login${i}`).append(`<a href="${FRONTEND_URL+exam_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Exam Registration Form </a>`) 
                                                                     
@@ -307,7 +307,7 @@ function app_form_feedback(){
                                                     console.log(code,batch.course.code)
                 
                                                     if(batch.course.code == code ){
-                                                        alert(code)
+                                                       
                                                         let date = new Date();
                               
                                                     
@@ -450,6 +450,7 @@ function app_form_feedback(){
 
                                             if(code == "da_2" || code == "cpa_2")
                                             {
+                                                
                                                 $.ajax({
                                                     url: BACKEND_URL+"/batch/"+batch_id,
                                                     type: 'get',
@@ -498,6 +499,8 @@ function app_form_feedback(){
                                         
                                     }else
                                     {  
+                                    
+
                                       
                                         if(code == "da_2" || code == "cpa_2")
                                         {
@@ -516,6 +519,8 @@ function app_form_feedback(){
                                                            $('.registration').show();
                                                            let batch = result.data;
                                                            let date = new Date();
+
+                                                           localStorage.setItem('course_id',batch.course.id)
                                  
                                                        
                                  
@@ -566,7 +571,10 @@ function app_form_feedback(){
                                                        success: function(result){  
                                                            let batch = result.data;
                                                            let date = new Date();
-                                 
+
+                                                           $('.registration').show();
+                                                           localStorage.setItem('course_id',batch.course.id)
+
                                                        
                                  
                                                            // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
@@ -577,30 +585,21 @@ function app_form_feedback(){
                                                            var private_start_date  = new Date(batch.private_reg_start_date );
                                                            var private_end_date    = new Date(batch.private_reg_end_date);
                                                            if(mac_start_date <= date && mac_end_date >= date){
-                                                               if(course_type == 2){
-    
-                                                                   course_url = "/cpa_two_mac/"+batch.id
-                                                                   }
-                                                                $(`.check_login${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
+                                                               
+                                                                $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
                                                            } 
                    
                                                            if(self_start_date <= date && self_end_date >= date){
-                                                               if(course_type == 2){
-   
-                                                                   course_url = "/cpa_two_self_study/"+batch.id
-                                                                   }
+                                                                
                                                                
                                                                
-                                                               $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
+                                                               $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
                                                            } 
                    
                                                            if(private_start_date <= date && private_end_date >= date){
-                                                               if(course_type == 2){
-   
-                                                                   course_url = "/cpa_two_private_school/"+batch.id
-                                                                   }
+                                                             
                                              
-                                                               $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
+                                                               $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
                                                            } 
                                                         }
    

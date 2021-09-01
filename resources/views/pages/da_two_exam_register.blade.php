@@ -132,7 +132,7 @@
 
                                         <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
-                                            <input type="text" id="form_type" class="form-control" id="form_type">
+                                            <input type="hidden" id="form_type" class="form-control" id="form_type">
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label" id="da2_label1">{{ _('၁။') }}</label>
