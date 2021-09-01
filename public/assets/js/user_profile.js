@@ -601,7 +601,7 @@ function user_profile(){
                                                 break;
     
                                             }
-                                            
+                                            localStorage.setItem('course_id',latest_course_reg[0].batch.course.id);
                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td>
                                                 <td>
                                                     <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>                                            

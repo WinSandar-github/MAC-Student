@@ -1054,7 +1054,7 @@
                                                                                             <br>
                                             <div class="row m-4">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100"    data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>
                                                 </div>
                                             </div>
 
@@ -1074,6 +1074,50 @@
 
         </div>
     </div>
+       <!-- Modal Payment -->
+<form id="payment_submit"  method="post"  class="needs-validation" enctype="multipart/form-data" novalidate>
+    @csrf
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div><br>
+        <div class="modal-body">
+            <div class="row justify-content-center mb-4 radio-group">
+                <div class="col-sm-3 col-5">
+                    <div class='radio mx-auto'> 
+                            <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
+                    </div><br>
+                    <h5>CBPay</h5>
+                </div>
+                <div class="col-sm-3 col-5">
+                    <div class='radio mx-auto'> 
+                            <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
+                    </div><br>
+                    <h5>MPU</h5>
+                </div>
+                <div class="col-sm-3 col-5">
+                    <div class='radio mx-auto'> 
+                            <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
+                    </div><br>
+                    <h5>CASH</h5>
+                </div>
+                <input type="hidden" name="payment_method" value="CASH">
+            </div>
+        </div><br>
+        <div class="modal-footer">
+            <center>
+                <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
+            </center>
+        </div>
+        </div>
+    </div>
+    </div>
+</form>
+
+
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

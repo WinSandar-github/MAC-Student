@@ -235,7 +235,6 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
-    loadSchoolList();
 
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
@@ -262,8 +261,10 @@
             {document.getElementById('is_private_school').style.display='none';
                 document.getElementById('da2_label2').innerHTML="၁။";}
         }
-    });
+        
 
+    loadSchoolList();
+    });
 
 </script>
 @endpush
