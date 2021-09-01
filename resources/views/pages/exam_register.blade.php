@@ -64,6 +64,7 @@
                         <form method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
+                            <input type="hidden" name="is_private" id="is_private" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                 <div class="col-md-12"  id="is_private_school" style="display:none">
@@ -71,7 +72,7 @@
                                         <label class="col-md-6 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                         <div class="col-md-6">
                                             <div class="form-group">                                
-                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
+                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
                                                     <option value="" disabled selected>Select School</option>
                                                 </select>
                                             </div>
@@ -214,6 +215,7 @@
                 allowInput: true,
         });
         var boo=localStorage.getItem("isPrivateSchool");
+        $('#is_private').val(boo);
         if(boo=="true" ){
             console.log(boo,"true");
             if(document.getElementById('is_private_school'))

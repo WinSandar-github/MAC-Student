@@ -302,7 +302,10 @@ function createDaTwoSelfStudy()
     localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('batch_id',$("input[name='batch_id']").val())
+    send_data.append('batch_id',$("input[name='batch_id']").val());
+    send_data.append('batch_no_self',$("input[name='batch_no_self']").val());
+    send_data.append('part_no_self',$("input[name='part_no_self']").val());
+    send_data.append('personal_no_self',$("input[name='personal_no_self']").val());
     send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
@@ -334,8 +337,10 @@ function createDaTwoPrivateSchool()
     localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('batch_id',$("input[name='batch_id']").val())
-
+    send_data.append('batch_id',$("input[name='batch_id']").val());
+    send_data.append('batch_no_private',$("input[name='batch_no_private']").val());
+    send_data.append('part_no_private',$("input[name='part_no_private']").val());
+    send_data.append('personal_no_private',$("input[name='personal_no_private']").val());
     send_data.append('type', 1);
     send_data.append('form_type', $("input[name='form_type']").val());
     if($("input[name='form_type']").val()=="da two"){
@@ -368,8 +373,10 @@ function createDaTwoMac()
     localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('batch_id',$("input[name='batch_id']").val())
-
+    send_data.append('batch_id',$("input[name='batch_id']").val());
+    send_data.append('batch_no_mac',$("input[name='batch_no_mac']").val());
+    send_data.append('part_no_mac',$("input[name='part_no_mac']").val());
+    send_data.append('personal_no_mac',$("input[name='personal_no_mac']").val());
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
