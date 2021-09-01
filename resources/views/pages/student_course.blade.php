@@ -68,11 +68,13 @@
                         @endphp
                         <input type="hidden" id="course_length" value={{sizeof($course)}}>
                         @foreach($course as $key => $c)
-                            {{ $course_req_arr = json_decode($c['requirement_id'],true) }}
-                            {{ $req_str_arr = explode(",",$course_req_arr[0]) }}
+                            <?php
+                                $course_req_arr = json_decode($c['requirement_id'],true);
+                                $req_str_arr = explode(",",$course_req_arr[0]);
+                            ?>
 
                             <input type="hidden" class="code{!! $i !!}" value="{{$c['code']}}">
-                            <input type="hidden" value="{{$c['id']}}" id="course_id{!! ++$key !!}"/>
+                            <input type="hidden" value="{{$c['id']}}" id="course_id{!! ++$i !!}"/>
                             <div class="card col-md-12 mb-3">
                             <!-- <div class="card-header">
                                     <h4 class="card-title text-center">{{ $c['name']}} </h4>
