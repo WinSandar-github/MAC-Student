@@ -59,7 +59,7 @@ function app_form_feedback() {
                         $('.application').show();
                         // $('.check_registration').css('display','block');
                         // $('.course_detail').css('display','none');
-                        $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Application Form is checking')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                        $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Application Form is checking')"  class="btn btn-success btn-lg btn-hover-dark">Enroll Now </a>`)
                     } else if (student_status == 1) {
                         $.ajax({
                             url: BACKEND_URL + "/getStatus/" + student.id,
@@ -74,7 +74,7 @@ function app_form_feedback() {
                                 console.log(reg_status, "Status");
                                 if (reg_status == 0) {
                                     $('.registration').show();
-                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Registration Form is checking')"  class="btn btn-primary btn-hover-dark  " >Registration Form</a>`)
+                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Registration Form is checking')"  class="btn btn-success btn-lg btn-hover-dark">Registration Form</a>`)
                                 } else if (reg_status == 1) {
                                     $.ajax({
                                         url: BACKEND_URL + "/get_exam_status/" + student_id,
@@ -85,11 +85,11 @@ function app_form_feedback() {
                                         success: function (exam_status) {
                                             $('.exam').show();
                                             if (exam_status === 0) {
-                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is checking')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is checking')"  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
                                                 // $('.exam_feedback').css('display','block');
                                                 // $('.exam_text').append(`Your Exam Form is checking.`)
                                             } else if (exam_status == 1) {
-                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is Approved')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is Approved')"  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
                                                 // $('.exam_feedback').css('display','block');
                                                 // $('.exam_text').append(`Your Exam Form is approved.`)
                                             } else if (exam_status == 2) {
@@ -158,9 +158,9 @@ function app_form_feedback() {
                                                                     break;
                                                             }
                                                             if (result.course.code == code) {
-                                                                $(`.check_login${i}`).append(`<a href="${FRONTEND_URL + exam_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Exam Registration Form </a>`)
+                                                                $(`.check_login${i}`).append(`<a href="${FRONTEND_URL + exam_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark">Exam Registration Form </a>`)
                                                             } else {
-                                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${result.course.name} process') "  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${result.course.name} process') "  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
                                                             }
                                                             // $('.add_exam').append(
                                                             // `<div>
@@ -258,7 +258,7 @@ function app_form_feedback() {
 
 
                                                 } else {
-                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${batch.course.name} process') "  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${batch.course.name} process') "  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
 
 
                                                 }
@@ -318,7 +318,7 @@ function app_form_feedback() {
                                     }
                                     if (data_course[exam_count]) {
                                         if (data_course[exam_count].grade == 1 && data_course[exam_count].form_type == course_id) {
-                                            $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your have been pass ${data_course[exam_count].course.name}')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                            $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your have been pass ${data_course[exam_count].course.name}')"  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
 
                                         } else {
                                             if (code == "da_2" || code == "cpa_2") {
@@ -400,7 +400,7 @@ function app_form_feedback() {
                                                     })
 
                                                 } else {
-                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
                                                 }
                                             } else {
                                                 if (previous_exam[0].course.code == "cpa_1") {
@@ -450,15 +450,14 @@ function app_form_feedback() {
 
                                                     });
                                                 } else {
-                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-success btn-lg btn-hover-dark  " >Enroll Now </a>`)
                                                 }
                                             }
                                         } else {
                                             if (previous_exam[0].course.code == "da_2") {
-                                                $(`.check_login${i}`).append(`<a href="${course_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Enroll now </a>`)
+                                                $(`.check_login${i}`).append(`<a href="${course_url}"  class=" mb-3 btn btn-success btn-lg btn-hover-dark">Enroll now </a>`)
                                             } else {
-                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass  Da Two')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
-
+                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass  Da Two')"  class="btn btn-success btn-lg btn-hover-dark">Enroll Now </a>`);
                                             }
                                         }
                                     }
@@ -473,7 +472,7 @@ function app_form_feedback() {
         $('.application').show();
         for (var i = 1; i <= course_length; ++i) {
             let batch_id = $(`.batch_id${i}`).val();
-            $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},${i},${course_type})" class="btn btn-primary btn-hover-dark" >Enroll Now </a>`);
+            $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},${i},${course_type})" class="btn btn-success btn-lg btn-hover-dark" >Enroll Now </a>`);
         }
         // $('.logined').css('display','block')
         // $('.check_login2').append(`<a href="/login" class="btn btn-primary btn-hover-dark   " >Enroll Now </a>`)
