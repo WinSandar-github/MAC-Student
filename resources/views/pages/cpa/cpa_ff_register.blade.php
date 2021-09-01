@@ -520,54 +520,7 @@
                     </div>
                 </div>
             <div>
-            <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/>
-                <h5 class="card-title text-center">CPA (Full-Fledged) မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>                   
-                <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data">
-                    <div class="card-body">
-                        <div class="row">
-                            <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                            <div class="col-md-7 col-form-label">သက်တမ်းတိုးလျှောက်လွှာ</div>
-                            <div class="col-md-4">
-                                <div class="">
-                                        <input type="file"  class="form-control" name="renew_file" required="">
-                                </div>
-                            </div>
-                        </div><br/>
-                        <div class="row">
-                            <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                            <div class="col-md-7 col-form-label"> MICPA membership ကတ် ( သက်ဆိုင်ရာ ပြက္ခဒိန်နှစ်အတွပ် သက်တမ်းတိုးပြီး ဖြစ်ရပါမည်။)</div>
-                            <div class="col-md-4">
-                                <div class="">
-                                        <input type="file"  class="form-control" name="renew_micpa" required="">
-                                </div>
-                            </div>
-                        </div><br/>
-                        <div class="row">
-                            <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                            <div class="col-md-7 col-form-label"> CPD နာရီ မှတ်တမ်းအထောက်အထားများ ( သက်တမ်းတိုးမည့် ပြက္ခဒိန်နှစ်မတိုင်မီ ကပ်လျက်ရှိသော နှစ်၏ နိုင်ဝင်ဘာလမတိုင်မီ (၁၂) လအတွင်း CPD နာရီ အနည်းဆုံး ၂၀ နာရီ ပြည့်မီရမည်ဖြစ်ပြီး တစ်ဆက်တည်းသုံးနှစ်တွင် စုစုပေါင်းနာရီ ၁၂၀ ပြည့်မီရမည်ဖြစ်ပါသည်။)</div>
-                            <div class="col-md-4">
-                                <div class="">
-                                        <input type="file"  class="form-control" name="renew_cpd" required="">
-                                </div>
-                            </div>
-                        </div><br/>
-                        <div class="row">
-                            <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                            <div class="col-md-7 col-form-label"> CPA (full-fledged) မှတ်ပုံတင်ကတ်</div>
-                            <div class="col-md-4">
-                                <div class="">
-                                        <input type="file"  class="form-control" name="renew_cpaff_reg" required="">
-                                </div>
-                            </div>
-                        </div><br/>
-                        <div class="row">
-                            <div class="col-md-2 offset-md-5">
-                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
-                            </div>
-                        </div>	
-                    </div>
-                </form>
-            </div>
+            
         </div>
         
     

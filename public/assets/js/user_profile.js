@@ -43,7 +43,7 @@ function user_profile(){
                 $('.title').text('School Information')
                 $('.school').show();
                 let school = data.school;
-
+                localStorage.setItem("school_id",school.id);
                 $('#sch_name_mm').text(school.name_mm);
                 $('#sch_name_eng').text(school.name_eng);
                 $("#sch_nrc").text(school.nrc_state_region+"/" +school.nrc_township+ "("+school.nrc_citizen+")"+school.nrc_number );
@@ -93,7 +93,7 @@ function user_profile(){
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
-
+                localStorage.setItem("mentor_id",mentor.id);
                 $('#sch_name_mm').text(mentor.name_mm);
                 $('#sch_name_eng').text(mentor.name_eng);
                 $("#sch_nrc").text(mentor.nrc_state_region+"/" +mentor.nrc_township+ "("+mentor.nrc_citizen+")"+mentor.nrc_number );
@@ -603,7 +603,7 @@ function user_profile(){
                                                 break;
     
                                             }
-                                            
+                                            localStorage.setItem('course_id',latest_course_reg[0].batch.course.id);
                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td>
                                                 <td>
                                                     <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>                                            

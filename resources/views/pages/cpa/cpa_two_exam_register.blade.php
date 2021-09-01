@@ -252,7 +252,6 @@
 @push('scripts')
 <script type="text/javascript">
 
-loadSchoolList();
 
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
@@ -281,5 +280,7 @@ loadSchoolList();
             }
         }
     });
+    
+loadSchoolList();
 </script>
 @endpush
