@@ -42,7 +42,7 @@
             <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
         </div>
         <div class="section"> <!-- section-padding mt-n10 -->
-            <div class="container mt-5"> <!-- container-fluid p-4 -->
+            <div class="container-fluid p-5"> <!-- container-fluid p-4 -->
                 <!-- <div class="status-reject" >
                     <div class="card text-white bg-dark mb-3">
 
@@ -138,11 +138,11 @@
                                                        
                                                         <ul>
                                                             <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>                                                            
+                                                            <!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li> -->
+                                                            <li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
                                                         </ul>   
                                                     </div> 
                                                 </div>  
@@ -164,7 +164,7 @@
                                                     @endforeach
 
                                                 </div>  
-                                                <div class="col-md-5">
+                                                <div class="col-md-5 mt-2">
                                                     
                                                     @if(!empty($c['active_batch']))
                                                         @foreach($c['active_batch'] as $b)
@@ -186,27 +186,32 @@
                                                                 </div>
 
                                                                 <div class="registration">
-                                                                    <li><i class="icofont-calendar"></i> <strong> MAC Registration Start Date</strong> 
-                                                        
+                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class Start Date</strong> 
                                                                     <span> {{ $b['mac_reg_start_date'] }} </span></li>
-                                                                    <li><i class="icofont-calendar"></i> <strong>MAC Registration End Date</strong>
+
+                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class End Date</strong>
                                                                     <span class="reg">  {{ $b['mac_reg_end_date']}} </span></li> 
+
                                                                     <div class="d-flex mt-2 justify-content-center  mac_btn{!! $i !!}">
 
                                                                     </div>
-                                                                    <li><i class="icofont-calendar"></i> <strong> SelfStudy Registration Start Date</strong> 
-                                                                 
+
+                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class Start Date</strong>
                                                                     <span> {{ $b['self_reg_start_date'] }} </span></li>
-                                                                    <li><i class="icofont-calendar"></i> <strong>SelfStudy Registration End Date</strong>
+
+                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class End Date</strong>
                                                                     <span>  {{ $b['self_reg_end_date']}} </span></li> 
+
                                                                     <div class="d-flex mt-2 justify-content-center self_btn{!! $i !!}">
 
                                                                     </div>
-                                                                    <li><i class="icofont-calendar"></i> <strong> Private School Registration Start Date</strong> 
-                                                        
+
+                                                                    <li><i class="icofont-calendar"></i> <strong> Registration in Private School Class Start Date</strong>
                                                                     <span> {{ $b['private_reg_start_date'] }} </span></li>
-                                                                    <li><i class="icofont-calendar"></i> <strong>Privater Schoo   Registration End Date</strong>
+
+                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in Private School Class End Date</strong>
                                                                     <span>  {{ $b['private_reg_end_date']}} </span></li> 
+
                                                                     <div class="d-flex mt-2 justify-content-center private_btn{!! $i !!}">
 
                                                                     </div>
@@ -226,8 +231,9 @@
 
                                                              
                                                                 <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
-                                                                <div class="d-flex   flex-column     info-btn mb-4   check_login{!! $i !!}">
-        
+                                                                <!-- <div class="d-flex  flex-column     info-btn mb-4   check_login{!! $i !!}"> -->
+                                                                <div class=" info-btn mb-4   check_login{!! $i !!}">
+                                                                
                                                                 <!-- $c['id'], 'da_register' -->
                                                                 <!-- sucess da         -->
                                                                 <!-- <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none " >Enroll Now </a> -->
