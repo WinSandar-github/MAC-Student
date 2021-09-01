@@ -150,7 +150,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Course List</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body course d-flex mx-auto ">
+      <div class="modal-body course d-flex flex-column mx-auto ">
           
          
       </div>

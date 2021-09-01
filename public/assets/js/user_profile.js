@@ -394,7 +394,8 @@ function user_profile(){
                                         <td>Approve</td>
                                     </tr>
                                     `);
-                                    if(last_exam[0] && last_exam[0].course.code == latest_course_reg[0].batch.course.code){
+                                    console.log(latest_course_reg[0].batch.course)
+                                    if(last_exam[0] && (last_exam[0].course.code == latest_course_reg[0].batch.course.code)){
                                         if(last_exam[0].status == 0)
                                         {
                                             $('.status').append(`
@@ -473,10 +474,7 @@ function user_profile(){
                                                         console.log(data.data)
                                                         
                                                         if(Object.keys(data.data).length === 0){
-                                                            alert(course_code)
-                                                            if(course_code == "membership"){
-                                                                alert(course_code)
-                                                            }
+                                                           
                                 
                                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr>`);
                                 
@@ -1010,7 +1008,7 @@ $('.course_list').click(function(){
             console.log(typeof course)
             $.each(course,function(i,v){
                 $('.course').append(`
-                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success mx-3">${v.name}</a>
+                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success my-3">${v.name}</a>
                 `)
             })
         }
