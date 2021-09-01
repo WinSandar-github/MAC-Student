@@ -21,13 +21,14 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Course  <span>Detail</span></h2>
+                    <h2 class="title"> {{request()->segment(count(request()->segments())) == 1 ? 
+                        "Diploma In Accountancy" : "Certified Public Accountant" }} <span>Information</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
             </div>
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            <div class="shape-icon-box">"
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
                 <div class="box-content">
                     <div class="box-wrapper">
@@ -92,12 +93,12 @@
                                     <div class="row">
                                         <div class="col-md-12 widget-information" >
                                             <div class="row border-bottom">
-                                                <h2 class="col-md-4 card-title text-center text-success">{{ $c['name']}}  
+                                                <h2 class="col-md-8 card-title   text-success">{{ $c['name']}}  
 
                                                 @if(!empty($c['active_batch']))
 
                                                     @foreach($c['active_batch'] as $b)
-                                                     ({{$b['name']}})</h2>
+                                                    </h2>
                                                         <!-- <div class="col-md-4 pl-4">
                                                                                                     
                                                         </div>
@@ -125,9 +126,31 @@
                                                     <h5 class="mt-2">Description</h5>
                                                     <hr>
                                                     <p style="height: 200px;">{{$c['description']}}</p>
-                                                    <h5 class="mt-2">Requirement</h5>
+    
+                                                    <!-- <p style="height:150px;overflow:auto;">{{$c['description']}}</p> -->
+                                                </div>
+                                                <div class="col-md-5">
+                                                    
+                                                    <h5 class="mt-2">Course Fees</h5>
                                                     <hr>
 
+                                                    <div class="info-list">
+                                                       
+                                                        <ul>
+                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
+                                                        </ul>   
+                                                    </div> 
+                                                </div>  
+                                                
+                                                <div class="col-md-7">
+                                                     <h5 class="mt-2">Requirement</h5>
+                                                    <hr>
+                                                   
                                                      
                                                     @foreach($requirements as $require)
                                                         @foreach($req_str_arr as $course_req)
@@ -140,45 +163,19 @@
                                                         @endforeach
                                                     @endforeach
 
-                                                    
-
-                                                     
-                                                  
-
- 
-
-                                                    </ul>
-                                                    <!-- <p style="height:150px;overflow:auto;">{{$c['description']}}</p> -->
-                                                </div>
+                                                </div>  
                                                 <div class="col-md-5">
-                                                    <!-- <div class="info-price">
-                                                        <span class="price">{{$c['mac_registration_fee']}} Kyats</span>
-                                                    </div> -->
-                                                    <h5 class="mt-2">Course Fees</h5>
+                                                    
+                                                    @if(!empty($c['active_batch']))
+                                                        @foreach($c['active_batch'] as $b)
+                                                    <h5>  {{$b['name']}} </h5>
                                                     <hr>
+                                                   
 
                                                     <div class="info-list">
-                                                        <!-- @foreach($c['active_batch'] as $b)
-                                                            <span class="border ml-5">
-                                                                <label for="" class="p-3">{{$b['accept_application_start_date']}}</label>
-                                                            </span> -->
-                                                            <!-- </div> -->
-
-                                                            <!-- @break
-
-                                                        @endforeach -->
-                                                        <ul>
-                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for MAC</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Tution Fee</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
-                                                             <li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong> <span>Yes</span></li>
-                                                            @if(!empty($c['active_batch']))
-                                                                @foreach($c['active_batch'] as $b)
+                                                               
                                                                 <input type="hidden" value="{{$b['id']}}" class="batch_id{!! $i !!}"/>
-
+                                                        <ul>
                                                                 <div class="application">
                                                                     <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong> 
                                                         
@@ -193,17 +190,26 @@
                                                         
                                                                     <span> {{ $b['mac_reg_start_date'] }} </span></li>
                                                                     <li><i class="icofont-calendar"></i> <strong>MAC Registration End Date</strong>
-                                                                    <span>  {{ $b['mac_reg_end_date']}} </span></li> 
+                                                                    <span class="reg">  {{ $b['mac_reg_end_date']}} </span></li> 
+                                                                    <div class="d-flex mt-2 justify-content-center  mac_btn{!! $i !!}">
+
+                                                                    </div>
                                                                     <li><i class="icofont-calendar"></i> <strong> SelfStudy Registration Start Date</strong> 
-                                                        
-                                                                    <span> {{ $b['mac_reg_start_date'] }} </span></li>
+                                                                 
+                                                                    <span> {{ $b['self_reg_start_date'] }} </span></li>
                                                                     <li><i class="icofont-calendar"></i> <strong>SelfStudy Registration End Date</strong>
-                                                                    <span>  {{ $b['mac_reg_end_date']}} </span></li> 
+                                                                    <span>  {{ $b['self_reg_end_date']}} </span></li> 
+                                                                    <div class="d-flex mt-2 justify-content-center self_btn{!! $i !!}">
+
+                                                                    </div>
                                                                     <li><i class="icofont-calendar"></i> <strong> Private School Registration Start Date</strong> 
                                                         
                                                                     <span> {{ $b['private_reg_start_date'] }} </span></li>
                                                                     <li><i class="icofont-calendar"></i> <strong>Privater Schoo   Registration End Date</strong>
                                                                     <span>  {{ $b['private_reg_end_date']}} </span></li> 
+                                                                    <div class="d-flex mt-2 justify-content-center private_btn{!! $i !!}">
+
+                                                                    </div>
 
                                                                 </div>
 
