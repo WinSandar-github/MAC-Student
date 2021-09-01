@@ -32,6 +32,8 @@ function ConfirmSubmitMac(){
     }
 }
 
+// window.addEventListener('load', app_form_feedback);
+
 function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     let url = location.pathname;
