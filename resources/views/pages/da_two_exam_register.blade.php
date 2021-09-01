@@ -132,14 +132,14 @@
 
                                         <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
-                                            <input type="hidden" id="form_type" class="form-control" id="form_type">
+                                            <input type="text" id="form_type" class="form-control" id="form_type">
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label" id="da2_label1">{{ _('၁။') }}</label>
                                                         <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-6">
                                                             <div class="form-group">                                
-                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" >
+                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
                                                             </div>
@@ -239,6 +239,7 @@
 
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
+
         $("input[name='last_exam_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",

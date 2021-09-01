@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/maclogo1.png') }}">
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icofont.min.css') }}">
@@ -143,6 +143,8 @@
     <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
     <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
+    <script src="{{ asset('assets/js/school.js') }}"></script>
+
 
 
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -169,7 +171,7 @@
     <!-- <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script> -->
     <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script>
     <script src="{{ asset('assets/js/mentor_mac.js') }}"></script>
-
+    <script src="{{ asset('assets/js/mentor_register.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script> -->
 
 
