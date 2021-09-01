@@ -109,11 +109,8 @@ function createTeacherRegister(){
         return;
     }
     let formData = new FormData($( "#teacher_register_form" )[0]);
-    formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
 
       show_loader()
-
-
 
     $.ajax({
         type: "POST",
@@ -127,6 +124,7 @@ function createTeacherRegister(){
             EasyLoading.hide();
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
+
             //resetForm("#teacher_register_form");
             //$(".tbl_degree_body").empty();
             //$(".tbl_certificate_body").empty();
@@ -210,7 +208,7 @@ function renewTeacher(){
             EasyLoading.hide();
             successMessage(data.message);
             location.href=FRONTEND_URL+'/';
-            
+
         },
         error: function (result) {
         },
