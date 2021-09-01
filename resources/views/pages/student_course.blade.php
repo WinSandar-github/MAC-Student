@@ -137,7 +137,7 @@
                                                     <div class="info-list">
                                                        
                                                         <ul>
-                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>                                                            
@@ -309,7 +309,7 @@
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
         localStorage.setItem('course_type',course_type[2])
-        }
+        }        
         // if(course_type[2]==1){
         //     // console.log("DA");
         //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";
