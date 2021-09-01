@@ -37,6 +37,7 @@ $('#cpa_exam_register').submit(function(e){
     form_data.append('form_type',$("#form_type").val());
     form_data.append('student_id',student_id);
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
+    $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
     console.log('form_type',$("input[name=form_type]").val());
     //show_loader();
     $.ajax({
