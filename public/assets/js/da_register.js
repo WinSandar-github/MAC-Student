@@ -272,7 +272,7 @@ $('#store_da_two_form').submit(function(e){
     var formData = new FormData(this);
    
     formData.append('student_id',student_id);
-    show_loader();
+    //show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
         type: 'post',
@@ -280,10 +280,11 @@ $('#store_da_two_form').submit(function(e){
         contentType: false,
         processData: false,
         success: function(data){      
-            EasyLoading.hide();      
+            console.log("check",data)
+            //EasyLoading.hide();      
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            successMessage("You have successfully registerd!");
-            location.href = FRONTEND_URL+"/"; 
+            //successMessage("You have successfully registerd!");
+            //location.href = FRONTEND_URL+"/"; 
         },
       error:function (message){
         EasyLoading.hide();      
@@ -298,7 +299,10 @@ $('#store_da_two_form').submit(function(e){
     });
 });
 
-
+$('#payment_submit').submit(function(e){
+    e.preventDefault();
+    location.href = FRONTEND_URL+"/"; 
+});
 
 function createDaTwoSelfStudy()
 {
