@@ -32,10 +32,6 @@ class StudentController extends Controller
         $requirements  = $res_requirement['data'];
         
         
-       
-
-        // $batch = Http::get('http://localhost:8000/batch/'.$id);
-    // return $batch;
         return view('pages.student_course',["course" => $course,'requirements' => $requirements]);
     } 
 }

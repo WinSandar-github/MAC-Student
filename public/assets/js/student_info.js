@@ -32,15 +32,12 @@ function ConfirmSubmitMac(){
     }
 }
 
-// window.addEventListener('load', app_form_feedback);
-
 function app_form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     let url = location.pathname;
     let course_type = url.substring(url.lastIndexOf('/')+1);
-    // let batch_id = [$('#batch_id1').val(),$('#batch_id2').val()];
-    let count = 0;
-                let course_length = $('#course_length').val();
+     let count = 0;
+    let course_length = $('#course_length').val();
 
 
     
