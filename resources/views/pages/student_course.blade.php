@@ -248,36 +248,20 @@
                                                                         <span class="mr-3">  - </span></li>
                                                                     </ul>
                                                                     <div class="col-md-3"></div>
-                                                                    <p class="btn btn-info d-flex justify-content-center mb-4 text-dark h6 ">
-                                                                        Coming Soon...</p>
+                                                                    <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Coming Soon...</p>
                                                                 @endif
-
                                                             </div>
                                                 </div>
                                             </div>
-
-
                                             <!-- </div>
                                             <div class="col-md-6 pr-2 widget-information"> -->
-
-
                                         </div>
-
                                     </div>
-
-
                                 </div>
                             </div>
-
-
-
-
                         @endforeach
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     </div>
