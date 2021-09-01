@@ -965,7 +965,7 @@
                                             </div>
                                         </div>
                                                                                     <br>
-                                        <div class="row">
+                                   {{--     <div class="row">
                                             <div class="col-md-12">
                                                 <div>
                                                     <label>ACCA/CIMA တက်ရောက်နေသူ -</label>
@@ -1051,7 +1051,7 @@
                                                 </div>
 
                                             </div>
-                                                                                            <br>
+                                         --}}                                                   <br>
                                             <div class="row m-4">
                                                 <div class="col-md-2 offset-md-5">
                                                     <button type="submit" class="btn btn-success btn-hover-dark w-100"    data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>

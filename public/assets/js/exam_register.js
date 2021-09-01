@@ -39,7 +39,7 @@ $('#cpa_exam_register').submit(function(e){
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
     console.log('form_type',$("input[name=form_type]").val());
-    //show_loader();
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/cpa_exam_register",
         type: 'post',
@@ -47,9 +47,9 @@ $('#cpa_exam_register').submit(function(e){
         contentType: false,
         processData: false,
         success: function(result){
-             //EasyLoading.hide();
+             EasyLoading.hide();
              localStorage.setItem('approve_reject', 1);
-             //location.href = FRONTEND_URL + "/";
+             location.href = FRONTEND_URL + "/";
 
             //successMessage(result);
       }

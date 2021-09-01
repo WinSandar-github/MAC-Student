@@ -64,54 +64,79 @@ function app_form_feedback() {
                         $('.application').show();
                         // $('.check_registration').css('display','block');
                         // $('.course_detail').css('display','none');
-                        $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Application Form is checking')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
-                    } else if (student_status == 1) {
+
+                        
+                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Application Form is checking')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+                    
+                    }else if(student_status == 1){
+                        console.log(student.id)
+                         
+
+
                         $.ajax({
                             url: BACKEND_URL + "/getStatus/" + student.id,
                             type: 'GET',
                             contentType: false,
                             processData: false,
-                            async: false,
-                            headers: {
-                                'Access-Control-Allow-Origin': '*',
-                            },
-                            success: function (reg_status) {
-                                console.log(reg_status, "Status");
-                                if (reg_status == 0) {
-                                    $('.registration').show();
-                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Registration Form is checking')"  class="btn btn-primary btn-hover-dark  " >Registration Form</a>`)
-                                } else if (reg_status == 1) {
-                                    $.ajax({
-                                        url: BACKEND_URL + "/get_exam_status/" + student_id,
-                                        type: 'GET',
-                                        contentType: false,
-                                        processData: false,
-                                        async: false,
-                                        success: function (exam_status) {
-                                            $('.exam').show();
-                                            if (exam_status === 0) {
-                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is checking')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
-                                                // $('.exam_feedback').css('display','block');
-                                                // $('.exam_text').append(`Your Exam Form is checking.`)
-                                            } else if (exam_status == 1) {
-                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is Approved')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
-                                                // $('.exam_feedback').css('display','block');
-                                                // $('.exam_text').append(`Your Exam Form is approved.`)
-                                            } else if (exam_status == 2) {
-                                                $('.exam_feedback').css('display', 'block');
-                                                $('.exam_text').append(`Your Exam Form is reject.`)
-                                            }else {
-                                                // $('.approve').css('display','block');
-                                                // $('#aa_form').css('display','block');
-                                                // console.log(student_id);
-                                                var student_mentor;
-                                                $.ajax({
-                                                    url: BACKEND_URL + "/get_type/" + student_id,
-                                                    type: 'GET',
-                                                    async: false,
-                                                    success: function (data) {
-                                                        var student_data = data.data;
-                                                        student_data.forEach(function (element) {
+                            async:false,
+                            success: function(reg_status){
+                               
+                    
+                                             
+                               
+                                    if(reg_status == 0){
+                                     $('.registration').show();
+
+                                        $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Registration Form is checking')"  class="btn btn-primary btn-hover-dark  " >Registration Form</a>`) 
+
+                                    }else if(reg_status == 1){
+                                        
+
+                                       
+                                    
+                    
+                                        $.ajax({
+                                            url: BACKEND_URL+"/get_exam_status/"+student_id,
+                                            type: 'GET',
+                                            contentType: false,
+                                            processData: false,
+                                            async:false,
+                                            success: function(exam_status){
+                                                $('.exam').show();
+ 
+                                            
+                                             
+                                                if(exam_status === 0){
+
+                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is checking')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+
+                                                    // $('.exam_feedback').css('display','block');
+                                                    // $('.exam_text').append(`Your Exam Form is checking.`)
+                                                    
+                                                }else if(exam_status == 1){
+                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your Exam Form is Approved')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+
+                                                
+                                                    // $('.exam_feedback').css('display','block');
+                                                    // $('.exam_text').append(`Your Exam Form is approved.`)
+                                                }else if(exam_status == 2){
+                                                    $('.exam_feedback').css('display','block');
+                                                    $('.exam_text').append(`Your Exam Form is reject.`)
+                                                } 
+                                                else{
+                                                    
+                                    
+                                                    // $('.approve').css('display','block');
+                                                    // $('#aa_form').css('display','block');
+                                                    // console.log(student_id);
+                                                    var student_mentor
+                                                    $.ajax({
+                                                        url: BACKEND_URL+"/get_type/"+student_id,
+                                                        type: 'GET',
+                                                        async:false,
+                                                        success: function(data){
+                                                            var student_data = data.data;
+                                                            student_data.forEach(function(element){
                                                             var course_data = element.course.code;
                                                             var self_url = FRONTEND_URL + "/aa_self_form/" + student_id;
                                                             var private_url = FRONTEND_URL + "/aa_private_form/" + student_id;
@@ -160,12 +185,46 @@ function app_form_feedback() {
                                                                 break;
                                                                 default:
                                                                     exam_url = '/exam_register';
-                                                                break;
-                                                            }
-                                                            if (result.course.code == code) {
-                                                                $(`.check_login${i}`).append(`<a href="${FRONTEND_URL + exam_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Exam Registration Form </a>`)
-                                                            } else {
-                                                                $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${result.course.name} process') "  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`)
+                                                                    break;
+                                        
+                                        
+                                                                    
+                                                                }
+                                                                
+                                                               
+                                                                localStorage.setItem('course_id',result.course.id);
+                                                                if(result.course.code == code){
+
+                                                                    
+                                                                    $(`.check_login${i}`).append(`<a href="${FRONTEND_URL+exam_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Exam Registration Form </a>`) 
+                                                                    
+                                                                }else{
+                                                                    $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${result.course.name} process') "  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+                                                                    
+
+                                                                }
+                                                                // $('.add_exam').append(
+                                                                // `<div>
+                                                                // <p>${result.name} </p>
+                                                                // <p>Exam Start Date - ${result.exam_start_date}</p>
+                                                                // <p>Exam End Date - ${result.exam_end_date}</p>
+                                                                
+                                                                // </div>`)
+                                                                // console.log(student_mentor);
+                    
+                                                                // if(student_mentor !== null){
+                                                                //     $('.add_exam').append(`
+                                                                //     <p> Go to Exam Registration Form
+                                                                //     <a href=${exam_url} class="btn btn-sm btn-dark text-light">Exam Form</a>
+                                                                //     </p>
+                                                                //     `)
+                                                                // }
+                                    
+                                                                
+                                                            }else{
+                                                                $('.add_exam').append(`<div>
+                                                                    <p>The exam schedule will be announced soon</p>
+                                                                </div>`)
                                                             }
                                                             // $('.add_exam').append(
                                                             // `<div>
@@ -196,20 +255,25 @@ function app_form_feedback() {
                                     // $('.reject').append(`<a href="/da_edit" class="btn btn-primary btn-sm xl-auto" > Update </a>`)
                                 } else {
                                     $('.registration').show();
-                                    $.ajax({
-                                        type: "get",
-                                        url: BACKEND_URL + "/get_current_batch_studentId/" + student.id,
-                                        contentType: false,
-                                        processData: false,
-                                        async: false,
-                                        success: function (result) {
-                                            var register_url;
-                                            let batch = result.data;
-                                            console.log(result.data, "Batch");
-                                            localStorage.setItem('course_id', batch.course_id);
-                                            if (batch) {
-                                                switch (batch.course.code) {
-                                                    case 'da_1':
+                                   
+                                        $.ajax({
+                                            type: "get",
+                                            url: BACKEND_URL+"/get_current_batch_studentId/"+student.id,
+                                            contentType: false,
+                                            processData: false,
+                                            async:false,
+                                            success: function (result) {
+                                                
+                                                var register_url;
+                                                let batch = result.data;
+                                                console.log(result.data,"Batch")
+                                                localStorage.setItem('course_id',batch.course_id);
+                                            
+                                                if(batch){
+                
+                                                    switch(batch.course.code){
+                                                        case 'da_1':
+                        
                                                         register_url = '/da_one_register';
                                                         break;
                                                     case 'da_2':
@@ -243,14 +307,47 @@ function app_form_feedback() {
                                                         }
                                                         $(`.check_login${i}`).append(`<a href="${FRONTEND_URL + register_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
                                                     }
+                                                    console.log(code,batch.course.code)
+                
+                                                    if(batch.course.code == code ){
+                                                       
+                                                        let date = new Date();
+                              
+                                                    
+                              
+                                                        // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+                                                        var mac_start_date  = new Date(batch.mac_reg_start_date );
+                                                        var mac_end_date    = new Date(batch.mac_reg_end_date);
+                                                        var self_start_date  = new Date(batch.self_reg_start_date );
+                                                        var self_end_date    = new Date(batch.self_reg_end_date);
+                                                        var private_start_date  = new Date(batch.private_reg_start_date );
+                                                        var private_end_date    = new Date(batch.private_reg_end_date);
+                                                        if(mac_start_date <= date && mac_end_date >= date){
+                                                             
+                                                             $(`.mac_btn${i}`).append(`<a href="${FRONTEND_URL+register_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
+                                                        } 
+                
+                                                        if(self_start_date <= date && self_end_date >= date){
+                                                            
+                                                            
+                                                            $(`.self_btn${i}`).append(`<a href="${FRONTEND_URL+register_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
+                                                        } 
+                
+                                                        if(private_start_date <= date && private_end_date >= date){
+                                                           
+                                          
+                                                            $(`.private_btn${i}`).append(`<a href="${FRONTEND_URL+register_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
+                                                        } 
+                                                        
+                                                        
+                
+                
+                
+                                                    }else{
+                                                        $(`.check_login${i}`).append(`<a href="javascript:successMessage('You are still in the ${batch.course.name} process') "  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
 
-                                                    if (self_start_date <= date && self_end_date >= date) {
-                                                        if (course_type == 2) {
 
-                                                            register_url = "/cpa_one_self_study"
-                                                        }
-
-                                                        $(`.check_login${i}`).append(`<a href="${FRONTEND_URL + register_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
+                                                        
                                                     }
 
                                                     if (private_start_date <= date && private_end_date >= date) {
@@ -363,27 +460,20 @@ function app_form_feedback() {
 
                                                     if (self_start_date <= date && self_end_date >= date) {
 
-                                                        $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
-                                                    }
+                                 
+                                
+                                    if(data_course[exam_count])
+                                    {
+                                         if(data_course[exam_count].grade == 1  && data_course[exam_count].form_type == course_id)
+                                        {
+                                            //  $(`.check_login${i}`).append(`<a href="javascript:successMessage('Your have been pass ${data_course[exam_count].course.name}')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
 
-                                                    if (private_start_date <= date && private_end_date >= date) {
+                                        }else{
+                                            
 
-
-                                                        $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
-                                                    }
-                                                }
-
-                                            })
-
-                                        } else {
-                                            $(`.check_login${i}`).append(`<a href="${course_url}"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
-
-                                        }
-                                    }
-                                } else {
-                                    if (code == "da_2" || code == "cpa_2") {
-                                        if (course_type == 1) {
-                                            if (previous_exam[0].course.code == "da_1") {
+                                            if(code == "da_2" || code == "cpa_2")
+                                            {
+                                                
                                                 $.ajax({
                                                     url: BACKEND_URL + "/batch/" + batch_id,
                                                     type: 'get',
@@ -404,12 +494,115 @@ function app_form_feedback() {
                                                             $(`.check_login${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
                                                         }
 
-                                                        if (self_start_date <= date && self_end_date >= date) {
-                                                            $(`.check_login${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
-                                                        }
+                                            }
+                                           
+                                           
+                                        }
+                                        
+                                    }else
+                                    {  
+                                    
 
-                                                        if (private_start_date <= date && private_end_date >= date) {
-                                                            $(`.check_login${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
+                                      
+                                        if(code == "da_2" || code == "cpa_2")
+                                        {
+                                           
+                                            if(course_type == 1){
+ 
+                                                if(previous_exam[0].course.code == "da_1" ){
+                                                  
+                                                     $.ajax({
+                                                       url: BACKEND_URL+"/batch/"+batch_id,
+                                                       type: 'get',
+                                                       contentType: false,
+                                                       processData: false,
+                                                       async:false,
+                                                       success: function(result){  
+                                                           $('.registration').show();
+                                                           let batch = result.data;
+                                                           let date = new Date();
+
+                                                           localStorage.setItem('course_id',batch.course.id)
+                                 
+                                                       
+                                 
+                                                           // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+                                                           var mac_start_date  = new Date(batch.mac_reg_start_date );
+                                                           var mac_end_date    = new Date(batch.mac_reg_end_date);
+                                                           var self_start_date  = new Date(batch.self_reg_start_date );
+                                                           var self_end_date    = new Date(batch.self_reg_end_date);
+                                                           var private_start_date  = new Date(batch.private_reg_start_date );
+                                                           var private_end_date    = new Date(batch.private_reg_end_date);
+                                                           if(mac_start_date <= date && mac_end_date >= date){
+                                                               
+                                                               
+                                                                $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(self_start_date <= date && self_end_date >= date){
+                                                               
+                                                               
+                                                               
+                                                               $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(private_start_date <= date && private_end_date >= date){
+                                                              
+                                             
+                                                               $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
+                                                           } 
+                                                        }
+   
+                                                       })
+   
+                                               }else{
+                                                   $(`.check_login${i}`).append(`<a href="javascript:successMessage('You need to pass ${course_type == 1 ? "Da One" : "Cpa One"} ')"  class="btn btn-primary btn-hover-dark  " >Enroll Now </a>`) 
+   
+                                                   
+                                               }
+
+                                            }else{
+                                                if( previous_exam[0].course.code == "cpa_1"){
+                                                
+                                                    $.ajax({
+                                                       url: BACKEND_URL+"/batch/"+batch_id,
+                                                       type: 'get',
+                                                       contentType: false,
+                                                       processData: false,
+                                                       async:false,
+                                                       success: function(result){  
+                                                           let batch = result.data;
+                                                           let date = new Date();
+
+                                                           $('.registration').show();
+                                                           localStorage.setItem('course_id',batch.course.id)
+
+                                                       
+                                 
+                                                           // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+                                                           var mac_start_date  = new Date(batch.mac_reg_start_date );
+                                                           var mac_end_date    = new Date(batch.mac_reg_end_date);
+                                                           var self_start_date  = new Date(batch.self_reg_start_date );
+                                                           var self_end_date    = new Date(batch.self_reg_end_date);
+                                                           var private_start_date  = new Date(batch.private_reg_start_date );
+                                                           var private_end_date    = new Date(batch.private_reg_end_date);
+                                                           if(mac_start_date <= date && mac_end_date >= date){
+                                                               
+                                                                $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(self_start_date <= date && self_end_date >= date){
+                                                                
+                                                               
+                                                               
+                                                               $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`) 
+                                                           } 
+                   
+                                                           if(private_start_date <= date && private_end_date >= date){
+                                                             
+                                             
+                                                               $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`) 
+                                                           } 
                                                         }
                                                     }
 
