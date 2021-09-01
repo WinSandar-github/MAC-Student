@@ -1,4 +1,4 @@
-// var FRONTEND_URL="http://localhost:8080";
+// var FRONTEND_URL="http://localhost:8001";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL="http://localhost:8000/api";
 
@@ -182,7 +182,7 @@ function addRowPartner(tbody){
     var row=$('.'+tbody+' tr').length;
     cols += '<td>'+ (row)+'</td>';
     cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]" class="form-control" autocomplete="off" required /></td>';
+    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no'+row+'" onchange="checkPAPPExist(this.value,this.id)" class="form-control"  class="form-control" autocomplete="off" required /></td>';
     cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="1" required> Yes</td>';
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
