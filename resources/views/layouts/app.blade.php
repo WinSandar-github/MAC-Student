@@ -128,9 +128,6 @@
     <script src="{{ asset('EasyLoading/js/easy-loading.js')}}"></script>
     <script src="{{ asset('assets/js/easyloading.js') }}"></script>
 
-
-
-
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/student_login.js') }}"></script>
