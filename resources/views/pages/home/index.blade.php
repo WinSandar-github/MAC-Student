@@ -15,7 +15,7 @@
                     <h4 class="sub-title">Start your favourite course</h4>
                     <h2 class="main-title">Now learning from anywhere, and build your <span>bright career.</span></h2>
                     <p>It has survived not only five centuries but also the leap into electronic typesetting.</p>
-                    <a class="btn btn-primary btn-hover-dark" href="#">Start A Course</a>
+                    <a class="btn btn-lg btn-success btn-hover-dark" href="#">Start A Course</a>
                 </div>
                 <!-- Slider Content End -->
 
@@ -78,64 +78,98 @@
         <div class="section section-padding-02 " style="margin-bottom: 50px;" >
             <div class="container">
 
-                
+                <!-- All Courses Tabs Menu Start -->
+                <div class="courses-tabs-menu">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper nav" style="justify-content: space-between">
+                            {{-- <li class="swiper-slide">
+                                <button class="active" data-bs-toggle="tab" data-bs-target="#tabs1">UI/UX Design</button>
+                            </li>
+                            <li class="swiper-slide">
+                                <button data-bs-toggle="tab" data-bs-target="#tabs2">Development</button>
+                            </li>
+                            <li class="swiper-slide">
+                                <button data-bs-toggle="tab" data-bs-target="#tabs3">Data Science</button>
+                            </li>
+                            <li class="swiper-slide">
+                                <button data-bs-toggle="tab" data-bs-target="#tabs4">Business</button>
+                            </li>
+                            <li class="swiper-slide">
+                                <button data-bs-toggle="tab" data-bs-target="#tabs5">Financial</button>
+                            </li>
+                            <li class="swiper-slide">
+                                <button data-bs-toggle="tab" data-bs-target="#tabs6">Marketing</button>
+                            </li>
+                            <li class="swiper-slide">
+                                <button data-bs-toggle="tab" data-bs-target="#tabs7">Design</button>
+                            </li> --}}
+                            <li>
+                                {{-- <button class="course_list" data-bs-toggle="tab" value="app">တက်ရောက်ခွင့်ရသူများစာရင်း</button> --}}
+                                <button class="course_list" value="app">တက်ရောက်ခွင့်ရသူများစာရင်း</button>
+                            </li>
+                            <li>
+                                {{-- <button class="course_list" data-bs-toggle="tab" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button> --}}
+                                <button class="course_list" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                            </li>
+                            <li>
+                                {{-- <button class="course_list" data-bs-toggle="tab" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button> --}}
+                                <button class="course_list" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button>
+                            </li>
+                        </ul>
+                    </div>
 
-              
+                    <!-- Add Pagination -->
+                    {{-- <div class="swiper-button-next"><i class="icofont-rounded-right"></i></div> --}}
+                    {{-- <div class="swiper-button-prev"><i class="icofont-rounded-left"></i></div> --}}
+                </div>
+                <!-- All Courses Tabs Menu End -->
 
-             
-                   
+                <!-- All Courses Wrapper Start -->
+                <div class="courses-wrapper ">
+                    
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <!-- Single Courses Start -->
+                            <div class="single-courses">
+                                
+                                <h4 class="d-inline-block">Diploment in Accountancy (DA)</h4> 
+                                <a href="{{ url('student_course/1') }}" class="btn btn-success" style="float:right !important">Course Details</a>
+                                <hr>
+                                <p style="float-rig">အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်​</p>
 
-                        <!-- All Courses Wrapper Start -->
-                        <div class="courses-wrapper ">
-                            <button class="btn btn-success p-2 course_list" value="app">တက်ရောက်ခွင့်ရသူများစာရင်း</button>
-                            <button class="btn btn-success p-2 course_list" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
-                            <button class="btn btn-success p-2 course_list" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12">
-                                    <!-- Single Courses Start -->
-                                    <div class="single-courses">
-                                        
-                                        <h4 class="d-inline-block">Diploment in Accountancy (DA)</h4> 
-                                       <a href="{{ url('student_course/1') }}" class="btn btn-success" style="float:right !important">Course Details</a>
-                                       <hr>
-                                       <p style="float-rig">အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်​</p>
+                                <p>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည် ​</p>
+                                <p>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည် ​</p>
+                                <p>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်​</p>
 
-                                        <p>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည် ​</p>
-                                        <p>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည် ​</p>
-                                        <p>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်​</p>
-
-                                       
-                                    </div>
-                                    <!-- Single Courses End -->
-                                </div>
-                                 
+                                
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12">
-                                    <!-- Single Courses Start -->
-                                    <div class="single-courses">
-                                        
-                                       <h4 class="d-inline-block">Certificated Public Accountant (CPA)</h4> 
-                                       <a href="{{ url('student_course/2') }}" class="btn btn-success" style="float:right !important">Course Details</a>
-                                       <hr>
-
-                                      
-                                       <p>BCom,BAct,BBA,DA,BBSc ,ACCA (Fundamental skill level),CIMA ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်​​</p>
-
-                                        <p>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည် ​ ​</p>
-                                        <p>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်​ ​</p>
- 
-                                       
-                                    </div>
-                                    <!-- Single Courses End -->
-                                </div>
-                                 
-                            </div>
+                            <!-- Single Courses End -->
                         </div>
-                        <!-- All Courses Wrapper End -->
+                            
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <!-- Single Courses Start -->
+                            <div class="single-courses">
+                                
+                                <h4 class="d-inline-block">Certificated Public Accountant (CPA)</h4> 
+                                <a href="{{ url('student_course/2') }}" class="btn btn-success" style="float:right !important">Course Details</a>
+                                <hr>
 
-                 
+                                
+                                <p>BCom,BAct,BBA,DA,BBSc ,ACCA (Fundamental skill level),CIMA ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်​​</p>
 
+                                <p>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည် ​ ​</p>
+                                <p>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်​ ​</p>
+
+                                
+                            </div>
+                            <!-- Single Courses End -->
+                        </div>
+                            
+                    </div>
+                </div>
+                <!-- All Courses Wrapper End -->
             </div>
         </div>
 
