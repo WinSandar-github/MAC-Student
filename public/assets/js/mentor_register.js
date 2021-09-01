@@ -44,9 +44,9 @@ function createMentorRegister(){
   var send_data=new FormData();
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
-  send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
-  send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
-  send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
+  send_data.append('nrc_state_region', $("#nrc_state_region").val());
+  send_data.append('nrc_township', $("#nrc_township ").val());
+  send_data.append('nrc_citizen', $("#nrc_citizen").val());
   send_data.append('nrc_number', $("#nrc_number").val());
   send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
   send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
@@ -163,3 +163,61 @@ function mentorRegisterFeedback(){
         }
     });
 }
+function loadRenewMentor(id){
+    $.ajax({
+      type : 'GET',
+      url : BACKEND_URL+"/mentor/"+id,
+      success: function (result) {
+          var mentor=result.data;
+          if(mentor.status==1){
+                document.getElementById('mentor').style.display='none';
+                document.getElementById('mentor_renew_form').style.display='block';
+                var accept=new Date(mentor.renew_date);
+                var month=accept.getMonth()+1;
+                var year=accept.getFullYear();
+                var y=year+1;
+                var now=new Date();
+                $('#regno').val(mentor.id);
+                $('#register_date').val(mentor.renew_date);
+                if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                    $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                    $('.renew_submit').prop('disabled', false);
+                    
+                }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                    $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                    $('.renew_submit').prop('disabled', true);
+                }else{
+                    $('#message').val("You are verified!");
+                    $('.renew_submit').prop('disabled', true);
+                }
+          }else{
+            document.getElementById('mentor').style.display='block';
+            document.getElementById('mentor_renew_form').style.display='none';
+          }
+          
+      },
+      error: function (result) {
+      },
+  });
+  }
+  function renewMentor(){
+    var send_data=new FormData();
+    var id=localStorage.getItem("mentor_id");
+    send_data.append('_method', 'PATCH');
+    show_loader();
+      $.ajax({
+          url: BACKEND_URL+'/renewMentor/'+id,
+          type: 'post',
+          data:send_data,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+              EasyLoading.hide();
+              successMessage(data.message);
+              location.href=FRONTEND_URL+'/';
+              
+          },
+          error: function (result) {
+          },
+      });
+  }

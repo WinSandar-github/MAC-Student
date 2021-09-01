@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/maclogo1.png') }}">
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/icofont.min.css') }}">
@@ -145,6 +145,8 @@
     <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
     <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
+    <script src="{{ asset('assets/js/school.js') }}"></script>
+
 
 
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -171,7 +173,7 @@
     <!-- <script src="{{ asset('assets/js/da_two_exam_register.js') }}"></script> -->
     <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script>
     <script src="{{ asset('assets/js/mentor_mac.js') }}"></script>
-
+    <script src="{{ asset('assets/js/mentor_register.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/non_audit_firm.js') }}"></script> -->
 
 
@@ -185,6 +187,14 @@ setTimeout(() => {
 }, 3000);
     </script> -->
     @stack('scripts')
+    <script>
+        function en2mm(num) {
+            var nums = { 0 : '၀', 1 : '၁', 2 :'၂', 3 : '၃', 4 : '၄' , 5 : '၅', 6 : '၆', 7 : '၇', 8 : '၈', 9 : '၉' };
+            return num.replace(/([1-9])/g, function(s, key) {
+                return nums[key] || s;
+            });
+        }
+    </script>
 </body>
 
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])

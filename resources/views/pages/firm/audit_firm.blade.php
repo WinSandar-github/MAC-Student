@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="audit_container" style="display:none; margin:5%;">
+            <div class="row" id="audit_container"style="display:none; margin:5%;">
                 <form method="post" enctype="multipart/form-data">
                     <div class="card border-success mb-3">
                         <div class="card-body text-success">
@@ -159,8 +159,9 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form id="audit_firm_form" class="needs-validation" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data" novalidate>
+                        <form id="audit_firm_form" class="" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data" novalidate>
                             @csrf
+                            <input type="hidden" value="1" name="audit_firm_type_id">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card border-success mb-3 p-3">
@@ -192,7 +193,7 @@
                                             
 
                                             {{--<div class="row">
-                                                <input type="hidden" value="1" name="audit_firm_type_id">
+                                                
                                                 <table width="100%">
                                                     <tr>
                                                         <td width="5%"><label>4.</label></td>
@@ -800,8 +801,8 @@
                                                                             <tr>
                                                                                 <th class="less-font-weight" rowspan="2">Sr</th>
                                                                                 <th class="less-font-weight" rowspan="2">Name</th>
-                                                                                <th class="less-font-weight" rowspan="2">Public Private Reg.No</th>
-                                                                                <th class="less-font-weight" colspan="2">Have authority to sing Auditors' report?</th>
+                                                                                <th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
+                                                                                <th class="less-font-weight" colspan="2">Have authority to sign Auditors' report?</th>
                                                                                 <th class="less-font-weight" rowspan="2" style="text-align: right;">
                                                                                     <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
                                                                                         <i class="fa fa-plus"></i>
@@ -1038,7 +1039,8 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                                    <!-- <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button> -->
+                                                    <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1059,22 +1061,22 @@
 @push('scripts')
 <script>
 $(document).ready(function(){
-  $("#audit_firm_form").submit(function(event){
-    if($("input[name='t_s_p_id']:checked").length == 0){
-    	$('#t_s_p_id_validate').css('display','block');
-    }
-    else{
-    	$('#t_s_p_id_validate').css('display','none');
-    }
+    $("#audit_firm_form").submit(function(event){
+        if($("input[name='t_s_p_id']:checked").length == 0){
+            $('#t_s_p_id_validate').css('display','block');
+        }
+        else{
+            $('#t_s_p_id_validate').css('display','none');
+        }
 
-    // organization_structure radio button required validation
-	  if($("input[name='org_stru_id']:checked").length == 0){
-			$('#audit_org_validate').css('display','block');
-		}
-		else{
-			$('#audit_org_validate').css('display','none');
-		}
-  });
+        // organization_structure radio button required validation
+        if($("input[name='org_stru_id']:checked").length == 0){
+            $('#audit_org_validate').css('display','block');
+        }
+        else{
+            $('#audit_org_validate').css('display','none');
+        }
+    });
     
     loadAuditOrganization();
     loadAuditTypeOfService();
@@ -1082,15 +1084,12 @@ $(document).ready(function(){
     loadAuditStaffReg();
     audit_reg_feedback();
     auditData();
-    pendingStatus();
+    // pendingStatus();
     dateQuery();
     verifyStatus();
-<<<<<<< HEAD
-=======
 
     // getTotalStaff();
 
->>>>>>> 5a31fe5a8675e2ab76acb2e1b418d654416d81da
     });
 
 </script>
