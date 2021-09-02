@@ -468,10 +468,14 @@ function app_form_feedback() {
             }
         });
     } else {
+        
         $('.application').show();
-        for (var i = 1; i <= course_length; ++i) {
+        for (var i = 0; i < course_length; ++i) {
             let batch_id = $(`.batch_id${i}`).val();
-            $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},${i},${course_type})" class="btn btn-success btn-lg btn-hover-dark" >Enroll Now </a>`);
+            let course_code = $(`#course_code${i}`).val();
+
+         
+            $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type})" class="btn btn-success btn-lg btn-hover-dark" >Enroll Now </a>`);
         }
         // $('.logined').css('display','block')
         // $('.check_login2').append(`<a href="/login" class="btn btn-primary btn-hover-dark   " >Enroll Now </a>`)

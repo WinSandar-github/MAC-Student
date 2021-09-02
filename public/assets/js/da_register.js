@@ -38,9 +38,12 @@ function createDARegister()
     }
     var send_data = new FormData();
 
-    var image = $('#image')[0].files[0];
+    var image = $('#profile_photo')[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
+    var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+
+    
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -54,6 +57,8 @@ function createDARegister()
     send_data.append('nrc_number', $("input[name=nrc_number]").val());
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
+    send_data.append('recommend_letter', recommend_letter);
+
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
     send_data.append('race', $("input[name=race]").val());
