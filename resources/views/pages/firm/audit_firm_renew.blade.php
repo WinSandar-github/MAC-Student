@@ -85,6 +85,7 @@
                             <div class="row">
                               <div class="col-md-8">
                                 <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
                                     <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Accountancy Firm Name') }}</label>
                                     <div class="col-md-7">
                                         <div class="form-group single-form">
@@ -93,6 +94,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
                                     <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Accountancy Firm Registeration No') }}</label>
                                     <div class="col-md-7">
                                         <div class="form-group single-form">
@@ -101,6 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
                                     <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
                                     <div class="col-md-7">
                                         <div class="form-group single-form">

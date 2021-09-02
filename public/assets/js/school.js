@@ -26,7 +26,7 @@ function createSchoolRegister(){
         $("input[name=school_type]:checked").each(function(i){
           val[i] = $(this).val();
         });
-        console.log("val >>>",val);
+        //console.log("val >>>",val);
     send_data.append('school_type',val);
     send_data.append('attachment',$("input[name=attachment]").val());
     send_data.append('address',$("textarea[name=address]").val());
@@ -37,7 +37,7 @@ function createSchoolRegister(){
     // attend_course multi select
     var selected = $('.multiple-attend-course').find(':selected').val();
     for (var i = 0; i <= selected.length-1; i++) {
-                console.log("sel .>>",selected[i].text);
+                //console.log("sel .>>",selected[i].text);
             }
 
 
@@ -311,9 +311,7 @@ function loadSchoolList(){
         success: function(data){
 
             var school_data=data.data;
-            console.log('school_data',school_data)
             school_data.forEach(function (element) {
-                console.log('element',element)
                 var option = document.createElement('option');
                 option.text = element.name_mm+"/"+element.name_eng;
                 option.value = element.id;
