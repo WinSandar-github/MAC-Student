@@ -80,68 +80,85 @@
                                     @csrf
                                     <div class="col-md-12">
                                         <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="">
-                                                    <label>{{ __('၁။') }}</label>
-                                                </div>
-                                            </div>
+                                            <div class="col-md-7">
 
-                                            <div class="col-md-3">
-                                                <div class="">
-                                                    <label>Email</label>
-                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div class="">
+                                                            <label>{{ __('၁။') }}</label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-md-3">
+                                                        <div class="">
+                                                            <label>Email</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="">
+                                                            <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                        </div>
+                                                        @if ($errors->has('email'))
+                                                            <span class="text-danger">
+                                                                <strong>{{ $errors->first('email') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div><br>
+                                                <!-- </div> -->
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div>
+                                                            <label>{{ __('၂။') }}</label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-md-3">
+                                                        <div>
+                                                            <label>Password</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div>
+                                                            <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                        </div>
+                                                    </div>
+                                                </div><br>
+        
+        
+                                                <!-- </div> -->
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <div>
+                                                            <label>{{ __('၃။') }}</label>
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-md-3">
+                                                        <div>
+                                                            <label>Confirm Password</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div>
+                                                            <input type="password" placeholder="Enter your  Password again!" name="confirm_password" class="form-control" required="">
+                                                        </div>
+                                                    </div>
+                                                </div><br>
                                             </div>
-                                            <div class="col-md-8">
-                                                <div class="">
-                                                    <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
-                                                </div>
-                                                @if ($errors->has('email'))
-                                                    <span class="text-danger">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </div>
-                                        </div><br>
-                                        <!-- </div> -->
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('၂။') }}</label>
-                                                </div>
-                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="col-md-5 pull-right">
+                                                    <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="custom-file-input" id="profile_photo"  name="image"
+                                                        value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
+                                                    </p>
+                                                    <div class="form-text mb-2">Allowed Jpeg Image.</div>
 
-                                            <div class="col-md-3">
-                                                <div>
-                                                    <label>Password</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
-                                                </div>
-                                            </div>
-                                        </div><br>
-
-
-                                        <!-- </div> -->
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('၃။') }}</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div>
-                                                    <label>Confirm Password</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="password" placeholder="Enter your  Password again!" name="confirm_password" class="form-control" required="">
-                                                </div>
-                                            </div>
-                                        </div><br>
+                                            
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
@@ -168,7 +185,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၆။') }}</label>
+                                                    <label>{{ __('၅။') }}</label>
                                                 </div>
                                             </div>
 
@@ -242,7 +259,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၇။') }}</label>
+                                                    <label>{{ __('၆။') }}</label>
                                                 </div>
                                             </div>
 
@@ -266,7 +283,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၉။') }}</label>
+                                                    <label>{{ __('၇။') }}</label>
                                                 </div>
                                             </div>
 
@@ -285,7 +302,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၀။') }}</label>
+                                                    <label>{{ __('၈။') }}</label>
                                                 </div>
                                             </div>
 
@@ -304,7 +321,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __(' ၁၁။') }}</label>
+                                                    <label>{{ __(' ၉။') }}</label>
                                                 </div>
                                             </div>
 
@@ -323,7 +340,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၂။') }}</label>
+                                                    <label>{{ __('၁၀။') }}</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -341,7 +358,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၃။') }}</label>
+                                                    <label>{{ __('၁၁။') }}</label>
                                                 </div>
                                             </div>
 
@@ -360,7 +377,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၄။') }}</label>
+                                                    <label>{{ __('၁၂။') }}</label>
                                                 </div>
                                             </div>
 
@@ -380,7 +397,7 @@
                                         <input type="hidden" name="registration_no" value="1">
                                         
                                         <input type="hidden" name="approve_reject_status">
-
+                                    {{--
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
@@ -395,23 +412,21 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div>
-                                                    <input class="form-control" type="file" placeholder="upload photo" accept="image/*" name="image" value="{{ old('image') }}" required=""  accept="image/*"  >
+                                                    <input class="form-control" type="file" placeholder="upload photo"  name="image" value="{{ old('image') }}" required=""  accept="image/*"  >
                                                 </div>
                                             </div>
-                                         </div><br>
+                                         </div><br> 
+                                         
+                                    --}}
 
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၆။') }}</label>
+                                                    <label>{{ __('၁၃။') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(က) ') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
+                                            
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label>လက်ရှိအလုပ်အကိုင်</label>
                                                 </div>
@@ -426,15 +441,11 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('') }}</label>
+                                                    <label>{{ __('၁၄') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(ခ)') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
+                                             
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label> ရာထူး</label>
                                                 </div>
@@ -449,15 +460,11 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('') }}</label>
+                                                    <label>{{ __('၁၅။') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(ဂ)') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
+                                           
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label> ဌာန</label>
                                                 </div>
@@ -472,15 +479,11 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('') }}</label>
+                                                    <label>{{ __('၁၆') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(ဃ)') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
+                                          
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label> အဖွဲ့အစည်း</label>
                                                 </div>
@@ -495,15 +498,11 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('') }}</label>
+                                                    <label>{{ __('၁၇') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(င)') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
+                                          
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label> ကုမ္ပဏီအမည်</label>
                                                 </div>
@@ -518,16 +517,12 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('') }}</label>
+                                                    <label>{{ __('၁၈') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(စ)') }}</label>
-                                                </div>
-                                            </div>
+                                           
 
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label>လစာနှင့်လစာနှုန်း</label>
                                                 </div>
@@ -542,16 +537,12 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('') }}</label>
+                                                    <label>{{ __('၁၉') }}</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('(ဆ)') }}</label>
-                                                </div>
-                                            </div>
+                                            
 
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div>
                                                     <label> ရုံးလိပ်စာ</label>
                                                 </div>
@@ -566,7 +557,7 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၇။') }}</label>
+                                                    <label>{{ __('၂၀။') }}</label>
                                                 </div>
                                             </div>
 
@@ -578,21 +569,34 @@
                                             </div>
 
 											<div class="col-md-2 form-check">
-                                                <input type="radio" id="yes" class="form-check-input" value="0" name="gov_staff" required>
+                                                <input type="radio" id="yes" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff()" required>
                                                 <label class="form-check-label" for="">ဟုတ်</label>
                                             </div>
 
 											<div class="col-md-2 form-check">
-                                                <input type="radio" id="no" class="form-check-input" value="0" name="gov_staff" required>
+                                                <input type="radio" id="no" class="form-check-input" value="0" name="gov_staff" onclick="selectStaff()" required>
                                                 <label class="form-check-label" for="">မဟုတ်</label>
                                                 <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
                                             </div>
                                         </div><br/>
 
+                                        <div id="rec_letter" style="display:none" >
+                                        <div class="row mb-3"  >
+                                                <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                <label for="" class="col-md-2 col-form-labe mt-1"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                
+                                                <div class="col-md-7"  id="degree_edu" >
+                                                    <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    <!-- <input type="file"  class="form-control" id="certificate0"  name="certificates[]" required=""> -->
+                                                </div>
+                                            </div>  
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၈။') }}</label>
+                                                    <label>{{ __('၂၁။') }}</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-11">
@@ -658,10 +662,10 @@
                                         </div><br>
 
                                         
-                                        <div class="row">
+                                        {{--     <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၁၉။') }}</label>
+                                                    <label>{{ __('၂၂။') }}</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -683,223 +687,224 @@
 																									<div class="invalid-feedback">ဝင်ခွင့်ပုံစံ ရွေးချယ်ပါ</div>
 																							</div>
 						                                </div>
-                                        </div>
-																				<br>
-                                        <!-- Direct or DA Pass -->
-                                        <div class="row" id="direct">
-                                            <div class="col-md-12">
-                                                <!-- <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label>{{ __('') }}</label>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-2">
-                                                        <div class="single-form">
-                                                            <label>Attched Certificate</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="single-form">
-                                                            <input type="file" placeholder="upload photo" name="certificates[]" multiple value="{{ old('document') }}"  style="padding: 2%;">
-                                                        </div>
-                                                    </div>
-
-                                                </div> -->
-                                                 <!-- ‌Acca Cima -->
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>{{ __('') }}</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-11">
-                                                        <div>
-                                                            <label>ACCA/CIMA တက်ရောက်နေသူ -</label>
+                                            </div>
+                                                                                    <br>
+                                            <!-- Direct or DA Pass -->
+                                            <div class="row" id="direct">
+                                                <div class="col-md-12">
+                                                    <!-- <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div class="single-form">
+                                                                <label>{{ __('') }}</label>
+                                                            </div>
                                                         </div>
 
-                                                    </div>
-                                                </div>
-																								<br>
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>{{ __('') }}</label>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>(က)</label>
+                                                        <div class="col-md-2">
+                                                            <div class="single-form">
+                                                                <label>Attched Certificate</label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <label>အောင်မြင်ထားသည်အဆင့် </label>
+                                                        <div class="col-md-6">
+                                                            <div class="single-form">
+                                                                <input type="file" placeholder="upload photo" name="certificates[]" multiple value="{{ old('document') }}"  style="padding: 2%;">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div>
-                                                            <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
-                                                        </div>
-                                                    </div>
-                                                </div><br>
 
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>{{ __('') }}</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>(ခ)</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <label>ခုနှစ်/လ</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div>
-                                                            <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="col-md-4">
-                                                        <div class="single-form">
-                                                            <input type="year" placeholder="လ" id="acca_cima_exam_month" name="acca_cima_exam_month" class="form-control month" value="{{ old('roll_number') }}" required="">
-                                                        </div>
                                                     </div> -->
+                                                    <!-- ‌Acca Cima -->
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>{{ __('') }}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-11">
+                                                            <div>
+                                                                <label>ACCA/CIMA တက်ရောက်နေသူ -</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>{{ __('') }}</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>(က)</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div>
+                                                                <label>အောင်မြင်ထားသည်အဆင့် </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div>
+                                                                <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
+                                                            </div>
+                                                        </div>
+                                                    </div><br>
+
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>{{ __('') }}</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>(ခ)</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div>
+                                                                <label>ခုနှစ်/လ</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div>
+                                                                <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="col-md-4">
+                                                            <div class="single-form">
+                                                                <input type="year" placeholder="လ" id="acca_cima_exam_month" name="acca_cima_exam_month" class="form-control month" value="{{ old('roll_number') }}" required="">
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                                                                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>{{ __('') }}</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>(ဂ)</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div>
+                                                                <label>သင်တန်းသားမှတ်ပုံတင်အမှတ်</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div>
+                                                                <input type="text" placeholder="သင်တန်းသားမှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
+                                                            </div>
+                                                        </div>
+                                                    </div><br>
+
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label> </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-1">
+                                                            <div>
+                                                                <label>(ဃ)</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div>
+                                                                <label>Attched Certificate</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div>
+                                                                <input type="file" class="form-control" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"   required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-																								<br>
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>{{ __('') }}</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>(ဂ)</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <label>သင်တန်းသားမှတ်ပုံတင်အမှတ်</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div>
-                                                            <input type="text" placeholder="သင်တန်းသားမှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
-                                                        </div>
-                                                    </div>
-                                                </div><br>
-
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label> </label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-1">
-                                                        <div>
-                                                            <label>(ဃ)</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-3">
-                                                        <div>
-                                                            <label>Attched Certificate</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div>
-                                                            <input type="file" class="form-control" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"   required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                         </div>
-                                        <div class="row" id="entry_pass">
-                                            <div class="col-md-12  " >
-                                                 <!--
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label>{{ __('') }}</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-2">
-                                                        <div class="single-form">
-                                                            <label>ခုနှစ်/လ</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="single-form">
-                                                            <input type="text" placeholder="ခုနှစ်" id="year" name="da_pass_year" class="form-control year"  required="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="single-form">
-                                                            <input type="text" placeholder="လ" id="month" name="da_pass_month" class="form-control month" value="{{ old('roll_number') }}" required="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-1">
-                                                        <div class="single-form">
-                                                            <label> </label>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-2">
-                                                        <div class="single-form">
-                                                            <label>Attched Certificate</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="single-form">
-                                                            <input type="file" placeholder="upload photo" name="certificates[]" multiple value="{{ old('document') }}"  style="padding: 2%;">
-                                                        </div>
-                                                    </div>
-
-                                                </div> -->
-                                                <div id="active_entrance">
-	                                                <div class="row">
-	                                                    <div class="col-md-1">
-	                                                        <div>
-	                                                            <label>{{ __('') }}</label>
-	                                                        </div>
-	                                                    </div>
-
-	                                                     <div class="col-md-2">
-	                                                        <div>
-	                                                            <label>ဝင်ခွင့်စာမေးပွဲ ဖြေဆိုမယ်</label>
-	                                                        </div>
-	                                                    </div>
-	                                                    <div class="col-md-8 mt-4" >
-	                                                    	<input type="checkbox" name="qt_entry"  id="qt_entry" value="1"  >
-	                                                    </div>
-	                                                </div>
-                                                </div>
-                                                <div class="col-md-4 offset-md-1 mt-1 " id="non_active">
-                                                    <p class="">ဝင်ခွင့်စာမေးပွဲ မရှိသေးပါ</p>
-                                                </div>
-
 
 
                                             </div>
-                                        </div>
+                                            <div class="row" id="entry_pass">
+                                                <div class="col-md-12  " >
+                                                    <!--
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div class="single-form">
+                                                                <label>{{ __('') }}</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <div class="single-form">
+                                                                <label>ခုနှစ်/လ</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="single-form">
+                                                                <input type="text" placeholder="ခုနှစ်" id="year" name="da_pass_year" class="form-control year"  required="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="single-form">
+                                                                <input type="text" placeholder="လ" id="month" name="da_pass_month" class="form-control month" value="{{ old('roll_number') }}" required="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div class="single-form">
+                                                                <label> </label>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-2">
+                                                            <div class="single-form">
+                                                                <label>Attched Certificate</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="single-form">
+                                                                <input type="file" placeholder="upload photo" name="certificates[]" multiple value="{{ old('document') }}"  style="padding: 2%;">
+                                                            </div>
+                                                        </div>
+
+                                                    </div> -->
+                                                    <div id="active_entrance">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <div>
+                                                                    <label>{{ __('') }}</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <div>
+                                                                    <label>ဝင်ခွင့်စာမေးပွဲ ဖြေဆိုမယ်</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 mt-4" >
+                                                                <input type="checkbox" name="qt_entry"  id="qt_entry" value="1"  >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 offset-md-1 mt-1 " id="non_active">
+                                                        <p class="">ဝင်ခွင့်စာမေးပွဲ မရှိသေးပါ</p>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div> 
+                                        --}}
                                         <div class="row m-4">
                                             <div class="col-md-2 offset-md-5">
                                                 <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
@@ -965,7 +970,7 @@
                                             </div>
                                         </div>
                                                                                     <br>
-                                        <div class="row">
+                                   {{--     <div class="row">
                                             <div class="col-md-12">
                                                 <div>
                                                     <label>ACCA/CIMA တက်ရောက်နေသူ -</label>
@@ -1051,10 +1056,10 @@
                                                 </div>
 
                                             </div>
-                                                                                            <br>
+                                         --}}                                                   <br>
                                             <div class="row m-4">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100"    data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>
                                                 </div>
                                             </div>
 
@@ -1074,6 +1079,50 @@
 
         </div>
     </div>
+       <!-- Modal Payment -->
+<form id="payment_submit"  method="post"  class="needs-validation" enctype="multipart/form-data" novalidate>
+    @csrf
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div><br>
+        <div class="modal-body">
+            <div class="row justify-content-center mb-4 radio-group">
+                <div class="col-sm-3 col-5">
+                    <div class='radio mx-auto'> 
+                            <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
+                    </div><br>
+                    <h5>CBPay</h5>
+                </div>
+                <div class="col-sm-3 col-5">
+                    <div class='radio mx-auto'> 
+                            <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
+                    </div><br>
+                    <h5>MPU</h5>
+                </div>
+                <div class="col-sm-3 col-5">
+                    <div class='radio mx-auto'> 
+                            <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
+                    </div><br>
+                    <h5>CASH</h5>
+                </div>
+                <input type="hidden" name="payment_method" value="CASH">
+            </div>
+        </div><br>
+        <div class="modal-footer">
+            <center>
+                <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
+            </center>
+        </div>
+        </div>
+    </div>
+    </div>
+</form>
+
+
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

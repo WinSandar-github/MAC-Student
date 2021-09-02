@@ -2,6 +2,8 @@ if (typeof (localStorage) != "undefined")
 {
     if (localStorage.getItem("studentinfo") == null) {
        $('.non_login').show();
+      
+     
         
     }
     else {

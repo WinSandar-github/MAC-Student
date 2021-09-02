@@ -448,3 +448,17 @@ function RenewCPAFF(){
         }
     });
 }
+
+
+function selectStaff(){
+    var radioValue = $("input[name='gov_staff']:checked").val();
+
+    if(radioValue==1){
+         $('#rec_letter').css('display','block');
+         
+     }else
+     {
+        $('#rec_letter').css('display','none');
+
+     }
+}

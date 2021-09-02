@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/cpa_ff.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/student_info.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/non_audit_firm.css') }}">
+    <!-- for profile photo in register forms -->
+    <link rel="stylesheet" href="{{ asset('assets/css/image_photo.css') }}">
 
     <!-- select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -162,8 +164,8 @@
     <script src="{{ asset('EasyLoading/js/easy-loading.js')}}"></script>
     <script src="{{ asset('assets/js/easyloading.js') }}"></script>
 
-
-
+    <!-- Profile Image for Register Forms -->
+    <script src="{{ asset('assets/js/profile_photo.js') }}"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
@@ -177,6 +179,8 @@
     <script src="{{ asset('assets/js/cpa_two.js') }}"></script>
     <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
+    <script src="{{ asset('assets/js/school.js') }}"></script>
+
 
 
     <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -217,6 +221,14 @@ setTimeout(() => {
 }, 3000);
     </script> -->
     @stack('scripts')
+    <script>
+        function en2mm(num) {
+            var nums = { 0 : '၀', 1 : '၁', 2 :'၂', 3 : '၃', 4 : '၄' , 5 : '၅', 6 : '၆', 7 : '၇', 8 : '၈', 9 : '၉' };
+            return num.replace(/([1-9])/g, function(s, key) {
+                return nums[key] || s;
+            });
+        }
+    </script>
 </body>
 
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])

@@ -43,7 +43,7 @@ function user_profile(){
                 $('.title').text('School Information')
                 $('.school').show();
                 let school = data.school;
-                localStorage.setItem("school_id",school.id);
+
                 $('#sch_name_mm').text(school.name_mm);
                 $('#sch_name_eng').text(school.name_eng);
                 $("#sch_nrc").text(school.nrc_state_region+"/" +school.nrc_township+ "("+school.nrc_citizen+")"+school.nrc_number );
@@ -93,7 +93,7 @@ function user_profile(){
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
-                localStorage.setItem("mentor_id",mentor.id);
+
                 $('#sch_name_mm').text(mentor.name_mm);
                 $('#sch_name_eng').text(mentor.name_eng);
                 $("#sch_nrc").text(mentor.nrc_state_region+"/" +mentor.nrc_township+ "("+mentor.nrc_citizen+")"+mentor.nrc_number );
@@ -394,7 +394,8 @@ function user_profile(){
                                         <td>Approve</td>
                                     </tr>
                                     `);
-                                    if(last_exam[0] && last_exam[0].course.code == latest_course_reg[0].batch.course.code){
+                                    console.log(latest_course_reg[0].batch.course)
+                                    if(last_exam[0] && (last_exam[0].course.code == latest_course_reg[0].batch.course.code)){
                                         if(last_exam[0].status == 0)
                                         {
                                             $('.status').append(`
@@ -473,10 +474,7 @@ function user_profile(){
                                                         console.log(data.data)
                                                         
                                                         if(Object.keys(data.data).length === 0){
-                                                            alert(course_code)
-                                                            if(course_code == "membership"){
-                                                                alert(course_code)
-                                                            }
+                                                           
                                 
                                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr>`);
                                 
@@ -603,7 +601,7 @@ function user_profile(){
                                                 break;
     
                                             }
-                                            
+                                            localStorage.setItem('course_id',latest_course_reg[0].batch.course.id);
                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td>
                                                 <td>
                                                     <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>                                            
@@ -1009,8 +1007,9 @@ $('.course_list').click(function(){
             let course = res.data;
             console.log(typeof course)
             $.each(course,function(i,v){
+                console.log(v.name)
                 $('.course').append(`
-                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success mx-3">${v.name}</a>
+                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success my-3">${v.name}</a>
                 `)
             })
         }
