@@ -112,10 +112,36 @@
                 </div>
                 <div class="card border-success mb-3" id="cpaff_from" style="display:none;">
                     <div class="card-body">
+
+                    <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
+                    <fieldset id="fieldset" disabled>
+                    <!-- <fieldset id="fieldset" > -->
+                        <input type="hidden" name="status">
                         <div class="row">
-                            <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                            <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်') }}</label>                                
-                        </div>              
+                            <div class="col-md-7">
+                                <div class="row">                                    
+                                    <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                    <label class="col-md-8 col-form-label" style="padding-left: 37px;">{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်') }}</label>                                
+                                </div>  
+
+                                <div class="row" style="padding-left: 90px;">
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(က)') }}</div>
+                                    <div class="col-md-6 col-form-label pt-4">{{ __('အသက်') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <lable id="age"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="col-md-5 pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                    <p class="mt-2">
+                                      <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                                    
 
                         {{--<div class="row">
                             <div class="col-md-1 col-form-label"></div>
@@ -170,20 +196,107 @@
                                     </div>
                                 </div>
                         </div> <br/>     --}}
-                        <div class="row">
-                            <div class="col-md-1 col-form-label"></div>
-                            <div class="col-md-1 col-form-label pt-4">{{ __('(က)') }}</div>
-                            <div class="col-md-3 col-form-label pt-4">{{ __('အသက်') }}</div>
-                            <div class="col-md-7 col-form-label pt-4">
-                                <lable id="age"></label>
-                            </div>
-                        </div>
+                        
 
-                        <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
-                            <fieldset id="fieldset" disabled>
+                        
+                            <!-- <fieldset id="fieldset" disabled> -->
                             <!-- <fieldset id="fieldset" > -->
-                                <input type="hidden" name="status">
+                                <!-- <input type="hidden" name="status"> -->
+
+                                
+                                    
                                 <div class="row">
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
+                                    <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-7">
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
+                                                <label class="col-form-label">CPA</label>
+                                            </div>
+                                        </div>
+                                        <div id="cpa">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <input type="file"  class="form-control" name="cpa" >
+                                                </div>
+                                            </div><br/>
+                                        </div>
+
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="education" id="ra_edu" value="2" onclick="getCPAEducation()">
+                                                <label class="col-form-label">RA</label>
+                                            </div>
+                                        </div>
+                                        <div id="ra">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <!-- <div class="single-form"> -->
+                                                        <input type="file"  class="form-control" name="ra" >
+                                                    <!-- </div> -->
+                                                </div>
+                                            </div><br/>
+                                        </div>
+                                        
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="education" value="3" onclick="getCPAEducation()">
+                                                <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        
+                                        
+
+                                        <div  id="edu" style="display:none;">  
+                                            <div class="row mb-2" id="degree_name0">  
+                                                <div class="col-md-1"></div>                                                         
+                                                <div class="col-md-4 col-auto">                                                              
+                                                    <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
+                                                </div>
+                                                <div class="col-md-6 col-auto">                                                              
+                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                </div>                                                           
+                                            </div>
+                                            <div class="row mb-2" id="degree_year0">  
+                                                <div class="col-md-1"></div>                                                         
+                                                <div class="col-md-4 col-auto">                                                              
+                                                    <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
+                                                </div>
+                                                <div class="col-md-6 col-auto">                                                              
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                </div>                                                           
+                                            </div>
+                                            
+                                            <div class="row mb-4" id="edu0" > 
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">                                                              
+                                                    <label for="" class="col-form-labe"> Attached Certificate</label>
+                                                </div> 
+                                                <div class="col-md-6"  id="degree_edu" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                </div>
+                                                <div class="col-md-1" id="add_div" >
+                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>     
+                                </div><br/>
+                                    
+                                    
+                                        
+                                    
+                                
+                                {{--<div class="row">
                                     <label class="col-md-1 col-form-label"></label>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                     <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
@@ -268,7 +381,7 @@
                                         </div>
 
                                     </div>     
-                                </div><br/>
+                                </div><br/>--}}
 
                                 <!-- <div class="row">
                                     <label class="col-md-1 col-form-label"></label>
@@ -473,7 +586,7 @@
                                     <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
                                     <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
                                     <div class="col-md-4">                                        
-                                        <input type="text"  class="form-control" name="total_hours" required="" placeholder="စုစုပေါင်း နာရီ">
+                                        <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ">
                                         
                                     </div>
                                 </div><br/>

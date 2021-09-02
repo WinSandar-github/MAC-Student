@@ -131,6 +131,7 @@ function remove(id){
 
 function Papp_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
     var cpa_check = document.getElementById("cpa_check");
     var ra_check = document.getElementById("ra_check");
     var degree_check = document.getElementById("degree_check");
@@ -150,6 +151,7 @@ function Papp_Submit(){
     var tax_free_file=$('#tax_free_file')[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
+    data.append('profile_photo', profile_photo);
     data.append('cpa', cpa_file);
     data.append('ra', ra_file);
         for (var i = 0; i < count; i++) {
