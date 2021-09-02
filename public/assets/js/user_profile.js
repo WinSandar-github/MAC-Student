@@ -1007,6 +1007,7 @@ $('.course_list').click(function(){
             let course = res.data;
             console.log(typeof course)
             $.each(course,function(i,v){
+                console.log(v.name)
                 $('.course').append(`
                     <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success my-3">${v.name}</a>
                 `)

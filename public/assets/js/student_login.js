@@ -66,8 +66,8 @@ function logout(url){
 }
 
 //Redirect login page depend on course
-function login_page(batch_id,course_id,course_type){
-    if(course_id == 1){
+function login_page(batch_id,course_code,course_type){
+    if(course_code === 'da_1' || course_code == 'cpa_1'){
 
         localStorage.setItem('batch_id',batch_id);
         let ls_course_type = localStorage.getItem('course_type');
@@ -81,6 +81,7 @@ function login_page(batch_id,course_id,course_type){
         }
 
     }else{
+        
         if(course_type == 1){
             alert("You need to Pass DA I")
         }else{
