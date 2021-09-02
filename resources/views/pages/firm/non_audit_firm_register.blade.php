@@ -179,10 +179,10 @@
 								</div>
 							</div><br>
 							
-							<div class="card-header text-center" style="" id="local_header">
+							<div class="card-header" style="" id="local_header">
 							<h4>Local Firm Information</h4>
 							</div>
-							<div class="card-header text-center" style="display:none;" id="foreign_header">
+							<div class="card-header" style="display:none;" id="foreign_header">
 							<h4>Foreign Firm Information</h4>
 							</div>
 							<div class="card-body">
