@@ -409,10 +409,8 @@ function RenewCPAFF(){
         type: 'get',
         data:"",
         success: function(result){
-            // successMessage("Insert Successfully");
-            // location.reload();
             if(result.data!=null){
-                // var renew_file =   $("input[name=renew_file]")[0].files[0];
+                var renew_file =   $("input[name=renew_file]")[0].files[0];
                 // var renew_micpa    =   $("input[name=renew_micpa]")[0].files[0];
                 // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
                 // var renew_cpaff_reg        =   $("input[name=renew_cpaff_reg]")[0].files[0];

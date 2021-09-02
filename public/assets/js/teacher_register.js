@@ -109,7 +109,7 @@ function createTeacherRegister(){
         return;
     }
     let formData = new FormData($( "#teacher_register_form" )[0]);
-    formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
+    // formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
 
       show_loader()
 
