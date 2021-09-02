@@ -140,7 +140,7 @@ function getAuditData(){
             $("#accountancy_firm_reg_no").val(element.accountancy_firm_reg_no);
             $("#register_date").val(element.register_date);
 
-            
+
           })
       }
   })
@@ -163,6 +163,8 @@ function createAuditFirm(){
   }
   var send_data=new FormData();
   // send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
+  var profile_photo = $("input[name=profile_photo]")[0].files[0];
+  send_data.append('profile_photo',profile_photo);
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('township',$("input[name=township]").val());
   send_data.append('post_code',$("input[name=post_code]").val());
@@ -968,7 +970,7 @@ function checkPAPPExist(value,id){
         else{
           document.getElementById('btn_submit_audit_firm').disabled=false;
           document.getElementById(id).style.borderColor="#ced4da";
-        } 
+        }
 
     },
     error: function (message) {
