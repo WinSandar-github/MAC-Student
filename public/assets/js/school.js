@@ -8,6 +8,8 @@ function createSchoolRegister(){
 
     //var formData = new FormData($( "#school_register_form" )[0]);
     var send_data = new FormData();
+    //var files = $('#file')[0].files;
+    send_data.append('profile_photo',$("input[name=profile_photo]")[0].files);
     send_data.append('email',$("input[name=email]").val());
     send_data.append('password',$("input[name=password]").val());
     send_data.append('name_mm',$("input[name=name_mm]").val());
@@ -349,7 +351,7 @@ function loadRenewSchool(id){
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                     $('.renew_submit').prop('disabled', false);
-                    
+
                 }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                     $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
                     $('.renew_submit').prop('disabled', true);
@@ -361,7 +363,7 @@ function loadRenewSchool(id){
             document.getElementById('school_renew_form').style.display='none';
             document.getElementById('school').style.display='block';
           }
-          
+
       },
       error: function (result) {
       },
@@ -382,7 +384,7 @@ function loadRenewSchool(id){
               EasyLoading.hide();
               successMessage(data.message);
               location.href=FRONTEND_URL+'/';
-              
+
           },
           error: function (result) {
           },
