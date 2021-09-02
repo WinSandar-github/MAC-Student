@@ -18,11 +18,11 @@
                 <!-- Page Banner Start -->
                 <div class="page-banner-content">
                     <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Register</li>
+                         <a href="#">Home</a> 
+                        <li class="active">Register 
                     </ul>
                     <h2 class="title"> {{request()->segment(count(request()->segments())) == 1 ? 
-                        "Diploma In Accountancy" : "Certified Public Accountant" }} <span>Information</span></h2>
+                        "Diploma In Accountancy" : "Certified Public Accountant" }}  <p class="col-md-5">Information </p></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -67,6 +67,23 @@
                             $i=0; $date=Date('Y-m-d');
                         @endphp
                         <input type="hidden" id="course_length" value={{sizeof($course)}}>
+                        <div class="card col-md-5 m-2">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 widget-information">
+                                        <h4 class="col-md-12 card-title  text-success ">
+                                            Diploma In Accountancy
+                                        </h4>
+                                        <h6 class="mt-2">
+                                            Description
+                                        </h6>
+                                        <hr>
+
+                                    </div>
+                                </div>
+                            </div>        
+
+                        </div>
                         @foreach($course as $key => $c)
                          
                             <?php
@@ -75,19 +92,18 @@
                                 
                             ?>
 
-                            <input type="hidden" class="code{!! $i !!}" value="{{$c['code']}}">
+                            <input type="hidden" class="code{!! $key !!}" value="{{$c['code']}}">
                             <input type="hidden" value="{{$c['id']}}" id="course_id{!! $key !!}"/>
-                            <input type="hidden" value="{{$c['code']}}" id="course_code{!! $key !!}"/>
-
-                            <div class="card col-md-12 mb-3">
+                            
+                            <div class="card col-md-3 m-2 ">
                             <!-- <div class="card-header">
                                     <h4 class="card-title text-center">{{ $c['name']}} </h4>
                                 </div> -->
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12 widget-information">
-                                            <div class="row border-bottom">
-                                                <h2 class="col-md-8 card-title text-success">{{ $c['name']}}</h2>
+                                            <div class="row  ">
+                                                <h6 class="col-md-12 card-title  text-success ">{{ $c['name']}}</h6>
                                                 {{-- @if(!empty($c['active_batch']))    --}}
                                                 {{-- @foreach($c['active_batch'] as $b) --}}
                                                 {{-- @break                             --}}
@@ -96,28 +112,40 @@
                                                 {{-- @endif                             --}}
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-7">
+                                                {{-- <div class="col-md-7">
                                                     <h5 class="mt-2">Description</h5>
                                                     <hr>
                                                     <p style="height: 200px;">{{$c['description']}}</p>
-                                                </div>
+                                                </div> --}}
 
-                                                <div class="col-md-5">
-                                                    <h5 class="mt-2">Course Fees</h5>
+                                                <div class="col-md-12">
+                                                    <h6 class="mt-2">Course Fees</h6>
                                                     <hr>
                                                     <div class="info-list">
-                                                        <ul>
-                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
-                                                            <li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>                                                            
-                                                            <!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong> <span>{{$c['exam_fee']}} Kyats</span></li> -->
-                                                            <li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong> <span>{{$c['tution_fee']}} Kyats</span></li>
-                                                        </ul>   
+                                                        <dl class="row d_font ">
+                                                                <dt class="col-sm-6 text-end">Application Fee</dt>
+                                                                <dd class="col-sm-6 my-1">{{$c['form_fee']}} Kyats</dd>
+                                                                <dt class="col-sm-6 text-end my-1">Registration Fee for MAC Class</dt>
+                                                                <dd class="col-sm-6 my-1">{{$c['mac_registration_fee']}} Kyats</dd>
+                                                                <dt class="col-sm-6 text-end my-1">Registration Fee for Self-Study Class</dt>
+                                                                <dd class="col-sm-6 my-1">{{$c['selfstudy_registration_fee']}} Kyats </dd>
+                                                                <dt class="col-sm-6 text-end my-1">Registration Fee for Private School Class</dt>
+                                                                <dd class="col-sm-6 my-1">{{$c['privateschool_registration_fee']}} Kyats</dd>
+                                                                <dt class="col-sm-6 text-end my-1">Exam Fee</dt>
+                                                                <dd class="col-sm-6 my-1">{{$c['exam_fee']}} Kyats</dd>
+                                                                <dt class="col-sm-6 text-end my-1">Course Fee for MAC Class</dt>
+                                                                <dd class="col-sm-6 my-1">{{$c['tution_fee']}} Kyats</dd>
+                                                        </dl>
+                                                              <!-- <p class="col-md-5">Application Fee</p>-  <p class="col-md-5">{{$c['form_fee']}} Kyats </p>  -->
+                                                              <!-- <p class="col-md-5">Registration Fee for MAC Class</p>-  <p class="col-md-5">{{$c['mac_registration_fee']}}Kyats </p>  -->
+                                                              <!-- <p class="col-md-5">Registration Fee for Self-Study Class</p>-  <p class="col-md-5">{{$c['selfstudy_registration_fee']}}Kyats </p>  -->
+                                                              <!-- <p class="col-md-5">Registration Fee for Private School Class</p>-  <p class="col-md-5">{{$c['privateschool_registration_fee']}}Kyats </p>                                                              -->
+                                                            <!--   <p class="col-md-5">Exam Fee</p>-  <p class="col-md-5">{{$c['exam_fee']}} Kyats </p>  -->
+                                                              <!-- <p class="col-md-5">Course Fee for MAC Class</p>-  <p class="col-md-5">{{$c['tution_fee']}} Kyats </p>  -->
                                                     </div> 
                                                 </div>  
-                                                
-                                                <div class="col-md-7">
+                                              {{--  
+                                                <div class="col-md-12">
                                                     <h5 class="mt-2">Requirement</h5>
                                                     <hr>
                                                     @foreach($requirements as $require)
@@ -128,86 +156,101 @@
                                                         @endforeach
                                                     @endforeach
 
-                                                </div>  
-                                                <div class="col-md-5 mt-2">
+                                                </div>  --}}
+                                                <div class="col-md-12 mt-2">
                                                     
                                                     @if(!empty($c['active_batch']))
                                                         @foreach($c['active_batch'] as $b)
-                                                            <h5>  {{$b['name']}} </h5>
+                                                            <h6>  {{$b['name']}} </h6>
                                                             <hr>
-                                                            <div class="info-list">
+                                                            <div class="d_font">
                                                                 <input type="hidden" value="{{$b['id']}}"
                                                                        class="batch_id{!! $key !!}"/>
-                                                                <ul>
+                                                             
                                                                     <div class="application">
-                                                                        <li><i class="icofont-calendar"></i> <strong>Batch
-                                                                                  Start
-                                                                                Date</strong><span> {{ $b['start_date'] }} </span>
-                                                                        </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>Batch End
-                                                                                Date</strong><span>  {{ $b['end_date']}} </span>
-                                                                        </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>Accept
-                                                                                Application Start
-                                                                                Date</strong><span> {{ $b['accept_application_start_date'] }} </span>
-                                                                        </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>Accept
-                                                                                Application End
-                                                                                Date</strong><span>  {{ $b['accept_application_end_date']}} </span>
-                                                                        </li>
-                                                                      
+                                                                       
+                                                                        <div class="row">
+
+                                                                                <dt class="col-sm-6 text-end my-1">
+                                                                                    Batch Start Date
+                                                                                </dt>
+                                                                                <dd class="col-md-6" >  {{ date('d F Y',strtotime($b['start_date'])) }} </dd>
+                                                                          
+                                                                                <dt class="col-md-6 text-end my-1">Batch End
+                                                                                Date</dt>
+                                                                                <dd class="col-md-6 my-1">  {{  date('d F Y',strtotime($b['end_date']))}}  </dd>
+                                                                                <dt class="col-md-6 text-end my-1 ">Accept
+                                                                                    Application Start
+                                                                                    Date</dt>
+                                                                                    <dd class="col-md-6 my-1"> 
+                                                                                        {{  date('d F Y',strtotime($b['accept_application_start_date'])) }}  </dd>
+                                                                                <dt class="col-md-6 text-end my-1">Accept
+                                                                                    Application End
+                                                                                    Date</dt>
+                                                                                <dd class="col-md-6 my-1">  
+                                                                                    {{ date('d F Y',strtotime($b['accept_application_end_date']))}}  </dd>
+                                                                        
+                                                                         </div>
                                                                     </div>
 
                                                                     
                                                                     
-                                                                    <div class="registration"  >
-                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class Start Date</strong> 
-                                                                        <span> {{ $b['mac_reg_start_date'] }} </span></li>
+                                                                    <div class="registration">
+                                                                        <div class="row">
+                                                                            <dt class="col-md-6 text-end my-1">Registration in MAC Class Start Date</dt>
+                                                                            <dd class="col-md-6 my-1">{{ date('d F Y',strtotime( $b['mac_reg_start_date'] ))}}  </dd> 
 
-                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class End Date</strong>
-                                                                        <span class="reg">  {{ $b['mac_reg_end_date']}} </span></li> 
+                                                                            <dt class="col-md-6 text-end my-1">Registration in MAC Class End Date</dt>
+                                                                            <dd class="col-md-6 my-1 reg"> 
+                                                                                 {{ date('d F Y',strtotime($b['mac_reg_end_date'] )) }}  </dd>  
 
-                                                                        <div class="d-flex mt-2 justify-content-center  mac_btn{!! $i !!}">
+                                                                            <div class="d-flex mt-2 justify-content-center  mac_btn{!! $key !!}">
 
+                                                                            </div>
+
+                                                                                <dt class="col-md-6 text-end my-1">Registration in Self-Study Class Start Date</dt>
+                                                                                <dd class="col-md-6 my-1"> 
+                                                                                  {{ date('d F Y',strtotime( $b['self_reg_start_date'] )) }}  </dd> 
+
+                                                                                <dt class="col-md-6 text-end my-1">Registration in Self-Study Class End Date</dt>
+                                                                                <dd class="col-md-6 my-1">  
+                                                                                  {{ date('d F Y',strtotime( $b['self_reg_end_date'])) }}  </dd>  
+
+                                                                                <div class="d-flex mt-2 justify-content-center self_btn{!! $key !!}">
+
+                                                                                </div>
+
+                                                                                <dt class="col-md-6 my-1 text-end"> Registration in Private School Class Start Date</dt>
+                                                                                <dd class="col-md-6 my-1 "> {{ date('d F Y',strtotime($b['private_reg_start_date'])) }}  </dd> 
+
+                                                                                <dt class="col-md-6 text-end my-1">Registration in Private School Class End Date</dt>
+                                                                                <dd class="col-md-6 my-1">  {{ date('d F Y',strtotime( $b['private_reg_end_date'])) }}  </dd>  
+
+                                                                                <div class="d-flex mt-2 justify-content-center private_btn{!! $key !!}">
+                                                                                </div>
                                                                         </div>
-
-                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class Start Date</strong>
-                                                                        <span> {{ $b['self_reg_start_date'] }} </span></li>
-
-                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class End Date</strong>
-                                                                        <span>  {{ $b['self_reg_end_date']}} </span></li> 
-
-                                                                        <div class="d-flex mt-2 justify-content-center self_btn{!! $i !!}">
-
-                                                                        </div>
-
-                                                                        <li><i class="icofont-calendar"></i> <strong> Registration in Private School Class Start Date</strong>
-                                                                        <span> {{ $b['private_reg_start_date'] }} </span></li>
-
-                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in Private School Class End Date</strong>
-                                                                        <span>  {{ $b['private_reg_end_date']}} </span></li> 
-
-                                                                        <div class="d-flex mt-2 justify-content-center private_btn{!! $i !!}">
                                                                     </div>
                                                                     <div class="exam">
-                                                                        <li><i class="icofont-calendar"></i> <strong>Exam
-                                                                                Registration Start
-                                                                                Date</strong><span> {{ $b['exam_start_date'] }} </span>
-                                                                        </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>MAC
-                                                                                Registration End Date</strong><span
-                                                                                    class="reg">  {{ $b['exam_end_date']}} </span>
-                                                                        </li>
-                                                                        
+                                                                        <div class="row">
+                                                                            <dt class="col-md-6 my-1 text-end">Exam
+                                                                                    Registration Start
+                                                                                    Date</dt> 
+                                                                                    <dd class="col-md-6 my-1"> {{  date('d F Y',strtotime($b['exam_start_date'] ))}}  </dd>
+                                                                            
+                                                                            <dt class="col-md-6 my-1 text-end">Exam
+                                                                                Registration End Date</dt><dd
+                                                                                    class="col-md-6 reg my-1">  {{ date('d F Y',strtotime( $b['exam_end_date'] )) }}  </dd>
+                                                                         
+                                                                        </div> 
 
                                                                     </div>
 
-                                                                </ul>
+                                                              
 
 
-                                                                <input type="hidden" value="{{$b['id']}}"
-                                                                       id="batch_id{!! $key !!}"/>
-                                                                <div class="d-flex   flex-column     info-btn mb-4   check_login{!! $key !!}">
+                                                                <!-- <input type="hidden" value="{{$b['id']}}"
+                                                                       id="batch_id{!! $key !!}"/> -->
+                                                                <div class="d-flex   flex-column mt-2    info-btn mb-4   check_login{!! $key !!}">
 
                                                                 </div>
                                                                 
@@ -229,13 +272,13 @@
                                                                 @break
                                                                 @endforeach
                                                                 @else
-                                                                    <li><i class="icofont-calendar"></i> <strong>Accept
-                                                                            Application Start Date</strong>
+                                                                      <dt class="col-md-6 text-end my-1">Accept
+                                                                            Application Start Date</dt>
 
-                                                                        <span class="mr-3"> - </span></li>
-                                                                    <li><i class="icofont-calendar"></i> <strong>Accept
-                                                                            Application End Date</strong>
-                                                                        <span class="mr-3">  - </span></li>
+                                                                        <dd class="col-md-6 my-1"> -  </dd> 
+                                                                      <dt class="col-md-6 text-end my-1">Accept
+                                                                            Application End Date</dt>
+                                                                        <dd class="col-md-6 my-1">  -  </dd> 
                                                                     </ul>
                                                                     <div class="col-md-3"></div>
                                                                     <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Coming Soon...</p>
@@ -266,6 +309,17 @@
         var mmnrc_language = "{{ $nrc_language }}";
     </script>
 @endsection
+@prepend('styles')
+    
+<style>
+
+    .d_font{
+        font-size:13px;
+
+    }
+</style>
+@endprepend
+
 @push('scripts')
     <script type="text/javascript">
         $('document').ready(function () {
@@ -277,23 +331,23 @@
             }
             // if(course_type[2]==1){
             //     // console.log("DA");
-            //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I  သင်တန်း (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၅၀၀ ဦးခန့်ရှိ။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်း(၂)တန်း (MAC,SS,Private)(၃)မျိုးပေါင်း နှစ်စဉ် ၃၀၀  ဦးခန့်ရှိ။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA I အောင်မြင်ပြီးသူ  ၈၇၄၃ ဦး၊ တက်ရောက်ဆဲ ၂၇၉ ဦး ရှိပါသည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA II အောင်မြင်ပြီးသူ  ၄၆၀၉ ဦး ရှိပါသည်။</li>";
+            //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။  ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I  သင်တန်း (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၅၀၀ ဦးခန့်ရှိ။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်း(၂)တန်း (MAC,SS,Private)(၃)မျိုးပေါင်း နှစ်စဉ် ၃၀၀  ဦးခန့်ရှိ။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA I အောင်မြင်ပြီးသူ  ၈၇၄၃ ဦး၊ တက်ရောက်ဆဲ ၂၇၉ ဦး ရှိပါသည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA II အောင်မြင်ပြီးသူ  ၄၆၀၉ ဦး ရှိပါသည်။ ";
             //     $(".requirement_lists").append(li);
             // }else{
             //     // console.log("CPA");
-            //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>BCom,BAct,BBA,DA,BBSc ,ACCA (Fundamental skill level),CIMA ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA I & II သင်တန်း(၂)တန်းဖွင့်လှစ်ပြီး (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၃၅၀၀ ဦးခန့်ရှိ။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ CPA I အောင်မြင်ပြီးသူ  ၃၈၁၀ ဦး၊တက်ရောက်ဆဲ၂၇၄၁ ဦး တက်ရောက်ခွင့်ရရှိထားသူ ၁၅၀၀ ဦး ခန့်ရှိပါသည်။</li>";
-            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA II  အောင်မြင်ပြီးသူ ၂၆၂၈ ဦး ၊ CPA II တက်ရောက်ဆဲ    ၅၀၀ ဦး ရှိပါသည်။</li>";
+            //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>BCom,BAct,BBA,DA,BBSc ,ACCA (Fundamental skill level),CIMA ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA I & II သင်တန်း(၂)တန်းဖွင့်လှစ်ပြီး (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၃၅၀၀ ဦးခန့်ရှိ။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ CPA I အောင်မြင်ပြီးသူ  ၃၈၁၀ ဦး၊တက်ရောက်ဆဲ၂၇၄၁ ဦး တက်ရောက်ခွင့်ရရှိထားသူ ၁၅၀၀ ဦး ခန့်ရှိပါသည်။ ";
+            //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA II  အောင်မြင်ပြီးသူ ၂၆၂၈ ဦး ၊ CPA II တက်ရောက်ဆဲ    ၅၀၀ ဦး ရှိပါသည်။ ";
             //     $(".requirement_lists").append(li);
             // }
         })

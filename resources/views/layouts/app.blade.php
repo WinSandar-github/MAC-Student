@@ -66,7 +66,7 @@
     <!-- dataTables -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dataTables/dataTables.bootstrap5.min.css') }}">
-
+    @stack('styles')
     <style>
 
       .dropdown:hover .dropdown-menu{

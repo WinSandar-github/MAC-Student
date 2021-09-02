@@ -70,8 +70,8 @@ function login_page(batch_id,course_code,course_type){
     if(course_code === 'da_1' || course_code == 'cpa_1'){
 
         localStorage.setItem('batch_id',batch_id);
-        let ls_course_type = localStorage.getItem('course_type');
-        if(ls_course_type == 2){
+      
+        if(course_type == 2){
 
             location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
         }else{
