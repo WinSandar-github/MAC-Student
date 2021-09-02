@@ -42,6 +42,15 @@ function ConfirmSubmit(){
 
 function createMentorRegister(){
   var send_data=new FormData();
+  //$('#image')[0].files[0];
+  var profile_photo = $("input[name=profile_photo]")[0].files[0];
+  var nrc_front = $("input[name=nrc_front]")[0].files[0];
+  var nrc_back = $("input[name=nrc_back]")[0].files[0];
+
+  send_data.append('profile_photo',profile_photo);
+  send_data.append('nrc_front', nrc_front);
+  send_data.append('nrc_back', nrc_back);
+
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
   send_data.append('nrc_state_region', $("#nrc_state_region").val());
@@ -182,7 +191,7 @@ function loadRenewMentor(id){
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                     $('.renew_submit').prop('disabled', false);
-                    
+
                 }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                     $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
                     $('.renew_submit').prop('disabled', true);
@@ -194,7 +203,7 @@ function loadRenewMentor(id){
             document.getElementById('mentor').style.display='block';
             document.getElementById('mentor_renew_form').style.display='none';
           }
-          
+
       },
       error: function (result) {
       },
@@ -215,7 +224,7 @@ function loadRenewMentor(id){
               EasyLoading.hide();
               successMessage(data.message);
               location.href=FRONTEND_URL+'/';
-              
+
           },
           error: function (result) {
           },

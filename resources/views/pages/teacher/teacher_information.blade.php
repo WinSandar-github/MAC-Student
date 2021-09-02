@@ -141,7 +141,7 @@
                             <div class="col-md-12">
                             <h5 class="card-title text-center">သင်တန်းဆရာ မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
                                 <form enctype="multipart/form-data" action="javascript:renewTeacher();">
-                                
+
                                     <table width="100%">
                                         <tr>
                                             <td width="20%">

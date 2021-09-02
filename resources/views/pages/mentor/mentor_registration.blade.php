@@ -106,77 +106,90 @@
                                       </div>
                                   </div>
                               </div>--}}
+
                               <div class="row">
-                                <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" id="name_mm" name="name_mm" class="form-control" placeholder="အမည်(မြန်မာ)" value="{{ old('name_mm') }}" required="">
+                                <div class="col-md-9">
+                                  <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" id="name_mm" name="name_mm" class="form-control" placeholder="အမည်(မြန်မာ)" value="{{ old('name_mm') }}" required="">
+                                        </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" name="name_eng" class="form-control" placeholder="အမည်(အင်္ဂလိပ်)" value="{{ old('name_eng') }}" required="">
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                    <label class="col-md-3 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
+                                    <div class="col-md-8">
+                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                            <div class="col-md-2 col-5 pr-1">
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" style="margin-top: 0px !important; margin-bottom: 0px;">
+                                                    @foreach($nrc_regions as $region)
+                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-7 px-1">
+                                                <select class="form-control" name="nrc_township" id="nrc_township" style="margin-top: 0px; margin-bottom: 0px;">
+                                                    @foreach($nrc_townships as $township)
+                                                        <option value="{{ $township['township_mm'] }}">
+                                                            {{ $township['township_mm'] }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 col-5 px-1">
+                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen" style="margin-top: 0px; margin-bottom: 0px;">
+                                                    @foreach($nrc_citizens as $citizen)
+                                                    <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                        {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-5 col-7 pl-1">
+                                                <input type="text" name="nrc_number" id="nrc_number" placeholder="ဥပမာ။ ။၁၂၃၄၅၆" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" value="{{ old('nrc_number') }}" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div><br>
+
+                                  <div class="row">
+                                      <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                      <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                      <div class="col-md-8">
+                                          <input type="file" name="nrc_front" class="form-control">
+                                      </div>
+                                  </div><br>
+
+                                  <div class="row">
+                                      <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                      <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                      <div class="col-md-8">
+                                          <input type="file" name="nrc_back" class="form-control">
+                                      </div>
+                                  </div><br>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" name="name_eng" class="form-control" placeholder="အမည်(အင်္ဂလိပ်)" value="{{ old('name_eng') }}" required="">
-                                    </div>
+                                <div class="col-md-3">
+                                  <div class="col-md-8 pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                    <p class="mt-2">
+                                      <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
-
-                              <div class="row">
-                                <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                <label class="col-md-3 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</label>
-                                <div class="col-md-8">
-                                    <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                        <div class="col-md-2 col-5 pr-1">
-                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
-                                                @foreach($nrc_regions as $region)
-                                                    <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                        {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3 col-7 px-1">
-                                            <select class="form-control" name="nrc_township" id="nrc_township" style="margin-top: 0px; margin-bottom: 0px;">
-                                                @foreach($nrc_townships as $township)
-                                                    <option value="{{ $township['township_mm'] }}">
-                                                        {{ $township['township_mm'] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2 col-5 px-1">
-                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" style="margin-top: 0px; margin-bottom: 0px;">
-                                                @foreach($nrc_citizens as $citizen)
-                                                <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                    {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-5 col-7 pl-1">
-                                            <input type="text" name="nrc_number" id="nrc_number" placeholder="ဥပမာ။ ။၁၂၃၄၅၆" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" value="{{ old('nrc_number') }}" required="">
-                                        </div>
-                                    </div>
-                                </div>
-                              </div><br>
-
-                              <div class="row">
-                                  <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                  <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                  <div class="col-md-8">
-                                      <input type="file" name="nrc_front" class="form-control">
-                                  </div>                                                
-                              </div><br>
-
-                              <div class="row">
-                                  <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                  <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                  <div class="col-md-8">
-                                      <input type="file" name="nrc_back" class="form-control">
-                                  </div>                                                
-                              </div><br>
 
                               <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -317,12 +330,12 @@
                                       <input type="text" name="fax_no" id="fax_no" class="form-control" placeholder="FAX Number" required>
                                   </div>
                                 </div>
-                                
+
                               </div>
                               <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                 <label class="col-md-3 col-form-label">{{ __('Contact Email') }}</label>
-                                
+
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <input type="email" name="m_email" id="m_email" class="form-control" placeholder="Contact Email" required>
@@ -394,7 +407,7 @@
                                     <label class="form-check-label" for="">မရှိ</label>
                                     <div class="invalid-feedback">ယခင်အလုပ်သင်ကြားပေးမှုအတွေ့အကြုံ ရှိ/မရှိ ရွေးချယ်ပါ</div>
                                 </div>
-                              </div> 
+                              </div>
 
                               <div id="started_teaching" style="display:none;">
                                 <div class="row mb-3">
@@ -521,7 +534,7 @@
                                   <div class="col-md-1 col-form-label"></div>
                                     <div class="col-md-1 col-form-label mt-2"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></div>
                                   <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-                                  
+
                               </div>--}}
 
                                 <div class="row mb-3">
@@ -556,6 +569,7 @@
 </script>
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
 <script src="{{asset('assets/js/mentor_register.js')}}"></script>
+<!-- <script src="{{asset('assets/js/profile_photo.js')}}"></script> -->
 <script type="text/javascript">
     $(document).ready(function (e) {
       $("input[name=training_absent]").on("click", function(evt) {

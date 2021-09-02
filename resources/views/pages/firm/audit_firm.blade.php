@@ -167,58 +167,70 @@
                                     <div class="card border-success mb-3 p-3">
                                         <div class="card-body">
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">1.</label>
-                                                <label for="" class="col-md-3 col-form-label">Email</label>
-                                                <div class="col-md-8">
-                                                    <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
-                                                </div>                                              
-                                            </div><br>
-                                            
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">2.</label>
-                                                <label for="" class="col-md-3 col-form-label">Password</label>
-                                                <div class="col-md-8">
-                                                    <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
-                                                </div>
-                                                
-                                            </div><br>
+                                              <div class="col-md-8">
+                                                <div class="row">
+                                                    <label for="" class="col-md-2 col-form-label">1.</label>
+                                                    <label for="" class="col-md-4 col-form-label">Email</label>
+                                                    <div class="col-md-6">
+                                                        <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
+                                                    </div>
+                                                </div><br>
 
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">3.</label>
-                                                <label for="" class="col-md-3 col-form-label">Confirm Password</label>
-                                                <div class="col-md-8">
-                                                    <input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
-                                                </div>                                                
-                                            </div><br>
-                                            
+                                                <div class="row">
+                                                    <label for="" class="col-md-2 col-form-label">2.</label>
+                                                    <label for="" class="col-md-4 col-form-label">Password</label>
+                                                    <div class="col-md-6">
+                                                        <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                    </div>
 
-                                            {{--<div class="row">
-                                                
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="5%"><label>4.</label></td>
-                                                        <td width="15%"><label>Accountancy Firm Registration Number</label></td>
-                                                        <td width="80%">
-                                                            <div>
-                                                                <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>--}}
-                                            
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">4.</label>
-                                                <label for="" class="col-md-3 col-form-label">Accountancy Firm Name</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Accountancy Firm Name!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
+                                                </div><br>
+
+                                                <div class="row">
+                                                    <label for="" class="col-md-2 col-form-label">3.</label>
+                                                    <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                                                    <div class="col-md-6">
+                                                        <input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
+                                                    </div>
+                                                </div><br>
+
+
+                                                {{--<div class="row">
+
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td width="5%"><label>4.</label></td>
+                                                            <td width="15%"><label>Accountancy Firm Registration Number</label></td>
+                                                            <td width="80%">
+                                                                <div>
+                                                                    <input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Accountancy Firm Registration No" autocomplete="off" value="{{ old('accountancy_firm_reg_no') }}" required="">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>--}}
+
+                                                <div class="row">
+                                                    <label for="" class="col-md-2 col-form-label">4.</label>
+                                                    <label for="" class="col-md-4 col-form-label">Accountancy Firm Name</label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Accountancy Firm Name!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
+                                                    </div>
+                                                        @error('name')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                </div><br>
+                                              </div>
+                                              <div class="col-md-4">
+                                                <div class="col-md-6 pull-right">
+                                                  <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                  <p class="mt-2">
+                                                    <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                                  </p>
                                                 </div>
-                                                    @error('name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror                                                
-                                            </div><br>
+                                              </div>
+                                            </div>
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">5.</label>
@@ -234,7 +246,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
-                                                </div>                                                
+                                                </div>
                                             </div><br>
 
                                             <div class="row">
@@ -320,7 +332,7 @@
                                                 </div>
                       		                </div><br>
 
-                                            <div class='row organization_data'></div><br/>                                           
+                                            <div class='row organization_data'></div><br/>
 
                                             <div id="sole-proprietorship">
                                                     <div class="row">
@@ -904,15 +916,15 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th class="less-font-weight" ></th>
-                                                                        
+
                                                                         <th class="less-font-weight">Audit Staff</th>
                                                                         <th class="less-font-weight">Non-Audit Staff</th>
                                                                         <th class="less-font-weight">Total</th>
 
-                                                                    </tr>                                                                    
+                                                                    </tr>
 
                                                                 </thead>
-                                                                <tbody id="tbl_audit_total_staff_body">                                                                    
+                                                                <tbody id="tbl_audit_total_staff_body">
 
                                                                 </tbody>
                                                                 <tfoot id="tbl_audit_total_staff_foot">
@@ -942,7 +954,7 @@
                                                             <table id="tbl_audit_staff" class="table text-nowrap">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th class="less-font-weight" ></th>                                                                        
+                                                                        <th class="less-font-weight" ></th>
                                                                         <th class="less-font-weight" >Full Time</th>
                                                                         <th class="less-font-weight" >Part Time</th>
                                                                         <th class="less-font-weight">Total Time</th>
@@ -1011,7 +1023,7 @@
                                                       </td>
                                                   </tr>
                                               </table>
-                                            </div>--}}                            
+                                            </div>--}}
 
                                             <div class="row">
                                                 <label class="col-md-1 col-form-label">{{ __('14.') }}</label>
@@ -1024,12 +1036,12 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                            (sole proprietor/ managing partner) 
+                                                            (sole proprietor/ managing partner)
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row  mb-3">
-                                                <label class="col-md-3 col-form-label">{{ __('') }}</label>								
+                                                <label class="col-md-3 col-form-label">{{ __('') }}</label>
                                                 <div class="col-md-9">
                                                     <div class="form-group">
                                                     representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
@@ -1077,7 +1089,7 @@ $(document).ready(function(){
             $('#audit_org_validate').css('display','none');
         }
     });
-    
+
     loadAuditOrganization();
     loadAuditTypeOfService();
     loadAuditTotalStaffReg();
