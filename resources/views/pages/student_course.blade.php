@@ -68,13 +68,17 @@
                         @endphp
                         <input type="hidden" id="course_length" value={{sizeof($course)}}>
                         @foreach($course as $key => $c)
+                         
                             <?php
                                 $course_req_arr = json_decode($c['requirement_id'],true);
                                 $req_str_arr = explode(",",$course_req_arr[0]);
+                                
                             ?>
 
                             <input type="hidden" class="code{!! $i !!}" value="{{$c['code']}}">
-                            <input type="hidden" value="{{$c['id']}}" id="course_id{!! ++$i !!}"/>
+                            <input type="hidden" value="{{$c['id']}}" id="course_id{!! $key !!}"/>
+                            <input type="hidden" value="{{$c['code']}}" id="course_code{!! $key !!}"/>
+
                             <div class="card col-md-12 mb-3">
                             <!-- <div class="card-header">
                                     <h4 class="card-title text-center">{{ $c['name']}} </h4>
@@ -136,79 +140,65 @@
                                                                        class="batch_id{!! $key !!}"/>
                                                                 <ul>
                                                                     <div class="application">
-                                                                        <li><i class="icofont-calendar"></i> <strong>Accept Application Start Date</strong><span> {{ $b['accept_application_start_date'] }} </span>
+                                                                        <li><i class="icofont-calendar"></i> <strong>Batch
+                                                                                  Start
+                                                                                Date</strong><span> {{ $b['start_date'] }} </span>
+                                                                        </li>
+                                                                        <li><i class="icofont-calendar"></i> <strong>Batch End
+                                                                                Date</strong><span>  {{ $b['end_date']}} </span>
+                                                                        </li>
+                                                                        <li><i class="icofont-calendar"></i> <strong>Accept
+                                                                                Application Start
+                                                                                Date</strong><span> {{ $b['accept_application_start_date'] }} </span>
                                                                         </li>
                                                                         <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong><span>  {{ $b['accept_application_end_date']}} </span>
                                                                         </li>
+                                                                      
                                                                     </div>
 
-                                                                    <div class="registration">
-                                                                        <li><i class="icofont-calendar"></i> <strong>MAC
+                                                                    
+                                                                    
+                                                                    <div class="registration"  >
+                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class Start Date</strong> 
+                                                                        <span> {{ $b['mac_reg_start_date'] }} </span></li>
+
+                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class End Date</strong>
+                                                                        <span class="reg">  {{ $b['mac_reg_end_date']}} </span></li> 
+
+                                                                        <div class="d-flex mt-2 justify-content-center  mac_btn{!! $i !!}">
+
+                                                                        </div>
+
+                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class Start Date</strong>
+                                                                        <span> {{ $b['self_reg_start_date'] }} </span></li>
+
+                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class End Date</strong>
+                                                                        <span>  {{ $b['self_reg_end_date']}} </span></li> 
+
+                                                                        <div class="d-flex mt-2 justify-content-center self_btn{!! $i !!}">
+
+                                                                        </div>
+
+                                                                        <li><i class="icofont-calendar"></i> <strong> Registration in Private School Class Start Date</strong>
+                                                                        <span> {{ $b['private_reg_start_date'] }} </span></li>
+
+                                                                        <li><i class="icofont-calendar"></i> <strong>Registration in Private School Class End Date</strong>
+                                                                        <span>  {{ $b['private_reg_end_date']}} </span></li> 
+
+                                                                        <div class="d-flex mt-2 justify-content-center private_btn{!! $i !!}">
+                                                                    </div>
+                                                                    <div class="exam">
+                                                                        <li><i class="icofont-calendar"></i> <strong>Exam
                                                                                 Registration Start
-                                                                                Date</strong><span> {{ $b['mac_reg_start_date'] }} </span>
+                                                                                Date</strong><span> {{ $b['exam_start_date'] }} </span>
                                                                         </li>
                                                                         <li><i class="icofont-calendar"></i> <strong>MAC
                                                                                 Registration End Date</strong><span
-                                                                                    class="reg">  {{ $b['mac_reg_end_date']}} </span>
+                                                                                    class="reg">  {{ $b['exam_end_date']}} </span>
                                                                         </li>
-                                                                        <div class="d-flex mt-2 justify-content-center  mac_btn{!! $key !!}">
-
-                                                                        </div>
-                                                                        <li><i class="icofont-calendar"></i> <strong>SelfStudy
-                                                                                Registration Start
-                                                                                Date</strong><span> {{ $b['self_reg_start_date'] }} </span>
-                                                                        </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>SelfStudy
-                                                                                Registration End
-                                                                                Date</strong><span>  {{ $b['self_reg_end_date']}} </span>
-                                                                        </li>
-                                                                        <div class="d-flex mt-2 justify-content-center self_btn{!! $key !!}">
-
-                                                                        </div>
-                                                                        <li><i class="icofont-calendar"></i> <strong>
-                                                                                Private School Registration Start
-                                                                                Date</strong>
-
-                                                                            <span> {{ $b['private_reg_start_date'] }} </span>
-                                                                        </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>Privater
-                                                                                Schoo Registration End Date</strong>
-                                                                            <span>  {{ $b['private_reg_end_date']}} </span>
-                                                                        </li>
-                                                                        <div class="d-flex mt-2 justify-content-center private_btn{!! $key !!}">
-
-                                                                        </div>
+                                                                        
 
                                                                     </div>
-
-                                                                <div class="registration">
-                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class Start Date</strong> 
-                                                                    <span> {{ $b['mac_reg_start_date'] }} </span></li>
-
-                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in MAC Class End Date</strong>
-                                                                    <span class="reg">  {{ $b['mac_reg_end_date']}} </span></li> 
-
-                                                                    <div class="d-flex mt-2 justify-content-center  mac_btn{!! $i !!}">
-
-                                                                    </div>
-
-                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class Start Date</strong>
-                                                                    <span> {{ $b['self_reg_start_date'] }} </span></li>
-
-                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in Self-Study Class End Date</strong>
-                                                                    <span>  {{ $b['self_reg_end_date']}} </span></li> 
-
-                                                                    <div class="d-flex mt-2 justify-content-center self_btn{!! $i !!}">
-
-                                                                    </div>
-
-                                                                    <li><i class="icofont-calendar"></i> <strong> Registration in Private School Class Start Date</strong>
-                                                                    <span> {{ $b['private_reg_start_date'] }} </span></li>
-
-                                                                    <li><i class="icofont-calendar"></i> <strong>Registration in Private School Class End Date</strong>
-                                                                    <span>  {{ $b['private_reg_end_date']}} </span></li> 
-
-                                                                    <div class="d-flex mt-2 justify-content-center private_btn{!! $i !!}">
 
                                                                 </ul>
 
@@ -222,9 +212,9 @@
                                                             </ul>
 
                                                              
-                                                                <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/>
+                                                                <!-- <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/> -->
                                                                 <!-- <div class="d-flex  flex-column     info-btn mb-4   check_login{!! $i !!}"> -->
-                                                                <div class=" info-btn mb-4   check_login{!! $i !!}">
+                                                                <!-- <div class=" info-btn mb-4   check_login{!! $i !!}"> -->
                                                                 
                                                                 <!-- $c['id'], 'da_register' -->
                                                                 <!-- sucess da         -->
@@ -233,7 +223,7 @@
                                                                 <!-- <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none  logined" >Enroll Now </a> -->
         
         
-                                                                </div>
+                                                                <!-- </div> -->
                                                                 @break
                                                                 @endforeach
                                                                 @else
