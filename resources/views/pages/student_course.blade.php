@@ -107,7 +107,7 @@
                                                     <hr>
                                                     <div class="info-list">
                                                         <ul>
-                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}} Kyats</span></li>
+                                                            <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span>{{$c['form_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong> <span>{{$c['mac_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span>{{$c['selfstudy_registration_fee']}}Kyats</span></li>
                                                             <li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong> <span>{{$c['privateschool_registration_fee']}}Kyats</span></li>                                                            
@@ -151,9 +151,7 @@
                                                                                 Application Start
                                                                                 Date</strong><span> {{ $b['accept_application_start_date'] }} </span>
                                                                         </li>
-                                                                        <li><i class="icofont-calendar"></i> <strong>Accept
-                                                                                Application End
-                                                                                Date</strong><span>  {{ $b['accept_application_end_date']}} </span>
+                                                                        <li><i class="icofont-calendar"></i> <strong>Accept Application End Date</strong><span>  {{ $b['accept_application_end_date']}} </span>
                                                                         </li>
                                                                       
                                                                     </div>

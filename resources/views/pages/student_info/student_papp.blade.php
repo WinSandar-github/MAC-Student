@@ -110,87 +110,104 @@
                         <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                         <h5 class="card-title text-center">အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ရန် ကနဦးလျှောက်ထားခြင်း</h5>
                         <br/>
-                        
-                        <div class="row">
-                            <div class="col-md-1">
-                                <div class="single-form">
-                                    <label class="col-form-label">{{ _('၁။') }}</label>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="single-form">
-                                    <label class="col-form-label">{{ _('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        {{--<div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-3">
-                                <div class="single-form">
-                                    <label>(က) နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="row">
-                                    <div class="col-md-2 col-5 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region">
-                                                @foreach($nrc_regions as $region)
-                                                    <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                        {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-7 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_township" id="nrc_township">
-                                                @foreach($nrc_townships as $township)
-                                                    <option value="{{ $township['township_mm'] }}">
-                                                        {{ $township['township_mm'] }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-5 px-1">
-                                        <div class="courses-select">
-                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
-                                                @foreach($nrc_citizens as $citizen)
-                                                <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                    {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-7 pl-1">
-                                        <div class="single-form">
-                                            <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  required="" maxlength="6">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <div class="single-form">
-                                            <button type="submit" onclick="SearchStudentID()"  class="btn btn-primary btn-hover-dark">Search</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><br/>--}}
-                        <div class="row pt-3">
-                            <label class="col-md-1 col-form-label"></label>
-                            <label class="col-md-1 col-form-label">{{ __('(က) ') }}</label>
-                            <div class="col-md-3 col-form-label">{{ __('CPA (FF) မှတ်ပုံတင် သက်တမ်း') }}</div>
-                            <div class="col-md-7 col-form-label">
-                                <lable id="cpa_age"></label>
-                            </div>
-                        </div>
+
                         <form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data">
                             <fieldset id="fieldset" disabled="disabled">
                             <!-- <fieldset id="fieldset" > -->
+
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="single-form">
+                                                <label class="col-form-label">{{ _('၁။') }}</label>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="single-form">
+                                                <label class="col-form-label" style="padding-left: 37px;">{{ _('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{--<div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-3">
+                                            <div class="single-form">
+                                                <label>(က) နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-2 col-5 px-1">
+                                                    <div class="courses-select">
+                                                        <select class="form-control" name="nrc_state_region" id="nrc_state_region">
+                                                            @foreach($nrc_regions as $region)
+                                                                <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
+                                                                    {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-7 px-1">
+                                                    <div class="courses-select">
+                                                        <select class="form-control" name="nrc_township" id="nrc_township">
+                                                            @foreach($nrc_townships as $township)
+                                                                <option value="{{ $township['township_mm'] }}">
+                                                                    {{ $township['township_mm'] }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-5 px-1">
+                                                    <div class="courses-select">
+                                                        <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                                            @foreach($nrc_citizens as $citizen)
+                                                            <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                                {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
+                                                            </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-7 pl-1">
+                                                    <div class="single-form">
+                                                        <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  required="" maxlength="6">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="single-form">
+                                                        <button type="submit" onclick="SearchStudentID()"  class="btn btn-primary btn-hover-dark">Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><br/>--}}
+                                    <div class="row pt-3" style="padding-left: 90px;">
+                                        <label class="col-md-2 col-form-label" >{{ __('(က) ') }}</label>
+                                        <div class="col-md-6 col-form-label">{{ __('CPA (FF) မှတ်ပုံတင် သက်တမ်း') }}</div>
+                                        <div class="col-md-4 col-form-label">
+                                            <lable id="cpa_age"></label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="col-md-5 pull-right">
+                                        <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                        <p class="mt-2">
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                        
                                 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label"></label>

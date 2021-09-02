@@ -319,7 +319,7 @@
                                     <br>  
                                     
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၃') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name"
@@ -329,7 +329,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၄') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">ရာထူး</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ရာထူး" name="position" class="form-control"
@@ -339,7 +339,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၅') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">ဌာန</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ဌာန" name="department" class="form-control"
@@ -349,7 +349,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၆') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="အဖွဲ့အစည်း" name="organization"
@@ -359,7 +359,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၇') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">ကုမ္ပဏီအမည်</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name"
@@ -369,7 +369,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၈') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">လစာနှင့်လစာနှုန်း</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary"
@@ -379,7 +379,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၉') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
                                          <label for="" class="col-md-3 col-form-label">ရုံးလိပ်စာ</label>
                                         <div class="col-md-8">
                                             <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address"
