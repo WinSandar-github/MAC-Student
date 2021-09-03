@@ -132,35 +132,35 @@
                                             <p class="ml-2 text-bold regi_fee_txt" style="font-weight:bold"></p>
                                         </div>
                                         <div class="col-md-6">
-                                            <span id="registration_fee"></span> 
+                                            <span id="registration_date"></span> 
                                         </div>
                                     </div>
                                     <div class="row m-2 mt-3 border-bottom self_study" style="display:none;">
                                         <div class="col-md-6">
-                                            <p class="ml-2 text-bold " style="font-weight:bold">Selfstudy Registration Fees</p>
+                                            <p class="ml-2 text-bold " style="font-weight:bold">Selfstudy Registration Date</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <span id="selfstudy_fee"></span> 
+                                            <span id="selfstudy_date"></span> 
                                         </div>
                                     </div>
                                     <div class="row m-2 mt-3 border-bottom private_school" style="display:none;">
                                         <div class="col-md-6">
-                                            <p class="ml-2 text-bold " style="font-weight:bold">Private School Registration Fees</p>
+                                            <p class="ml-2 text-bold " style="font-weight:bold">Private School Registration Date</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <span id="pschool_fee"></span> 
+                                            <span id="pschool_date"></span> 
                                         </div>
                                     </div>
                                     
                                     
-                                    <div class="row m-2 mt-3 border-bottom">
+                                    {{-- <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
                                         </div>
                                         <div class="col-md-6">
                                             <span id="exam_date"></span> 
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Next Action </p>
