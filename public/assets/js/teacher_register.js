@@ -153,8 +153,8 @@ function teacher_reg_feedback(){
                     $('#teacher_form').css('display','none');
 
                 }else if(element.approve_reject_status == 1){
-                    
-                    
+
+
                     $('#teacher_approve').css('display','none');
                     $('#teacher_form').css('display','none');
                     $('#teacher_pending').css('display','none');
@@ -185,7 +185,7 @@ function loadRenewTeacher(id){
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                     $('.renew_submit').prop('disabled', false);
-                    
+
                 }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                     $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
                     $('.renew_submit').prop('disabled', true);
@@ -197,7 +197,7 @@ function loadRenewTeacher(id){
           $('#teacher_initial').css('display','block');
           $('#teacher_renew').css('display','none');
         }
-        
+
     },
     error: function (result) {
     },

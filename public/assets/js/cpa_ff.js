@@ -11,24 +11,24 @@ function ConfirmSubmit(){
 function CheckPartTwo(){
     var radio = document.getElementById("cpa_part_2_check");
     if(radio.checked == true){
-        $('.pass_batch_two').css('display','block');  
-        $('.qt_pass').css('display','none');      
+        $('.pass_batch_two').css('display','block');
+        $('.qt_pass').css('display','none');
     }
     else{
-        $('.pass_batch_two').css('display','none');  
-        $('.qt_pass').css('display','none');  
+        $('.pass_batch_two').css('display','none');
+        $('.qt_pass').css('display','none');
     }
 }
 
 function CheckQTPass(){
     var radio = document.getElementById("qt_pass_check");
     if(radio.checked == true){
-        $('.pass_batch_two').css('display','none');  
-        $('.qt_pass').css('display','block');        
+        $('.pass_batch_two').css('display','none');
+        $('.qt_pass').css('display','block');
     }
     else{
-        $('.pass_batch_two').css('display','none');  
-        $('.qt_pass').css('display','none');  
+        $('.pass_batch_two').css('display','none');
+        $('.qt_pass').css('display','none');
     }
 }
 
@@ -72,28 +72,28 @@ function addInputFile(divname,diventry){
 var count=1;
 function AddCPAFFDegree(){
     $("#edu").append(
-        '<div class="row mb-2" id="degree_name'+count+'">'+  
-            '<div class="col-md-1"></div>'+                                                     
-            '<div class="col-md-4 col-auto">'+                                                              
+        '<div class="row mb-2" id="degree_name'+count+'">'+
+            '<div class="col-md-1"></div>'+
+            '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
             '</div>'+
-            '<div class="col-md-6 col-auto">'+                                                            
+            '<div class="col-md-6 col-auto">'+
                 '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
-            '</div>'+                                                           
+            '</div>'+
         '</div>'+
-        '<div class="row mb-2" id="degree_year'+count+'">'+  
-            '<div class="col-md-1"></div>'+                                                         
-            '<div class="col-md-4 col-auto">'+                                                              
+        '<div class="row mb-2" id="degree_year'+count+'">'+
+            '<div class="col-md-1"></div>'+
+            '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
-            '<div class="col-md-6 col-auto">'+                                                              
+            '<div class="col-md-6 col-auto">'+
                 '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
-            '</div>'+                                                           
+            '</div>'+
         '</div>'+
 
         '<div class="row mb-4" id="edu'+count+'">'+
             '<div class="col-md-1"></div>'+
-            '<div class="col-md-4 col-auto">'+                                                             
+            '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
@@ -224,7 +224,6 @@ function createCPAFFRegister(){
             location.href = FRONTEND_URL+"/";
         },
         error:function (message){
-            console.log(message);
         }
     });
 
@@ -258,7 +257,6 @@ function isLoginCPAFF(){
             data:"",
             success: function(result){
                 var exam=result.data;
-                console.log(exam,"exam");
                 if(exam!=null) {
                     exam.every(function(element){
                         if(element.course.code=="cpa_2" && element.grade=="1"){
@@ -290,7 +288,6 @@ function isLoginCPAFF(){
                 }
             },
             error:function (message){
-                console.log(message);
                 }
             });
 
@@ -319,7 +316,7 @@ function form_feedback(){
                     var year=accept.getFullYear();
                     var y=year+1;
                     var now=new Date();
-                    
+
                     if(month>8){
                         document.getElementById('expiry_card').style.display='block';
                         $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
@@ -380,7 +377,7 @@ function loadCPAFF(){
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                         $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                         $('.renew_submit').prop('disabled', false);
-                        
+
                     }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                         $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
                         $('.renew_submit').prop('disabled', true);
@@ -388,7 +385,8 @@ function loadCPAFF(){
                         $('#message').val("You are verified!");
                         $('.renew_submit').prop('disabled', true);
                     }
-                    
+                    $('#previewImg').attr("src",BASE_URL+data.profile_photo);
+
                 }
                 else
                 {
@@ -405,7 +403,9 @@ function loadCPAFF(){
 }
 function RenewCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+
     show_loader()
+
     $.ajax({
         url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
         type: 'get',
@@ -423,7 +423,10 @@ function RenewCPAFF(){
                 // data.append('renew_micpa', renew_micpa);
                 // data.append('renew_cpd', renew_cpd);
                 // data.append('renew_cpaff_reg', renew_cpaff_reg);
+
+                var profile_photo = $("input[name=profile_photo]")[0].files[0];
                 data.append('_method', 'PUT');
+                data.append('profile_photo',profile_photo);
                 $.ajax({
                     url: BACKEND_URL+"/cpa_ff/"+result.data.id,
                     type: 'post',
@@ -431,6 +434,7 @@ function RenewCPAFF(){
                     contentType: false,
                     processData: false,
                     success: function(result){
+                      console.log("result >>>",result);
                         EasyLoading.hide();
                         successMessage(result.message);
                         location.reload();
@@ -442,13 +446,11 @@ function RenewCPAFF(){
                         document.getElementById('expiry_card').style.display='none';
                     },
                     error:function (message){
-                        console.log(message);
                     }
                 });
             }
         },
         error:function (message){
-            console.log(message);
         }
     });
 }
@@ -459,7 +461,7 @@ function selectStaff(){
 
     if(radioValue==1){
          $('#rec_letter').css('display','block');
-         
+
      }else
      {
         $('#rec_letter').css('display','none');
