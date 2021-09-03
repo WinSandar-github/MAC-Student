@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <div class="col-md-12">
 
-                            <table width="100%">
+                            {{--<table width="100%">
                                 <tr>
                                     <td width="20%"></td>
                                     <td width="30%">
@@ -80,7 +80,47 @@
                                     </td>
                                     <td width="20%"></td>
                                 </tr>
-                            </table>
+                            </table>--}}
+
+                            <div class="row">
+                              <div class="col-md-8">
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Accountancy Firm Name') }}</label>
+                                    <div class="col-md-7">
+                                        <div class="form-group single-form">
+                                          <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Accountancy Firm Registeration No') }}</label>
+                                    <div class="col-md-7">
+                                        <div class="form-group single-form">
+                                          <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
+                                    <div class="col-md-7">
+                                        <div class="form-group single-form">
+                                          <input type="text" class="form-control" id="register_date" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="col-md-6 pull-right">
+                                  <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                  <p class="mt-2">
+                                    <input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" required>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
 
                             <table width="100%">
                                 <tr>
@@ -91,16 +131,16 @@
                                     </td>
                                 </tr>
                             </table><br>
-                            
+
                             <div class="row mb-3">
                                 <div class="col-md-2 offset-md-5">
                                     <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>           
+            </form>
         </div>
     </div>
 </div>
