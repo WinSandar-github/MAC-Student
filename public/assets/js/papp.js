@@ -354,22 +354,25 @@ function RenewPAPP(){
             // successMessage("Insert Successfully");
             // location.reload();
             if(result.data!=null){
-                var renew_file =   $("input[name=renew_file]")[0].files[0];
-                var renew_papp_reg    =   $("input[name=renew_papp_reg]")[0].files[0];
-                var renew_micpa       =   $("input[name=renew_micpa]")[0].files[0];
-                var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
-                var renew_183_recomm    =   $("input[name=renew_183_recomm]")[0].files[0];
-                var renew_not_fulltime_recomm       =   $("input[name=renew_not_fulltime_recomm]")[0].files[0];
-                var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
+                // var renew_file =   $("input[name=renew_file]")[0].files[0];
+                // var renew_papp_reg    =   $("input[name=renew_papp_reg]")[0].files[0];
+                // var renew_micpa       =   $("input[name=renew_micpa]")[0].files[0];
+                // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
+                // var renew_183_recomm    =   $("input[name=renew_183_recomm]")[0].files[0];
+                // var renew_not_fulltime_recomm       =   $("input[name=renew_not_fulltime_recomm]")[0].files[0];
+                // var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
+
                 var profile_photo = $("input[name=profile_photo]")[0].files[0];
                 var data = new FormData();
-                data.append('renew_file', renew_file);
-                data.append('renew_papp_reg', renew_papp_reg);
-                data.append('renew_micpa', renew_micpa);
-                data.append('renew_cpd', renew_cpd);
-                data.append('renew_183_recomm', renew_183_recomm);
-                data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
-                data.append('renew_rule_confession', renew_rule_confession);
+
+                // data.append('renew_file', renew_file);
+                // data.append('renew_papp_reg', renew_papp_reg);
+                // data.append('renew_micpa', renew_micpa);
+                // data.append('renew_cpd', renew_cpd);
+                // data.append('renew_183_recomm', renew_183_recomm);
+                // data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
+                // data.append('renew_rule_confession', renew_rule_confession);
+
                 data.append('profile_photo', profile_photo);
                 data.append('_method', 'PUT');
                 $.ajax({
