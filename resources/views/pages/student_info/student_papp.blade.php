@@ -63,25 +63,25 @@
         </div>
         <div class="container" style="overflow: hidden;">
             <div class="row mt-5">
-                
+
                 <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_cpa_age" id="check_cpa_age">
                     <label class="col-md-12 col-form-label">{{ __('CPA (FF) သက်တမ်း ၁ နှစ် မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
-                        
-                    <br/>  
-                    <br/>  
-                    <br/>  
-                </div>           
+
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
                 <div id="rejected" style="display:none">
-                    <div class="card text-white bg-dark my-3">                            
+                    <div class="card text-white bg-dark my-3">
                         <div class="card-body">
-                            <p class="card-text reject">Your PAPP registration form is rejected. Please update your information. 
+                            <p class="card-text reject">Your PAPP registration form is rejected. Please update your information.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div id="pending" style="display:none;">
                     <div class="card text-white bg-primary my-3">
-                        
+
                         <div class="card-body">
                             <p class="card-text">Your PAPP registration form is being checked.</p>
                         </div>
@@ -89,12 +89,12 @@
                 </div>
                 <div id="approved" style="display:none;">
                         <div class="card text-white bg-primary my-3">
-                            
+
                             <div class="card-body">
                                 <p class="card-text">Your PAPP registration form is approved.</p>
                             </div>
                         </div>
-                    
+
                 </div>
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
@@ -103,9 +103,9 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="card border-success mb-3" id="papp_from" style="display:none;">                                                     
-                    
+
+                <div class="card border-success mb-3" id="papp_from" style="display:none;">
+
                     <div class="card-body ">
                         <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                         <h5 class="card-title text-center">အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ရန် ကနဦးလျှောက်ထားခြင်း</h5>
@@ -121,13 +121,13 @@
                                         <div class="col-md-1">
                                             <div class="single-form">
                                                 <label class="col-form-label">{{ _('၁။') }}</label>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="single-form">
                                                 <label class="col-form-label" style="padding-left: 37px;">{{ _('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -205,10 +205,10 @@
                                     </div>
                                 </div>
                             </div>
-                        
-                        
-                        
-                                
+
+
+
+
                                 <div class="row">
                                     <label class="col-md-1 col-form-label"></label>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
@@ -225,18 +225,18 @@
                                             <div class="col-md-10"  id="cpa_edu" style="display:none;">
                                                 <input type="file"  class="form-control" id="cpa_file" name="cpa_file">
                                             </div>
-                                        </div> 
-                                        
-                                        <div class="row">                                                                
+                                        </div>
+
+                                        <div class="row">
                                             <div class="col-md-4 col-form-label">
                                                 <input type="checkbox" value=""  id="ra_check" onclick="RA_Check()" >
                                                 <label class="col-form-label">RA</label>
-                                            </div>  
-                                        </div> 
+                                            </div>
+                                        </div>
                                         <div class="row mb-2">
-                                            <div class="col-md-1"></div>                                                             
-                                            <div class="col-md-10"  id="ra_edu" style="display:none;">                                                                    
-                                                <input type="file" class="form-control" id="ra_file"  name="ra_file">                                                                        
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-10"  id="ra_edu" style="display:none;">
+                                                <input type="file" class="form-control" id="ra_file"  name="ra_file">
                                             </div>
                                         </div>
 
@@ -246,31 +246,31 @@
                                                 <label  style="font-size:15px;">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                             </div>
                                         </div>
-                                        <div  id="edu" style="display:none;">  
-                                            <div class="row mb-2" id="degree_name0">  
-                                                <div class="col-md-1"></div>                                                         
-                                                <div class="col-md-4 col-auto">                                                              
+                                        <div  id="edu" style="display:none;">
+                                            <div class="row mb-2" id="degree_name0">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
-                                                <div class="col-md-6 col-auto">                                                              
+                                                <div class="col-md-6 col-auto">
                                                     <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
-                                                </div>                                                           
+                                                </div>
                                             </div>
-                                            <div class="row mb-2" id="degree_year0">  
-                                                <div class="col-md-1"></div>                                                         
-                                                <div class="col-md-4 col-auto">                                                              
+                                            <div class="row mb-2" id="degree_year0">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
-                                                <div class="col-md-6 col-auto">                                                              
+                                                <div class="col-md-6 col-auto">
                                                     <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
-                                                </div>                                                           
+                                                </div>
                                             </div>
-                                            
-                                            <div class="row mb-4" id="edu0" > 
+
+                                            <div class="row mb-4" id="edu0" >
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-4 col-auto">                                                              
+                                                <div class="col-md-4 col-auto">
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
-                                                </div> 
+                                                </div>
                                                 <div class="col-md-6"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
                                                 </div>
@@ -282,8 +282,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                                    
-                                    
+                                </div>
+
                                 <br/>
                                 <div class="row">
                                     <div class="col-md-1">
@@ -297,38 +297,38 @@
                                             </div>
                                             <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
                                         </div>
-                                        
-                                        
-                                        
-                                    </div> 
+
+
+
+                                    </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('၃။') }}</label>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
-                                            
+
                                         </div>
-                                    </div>                                    
+                                    </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="checkbox" id="firm_check" value="" ></div>
                                     <div class="col-md-10">
-                                        
+
                                         <label style="font-size:15px;"> လုပ်ငန်းအမည် Firm Name အသုံးမပြုပါ။</label>
                                     </div>
                                 </div><br/>
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="checkbox" id="used_firm_check" value=""></div>
-                                    <div class="col-md-10">                                        
+                                    <div class="col-md-10">
                                         <label style="font-size:15px;"> အသုံးပြုမည့်လုပ်ငန်းအမည် Firm Name, လုပ်ငန်းအမျိုးစားနှင့် မိမိ၏ အဆင့်မှာ အောက်ပါအတိုင်းဖြစ်ပါသည်-</label>
                                     </div>
                                 </div>
@@ -375,7 +375,7 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="checkbox" id="staff_firm_check" value=""></div>
-                                    <div class="col-md-4">                                        
+                                    <div class="col-md-4">
                                         <label style="font-size:15px;"> ဝန်ထမ်းအနေဖြင့် ဆောင်ရွက်နေသည့် လုပ်ငန်းအမည်</label>
                                     </div>
                                     <div class="col-md-6">
@@ -388,16 +388,16 @@
                                     <div class="col-md-1">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('၄။') }}</label>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="single-form">
                                             <label class="col-form-label">{{ _('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျက် လျှောက်ထားပါသည်-') }}</label>
-                                            
+
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
@@ -484,8 +484,8 @@
                                         <div class="row">
                                             <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
                                         </div>
-                                         
-                                        
+
+
                                     </div>
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" id="tax_free_file" required="" >
@@ -497,18 +497,18 @@
                                         <button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>
                                     </div>
                                 </div>
-                            </fieldset> 
+                            </fieldset>
                         </form>
-                     
-                        
+
+
                     </div>
-                    
+
                 </div>
             </div>
-        
-            
+
+
             <!-- <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/>
-                <h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>                   
+                <h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
                 <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="row">
@@ -578,16 +578,16 @@
                             <div class="col-md-2 offset-md-5">
                                 <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                             </div>
-                        </div>	
+                        </div>
                     </div>
                 </form>
             </div> -->
-            
-                
-            
+
+
+
         </div><br/></br/>
 
-        
+
     </div>
     <!-- JavaScript Section -->
     <script>
