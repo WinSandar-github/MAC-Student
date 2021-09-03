@@ -82,3 +82,27 @@ $('#cpa_exam_register').submit(function(e){
     });
 
 })
+
+$('#da2submit').click(function(){
+    if($('#last_exam_date').val() == '' ){
+        alert('Exam date can not be left blank');
+        return false;
+    }else{
+        $('#exampleModal').modal('show');
+        return true;
+    }
+
+});
+
+$(document).on('click', '#channel', function () {
+    setTimeout(function() {$('#exampleModal').modal('hide');}, 1000);
+    $('#examModal').modal('show');
+    return true;
+})
+
+$('#exam_btn').click(function() {
+    setTimeout(function() {
+        $('#examModal').modal('hide');
+    }, 1000);
+});
+

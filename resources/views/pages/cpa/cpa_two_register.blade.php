@@ -667,18 +667,18 @@
                         </div>
                         <div class="col-sm-3 col-5">
                             <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method" id="channel">
                             </div><br>
                             <h5>CASH</h5>
                         </div>
                         <input type="hidden" name="payment_method" value="CASH">
                     </div>
                </div><br>
-               <div class="modal-footer">
+               {{--<div class="modal-footer">
                  <center>
                      <button type="submit" id="btn3" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
                  </center>
-               </div>
+               </div>--}}
              </div>
            </div>
          </div>
@@ -702,17 +702,17 @@ reg_feedback();
 var exam_date=localStorage.getItem("exam_date");
 console.log(exam_date)
 
-$('#btn1').click(function() {
-    setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
-});
+// $('#btn1').click(function() {
+//     setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
+// });
 
-$('#btn2').click(function() {
-    setTimeout(function() {$('#exampleModal2').modal('hide');}, 1000);
-});
+// $('#btn2').click(function() {
+//     setTimeout(function() {$('#exampleModal2').modal('hide');}, 1000);
+// });
 
-$('#btn3').click(function() {
-    setTimeout(function() {$('#exampleModal3').modal('hide');}, 1000);
-});
+// $('#btn3').click(function() {
+//     setTimeout(function() {$('#exampleModal3').modal('hide');}, 1000);
+// });
 
 </script>
 @endpush

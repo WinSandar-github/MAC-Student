@@ -115,15 +115,24 @@ function verifyStatus()
 function renewSubscribe()
 {
     var student =JSON.parse(localStorage.getItem("studentinfo"));
+    var send_data = new FormData();
+    var profile_photo = $("input[name=profile_photo]")[0].files[0];
+    send_data.append('id',student.accountancy_firm_info_id);
+    send_data.append('profile_photo',profile_photo);
+
     $.ajax({
-        url: BACKEND_URL+"/renew_subscribe/"+student.accountancy_firm_info_id,
-        type: "patch",
-        success: function (data){
-            // console.log(data)
-            successMessage("Your new subscription is success!");
-            location.href = FRONTEND_URL+'/audit_firm';
-        }
-    })
+        url: BACKEND_URL+'/renew_subscribe',
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          successMessage("Your new subscription is success!");
+          location.href = FRONTEND_URL+'/audit_firm';
+        },
+        error: function (result) {
+        },
+    });
 }
 
 
@@ -135,11 +144,10 @@ function getAuditData(){
       success: function (data){
           var audit_data = data;
           audit_data.forEach(function(element){
-            console.log('get_audit_data',element);
             $("#accountancy_firm_name").val(element.accountancy_firm_name);
             $("#accountancy_firm_reg_no").val(element.accountancy_firm_reg_no);
             $("#register_date").val(element.register_date);
-
+            $('#previewImg').attr("src",BASE_URL+element.image);
 
           })
       }
@@ -954,12 +962,12 @@ function deleteAuditInfo(accName,accId){
 }
 
 function checkPAPPExist(value,id){
-  console.log(id);
+  //console.log(id);
   $.ajax({
     type: "get",
     url: BACKEND_URL + '/papp/'+value,
     success: function (data) {
-        console.log(data.data.length);
+        //console.log(data.data.length);
        // var a=localStorage.getItem('isPAPPExist');
         if(data.data.length==0){
           alert("PAPP Registration No. does not exist!");
