@@ -134,23 +134,24 @@ $nrc_characters = config('myanmarnrc.characters');
                                         <form method="post" action="javascript:void();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
-                                            <div id="is_private_school" style="display=none;">
-                                                <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label"
-                                                        id="da2_label1">{{ _('၁။') }}</label>
-                                                    <label
-                                                        class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <select class="form-control form-select"
-                                                                name="private_school_name" id="selected_school_id"
-                                                                style="width: 100%;">
-                                                                <option value="" disabled selected>Select School</option>
-                                                            </select>
+                                            <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                                <div id="is_private_school" style="display=none;">
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label"
+                                                            id="da2_label1">{{ _('၁။') }}</label>
+                                                        <label
+                                                            class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <select class="form-control form-select"
+                                                                    name="private_school_name" id="selected_school_id"
+                                                                    style="width: 100%;">
+                                                                    <option value="" disabled selected>Select School</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div><br />
-                                            </div>
 
 
                                             {{-- <div class="row">
@@ -308,13 +309,16 @@ $nrc_characters = config('myanmarnrc.characters');
             $("input[name='last_exam_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
+                allowInput: true,
             });
             $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
                 allowInput: true,
             });
+
             var boo = localStorage.getItem("isPrivateSchool");
+            $('#is_private').val(boo);
             if (boo == "true") {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'block';
@@ -335,5 +339,6 @@ $nrc_characters = config('myanmarnrc.characters');
                     $('#exampleModal').modal('hide');
                 }, 1000);
             });
+        });
     </script>
 @endpush

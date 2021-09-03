@@ -67,18 +67,18 @@
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
-                                <div class="col-md-12"  id="is_private_school" style="display:none">
-                                    <div class="row mb-3">
-                                        <label class="col-md-6 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
-                                        <div class="col-md-6">
-                                            <div class="form-group">                                
-                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
-                                                    <option value="" disabled selected>Select School</option>
-                                                </select>
+                                    <div class="col-md-12"  id="is_private_school" style="display:none">
+                                        <div class="row mb-3">
+                                            <label class="col-md-6 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                            <div class="col-md-6">
+                                                <div class="form-group">                                
+                                                    <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
+                                                        <option value="" disabled selected>Select School</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                     {{--<table width="100%">
                                         <tr>
                                             <td width="45%">
@@ -108,7 +108,7 @@
                                         <label class="col-md-1 col-form-label">(က)</label>
                                         <label class="col-md-5 col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="date" class="form-control" placeholder="MMM-YYYY" required>
+                                            <input type="text" name="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" required>
                                         </div>
                                     </div>
 
@@ -135,7 +135,7 @@
                                         <label class="col-md-1 col-form-label">(ခ)</label>
                                         <label class="col-md-5 col-form-label">ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-6">
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <div class="col-md-4">
                                                     <input type="radio" id="0" name="is_full_module" value="0">
                                                     <label for="0">Module 1</label>

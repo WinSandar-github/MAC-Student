@@ -87,8 +87,8 @@
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">Email</label>
-                                            <div class="col-md-8">
+                                            <label for="" class="col-md-4 col-form-label" style="padding-left:50px">Email</label>
+                                            <div class="col-md-7">
                                                 <input type="email" placeholder="Enter your Email address!" name="email"
                                                     class="form-control" value="{{ old('email') }}" required="">
                                                 @if ($errors->has('email'))
@@ -102,8 +102,8 @@
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">Password</label>
-                                            <div class="col-md-8">
+                                            <label for="" class="col-md-4 col-form-label" style="padding-left:50px">Password</label>
+                                            <div class="col-md-7">
                                                 <input type="password" placeholder="Enter your Password!" name="password"
                                                     class="form-control" value="{{ old('password') }}" required="">
                                             </div>
@@ -114,8 +114,8 @@
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">Confirm Password</label>
-                                            <div class="col-md-8">
+                                            <label for="" class="col-md-4 col-form-label" style="padding-left:50px">Confirm Password</label>
+                                            <div class="col-md-7">
                                                 <input type="password" placeholder="Enter your Password again!"
                                                     name="confirm_password" class="form-control" required="">
                                             </div>
@@ -134,11 +134,6 @@
                                     </div>
                                 </div>
                                 
- 
-                                
-                                   
-
-
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                         <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)'</label>
@@ -163,7 +158,7 @@
                                                 <div class="col-md-2 col-5 pr-1">
                                                     <select class="form-control" name="nrc_state_region"
                                                             id="nrc_state_region"
-                                                            style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
+                                                            style="margin-top: 0px ; margin-bottom: 0px;">
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -208,8 +203,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား
-                                            (အရှေ့)</label>
+                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                         <div class="col-md-8">
                                             <input type="file" accept="image/jpeg" name="nrc_front" class="form-control">
                                             <div class="form-text">Allowed Jpeg Image.</div>
@@ -220,8 +214,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား
-                                            (အနောက်)</label>
+                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                         <div class="col-md-8">
                                             <input type="file" accept="image/jpeg" name="nrc_back" class="form-control">
                                             <div class="form-text">Allowed Jpeg Image.</div>
@@ -405,7 +398,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-2 pt-2">
                                             <div class="form-check">
                                                 <div class="row">
                                                     <div class="col-md-4"><input type="radio"
@@ -413,7 +406,7 @@
                                                                                  name="gov_staff" value="0"
                                                                                  style="margin-left: 3%;" required onclick="selectStaff()">
                                                     </div>
-                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
+                                                    <div class="col-md-8"><label class="form-check-label" for="no">မဟုတ်</label>
                                                         <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                             ရွေးချယ်ပါ
                                                         </div>
@@ -430,7 +423,7 @@
                                         <div class="row  "  >
                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                                 <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
-                                                <label for="" class="col-md-2 col-form-labe mt-1"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                <label for="" class="col-md-3 col-form-labe mt-1"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                 
                                                 <div class="col-md-7"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
@@ -442,8 +435,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
-                                        <label for="" class="col-md-11 col-form-label">တက္ကသိုလ်တစ်ခုခုမှ
-                                            အောင်မြင်ပြီးခဲ့သော</label>
+                                        <label for="" class="col-md-11 col-form-label">တက္ကသိုလ်တစ်ခုခုမှ အောင်မြင်ပြီးခဲ့သော</label>
                                     </div>
                                     <br>
 
@@ -497,8 +489,7 @@
                                         <div class="row mb-3" id="edu0">
                                             <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                             <label for="" class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                            <label for="" class="col-md-3 col-form-labe mt-1"> Attached
-                                                Certificate</label>
+                                            <label for="" class="col-md-3 col-form-labe mt-1"> Attached Certificate</label>
 
                                             <div class="col-md-6" id="degree_edu">
                                                 <input type="file" class="form-control" id="certificate0"
