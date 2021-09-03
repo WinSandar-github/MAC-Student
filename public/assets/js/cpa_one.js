@@ -142,7 +142,7 @@ function Private_School_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id)
-    data.append('private_school_name', $("#private_school_name").val());
+    data.append('private_school_name',  $("#selected_school_id option:selected").text());
     data.append('academic_year', $("#academic_year").val());
     data.append('direct_access_no', $("#direct_access_no").val());
     data.append('entry_success_no', $("#entry_success_no").val());

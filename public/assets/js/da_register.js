@@ -311,9 +311,7 @@ function createDaTwoSelfStudy()
 }
 
 function createDaTwoPrivateSchool()
-{
-
- 
+{ 
     localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
