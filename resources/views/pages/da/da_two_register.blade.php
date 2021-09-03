@@ -296,7 +296,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="col-md-2 offset-md-5">
                                                         {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form" id="submit_btn_ss" >{{ __('Submit') }}</button> --}}
                                                         <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModal3">Submit
                                                         </button>
                                                     </div>
                                                 </div>
@@ -546,7 +546,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="col-md-2 offset-md-5">
                                                         {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_mac" >{{ __('Submit') }}</button> --}}
                                                         <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal3">Submit
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
                                                         </button>
                                                     </div>
                                                 </div>
@@ -572,7 +572,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     </div> -->
 
             <!-- MAC -->
-            <form method="post" class="needs-validation" action="javascript:createDaTwoMac();"
+            <form method="post" class="needs-validation" action="javascript:void();"
                 enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -603,26 +603,46 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="col-sm-3 col-5">
                                         <div class='radio mx-auto'>
                                             <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
-                                                height="50%" data-value="CASH" name="payment_method">
+                                                height="50%" data-value="CASH" name="payment_method" id="mac_channel">
                                         </div><br>
                                         <h5>CASH</h5>
                                     </div>
                                     <input type="hidden" name="payment_method" value="CASH">
                                 </div>
                             </div><br>
-                            <div class="modal-footer">
-                                <center>
-                                    <button type="submit" id="btn1" class="btn btn-success btn-hover-dark w-100"
-                                        data-bs-toggle="modal">Submit
-                                </center>
-                            </div>
                         </div>
                     </div>
                 </div>
             </form>
 
+            <!-- macModal -->
+             <form method="post" class="needs-validation" action="javascript:createDaTwoMac();" enctype="multipart/form-data" novalidate>
+                 @csrf
+                 <div class="modal fade" id="macModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog">
+                     <div class="modal-content">
+                       <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       </div><br>
+                       <div class="modal-body">
+                           <center>
+                               <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                           </center><br>
+                           <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                           <p style="text-align: center;font-weight: bold; font-size: 15px;">DA Two Registeration(MAC) Form Fee - ****** MMK</p><br>
+                           <center>
+                             <button type="submit" id="mac_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                           </center>
+                       </div><br>
+                     </div>
+                   </div>
+                 </div>
+             </form>
+
+
+
             <!-- PRIVATE -->
-            <form method="post" class="needs-validation" action="javascript:createDaTwoPrivateSchool();"
+            <form method="post" class="needs-validation" action="javascript:void();"
                 enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -653,27 +673,47 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="col-sm-3 col-5">
                                         <div class='radio mx-auto'>
                                             <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
-                                                height="50%" data-value="CASH" name="payment_method">
+                                                height="50%" data-value="CASH" name="payment_method" id="private_channel">
                                         </div><br>
                                         <h5>CASH</h5>
                                     </div>
                                     <input type="hidden" name="payment_method" value="CASH">
                                 </div>
                             </div><br>
-                            <div class="modal-footer">
-                                <center>
-                                    <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100"
-                                        data-bs-toggle="modal">Submit
-                                </center>
-                            </div>
                         </div>
                     </div>
                 </div>
             </form>
 
+            <!-- privateModal -->
+             <form method="post" class="needs-validation" action="javascript:createDaTwoPrivateSchool();" enctype="multipart/form-data" novalidate>
+                 @csrf
+                 <div class="modal fade" id="privateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog">
+                     <div class="modal-content">
+                       <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       </div><br>
+                       <div class="modal-body">
+                           <center>
+                               <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                           </center><br>
+                           <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                           <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Application(Private School) Form Fee - ****** MMK</p><br>
+                           <center>
+                             <button type="submit" id="private_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                           </center>
+                       </div><br>
+                     </div>
+                   </div>
+                 </div>
+             </form>
+
+
+
 
             <!-- SELF -->
-            <form method="post" class="needs-validation" action="javascript:createDaTwoSelfStudy();"
+            <form method="post" class="needs-validation" action="javascript:void();"
                 enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -704,23 +744,41 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="col-sm-3 col-5">
                                         <div class='radio mx-auto'>
                                             <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
-                                                height="50%" data-value="CASH" name="payment_method">
+                                                height="50%" data-value="CASH" name="payment_method" id="self_channel">
                                         </div><br>
                                         <h5>CASH</h5>
                                     </div>
                                     <input type="hidden" name="payment_method" value="CASH">
                                 </div>
                             </div><br>
-                            <div class="modal-footer">
-                                <center>
-                                    <button type="submit" id="btn3" class="btn btn-success btn-hover-dark w-100"
-                                        data-bs-toggle="modal">Submit
-                                </center>
-                            </div>
                         </div>
                     </div>
                 </div>
             </form>
+
+            <!-- selfModal -->
+             <form method="post" class="needs-validation" action="javascript:createDaTwoSelfStudy();" enctype="multipart/form-data" novalidate>
+                 @csrf
+                 <div class="modal fade" id="selfModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog">
+                     <div class="modal-content">
+                       <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       </div><br>
+                       <div class="modal-body">
+                           <center>
+                               <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                           </center><br>
+                           <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                           <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Registeration(Self Study) Form Fee - ****** MMK</p><br>
+                           <center>
+                             <button type="submit" id="private_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                           </center>
+                       </div><br>
+                     </div>
+                   </div>
+                 </div>
+             </form>
 
 
         </div><br /></br />
@@ -754,22 +812,38 @@ $nrc_characters = config('myanmarnrc.characters');
         var exam_date = localStorage.getItem("exam_date");
         $("input[name='exam_date']").val(formatDate(exam_date));
 
-        $('#btn1').click(function() {
+        $(document).on('click', '#mac_channel', function () {
+            setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
+            $('#macModal').modal('show');
+            return true;
+        })
+        $('#mac_btn').click(function() {
             setTimeout(function() {
-                $('#exampleModal1').modal('hide');
+                $('#macModal').modal('hide');
             }, 1000);
         });
 
-        $('#btn2').click(function() {
+        $(document).on('click', '#private_channel', function () {
+            setTimeout(function() {$('#exampleModal2').modal('hide');}, 1000);
+            $('#privateModal').modal('show');
+            return true;
+        })
+        $('#private_btn').click(function() {
             setTimeout(function() {
-                $('#exampleModal2').modal('hide');
+                $('#privateModal').modal('hide');
             }, 1000);
         });
 
-        $('#btn3').click(function() {
+        $(document).on('click', '#self_channel', function () {
+            setTimeout(function() {$('#exampleModal3').modal('hide');}, 1000);
+            $('#selfModal').modal('show');
+            return true;
+        })
+        $('#self_btn').click(function() {
             setTimeout(function() {
-                $('#exampleModal3').modal('hide');
+                $('#selfModal').modal('hide');
             }, 1000);
         });
+
     </script>
 @endpush
