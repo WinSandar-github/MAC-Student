@@ -110,16 +110,16 @@
 														</div>
 												</div>
 												<div class="col-md-5">
-														<h5 class="mt-2"><strong>Form Fees</strong></h5>
+														<h5 class="mt-2"><strong>Course Fees</strong></h5>
 														<hr>
 														<div class="info-list">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC</strong> <span></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Exam Fee</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Tution Fee</strong></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong></li>
+																		<!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong></li> -->
+																		<li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong></li>
 																		<li><i class="icofont-ui-note"></i> <strong>Description</strong></li>
 																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
 																		<div class="pull-right mt-4">
@@ -141,7 +141,7 @@
                             <div class="col-md-12">
                             <h5 class="card-title text-center">သင်တန်းဆရာ မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
                                 <form enctype="multipart/form-data" action="javascript:renewTeacher();">
-                                
+
                                     <table width="100%">
                                         <tr>
                                             <td width="20%">

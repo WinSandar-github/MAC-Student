@@ -3,7 +3,7 @@ function studentLogin(){
     var password=$("input[name=password]").val();
 
     show_loader();
-  
+
     $.ajax({
         url:   BACKEND_URL + "/loginValidate",
         type: 'post',
@@ -17,9 +17,9 @@ function studentLogin(){
                 localStorage.setItem('code', JSON.stringify(result.verify_code));
                 localStorage.setItem('id', JSON.stringify(result.id));
                 location.href= FRONTEND_URL + "/verify_email";
-                
+
             }else if(result.verify_status == 1){
-                EasyLoading.hide() 
+                EasyLoading.hide()
                 localStorage.setItem('studentinfo', JSON.stringify(result));
                 localStorage.setItem('approve_reject',result.approve_reject_status);
                 location.href= FRONTEND_URL + "/";
@@ -66,12 +66,12 @@ function logout(url){
 }
 
 //Redirect login page depend on course
-function login_page(batch_id,course_id,course_type){
-    if(course_id == 1){
+function login_page(batch_id,course_code,course_type){
+    if(course_code === 'da_1' || course_code == 'cpa_1'){
 
         localStorage.setItem('batch_id',batch_id);
-        let ls_course_type = localStorage.getItem('course_type');
-        if(ls_course_type == 2){
+        //let ls_course_type = localStorage.getItem('course_type');
+        if(course_type == 2){
 
             location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
         }else{
@@ -81,6 +81,7 @@ function login_page(batch_id,course_id,course_type){
         }
 
     }else{
+
         if(course_type == 1){
             alert("You need to Pass DA I")
         }else{

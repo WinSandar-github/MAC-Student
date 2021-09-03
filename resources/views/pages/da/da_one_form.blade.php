@@ -82,43 +82,61 @@
                                     <h5 class="card-title text-center">
                                         ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
                                     <br/>
-
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">Email</label>
-                                        <div class="col-md-8">
-                                            <input type="email" placeholder="Enter your Email address!" name="email"
-                                                   class="form-control" value="{{ old('email') }}" required="">
-                                            @if ($errors->has('email'))
-                                                <span class="text-danger">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                            @endif
+                                    <div class="col-md-7">
+
+                                        <div class="row">
+                                            <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                            <label for="" class="col-md-3 col-form-label">Email</label>
+                                            <div class="col-md-8">
+                                                <input type="email" placeholder="Enter your Email address!" name="email"
+                                                    class="form-control" value="{{ old('email') }}" required="">
+                                                @if ($errors->has('email'))
+                                                    <span class="text-danger">
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                            <label for="" class="col-md-3 col-form-label">Password</label>
+                                            <div class="col-md-8">
+                                                <input type="password" placeholder="Enter your Password!" name="password"
+                                                    class="form-control" value="{{ old('password') }}" required="">
+                                            </div>
+
+                                        </div>
+                                        <br>
+
+
+                                        <div class="row">
+                                            <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                            <label for="" class="col-md-3 col-form-label">Confirm Password</label>
+                                            <div class="col-md-8">
+                                                <input type="password" placeholder="Enter your Password again!"
+                                                    name="confirm_password" class="form-control" required="">
+                                            </div>
                                         </div>
                                     </div>
-                                    <br>
+                                    <div class="col-md-5">
+                                        <div class="col-md-5 pull-right">
+                                            <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                            <p class="mt-2">
+                                            <input type="file" class="custom-file-input" id="profile_photo"  name="image"
+                                                   value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
+                                            </p>
+                                            <div class="form-text mb-2">Allowed Jpeg Image.</div>
 
-                                    <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">Password</label>
-                                        <div class="col-md-8">
-                                            <input type="password" placeholder="Enter your Password!" name="password"
-                                                   class="form-control" value="{{ old('password') }}" required="">
-                                        </div>
-
-                                    </div>
-                                    <br>
-
-
-                                    <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">Confirm Password</label>
-                                        <div class="col-md-8">
-                                            <input type="password" placeholder="Enter your Password again!"
-                                                   name="confirm_password" class="form-control" required="">
                                         </div>
                                     </div>
-                                    <br>
+                                </div>
+                                
+ 
+                                
+                                   
 
 
                                     <div class="row">
@@ -290,21 +308,20 @@
 
                                     <input type="hidden" name="approve_reject_status">
 
-                                    <div class="row">
+                                    {{-- <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
                                         <label for="" class="col-md-3 col-form-label">Upload Photo</label>
                                         <div class="col-md-8">
                                             <input type="file" id="image" class="form-control" name="image"
                                                    value="{{ old('image') }}" accept="image/*" required="">
                                         </div>
-                                    </div>
-                                    <br>
-
+                                    </div> --}}
+                                    <br>  
+                                    
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name"
                                                    class="form-control" value="{{ old('name') }}" required="">
                                         </div>
@@ -312,10 +329,9 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">ရာထူး</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">ရာထူး</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="ရာထူး" name="position" class="form-control"
                                                    value="{{ old('position') }}" required="">
                                         </div>
@@ -323,10 +339,9 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">ဌာန</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">ဌာန</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="ဌာန" name="department" class="form-control"
                                                    value="{{ old('department') }}" required="">
                                         </div>
@@ -334,10 +349,9 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="အဖွဲ့အစည်း" name="organization"
                                                    class="form-control" value="{{ old('organization') }}" required="">
                                         </div>
@@ -345,10 +359,9 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">ကုမ္ပဏီအမည်</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">ကုမ္ပဏီအမည်</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name"
                                                    class="form-control" value="{{ old('company_name') }}" required="">
                                         </div>
@@ -356,10 +369,9 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">လစာနှင့်လစာနှုန်း</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">လစာနှင့်လစာနှုန်း</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary"
                                                    class="form-control" value="{{ old('salary') }}" required="">
                                         </div>
@@ -367,10 +379,9 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-1 col-form-label">{{ __('(ဆ)') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">ရုံးလိပ်စာ</label>
-                                        <div class="col-md-7">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label">ရုံးလိပ်စာ</label>
+                                        <div class="col-md-8">
                                             <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address"
                                                    class="form-control" value="{{ old('office_address') }}" required="">
                                         </div>
@@ -378,7 +389,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label class="col-sm-1 col-form-label">{{ __('၁၄။') }}</label>
+                                        <label class="col-sm-1 col-form-label">{{ __('၂၀။') }}</label>
                                         <label class="col-md-4 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
                                         <div class="col-md-2 pt-2">
                                             <div class="form-check">
@@ -386,7 +397,7 @@
                                                     <div class="col-md-4"><input type="radio"
                                                                                  class="form-check-input mr-3" id="yes"
                                                                                  name="gov_staff" value="1"
-                                                                                 style="margin-left: 3%;" required>
+                                                                                 style="margin-left: 3%;" required onclick="selectStaff()">
                                                     </div>
                                                     <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
                                                     </div>
@@ -400,13 +411,14 @@
                                                     <div class="col-md-4"><input type="radio"
                                                                                  class="form-check-input mr-3" id="no"
                                                                                  name="gov_staff" value="0"
-                                                                                 style="margin-left: 3%;" required>
+                                                                                 style="margin-left: 3%;" required onclick="selectStaff()">
                                                     </div>
                                                     <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
                                                         <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                             ရွေးချယ်ပါ
                                                         </div>
                                                     </div>
+                                                    
 
                                                 </div>
 
@@ -414,9 +426,22 @@
                                         </div>
                                     </div>
                                     <br>
+                                    <div id="rec_letter" style="display:none" >
+                                        <div class="row  "  >
+                                                <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                <label for="" class="col-md-2 col-form-labe mt-1"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                
+                                                <div class="col-md-7"  id="degree_edu" >
+                                                    <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    <!-- <input type="file"  class="form-control" id="certificate0"  name="certificates[]" required=""> -->
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
                                         <label for="" class="col-md-11 col-form-label">တက္ကသိုလ်တစ်ခုခုမှ
                                             အောင်မြင်ပြီးခဲ့သော</label>
                                     </div>

@@ -335,5 +335,6 @@ $nrc_characters = config('myanmarnrc.characters');
                     $('#exampleModal').modal('hide');
                 }, 1000);
             });
+        });
     </script>
 @endpush

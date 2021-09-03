@@ -157,6 +157,7 @@ function delInputFile(diventry){
 
 function createCPAFFRegister(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
     var cpa             =   $("input[name=cpa]")[0].files[0];
     var ra              =   $("input[name=ra]")[0].files[0];
 
@@ -175,6 +176,7 @@ function createCPAFFRegister(){
 
     var send_data = new FormData();
     send_data.append('student_info_id', student.id);
+    send_data.append('profile_photo', profile_photo);
     send_data.append('cpa', cpa);
     send_data.append('ra', ra);
     // send_data.append('foreign_degree', foreign_degree);
@@ -449,4 +451,18 @@ function RenewCPAFF(){
             console.log(message);
         }
     });
+}
+
+
+function selectStaff(){
+    var radioValue = $("input[name='gov_staff']:checked").val();
+
+    if(radioValue==1){
+         $('#rec_letter').css('display','block');
+         
+     }else
+     {
+        $('#rec_letter').css('display','none');
+
+     }
 }
