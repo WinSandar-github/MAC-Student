@@ -134,12 +134,41 @@
 									</div>
 								</div>
 
-            <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/>
+            <div class="card border-success mb-3" id="cpaff_renew_form" ><br/>
                 <h5 class="card-title text-center">CPA (Full-Fledged) မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>                   
                 <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data">
                     
                     <div class="card-body">
+                                    <div class="row" >
+                                        <div class="col-4"></div>
+                                        <div class="col-4">
+                                                <div  id="profile">
+                                                                
+                                                    <input type="file" class="form-control" name="file" id="file" style="background-color:transparent" required />
+                                                    <label class="dashes-label">Upload Profile</label>
+                                                </div>
+                                                
+                                        </div>
+                                        <!-- <div class="col-4">
+                                            <div class="">
+                                                <img id="nrc_front_preview" src="#" alt="your image" style="display: none;" />
+                                                <input type="file" class="form-control" id="renewfile" name="renewfile">
+                                            </div>
+                                        </div> -->
+                                    </div>
                                     <table width="100%">
+                                        <!-- <tr>
+                                            <td width="35%">
+                                                <div class="single-form">
+                                                    <label class="col-form-label">Upload Image</label>
+                                                </div>
+                                            </td>
+                                            <td width="75%">
+                                                <div class="">
+                                                    <input type="file" class="form-control" id="renewfile" name="renewfile">
+                                                </div>
+                                            </td>
+                                        </tr> -->
                                         <tr>
                                             <td width="35%">
                                                 <div class="single-form">
@@ -208,6 +237,24 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
+        $('#profile').on('click', function(e) {
+    $('#file').click();
+});
+$('#file').change(function(e) {
+
+    var input = e.target;
+    if (input.files && input.files[0]) {
+    var file = input.files[0];
+
+    var reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onload = function(e) {
+        $('.dashes-label').css('color','transparent');
+        $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+    }
+    }
+})
         loadCPAFF();
         // if(course_type[2]==1){
         //     // console.log("DA");

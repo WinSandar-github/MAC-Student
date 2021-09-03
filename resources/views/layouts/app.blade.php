@@ -75,7 +75,41 @@
     .dropdown-menu{
         margin-top: 0;
     }
-
+    #profile {
+    border: 1px solid #dee2e6;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    position: relative;
+    
+    cursor: pointer;
+    background: #f4f4f4;
+    display: table;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 5px 8px rgba(black, 0.35);
+    
+}
+    
+    .dashes-label {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 30px;
+      color: grey;
+      opacity: 1;
+    }
+    #file {
+        position: absolute;
+         /* border-radius: 100%; */
+        border-color: transparent; 
+        height: 150px;
+        background-color: transparent;
+        font-size: 1px;
+        color: transparent;
+        
+  }
+  
  </style>
 
 </head>
