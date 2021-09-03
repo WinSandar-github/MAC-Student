@@ -140,40 +140,56 @@
 									</div>
 								</div>
 
-                                <div class="row" id="teacher_renew" >
+                                <div class="row" id="teacher_renew" style="display:none;">
                     <div class="card border-success mb-3">
                         <div class="card-body">
                             <div class="col-12">
-                            <h5 class="card-title text-center">သင်တန်းဆရာ မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
-                                <form enctype="multipart/form-data" action="javascript:renewTeacher();">
+                            <h5 class="card-title text-center">သင်တန်းဆရာ မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/><br/>
+                                <form enctype="multipart/form-data" action="javascript:renewTeacher();" id="teacher_renew_form">
                                     <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                        <label class="col-md-3 col-form-label">{{ __('အီးမေးလ်') }}</label>
                                         <div class="col-md-8">
-                                            <div class="form-group">
-                                            <input type="email" name="email" class="form-control" >
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                        <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <input type="password" name="password" class="form-control" autocomplete='off'>
+                                            <div class="row">
+                                                <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                                
+                                                <label class="col-md-5 col-form-label" style="padding-left:45px;">{{ __('အီးမေးလ်') }}</label>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                    <input type="email" name="email" class="form-control" autocomplete='off'>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                                <label class="col-md-5 col-form-label" style="padding-left:45px;">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="password" name="password" class="form-control"  autocomplete='off' >
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                <label class="col-md-5 col-form-label" style="padding-left:45px;">{{ __('လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း') }}</label>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="password" name="confirm_password" class="form-control" autocomplete='off' required>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                        <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း') }}</label>
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <input type="password" name="confirm_password" class="form-control" autocomplete='off' >
+                                        <div class="col-md-4">
+                                            <div class="pull-right">
+                                                <input type="hidden" id="hidden_profile">
+                                                <img class="col-md-3 profile-style" id="previewImg"  accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" >
+                                                </p>
                                             </div>
                                         </div>
-                                    </div>
+                                </div><br/>
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
@@ -251,8 +267,20 @@
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                    
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_front" class="form-control">
+                                        <input type="hidden" id="hidden_nrc_front">
+                                                <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-1"></div>
+                                                        <div class="col-2">
+                                                            <input type="file" class="custom-file-input" name="nrc_front"  onchange="previewNRCFile('nrc_front','nrc_front_img');">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </p>
+                                       
                                     </div>
                                 </div><br>
 
@@ -260,7 +288,16 @@
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_back" class="form-control">
+                                            <input type="hidden" id="hidden_nrc_back">
+                                            <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="">
+                                            <p class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-1"></div>
+                                                        <div class="col-2">
+                                                            <input type="file" name="nrc_back" class="custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');">
+                                                        </div>
+                                                    </div>
+                                            </p>
                                     </div>
                                 </div><br>
 
@@ -280,19 +317,19 @@
                                     <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                     <label class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း (ရရှိထားသော တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ)') }}</label>
                                     <div class="col-md-8">
-                                        <table class="table tbl_degree table-bordered input-table">
-                                            <thead>
+                                        <table class="table tbl_degree table-bordered input-table" id="tbl_degree">
+                                            <thead >
                                                 <tr >
                                                     <th class="less-font-weight text-center" width="10%">စဉ်</th>
                                                     <th class="less-font-weight text-center"  width="80%">ပညာအရည်အချင်း</th>
                                                     <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="tbl_degree_body">
+                                            <tbody class="tbl_degree_body" id="tbl_degree_body">
 
                                             </tbody>
                                         </table>
-
+                                        
                                     </div>
                                 </div>
                                 <div class="row" style="margin-bottom:25px;margin-top:-12px;text-align:right;">
@@ -307,11 +344,11 @@
                                     <div class="col-md-7">
                                         <div class="row">
                                             <div class="form-check col-md-4">
-                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee" value="1">
+                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee1" value="1">
                                                 <label class="form-check-label" for="yes-servant">{{ __('ဟုတ်') }}</label>
                                             </div>
                                             <div class="form-check col-md-4">
-                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee" value="0">
+                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee2" value="0">
                                                 <label class="form-check-label" for="no-servant">{{ __('မဟုတ်') }}</label>
 
                                             </div>
@@ -335,7 +372,7 @@
                                     <label class="col-md-1 col-form-label" >{{ __('') }}</label>
                                     <label class="col-md-3 col-form-label" >{{ __('(က)လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း') }}</label>
                                     <div class="col-md-8">
-                                        <table class="table tbl_certificate table-bordered input-table">
+                                        <table class="table tbl_certificate table-bordered input-table" id="tbl_certificate">
                                             <thead>
                                                 <tr>
                                                     <th class="less-font-weight text-center"  width="10%">စဉ်</th>
@@ -343,9 +380,9 @@
                                                     <th  class="less-font-weight text-center"  width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSubject("tbl_certificate")'><li class="fa fa-plus"></li></button></td>
                                                 </tr>
                                             </thead>
-                                            <tbody class="tbl_certificate_body">
+                                            <tbody class="tbl_certificate_body" id="tbl_certificate_body">
 
-                                            </tboddy>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -354,7 +391,7 @@
                                     <label class="col-md-1 col-form-label ">{{ __('') }}</label>
                                     <label class="col-md-3 col-form-label" >{{ __('(ခ)ဒီပလိုမာစာရင်းကိုင်သင်တန်း') }}</label>
                                     <div class="col-md-8">
-                                        <table class="table tbl_diploma table-bordered input-table">
+                                        <table class="table tbl_diploma table-bordered input-table" id="tbl_diploma">
                                             <thead>
                                                 <tr>
                                                     <th class="less-font-weight text-center" width="10%">စဉ်</th>
@@ -362,7 +399,7 @@
                                                     <th class="less-font-weight text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDipSubject("tbl_diploma")'><li class="fa fa-plus"></li></button></td>
                                                 </tr>
                                             </thead>
-                                            <tbody class="tbl_diploma_body">
+                                            <tbody class="tbl_diploma_body" id="tbl_diploma_body">
 
                                             </tboddy>
                                         </table>
@@ -442,6 +479,7 @@
         if(student.approve_reject_status==1){
             loadRenewTeacher(localStorage.getItem("teacher_id"));
         }
+        
         // if(course_type[2]==1){
         //     // console.log("DA");
         //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";
