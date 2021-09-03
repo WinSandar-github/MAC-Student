@@ -1,13 +1,25 @@
 
 function createDAExamRegister()
 {
+    var school_id;
+    var school_name;
+    if($("#is_private").val() =="true" ){
+        school_id = $("#selected_school_id").val();
+        school_name = $("#selected_school_id option:selected").text();
+    }
+    else{
+        school_id = 0;
+        school_name = " ";
+    }
     var send_data = new FormData();
     // var invoice_image = $('#invoice_image')[0].files[0];
 
     send_data.append('student_id',student_id);
-    send_data.append('private_school_name', $("input[name=private_school_name]").val());
+    send_data.append('private_school_id', school_id);
+    send_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', invoice_image);
-    send_data.append('invoice_image', $("input[name=invoice_image]").val());
+    send_data.append('date', $("input[name=date]").val());
+    // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
 
     send_data.append('form_type',$("#form_type").val());
@@ -39,7 +51,7 @@ $('#cpa_exam_register').submit(function(e){
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
     console.log('form_type',$("input[name=form_type]").val());
-    //show_loader();
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/cpa_exam_register",
         type: 'post',
@@ -47,9 +59,9 @@ $('#cpa_exam_register').submit(function(e){
         contentType: false,
         processData: false,
         success: function(result){
-             //EasyLoading.hide();
+             EasyLoading.hide();
              localStorage.setItem('approve_reject', 1);
-             //location.href = FRONTEND_URL + "/";
+             location.href = FRONTEND_URL + "/";
 
             //successMessage(result);
       }

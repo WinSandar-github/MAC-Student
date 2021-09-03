@@ -342,10 +342,8 @@ $nrc_characters = config('myanmarnrc.characters');
                     document.getElementById('is_private_school').style.display = 'none';
                     document.getElementById('da2_label2').innerHTML = "၁။";
                 }
-            }
-
-            
+            }    
         });
-        loadSchoolList();  
+        loadSchoolList(); 
     </script>
 @endpush

@@ -18,7 +18,7 @@ function user_profile(){
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
                 let acc_firm = data.accountancy_firm;
-                console.log(acc_firm.h_email)
+             
 
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
@@ -43,7 +43,7 @@ function user_profile(){
                 $('.title').text('School Information')
                 $('.school').show();
                 let school = data.school;
-                localStorage.setItem("school_id",school.id);
+
                 $('#sch_name_mm').text(school.name_mm);
                 $('#sch_name_eng').text(school.name_eng);
                 $("#sch_nrc").text(school.nrc_state_region+"/" +school.nrc_township+ "("+school.nrc_citizen+")"+school.nrc_number );
@@ -66,7 +66,7 @@ function user_profile(){
                 $('.title').text('Teacher Information')
                 $('.teacher').show();
                 let teacher = data.teacher;
-                console.log(teacher)
+               
                 localStorage.setItem("teacher_id",teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
                 $('#teacher_name_eng').text(teacher.name_eng);
@@ -93,7 +93,7 @@ function user_profile(){
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
-                localStorage.setItem("mentor_id",mentor.id);
+
                 $('#sch_name_mm').text(mentor.name_mm);
                 $('#sch_name_eng').text(mentor.name_eng);
                 $("#sch_nrc").text(mentor.nrc_state_region+"/" +mentor.nrc_township+ "("+mentor.nrc_citizen+")"+mentor.nrc_number );
@@ -116,7 +116,7 @@ function user_profile(){
             else{
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
-                console.log(data)
+                
 
                 let exam_register = data.exam_registers;
                 let cpaff = data.cpa_ff;
@@ -140,7 +140,7 @@ function user_profile(){
                     course_html += `<tr>
                                         <td>${e.course.name}</td>
                                         <td>${e.batch.name}</td>
-                                        <td>${e.date}</td>
+                                        <td>${formatDate(e.updated_at)}</td>
                                     </tr>`
                 })
                 $('.course').html(course_html)
@@ -196,7 +196,7 @@ function user_profile(){
                         var month=accept.getMonth();
                         var year=accept.getFullYear();
                         var y=year+1;
-                        console.log(month)
+                   
 
 
                         if(month>8){
@@ -320,19 +320,35 @@ function user_profile(){
 
                         $('#batch_name').text(latest_course_reg[0].batch.name) ;
                         $('#course_name').text(latest_course_reg[0].batch.course.name);
-                        $('.regi_fee_txt').text('Mac Registration Fees')
+                        $('.regi_fee_txt').text('Mac Registration Date')
                         $('.self_study').show();
                         $('.private_school').show();
-                        $('#registration_fee').text(latest_course_reg[0].batch.course.mac_registration_fee);
-                        $('#selfstudy_fee').text(latest_course_reg[0].batch.course.selfstudy_registration_fee);
-                         $('#pschool_fee').text(latest_course_reg[0].batch.course.privateschool_registration_fee);
+                        $('#registration_date').append(
+                            formatDate(latest_course_reg[0].batch.mac_reg_start_date) +" to <br>"+
+                            formatDate(latest_course_reg[0].batch.mac_reg_end_date)
+
+                            );
+                        $('#selfstudy_date').append(
+                            formatDate(latest_course_reg[0].batch.self_reg_start_date) +" to <br>"+
+                            formatDate(latest_course_reg[0].batch.self_reg_end_date)
+
+                            
+                            );
+                         $('#pschool_date').append(
+                            formatDate(latest_course_reg[0].batch.private_reg_start_date) +" to <br>"+
+                            formatDate(latest_course_reg[0].batch.private_reg_end_date)
+                             );
     
     
-                        if(latest_course_reg[0].batch.exam_start_date != null){
-                            $('#exam_date').text(`${formatDate(latest_course_reg[0].batch.exam_start_date)} to ${formatDate(latest_course_reg[0].batch.exam_end_date)}`);
-                        }else{
-                            $('#exam_date').text("မရှိသေးပါ")
-                        }
+                        // if(latest_course_reg[0].batch.exam_start_date != null){
+                        //     $('#exam_date').append(
+                        //         formatDate(latest_course_reg[0].batch.exam_start_date) +" to <br>"+
+                        //         formatDate(latest_course_reg[0].batch.exam_end_date)
+    
+                        //         );
+                        // }else{
+                        //     $('#exam_date').text("မရှိသေးပါ")
+                        // }
                         
     
                         let status_course ;
@@ -366,10 +382,15 @@ function user_profile(){
                             if(latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code )
     
                             {
-                                $('.regi_fee_txt').text('Exam Registration Fees')
+                                $('.regi_fee_txt').text('Exam Registration Date')
                                 $('.self_study').hide();
                                 $('.private_school').hide();
-                                $('#registration_fee').text(latest_course_reg[0].batch.course.exam_fee);
+                                
+                                    $('#registration_fee').append(
+                                                formatDate(latest_course_reg[0].batch.exam_start_date) +" to <br>"+
+                                                formatDate(latest_course_reg[0].batch.exam_end_date)
+                    
+                                                 );
                                 if(latest_stu_reg[0].status == 0 || latest_stu_reg[0] == null)
                                 {
                                     $('.status').append(`
@@ -394,7 +415,8 @@ function user_profile(){
                                         <td>Approve</td>
                                     </tr>
                                     `);
-                                    if(last_exam[0] && last_exam[0].course.code == latest_course_reg[0].batch.course.code){
+                                   
+                                    if(last_exam[0] && (last_exam[0].course.code == latest_course_reg[0].batch.course.code)){
                                         if(last_exam[0].status == 0)
                                         {
                                             $('.status').append(`
@@ -463,20 +485,17 @@ function user_profile(){
                                                     localStorage.setItem('exam_grade',last_exam[0].grade)
     
                                 
-                                                    console.log(course_code,FRONTEND_URL)
+                                                 
                                 
                                 
                                                     get_course_by_code(course_code).then( data => {
                                                        
                                 
                                                         // let batch = data.data[0].active_batch[0];
-                                                        console.log(data.data)
+                                                     
                                                         
                                                         if(Object.keys(data.data).length === 0){
-                                                            alert(course_code)
-                                                            if(course_code == "membership"){
-                                                                alert(course_code)
-                                                            }
+                                                           
                                 
                                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr>`);
                                 
@@ -490,7 +509,7 @@ function user_profile(){
                                                             
                                 
                                                             let batch = data.data[0].active_batch[0];
-                                                            console.log(batch,"Batchhhhh")
+                                                            
                                                             if(batch != undefined){
                                                                 
                                                                 localStorage.setItem('course_id',batch.course.id);
@@ -564,7 +583,7 @@ function user_profile(){
      
                                         let previous_month = current_month - 1;
                                          var end_date = new Date(latest_course_reg[0].batch.exam_start_date).getMonth();
-                                         // console.log(data.student_register[i],"Student Register")
+                                       
     
     
                                         if(previous_month <= current_month && end_date >= current_month){
@@ -821,7 +840,7 @@ function user_profile(){
                                         var date = new Date();
                                         let previous_month = date.setDate(date.getDate() - 6);
                                         var end_date = new Date(current_class.batch.exam_start_date);
-                                        console.log(data.student_register[i],"Student Register")
+                                       
 
 
                                         if(previous_month <= date && end_date >= date){
@@ -933,7 +952,7 @@ function user_profile(){
                             `);
                         }
                     }
-                    console.log()
+                  
 
                 })
 
@@ -1007,10 +1026,11 @@ $('.course_list').click(function(){
         type:'GET',
         success:function(res){
             let course = res.data;
-            console.log(typeof course)
+            
             $.each(course,function(i,v){
+                 
                 $('.course').append(`
-                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success mx-3">${v.name}</a>
+                    <a href="${FRONTEND_URL+show_url}${v.id}" target="_blank" class="btn btn-success my-3">${v.name}</a>
                 `)
             })
         }

@@ -98,35 +98,49 @@
                                   <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏အချက်အလက်များ') }}</label>
 
                                 </div>--}}
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('အီးမေးလ်') }}</label>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <input type="email" name="email" class="form-control" autocomplete='off' required placeholder="အီးမေးလ်လိပ်စာထည့်ပါ။">
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။">
+                                  <div class="col-md-7">
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                        <label class="col-md-3 col-form-label">{{ __('အီးမေးလ်') }}</label>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" autocomplete='off' required placeholder="အီးမေးလ်လိပ်စာထည့်ပါ။">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ် အတည်ပြုခြင်း') }}</label>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <input type="password" name="confirm_password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။">
-                                        </div>
-                                    </div>
-                                </div>
 
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                        <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="password" name="password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                        <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ် အတည်ပြုခြင်း') }}</label>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="password" name="confirm_password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။">
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-5">
+                                    <div class="col-md-5 pull-right">
+                                      <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                      <p class="mt-2">
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <br>
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                   <label class="col-md-3 col-form-label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
@@ -889,11 +903,11 @@
 
                         </div>
                     </div>
-                
-                
+
+
             </div>
-            
-           
+
+
         </div>
 
 

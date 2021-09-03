@@ -38,9 +38,12 @@ function createDARegister()
     }
     var send_data = new FormData();
 
-    var image = $('#image')[0].files[0];
+    var image = $('#profile_photo')[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
+    var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+
+    
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -54,6 +57,8 @@ function createDARegister()
     send_data.append('nrc_number', $("input[name=nrc_number]").val());
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
+    send_data.append('recommend_letter', recommend_letter);
+
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
     send_data.append('race', $("input[name=race]").val());
@@ -98,37 +103,7 @@ function createDARegister()
     
 
     send_data.append('batch_id', batch_id);
-    show_loader();
-    // var verify_code = localStorage.getItem("code");
-
-    // $.ajax({
-    //     url: BACKEND_URL+"/da_register",
-    //     type: 'post',
-    //     data:send_data,
-    //     contentType: false,
-    //     processData: false,
-    //     success: function(result){
-    //          if(result.name_mm!=null){
-    //              EasyLoading.hide();
-    //             successMessage("You have successfully registerd!");                
-    //             // location.reload();
-    //             location.href = FRONTEND_URL+'/' ;
-    //          }
-    //          else{
-    //             EasyLoading.hide();
-    //             successMessage(result);
-    //          }
-    //     },
-    //     error:function (message){
-    //         EasyLoading.hide();
-    //         errorMessage(message);
-    //         }
-    //     // },
-    //     // error:function (message){
-    //     //   // console.log(message)
-    //     //   successMessage(result);
-    //     // }
-    // });
+    // show_loader();
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -144,12 +119,7 @@ function createDARegister()
         error:function (message){
             EasyLoading.hide();
             errorMessage(message);
-            }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        }
     });
 }
 
@@ -171,12 +141,8 @@ function send_email()
         error:function (message){
             EasyLoading.hide();
             errorMessage(message);
-            }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        }
+
     });
 }
 
@@ -187,13 +153,14 @@ function check_email()
     var verify_code = obj.data.verify_code;
     var code = $("input[name=verify_code]").val();
     if(verify_code != code){
-        alert("Your code is not correct.Please check your email inbox again!");
-        $('#exampleModal1').modal('hide');
-        $('#exampleModal').modal('show');
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
     }else{
         $('#exampleModal1').modal('show');
         $('#exampleModal').modal('hide');
-    } 
+    }
 }
 
 function da_edit(){
@@ -315,7 +282,10 @@ function createDaTwoSelfStudy()
     localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('batch_id',$("input[name='batch_id']").val())
+    send_data.append('batch_id',$("input[name='batch_id']").val());
+    send_data.append('batch_no_self',$("input[name='batch_no_self']").val());
+    send_data.append('part_no_self',$("input[name='part_no_self']").val());
+    send_data.append('personal_no_self',$("input[name='personal_no_self']").val());
     send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
@@ -347,8 +317,10 @@ function createDaTwoPrivateSchool()
     localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('batch_id',$("input[name='batch_id']").val())
-
+    send_data.append('batch_id',$("input[name='batch_id']").val());
+    send_data.append('batch_no_private',$("input[name='batch_no_private']").val());
+    send_data.append('part_no_private',$("input[name='part_no_private']").val());
+    send_data.append('personal_no_private',$("input[name='personal_no_private']").val());
     send_data.append('type', 1);
     send_data.append('form_type', $("input[name='form_type']").val());
     if($("input[name='form_type']").val()=="da two"){
@@ -381,8 +353,10 @@ function createDaTwoMac()
     localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
-    send_data.append('batch_id',$("input[name='batch_id']").val())
-
+    send_data.append('batch_id',$("input[name='batch_id']").val());
+    send_data.append('batch_no_mac',$("input[name='batch_no_mac']").val());
+    send_data.append('part_no_mac',$("input[name='part_no_mac']").val());
+    send_data.append('personal_no_mac',$("input[name='personal_no_mac']").val());
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
@@ -429,28 +403,13 @@ function unique_email(){
     });
 }
 
-// function unique_nrc(){
-//     var send_data = new FormData();
-//     send_data.append('nrc_number',$("input[name='nrc_number']").val());
-//     $.ajax({
-//         url: BACKEND_URL+"/unique_nrc",
-//         type: 'post',
-//         data:send_data,
-//         contentType: false,
-//         processData: false,
-//         success: function(result){
-//             console.log(result)
-//             if(result){
-//                 alert("NRC has been used, please check again!");
-//                 $('#exampleModal').modal('hide');
-//             } 
-//         }
-//     });
-// }
-
 $('#submit').click(function(){
     if($('#email').val() == '' ){
         alert('Email can not be left blank');
+        return false;
+    }
+    if($('#profile_photo').val() == '' ){
+        alert('Profile Photo can not be left blank');
         return false;
     }
     if($('#password').val( ) == '') {
