@@ -249,6 +249,24 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
+        $('#profile').on('click', function(e) {
+    $('#file').click();
+});
+$('#file').change(function(e) {
+
+    var input = e.target;
+    if (input.files && input.files[0]) {
+    var file = input.files[0];
+
+    var reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onload = function(e) {
+        $('.dashes-label').css('color','transparent');
+        $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+    }
+    }
+})
         loadCPAFF();
         // if(course_type[2]==1){
         //     // console.log("DA");
