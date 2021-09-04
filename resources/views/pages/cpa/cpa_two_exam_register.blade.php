@@ -69,7 +69,7 @@
                                         လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ</h5>
                                     <br />
                                     {{-- <form method="post" id="cpa_exam_register" enctype="multipart/form-data"> --}}
-                                    <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                                    <form method="post" id="cpa_exam_form" action="javascript:void();" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
                                         <div class="col-md-12" id="is_private_school">
@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="col-md-5">
                                                 <input type="text" name="last_ans_exam_no" class="form-control"
-                                                    placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်">
+                                                    placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required="">
 
                                             </div>
                                         </div>
@@ -184,7 +184,7 @@
                                                     <label for="0">Module 1</label>
 
                                                     <input type="radio" id="1" name="is_full_module" value="1"
-                                                        style="margin-left: 3%;">
+                                                        style="margin-left: 3%;" checked="">
                                                     <label for="1">Module 2</label>
 
                                                     <input type="radio" id="2" name="is_full_module" value="2"
@@ -240,8 +240,7 @@
                                         <div class="row mb-3">
                                             <div class="col-md-2 offset-md-5">
                                                 {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button> --}}
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Submit
+                                                <button type="submit" id="cpa_exam" class="btn btn-success btn-hover-dark w-100">Submit
                                                 </button>
                                             </div>
                                         </div>
@@ -259,10 +258,10 @@
         </div>
     </div>
 
-    <!-- DA2 Exam Register -->
-    <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
+    <!-- CPA2 Exam Register -->
+    <form method="post" action="javascript:void();" enctype="multipart/form-data">
         @csrf
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cpaExamModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -288,23 +287,47 @@
                             <div class="col-sm-3 col-5">
                                 <div class='radio mx-auto'>
                                     <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%" height="50%"
-                                        data-value="CASH" name="payment_method">
+                                        data-value="CASH" name="payment_method" id="cpa_exam_payment">
                                 </div><br>
                                 <h5>CASH</h5>
                             </div>
                             <input type="hidden" name="payment_method" value="CASH">
                         </div>
                     </div><br>
-                    <div class="modal-footer">
+                    {{--<div class="modal-footer">
                         <center>
                             <button type="submit" id="btn1" class="btn btn-success btn-hover-dark w-100"
                                 data-bs-toggle="modal">Submit
                         </center>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
     </form>
+
+    <!-- cpa exam -->
+     <form method="post" class="needs-validation" id="cpa_exam_register" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="cpaExamPay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">CPA Two Exam Registeration Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
 
 
     <!-- JavaScript Section -->
@@ -343,10 +366,15 @@
 
         loadSchoolList();
 
-        $('#btn1').click(function() {
-            setTimeout(function() {
-                $('#exampleModal').modal('hide');
-            }, 1000);
+        // $('#btn1').click(function() {
+        //     setTimeout(function() {
+        //         $('#exampleModal').modal('hide');
+        //     }, 1000);
+        // });
+        $(document).on('click', '#cpa_exam_payment', function () {
+            setTimeout(function() {$('#cpaExamModal').modal('hide');}, 1000);
+            $('#cpaExamPay').modal('show');
+            return true;
         });
     </script>
 @endpush
