@@ -311,9 +311,7 @@ function createDaTwoSelfStudy()
 }
 
 function createDaTwoPrivateSchool()
-{
-
- 
+{ 
     localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
@@ -555,21 +553,3 @@ $('#da_submit').click(function(){
     return true;
 
 });
-
-
-$( "#btn_da_app_submit" ).click(function() {
-        if(allFilled('#da_app_form')){
-            $('#exampleModal').modal('show');
-        }
-        else{
-        }
-    });
-    function allFilled(form_id) {
-        var filled = true;
-        $(form_id+' input').each(function() {
-            console.log($(this).attr('id'));
-            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
-            
-        });
-        return filled;        
-    }

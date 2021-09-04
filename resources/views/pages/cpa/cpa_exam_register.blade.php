@@ -70,26 +70,24 @@
                                     <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
-                                        <div class="col-md-12 mt-3">
-                                                <div class="row mb-3">
-                                                        <div class="col-md-1">
-                                                                <label >၁။</label>
-                                                            
-                                                        </div>
-
+                                        <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                            <div class="col-md-12 mt-3">
+                                                <div id="is_private_school" style="display=none;">
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label"
+                                                            id="cpa1_label1">{{ _('၁။') }}</label>
+                                                        <label
+                                                            class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-6">
-                                                                <label class="col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
-                                                            
-                                                        </div>
-                                                        <div class="col-md-5">
                                                             <div class="form-group">
-                                                                <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
+                                                                <select class="form-control form-select"
+                                                                    name="private_school_name" id="selected_school_id"
+                                                                    style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
                                                             </div>
-                                                            
                                                         </div>
-
+                                                    </div><br />
                                                 </div>
 
                                                 {{--<div class="row">
@@ -110,7 +108,7 @@
                                                 <div class="row mb-3">
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
                                                     <div class="col-md-1">
-                                                                <label >၂။</label>
+                                                                <label id="cpa1_label2">၂။</label>
                                                             
                                                         </div>
                                                     <div class="col-md-1">
@@ -314,6 +312,22 @@
                 dateFormat: "d-m-Y",
                 allowInput: true,
         });
+
+
+        var boo = localStorage.getItem("isPrivateSchool");
+        $('#is_private').val(boo);
+        if (boo == "true") {
+            if (document.getElementById('is_private_school')) {
+                document.getElementById('is_private_school').style.display = 'block';
+                document.getElementById('cpa1_label1').innerHTML = "၁။";
+                document.getElementById('cpa1_label2').innerHTML = "၂။";
+            }
+        } else {
+            if (document.getElementById('is_private_school')) {
+                document.getElementById('is_private_school').style.display = 'none';
+                document.getElementById('cpa1_label2').innerHTML = "၁။";
+            }
+        }
        
     });
     

@@ -103,8 +103,8 @@
                                   <div class="col-md-7">
                                     <div class="row">
                                         <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                        <label class="col-md-3 col-form-label">{{ __('အီးမေးလ်') }}</label>
-                                        <div class="col-md-8">
+                                        <label class="col-md-4 col-form-label" style="padding-left:50px;">{{ __('အီးမေးလ်') }}</label>
+                                        <div class="col-md-7">
                                             <div class="form-group">
                                                 <input type="email" name="email" class="form-control" autocomplete='off' required placeholder="အီးမေးလ်လိပ်စာထည့်ပါ။">
                                             </div>
@@ -113,8 +113,8 @@
 
                                     <div class="row">
                                         <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                        <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
-                                        <div class="col-md-8">
+                                        <label class="col-md-4 col-form-label" style="padding-left:50px;">{{ __('လျို့ဝှက်နံပါတ်') }}</label>
+                                        <div class="col-md-7">
                                             <div class="form-group">
                                                 <input type="password" name="password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။">
                                             </div>
@@ -123,8 +123,8 @@
 
                                     <div class="row">
                                         <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                        <label class="col-md-3 col-form-label">{{ __('လျို့ဝှက်နံပါတ် အတည်ပြုခြင်း') }}</label>
-                                        <div class="col-md-8">
+                                        <label class="col-md-4 col-form-label" style="padding-left:50px;">{{ __('လျို့ဝှက်နံပါတ် အတည်ပြုခြင်း') }}</label>
+                                        <div class="col-md-7">
                                             <div class="form-group">
                                                 <input type="password" name="confirm_password" class="form-control" autocomplete='off' required placeholder="လျို့ဝှက်နံပါတ်ကို နောက်တစ်ကြိမ်ထပ်မံထည့်ပါ။">
                                             </div>
@@ -162,7 +162,7 @@
                                     <div class="col-md-8">
                                         <div class="row">
                                           <div class="col-md-2 col-5 pr-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" style="margin-top: 0px; margin-bottom: 0px;">
                                                 @foreach($nrc_regions as $region)
                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                         {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
