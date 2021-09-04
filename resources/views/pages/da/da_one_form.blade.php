@@ -87,8 +87,8 @@
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">Email</label>
-                                            <div class="col-md-8">
+                                            <label for="" class="col-md-4 col-form-label" style="padding-left:50px">Email</label>
+                                            <div class="col-md-7">
                                                 <input type="email" placeholder="Enter your Email address!" name="email"
                                                     class="form-control" value="{{ old('email') }}" required="">
                                                 @if ($errors->has('email'))
@@ -102,8 +102,8 @@
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">Password</label>
-                                            <div class="col-md-8">
+                                            <label for="" class="col-md-4 col-form-label" style="padding-left:50px">Password</label>
+                                            <div class="col-md-7">
                                                 <input type="password" placeholder="Enter your Password!" name="password"
                                                     class="form-control" value="{{ old('password') }}" required="">
                                             </div>
@@ -114,8 +114,8 @@
 
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                            <label for="" class="col-md-3 col-form-label">Confirm Password</label>
-                                            <div class="col-md-8">
+                                            <label for="" class="col-md-4 col-form-label" style="padding-left:50px">Confirm Password</label>
+                                            <div class="col-md-7">
                                                 <input type="password" placeholder="Enter your Password again!"
                                                     name="confirm_password" class="form-control" required="">
                                             </div>
@@ -134,11 +134,6 @@
                                     </div>
                                 </div>
                                 
- 
-                                
-                                   
-
-
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                         <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)'</label>
@@ -163,7 +158,7 @@
                                                 <div class="col-md-2 col-5 pr-1">
                                                     <select class="form-control" name="nrc_state_region"
                                                             id="nrc_state_region"
-                                                            style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
+                                                            style="margin-top: 0px ; margin-bottom: 0px;">
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -208,8 +203,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား
-                                            (အရှေ့)</label>
+                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                         <div class="col-md-8">
                                             <input type="file" accept="image/jpeg" name="nrc_front" class="form-control">
                                             <div class="form-text">Allowed Jpeg Image.</div>
@@ -220,8 +214,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား
-                                            (အနောက်)</label>
+                                        <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                         <div class="col-md-8">
                                             <input type="file" accept="image/jpeg" name="nrc_back" class="form-control">
                                             <div class="form-text">Allowed Jpeg Image.</div>
@@ -405,7 +398,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-2 pt-2">
                                             <div class="form-check">
                                                 <div class="row">
                                                     <div class="col-md-4"><input type="radio"
@@ -413,7 +406,7 @@
                                                                                  name="gov_staff" value="0"
                                                                                  style="margin-left: 3%;" required onclick="selectStaff()">
                                                     </div>
-                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
+                                                    <div class="col-md-8"><label class="form-check-label" for="no">မဟုတ်</label>
                                                         <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                             ရွေးချယ်ပါ
                                                         </div>
@@ -430,7 +423,7 @@
                                         <div class="row  "  >
                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                                 <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
-                                                <label for="" class="col-md-2 col-form-labe mt-1"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                <label for="" class="col-md-3 col-form-labe mt-1"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                 
                                                 <div class="col-md-7"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
@@ -442,8 +435,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
-                                        <label for="" class="col-md-11 col-form-label">တက္ကသိုလ်တစ်ခုခုမှ
-                                            အောင်မြင်ပြီးခဲ့သော</label>
+                                        <label for="" class="col-md-11 col-form-label">တက္ကသိုလ်တစ်ခုခုမှ အောင်မြင်ပြီးခဲ့သော</label>
                                     </div>
                                     <br>
 
@@ -497,8 +489,7 @@
                                         <div class="row mb-3" id="edu0">
                                             <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                             <label for="" class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                            <label for="" class="col-md-3 col-form-labe mt-1"> Attached
-                                                Certificate</label>
+                                            <label for="" class="col-md-3 col-form-labe mt-1"> Attached Certificate</label>
 
                                             <div class="col-md-6" id="degree_edu">
                                                 <input type="file" class="form-control" id="certificate0"
@@ -519,9 +510,8 @@
                                         <div class="col-md-2 offset-md-5">
                                         {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
                                         <!-- Button trigger modal -->
-                                            <button type="submit" onclick="send_email()"
-                                                    class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal">
+                                            <button type="button" id="submit" value="submit" 
+                                                    class="btn btn-success btn-hover-dark w-100">
                                                 Submit
                                             </button>
                                         </div>
@@ -549,31 +539,30 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label>You need to verify your email address.Please check your registered email's
-                                inbox!</label>
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Enter your Verification Code</label>
-                            <input type="text" class="form-control" name="verify_code"
-                                   placeholder="Enter your Verification Code">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <center>
-                            <button type="submit" id="btn1" onclick="check_email()"
-                                    class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal1">Submit
-                            </button>
-                        </center>
-                    </div>
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div><br>
+                          <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 123456)"></center>
+                          </div>
+                      </div>
+                      <center>
+                          <button type="submit" id="btn1" onclick="check_email()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          </button>
+                      </center><br>
+                      <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                      </div><br><br>
                 </div>
             </div>
         </div>
     </form>
 
     <!-- Modal 2 -->
-    <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data"
+    <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -605,7 +594,7 @@
                             <div class="col-sm-3 col-5">
                                 <div class='radio mx-auto'>
                                     <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method">
+                                         data-value="CASH" name="payment_method" id="channel">
                                 </div>
                                 <br>
                                 <h5>CASH</h5>
@@ -614,16 +603,40 @@
                         </div>
                     </div>
                     <br>
-                    <div class="modal-footer">
+                    {{--<div class="modal-footer">
                         <center>
                             <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100"
                                     data-bs-toggle="modal">Submit
                         </center>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
     </form>
+
+    <!-- Modal 3 -->
+     <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Apppcation Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
     <!-- JavaScript Section -->
     <script>
         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -687,11 +700,11 @@
                 }
             }
 
-            $('#btn1').click(function () {
-                setTimeout(function () {
-                    $('#exampleModal').modal('hide');
-                }, 1000);
-            });
+            // $('#btn1').click(function () {
+            //     setTimeout(function () {
+            //         $('#exampleModal').modal('hide');
+            //     }, 1000);
+            // });
 
             $('#btn2').click(function () {
                 setTimeout(function () {
@@ -699,6 +712,12 @@
                 }, 1000);
                 // successMessage("You have successfully registerd!");
                 // location.href = FRONTEND_URL + '/';
+            });
+
+            $(document).on('click', '#channel', function () {
+                setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
+                $('#exampleModal2').modal('show');
+                return true;
             });
 
         });

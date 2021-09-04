@@ -11,7 +11,7 @@ function CPA_Check(){
     var checkBox = document.getElementById("cpa_check");
     if (checkBox.checked == true){
     document.getElementById("cpa_edu").style.display = "block";
-    } 
+    }
     else{
     document.getElementById("cpa_edu").style.display = "none";
     }
@@ -21,7 +21,7 @@ function RA_Check(){
     var checkBox = document.getElementById("ra_check");
     if (checkBox.checked == true){
     document.getElementById("ra_edu").style.display = "block";
-    } 
+    }
     else{
     document.getElementById("ra_edu").style.display = "none";
     }
@@ -33,7 +33,7 @@ function Degree_Check(){
         document.getElementById("edu").style.display="block";
         document.getElementById("add_div").style.display="block";
 
-    } 
+    }
     else{
     document.getElementById("edu").style.display="none";
     document.getElementById("add_div").style.display="none";
@@ -43,28 +43,28 @@ function Degree_Check(){
 var count=1;
 function Add(){
     $("#edu").append(
-        '<div class="row mb-2" id="degree_name'+count+'">'+  
-            '<div class="col-md-1"></div>'+                                                     
-            '<div class="col-md-4 col-auto">'+                                                              
+        '<div class="row mb-2" id="degree_name'+count+'">'+
+            '<div class="col-md-1"></div>'+
+            '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
             '</div>'+
-            '<div class="col-md-6 col-auto">'+                                                            
+            '<div class="col-md-6 col-auto">'+
                 '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
-            '</div>'+                                                           
+            '</div>'+
         '</div>'+
-        '<div class="row mb-2" id="degree_year'+count+'">'+  
-            '<div class="col-md-1"></div>'+                                                         
-            '<div class="col-md-4 col-auto">'+                                                              
+        '<div class="row mb-2" id="degree_year'+count+'">'+
+            '<div class="col-md-1"></div>'+
+            '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
-            '<div class="col-md-6 col-auto">'+                                                              
+            '<div class="col-md-6 col-auto">'+
                 '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
-            '</div>'+                                                           
+            '</div>'+
         '</div>'+
 
         '<div class="row mb-4" id="edu'+count+'">'+
             '<div class="col-md-1"></div>'+
-            '<div class="col-md-4 col-auto">'+                                                             
+            '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
@@ -99,7 +99,7 @@ function remove(id){
 //     var nrc_township = $("#nrc_township").val();
 //     var nrc_citizen = $("#nrc_citizen").val();
 //     var nrc_number=$("input[name=nrc_number]").val();
-    
+
 //     var nrc = new FormData();
 //     nrc.append('nrc_state_region', nrc_state_region);
 //     nrc.append('nrc_township', nrc_township);
@@ -221,7 +221,7 @@ function isLoginPAPP(){
                 if(data!=null){
                     var a=new Date(data.accepted_date);
                     var diff_ms = Date.now() - a.getTime();
-                    var age_dt = new Date(diff_ms); 
+                    var age_dt = new Date(diff_ms);
                     var age=Math.abs(age_dt.getUTCFullYear() - 1970);
                     if(age>=1){
                         $("#cpa_age").append(age+" years");
@@ -274,7 +274,7 @@ function Papp_feedback(){
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                         $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                         $('.renew_submit').prop('disabled', false);
-                        
+
                     }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                         $("#message").val("Your registeration will start in "+y+" year!");
                         $('.renew_submit').prop('disabled', true);
@@ -282,7 +282,7 @@ function Papp_feedback(){
                         $('#message').val("You are verified!");
                         $('.renew_submit').prop('disabled', true);
                     }
-                    
+
                 }
                 else if(data.status==2 || data.renew_status==2)
                 {
@@ -320,7 +320,7 @@ function loadPAPP(){
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                         $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                         $('.renew_submit').prop('disabled', false);
-                        
+
                     }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                         $("#message").val("Your registeration will start in "+y+" year!");
                         $('.renew_submit').prop('disabled', true);
@@ -328,12 +328,13 @@ function loadPAPP(){
                         $('#message').val("You are verified!");
                         $('.renew_submit').prop('disabled', true);
                     }
-                    
+                    $('#previewImg').attr("src",BASE_URL+data.profile_photo);
+
                 }else{
                     document.getElementById('papp_initial').style.display='block';
                     document.getElementById('papp_renew_form').style.display='none';
                 }
-                
+
             }
             else{
                 document.getElementById('papp_initial').style.display='block';
@@ -353,21 +354,26 @@ function RenewPAPP(){
             // successMessage("Insert Successfully");
             // location.reload();
             if(result.data!=null){
-                var renew_file =   $("input[name=renew_file]")[0].files[0];
-                var renew_papp_reg    =   $("input[name=renew_papp_reg]")[0].files[0];
-                var renew_micpa       =   $("input[name=renew_micpa]")[0].files[0];
-                var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
-                var renew_183_recomm    =   $("input[name=renew_183_recomm]")[0].files[0];
-                var renew_not_fulltime_recomm       =   $("input[name=renew_not_fulltime_recomm]")[0].files[0];
-                var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
+                // var renew_file =   $("input[name=renew_file]")[0].files[0];
+                // var renew_papp_reg    =   $("input[name=renew_papp_reg]")[0].files[0];
+                // var renew_micpa       =   $("input[name=renew_micpa]")[0].files[0];
+                // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
+                // var renew_183_recomm    =   $("input[name=renew_183_recomm]")[0].files[0];
+                // var renew_not_fulltime_recomm       =   $("input[name=renew_not_fulltime_recomm]")[0].files[0];
+                // var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
+
+                var profile_photo = $("input[name=profile_photo]")[0].files[0];
                 var data = new FormData();
-                data.append('renew_file', renew_file);
-                data.append('renew_papp_reg', renew_papp_reg);
-                data.append('renew_micpa', renew_micpa);
-                data.append('renew_cpd', renew_cpd);
-                data.append('renew_183_recomm', renew_183_recomm);
-                data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
-                data.append('renew_rule_confession', renew_rule_confession);
+
+                // data.append('renew_file', renew_file);
+                // data.append('renew_papp_reg', renew_papp_reg);
+                // data.append('renew_micpa', renew_micpa);
+                // data.append('renew_cpd', renew_cpd);
+                // data.append('renew_183_recomm', renew_183_recomm);
+                // data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
+                // data.append('renew_rule_confession', renew_rule_confession);
+
+                data.append('profile_photo', profile_photo);
                 data.append('_method', 'PUT');
                 $.ajax({
                     url: BACKEND_URL+"/papp/"+result.data.id,

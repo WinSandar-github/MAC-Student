@@ -103,37 +103,7 @@ function createDARegister()
     
 
     send_data.append('batch_id', batch_id);
-    show_loader();
-    // var verify_code = localStorage.getItem("code");
-
-    // $.ajax({
-    //     url: BACKEND_URL+"/da_register",
-    //     type: 'post',
-    //     data:send_data,
-    //     contentType: false,
-    //     processData: false,
-    //     success: function(result){
-    //          if(result.name_mm!=null){
-    //              EasyLoading.hide();
-    //             successMessage("You have successfully registerd!");                
-    //             // location.reload();
-    //             location.href = FRONTEND_URL+'/' ;
-    //          }
-    //          else{
-    //             EasyLoading.hide();
-    //             successMessage(result);
-    //          }
-    //     },
-    //     error:function (message){
-    //         EasyLoading.hide();
-    //         errorMessage(message);
-    //         }
-    //     // },
-    //     // error:function (message){
-    //     //   // console.log(message)
-    //     //   successMessage(result);
-    //     // }
-    // });
+    // show_loader();
 
     $.ajax({
         url: BACKEND_URL+"/da_register",
@@ -149,12 +119,7 @@ function createDARegister()
         error:function (message){
             EasyLoading.hide();
             errorMessage(message);
-            }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        }
     });
 }
 
@@ -176,12 +141,8 @@ function send_email()
         error:function (message){
             EasyLoading.hide();
             errorMessage(message);
-            }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        }
+
     });
 }
 
@@ -192,8 +153,14 @@ function check_email()
     var verify_code = obj.data.verify_code;
     var code = $("input[name=verify_code]").val();
     if(verify_code != code){
-        alert("You code is not correct.Please check your email inbox again!");
-    } 
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        $('#exampleModal1').modal('show');
+        $('#exampleModal').modal('hide');
+    }
 }
 
 function da_edit(){
@@ -344,9 +311,7 @@ function createDaTwoSelfStudy()
 }
 
 function createDaTwoPrivateSchool()
-{
-
- 
+{ 
     localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
@@ -411,3 +376,181 @@ function createDaTwoMac()
     }
     });
 }
+
+function unique_email(){
+    var send_data = new FormData();
+    send_data.append('email',$("input[name='email']").val());
+    send_data.append('nrc_number',$("input[name='nrc_number']").val());
+    $.ajax({
+        url: BACKEND_URL+"/unique_email",
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            console.log(result)
+            if(result){
+                alert("Email or NRC has been used, please check again!");
+                $('#exampleModal').modal('hide');
+            }else{
+                $('#exampleModal').modal('show');
+                send_email();
+                return true; 
+            }
+        }
+    });
+}
+
+$('#submit').click(function(){
+    if($('#email').val() == '' ){
+        alert('Email can not be left blank');
+        return false;
+    }
+    if($('#profile_photo').val() == '' ){
+        alert('Profile Photo can not be left blank');
+        return false;
+    }
+    if($('#password').val( ) == '') {
+       alert('Password can not be left blank');
+       return false;
+    }
+    if($('#confirm_password').val( ) == '') {
+       alert('Confirm Password can not be left blank');
+       return false;
+    }
+    if($('#name_mm').val( ) == '') {
+       alert('Name can not be left blank');
+       return false;
+    }
+    if($('#name_eng').val( ) == '') {
+       alert('Name can not be left blank');
+       return false;
+    }
+    if($('#nrc_state_region').val( ) == '') {
+       alert('NRC state region can not be left blank');
+       return false;
+    }
+    if($('#nrc_township').val( ) == '') {
+       alert('NRC township can not be left blank');
+       return false;
+    }
+    if($('#nrc_citizen').val( ) == '') {
+       alert('NRC citizen can not be left blank');
+       return false;
+    }
+    if($('#nrc_number').val( ) == '') {
+       alert('NRC No. can not be left blank');
+       return false;
+    }
+    if($('#nrc_front').val( ) == '') {
+       alert('NRC front image can not be left blank');
+       return false;
+    }
+    if($('#nrc_back').val( ) == '') {
+       alert('NRC back image can not be left blank');
+       return false;
+    }
+    if($('#father_name_mm').val( ) == '') {
+       alert('Father name can not be left blank');
+       return false;
+    }
+    if($('#father_name_eng').val( ) == '') {
+       alert('Father name can not be left blank');
+       return false;
+    }
+    if($('#race').val( ) == '') {
+       alert('Race can not be left blank');
+       return false;
+    }
+    if($('#religion').val( ) == '') {
+       alert('Religion can not be left blank');
+       return false;
+    }
+    if($('#date_of_birth').val( ) == '') {
+       alert('DOB can not be left blank');
+       return false;
+    }
+    if($('#phone').val( ) == '') {
+       alert('Phone No. can not be left blank');
+       return false;
+    }
+    if($('#address').val( ) == '') {
+       alert('Address can not be left blank');
+       return false;
+    }
+    if($('#current_address').val( ) == '') {
+       alert('Address can not be left blank');
+       return false;
+    }
+    if($('#image').val( ) == '') {
+       alert('Image can not be left blank');
+       return false;
+    }
+    if($('#name').val( ) == '') {
+       alert('Work name can not be left blank');
+       return false;
+    }
+    if($('#position').val( ) == '') {
+       alert('Work position can not be left blank');
+       return false;
+    }
+    if($('#department').val( ) == '') {
+       alert('Department can not be left blank');
+       return false;
+    }
+    if($('#organization').val( ) == '') {
+       alert('Organization can not be left blank');
+       return false;
+    }
+    if($('#company_name').val( ) == '') {
+       alert('Company Name can not be left blank');
+       return false;
+    }
+    if($('#salary').val( ) == '') {
+       alert('Salary can not be left blank');
+       return false;
+    }
+    if($('#office_address').val( ) == '') {
+       alert('Office address can not be left blank');
+       return false;
+    }
+    if($('#degree_name').val( ) == '') {
+       alert('Degree name can not be left blank');
+       return false;
+    }
+    if($('#university_name').val( ) == '') {
+       alert('University name can not be left blank');
+       return false;
+    }
+    if($('#roll_number').val( ) == '') {
+       alert('Roll No. can not be left blank');
+       return false;
+    }
+    if($('#qualified_date').val( ) == '') {
+       alert('Qualified date can not be left blank');
+       return false;
+    }
+    if($('#certificate0').val( ) == '') {
+       alert('Degree can not be left blank');
+       return false;
+    }
+    if($('#email').val() != null){
+        unique_email();
+        return false;
+    }
+    if($('#nrc_number').val() != null){
+        unique_email();
+        // unique_nrc();
+        return false;
+    }
+    
+    if($('#password').val() != $('#confirm_password').val()){
+        alert('Password and Confirm Password does not match!');
+        return false;
+    }
+
+    $('#exampleModal').modal('show');
+    send_email();
+    return true;
+
+});
