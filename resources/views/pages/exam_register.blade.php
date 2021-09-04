@@ -61,7 +61,7 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                        <form method="post" action="javascript:void();" id="da_exam_register_form" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
@@ -108,7 +108,7 @@
                                         <label class="col-md-1 col-form-label">(က)</label>
                                         <label class="col-md-5 col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="date" class="form-control" placeholder="MMM-YYYY" required>
+                                            <input type="text" name="date" class="form-control" placeholder="MMM-YYYY" >
                                         </div>
                                     </div>
 
@@ -135,17 +135,17 @@
                                         <label class="col-md-1 col-form-label">(ခ)</label>
                                         <label class="col-md-5 col-form-label">ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-6">
-                                            <div class="row">
+                                            <div class="row" >
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="0" name="is_full_module" value="0">
+                                                    <input type="radio" id="0" name="is_full_module" value="0" required>
                                                     <label for="0">Module 1</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
+                                                    <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;" required>
                                                     <label for="1">Module 2</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
+                                                    <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
                                             </div> 
@@ -185,7 +185,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100"   data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" id="btn_da_exam_submit">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
 
@@ -273,5 +273,23 @@
     }); 
 
     
+</script>
+<script>
+    $( "#btn_da_exam_submit" ).click(function() {
+        if(allFilled('#da_exam_register_form')){
+            $('#paymentModal').modal('show');
+        }
+        else{
+        }
+    });
+    function allFilled(form_id) {
+        var filled = true;
+        $(form_id+' input').each(function() {
+            console.log($(this).attr('id'));
+            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+            if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+        });
+        return filled;        
+    }
 </script>
 @endpush
