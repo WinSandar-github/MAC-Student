@@ -14,9 +14,9 @@ function createSchoolRegister(){
     send_data.append('password',$("input[name=password]").val());
     send_data.append('name_mm',$("input[name=name_mm]").val());
     send_data.append('name_eng',$("input[name=name_eng]").val());
-    send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
-    send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
-    send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
+    send_data.append('nrc_state_region', $("#nrc_state_region ").val());//+ .nice-select spantext().trim()
+    send_data.append('nrc_township', $("#nrc_township ").val());
+    send_data.append('nrc_citizen', $("#nrc_citizen").val());
     send_data.append('nrc_number', $("#nrc_number").val());
     send_data.append('father_name_mm',$("input[name=father_name_mm]").val());
     send_data.append('father_name_eng',$("input[name=father_name_eng]").val());
@@ -27,7 +27,8 @@ function createSchoolRegister(){
           val[i] = $(this).val();
         });
         //console.log("val >>>",val);
-    send_data.append('school_type',val);
+   // send_data.append('school_type',val);
+    $('input[name="school_type[]"]:checked').map(function(){send_data.append('school_type[]',$(this).val())});
     send_data.append('attachment',$("input[name=attachment]").val());
     send_data.append('address',$("textarea[name=address]").val());
     send_data.append('phone',$("input[name=phone]").val());
@@ -129,12 +130,8 @@ function createSchoolRegister(){
         contentType: false,
         processData: false,
         success: function (data) {
-            // setTimeout(() => {
-            //     Easyloading.hide()
-            //
-            // }, 2000);
-            //
-            // successMessage(data.message);
+            Easyloading.hide()
+            successMessage(data.message);
             // location.href=FRONTEND_URL+'/';
             //resetForm("#school_register_form");
         },
@@ -337,13 +334,37 @@ function loadRenewSchool(id){
       success: function (result) {
           var school=result.data;
           if(school.approve_reject_status==1){
-                document.getElementById('school').style.display='none';
+                document.getElementById('shcool').style.display='none';
                 document.getElementById('school_renew_form').style.display='block';
                 var accept=new Date(school.renew_date);
                 var month=accept.getMonth()+1;
                 var year=accept.getFullYear();
                 var y=year+1;
                 var now=new Date();
+                $('input[name=name_mm]').val(school.name_mm);
+                $('input[name=name_eng]').val(school.name_eng);
+                $('input[name=father_name_mm]').val(school.father_name_mm);
+                $('input[name=father_name_eng]').val(school.father_name_eng);
+                $('input[name=nrc_state_region]').val(school.nrc_state_region);
+                $('input[name=nrc_township]').val(school.nrc_township);
+                $('input[name=nrc_citizen]').val(school.nrc_citizen);
+                $('input[name=nrc_number]').val(school.nrc_number);
+                $('input[name=dob]').val(school.date_of_birth);
+                $('input[name=degree]').val(school.degree);
+                $('input[name=phone]').val(school.phone);
+                $('textarea[name=address]').val(school.address);
+                var type=school.type.split(',');
+                type.forEach(function(e){
+                  $('#school'+e).prop("checked", true);
+                  
+                })
+                //$('input[name=school_name]').val(school.school_name);
+                // $('#previewImg').attr("src",BASE_URL+school.image);
+                
+                // $('#hidden_nrc_front').val(school.nrc_front);
+                // $('#hidden_nrc_back').val(school.nrc_back);
+                // $("#nrc_front_img").attr("src",BASE_URL+school.nrc_front);
+                // $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
                 $('#regno').val(school.id);
                 $('#register_date').val(school.renew_date);
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){

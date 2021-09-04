@@ -5,4 +5,16 @@
 #direct,#entry_pass,#active_entrance,#non_active{
     display: none;
 }
-
+.form-group{
+    margin-bottom: 1rem;
+}
+.list {
+    max-height: 350px;
+    overflow-y: auto !important;
+}
+.renew-label{
+    padding-left:45px !important;
+}
+.label{
+    text-align: right;
+}
