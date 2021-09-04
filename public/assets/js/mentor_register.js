@@ -108,7 +108,6 @@ function createMentorRegister(){
       contentType: false,
       processData: false,
       success: function (data) {
-        console.log(data);
             EasyLoading.hide();
           successMessage(data.message);
           resetForm("#mentor_register_form");

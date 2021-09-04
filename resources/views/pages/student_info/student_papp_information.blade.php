@@ -109,16 +109,16 @@
 														</div>
 												</div>
 												<div class="col-md-5">
-														<h5 class="mt-2"><strong>Form Fees</strong></h5>
+														<h5 class="mt-2"><strong>Course Fees</strong></h5>
 														<hr>
 														<div class="info-list">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC</strong> <span></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Privat School</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Exam Fee</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Tution Fee</strong></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong></li>
+																		<!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong></li> -->
+																		<li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong></li>
 																		<li><i class="icofont-ui-note"></i> <strong>Description</strong></li>
 																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
 																		<div class="pull-right mt-4">
@@ -134,56 +134,97 @@
 									</div>
 								</div>
 
-                                <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/>
-                            <h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>                   
+                        <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/>
+                    				<h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
                             <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data">
-                                <div class="card-body">
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="20%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="text" class="form-control" id="regno" readonly>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="20%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Applied Date</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="text" class="form-control" id="register_date" readonly>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="20%">
-                                                <div class="single-form">
-                                                    <label class="col-form-label">Status</label>
-                                                </div>
-                                            </td>
-                                            <td width="75%">
-                                                <div class="single-form">
-                                                    <input type="text" class="form-control" id="message" readonly="">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><br/>
-                                    <div class="row ">
-                                        <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
-                                        </div>
-                                    </div>
+                            	<div class="card-body">
+                                  {{--<table width="100%">
+                                      <tr>
+                                          <td width="20%">
+                                              <div class="single-form">
+                                                  <label class="col-form-label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
+                                              </div>
+                                          </td>
+                                          <td width="75%">
+                                              <div class="single-form">
+                                                  <input type="text" class="form-control" id="regno" readonly>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td width="20%">
+                                              <div class="single-form">
+                                                  <label class="col-form-label">Applied Date</label>
+                                              </div>
+                                          </td>
+                                          <td width="75%">
+                                              <div class="single-form">
+                                                  <input type="text" class="form-control" id="register_date" readonly>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td width="20%">
+                                              <div class="single-form">
+                                                  <label class="col-form-label">Status</label>
+                                              </div>
+                                          </td>
+                                          <td width="75%">
+                                              <div class="single-form">
+                                                  <input type="text" class="form-control" id="message" readonly="">
+                                              </div>
+                                          </td>
+                                      </tr>
+                                  </table>--}}
+
+																	<div class="row">
+																		<div class="col-md-9">
+																			<div class="row">
+																					<label class="col-md-1 col-form-label" >{{ __('') }}</label>
+																					<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('သင်တန်းဆရာမှတ်ပုံတင်အမှတ်') }}</label>
+																					<div class="col-md-7">
+																							<div class="form-group single-form">
+																								<input type="text" class="form-control" id="regno" readonly>
+																							</div>
+																					</div>
+																			</div>
+																			<div class="row">
+																					<label class="col-md-1 col-form-label" >{{ __('') }}</label>
+																					<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
+																					<div class="col-md-7">
+																							<div class="form-group single-form">
+																								<input type="text" class="form-control" id="register_date" readonly>
+																							</div>
+																					</div>
+																			</div>
+																			<div class="row">
+																					<label class="col-md-1 col-form-label" >{{ __('') }}</label>
+																					<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Status') }}</label>
+																					<div class="col-md-7">
+																							<div class="form-group single-form">
+																								<input type="text" class="form-control" id="message" readonly="">
+																							</div>
+																					</div>
+																			</div>
+																		</div>
+																		<div class="col-md-3">
+																			<div class="col-md-8 pull-right mt-3">
+																				<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+																				<p class="mt-2">
+																					<input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" required>
+																				</p>
+																			</div>
+																		</div>
+																	</div>
+																	<br/>
+                                  <div class="row ">
+                                      <div class="col-md-2 offset-md-5">
+                                          <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
+                                      </div>
+                                  </div>
                                 </div>
                             </form>
-                        </div>
+                      	</div>
             </div>
         </div>
     </div>
