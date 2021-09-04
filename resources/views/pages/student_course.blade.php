@@ -272,17 +272,19 @@
                                                                 @break
                                                                 @endforeach
                                                                 @else
-                                                                      <dt class="col-md-6 text-end my-1">Accept
+                                                                    <div class="row">
+                                                                     {{-- <dt class="col-md-6 text-end my-1">Accept
                                                                             Application Start Date</dt>
 
                                                                         <dd class="col-md-6 my-1"> -  </dd> 
                                                                       <dt class="col-md-6 text-end my-1">Accept
                                                                             Application End Date</dt>
                                                                         <dd class="col-md-6 my-1">  -  </dd> 
-                                                                    </ul>
-                                                                    <div class="col-md-3"></div>
+                                                                    --}}
+                                                                    <div class="col-md-12">
                                                                     <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Coming Soon...</p>
-                                                                @endif
+                                                                    </div>
+                                                                    @endif
                                                             </div>
                                                 </div>
                                             </div>

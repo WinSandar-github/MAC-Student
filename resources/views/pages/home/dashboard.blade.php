@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-10 offset-md-1 mb-2">
-                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100" disabled>{{ __('Update Profile') }}</button>
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100" disabled  id="update_profile">{{ __('Update Profile') }}</button>
                                             </div> 
                                     </div>
                                 </div>
@@ -533,22 +533,101 @@
     </div>
 
 <!-- update profile -->
-<div class="modal fade" id="profileModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="profileModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="container-fluid">          
+            <div class="row">
+                <div class="col-md-7">
+
+                    <div class="row">
+                        <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                        <label for="" class="col-md-3 col-form-label">Email</label>
+                        <div class="col-md-8">
+                            <input type="email" placeholder="Enter your Email address!" name="email"
+                                class="form-control"   id="update_email" required="">
+                            @if ($errors->has('email'))
+                                <span class="text-danger">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <br>
+
+                    {{--  <div class="row">
+                        <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                        <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
+                        <div class="col-md-8">
+                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                    class="form-control" required="" id="name_mm">
+                        </div>
+                         
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                        <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
+                         
+                        <div class="col-md-8">
+                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng"
+                                    class="form-control" required="">
+                        </div>
+                    </div>
+                    <br> --}}
+                    <div class="row">
+                        <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                        <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
+                        <div class="col-md-8">
+                            <input type="text" name="date_of_birth" class="form-control date_of_birth"
+                                    placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" required  >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                        <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                        <div class="col-md-8">
+                            <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone"  id="update_phone"
+                                    class="form-control"   required="">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                        <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
+                        <div class="col-md-8">
+                            <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" id="update_address"
+                                    class="form-control"   required="">
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md-5">
+                    <div class="align-content-end  pull-right">
+                        <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                        <p class="mt-2 " style="margin-right: 10px;">
+                        <input type="file" class="custom-file-input" id="profile_photo"  name="image"
+                            value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
+                        </p>
+                        <div class="form-text mb-2">Allowed Jpeg Image.</div>
+
+                    </div>
+                </div>
+            </div>
+            </div>  
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-</div>    
+</div>
+

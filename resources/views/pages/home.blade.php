@@ -21,6 +21,13 @@
                 user_profile();
             }
 
+            
+            $("input[name='date_of_birth']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true,
+            });
+
         })
     </script>
 @endpush

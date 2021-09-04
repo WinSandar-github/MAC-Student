@@ -994,6 +994,13 @@ function formatDate(value) {
 
 
 $('#update_profile').click(function(){
+    let student = JSON.parse(localStorage.getItem('studentinfo'));
+    alert(student.date_of_birth)
+    $('#email').val(student.email);
+    $('.date_of_birth').val(student.date_of_birth);
+    $('#phone').val(student.phone);
+    $('#address').val(student.address);
+
     $('#profileModel').modal('show')
 
 })

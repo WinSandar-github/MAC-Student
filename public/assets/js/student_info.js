@@ -468,9 +468,7 @@ function app_form_feedback() {
     } else {
         
         $('.application').show();
-        $('.exam').show();
-
-        $('.registration').show();
+     
 
         for (var i = 0; i < course_length; ++i) {
            
