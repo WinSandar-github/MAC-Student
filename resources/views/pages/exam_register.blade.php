@@ -199,7 +199,8 @@
         </div>
     </div>
     <!-- Modal Payment -->
-<form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+    
+{{--<form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
     @csrf
     <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -239,7 +240,72 @@
         </div>
     </div>
     </div>
-</form>
+</form>--}}
+    <!-- DA2 Exam Register -->
+    <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+        novalidate>
+        @csrf
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div><br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center mb-4 radio-group">
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
+                                        height="50%" data-value="CBPAY" name="payment_method">
+                                </div><br>
+                                <h5>CBPay</h5>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%" height="50%"
+                                        data-value="MPU" name="payment_method">
+                                </div><br>
+                                <h5>MPU</h5>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
+                                        height="50%" data-value="CASH" name="payment_method" id="channel">
+                                </div><br>
+                                <h5>CASH</h5>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                        </div>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- DA2 Exam Modal -->
+     <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Exam Registeration Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
