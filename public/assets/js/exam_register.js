@@ -77,7 +77,7 @@ $('#cpa_exam_register').submit(function(e){
              localStorage.setItem('approve_reject', 1);
              location.href = FRONTEND_URL + "/";
 
-            //successMessage(result);
+            successMessage(result);
       }
     });
 
@@ -85,12 +85,15 @@ $('#cpa_exam_register').submit(function(e){
 
 $('#da2submit').click(function(){
     if($('#last_exam_date').val() == '' ){
-        alert('Exam date can not be left blank');
+        Swal.fire('Last Exam date can not be left blank');
         return false;
-    }else{
-        $('#exampleModal').modal('show');
-        return true;
     }
+    if($('#date').val() == '' ){
+        Swal.fire('Exam date can not be left blank');
+        return false;
+    }
+    $('#exampleModal').modal('show');
+    return true;
 
 });
 
