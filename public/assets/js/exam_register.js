@@ -45,9 +45,23 @@ function createDAExamRegister()
 
 $('#cpa_exam_register').submit(function(e){
     e.preventDefault();
+
+    var school_id;
+    var school_name;
+    if($("#is_private").val() =="true" ){
+        school_id = $("#selected_school_id").val();
+        school_name = $("#selected_school_id option:selected").text();
+    }
+    else{
+        school_id = 0;
+        school_name = " ";
+    }
+
     var form_data = new FormData(this);
     form_data.append('form_type',$("#form_type").val());
     form_data.append('student_id',student_id);
+    form_data.append('private_school_id', school_id);
+    form_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
     console.log('form_type',$("input[name=form_type]").val());
