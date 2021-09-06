@@ -143,7 +143,7 @@
                     <h5 class="card-title text-center">ကျောင်းမှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားလွှာ</h5> <br/>                   
                     
                     <div class="card-body">
-                            <form method="post" action="javascript:renewSchool();" enctype="multipart/form-data">
+                            <form method="post" action="javascript:renewSchool();" enctype="multipart/form-data" id="school_renew_form_data">
                                 
 
                                 <div class="row">
@@ -182,9 +182,10 @@
                                     <div class="col-md-5 pull-right">
                                       <img class="col-md-3 profile-style" id="previewImg"  accept="image/png,image/jpeg" alt="">
                                       <p class="mt-2">
-                                        <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                        <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                       </p>
                                     </div>
+                                    
                                   </div>
                                 </div>
                                 <br>
@@ -241,12 +242,16 @@
                                         </div>
                                     </div>
                                 </div><br>
-
                                 <div class="row">
+                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
+                                    <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                    <label for="" class="col-md-3 col-form-label ">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                </div>
+                                <div class="row">
+                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
                                     
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <input type="hidden" id="hidden_nrc_front">
                                                 <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
@@ -260,12 +265,7 @@
                                                 </p>
                                        
                                     </div>
-                                </div><br>
-
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <input type="hidden" id="hidden_nrc_back">
                                             <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="">
                                             <p class="mt-2">
@@ -358,9 +358,13 @@
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                     <label class="col-md-6 col-form-label label">{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}</label>
-                                    <div class="col-md-5">
+                                    <div class="col-md-1 view_attachment">
+
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="mb-3 col-auto">
-                                            <input type="file" id="attachment" name="attachment" class="form-control" accept="application/pdf"  required />
+                                            <input type="hidden" id="hidden_attachment">
+                                            <input type="file" id="attachment" name="attachment" class="form-control" accept="application/pdf"  />
                                         </div>
                                     </div>
                                 </div>
@@ -403,8 +407,9 @@
                                     <label class="col-md-3 col-form-label label">{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group col-md-5">
-                                          <select name="attend_course[]" class="form-control multiple-attend-course" multiple="multiple"  style="width:100%">
-                                          </select>
+                                           
+                                            <select name="attend_course[]" id="attend_course" class="form-control multiple-attend-course" multiple="multiple" style="width:100%">
+                                            </select>
 
                                         </div>
                                     </div>
@@ -424,15 +429,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type[]" id="private" value="private" >
+                                            <input class="form-check-input" type="radio" name="own_type" id="private" value="private" >
                                             <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type[]" id="rent" value="rent" >
+                                            <input class="form-check-input" type="radio" name="own_type" id="rent" value="rent" >
                                             <label class="form-check-label" for="">အငှား</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type[]" id="use_sharing" value="use_sharing" >
+                                            <input class="form-check-input" type="radio" name="own_type" id="use_sharing" value="use_sharing" >
                                             <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                           </div>
                                         </div>
@@ -454,15 +459,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="private" >
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="branch_private" value="private" >
                                             <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="rent" >
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="branch_rent" value="rent" >
                                             <label class="form-check-label" for="">အငှား</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="use_sharing" >
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="branch_use_sharing" value="use_sharing" >
                                             <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                           </div>
                                         </div>
@@ -477,8 +482,12 @@
                                     
                                     
                                     <label class="col-md-6 col-form-label label">{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-1 view_business_license">
+
+                                    </div>
+                                    <div class="col-md-5">
                                       <div class="mb-3 col-auto">
+                                            <input type="hidden" id="hidden_business_license">
                                           <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"   />
                                       </div>
                                     </div>
@@ -487,8 +496,12 @@
                                     
                                     
                                     <label class="col-md-6 col-form-label label">{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-1 view_company_reg">
+
+                                    </div>
+                                    <div class="col-md-5">
                                       <div class="mb-3 col-auto">
+                                      <input type="hidden" id="hidden_company_reg">
                                           <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"   />
                                       </div>
                                     </div>
@@ -497,8 +510,12 @@
                                     
                                     
                                     <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-1 view_org_reg_origin">
+
+                                    </div>
+                                    <div class="col-md-5">
                                       <div class="mb-3 col-auto">
+                                      <input type="hidden" id="hidden_org_reg_origin_and_copy">
                                           <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf"   />
                                       </div>
                                     </div>
@@ -508,8 +525,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_estiblisher_list">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_estiblisher_list_and_bio">
                                         <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -518,8 +539,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_governer">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_governer_list_and_bio">
                                         <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -528,8 +553,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်းဖြစ်ပါက သက်ဆိုင်ရာအဖွဲ့အစည်း၏ အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၃)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_org_member_list_and_bio">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_nrc_back">
                                         <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -538,8 +567,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၄)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_teacher_list">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_teacher_list_and_bio">
                                         <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -548,8 +581,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_teacher_reg">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_teacher_reg_copy">
                                         <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -558,8 +595,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်နေရာလိပ်စာ(ပုံစံ-၅)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_school_location">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_location_attach">
                                         <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -568,8 +609,12 @@
                                   
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းအဆောက်အဦ(ပုံစံ-၅)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_school_building">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_school_building_attach">
                                         <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -577,8 +622,12 @@
                                 <div class="row">
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('စာသင်ခန်း(ပုံစံ-၅)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_classroom">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_classroom_attach">
                                         <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -586,8 +635,12 @@
                                 <div class="row">
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('သန့်စင်ခန်း(ပုံစံ-၅)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_toilet_attach">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_toilet_attach">
                                         <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -595,8 +648,12 @@
                                 <div class="row">
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('စီမံရုံးခန်း(ပုံစံ-၅)') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_manage_room">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_manage_room_attach">
                                         <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -604,8 +661,12 @@
                                 <div class="row">
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('အထောက်အကူအခင်းအကျင်းများကိုဓါတ်ပုံနှင့်တကွဖော်ပြချက်') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_supporting">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_supporting_structure_photo">
                                         <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -613,18 +674,21 @@
                                 <div class="row">
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('အဆောက်အဦအခင်းအကျင်းများအားရယူသုံးစွဲပုံ') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1">
+
+                                    </div>
+                                    <div class="col-md-5">
                                       <div class="form-group">
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="private" >
+                                          <input class="form-check-input" type="radio" name="using_type" id="using_type_private" value="private" >
                                           <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="rent" >
+                                          <input class="form-check-input" type="radio" name="using_type" id="using_type_rent" value="rent" >
                                           <label class="form-check-label" for="">အငှား</label>
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="use_sharing" >
+                                          <input class="form-check-input" type="radio" name="using_type" id="using_type_use_sharing" value="use_sharing" >
                                           <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                         </div>
                                       </div>
@@ -633,8 +697,12 @@
                                 <div class="row">
                                   
                                   <label class="col-md-6 col-form-label label">{{ __('သက်ဆိုင်သည့်အထောက်အထားများ၊စာချုပ်စာတမ်းများ') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_relevant_evidence_contracts">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_relevant_evidence_contracts">
                                         <input type="file" id="" name="relevant_evidence_contracts" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -648,8 +716,12 @@
                                 <div class="row">
                                   <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                   <label class="col-md-5 col-form-label">{{ __('') }}</label>
-                                  <div class="col-md-6">
+                                  <div class="col-md-1 view_sch_establish_notes_attach">
+
+                                    </div>
+                                    <div class="col-md-5">
                                     <div class="mb-3 col-auto">
+                                    <input type="hidden" id="hidden_sch_establish_notes_attach">
                                         <input type="file" id="" name="sch_establish_notes_attach" class="form-control" accept="application/pdf"   />
                                     </div>
                                   </div>
@@ -988,8 +1060,10 @@
                         </div>
                 </div>                                                                 
             </div>
+            
         </div>
     </div>
+    
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -1004,6 +1078,9 @@
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
+        $('.multiple-attend-course').select2({
+            placeholder: "Select Requirement"
+        });
         var course_type = location.pathname.split('/');
         // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
@@ -1016,6 +1093,7 @@
         if(student.approve_reject_status==1){
             loadRenewSchool(localStorage.getItem("school_id"));
         }
+        getCourses();
         // if(course_type[2]==1){
         //     // console.log("DA");
         //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";
