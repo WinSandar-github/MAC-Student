@@ -85,13 +85,14 @@
 
                         </div>
                         @foreach($course as $key => $c)
-                         
+                      
                             <?php
-                                $course_req_arr = json_decode($c['requirement_id'],true);
-                                $req_str_arr = explode(",",$course_req_arr[0]);
+                           
+                                // $course_req_arr = json_decode($c['requirement_id'],true);
+                                $req_str_arr = explode(",",$c['requirement_id']);
                                 
                             ?>
-
+   
                             <input type="hidden" class="code{!! $key !!}" value="{{$c['code']}}">
                             <input type="hidden" value="{{$c['id']}}" id="course_id{!! $key !!}"/>
                             
