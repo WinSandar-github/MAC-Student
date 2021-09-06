@@ -78,13 +78,13 @@
                             <div class="row">
                                 <div class="card border-success">
 
-                                    <div class="card-body">
+                                    <div class="card-body p-4">
 
                                         <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
                                         <br/>
                                         <br/>
-                                        
+
                                         <div class="row">
                                             <div class="col-md-8">
 
@@ -135,7 +135,7 @@
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br>
                                     
                                         <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -159,9 +159,10 @@
                                             <div class="col-md-8">
                                                 <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                     <div class="col-md-2 col-5 pr-1">
-                                                        <select class="form-control" name="nrc_state_region"
+                                                        <select class="form-control form-select" name="nrc_state_region"
                                                                 id="nrc_state_region"
                                                                 style="margin-top: 0px ; margin-bottom: 0px;">
+                                                                <option value="" disabled selected>Select</option>
                                                             @foreach($nrc_regions as $region)
                                                                 <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                     {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -170,8 +171,9 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-3 col-7 px-1">
-                                                        <select class="form-control" name="nrc_township" id="nrc_township"
+                                                        <select class="form-control form-select" name="nrc_township" id="nrc_township"
                                                                 style="margin-top: 0px; margin-bottom: 0px;">
+                                                                <option value="" disabled selected>Select</option>
                                                             @foreach($nrc_townships as $township)
                                                                 <option value="{{ $township['township_mm'] }}">
                                                                     {{ $township['township_mm'] }}
@@ -181,8 +183,9 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-2 col-5 px-1">
-                                                        <select class="form-control" name="nrc_citizen" id="nrc_citizen"
+                                                        <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen"
                                                                 style="margin-top: 0px; margin-bottom: 0px;">
+                                                                <option value="" disabled selected>Select</option>
                                                             @foreach($nrc_citizens as $citizen)
                                                                 <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -196,7 +199,7 @@
                                                             id="nrc_number" pattern=".{6,6}" class="form-control"
                                                             oninput="this.value= en2mm(this.value);"
                                                             maxlength="6" minlength="6" placeholder=""
-                                                            style="height: 38px" value="{{ old('nrc_number') }}"
+                                                            style="height: 38px;" value="{{ old('nrc_number') }}"
                                                             required>
                                                     </div>
                                                 </div>
@@ -415,26 +418,28 @@
 
                                                 </div>
                                             </div>
+
                                             <div class="col-md-2 pt-2">
                                                 <div class="form-check">
                                                     <div class="row">
                                                         <div class="col-md-4"><input type="radio"
                                                                                     class="form-check-input mr-3" id="no"
                                                                                     name="gov_staff" value="0"
-                                                                                    style="margin-left: 3%;" required onclick="selectStaff()">
+                                                                                    style="margin-left: 3%;" required onclick="selectStaff()" checked="">
                                                         </div>
                                                         <div class="col-md-8"><label class="form-check-label" for="no">မဟုတ်</label>
                                                             <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                                 ရွေးချယ်ပါ
                                                             </div>
+                                                            
+
                                                         </div>
-                                                        
 
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <br>
                                         <div id="rec_letter" style="display:none" >
                                             <div class="row  "  >

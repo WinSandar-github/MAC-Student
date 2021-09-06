@@ -55,10 +55,10 @@
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/toastr.min.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr') }}/toastr.min.css">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> -->
 
     <link rel="stylesheet" href="{{ asset('EasyLoading/jquery-ui.min.css')}} ">
-
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
 
     <link rel="stylesheet" href="{{ asset('EasyLoading/css/easy-loading.css')}}">
@@ -196,6 +196,7 @@
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"> -->
     <script src="{{ asset('assets/js/plugins/dataTables/dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/dataTables/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
 
     <script src="{{ asset('assets/js/student_info.js') }}"></script>

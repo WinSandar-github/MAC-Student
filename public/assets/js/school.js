@@ -6,64 +6,73 @@ function createSchoolRegister(){
         return;
     }
 
-    //var formData = new FormData($( "#school_register_form" )[0]);
     var send_data = new FormData();
     //var files = $('#file')[0].files;
-    send_data.append('profile_photo',$("input[name=profile_photo]")[0].files);
+    send_data.append('profile_photo',$("input[name=profile_photo]")[0].files[0]);
     send_data.append('email',$("input[name=email]").val());
     send_data.append('password',$("input[name=password]").val());
     send_data.append('name_mm',$("input[name=name_mm]").val());
     send_data.append('name_eng',$("input[name=name_eng]").val());
-    send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
-    send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
-    send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
+    // send_data.append('nrc_state_region', $("#nrc_state_region + .nice-select span").text().trim());
+    // send_data.append('nrc_township', $("#nrc_township + .nice-select span").text().trim());
+    // send_data.append('nrc_citizen', $("#nrc_citizen + .nice-select span").text().trim());
+    send_data.append('nrc_state_region', $("#nrc_state_region").val());
+    send_data.append('nrc_township', $("#nrc_township").val());
+    send_data.append('nrc_citizen', $("#nrc_citizen").val());
     send_data.append('nrc_number', $("#nrc_number").val());
+    send_data.append('nrc_front',$("input[name=nrc_front]")[0].files[0]);
+    send_data.append('nrc_back',$("input[name=nrc_back]")[0].files[0]);
     send_data.append('father_name_mm',$("input[name=father_name_mm]").val());
     send_data.append('father_name_eng',$("input[name=father_name_eng]").val());
     send_data.append('dob',$("input[name=dob]").val());
     send_data.append('degree',$("input[name=degree]").val());
-    var val = [];
-        $("input[name=school_type]:checked").each(function(i){
-          val[i] = $(this).val();
-        });
-        //console.log("val >>>",val);
-    send_data.append('school_type',val);
-    send_data.append('attachment',$("input[name=attachment]").val());
+    // var val = [];
+    //     $("input[name=school_type]:checked").each(function(i){
+    //       val[i] = $(this).val();
+    //     });
+    //     console.log("val >>>",val);
+    // send_data.append('school_type',val);
+    $(':checkbox:checked').map(function(){send_data.append('school_type[]',$(this).val())});
+    send_data.append('attachment',$("input[name=attachment]")[0].files[0]);
     send_data.append('address',$("textarea[name=address]").val());
     send_data.append('phone',$("input[name=phone]").val());
 
     // သင်တန်းကျောင်းအချက်အလက်များ
     send_data.append('school_name',$("input[name=school_name]").val());
     // attend_course multi select
-    var selected = $('.multiple-attend-course').find(':selected').val();
-    for (var i = 0; i <= selected.length-1; i++) {
-                //console.log("sel .>>",selected[i].text);
-            }
+    send_data.append('attend_course[]',$("#attend_course").val());
+    // var selected = $('.multiple-attend-course').find(':selected').val();
+    // for (var i = 0; i <= selected.length-1; i++) {
+    //             console.log("sel .>>",selected[i].text);
+    //         }
 
 
-    send_data.append('school_address',$("input[name=school_address]").val());
-    send_data.append('own_type',$('input[name=own_type]:checked').val());
+    send_data.append('school_address',$("textarea[name=school_address]").val());
+    // send_data.append('own_type',$('input[name=own_type]:checked').val());
     send_data.append('branch_school_address',$("textarea[name=branch_school_address]").val());
-    send_data.append('branch_sch_own_type',$('input[name=branch_sch_own_type]:checked').val());
+    // send_data.append('branch_sch_own_type',$('input[name=branch_sch_own_type]:checked').val());
+    $('input[name=own_type]:radio:checked').map(function(){send_data.append('own_type',$(this).val())});
+    $('input[name=branch_sch_own_type]:radio:checked').map(function(){send_data.append('branch_sch_own_type',$(this).val())});
 
     // ပူးတွဲတင်ပြသည့်အထောက်အထားများ
-    send_data.append('business_license',$("input[name=business_license]").val());
-    send_data.append('company_reg',$("input[name=company_reg]").val());
-    send_data.append('org_reg_origin_and_copy',$("input[name=org_reg_origin_and_copy]").val());
-    send_data.append('estiblisher_list_and_bio',$("input[name=estiblisher_list_and_bio]").val());
-    send_data.append('governer_list_and_bio',$("input[name=governer_list_and_bio]").val());
-    send_data.append('org_member_list_and_bio',$("input[name=org_member_list_and_bio]").val());
-    send_data.append('teacher_list_and_bio',$("input[name=teacher_list_and_bio]").val());
-    send_data.append('teacher_reg_copy',$("input[name=teacher_reg_copy]").val());
-    send_data.append('school_location_attach',$("input[name=school_location_attach]").val());
-    send_data.append('school_building_attach',$("input[name=school_building_attach]").val());
-    send_data.append('classroom_attach',$("input[name=classroom_attach]").val());
-    send_data.append('toilet_attach',$("input[name=toilet_attach]").val());
-    send_data.append('manage_room_attach',$("input[name=manage_room_attach]").val());
-    send_data.append('supporting_structure_photo',$("input[name=supporting_structure_photo]").val());
-    send_data.append('using_type',$("input[name=using_type]:checked").val());
-    send_data.append('relevant_evidence_contracts',$("input[name=relevant_evidence_contracts]").val());
-    send_data.append('sch_establish_notes_attach',$("input[name=sch_establish_notes_attach]").val());
+    send_data.append('business_license',$("input[name=business_license]")[0].files[0]);
+    send_data.append('company_reg',$("input[name=company_reg]")[0].files[0]);
+    send_data.append('org_reg_origin_and_copy',$("input[name=org_reg_origin_and_copy]")[0].files[0]);
+    send_data.append('estiblisher_list_and_bio',$("input[name=estiblisher_list_and_bio]")[0].files[0]);
+    send_data.append('governer_list_and_bio',$("input[name=governer_list_and_bio]")[0].files[0]);
+    send_data.append('org_member_list_and_bio',$("input[name=org_member_list_and_bio]")[0].files[0]);
+    send_data.append('teacher_list_and_bio',$("input[name=teacher_list_and_bio]")[0].files[0]);
+    send_data.append('teacher_reg_copy',$("input[name=teacher_reg_copy]")[0].files[0]);
+    send_data.append('school_location_attach',$("input[name=school_location_attach]")[0].files[0]);
+    send_data.append('school_building_attach',$("input[name=school_building_attach]")[0].files[0]);
+    send_data.append('classroom_attach',$("input[name=classroom_attach]")[0].files[0]);
+    send_data.append('toilet_attach',$("input[name=toilet_attach]")[0].files[0]);
+    send_data.append('manage_room_attach',$("input[name=manage_room_attach]")[0].files[0]);
+    send_data.append('supporting_structure_photo',$("input[name=supporting_structure_photo]")[0].files[0]);
+    // send_data.append('using_type',$("input[name=using_type]:checked").val());
+    $('input[name=using_type]:radio:checked').map(function(){send_data.append('using_type',$(this).val())});
+    send_data.append('relevant_evidence_contracts',$("input[name=relevant_evidence_contracts]")[0].files[0]);
+    send_data.append('sch_establish_notes_attach',$("input[name=sch_establish_notes_attach]")[0].files[0]);
 
     //  ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ) table
     $('input[name="establisher_name[]"]').map(function(){send_data.append('establisher_name[]',$(this).val())});
@@ -95,14 +104,14 @@ function createSchoolRegister(){
     // သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ
     $('input[name="teacher_name[]"]').map(function(){send_data.append('teacher_name[]',$(this).val())});
     $('input[name="teacher_nrc[]"]').map(function(){send_data.append('teacher_nrc[]',$(this).val())});
-    $('input[name="teacher_nrc[]"]').map(function(){send_data.append('teacher_nrc[]',$(this).val())});
+    $('input[name="teacher_registration_no[]"]').map(function(){send_data.append('teacher_registration_no[]',$(this).val())});
     $('input[name="teacher_education[]"]').map(function(){send_data.append('teacher_education[]',$(this).val())});
     $('input[name="teaching_subject[]"]').map(function(){send_data.append('teaching_subject[]',$(this).val())});
     $('input[name="teacher_ph_number[]"]').map(function(){send_data.append('teacher_ph_number[]',$(this).val())});
     $('input[name="teacher_email[]"]').map(function(){send_data.append('teacher_email[]',$(this).val())});
 
     send_data.append('school_location',$("textarea[name=school_location]").val());
-    send_data.append('branch_school_location',$("input[name=branch_school_location]").val());
+    send_data.append('branch_school_location',$("textarea[name=branch_school_location]").val());
 
     send_data.append('bulding_type',$("input[name=bulding_type]").val());
     send_data.append('building_measurement',$("input[name=building_measurement]").val());
@@ -129,14 +138,14 @@ function createSchoolRegister(){
         contentType: false,
         processData: false,
         success: function (data) {
-            // setTimeout(() => {
-            //     Easyloading.hide()
-            //
-            // }, 2000);
-            //
-            // successMessage(data.message);
-            // location.href=FRONTEND_URL+'/';
-            //resetForm("#school_register_form");
+            setTimeout(() => {
+                Easyloading.hide()
+            
+            }, 2000);
+            
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+            resetForm("#school_register_form");
         },
         error: function (result) {
         },
@@ -285,7 +294,7 @@ function addRowTeacherBio(tbody){
   cols += '<td><input type="text" class="form-control" value="" /></td>';
   cols += '<td><input type="text" name="teacher_name[]" class="form-control" placeholder="" required/></td>';
   cols += '<td><input type="text" name="teacher_nrc[]" class="form-control" placeholder="" required/></td>';
-  cols += '<td><input type="text" name="teacher_nrc[]" class="form-control" placeholder="" required/></td>';
+  cols += '<td><input type="text" name="teacher_registration_no[]" class="form-control" placeholder="" required/></td>';
   cols += '<td><input type="text" name="teacher_education[]" class="form-control" placeholder="" required/></td>';
   cols += '<td><input type="text" name="teaching_subject[]" class="form-control" placeholder="" required/></td>';
   cols += '<td><input type="text" name="teacher_ph_number[]" class="form-control" placeholder="" required/></td>';
@@ -337,13 +346,37 @@ function loadRenewSchool(id){
       success: function (result) {
           var school=result.data;
           if(school.approve_reject_status==1){
-                document.getElementById('school').style.display='none';
+                document.getElementById('shcool').style.display='none';
                 document.getElementById('school_renew_form').style.display='block';
                 var accept=new Date(school.renew_date);
                 var month=accept.getMonth()+1;
                 var year=accept.getFullYear();
                 var y=year+1;
                 var now=new Date();
+                $('input[name=name_mm]').val(school.name_mm);
+                $('input[name=name_eng]').val(school.name_eng);
+                $('input[name=father_name_mm]').val(school.father_name_mm);
+                $('input[name=father_name_eng]').val(school.father_name_eng);
+                $('input[name=nrc_state_region]').val(school.nrc_state_region);
+                $('input[name=nrc_township]').val(school.nrc_township);
+                $('input[name=nrc_citizen]').val(school.nrc_citizen);
+                $('input[name=nrc_number]').val(school.nrc_number);
+                $('input[name=dob]').val(school.date_of_birth);
+                $('input[name=degree]').val(school.degree);
+                $('input[name=phone]').val(school.phone);
+                $('textarea[name=address]').val(school.address);
+                var type=school.type.split(',');
+                type.forEach(function(e){
+                  $('#school'+e).prop("checked", true);
+                  
+                })
+                //$('input[name=school_name]').val(school.school_name);
+                // $('#previewImg').attr("src",BASE_URL+school.image);
+                
+                // $('#hidden_nrc_front').val(school.nrc_front);
+                // $('#hidden_nrc_back').val(school.nrc_back);
+                // $("#nrc_front_img").attr("src",BASE_URL+school.nrc_front);
+                // $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
                 $('#regno').val(school.id);
                 $('#register_date').val(school.renew_date);
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
