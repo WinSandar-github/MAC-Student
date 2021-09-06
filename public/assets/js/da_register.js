@@ -13,8 +13,8 @@ function AddDAEdu(){
     $("#edu").append(        
 
         '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+            
-            '<div class="col-md-6">'+
+            '<div class="col-md-4"></div>'+            
+            '<div class="col-md-7">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
