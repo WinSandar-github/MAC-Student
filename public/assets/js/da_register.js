@@ -390,7 +390,7 @@ function unique_email(){
         success: function(result){
             console.log(result)
             if(result){
-                alert("Email or NRC has been used, please check again!");
+                Swal.fire("Email or NRC has been used, please check again!");
                 $('#exampleModal').modal('hide');
             }else{
                 $('#exampleModal').modal('show');
@@ -401,137 +401,141 @@ function unique_email(){
     });
 }
 
-$('#submit').click(function(){
+$('#da_submit').click(function(){
     if($('#email').val() == '' ){
-        alert('Email can not be left blank');
+        Swal.fire('Email can not be left blank');
         return false;
     }
     if($('#profile_photo').val() == '' ){
-        alert('Profile Photo can not be left blank');
+        Swal.fire('Profile Photo can not be left blank');
         return false;
     }
     if($('#password').val( ) == '') {
-       alert('Password can not be left blank');
+       Swal.fire('Password can not be left blank');
        return false;
     }
     if($('#confirm_password').val( ) == '') {
-       alert('Confirm Password can not be left blank');
+       Swal.fire('Confirm Password can not be left blank');
        return false;
     }
+    if($('#password').val() != $('#confirm_password').val()){
+        Swal.fire('Password and Confirm Password does not match!');
+        return false;
+    }
     if($('#name_mm').val( ) == '') {
-       alert('Name can not be left blank');
+       Swal.fire('Name can not be left blank');
        return false;
     }
     if($('#name_eng').val( ) == '') {
-       alert('Name can not be left blank');
+       Swal.fire('Name can not be left blank');
        return false;
     }
     if($('#nrc_state_region').val( ) == '') {
-       alert('NRC state region can not be left blank');
+       Swal.fire('NRC state region can not be left blank');
        return false;
     }
     if($('#nrc_township').val( ) == '') {
-       alert('NRC township can not be left blank');
+       Swal.fire('NRC township can not be left blank');
        return false;
     }
     if($('#nrc_citizen').val( ) == '') {
-       alert('NRC citizen can not be left blank');
+       Swal.fire('NRC citizen can not be left blank');
        return false;
     }
     if($('#nrc_number').val( ) == '') {
-       alert('NRC No. can not be left blank');
+       Swal.fire('NRC No. can not be left blank');
        return false;
     }
     if($('#nrc_front').val( ) == '') {
-       alert('NRC front image can not be left blank');
+       Swal.fire('NRC front image can not be left blank');
        return false;
     }
     if($('#nrc_back').val( ) == '') {
-       alert('NRC back image can not be left blank');
+       Swal.fire('NRC back image can not be left blank');
        return false;
     }
     if($('#father_name_mm').val( ) == '') {
-       alert('Father name can not be left blank');
+       Swal.fire('Father name can not be left blank');
        return false;
     }
     if($('#father_name_eng').val( ) == '') {
-       alert('Father name can not be left blank');
+       Swal.fire('Father name can not be left blank');
        return false;
     }
     if($('#race').val( ) == '') {
-       alert('Race can not be left blank');
+       Swal.fire('Race can not be left blank');
        return false;
     }
     if($('#religion').val( ) == '') {
-       alert('Religion can not be left blank');
+       Swal.fire('Religion can not be left blank');
        return false;
     }
     if($('#date_of_birth').val( ) == '') {
-       alert('DOB can not be left blank');
+       Swal.fire('DOB can not be left blank');
        return false;
     }
     if($('#phone').val( ) == '') {
-       alert('Phone No. can not be left blank');
+       Swal.fire('Phone No. can not be left blank');
        return false;
     }
     if($('#address').val( ) == '') {
-       alert('Address can not be left blank');
+       Swal.fire('Address can not be left blank');
        return false;
     }
     if($('#current_address').val( ) == '') {
-       alert('Address can not be left blank');
+       Swal.fire('Address can not be left blank');
        return false;
     }
     if($('#image').val( ) == '') {
-       alert('Image can not be left blank');
+       Swal.fire('Image can not be left blank');
        return false;
     }
     if($('#name').val( ) == '') {
-       alert('Work name can not be left blank');
+       Swal.fire('Work name can not be left blank');
        return false;
     }
     if($('#position').val( ) == '') {
-       alert('Work position can not be left blank');
+       Swal.fire('Work position can not be left blank');
        return false;
     }
     if($('#department').val( ) == '') {
-       alert('Department can not be left blank');
+       Swal.fire('Department can not be left blank');
        return false;
     }
     if($('#organization').val( ) == '') {
-       alert('Organization can not be left blank');
+       Swal.fire('Organization can not be left blank');
        return false;
     }
     if($('#company_name').val( ) == '') {
-       alert('Company Name can not be left blank');
+       Swal.fire('Company Name can not be left blank');
        return false;
     }
     if($('#salary').val( ) == '') {
-       alert('Salary can not be left blank');
+       Swal.fire('Salary can not be left blank');
        return false;
     }
     if($('#office_address').val( ) == '') {
-       alert('Office address can not be left blank');
+       Swal.fire('Office address can not be left blank');
        return false;
     }
     if($('#degree_name').val( ) == '') {
-       alert('Degree name can not be left blank');
+       Swal.fire('Degree name can not be left blank');
        return false;
     }
     if($('#university_name').val( ) == '') {
-       alert('University name can not be left blank');
+       Swal.fire('University name can not be left blank');
        return false;
     }
     if($('#roll_number').val( ) == '') {
-       alert('Roll No. can not be left blank');
+       Swal.fire('Roll No. can not be left blank');
        return false;
     }
     if($('#qualified_date').val( ) == '') {
-       alert('Qualified date can not be left blank');
+       Swal.fire('Qualified date can not be left blank');
        return false;
     }
     if($('#certificate0').val( ) == '') {
-       alert('Degree can not be left blank');
+       Swal.fire('Degree can not be left blank');
        return false;
     }
     if($('#email').val() != null){
@@ -541,11 +545,6 @@ $('#submit').click(function(){
     if($('#nrc_number').val() != null){
         unique_email();
         // unique_nrc();
-        return false;
-    }
-    
-    if($('#password').val() != $('#confirm_password').val()){
-        alert('Password and Confirm Password does not match!');
         return false;
     }
 
