@@ -45,9 +45,23 @@ function createDAExamRegister()
 
 $('#cpa_exam_register').submit(function(e){
     e.preventDefault();
+
+    var school_id;
+    var school_name;
+    if($("#is_private").val() =="true" ){
+        school_id = $("#selected_school_id").val();
+        school_name = $("#selected_school_id option:selected").text();
+    }
+    else{
+        school_id = 0;
+        school_name = " ";
+    }
+
     var form_data = new FormData(this);
     form_data.append('form_type',$("#form_type").val());
     form_data.append('student_id',student_id);
+    form_data.append('private_school_id', school_id);
+    form_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
     console.log('form_type',$("input[name=form_type]").val());
@@ -63,8 +77,35 @@ $('#cpa_exam_register').submit(function(e){
              localStorage.setItem('approve_reject', 1);
              location.href = FRONTEND_URL + "/";
 
-            //successMessage(result);
+            successMessage(result);
       }
     });
 
 })
+
+$('#da2submit').click(function(){
+    if($('#last_exam_date').val() == '' ){
+        Swal.fire('Last Exam date can not be left blank');
+        return false;
+    }
+    if($('#date').val() == '' ){
+        Swal.fire('Exam date can not be left blank');
+        return false;
+    }
+    $('#exampleModal').modal('show');
+    return true;
+
+});
+
+$(document).on('click', '#channel', function () {
+    setTimeout(function() {$('#exampleModal').modal('hide');}, 1000);
+    $('#examModal').modal('show');
+    return true;
+})
+
+$('#exam_btn').click(function() {
+    setTimeout(function() {
+        $('#examModal').modal('hide');
+    }, 1000);
+});
+

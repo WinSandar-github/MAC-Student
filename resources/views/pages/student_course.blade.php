@@ -124,17 +124,17 @@
                                                     <div class="info-list">
                                                         <dl class="row d_font ">
                                                                 <dt class="col-sm-6 text-end">Application Fee</dt>
-                                                                <dd class="col-sm-6 my-1">{{$c['form_fee']}} Kyats</dd>
+                                                                <dd class="col-sm-6 my-1">{{ number_format($c['form_fee']) }} Kyats</dd>
                                                                 <dt class="col-sm-6 text-end my-1">Registration Fee for MAC Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{$c['mac_registration_fee']}} Kyats</dd>
+                                                                <dd class="col-sm-6 my-1">{{  number_format($c['mac_registration_fee']) }} Kyats</dd>
                                                                 <dt class="col-sm-6 text-end my-1">Registration Fee for Self-Study Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{$c['selfstudy_registration_fee']}} Kyats </dd>
+                                                                <dd class="col-sm-6 my-1">{{  number_format($c['selfstudy_registration_fee']) }} Kyats </dd>
                                                                 <dt class="col-sm-6 text-end my-1">Registration Fee for Private School Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{$c['privateschool_registration_fee']}} Kyats</dd>
+                                                                <dd class="col-sm-6 my-1">{{  number_format($c['privateschool_registration_fee']) }} Kyats</dd>
                                                                 <dt class="col-sm-6 text-end my-1">Exam Fee</dt>
-                                                                <dd class="col-sm-6 my-1">{{$c['exam_fee']}} Kyats</dd>
+                                                                <dd class="col-sm-6 my-1">{{  number_format($c['exam_fee'] ) }} Kyats</dd>
                                                                 <dt class="col-sm-6 text-end my-1">Course Fee for MAC Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{$c['tution_fee']}} Kyats</dd>
+                                                                <dd class="col-sm-6 my-1">{{  number_format($c['tution_fee']) }} Kyats</dd>
                                                         </dl>
                                                               <!-- <p class="col-md-5">Application Fee</p>-  <p class="col-md-5">{{$c['form_fee']}} Kyats </p>  -->
                                                               <!-- <p class="col-md-5">Registration Fee for MAC Class</p>-  <p class="col-md-5">{{$c['mac_registration_fee']}}Kyats </p>  -->
@@ -272,17 +272,19 @@
                                                                 @break
                                                                 @endforeach
                                                                 @else
-                                                                      <dt class="col-md-6 text-end my-1">Accept
+                                                                    <div class="row">
+                                                                     {{-- <dt class="col-md-6 text-end my-1">Accept
                                                                             Application Start Date</dt>
 
                                                                         <dd class="col-md-6 my-1"> -  </dd> 
                                                                       <dt class="col-md-6 text-end my-1">Accept
                                                                             Application End Date</dt>
                                                                         <dd class="col-md-6 my-1">  -  </dd> 
-                                                                    </ul>
-                                                                    <div class="col-md-3"></div>
+                                                                    --}}
+                                                                    <div class="col-md-12">
                                                                     <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Coming Soon...</p>
-                                                                @endif
+                                                                    </div>
+                                                                    @endif
                                                             </div>
                                                 </div>
                                             </div>

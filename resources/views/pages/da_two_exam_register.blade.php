@@ -134,23 +134,24 @@ $nrc_characters = config('myanmarnrc.characters');
                                         <form method="post" action="javascript:void();" enctype="multipart/form-data">
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
-                                            <div id="is_private_school" style="display=none;">
-                                                <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label"
-                                                        id="da2_label1">{{ _('၁။') }}</label>
-                                                    <label
-                                                        class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <select class="form-control form-select"
-                                                                name="private_school_name" id="selected_school_id"
-                                                                style="width: 100%;">
-                                                                <option value="" disabled selected>Select School</option>
-                                                            </select>
+                                            <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                                <div id="is_private_school" style="display=none;">
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label"
+                                                            id="da2_label1">{{ _('၁။') }}</label>
+                                                        <label
+                                                            class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <select class="form-control form-select"
+                                                                    name="private_school_name" id="selected_school_id"
+                                                                    style="width: 100%;">
+                                                                    <option value="" disabled selected>Select School</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div><br />
-                                            </div>
 
 
                                             {{-- <div class="row">
@@ -165,8 +166,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <label
                                                     class="col-md-4 col-form-label">{{ __('နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ') }}</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="last_exam_date"
-                                                        class="form-control" value="" required="">
+                                                    <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="last_exam_date" id="last_exam_date" class="form-control" value="" required="">
                                                 </div>
                                             </div><br />
 
@@ -178,7 +178,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-6">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <input type="radio" id="0" name="is_full_module" value="0">
+                                                            <input type="radio" id="0" name="is_full_module" value="0" checked>
                                                             <label for="0">Module 1</label>
                                                         </div>
                                                         <div class="col-md-4">
@@ -219,8 +219,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
                                                     {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button> --}}
-                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">Submit
+                                                    <button type="button" id="da2submit" value="submit" class="btn btn-success btn-hover-dark w-100">Submit
                                                     </button>
                                                 </div>
                                             </div>
@@ -240,7 +239,7 @@ $nrc_characters = config('myanmarnrc.characters');
     </div>
 
     <!-- DA2 Exam Register -->
-    <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data"
+    <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
         novalidate>
         @csrf
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -269,23 +268,41 @@ $nrc_characters = config('myanmarnrc.characters');
                             <div class="col-sm-3 col-5">
                                 <div class='radio mx-auto'>
                                     <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
-                                        height="50%" data-value="CASH" name="payment_method">
+                                        height="50%" data-value="CASH" name="payment_method" id="channel">
                                 </div><br>
                                 <h5>CASH</h5>
                             </div>
                             <input type="hidden" name="payment_method" value="CASH">
                         </div>
                     </div><br>
-                    <div class="modal-footer">
-                        <center>
-                            <button type="submit" id="btn1" class="btn btn-success btn-hover-dark w-100"
-                                data-bs-toggle="modal">Submit
-                        </center>
-                    </div>
                 </div>
             </div>
         </div>
     </form>
+
+    <!-- DA2 Exam Modal -->
+     <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA Two Exam Registeration Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
 
 
     <!-- JavaScript Section -->
@@ -308,13 +325,16 @@ $nrc_characters = config('myanmarnrc.characters');
             $("input[name='last_exam_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
+                allowInput: true,
             });
             $("input[name='invoice_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
                 allowInput: true,
             });
+
             var boo = localStorage.getItem("isPrivateSchool");
+            $('#is_private').val(boo);
             if (boo == "true") {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'block';
@@ -326,15 +346,8 @@ $nrc_characters = config('myanmarnrc.characters');
                     document.getElementById('is_private_school').style.display = 'none';
                     document.getElementById('da2_label2').innerHTML = "၁။";
                 }
-            }
-
-            loadSchoolList();
-
-            $('#btn1').click(function() {
-                setTimeout(function() {
-                    $('#exampleModal').modal('hide');
-                }, 1000);
-            });
+            }    
         });
+        loadSchoolList(); 
     </script>
 @endpush
