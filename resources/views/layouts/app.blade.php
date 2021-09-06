@@ -55,7 +55,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/toastr.min.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr') }}/toastr.min.css">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> -->
 
     <link rel="stylesheet" href="{{ asset('EasyLoading/jquery-ui.min.css')}} ">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
