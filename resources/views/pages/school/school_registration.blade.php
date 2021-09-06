@@ -133,7 +133,7 @@
                                   </div>
                                   <div class="col-md-4">
                                     <div class="col-md-5 pull-right">
-                                      <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                      <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                       <p class="mt-2">
                                         <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                       </p>
@@ -173,7 +173,7 @@
                                           </div>
                                           <div class="col-md-3 col-7 px-1">
                                                 <select class="form-control" name="nrc_township" id="nrc_township" >
-                                                    <option value="" disabled selected>Select</option>    
+                                                    <option value="" disabled selected>Select</option>
                                                 @foreach($nrc_townships as $township)
                                                         <option value="{{ $township['township_mm'] }}">
                                                             {{ $township['township_mm'] }}
@@ -183,7 +183,7 @@
                                           </div>
                                           <div class="col-md-2 col-5 px-1">
                                               <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
-                                                <option value="" disabled selected>Select</option>    
+                                                <option value="" disabled selected>Select</option>
                                                 @foreach($nrc_citizens as $citizen)
                                                       <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                           {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -325,7 +325,7 @@
                                     <label class="col-md-10 col-form-label"><b>{{ __('သင်တန်းကျောင်းအချက်အလက်များ') }}</b></label>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းအမည်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -334,7 +334,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group col-md-5">
@@ -345,7 +345,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                   
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -354,7 +354,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -375,7 +375,7 @@
                                 </div>
 
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -384,7 +384,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -409,7 +409,7 @@
                                     <label class="col-md-10 col-form-label"><b>{{ __('ပူးတွဲတင်ပြသည့်အထောက်အထားများ') }}</b></label>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-6 col-form-label label">{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
@@ -418,7 +418,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                   
+
                                     <label class="col-md-6 col-form-label label">{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
@@ -427,7 +427,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
@@ -437,7 +437,7 @@
                                 </div>
 
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -446,7 +446,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -455,7 +455,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်းဖြစ်ပါက သက်ဆိုင်ရာအဖွဲ့အစည်း၏ အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၃)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -464,7 +464,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၄)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -473,7 +473,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -482,7 +482,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်နေရာလိပ်စာ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -491,7 +491,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းအဆောက်အဦ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -500,7 +500,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                 
+
                                   <label class="col-md-6 col-form-label label">{{ __('စာသင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -509,7 +509,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('သန့်စင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -518,7 +518,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('စီမံရုံးခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -527,7 +527,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('အထောက်အကူအခင်းအကျင်းများကိုဓါတ်ပုံနှင့်တကွဖော်ပြချက်') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -536,7 +536,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('အဆောက်အဦအခင်းအကျင်းများအားရယူသုံးစွဲပုံ') }}</label>
                                   <div class="col-md-6">
                                       <div class="form-group">
@@ -556,7 +556,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 label col-form-label">{{ __('သက်ဆိုင်သည့်အထောက်အထားများ၊စာချုပ်စာတမ်းများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -566,7 +566,7 @@
                                 </div>
                                 <div class="row">
                                   <label class="col-md-2 col-form-label">{{ __('') }}</label>
-                                  
+
                                   <label class="col-md-10 col-form-label">{{ __('ကျောင်းတည်ထောင်ခြင်းအတွက်ရွေးချယ်ထားသည့် လုပ်ငန်းဖွဲ့စည်းမှုပုံစံအရပူးတွဲတင်ပြရမည့်အထောက်အထားများ(အစုအစပ်သဘောတူညီချက်/သင်းဖွဲ့စည်းမျဉ်း/သင်းဖွဲ့မှတ်တမ်း၊ဉပဒေနှင့်အညီရေးဆွဲပြုစုထားသော အခြားစာချုပ်စာတမ်းများ)') }}</label>
 
                                 </div>
@@ -738,7 +738,7 @@
                                 </div>
 
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းတည်ရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -748,7 +748,7 @@
                                 </div>
 
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းခွဲတည်ရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
