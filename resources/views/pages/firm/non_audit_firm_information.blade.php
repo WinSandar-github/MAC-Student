@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-								<div class="card-body">
+								{{--<div class="card-body">
 									<div class="row">
 										<div class="col-md-12 widget-information">
 											<div class="row border-bottom">
@@ -79,7 +79,7 @@
 																 </span>
 															 </li>
 														</ul>
-														{{--<p style="height:150px;overflow:auto;">{{$c['description']}}</p>--}}
+
                             <!-- Requirement -->
       											<div class="row">
       												<div class="col-md-12">
@@ -132,9 +132,459 @@
 											</div>
 										</div>
 									</div>
+								</div>--}}
+
+								<div id="non_audit_initial">
+									<div class="row">
+										<div class="card col-md-7 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Description</h4>
+														<hr>
+														<div class="info-list">
+															<h6 class="mt-2"><b>(၁)ကနဦးမှတ်ပုံတင်ခြင်း</b></h6>
+															<h6 class="mt-2"><b>(က)လျှောက်ထားနိုင်သူများ</b></h6>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																				<i class="icofont-book"></i>
+																				-Non-Audit Service လုပ်ကိုင်သည့် နိုင်ငံသား/ နိုင်ငံခြားသား
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2"><b>(ခ)လျှောက်ထားခြင်း</b></h6>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																			၁။	အောက်ပါ အထောက်အထား များအပြည့်အစုံဖြင့် လျှောက်ထားနိုင်ပါသည်-
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2 col-md-10 offset-md-1"><b>တစ်ဦးတည်းပိုင်လုပ်ငန်း</b></h6>
+															<div class="col-md-12">
+																	<ul class="col-md-11 offset-md-1">
+																			<li>
+																				<i class="icofont-book"></i>
+																				(က)	Copy of letterhead seal to be used
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ခ)	1 Passport size photo
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဂ)	Profile of the owner
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဃ)	Copy of Education Certificate
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(င)	Letter outlining past work experience
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(စ)	Copy of owner’s NRC Card/ Passport
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဆ)	Copy of Tax clearance from Internal Revenue Department
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဇ)	ကိုယ်တိုင်လျှောက်ထားခြင်းမဟုတ်ပါကကိုယ်စားလှယ်လွှဲစာ နှင့် နိုင်ငံသားစိစစ်ရေး ကတ်ပြား (မိတ္တူ)
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2 col-md-10 offset-md-1"><b>အစုစပ်လုပ်ငန်း</b></h6>
+															<div class="col-md-12">
+																	<ul class="col-md-11 offset-md-1">
+																			<li>
+																				<i class="icofont-book"></i>
+																				(က)	Copy of Certificate or Registration, if any
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ခ)	Copy of signed Partnership Deeds/ Memorandum of Agreement
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဂ)	Copy of letterhead to be used
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဃ)	Passport size photos of the all partners
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(င)	Profiles of the all partners
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(စ)	Copy of Education Certificates of the all partners
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဆ)	Letter outlining past work experiences of the all partners
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဇ)	Copy of Partners’ NRC Card/ Passport
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဇ)	Copy of Partners’ NRC Card/ Passport
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဈ)	Copy of Tax clearance from Internal Revenue Department
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ည)	ကိုယ်တိုင်လျှောက်ထားခြင်းမဟုတ်ပါကကိုယ်စားလှယ်လွှဲစာ နှင့် နိုင်ငံသားစိစစ်ရေး ကတ်ပြား (မိတ္တူ)
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2 col-md-10 offset-md-1"><b>ကုမ္ပဏီ</b></h6>
+															<div class="col-md-12">
+																	<ul class="col-md-11 offset-md-1">
+																			<li>
+																				<i class="icofont-book"></i>
+																				(က)	Copy of Certificate of Incorporation (company incorporated in Myanmar)/ Certificate of Registration (branch office registered in Myanmar)
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ခ)	Copy of Permit under Section 27A of Myanmar Companies Act (Foreign Company များအတွက်သာ)
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဂ)	Copy of recent audited financial statements
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဃ)	Copy of commercial tax registration certificate
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(င)	Copy of letterhead to be used
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(စ)	Copy of Education Certificates of the professional staff
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဆ)	Letter outlining past work experiences of the professional staff
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဇ)	Copy of shareholder’s and directors’ NRC Card/ Passport
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဈ)	Copy of Tax clearance from Internal Revenue Department
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ည)	ကိုယ်တိုင်လျှောက်ထားခြင်းမဟုတ်ပါကကိုယ်စားလှယ်လွှဲစာ နှင့် နိုင်ငံသားစိစစ်ရေး ကတ်ပြား (မိတ္တူ)
+																			</li>
+																	</ul>
+															</div>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																				၂။ တင်ပြရမည့် အထောက်အထားများ ပြည့်စုံပါက-
+																			</li>
+																	</ul>
+															</div>
+															<div class="col-md-12">
+																	<ul class="col-md-11 offset-md-1">
+																			<li>
+																				<i class="icofont-book"></i>
+																				(က)	စာရင်းလုပ်ငန်းလုပ်ကိုင်ခွင့်မှတ်ပုံတင်လက်မှတ်စိစစ်ရေးကော်မတီသို့ သဘောထား မှတ်ချက်တောင်းခံ၊
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ခ)	ကော်မတီဝင်များထံမှ သဘောတူကြောင်း ပြန်ကြားချက်ရရှိပါက ကနဦးမှတ်ပုံတင် ကြေး ပေးသွင်းရန် လျှောက်ထားသူများထံသို့အကြောင်းကြား၊
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				(ဂ)	မှတ်ပုံတင်ကြေးပေးသွင်းပြီးနောက် မှတ်ပုံတင်လက်မှတ်ထုတ်ပေး။
+																			</li>
+																	</ul>
+															</div>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																				၃။ မှတ်ပုံတင်သက်တမ်းကာလမှာ ပြက္ခဒိန်နှစ်တစ်နှစ် (နှစ်စဉ် ဇန်နဝါရီလ မှ ဒီဇင်ဘာလထိ) ဖြစ်သည်။
+																			</li>
+																	</ul>
+															</div>
+															<div class="col-md-12">
+																<h6 class="mt-2"><b>(၂)မှတ်ပုံတင်သက်တမ်းတိုးခြင်း</b></h6>
+																<h6 class="mt-2"><b>(က) လျှောက်ထားခြင်း</b></h6>
+																<div class="col-md-12">
+																		<ul>
+																				<li>
+																				၁။	အောက်ပါအထောက် အထားများ အပြည့်အစုံဖြင့် လျှောက်ထားနိုင်ပါသည်-
+																				</li>
+																		</ul>
+																</div>
+																<h6 class="mt-2 col-md-10 offset-md-1"><b>တစ်ဦးတည်းပိုင်လုပ်ငန်း</b></h6>
+																<div class="col-md-12">
+																		<ul class="col-md-11 offset-md-1">
+																				<li>
+																					<i class="icofont-book"></i>
+																					(က)	Copy of letterhead seal to be used
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ခ)	1 Passport size photo
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဂ)	Profile of the owner
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဃ)	Copy of Education Certificate
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(င)	Letter outlining past work experience
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(စ)	Copy of owner’s NRC Card/ Passport
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဆ)	Copy of Tax clearance from Internal Revenue Department
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဇ)	ကိုယ်တိုင်လျှောက်ထားခြင်းမဟုတ်ပါကကိုယ်စားလှယ်လွှဲစာ နှင့် နိုင်ငံသားစိစစ်ရေး ကတ်ပြား (မိတ္တူ)
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ည)	ကောင်စီက အခါအားလျော်စွာ တောင်းခံသည့် စာရွက်စာတမ်းအချက်အလက်များ
+																				</li>
+																		</ul>
+																</div>
+																<h6 class="mt-2 col-md-10 offset-md-1"><b>အစုစပ်လုပ်ငန်း</b></h6>
+																<div class="col-md-12">
+																		<ul class="col-md-11 offset-md-1">
+																				<li>
+																					<i class="icofont-book"></i>
+																					(က)	Copy of Certificate or Registration, if any
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ခ)	Copy of signed Partnership Deeds/ Memorandum of Agreement
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဂ)	Copy of letterhead to be used
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဃ)	Passport size photos of the all partners
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(င)	Profiles of the all partners
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(စ)	Copy of Education Certificates of the all partners
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဆ)	Letter outlining past work experiences of the all partners
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဇ)	Copy of Partners’ NRC Card/ Passport
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဈ)	Copy of Tax clearance from Internal Revenue Department
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ည)	ကိုယ်တိုင်လျှောက်ထားခြင်းမဟုတ်ပါကကိုယ်စားလှယ်လွှဲစာ နှင့် နိုင်ငံသားစိစစ်ရေး ကတ်ပြား (မိတ္တူ)
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဋ)	ကောင်စီက အခါအားလျော်စွာ တောင်းခံသည့် စာရွက်စာတမ်းအချက်အလက်များ
+																				</li>
+																		</ul>
+																</div>
+																<h6 class="mt-2 col-md-10 offset-md-1"><b>ကုမ္ပဏီ</b></h6>
+																<div class="col-md-12">
+																		<ul class="col-md-11 offset-md-1">
+																				<li>
+																					<i class="icofont-book"></i>
+																					(က)	Copy of Certificate of Incorporation (company incorporated in Myanmar)/ Certificate of Registration (branch office registered in Myanmar)
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ခ)	Copy of Permit under Section 27A of Myanmar Companies Act (Foreign Company များအတွက်သာ)
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဂ)	Copy of recent audited financial statements
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဃ)	Copy of commercial tax registration certificate
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(င)	Copy of letterhead to be used
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(စ)	Copy of Education Certificates of the professional staff
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဆ)	Letter outlining past work experiences of the professional staff
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဇ)	Copy of shareholder’s and directors’ NRC Card/ Passport
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဈ)	Copy of Tax clearance from Internal Revenue Department
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ည)	ကိုယ်တိုင်လျှောက်ထားခြင်းမဟုတ်ပါကကိုယ်စားလှယ်လွှဲစာ နှင့် နိုင်ငံသားစိစစ်ရေး ကတ်ပြား (မိတ္တူ)
+																				</li>
+																				<li>
+																					<i class="icofont-book"></i>
+																					(ဋ)	ကောင်စီက အခါအားလျော်စွာ တောင်းခံသည့် စာရွက်စာတမ်းအချက်အလက်များ
+																				</li>
+																		</ul>
+																</div>
+																<div class="col-md-12">
+																		<ul>
+																				<li>
+																				၂။	သက်တမ်းတိုးလျှောက်ထားရာတွင် လုပ်ငန်းအမျိုးအစား ပြောင်းလဲလျှောက်ထားခြင်း (ဥပမာ - တစ်ဦးတည်းပိုင်မှ ကုမ္ပဏီသို့)၊ ပြင်ဆင်ပြောင်းလဲသည့် အချက်လက်များတွင် သတ်မှတ် ချက်နှင့် မကိုက်ညီမှုများ၊ ထူးခြားချက်များ ရှိပါက ကော်မတီသို့ လှည့်လည်စာဖြင့်တင်ပြ၍ သဘော တူခွင့်ပြုပါက လျှောက်ထားသူထံ မှတ်ပုံတင်ကြေးပေသွင်းရန်အကြောင်းကြား၊ ထို့နောက် မှတ်ပုံတင် ကြေး ပေးသွင်းပြီးပါက မှတ်ပုံတင်လက်မှတ်ထုတ်ပေး။
+																				</li>
+																		</ul>
+																</div>
+
+
+															</div>
+															<h6 class="mt-2"><b>(၃)ယာယီရပ်နားခြင်း၊ </b></h6>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																				<i class="icofont-book"></i>
+																				၁။	ယာယီရပ်နားလိုပါက ရပ်နားလိုသည့်အကြောင်းရင်းဖော်ပြချက်ပါရှိသည့် ကိုယ်တိုင်ရေး လျှောက်လွှာဖြင့် ကိုယ်တိုင်လာရောက်တင်ပြရမည်။
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				၂။	 မှတ်ပုံတင်စာရင်းစာအုပ်တွင် မှတ်တမ်းတင်ရေးသားထားရမည်။
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2"><b>(၄) ရပ်စဲ/ဖျက်သိမ်းခြင်း</b></h6>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																				<i class="icofont-book"></i>
+																				၁။	ရပ်စဲ/ဖျက်သိမ်း လိုပါက ရပ်စဲ/ဖျက်သိမ်း လိုသည့်အကြောင်းရင်းဖော်ပြချက်ပါရှိသည့် ကိုယ်တိုင်ရေး လျှောက်လွှာဖြင့် ကိုယ်တိုင်လာရောက်တင်ပြရမည်။
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				၂။	 မှတ်ပုံတင်စာရင်းစာအုပ်တွင် မှတ်တမ်းတင်ရေးသားထားရမည်။
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2"><b>(၅) အမိန့်ကြော်ငြာစာများထုတ်ပြန်ခြင်း (မှတ်ပုံတင်စာရင်း၊ ရပ်နားစာရင်း၊ ဖျက်သိမ်းစာရင်း)း</b></h6>
+															<div class="col-md-12">
+																	<ul>
+																			<li>
+																				၁။	အမိန့်ကြော်ငြာစာများထုတ်ပြန်ရာတွင် အောက်ပါအချက်အလက်များပါဝင်ပါသည်-
+																			</li>
+																			<li class="col-md-11 offset-md-1">
+																				<i class="icofont-book"></i>
+																				-	လုပ်ငန်းမှတ်ပုံတင်အမှတ်
+																			</li>
+																			<li class="col-md-11 offset-md-1">
+																				<i class="icofont-book"></i>
+																				-	လုပ်ငန်းအမည်
+																			</li>
+																			<li class="col-md-11 offset-md-1">
+																				<i class="icofont-book"></i>
+																				-	တာဝန်ခံအမည်နှင့်မှတ်ပုံတင်/Passport နံပါတ်
+																			</li>
+																			<li class="col-md-11 offset-md-1">
+																				<i class="icofont-book"></i>
+																				-	-	လိပ်စာ
+																			</li>
+																	</ul>
+															</div>
+															<!-- Requirement -->
+															<div class="col-md-12">
+																<h4 class="col-md-12 card-title text-success">Requirement</h4>
+																<hr>
+																<ul>
+																	<?php
+																		if (is_array($requirements) || is_object($requirements))
+																			{
+																					foreach ($requirements as $value)
+																					{
+																							if($value['type'] == "NON_AUDIT_FIRM"){
+																	?>
+																					<li>
+																						<i class="icofont-man-in-glasses"></i>
+																						<?php echo $value['name'] ?>
+																					</li>
+																	<?php
+																						}
+																					}
+																			}
+																	?>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Fees -->
+										<div class="card col-md-4 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Fees</h4>
+														<hr>
+														<div class="info-list">
+															<div class="col-md-12">
+																<ul>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
+																		<div class="pull-right mt-4">
+																			<p class="info-btn col-md-2 mb-4 text-dark h6">
+																				<a href="{{url('non_audit_firm_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+																			</p>
+																		</div>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-
-
             </div>
         </div>
     </div>
