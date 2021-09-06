@@ -59,92 +59,148 @@
                         </div>
                     </div>
                 </div>
-								<div class="card-body" id="shcool">
+
+								<div id="school_detail">
 									<div class="row">
-										<div class="col-md-12 widget-information">
-											<div class="row border-bottom">
-	                      <h2 class="col-md-6 card-title text-center text-success">School</h2>
-                        <div class="col-md-3"></div>
-
-              				</div>
-											<!-- Description -->
-											<div class="row">
-												<div class="col-md-7">
-														<h5 class="mt-2"><strong>Description</strong></h5>
-														<hr>
-														<ul id="school_description_lists">
-																<li>
-																	<span>
-																		<!-- <i class="icofont-file-document"></i> -->
-																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-																 </span>
-															 </li>
-														</ul>
-														{{--<p style="height:150px;overflow:auto;">{{$c['description']}}</p>--}}
-
-														<!-- Requirement -->
-														<div class="row">
-															<div class="col-md-12">
-																	<h5 class="mt-2"><strong>Requirement</strong></h5>
-																	<hr>
-																	<div class="info-list">
-																		<ul>
-																			<?php
-																				if (is_array($requirements) || is_object($requirements))
-																					{
-																					    foreach ($requirements as $value)
-																					    {
-																					        if($value['type'] == "SCHOOL"){
-																			?>
-																							<li>
-																								<!-- <i class="icofont-man-in-glasses"></i> -->
-																								<?php echo $value['name'] ?>
-																							</li>
-																			<?php
-																								}
-																					    }
-																					}
-																			?>
-																		</ul>
-																	</div>
-															</div>
-														</div>
-												</div>
-												<div class="col-md-5">
-														<h5 class="mt-2"><strong>Course Fees</strong></h5>
+										<div class="card col-md-7 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
+															<h6 class="mt-2"><b>ကနဦးလျှောက်ထားခြင်း</b></h6>
+															<div class="col-md-12">
+																	<ul id="school_description_lists">
+	                                    <li>
+																				<i class="icofont-book"></i>
+																				လျှောက်လွှာကြေး ကျပ်၁,၀၀၀ ပေးသွင်းပြီး လျှောက်လွှာ(ကျောင်းပုံစံ-၁)မှ(ကျောင်းပုံစံ-၅) ထိဖြင့် လျှောက်ထားရမည်။ (ပူးတွဲတင်ပြရမည့်အထောက်အထားများအပါအဝင်)
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				လျှောက်လွှာပါအချက်များ ပြည့်စုံပါက လျှောက်လွှာလက်ခံယူထားကြောင်း အထောက် အထားစာကို ထုတ်ပေးရသည်။
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				ကော်မတီသို့တင်ပြ၍ သဘောတူခွင့်ပြုပါက မှတ်ပုံတင်ကြေး ကျပ် ၅ သိန်း နှင့် နှစ်စဉ်ကြေး ကျပ် ၃ သိန်းကို အကြောင်းကြားစာရရှိသည့်နေ့မှ (၁၀)ရက်အတွင်း ပေးသွင်းရန် အကြောင်းကြားပါ သည်။
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				သတ်မှတ်ကြေးများပေးသွင်းသည့်နေ့မှ ၃၀ ရက် အတွင်း မှတ်ပုံတင်လက်မှတ်ထုတ်ပေး ပါသည်။
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				မှတ်ပုံတင်သက်တမ်းကာလမှာ ပထမဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်နေ့၏ ပြက္ခဒိန်လ အပါအဝင် ၃၆ လ (၃ နှစ်တာကာလ) ဖြစ်ပါသည်။
+																			</li>
+																	</ul>
+															</div>
+															<h6 class="mt-2"><b>သက်တမ်းတိုးလျှောက်ထားခြင်း</b></h6>
+															<div class="col-md-12">
+																<ul id="school_renew_des_lists">
+																		<li>
+																			<i class="icofont-book"></i>
+																			သက်တမ်းတိုးမည့်ရက်မတိုင်မီ ကပ်လျက်ရှိသောရှေ့ (၂)လအတွင်း သက်တမ်းတိုး လျှောက် ထားရမည်။
+																		</li>
+																		<li>
+																			<i class="icofont-book"></i>
+																			လျှောက်လွှာကြေး ကျပ် ၁,၀၀၀ ပေးသွင်းပြီး လျှောက်လွှာ (ကျောင်းပုံစံ-၆) ဖြင့် လျှောက်ထားရမည်။ (ပူးတွဲတင်ပြရမည့်အထောက်အထားများအပါအဝင်)
+																		</li>
+																		<li>
+																			<i class="icofont-book"></i>
+																			လျှောက်လွှာပါအချက်များ ပြည့်စုံပါက ကော်မတီသို့တင်ပြ၍ သဘောတူခွင့်ပြုပါက သက်တမ်းတိုး မှတ်ပုံတင်ကြေး ကျပ် ၅ သိန်း နှင့် နှစ်စဉ်ကြေး ကျပ် ၃ သိန်း ပေးသွင်းရန် အကြောင်း ကြားပါသည်။
+																		</li>
+																		<li>
+																			<i class="icofont-book"></i>
+																			သတ်မှတ်ကြေးများပေးသွင်းသည့်နေ့မှ ၃၀ ရက် အတွင်း မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပါ သည်။
+																		</li>
+																</ul>
+															</div>
+															<h6 class="mt-2"><b>နောက်ကျသက်တမ်းတိုးခြင်း</b></h6>
+															<div class="col-md-12">
 																<ul>
-                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong></li>
-																		<!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong></li> -->
-																		<li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong></li>
-																		<li><i class="icofont-ui-note"></i> <strong>Description</strong></li>
-																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
+																		<li>
+																			<i class="icofont-book"></i>
+																			သက်တမ်းတိုးမည့်ရက်မတိုင်မီ ကပ်လျက်ရှိသော ရှေ့ (၂)လအတွင်း သက်တမ်းတိုး လျှောက်ထားခြင်း မပြုနိုင်ပါက သတ်မှတ်ကာလ၏ တစ်ဆက်တည်းဖြစ်သောနောက်တစ်လအတွင်း လျှောက်လွှာကြေး ကျပ် ၁,၀၀၀ + သက်တမ်းတိုးမှတ်ပုံတင်ကြေး ကျပ် ၅ သိန်း + နှစ်စဉ်ကြေး ကျပ် ၃ သိန်း + နောက်ကျဒဏ်ကြေး ကျပ် ၈ သိန်း = ကျပ် ၁၆,၀၁,၀၀၀ ပေးသွင်းလျှောက်ထားရမည်။
+																		</li>
+																</ul>
+															</div>
+															<h6 class="mt-2"><b>သက်တမ်းပြတ်ခြင်း</b></h6>
+															<div class="col-md-12">
+																<ul>
+																		<li>
+																			<i class="icofont-book"></i>
+																			သတ်မှတ်ကာလထက်နောက်ကျ၍ သက်တမ်းတိုးရန် လျှောက်ထားခြင်းကို ခွင့်မပြု၊ သက်တမ်းပြတ်ဟု သတ်မှတ်ပြီး ပြန်လျှောက်ချိန်တွင် လျှောက်လွှာကြေး ကျပ် ၁,၀၀၀ + သက်တမ်းတိုးမှတ်ပုံတင်ကြေး ကျပ် ၅ သိန်း + နှစ်စဉ်ကြေး ကျပ် ၃ သိန်း + သက်တမ်းပြတ်ကြေး (၁ နှစ်လျှင်)၁ သိန်း ပေးသွင်းရမည်။
+																		</li>
+																</ul>
+															</div>
+															<h6 class="mt-2"><b>ရပ်နားခြင်း</b></h6>
+															<div class="col-md-12">
+																<ul>
+																		<li>
+																			<i class="icofont-book"></i>
+																			ရပ်နားလိုကြောင်း အကြောင်းကြားစာနှင့်အတူ မှတ်ပုံတင်လက်မှတ်မူရင်းကို ပြန်လည် အပ် နှံရမည်။ ထိုသို့အပ်နှံထားသူများကို ပြန်လည်မှတ်ပုံတင်ချိန်တွင် သက်တမ်းပြတ်ကြေး မကောက်ခံရ။
+																		</li>
+																</ul>
+															</div>
+															<div class="col-md-12">
+																<h4 class="col-md-12 card-title text-success">Description</h4>
+																<hr>
+																<ul>
+																	<?php
+																		if (is_array($requirements) || is_object($requirements))
+																			{
+																					foreach ($requirements as $value)
+																					{
+																							if($value['type'] == "SCHOOL"){
+																	?>
+																					<li>
+																						<i class="icofont-man-in-glasses"></i>
+																						<?php echo $value['name'] ?>
+																					</li>
+																	<?php
+																						}
+																					}
+																			}
+																	?>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card col-md-4 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Fees</h4>
+														<hr>
+														<div class="info-list">
+															<div class="col-md-12">
+																<ul>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
 																		<div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('school_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
+																				<a href="{{url('school_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
 																			</p>
 																		</div>
 																</ul>
+															</div>
 														</div>
-
+													</div>
 												</div>
 											</div>
-
 										</div>
 									</div>
 								</div>
 
                 <div class="card border-success mb-3" id="school_renew_form" style="display:none;"><br/>
-                    <h5 class="card-title text-center">ကျောင်းမှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားလွှာ</h5> <br/>                   
-                    
+                    <h5 class="card-title text-center">ကျောင်းမှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားလွှာ</h5> <br/>
+
                     <div class="card-body">
                             <form method="post" action="javascript:renewSchool();" enctype="multipart/form-data">
-                                
+
 
                                 <div class="row">
                                   <div class="col-md-8">
@@ -245,7 +301,7 @@
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                    
+
                                     <div class="col-md-8">
                                         <input type="hidden" id="hidden_nrc_front">
                                                 <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
@@ -256,9 +312,9 @@
                                                             <input type="file" class="custom-file-input" name="nrc_front"  onchange="previewNRCFile('nrc_front','nrc_front_img');">
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </p>
-                                       
+
                                     </div>
                                 </div><br>
 
@@ -474,8 +530,8 @@
                                     <label class="col-md-10 col-form-label"><b>{{ __('ပူးတွဲတင်ပြသည့်အထောက်အထားများ') }}</b></label>
                                 </div>
                                 <div class="row">
-                                    
-                                    
+
+
                                     <label class="col-md-6 col-form-label label">{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
@@ -484,8 +540,8 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
-                                    
+
+
                                     <label class="col-md-6 col-form-label label">{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
@@ -494,8 +550,8 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
-                                    
+
+
                                     <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
@@ -505,8 +561,8 @@
                                 </div>
 
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -515,8 +571,8 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -525,8 +581,8 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်းဖြစ်ပါက သက်ဆိုင်ရာအဖွဲ့အစည်း၏ အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၃)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -535,8 +591,8 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၄)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -545,8 +601,8 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -555,8 +611,8 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်နေရာလိပ်စာ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -565,8 +621,8 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
-                                  
+
+
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းအဆောက်အဦ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -575,7 +631,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('စာသင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -584,7 +640,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('သန့်စင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -593,7 +649,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('စီမံရုံးခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -602,7 +658,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('အထောက်အကူအခင်းအကျင်းများကိုဓါတ်ပုံနှင့်တကွဖော်ပြချက်') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -611,7 +667,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('အဆောက်အဦအခင်းအကျင်းများအားရယူသုံးစွဲပုံ') }}</label>
                                   <div class="col-md-6">
                                       <div class="form-group">
@@ -631,7 +687,7 @@
                                   </div>
                                 </div>
                                 <div class="row">
-                                  
+
                                   <label class="col-md-6 col-form-label label">{{ __('သက်ဆိုင်သည့်အထောက်အထားများ၊စာချုပ်စာတမ်းများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
@@ -813,7 +869,7 @@
                                 </div>
 
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းတည်ရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -823,7 +879,7 @@
                                 </div>
 
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ကျောင်းခွဲတည်ရာလိပ်စာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -837,7 +893,7 @@
                                     <label class="col-md-10 col-form-label"><b>{{ __('ကျောင်းအဆောက်အဦး(အဆောက်အဦအမျိုးအစား/အတိုင်းအတာ/အထပ်အရေအတွက်)') }}</b></label>
                                 </div> -->
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အဆောက်အဦးအမျိုးအစား') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -846,7 +902,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အတိုင်းအတာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -855,7 +911,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အထပ်အရေအတွက်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -869,7 +925,7 @@
                                     <label class="col-md-10 col-form-label"><b>{{ __('စာသင်ခန်း(အခန်းအရေအတွက်/အတိုင်းအတာ/ဝင်ဆံ့သင်တန်းသား/လေအေးပေးစက်)') }}</b></label>
                                 </div> -->
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အခန်းအရေအတွက်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -878,7 +934,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အတိုင်းအတာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -887,7 +943,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('ဝင်ဆံ့သင်တန်းသား') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -896,7 +952,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('လေအေးပေးစက်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -910,7 +966,7 @@
                                     <label class="col-md-10 col-form-label">{{ __('သန့်စင်ခန်း(အမျိုးအစား/အရေအတွက်)') }}</label>
                                 </div> -->
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အမျိုးအစား') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -919,7 +975,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အရေအတွက်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -933,7 +989,7 @@
                                     <label class="col-md-10 col-form-label">{{ __('စီမံရုံးခန်း(အခန်းအရေအတွက်/အတိုင်းအတာ)') }}</label>
                                 </div> -->
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အခန်းအရေအတွက်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -942,7 +998,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
+
                                     <label class="col-md-4 col-form-label label">{{ __('အတိုင်းအတာ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -986,7 +1042,7 @@
                             </form>
 
                         </div>
-                </div>                                                                 
+                </div>
             </div>
         </div>
     </div>
@@ -1007,11 +1063,11 @@
         var course_type = location.pathname.split('/');
         // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
-        
-        
+
+
         if(!student){
         localStorage.setItem('course_type',course_type[2])
-            
+
         }
         if(student.approve_reject_status==1){
             loadRenewSchool(localStorage.getItem("school_id"));
