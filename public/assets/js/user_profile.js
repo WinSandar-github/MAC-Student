@@ -44,6 +44,7 @@ function user_profile(){
                 $('.school').show();
                 let school = data.school;
 
+                localStorage.setItem("school_id",school.id);
                 $('#sch_name_mm').text(school.name_mm);
                 $('#sch_name_eng').text(school.name_eng);
                 $("#sch_nrc").text(school.nrc_state_region+"/" +school.nrc_township+ "("+school.nrc_citizen+")"+school.nrc_number );

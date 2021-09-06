@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-								<div class="card-body" id="papp_initial">
+								{{--<div class="card-body" id="papp_initial">
 									<div class="row">
 										<div class="col-md-12 widget-information">
 											<div class="row border-bottom">
@@ -79,7 +79,7 @@
 																 </span>
 															 </li>
 														</ul>
-														{{--<p style="height:150px;overflow:auto;">{{$c['description']}}</p>--}}
+
 														<!-- Requirement -->
 														<div class="row">
 															<div class="col-md-12">
@@ -132,99 +132,176 @@
 											</div>
 										</div>
 									</div>
+								</div>--}}
+
+								<div id="papp_initial">
+									<div class="row">
+										<div class="card col-md-7 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Description</h4>
+														<hr>
+														<div class="info-list">
+															<h6 class="mt-2"><b>ကနဦးမှတ်ပုံတင်လျှောက်ထားခြင်း</b></h6>
+															<h6 class="mt-2"><b>(က) လျှောက်ထားနိုင်သူများ</b></h6>
+															<div class="col-md-12">
+																	<ul id="papp_description_lists">
+																			<li>
+																				<i class="icofont-book"></i>
+																				- CPA(FF) မှတ်ပုံတင်သက်တမ်း ၁ နှစ် ပြည့်မြောက်သူများ
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				- စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ  ပြည့်မီသူ
+																			</li>
+																	</ul>
+															</div>
+															<!-- Requirement -->
+															<div class="col-md-12">
+																<h4 class="col-md-12 card-title text-success">Requirement</h4>
+																<hr>
+																<ul>
+																	<?php
+																		if (is_array($requirements) || is_object($requirements))
+																			{
+																					foreach ($requirements as $value)
+																					{
+																							if($value['type'] == "PAPP"){
+																	?>
+																					<li>
+																						<i class="icofont-man-in-glasses"></i>
+																						<?php echo $value['name'] ?>
+																					</li>
+																	<?php
+																						}
+																					}
+																			}
+																	?>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card col-md-4 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Fees</h4>
+														<hr>
+														<div class="info-list">
+															<div class="col-md-12">
+																<ul>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
+																		<div class="pull-right mt-4">
+																			<p class="info-btn col-md-2 mb-4 text-dark h6">
+																				<a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark" >Register</a>
+																			</p>
+																		</div>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 
-                        <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/>
-                    				<h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
-                            <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data">
-                            	<div class="card-body">
-                                  {{--<table width="100%">
-                                      <tr>
-                                          <td width="20%">
-                                              <div class="single-form">
-                                                  <label class="col-form-label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
-                                              </div>
-                                          </td>
-                                          <td width="75%">
-                                              <div class="single-form">
-                                                  <input type="text" class="form-control" id="regno" readonly>
-                                              </div>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td width="20%">
-                                              <div class="single-form">
-                                                  <label class="col-form-label">Applied Date</label>
-                                              </div>
-                                          </td>
-                                          <td width="75%">
-                                              <div class="single-form">
-                                                  <input type="text" class="form-control" id="register_date" readonly>
-                                              </div>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td width="20%">
-                                              <div class="single-form">
-                                                  <label class="col-form-label">Status</label>
-                                              </div>
-                                          </td>
-                                          <td width="75%">
-                                              <div class="single-form">
-                                                  <input type="text" class="form-control" id="message" readonly="">
-                                              </div>
-                                          </td>
-                                      </tr>
-                                  </table>--}}
-
-																	<div class="row">
-																		<div class="col-md-9">
-																			<div class="row">
-																					<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-																					<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('သင်တန်းဆရာမှတ်ပုံတင်အမှတ်') }}</label>
-																					<div class="col-md-7">
-																							<div class="form-group single-form">
-																								<input type="text" class="form-control" id="regno" readonly>
-																							</div>
-																					</div>
-																			</div>
-																			<div class="row">
-																					<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-																					<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
-																					<div class="col-md-7">
-																							<div class="form-group single-form">
-																								<input type="text" class="form-control" id="register_date" readonly>
-																							</div>
-																					</div>
-																			</div>
-																			<div class="row">
-																					<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-																					<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Status') }}</label>
-																					<div class="col-md-7">
-																							<div class="form-group single-form">
-																								<input type="text" class="form-control" id="message" readonly="">
-																							</div>
-																					</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="col-md-8 pull-right mt-3">
-																				<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-																				<p class="mt-2">
-																					<input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" required>
-																				</p>
-																			</div>
-																		</div>
-																	</div>
-																	<br/>
-                                  <div class="row ">
-                                      <div class="col-md-2 offset-md-5">
-                                          <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
+                <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/>
+            				<h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
+                    <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data">
+                    	<div class="card-body">
+                          {{--<table width="100%">
+                              <tr>
+                                  <td width="20%">
+                                      <div class="single-form">
+                                          <label class="col-form-label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
                                       </div>
-                                  </div>
-                                </div>
-                            </form>
-                      	</div>
+                                  </td>
+                                  <td width="75%">
+                                      <div class="single-form">
+                                          <input type="text" class="form-control" id="regno" readonly>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td width="20%">
+                                      <div class="single-form">
+                                          <label class="col-form-label">Applied Date</label>
+                                      </div>
+                                  </td>
+                                  <td width="75%">
+                                      <div class="single-form">
+                                          <input type="text" class="form-control" id="register_date" readonly>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td width="20%">
+                                      <div class="single-form">
+                                          <label class="col-form-label">Status</label>
+                                      </div>
+                                  </td>
+                                  <td width="75%">
+                                      <div class="single-form">
+                                          <input type="text" class="form-control" id="message" readonly="">
+                                      </div>
+                                  </td>
+                              </tr>
+                          </table>--}}
+
+													<div class="row">
+														<div class="col-md-9">
+															<div class="row">
+																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
+																	<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('သင်တန်းဆရာမှတ်ပုံတင်အမှတ်') }}</label>
+																	<div class="col-md-7">
+																			<div class="form-group single-form">
+																				<input type="text" class="form-control" id="regno" readonly>
+																			</div>
+																	</div>
+															</div>
+															<div class="row">
+																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
+																	<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
+																	<div class="col-md-7">
+																			<div class="form-group single-form">
+																				<input type="text" class="form-control" id="register_date" readonly>
+																			</div>
+																	</div>
+															</div>
+															<div class="row">
+																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
+																	<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Status') }}</label>
+																	<div class="col-md-7">
+																			<div class="form-group single-form">
+																				<input type="text" class="form-control" id="message" readonly="">
+																			</div>
+																	</div>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="col-md-8 pull-right mt-3">
+																<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+																<p class="mt-2">
+																	<input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" required>
+																</p>
+															</div>
+														</div>
+													</div>
+													<br/>
+                          <div class="row ">
+                              <div class="col-md-2 offset-md-5">
+                                  <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
+                              </div>
+                          </div>
+                        </div>
+                    </form>
+              	</div>
             </div>
         </div>
     </div>

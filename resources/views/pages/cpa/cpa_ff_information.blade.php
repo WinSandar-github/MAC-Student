@@ -59,75 +59,95 @@
                         </div>
                     </div>
                 </div>
-								<div class="card-body" id="cpa_initial">
+
+
+								<div id="cpa_initial">
 									<div class="row">
-										<div class="col-md-12 widget-information">
-											<div class="row border-bottom">
-	                      <h2 class="col-md-6 card-title text-center text-success">CPA Full Fleged</h2>
-                        <div class="col-md-3"></div>
-              				</div>
-											<!-- Description -->
-											<div class="row">
-												<div class="col-md-7">
-														<h5 class="mt-2"><strong>Description</strong></h5>
-														<hr>
-														<ul id="cpa_ff_description_lists">
-																<li>
-																	<span>
-																		<!-- <i class="icofont-file-document"></i> -->
-																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-																 </span>
-															 </li>
-														</ul>
-														{{--<p style="height:150px;overflow:auto;">{{$c['description']}}</p>--}}
-														<!-- Requirement -->
-														<div class="row">
-															<div class="col-md-12">
-																	<h5 class="mt-2"><strong>Requirement</strong></h5>
-																	<hr>
-																	<div class="info-list">
-																		<ul>
-																			<?php
-																				if (is_array($requirements) || is_object($requirements))
-																					{
-																					    foreach ($requirements as $value)
-																					    {
-																					        if($value['type'] == "CPA_FF"){
-																			?>
-																							<li>
-																								<!-- <i class="icofont-man-in-glasses"></i> -->
-																								<?php echo $value['name'] ?>
-																							</li>
-																			<?php
-																								}
-																					    }
-																					}
-																			?>
-																		</ul>
-																	</div>
-															</div>
-														</div>
-												</div>
-												<div class="col-md-5">
-														<h5 class="mt-2"><strong>Course Fees</strong></h5>
+										<div class="card col-md-7 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
+															<h6 class="mt-2"><b>ကနဦးမှတ်ပုံတင်လျှောက်ထားခြင်း</b></h6>
+															<h6 class="mt-2"><b>(က) လျှောက်ထားနိုင်သူများ</b></h6>
+															<div class="col-md-12">
+																	<ul id="cpaff_description_lists">
+																			<li>
+																				<i class="icofont-book"></i>
+																				-အသက် ၂၁ နှစ်ပြည့်ပြီးသူ
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				- CPA Part-2 စာမေးပွဲအောင်မြင်သူ (သို့မဟုတ်) အရည်အချင်းစစ်စာမေးပွဲအောင်မြင်ပြီးသူ
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				- သတ်မှတ်အလုပ်သင်လုပ်သက်ပြည့်မြောက်ပြီးသူ
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				-စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				- MICPA အသင်းဝင်
+																			</li>
+																			<li>
+																				<i class="icofont-book"></i>
+																				- မှတ်ပုံံတင်စာရင်းကိုင် (R.A) လက်မှတ်ရရှိထားသူများ၏ PAPP မှတ်ပုံတင်လျှောက်ထားမှုကို ခွင့်ပြုပါက ယင်းတို့ကို CPA(Full-Fledged) နှင့် PAPP အဖြစ် တစ်ပြိုင်နက်တည်း မှတ်ပုံတင်ခွင့်ပြုပါသည်။
+																			</li>
+																	</ul>
+															</div>
+															<!-- Requirement -->
+															<div class="col-md-12">
+																<h4 class="col-md-12 card-title text-success">Requirement</h4>
+																<hr>
 																<ul>
-                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong></li>
-																		<!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong></li> -->
-																		<li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong></li>
-																		<li><i class="icofont-ui-note"></i> <strong>Description</strong></li>
-																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
+																	<?php
+																		if (is_array($requirements) || is_object($requirements))
+																			{
+																					foreach ($requirements as $value)
+																					{
+																							if($value['type'] == "CPA_FF"){
+																	?>
+																					<li>
+																						<i class="icofont-man-in-glasses"></i>
+																						<?php echo $value['name'] ?>
+																					</li>
+																	<?php
+																						}
+																					}
+																			}
+																	?>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card col-md-4 m-2">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-12 widget-information">
+														<h4 class="col-md-12 card-title text-success">Fees</h4>
+														<hr>
+														<div class="info-list">
+															<div class="col-md-12">
+																<ul>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
 																		<div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('cpa_ff_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
+																				<a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
 																			</p>
 																		</div>
 																</ul>
+															</div>
 														</div>
+													</div>
 												</div>
 											</div>
 										</div>
