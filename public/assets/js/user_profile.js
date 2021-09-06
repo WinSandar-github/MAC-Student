@@ -993,13 +993,25 @@ function formatDate(value) {
 }
 
 
-$('#update_profile').click(function(){
+$('#edit_profile').click(function(){
     let student = JSON.parse(localStorage.getItem('studentinfo'));
-    alert(student.date_of_birth)
-    $('#email').val(student.email);
-    $('.date_of_birth').val(student.date_of_birth);
-    $('#phone').val(student.phone);
-    $('#address').val(student.address);
+
+    $.ajax({
+        url:BACKEND_URL+"/student_info/"+student.id,
+        type:'get',
+        contentType: false,
+        processData: false,
+         success: function(res){
+             console.log(res.data.email)
+            $('#update_email').val(res.data.email);
+            $('.date_of_birth').val(res.data.date_of_birth);
+            $('#update_phone').val(res.data.phone);
+            $('#update_address').val(res.data.address);
+            $('#previewImg').attr("src",BASE_URL+res.data.image);
+            $('#old_image').val(res.data.image);
+        }
+
+    });
 
     $('#profileModel').modal('show')
 
@@ -1047,4 +1059,74 @@ $('.course_list').click(function(){
 
     
     $('#showCourseList').modal('toggle');
+})
+
+$('#update_profile').submit(function(e){
+    e.preventDefault();
+    let student = JSON.parse(localStorage.getItem('studentinfo'));
+
+    var formData = new FormData(this);
+    formData.append('_method','PATCH');
+    show_loader();
+    $.ajax({
+        url:BACKEND_URL+"/update_profile/"+student.id,
+        type:'POST',
+        contentType: false,
+        processData: false,
+        data:formData,
+        success: function(data){
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileModel').modal('hide');
+        
+        }
+
+    })
+
+})
+
+$('#changePwd').submit(function(e){
+    e.preventDefault();
+    show_loader();
+    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+    {
+        EasyLoading.hide();
+        $("input[name=password]").val('');
+        $("input[name=confirm_password]").val('');
+        $("input[name=password]").addClass('is-invalid');
+        $("input[name=confirm_password]").addClass('is-invalid');
+       
+
+        $('#err_message').text("Your password and confirm password do not match!");
+       
+    }else{
+        var formData = new FormData(this);
+        formData.append('id',student_id);
+        $.ajax({
+            url:BACKEND_URL+"/update_pwd",
+            type:'POST',
+            contentType: false,
+            processData: false,
+            data:formData,
+            success: function(data){
+                
+                
+                EasyLoading.hide();
+                successMessage(data.message);
+                $('#showPwdModel').modal('toggle');
+                location.reload();
+            
+            },
+            error:function(err){
+                EasyLoading.hide();
+                
+                if(err.status == 401){
+                    $('#old_pwd').addClass('is-invalid');
+                    $('#old_err_meg').text(err.responseJSON.error);
+                }
+            }
+        })
+        
+
+    }
 })

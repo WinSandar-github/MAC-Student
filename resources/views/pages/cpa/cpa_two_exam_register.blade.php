@@ -108,7 +108,7 @@
                                                     </div>
                                                     <div class="col-md-5">
                                                         <input type="text" name="last_ans_exam_no" class="form-control"
-                                                            placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်">
+                                                            placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required="" id="last_ans_exam_no">
 
                                                     </div>
                                                 </div>
@@ -123,7 +123,7 @@
                                                     </div>
                                                     <div class="col-md-5">
                                                         <input type="text" name="date" class="form-control"
-                                                            placeholder="လ၊နှစ်(MMM-YYYY)" required>
+                                                            placeholder="လ၊နှစ်(MMM-YYYY)" required id="date">
 
                                                     </div>
 
@@ -180,7 +180,7 @@
                                                             <label for="0">Module 1</label>
 
                                                             <input type="radio" id="1" name="is_full_module" value="1"
-                                                                style="margin-left: 3%;">
+                                                                style="margin-left: 3%;" checked="">
                                                             <label for="1">Module 2</label>
 
                                                             <input type="radio" id="2" name="is_full_module" value="2"
@@ -232,8 +232,7 @@
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
                                                         {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button> --}}
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">Submit
+                                                        <button type="button" id="cpa_exam" class="btn btn-success btn-hover-dark w-100">Submit
                                                         </button>
                                                     </div>
                                                 </div>
@@ -251,10 +250,10 @@
         </div>
     </div>
 
-    <!-- DA2 Exam Register -->
-    <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
+    <!-- CPA2 Exam Register -->
+    <form method="post" action="javascript:void();" enctype="multipart/form-data">
         @csrf
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cpa2examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -280,23 +279,47 @@
                             <div class="col-sm-3 col-5">
                                 <div class='radio mx-auto'>
                                     <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%" height="50%"
-                                        data-value="CASH" name="payment_method">
+                                        data-value="CASH" name="payment_method" id="cpa2_exam_payment">
                                 </div><br>
                                 <h5>CASH</h5>
                             </div>
                             <input type="hidden" name="payment_method" value="CASH">
                         </div>
                     </div><br>
-                    <div class="modal-footer">
+                    {{--<div class="modal-footer">
                         <center>
                             <button type="submit" id="btn1" class="btn btn-success btn-hover-dark w-100"
                                 data-bs-toggle="modal">Submit
                         </center>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
     </form>
+
+    <!-- CPA2 Exam Modal -->
+     <form method="post" class="needs-validation" id="cpa_exam_register" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="cpa2examPayment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">CPA Two Exam Registeration Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="cpa2_exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
 
 
     <!-- JavaScript Section -->
@@ -335,9 +358,35 @@
 
         loadSchoolList();
 
-        $('#btn1').click(function() {
+        // $('#btn1').click(function() {
+        //     setTimeout(function() {
+        //         $('#exampleModal').modal('hide');
+        //     }, 1000);
+        // });
+        $('#cpa_exam').click(function(){
+            if($('#last_ans_exam_no').val() == '' ){
+                Swal.fire('Last exam no. can not be left blank');
+                return false;
+            }
+            if($('#date').val() == '' ){
+                Swal.fire('Exam date can not be left blank');
+                return false;
+            }
+
+            $('#cpa2examModal').modal('show');
+            return true;
+
+        });
+
+        $(document).on('click', '#cpa2_exam_payment', function () {
+            setTimeout(function() {$('#cpa2examModal').modal('hide');}, 1000);
+            $('#cpa2examPayment').modal('show');
+            return true;
+        })
+
+        $('#cpa2_exam_btn').click(function() {
             setTimeout(function() {
-                $('#exampleModal').modal('hide');
+                $('#cpa2examPayment').modal('hide');
             }, 1000);
         });
     </script>

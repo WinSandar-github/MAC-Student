@@ -338,7 +338,7 @@
                                     <label class="col-md-4 col-form-label label">{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group col-md-5">
-                                          <select name="attend_course[]" class="form-control multiple-attend-course" multiple="multiple" required style="width:100%">
+                                          <select name="attend_course[]" id="attend_course" class="form-control multiple-attend-course" multiple="multiple" required style="width:100%">
                                           </select>
 
                                         </div>
@@ -359,15 +359,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type[]" id="private" value="private" required>
+                                            <input class="form-check-input" type="radio" name="own_type" id="private" value="private" required>
                                             <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type[]" id="rent" value="rent" required>
+                                            <input class="form-check-input" type="radio" name="own_type" id="rent" value="rent" required>
                                             <label class="form-check-label" for="">အငှား</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type[]" id="use_sharing" value="use_sharing" required>
+                                            <input class="form-check-input" type="radio" name="own_type" id="use_sharing" value="use_sharing" required>
                                             <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                           </div>
                                         </div>
@@ -389,15 +389,15 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="private" required>
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="" value="private" required>
                                             <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="rent" required>
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="" value="rent" required>
                                             <label class="form-check-label" for="">အငှား</label>
                                           </div>
                                           <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="" value="use_sharing" required>
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="" value="use_sharing" required>
                                             <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                           </div>
                                         </div>
@@ -541,15 +541,15 @@
                                   <div class="col-md-6">
                                       <div class="form-group">
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="private" required>
+                                          <input class="form-check-input" type="radio" name="using_type" id="" value="private" required>
                                           <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="rent" required>
+                                          <input class="form-check-input" type="radio" name="using_type" id="" value="rent" required>
                                           <label class="form-check-label" for="">အငှား</label>
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                          <input class="form-check-input" type="radio" name="using_type[]" id="" value="use_sharing" required>
+                                          <input class="form-check-input" type="radio" name="using_type" id="" value="use_sharing" required>
                                           <label class="form-check-label" for="">တွဲဖက်သုံး</label>
                                         </div>
                                       </div>
