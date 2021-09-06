@@ -40,7 +40,7 @@ $('document').ready(function(){
         type:'GET',
         success:function(response){
             $.each(response.data,function(i,v){
-                var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.name}</a></li>`;
+                var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
 
                 $('.course_type').append(course);
 
