@@ -639,7 +639,7 @@ function loadStudentCourse(course_id){
   
 }
 function loadFile(file,divname){
-    var file="<a href='#' onclick=viewFile('"+file+"') data-toggle='modal' data-target='#fileModal'>View File</a><br/>";
+    var file="<a href='#' onclick=viewFile('"+file+"') data-toggle='modal' data-target='#fileModal'>File</a><br/>";
     $("."+divname).append(file);
     
 }
