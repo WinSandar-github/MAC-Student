@@ -155,6 +155,30 @@ function delInputFile(diventry){
 
 // }
 
+$( "#cpaff_submit_btn" ).click(function() {
+        if(allFilled('#cpaff_form')){
+            $('#cpaffModal').modal('show');
+            send_email();
+        }
+    });
+
+function check_email_cpaff()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createCPAFFRegister();
+        $('#cpaffModal').modal('hide');
+    }
+}
+
 function createCPAFFRegister(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
