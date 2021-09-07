@@ -345,14 +345,152 @@ function loadRenewSchool(id){
       url : BACKEND_URL+"/school/"+id,
       success: function (result) {
           var school=result.data;
-          if(school.approve_reject_status==1){
-                document.getElementById('school').style.display='none';
+          school.forEach(function(school){
+              if(school.approve_reject_status==1){
+                document.getElementById('shcool').style.display='none';
                 document.getElementById('school_renew_form').style.display='block';
                 var accept=new Date(school.renew_date);
                 var month=accept.getMonth()+1;
                 var year=accept.getFullYear();
                 var y=year+1;
                 var now=new Date();
+                $('input[name=name_mm]').val(school.name_mm);
+                $('input[name=name_eng]').val(school.name_eng);
+                $('input[name=father_name_mm]').val(school.father_name_mm);
+                $('input[name=father_name_eng]').val(school.father_name_eng);
+                $('input[name=nrc_state_region]').val(school.nrc_state_region);
+                $('input[name=nrc_township]').val(school.nrc_township);
+                $('input[name=nrc_citizen]').val(school.nrc_citizen);
+                $('input[name=nrc_number]').val(school.nrc_number);
+                $('input[name=dob]').val(school.date_of_birth);
+                $('input[name=degree]').val(school.degree);
+                $('input[name=phone]').val(school.phone);
+                $('textarea[name=address]').val(school.address);
+                var type=school.type.split(',');
+                type.forEach(function(e){
+                  $('#school'+e).prop("checked", true);
+                })
+                $('#'+school.own_type).prop("checked", true);
+                $('#branch_'+school.branch_sch_own_type).prop("checked", true);
+                $('#using_type_'+school.using_type).prop("checked", true);
+                var school_establishers=school.school_establishers;
+                $.each(school_establishers, function( index, value ){
+                  var tr="<tr>";
+                  tr += `<td class="less-font-weight text-center">${ index += 1 } </td>`;
+                  tr += '<td><input type="text" name="establisher_name[]" class="form-control" value="'+value.name+'"/></td>';
+                  tr += '<td><input type="text" name="establisher_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+                  tr += '<td><input type="text" name="establisher_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
+                  tr += '<td><input type="text" name="establisher_education[]" class="form-control" value="'+value.education+'"/></td>';
+                  tr += '<td><input type="text" name="establisher_address[]" class="form-control" value="'+value.address+'"/></td>';
+                  tr += '<td><input type="text" name="establisher_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+                  tr += '<td><input type="text" name="establisher_email[]" class="form-control" value="'+value.email+'"/></td>';
+                  tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+                  tr += "</tr>";
+                  $(".tbl_sch_established_persons_body").append(tr);
+                });
+                var school_governs=school.school_governs;
+                $.each(school_governs, function( index, value ){
+                  var tr="<tr>";
+                  tr += `<td class="less-font-weight text-center">${ index += 1 } </td>`;
+                  tr += '<td><input type="text" name="govern_name[]" class="form-control" value="'+value.name+'"/></td>';
+                  tr += '<td><input type="text" name="govern_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+                  tr += '<td><input type="text" name="govern_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
+                  tr += '<td><input type="text" name="govern_education[]" class="form-control" value="'+value.education+'"/></td>';
+                  tr += '<td><input type="text" name="govern_responsibility[]" class="form-control" value="'+value.responsibility+'"/></td>';
+                  tr += '<td><input type="text" name="govern_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+                  tr += '<td><input type="text" name="govern_email[]" class="form-control" value="'+value.email+'"/></td>';
+                  tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+                  tr += "</tr>";
+                  $(".tbl_sch_governs_body").append(tr);
+                });
+                var school_members=school.school_members;
+                $.each(school_members, function( index, value ){
+                  var tr="<tr>";
+                  tr += `<td class="less-font-weight text-center">${ index += 1 } </td>`;
+                  tr += '<td><input type="text" name="member_name[]" class="form-control" value="'+value.name+'"/></td>';
+                  tr += '<td><input type="text" name="member_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+                  tr += '<td><input type="text" name="member_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
+                  tr += '<td><input type="text" name="member_education[]" class="form-control" value="'+value.education+'"/></td>';
+                  tr += '<td><input type="text" name="member_responsibility[]" class="form-control" value="'+value.responsibility+'"/></td>';
+                  tr += '<td><input type="text" name="member_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+                  tr += '<td><input type="text" name="member_email[]" class="form-control" value="'+value.email+'"/></td>';
+                  tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+                  tr += "</tr>";
+                  $(".tbl_member_list_biography_body").append(tr);
+                });
+                var school_teachers=school.school_teachers;
+                $.each(school_teachers, function( index, value ){
+                  var tr="<tr>";
+                  tr += `<td class="less-font-weight text-center">${ index += 1 } </td>`;
+                  tr += '<td><input type="text" name="teacher_name[]" class="form-control" value="'+value.name+'"/></td>';
+                  tr += '<td><input type="text" name="teacher_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+                  tr += '<td><input type="text" name="teacher_registration_no[]" class="form-control" value="'+value.registration_no+'"/></td>';
+                  tr += '<td><input type="text" name="teacher_education[]" class="form-control" value="'+value.education+'"/></td>';
+                  tr += '<td><input type="text" name="teaching_subject[]" class="form-control" value="'+value.subject+'"/></td>';
+                  tr += '<td><input type="text" name="teacher_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+                  tr += '<td><input type="text" name="teacher_email[]" class="form-control" value="'+value.email+'"/></td>';
+                  tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+                  tr += "</tr>";
+                  $(".tbl_teacher_list_biography_body").append(tr);
+                });
+                $('textarea[name=school_location]').val(school.school_location);
+                $('textarea[name=branch_school_location]').val(school.branch_school_location);
+                $('textarea[name=branch_school_address]').val(school.branch_school_address);
+                $('input[name=bulding_type]').val(school.bulding_type);
+                $('input[name=building_measurement]').val(school.building_measurement);
+                $('input[name=floor_numbers]').val(school.floor_numbers);
+                $('input[name=classroom_number]').val(school.classroom_number);
+                $('input[name=classroom_measurement]').val(school.classroom_measurement);
+                $('input[name=student_num_limit]').val(school.student_num_limit);
+                $('input[name=air_con]').val(school.air_con);
+                $('input[name=toilet_type]').val(school.toilet_type);
+                $('input[name=toilet_number]').val(school.toilet_number);
+                $('input[name=manage_room_numbers]').val(school.manage_room_numbers);
+                $('input[name=manage_room_measurement]').val(school.manage_room_measurement);
+                loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
+                loadFile(school.attachment,"view_attachment");
+                loadFile(school.business_license,"view_business_license");
+                loadFile(school.company_reg,"view_company_reg");
+                loadFile(school.org_reg_origin_and_copy,"view_org_reg_origin");
+                loadFile(school.estiblisher_list_and_bio,"view_estiblisher_list");
+                loadFile(school.governer_list_and_bio,"view_governer");
+                loadFile(school.org_member_list_and_bio,"view_org_member_list_and_bio");
+                loadFile(school.teacher_list_and_bio,"view_teacher_list");
+                loadFile(school.teacher_reg_copy,"view_teacher_reg");
+                loadFile(school.school_location_attach,"view_school_location");
+                loadFile(school.school_building_attach,"view_school_building");
+                loadFile(school.classroom_attach,"view_classroom");
+                loadFile(school.toilet_attach,"view_toilet_attach");
+                loadFile(school.manage_room_attach,"view_manage_room");
+                loadFile(school.supporting_structure_photo,"view_supporting");
+                loadFile(school.relevant_evidence_contracts,"view_relevant_evidence_contracts");
+                loadFile(school.sch_establish_notes_attach,"view_sch_establish_notes_attach");
+                
+                $('#previewImg').attr("src",BASE_URL+school.profile_photo);
+                $('input[name=school_name]').val(school.school_name);
+                $('textarea[name=school_address]').val(school.school_address);
+                $('#hidden_nrc_front').val(school.nrc_front);
+                $('#hidden_business_license').val(school.business_license);
+                $('#hidden_company_reg').val(school.company_reg);
+                $('#hidden_org_reg_origin_and_copy').val(school.org_reg_origin_and_copy);
+                $('#hidden_estiblisher_list_and_bio').val(school.estiblisher_list_and_bio);
+                $('#hidden_governer_list_and_bio').val(school.governer_list_and_bio);
+                $('#hidden_org_member_list_and_bio').val(school.org_member_list_and_bio);
+                $('#hidden_teacher_list_and_bio').val(school.teacher_list_and_bio);
+                $('#hidden_teacher_reg_copy').val(school.teacher_reg_copy);
+                $('#hidden_school_location_attach').val(school.school_location_attach);
+                $('#hidden_school_building_attach').val(school.school_building_attach);
+                $('#hidden_toilet_attach').val(school.toilet_attach);
+                $('#hidden_manage_room_attach').val(school.manage_room_attach);
+                $('#hidden_supporting_structure_photo').val(school.supporting_structure_photo);
+                $('#hidden_classroom_attach').val(school.classroom_attach);
+                $('#hidden_relevant_evidence_contracts	').val(school.relevant_evidence_contracts	);
+                $('#hidden_sch_establish_notes_attach').val(school.sch_establish_notes_attach);
+                $('#hidden_attachment').val(school.attachment);
+                $('#hidden_nrc_front').val(school.nrc_front);
+                $('#hidden_nrc_back').val(school.nrc_back);
+                $("#nrc_front_img").attr("src",BASE_URL+school.nrc_front);
+                $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
                 $('#regno').val(school.id);
                 $('#register_date').val(school.renew_date);
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
@@ -366,10 +504,11 @@ function loadRenewSchool(id){
                     $('#message').val("You are verified!");
                     $('.renew_submit').prop('disabled', true);
                 }
-          }else{
-            document.getElementById('school_renew_form').style.display='none';
-            document.getElementById('school').style.display='block';
-          }
+            }else{
+              document.getElementById('school_renew_form').style.display='none';
+              document.getElementById('school').style.display='block';
+            }
+          })
 
       },
       error: function (result) {
@@ -377,8 +516,72 @@ function loadRenewSchool(id){
   });
   }
   function renewSchool(){
-    var send_data=new FormData();
+    var send_data=new FormData($("#school_renew_form_data")[0]);
     var id=localStorage.getItem("school_id");
+    if($("input[name=nrc_front]")[0].files[0]){
+      send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+    }else{
+      send_data.append('nrc_front', $('#hidden_nrc_front').val());
+    }
+    if($("input[name=nrc_back]")[0].files[0]){
+      send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+    }else{
+      send_data.append('nrc_back', $('#hidden_nrc_back').val());
+    }
+    send_data.append('email', $("input[name=email]").val());
+    send_data.append('password', $("input[name=password]").val());
+    if(!$("input[name=attachment]")[0].files[0]){
+      send_data.append('attachment', $('#hidden_attachment').val());
+    }
+    if(!$("input[name=business_license]")[0].files[0]){
+      send_data.append('business_license', $('#hidden_business_license').val());
+    }
+    if(!$("input[name=company_reg]")[0].files[0]){
+      send_data.append('company_reg', $('#hidden_company_reg').val());
+    }
+    if(!$("input[name=org_reg_origin_and_copy]")[0].files[0]){
+      send_data.append('org_reg_origin_and_copy', $('#hidden_org_reg_origin_and_copy').val());
+    }
+    if(!$("input[name=estiblisher_list_and_bio]")[0].files[0]){
+      send_data.append('estiblisher_list_and_bio', $('#hidden_estiblisher_list_and_bio').val());
+    }
+    if(!$("input[name=governer_list_and_bio]")[0].files[0]){
+      send_data.append('governer_list_and_bio', $('#hidden_governer_list_and_bio').val());
+    }
+    if(!$("input[name=org_member_list_and_bio]")[0].files[0]){
+      send_data.append('org_member_list_and_bio', $('#hidden_org_member_list_and_bio').val());
+    }
+    if(!$("input[name=teacher_list_and_bio]")[0].files[0]){
+      send_data.append('teacher_list_and_bio', $('#hidden_teacher_list_and_bio').val());
+    }
+    if(!$("input[name=teacher_reg_copy]")[0].files[0]){
+      send_data.append('teacher_reg_copy', $('#hidden_teacher_reg_copy').val());
+    }
+    if(!$("input[name=school_location_attach]")[0].files[0]){
+      send_data.append('school_location_attach', $('#hidden_school_location_attach').val());
+    }
+    if(!$("input[name=school_building_attach]")[0].files[0]){
+      send_data.append('school_building_attach', $('#hidden_school_building_attach').val());
+    }
+    if(!$("input[name=classroom_attach]")[0].files[0]){
+      send_data.append('classroom_attach', $('#hidden_classroom_attach').val());
+    }
+    if(!$("input[name=toilet_attach]")[0].files[0]){
+      send_data.append('toilet_attach', $('#hidden_toilet_attach').val());
+    }
+    if(!$("input[name=supporting_structure_photo]")[0].files[0]){
+      send_data.append('supporting_structure_photo', $('#hidden_supporting_structure_photo').val());
+    }
+    if(!$("input[name=relevant_evidence_contracts]")[0].files[0]){
+      send_data.append('relevant_evidence_contracts', $('#hidden_relevant_evidence_contracts').val());
+    }
+    if(!$("input[name=sch_establish_notes_attach]")[0].files[0]){
+      send_data.append('sch_establish_notes_attach', $('#hidden_sch_establish_notes_attach').val());
+    }
+    if(!$("input[name=manage_room_attach]")[0].files[0]){
+      send_data.append('manage_room_attach', $('#hidden_manage_room_attach').val());
+    }
+    
     send_data.append('_method', 'PATCH');
     show_loader();
       $.ajax({
@@ -397,3 +600,29 @@ function loadRenewSchool(id){
           },
       });
   }
+function loadStudentCourse(course_id){
+  var course=course_id.split(',');
+  $.each(course, function( index, id ){
+    $.ajax({
+      type: "get",
+      url: BACKEND_URL+"/course/"+id,
+      success: function (result) {
+        var data=result.data;
+        var $newOption = $("<option selected='selected'></option>").val(data.id).text(data.name);
+        $("#attend_course").append($newOption).trigger('change');
+      
+      }
+    })
+    
+  })
+  
+}
+function loadFile(file,divname){
+    var file="<a href='#' onclick=viewFile('"+file+"') data-toggle='modal' data-target='#fileModal'>View File</a><br/>";
+    $("."+divname).append(file);
+    
+}
+function viewFile(file) {
+  console.log(BASE_URL+file)
+  $(".image-body #file").attr("src", BASE_URL+file);
+}

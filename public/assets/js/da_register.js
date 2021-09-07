@@ -13,8 +13,8 @@ function AddDAEdu(){
     $("#edu").append(        
 
         '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+            
-            '<div class="col-md-6">'+
+            '<div class="col-md-4"></div>'+            
+            '<div class="col-md-7">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
@@ -38,7 +38,7 @@ function createDARegister()
     }
     var send_data = new FormData();
 
-    var image = $('#profile_photo')[0].files[0];
+    var image = $("input[name=image]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
@@ -241,10 +241,11 @@ $('#da_update').submit(function(e){
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
    
+    console.log($("input[name=batch_id]").val())
     var formData = new FormData(this);
-   
     formData.append('student_id',student_id);
-    //show_loader();
+    formData.append('batch_id',$("input[name=batch_id]").val());
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
         type: 'post',
@@ -252,17 +253,16 @@ $('#store_da_two_form').submit(function(e){
         contentType: false,
         processData: false,
         success: function(data){      
-            console.log("check",data)
-            //EasyLoading.hide();      
+            EasyLoading.hide();      
             localStorage.setItem('approve_reject', data.approve_reject_status);
             //successMessage("You have successfully registerd!");
-            //location.href = FRONTEND_URL+"/"; 
+            location.href = FRONTEND_URL+"/"; 
         },
       error:function (message){
         EasyLoading.hide();      
 
         errorMessage(message);
-          }
+        }
         // },
         // error:function (message){
         //   // console.log(message)
@@ -271,10 +271,10 @@ $('#store_da_two_form').submit(function(e){
     });
 });
 
-$('#payment_submit').submit(function(e){
-    e.preventDefault();
-    location.href = FRONTEND_URL+"/"; 
-});
+// $('#btn2').submit(function(e){
+//     e.preventDefault();
+//     location.href = FRONTEND_URL+"/"; 
+// });
 
 function createDaTwoSelfStudy()
 {
