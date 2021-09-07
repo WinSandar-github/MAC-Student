@@ -61,7 +61,7 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                        <form method="post" action="javascript:void();" id="da_exam_register_form" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
@@ -137,15 +137,15 @@
                                         <div class="col-md-6">
                                             <div class="row mt-2">
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="0" name="is_full_module" value="0">
+                                                    <input type="radio" id="0" name="is_full_module" value="0" required>
                                                     <label for="0">Module 1</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
+                                                    <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;" required>
                                                     <label for="1">Module 2</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
+                                                    <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
                                             </div> 
@@ -185,7 +185,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-2 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100"   data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" id="btn_da_exam_submit">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
 
@@ -199,7 +199,8 @@
         </div>
     </div>
     <!-- Modal Payment -->
-<form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+    
+{{--<form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
     @csrf
     <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -239,7 +240,72 @@
         </div>
     </div>
     </div>
-</form>
+</form>--}}
+    <!-- DA2 Exam Register -->
+    <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+        novalidate>
+        @csrf
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div><br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center mb-4 radio-group">
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
+                                        height="50%" data-value="CBPAY" name="payment_method">
+                                </div><br>
+                                <h5>CBPay</h5>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%" height="50%"
+                                        data-value="MPU" name="payment_method">
+                                </div><br>
+                                <h5>MPU</h5>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
+                                        height="50%" data-value="CASH" name="payment_method" id="channel">
+                                </div><br>
+                                <h5>CASH</h5>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                        </div>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- DA2 Exam Modal -->
+     <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Exam Registeration Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
@@ -273,5 +339,23 @@
     }); 
 
     
+</script>
+<script>
+    $( "#btn_da_exam_submit" ).click(function() {
+        if(allFilled('#da_exam_register_form')){
+            $('#paymentModal').modal('show');
+        }
+        else{
+        }
+    });
+    function allFilled(form_id) {
+        var filled = true;
+        $(form_id+' input').each(function() {
+            console.log($(this).attr('id'));
+            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+            if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+        });
+        return filled;        
+    }
 </script>
 @endpush

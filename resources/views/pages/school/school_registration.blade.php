@@ -198,7 +198,6 @@
                                         </div>
                                     </div>
                                 </div><br>
-
                                 <div class="row">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-10">
@@ -236,20 +235,38 @@
 
                                 <!-- <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                    <div class="col-md-8">
-                                        <input type="file" name="nrc_front" class="form-control" required>
-                                    </div>
-                                </div><br>
-
+                                    <label for="" class="col-md-3 col-form-label ">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                </div>
                                 <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                    <div class="col-md-8">
-                                        <input type="file" name="nrc_back" class="form-control" required>
+                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
+                                    
+                                    <div class="col-md-4">
+                                        
+                                            <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="" src="/assets/images/blank-profile-picture-1.png">
+                                            <p class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-2"></div>
+                                                        <div class="col-2">
+                                                            <input type="file" name="nrc_front" class="custom-file-input" onchange="previewNRCFile('nrc_front','nrc_front_img');" required>
+                                                        </div>
+                                                    </div>
+                                            </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        
+                                            <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="" src="/assets/images/blank-profile-picture-1.png">
+                                            <p class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-2"></div>
+                                                        <div class="col-2">
+                                                            <input type="file" name="nrc_back" class="custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');" required>
+                                                        </div>
+                                                    </div>
+                                            </p>
                                     </div>
                                 </div><br> -->
 
+                                
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                     <label class="col-md-3 col-form-label label">{{ __('အဘအမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
