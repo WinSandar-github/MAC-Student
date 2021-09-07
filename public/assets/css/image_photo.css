@@ -38,6 +38,11 @@
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 .nrc-style{
-  width: 300px !important;
-  height: 150px;
+  width: 250px !important;
+  height: 200px;
+}
+.pull-right .form-control{
+  border:none !important;
+  width:145px !important ;
+  padding: .0rem .0rem !important;
 }

@@ -15,7 +15,7 @@ function previewImageFile(input){
 }
 function previewNRCFile(file,img) {
   var file = $("input[name="+file+"]").get(0).files[0];
-    if(file){
+  if(file){
         var reader = new FileReader();
         reader.onload = function(){
           if(file.type == "image/jpeg"){
