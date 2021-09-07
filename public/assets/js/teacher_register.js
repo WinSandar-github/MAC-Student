@@ -102,6 +102,26 @@ function delRowSubject(tbody){
     });
 }
 
+$( "#submit_btn" ).click(function() {
+        if(allFill('#teacher_register_form')){
+            $('#teacherModal').modal('show');
+        }
+    });
+// teacher
+$('#cash_img').click(function() {
+    $('#teacher_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#teacher_btn').prop('disabled', true);
+
+$('#teacher_btn').click(function () {
+    setTimeout(function () {
+        $('#teacherModal').modal('hide');
+    }, 1000);
+});
+
 function createTeacherRegister(){
     if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
     {
