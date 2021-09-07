@@ -92,7 +92,8 @@
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                     <div id="school_form" class="card border-success mb-3">
                         <div class="card-body">
-                            <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
+                            {{--<form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>--}}
+                            <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" class="needs-validation" autocomplete="off" novalidate>
                                 {{--<div class="row">
                                   <label class="col-md-1 col-form-label"></label>
                                   <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏အချက်အလက်များ') }}</label>
@@ -163,7 +164,7 @@
                                     <div class="col-md-8">
                                         <div class="row">
                                           <div class="col-md-2 px-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" >
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" required="">
                                                     <option value="" disabled selected>Select</option>
                                                 @foreach($nrc_regions as $region)
                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -173,7 +174,7 @@
                                                 </select>
                                           </div>
                                           <div class="col-md-3 col-7 px-1">
-                                                <select class="form-control" name="nrc_township" id="nrc_township" >
+                                                <select class="form-control" name="nrc_township" id="nrc_township" required="">
                                                     <option value="" disabled selected>Select</option>    
                                                 @foreach($nrc_townships as $township)
                                                         <option value="{{ $township['township_mm'] }}">
@@ -183,7 +184,7 @@
                                                 </select>
                                           </div>
                                           <div class="col-md-2 col-5 px-1">
-                                              <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                              <select class="form-control" name="nrc_citizen" id="nrc_citizen" required="" >
                                                 <option value="" disabled selected>Select</option>    
                                                 @foreach($nrc_citizens as $citizen)
                                                       <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -938,7 +939,7 @@
                                 </div>
                                 <div class="row m-4">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                        <button type="submit" id="school_submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -954,6 +955,55 @@
 
 
     </div>
+
+    <!--Modal-->
+    <form method="post" class="needs-validation" action="javascript:createSchoolRegister();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="schoolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

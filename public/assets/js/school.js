@@ -1,3 +1,23 @@
+$( "#school_submit" ).click(function() {
+        if(allFill('#school_register_form')){
+            $('#schoolModal').modal('show');
+        }
+    });
+// school
+$('#cash_img').click(function() {
+    $('#school_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#school_btn').prop('disabled', true);
+
+$('#school_btn').click(function () {
+    setTimeout(function () {
+        $('#schoolModal').modal('hide');
+    }, 1000);
+});
+
 var counter = 0;
 function createSchoolRegister(){
     if($("input[name=password]").val()!=$("input[name=confirm_password]").val())

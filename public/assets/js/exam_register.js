@@ -83,29 +83,57 @@ $('#cpa_exam_register').submit(function(e){
 
 })
 
-$('#da2submit').click(function(){
-    if($('#last_exam_date').val() == '' ){
-        Swal.fire('Last Exam date can not be left blank');
-        return false;
+//da2 exam
+$( "#da2submit" ).click(function() {
+    if(all_Filled('#da2_exam')){
+        $('#da2examModal').modal('show');
     }
-    if($('#date').val() == '' ){
-        Swal.fire('Exam date can not be left blank');
-        return false;
-    }
-    $('#exampleModal').modal('show');
-    return true;
+});
+function all_Filled(form_id) {
+    var filled = true;
+    $(form_id+' input').each(function() {
+        console.log($(this).attr('id'));
+        if($("#last_exam_date").val() == ''){
+            filled = false;
+        }
+        if($("#date").val() == ''){
+            filled = false;
+        }
+    });
+    return filled;        
+}
 
+$('#cash_img').click(function() {
+    $('#da2exam_btn').prop('disabled', false);
 });
 
-$(document).on('click', '#channel', function () {
-    setTimeout(function() {$('#exampleModal').modal('hide');}, 1000);
-    $('#examModal').modal('show');
-    return true;
-})
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#da2exam_btn').prop('disabled', true);
 
-$('#exam_btn').click(function() {
-    setTimeout(function() {
-        $('#examModal').modal('hide');
+$('#da2exam_btn').click(function () {
+    setTimeout(function () {
+        $('#da2examModal').modal('hide');
     }, 1000);
 });
 
+//cpa2 exam
+$( "#cpa2submit" ).click(function() {
+    if(all_Filled('#cpa2_exam_form')){
+        $('#cpa2examModal').modal('show');
+    }
+});
+
+$('#cpa2exam_img').click(function() {
+    $('#cpa2exam_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#cpa2exam_btn').prop('disabled', true);
+
+$('#cpa2exam_btn').click(function () {
+    setTimeout(function () {
+        $('#cpa2examModal').modal('hide');
+    }, 1000);
+});
