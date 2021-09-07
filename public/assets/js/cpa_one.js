@@ -47,7 +47,7 @@ function AddCPAEdu(){
         '<div class="row mb-4" id="edu'+count+'">'+
             '<div class="col-md-4"></div>'+            
             '<div class="col-md-7">'+
-                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificates">'+
+                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
@@ -266,17 +266,18 @@ $('#cpa_register').submit(function(e){
         return;
     }
     e.preventDefault();
+
+    var certificate  =   $('input[name="certificate[]"]');
   
     let batch_id = url.substring(url.lastIndexOf('/')+1);
 
     var formData = new FormData(this);
 
-    // $('input[name="certificates[]"]').map(function(){
-    //     for (var i = 0; i < $(this).get(0).files.length; ++i) {
-    //         formData.append('certificates[]',$(this).get(0).files[i]);
-    //     }
-        
-    //   });
+    certificate.map(function(){
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            formData.append('certificate[]',$(this).get(0).files[i]);
+        }
+    });
     
     
     formData.append('batch_id',batch_id)

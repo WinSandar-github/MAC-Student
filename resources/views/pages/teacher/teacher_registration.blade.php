@@ -94,10 +94,10 @@
 
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                     <div id="teacher_form" class="card border-success mb-3">
-                        <div class="card-body">
+                        <div class="card-body p-4">
                             <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:createTeacherRegister();" class="needs-validation" autocomplete="off" novalidate>
 
-                              <div class="row">
+                              <div class="row mt-3">
                                 <div class="col-md-8">
 
                                   <div class="row">
@@ -131,10 +131,11 @@
                                   </div>
                                 </div>
                                 <div class="col-md-4">
-                                  <div class="col-md-5 pull-right">
+                                  <div class="col-md-7 pull-right">
                                     <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                      <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
                                     </p>
                                   </div>
                                 </div>
@@ -217,7 +218,42 @@
                                   </div>
                               </div><br>
 
-                                <div class="row">
+                              <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                        value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
+                                                    </p>
+                                                    <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                </div>                                                    
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                        value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
+                                                    </p>
+                                                    <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                        
+                                </div><br> 
+
+                                <!-- <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                     <div class="col-md-8">
@@ -231,7 +267,7 @@
                                     <div class="col-md-8">
                                         <input type="file" name="nrc_back" class="form-control" required>
                                     </div>
-                                </div><br>
+                                </div><br> -->
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>

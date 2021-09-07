@@ -13,8 +13,8 @@ function AddDAEdu(){
     $("#edu").append(        
 
         '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+            
-            '<div class="col-md-6">'+
+            '<div class="col-md-4"></div>'+            
+            '<div class="col-md-7">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
@@ -38,7 +38,7 @@ function createDARegister()
     }
     var send_data = new FormData();
 
-    var image = $('#profile_photo')[0].files[0];
+    var image = $("input[name=image]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];

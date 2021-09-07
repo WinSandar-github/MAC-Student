@@ -132,10 +132,11 @@
                                     </div>
                                   </div>
                                   <div class="col-md-4">
-                                    <div class="col-md-5 pull-right">
+                                    <div class="col-md-7 pull-right">
                                       <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
                                       <p class="mt-2">
                                         <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                        <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
                                       </p>
                                     </div>
                                   </div>
@@ -198,8 +199,41 @@
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                        value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
+                                                    </p>
+                                                    <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                </div>                                                    
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                        value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
+                                                    </p>
+                                                    <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                        
+                                </div><br>   
+
+                                <!-- <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label for="" class="col-md-3 col-form-label ">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                 </div>
@@ -230,7 +264,7 @@
                                                     </div>
                                             </p>
                                     </div>
-                                </div><br>
+                                </div><br> -->
 
                                 
                                 <div class="row">

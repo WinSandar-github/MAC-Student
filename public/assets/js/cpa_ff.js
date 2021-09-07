@@ -78,7 +78,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
+                '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">'+
             '</div>'+
         '</div>'+
         '<div class="row mb-2" id="degree_year'+count+'">'+
@@ -87,7 +87,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
+                '<input type="type"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">'+
             '</div>'+
         '</div>'+
 
@@ -97,7 +97,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file['+count+']" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
