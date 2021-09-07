@@ -131,7 +131,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div><br/> -->
 
                                         {{-- <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data"> --}}
-                                        <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                                        <form method="post" id="da2_exam" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
                                             <input type="hidden" name="is_private" id="is_private" class="form-control">
@@ -219,7 +219,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
                                                     {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button> --}}
-                                                    <button type="button" id="da2submit" value="submit" class="btn btn-success btn-hover-dark w-100">Submit
+                                                    <button type="submit" id="da2submit" value="submit" class="btn btn-success btn-hover-dark w-100">Submit
                                                     </button>
                                                 </div>
                                             </div>
@@ -238,69 +238,52 @@ $nrc_characters = config('myanmarnrc.characters');
         </div>
     </div>
 
-    <!-- DA2 Exam Register -->
-    <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
-        novalidate>
-        @csrf
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div><br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center mb-4 radio-group">
-                            <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
-                                    <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
-                                        height="50%" data-value="CBPAY" name="payment_method">
-                                </div><br>
-                                <h5>CBPay</h5>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
-                                    <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%" height="50%"
-                                        data-value="MPU" name="payment_method">
-                                </div><br>
-                                <h5>MPU</h5>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
-                                    <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
-                                        height="50%" data-value="CASH" name="payment_method" id="channel">
-                                </div><br>
-                                <h5>CASH</h5>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                        </div>
-                    </div><br>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!-- DA2 Exam Modal -->
-     <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+    <!-- Modal -->
+     <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data"
+           novalidate>
          @csrf
-         <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div><br>
-               <div class="modal-body">
-                   <center>
-                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
-                   </center><br>
-                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
-                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA Two Exam Registeration Form Fee - ****** MMK</p><br>
-                   <center>
-                     <button type="submit" id="exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
-                   </center>
-               </div><br>
+         <div class="modal fade" id="da2examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <br>
+                     <div class="modal-body">
+                         <div class="row justify-content-center">
+                             <center>
+                                 <h4 style="margin-bottom:5%;">Diploma in Accountancy Part Two Exam Registeration Form Fee - ****** MMK</h4>
+                             </center>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                          data-value="CBPAY" name="payment_method" id="cb_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                          data-value="MPU" name="payment_method" id="mpu_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                          data-value="CASH" name="payment_method" id="cash_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <input type="hidden" name="payment_method" value="CASH">
+                             <center>
+                                 <button type="submit" id="da2exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                             </center>
+                         </div>
+                     </div>
+                     <br>
+                 </div>
              </div>
-           </div>
          </div>
      </form>
 

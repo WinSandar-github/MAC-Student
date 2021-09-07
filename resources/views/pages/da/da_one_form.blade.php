@@ -72,7 +72,7 @@
                     <div class="form-wrapper">
 
                         {{--<form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>--}}
-                        <form method="post" class="needs-validation" action="javascript:void();"
+                        <form method="post" id="da_one_app_form" class="needs-validation" action="javascript:void();"
                               enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
@@ -200,7 +200,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                         <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                         <div class="col-md-8">
-                                            <input type="file" accept="image/jpeg" name="nrc_front" id="nrc_front" class="form-control">
+                                            <input type="file" accept="image/jpeg" name="nrc_front" id="nrc_front" class="form-control" required="">
                                             <div class="form-text">Allowed Jpeg Image.</div>
                                         </div>
 
@@ -211,7 +211,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                         <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                         <div class="col-md-8">
-                                            <input type="file" accept="image/jpeg" name="nrc_back" id="nrc_back" class="form-control">
+                                            <input type="file" accept="image/jpeg" name="nrc_back" id="nrc_back" class="form-control" required="">
                                             <div class="form-text">Allowed Jpeg Image.</div>
                                         </div>
                                     </div>
@@ -505,7 +505,7 @@
                                         <div class="col-md-2 offset-md-5">
                                         {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
                                         <!-- Button trigger modal -->
-                                            <button type="button" id="da_submit" value="submit" 
+                                            <button id="da_submit" value="submit" 
                                                     class="btn btn-success btn-hover-dark w-100">
                                                 Submit
                                             </button>
@@ -557,81 +557,53 @@
     </form>
 
     <!-- Modal 2 -->
-    <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+    <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <br>
                     <div class="modal-body">
-                        <div class="row justify-content-center mb-4 radio-group">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Application Form Fee - ****** MMK</h4>
+                            </center>
                             <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
+                                <center>
                                     <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method">
-                                </div>
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
                                 <br>
-                                <h5>CBPay</h5>
                             </div>
                             <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
+                                <center>
                                     <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method">
-                                </div>
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
                                 <br>
-                                <h5>MPU</h5>
                             </div>
                             <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
+                                <center>
                                     <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="channel">
-                                </div>
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
                                 <br>
-                                <h5>CASH</h5>
                             </div>
                             <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
                         </div>
                     </div>
                     <br>
-                    {{--<div class="modal-footer">
-                        <center>
-                            <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100"
-                                    data-bs-toggle="modal">Submit
-                        </center>
-                    </div>--}}
                 </div>
             </div>
         </div>
     </form>
-
-    <!-- Modal 3 -->
-     <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>
-         @csrf
-         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div><br>
-               <div class="modal-body">
-                   <center>
-                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
-                   </center><br>
-                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
-                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Apppcation Form Fee - ****** MMK</p><br>
-                   <center>
-                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
-                   </center>
-               </div><br>
-             </div>
-           </div>
-         </div>
-     </form>
     <!-- JavaScript Section -->
     <script>
         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -695,26 +667,20 @@
                 }
             }
 
-            // $('#btn1').click(function () {
-            //     setTimeout(function () {
-            //         $('#exampleModal').modal('hide');
-            //     }, 1000);
-            // });
-
-            $('#btn2').click(function () {
+            $('#btn_cash').click(function () {
                 setTimeout(function () {
                     $('#exampleModal1').modal('hide');
                 }, 1000);
-                // successMessage("You have successfully registerd!");
-                // location.href = FRONTEND_URL + '/';
             });
 
-            $(document).on('click', '#channel', function () {
-                setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
-                $('#exampleModal2').modal('show');
-                return true;
+            $('#cash_img').click(function() {
+                $('#btn_cash').prop('disabled', false);
             });
 
+            $('#btn_cbpay').prop('disabled', true);
+            $('#btn_mpu').prop('disabled', true);
+            $('#btn_cash').prop('disabled', true);
+            
         });
 
     </script>
