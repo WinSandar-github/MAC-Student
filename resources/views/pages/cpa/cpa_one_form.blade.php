@@ -932,7 +932,7 @@
                 <div class="form-wrapper">
                     <div class="row">
                         <div class="col-md-12">
-                            <form class="needs-validation" id="store_da_two_form" method="post" enctype="multipart/form-data" novalidate>
+                            <form class="needs-validation" action="javascript:void();" method="post" enctype="multipart/form-data" novalidate>
                                 @csrf
 
                                 <div class="card border-success">
@@ -1080,7 +1080,7 @@
         </div>
     </div>
        <!-- Modal Payment -->
-<form id="payment_submit"  method="post"  class="needs-validation" enctype="multipart/form-data" novalidate>
+{{--<form id="payment_submit"  method="post"  class="needs-validation" enctype="multipart/form-data" novalidate>
     @csrf
     <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -1120,8 +1120,83 @@
         </div>
     </div>
     </div>
-</form>
+</form>--}}
+  <!-- Modal 2 -->
+  <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center mb-4 radio-group">
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method">
+                                </div>
+                                <br>
+                                <h5>CBPay</h5>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method">
+                                </div>
+                                <br>
+                                <h5>MPU</h5>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <div class='radio mx-auto'>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="channel">
+                                </div>
+                                <br>
+                                <h5>CASH</h5>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                        </div>
+                    </div>
+                    <br>
+                    {{--<div class="modal-footer">
+                        <center>
+                            <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100"
+                                    data-bs-toggle="modal">Submit
+                        </center>
+                    </div>--}}
+                </div>
+            </div>
+        </div>
+    </form>
 
+    <!-- Modal 3 -->
+     <form method="post" class="needs-validation"  id="store_da_two_form" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="paymentModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div><br>
+               <div class="modal-body">
+                   <center>
+                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                   </center><br>
+                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Apppcation Form Fee - ****** MMK</p><br>
+                   <center>
+                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                   </center>
+               </div><br>
+             </div>
+           </div>
+         </div>
+     </form>
 
     <!-- JavaScript Section -->
     <script>
@@ -1211,6 +1286,17 @@
             }
         }
 
+            $('#btn2').click(function () {
+                setTimeout(function () {
+                    $('#paymentModal1').modal('hide');
+                }, 1000);
+            });
+
+            $(document).on('click', '#channel', function () {
+                setTimeout(function() {$('#paymentModal').modal('hide');}, 1000);
+                $('#paymentModal1').modal('show');
+                return true;
+            });
 
 
 
