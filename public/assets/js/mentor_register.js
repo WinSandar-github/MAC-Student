@@ -185,6 +185,52 @@ function loadRenewMentor(id){
                 var year=accept.getFullYear();
                 var y=year+1;
                 var now=new Date();
+                $('input[name=name_mm]').val(mentor.name_mm);
+                $('input[name=name_eng]').val(mentor.name_eng);
+                $('input[name=father_name_mm]').val(mentor.father_name_mm);
+                $('input[name=father_name_eng]').val(mentor.father_name_eng);
+                $('input[name=nrc_state_region]').val(mentor.nrc_state_region);
+                $('input[name=nrc_township]').val(mentor.nrc_township);
+                $('input[name=nrc_citizen]').val(mentor.nrc_citizen);
+                $('input[name=nrc_number]').val(mentor.nrc_number);
+                $('input[name=date_of_birth]').val(mentor.date_of_birth);
+                $('input[name=education]').val(mentor.education);
+                $('input[name=ra_cpa_success_year]').val(mentor.ra_cpa_success_year);
+                $('input[name=ra_cpa_personal_no]').val(mentor.ra_cpa_personal_no);
+                $('input[name=cpa_reg_no]').val(mentor.cpa_reg_no);
+                $('input[name=cpa_reg_date]').val(mentor.cpa_reg_date);
+                $('input[name=ppa_reg_no]').val(mentor.ppa_reg_no);
+                $('input[name=ppa_reg_date]').val(mentor.ppa_reg_date);
+                $('input[name=phone_no]').val(mentor.phone_no);
+                $('input[name=fax_no]').val(mentor.fax_no);
+                $('input[name=m_email]').val(mentor.m_email);
+                $('input[name=audit_firm_name]').val(mentor.audit_firm_name);
+                $('input[name=audit_started_date]').val(mentor.audit_started_date);
+                $('input[name=audit_structure]').val(mentor.audit_structure);
+                $('input[name=audit_staff_no]').val(mentor.audit_staff_no);
+                $('input[name=current_check_services_other]').val(mentor.current_check_services_other);
+                $('#experience'+mentor.experience).prop("checked", true);
+                if(mentor.experience==1){
+                    $('#started_teaching').css('display','block');
+                    $('#repeat_yearly'+mentor.repeat_yearly).prop("checked", true);
+                    $('#training_absent'+mentor.training_absent).prop("checked", true);
+                    if(mentor.training_absent==1){
+                        $('#absent_reason').css('display','block');
+                        $('textarea[name=training_absent_reason]').val(mentor.training_absent_reason);
+                    }else{
+                        $('#absent_reason').css('display','none');
+                    }
+                    
+                }else{
+                    $('#started_teaching').css('display','none');
+                }
+                $('textarea[name=address]').val(mentor.address);
+                $('input[name=current_check_service_id]').val(mentor.current_check_service_id);
+                //$('#previewImg').attr("src",BASE_URL+mentor.image);
+                //$('#previewNRCFrontImg').attr("src",BASE_URL+mentor.nrc_front);
+                //$('#previewNRCBackImg').attr("src",BASE_URL+mentor.nrc_back);
+                // $('#hidden_nrc_front').val(mentor.nrc_front);
+                // $('#hidden_nrc_back').val(mentor.nrc_back);
                 $('#regno').val(mentor.id);
                 $('#register_date').val(mentor.renew_date);
                 if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
@@ -209,8 +255,18 @@ function loadRenewMentor(id){
   });
   }
   function renewMentor(){
-    var send_data=new FormData();
+    var send_data=new FormData($("#mentor_renew_form_submit")[0]);
     var id=localStorage.getItem("mentor_id");
+    if($("input[name=nrc_front]")[0].files[0]){
+        send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+      }else{
+        send_data.append('nrc_front', $('#hidden_nrc_front').val());
+      }
+      if($("input[name=nrc_back]")[0].files[0]){
+        send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+      }else{
+        send_data.append('nrc_back', $('#hidden_nrc_back').val());
+      }
     send_data.append('_method', 'PATCH');
     show_loader();
       $.ajax({

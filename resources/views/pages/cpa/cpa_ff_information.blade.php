@@ -154,9 +154,9 @@
 									</div>
 								</div>
 
-            <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/>
+            <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/><!---->
                 <h5 class="card-title text-center">CPA (Full-Fledged) မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
-                <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data">
+                <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data"  id="cpaff_renew_form_submit">
 
                     <div class="card-body">
 	                    {{--<table width="100%">
@@ -197,46 +197,359 @@
 	                            </td>
 	                        </tr>
 	                    </table>--}}
+						<div class="row">
+                            <div class="col-md-8">
+                                <div class="row">                                    
+                                    <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                    <label class="col-md-8 col-form-label" >{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်') }}</label>                                
+                                </div>  
 
-											<div class="row">
-												<div class="col-md-9">
+                                <div class="row" style="padding-left: 90px;">
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(က)') }}</div>
+                                    <div class="col-md-6 col-form-label pt-4">{{ __('အသက်') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <lable id="age"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="col-md-7 pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                    <p class="mt-2">
+                                      <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                      <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
+                                    <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-7">
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
+                                                <label class="col-form-label">CPA</label>
+                                            </div>
+                                        </div>
+                                        <div id="cpa">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <input type="file"  class="form-control" name="cpa" >
+                                                </div>
+                                            </div><br/>
+                                        </div>
+
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="education" id="ra_edu" value="2" onclick="getCPAEducation()">
+                                                <label class="col-form-label">RA</label>
+                                            </div>
+                                        </div>
+                                        <div id="ra">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <!-- <div class="single-form"> -->
+                                                        <input type="file"  class="form-control" name="ra" >
+                                                    <!-- </div> -->
+                                                </div>
+                                            </div><br/>
+                                        </div>
+                                        
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="education" value="3" onclick="getCPAEducation()">
+                                                <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        
+                                        
+
+                                        <div  id="edu" style="display:none;">  
+                                            <div class="row mb-2" id="degree_name0">  
+                                                <div class="col-md-1"></div>                                                         
+                                                <div class="col-md-4 col-form-label label">                                                              
+                                                    <label > ဘွဲ့အမည်</label>
+                                                </div>
+                                                <div class="col-md-1">
+																			
+                                    				</div>
+                                                <div class="col-md-6 col-auto">                                                              
+                                                    <input type="text"  class="form-control" name="degree_name0" >
+                                                </div>                                                           
+                                            </div>
+                                            <div class="row mb-2" id="degree_year0">  
+                                                <div class="col-md-1"></div>                                                         
+                                                <div class="col-md-4 col-form-label label">                                                              
+                                                    <label > အောင်မြင်သည့်နှစ်/လ</label>
+                                                </div>
+                                                <div class="col-md-1">
+																			
+                                    				</div>
+                                                <div class="col-md-6 col-auto">                                                              
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" >
+                                                </div>                                                           
+                                            </div>
+                                            
+                                            <div class="row mb-4" id="edu0" > 
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-form-label label">                                                              
+                                                    <label > Attached Certificate</label>
+                                                </div> 
+                                                <div class="col-md-1 view_degree_file0">
+																			
+                                    			</div>
+                                                <div class="col-md-6"  id="degree_edu" >
+                                                    <input type="hidden" id="hidden_degree_file0">
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                </div>
+                                                <div class="col-md-1" id="add_div" >
+                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>     
+                                </div><br/>
+								<div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ)') }}</label>                                
+                                </div><br/>
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <label class="col-md-10 col-form-label">{{ __('ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားတော်၏နိုင်ငံသားဖြစ်ပြီး ') }}</label>
+                                    
+                                </div><br/>
+								<div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 mt-2">
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
+                                    </div>
+									<label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို အောင်မြင်ပါသည်။</label>
+                                </div><br/> 
+								<div class="pass_batch_two" style="display:none">
+                                    <div class="row mb-3">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4 col-form-label label">အောင်မြင်သည့် သင်တန်းအမှတ်စဉ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="pass_batch_no" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 " >
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4 col-form-label label">ကိုယ်ပိုင်အမှတ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control" name="pass_personal_no" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+								<div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 mt-2">
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckQTPass()">                                    
+                                    </div>    
+                                    <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
+								</div><br/> 
+								<div class="qt_pass" style="display:none">
+                                    <div class="row mb-3">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4 col-form-label label">အောင်မြင်သည့် ခုနှစ်/လ</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control qt_pass_date" name="qt_pass_date" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3 " >
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <label for="" class="col-md-4 col-form-label label">ခုံအမှတ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control qt_pass_seat_no" name="qt_pass_seat_no" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                           
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>                                
+                                </div><br/>
+                                    
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                    <label class="col-md-8 col-form-label">{{ __('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျှက် လျှောက်ထားပါသည်') }}</label>                                
+                                </div><br/>
+
+                                <div class="row">
+                                    
+                                    <div class="col-md-6 col-form-label label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
+                                    <div class="col-md-1 view_cpa_certificate">
+
+                                    </div>
+                                    <div class="col-md-5">
+                                    <input type="hidden" id="hidden_cpa_certificate">
+                                                <input type="file"  class="form-control" name="cpa_certificate" >
+                                    </div>
+                                </div><br/>
+
+                                <div class="row">
+                                   
+                                    <div class="col-md-6 col-form-label label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
+                                    <div class="col-md-1 view_mpa_mem_card">
+
+                                    </div>
+                                    <div class="col-md-5">
+                                    <input type="hidden" id="hidden_mpa_mem_card">
+                                                <input type="file"  class="form-control" name="mpa_mem_card">
+                                    </div>                                
+                                </div><br/>
+								<div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                            </div>
+                                            <div class="row">
+                                            <input type="hidden" id="hidden_nrc_front">
+                                                <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                    value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
+                                                    <br><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                </p>
+                                                                                                       
+                                            </div>                                                    
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                            </div>
+                                            <div class="row">
+                                            <input type="hidden" id="hidden_nrc_back">
+                                                <img class="col-md-12 nrc-image-style" id="previewNRCBackImg"  accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                    value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
+                                                    <br><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                </p>
+                                                                                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                        
+                              </div><br> 
+							  <div class="row">
+                                    <label class="col-md-6 col-form-label label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
+                                    <div class="col-md-1 view_cpd_record">
+
+                                    </div>
+                                    <div class="col-md-5">                                        
+                                        <input type="file"  class="form-control" name="cpd_record" >
+                                        <input type="hidden" id="hidden_cpd_record">
+                                    </div>
+                                </div><br/>
+								<div class="row">
+                                    <label class="col-md-6 col-form-label label">{{ __('စုစုပေါင်း နာရီ') }}</label>
+                                    <div class="col-md-1 ">
+
+                                    </div>
+                                    <div class="col-md-5">                                        
+                                        <input type="text"  class="form-control" name="total_hours"  >
+                                        
+                                    </div>
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-form-label label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
+                                    <div class="col-md-1 view_cpa_ff_file">
+
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="hidden" id="hidden_passport_image">
+                                                <input type="file"  class="form-control" name="passport_image"  >
+                                        
+                                    </div>
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-form-label label">(၃) နှစ်ပြည့်ကြောင်း ထောက်ခံချက်</div>
+                                    <div class="col-md-1 view_cpa_ff_file">
+
+                                    </div>
+                                    <div class="col-md-5">
+                                            <input type="hidden" id="hidden_three_years_full">
+                                                <input type="file"  class="form-control" name="three_years_full">
+                                        
+                                    </div>
+                                </div><br/>
 													<div class="row">
-															<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-															<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်အမှတ်') }}</label>
-															<div class="col-md-7">
-																	<div class="form-group single-form">
+												
+															<label class="col-md-6 col-form-label label" >{{ __('လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်အမှတ်') }}</label>
+                                                            <div class="col-md-1 "> </div>
+															<div class="col-md-5">
+																	<div class="form-group">
 																		<input type="text" class="form-control" id="regno" readonly>
 																	</div>
 															</div>
 													</div>
 													<div class="row">
-															<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-															<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
-															<div class="col-md-7">
-																	<div class="form-group single-form">
+															<label class="col-md-6 col-form-label label" >{{ __('Applied Date') }}</label>
+                                                            <div class="col-md-1 "> </div>
+															<div class="col-md-5">
+																	<div class="form-group ">
 																		<input type="text" class="form-control" id="register_date" readonly>
 																	</div>
 															</div>
 													</div>
 													<div class="row">
-															<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-															<label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Status') }}</label>
-															<div class="col-md-7">
-																	<div class="form-group single-form">
+															<label class="col-md-6 col-form-label label">{{ __('Status') }}</label>
+                                                            <div class="col-md-1 "></div>
+															<div class="col-md-5">
+																	<div class="form-group ">
 																		<input type="text" class="form-control" id="message" readonly="">
 																	</div>
 															</div>
 													</div>
-												</div>
-												<div class="col-md-3">
+												
+												<!-- <div class="col-md-3">
 													<div class="col-md-8 pull-right">
 														<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
 														<p class="mt-2">
 															<input type="file" value="" class="custom-file-input" id="" name="profile_photo" onchange="previewImageFile(this);" required>
 														</p>
 													</div>
-												</div>
-											</div>
+												</div> -->
+											
 											<br/>
                       <div class="row ">
                           <div class="col-md-2 offset-md-5">
