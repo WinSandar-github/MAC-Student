@@ -38,7 +38,7 @@ function createDARegister()
     }
     var send_data = new FormData();
 
-    var image = $('#profile_photo')[0].files[0];
+    var image = $("input[name=image]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
