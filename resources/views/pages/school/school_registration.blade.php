@@ -134,9 +134,9 @@
                                   <div class="col-md-4">
                                     <div class="col-md-7 pull-right">
                                       <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                      <p class="mt-2">
-                                        <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
-                                        <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
+                                      <p class="mt-2 ">
+                                        <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                       </p>
                                     </div>
                                   </div>
@@ -199,20 +199,21 @@
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2"></div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="row">
                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                                 </div>
-                                                <div class="row">
-                                                    <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                <div class="row nrc">
+                                                    <img class="nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
                                                     <p class="mt-2">
-                                                    <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                    <input type="file" class="nrc-custom-file-input form-control" id="nrc_front"  name="nrc_front"
                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
+                                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                                     </p>
-                                                    <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                                                                          
                                                 </div>                                                    
                                             </div>
 
@@ -220,13 +221,14 @@
                                                 <div class="row">
                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row nrc">
                                                     <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
                                                     <p class="mt-2">
-                                                    <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                    <input type="file" class="nrc-custom-file-input form-control" id="nrc_back"  name="nrc_back"
                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
+                                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                                     </p>
-                                                    <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                                                                            
                                                 </div>
                                             </div>
                                         </div>
@@ -466,7 +468,7 @@
                                     <label class="col-md-6 col-form-label label">{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"   />
+                                          <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"  required />
                                       </div>
                                     </div>
                                 </div>
@@ -475,7 +477,7 @@
                                     <label class="col-md-6 col-form-label label">{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"   />
+                                          <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"  required />
                                       </div>
                                     </div>
                                 </div>
@@ -484,7 +486,7 @@
                                     <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf"   />
+                                          <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf" required  />
                                       </div>
                                     </div>
                                 </div>
@@ -494,7 +496,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -503,7 +505,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -512,7 +514,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်းဖြစ်ပါက သက်ဆိုင်ရာအဖွဲ့အစည်း၏ အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၃)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf" required  />
                                     </div>
                                   </div>
                                 </div>
@@ -521,7 +523,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၄)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -530,7 +532,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -539,7 +541,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်နေရာလိပ်စာ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -548,7 +550,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းအဆောက်အဦ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -557,7 +559,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('စာသင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -566,7 +568,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('သန့်စင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -575,7 +577,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('စီမံရုံးခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf" required  />
                                     </div>
                                   </div>
                                 </div>
@@ -584,7 +586,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('အထောက်အကူအခင်းအကျင်းများကိုဓါတ်ပုံနှင့်တကွဖော်ပြချက်') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf" required  />
                                     </div>
                                   </div>
                                 </div>

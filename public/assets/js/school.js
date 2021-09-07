@@ -347,13 +347,14 @@ function loadRenewSchool(id){
           var school=result.data;
           school.forEach(function(school){
               if(school.approve_reject_status==1){
-                document.getElementById('shcool').style.display='none';
+                document.getElementById('school_detail').style.display='none';
                 document.getElementById('school_renew_form').style.display='block';
                 var accept=new Date(school.renew_date);
                 var month=accept.getMonth()+1;
                 var year=accept.getFullYear();
                 var y=year+1;
                 var now=new Date();
+                $('input[name=email]').val(school.email);
                 $('input[name=name_mm]').val(school.name_mm);
                 $('input[name=name_eng]').val(school.name_eng);
                 $('input[name=father_name_mm]').val(school.father_name_mm);
@@ -506,7 +507,7 @@ function loadRenewSchool(id){
                 }
             }else{
               document.getElementById('school_renew_form').style.display='none';
-              document.getElementById('school').style.display='block';
+              document.getElementById('school_detail').style.display='block';
             }
           })
 
