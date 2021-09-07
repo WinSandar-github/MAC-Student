@@ -1,22 +1,40 @@
 $( "#school_submit" ).click(function() {
         if(allFill('#school_register_form')){
             $('#schoolModal').modal('show');
+            send_email();
         }
     });
 // school
-$('#cash_img').click(function() {
-    $('#school_btn').prop('disabled', false);
-});
+// $('#cash_img').click(function() {
+//     $('#school_btn').prop('disabled', false);
+// });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
-$('#school_btn').prop('disabled', true);
+// $('#btn_cbpay').prop('disabled', true);
+// $('#btn_mpu').prop('disabled', true);
+// $('#school_btn').prop('disabled', true);
 
-$('#school_btn').click(function () {
-    setTimeout(function () {
+// $('#school_btn').click(function () {
+//     setTimeout(function () {
+//         $('#schoolModal').modal('hide');
+//     }, 1000);
+// });
+
+function check_email_school()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createSchoolRegister();
         $('#schoolModal').modal('hide');
-    }, 1000);
-});
+    }
+}
 
 var counter = 0;
 function createSchoolRegister(){
