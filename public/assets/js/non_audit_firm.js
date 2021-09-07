@@ -423,12 +423,15 @@ function nonAuditData(){
 
 function getNonAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
+  // console.log('student',student)
   $.ajax({
       type: "GET",
-      url: BACKEND_URL+"/getNonAuditStatus/"+student.accountancy_firm_info_id,
+      url: BACKEND_URL+"/getNonAuditStatus/"+student.id,
       success: function (data){
-          var audit_data = data;
-          audit_data.forEach(function(element){
+          var non_audit_data = data;
+          non_audit_data.forEach(function(element){
+            // console.log('nonauditelement',element);
+            
             $("#accountancy_firm_name").val(element.accountancy_firm_name);
             $("#accountancy_firm_reg_no").val(element.accountancy_firm_reg_no);
             $("#register_date").val(element.register_date);
@@ -436,7 +439,7 @@ function getNonAuditData(){
 
           })
       }
-  })
+  });
 }
 
 function nonAuditFirmDateQuery(){

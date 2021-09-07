@@ -347,7 +347,9 @@ function loadRenewSchool(id){
           var school=result.data;
           school.forEach(function(school){
               if(school.approve_reject_status==1){
-                document.getElementById('shcool').style.display='none';
+                // document.getElementById('shcool_detail').style.display='none';
+                // document.getElementById('school_renew_form').style.display='block';
+                document.getElementById('school_detail').style.display='none';
                 document.getElementById('school_renew_form').style.display='block';
                 var accept=new Date(school.renew_date);
                 var month=accept.getMonth()+1;
