@@ -87,8 +87,10 @@
                         <p class="card-text">Your Teacher Registeration Form is approved!</p>
                     </div>
                 </div>
+                <center>
+                    <button id="teacher_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                </center>
             </div><br/>
-
             <div class="row mt-5">
 
 
@@ -420,10 +422,10 @@
     </div>
 
     <!--Modal-->
-    {{--<form method="post" class="needs-validation" action="javascript:createTeacherRegister();" enctype="multipart/form-data"
+    <form method="post" class="needs-validation" action="javascript:teacherPaymentSubmit();" enctype="multipart/form-data"
           novalidate>
         @csrf
-        <div class="modal fade" id="teacherModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="teacherpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -466,7 +468,7 @@
                 </div>
             </div>
         </div>
-    </form>--}}
+    </form>
 
     <!-- Modal -->
     <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
@@ -570,6 +572,7 @@
             }
         }
         teacher_reg_feedback();
+        checkPaymentTeacher();
     });
 
 </script>

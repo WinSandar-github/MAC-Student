@@ -253,7 +253,7 @@
                                     </div>
                                 </div>
                             </div>
-							<div class="row">
+							<!-- <div class="row">
 									<label class="col-md-1 col-form-label"></label>
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
@@ -265,8 +265,9 @@
 												</div>
 											</div>
 											<div class="row">
-												<div class="col-md-1"></div>
-												<div class="col-md-10"  id="cpa_edu" style="display:none;">
+												<div class="col-md-4"></div>
+                                                <div class="col-md-1 view_cpa_file" style="display:none;"></div>
+												<div class="col-md-6"  id="cpa_edu" style="display:none;">
 													<input type="file"  class="form-control" id="cpa_file" name="cpa_file">
 												</div>
 											</div>
@@ -278,8 +279,9 @@
 												</div>
 											</div>
 											<div class="row mb-2">
-												<div class="col-md-1"></div>
-												<div class="col-md-10"  id="ra_edu" style="display:none;">
+												<div class="col-md-4"></div>
+                                                <div class="col-md-1 view_ra_file" style="display:none;"></div>
+												<div class="col-md-6"  id="ra_edu" style="display:none;">
 													<input type="file" class="form-control" id="ra_file"  name="ra_file">
 												</div>
 											</div>
@@ -336,7 +338,7 @@
 												</div>
 											</div>
 										</div>
-                                	</div>
+                                	</div> -->
 
 
 
@@ -558,28 +560,20 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဆ) </div>
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
-                                            <div class="col-md-3">
+                                    <div class="col-md-7 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
+									<div class="col-md-3">
                                                 <input type="text" name="tax_year" class="form-control tax_year" >
-                                            </div>
-                                            <label class="col-md-5" >ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု </label>
-                                        </div>
-                                        <div class="row">
-                                            <label for="" class="col-md-12">အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်၊</label>
-                                        </div>
-
-
                                     </div>
-									<div class="col-md-1 view_tax_free_file">
-
-                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-8" ></label>
+                                    <div class="col-md-1 view_tax_free_file"></div>
                                     <div class="col-md-3">
-									<input type="hidden" id="hidden_tax_free_file">
+                                    <input type="hidden" id="hidden_tax_free_file">
                                             <input type="file" class="form-control" id="tax_free_file"  name="tax_free_file">
                                     </div>
-                                </div><br/>
+                                </div>
+                                <br/>
 
 													<div class="row">
 														
