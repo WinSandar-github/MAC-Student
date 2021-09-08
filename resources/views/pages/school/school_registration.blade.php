@@ -92,7 +92,8 @@
                 <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
                     <div id="school_form" class="card border-success mb-3">
                         <div class="card-body">
-                            <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
+                            {{--<form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>--}}
+                            <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" class="needs-validation" autocomplete="off" novalidate>
                                 {{--<div class="row">
                                   <label class="col-md-1 col-form-label"></label>
                                   <label class="col-md-8 col-form-label">{{ __('လျှောက်ထားသူ၏အချက်အလက်များ') }}</label>
@@ -162,7 +163,7 @@
                                     <div class="col-md-8">
                                         <div class="row">
                                           <div class="col-md-2 px-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" >
+                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" required="">
                                                     <option value="" disabled selected>Select</option>
                                                 @foreach($nrc_regions as $region)
                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -172,7 +173,7 @@
                                                 </select>
                                           </div>
                                           <div class="col-md-3 col-7 px-1">
-                                                <select class="form-control" name="nrc_township" id="nrc_township" >
+                                                <select class="form-control" name="nrc_township" id="nrc_township" required="">
                                                     <option value="" disabled selected>Select</option>
                                                 @foreach($nrc_townships as $township)
                                                         <option value="{{ $township['township_mm'] }}">
@@ -182,7 +183,7 @@
                                                 </select>
                                           </div>
                                           <div class="col-md-2 col-5 px-1">
-                                              <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                              <select class="form-control" name="nrc_citizen" id="nrc_citizen" required="" >
                                                 <option value="" disabled selected>Select</option>
                                                 @foreach($nrc_citizens as $citizen)
                                                       <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -197,22 +198,76 @@
                                         </div>
                                     </div>
                                 </div><br>
-
                                 <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                    <div class="col-md-4"></div>
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_front" class="form-control" required>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                </div>
+                                                <div class="row nrc">
+                                                    <img class="nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input form-control" id="nrc_front"  name="nrc_front"
+                                                        value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
+                                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                </div>
+                                                <div class="row nrc">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input form-control" id="nrc_back"  name="nrc_back"
+                                                        value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
+                                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div><br>
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                    <div class="col-md-8">
-                                        <input type="file" name="nrc_back" class="form-control" required>
+                                    <label for="" class="col-md-3 col-form-label ">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                </div>
+                                <div class="row">
+                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
+
+                                    <div class="col-md-4">
+
+                                            <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="" src="/assets/images/blank-profile-picture-1.png">
+                                            <p class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-2"></div>
+                                                        <div class="col-2">
+                                                            <input type="file" name="nrc_front" class="custom-file-input" onchange="previewNRCFile('nrc_front','nrc_front_img');" required>
+                                                        </div>
+                                                    </div>
+                                            </p>
                                     </div>
-                                </div><br>
+                                    <div class="col-md-4">
+
+                                            <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="" src="/assets/images/blank-profile-picture-1.png">
+                                            <p class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-2"></div>
+                                                        <div class="col-2">
+                                                            <input type="file" name="nrc_back" class="custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');" required>
+                                                        </div>
+                                                    </div>
+                                            </p>
+                                    </div>
+                                </div><br> -->
+
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -413,7 +468,7 @@
                                     <label class="col-md-6 col-form-label label">{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"   />
+                                          <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"  required />
                                       </div>
                                     </div>
                                 </div>
@@ -422,7 +477,7 @@
                                     <label class="col-md-6 col-form-label label">{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"   />
+                                          <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"  required />
                                       </div>
                                     </div>
                                 </div>
@@ -431,7 +486,7 @@
                                     <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
                                     <div class="col-md-6">
                                       <div class="mb-3 col-auto">
-                                          <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf"   />
+                                          <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf" required  />
                                       </div>
                                     </div>
                                 </div>
@@ -441,7 +496,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="estiblisher_list_and_bio" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -450,7 +505,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်(ပုံစံ-၂)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="governer_list_and_bio" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -459,7 +514,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('အဖွဲ့အစည်းဖြစ်ပါက သက်ဆိုင်ရာအဖွဲ့အစည်း၏ အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၃)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="org_member_list_and_bio" class="form-control" accept="application/pdf" required  />
                                     </div>
                                   </div>
                                 </div>
@@ -468,7 +523,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ(ပုံစံ-၄)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="teacher_list_and_bio" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -477,7 +532,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -486,7 +541,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းတည်နေရာလိပ်စာ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="school_location_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -495,7 +550,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('ကျောင်းအဆောက်အဦ(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="school_building_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -504,7 +559,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('စာသင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="classroom_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -513,7 +568,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('သန့်စင်ခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="toilet_attach" class="form-control" accept="application/pdf"  required />
                                     </div>
                                   </div>
                                 </div>
@@ -522,7 +577,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('စီမံရုံးခန်း(ပုံစံ-၅)') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="manage_room_attach" class="form-control" accept="application/pdf" required  />
                                     </div>
                                   </div>
                                 </div>
@@ -531,7 +586,7 @@
                                   <label class="col-md-6 col-form-label label">{{ __('အထောက်အကူအခင်းအကျင်းများကိုဓါတ်ပုံနှင့်တကွဖော်ပြချက်') }}</label>
                                   <div class="col-md-6">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf"   />
+                                        <input type="file" id="" name="supporting_structure_photo" class="form-control" accept="application/pdf" required  />
                                     </div>
                                   </div>
                                 </div>
@@ -883,7 +938,7 @@
                                 </div>
                                 <div class="row m-4">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                        <button type="submit" id="school_submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -899,6 +954,89 @@
 
 
     </div>
+
+    <!--Modal-->
+    {{--<form method="post" class="needs-validation" action="javascript:createSchoolRegister();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="schoolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>--}}
+
+    <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="schoolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div><br>
+                          <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                          </div>
+                      </div>
+                      <center>
+                          <button type="submit" id="btn1" onclick="check_email_school()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          </button>
+                      </center><br>
+                      <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                      </div><br><br>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

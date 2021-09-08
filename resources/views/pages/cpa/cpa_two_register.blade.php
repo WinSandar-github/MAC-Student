@@ -1,9 +1,9 @@
 @php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
 @endphp
 
 @extends('layouts.app')
@@ -150,7 +150,7 @@
                                             <div class="col-md-8">
                                                 <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                                 <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-
+                                                <h5 class="card-title text-center">(ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5></br>
                                             </div>
                                             <div class="col-md-2"></div>
                                         </div>
@@ -189,10 +189,10 @@
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-5">
-										<div>
-                                    		<label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
-                                    	</div>
-									</div>
+                                        <div>
+                                            <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
+                                        </div>
+                                    </div>
                                     <div class="col-md-5"> 
                                             <input type="text" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date" value="" required>
                                     </div>
@@ -458,40 +458,40 @@
                                             <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
                                     </div></div>
                                     <div class="col-md-5">
-										<div>
-	                                         <input type="text" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date" value="" required>
-	                                    </div>
-									</div>
+                                        <div>
+                                             <input type="text" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date" value="" required>
+                                        </div>
+                                    </div>
                                 </div><br>
 
                                 <div class="row">
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-5">
-										<div>
-	                                        <label class="col-form-label">{{ _('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
-	                                    </div>
-									</div>
+                                        <div>
+                                            <label class="col-form-label">{{ _('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
+                                        </div>
+                                    </div>
                                     <div class="col-md-5">
-										<div>
-	                                        <input type="text" class="form-control" id="cpa_one_access_no" placeholder="ကိုယ်ပိုင်အမှတ်" value="" required>
-	                                    </div>
-									</div>
+                                        <div>
+                                            <input type="text" class="form-control" id="cpa_one_access_no" placeholder="ကိုယ်ပိုင်အမှတ်" value="" required>
+                                        </div>
+                                    </div>
                                 </div><br>
 
                                 <div class="row">
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-5">
-										<div>
-	                                         <label class="col-form-label">{{ _('(ဂ) အဆင့်') }}</label>
-	                                    </div>
-									</div>
+                                        <div>
+                                             <label class="col-form-label">{{ _('(ဂ) အဆင့်') }}</label>
+                                        </div>
+                                    </div>
                                     <div class="col-md-5">
-										<div>
-	                                         <input type="text" class="form-control" id="cpa_one_success_no" placeholder="အဆင့်" value="" required>
-	                                    </div>
-									</div>
+                                        <div>
+                                             <input type="text" class="form-control" id="cpa_one_success_no" placeholder="အဆင့်" value="" required>
+                                        </div>
+                                    </div>
                                 </div><br>
 
                                 <div class="row mb-3">
@@ -555,204 +555,151 @@
         </div>
     </div>
 
-    <!-- PRIVATE -->
-     <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
-         @csrf
-         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div><br>
-               <div class="modal-body">
-                   <div class="row justify-content-center mb-4 radio-group">
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
-                            </div><br>
-                            <h5>CBPay</h5>
-                        </div>
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
-                            </div><br>
-                            <h5>MPU</h5>
-                        </div>
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method" id="cpa2_private_payment">
-                            </div><br>
-                            <h5>CASH</h5>
-                        </div>
-                        <input type="hidden" name="payment_method" value="CASH">
-                    </div>
-               </div><br>
-               {{--<div class="modal-footer">
-                 <center>
-                     <button type="submit" id="btn1" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
-                 </center>
-               </div>--}}
-             </div>
-           </div>
-         </div>
-     </form>
-
-     <!-- private pay -->
-      <form method="post" class="needs-validation" action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data" novalidate>
+      <!-- private -->
+      <form method="post" class="needs-validation" action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data"
+            novalidate>
           @csrf
-          <div class="modal fade" id="private_pay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div><br>
-                <div class="modal-body">
-                    <center>
-                        <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
-                    </center><br>
-                    <h4 class="heading text-center">PAY BY CASH!</h4><br>
-                    <p style="text-align: center;font-weight: bold; font-size: 15px;">CPA Two Registeration(Private School) Form Fee - ****** MMK</p><br>
-                    <center>
-                      <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
-                    </center>
-                </div><br>
+          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <br>
+                      <div class="modal-body">
+                          <div class="row justify-content-center">
+                              <center>
+                                  <h4 style="margin-bottom:5%;">Certified Public Accountant Part Two Registeration(Private School) Form Fee - ****** MMK</h4>
+                              </center>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                           data-value="CBPAY" name="payment_method" id="cb_img">
+                                  </center>
+                                  <br>
+                              </div>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                           data-value="MPU" name="payment_method" id="mpu_img">
+                                  </center>
+                                  <br>
+                              </div>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                           data-value="CASH" name="payment_method" id="cash_img_private">
+                                  </center>
+                                  <br>
+                              </div>
+                              <input type="hidden" name="payment_method" value="CASH">
+                              <center>
+                                  <button type="submit" id="cpa2private_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                              </center>
+                          </div>
+                      </div>
+                      <br>
+                  </div>
               </div>
-            </div>
           </div>
       </form>
+     
 
-     <!-- SELF -->
-      <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
-         @csrf
-         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div><br>
-               <div class="modal-body">
-                   <div class="row justify-content-center mb-4 radio-group">
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
-                            </div><br>
-                            <h5>CBPay</h5>
-                        </div>
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
-                            </div><br>
-                            <h5>MPU</h5>
-                        </div>
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method" id="cpa2_self_payment">
-                            </div><br>
-                            <h5>CASH</h5>
-                        </div>
-                        <input type="hidden" name="payment_method" value="CASH">
-                    </div>
-               </div><br>
-               {{--<div class="modal-footer">
-                 <center>
-                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
-                 </center>
-               </div>--}}
-             </div>
-           </div>
-         </div>
-     </form>
-
-     <!-- self pay -->
-      <form method="post" class="needs-validation" action="javascript:CPA2_Self_Study_Submit();" enctype="multipart/form-data" novalidate>
+      <!-- self -->
+      <form method="post" class="needs-validation" action="javascript:CPA2_Self_Study_Submit();" enctype="multipart/form-data"
+            novalidate>
           @csrf
-          <div class="modal fade" id="self_pay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div><br>
-                <div class="modal-body">
-                    <center>
-                        <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
-                    </center><br>
-                    <h4 class="heading text-center">PAY BY CASH!</h4><br>
-                    <p style="text-align: center;font-weight: bold; font-size: 15px;">CPA Two Registeration(Private School) Form Fee - ****** MMK</p><br>
-                    <center>
-                      <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
-                    </center>
-                </div><br>
+          <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <br>
+                      <div class="modal-body">
+                          <div class="row justify-content-center">
+                              <center>
+                                  <h4 style="margin-bottom:5%;">Certified Public Accountant Part Two Registeration(Self Study) Form Fee - ****** MMK</h4>
+                              </center>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                           data-value="CBPAY" name="payment_method" id="cb_img">
+                                  </center>
+                                  <br>
+                              </div>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                           data-value="MPU" name="payment_method" id="mpu_img">
+                                  </center>
+                                  <br>
+                              </div>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                           data-value="CASH" name="payment_method" id="cash_img_self">
+                                  </center>
+                                  <br>
+                              </div>
+                              <input type="hidden" name="payment_method" value="CASH">
+                              <center>
+                                  <button type="submit" id="cpa2self_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                              </center>
+                          </div>
+                      </div>
+                      <br>
+                  </div>
               </div>
-            </div>
           </div>
       </form>
 
       <!-- MAC -->
-       <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
-         @csrf
-         <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div><br>
-               <div class="modal-body">
-                   <div class="row justify-content-center mb-4 radio-group">
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
-                            </div><br>
-                            <h5>CBPay</h5>
-                        </div>
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
-                            </div><br>
-                            <h5>MPU</h5>
-                        </div>
-                        <div class="col-sm-3 col-5">
-                            <div class='radio mx-auto'> 
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method" id="cpa2_mac_payment">
-                            </div><br>
-                            <h5>CASH</h5>
-                        </div>
-                        <input type="hidden" name="payment_method" value="CASH">
-                    </div>
-               </div><br>
-               {{--<div class="modal-footer">
-                 <center>
-                     <button type="submit" id="btn3" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
-                 </center>
-               </div>--}}
-             </div>
-           </div>
-         </div>
-     </form>
-
-     <!-- mac pay -->
-      <form method="post" class="needs-validation" action="javascript:CPA2_Mac_Submit();" enctype="multipart/form-data" novalidate>
+      <form method="post" class="needs-validation" action="javascript:CPA2_Mac_Submit();" enctype="multipart/form-data"
+            novalidate>
           @csrf
-          <div class="modal fade" id="mac_pay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div><br>
-                <div class="modal-body">
-                    <center>
-                        <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
-                    </center><br>
-                    <h4 class="heading text-center">PAY BY CASH!</h4><br>
-                    <p style="text-align: center;font-weight: bold; font-size: 15px;">CPA Two Registeration(Private School) Form Fee - ****** MMK</p><br>
-                    <center>
-                      <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
-                    </center>
-                </div><br>
+          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <br>
+                      <div class="modal-body">
+                          <div class="row justify-content-center">
+                              <center>
+                                  <h4 style="margin-bottom:5%;">Certified Public Accountant Part Two Registeration(MAC) Form Fee - ****** MMK</h4>
+                              </center>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                           data-value="CBPAY" name="payment_method" id="cb_img">
+                                  </center>
+                                  <br>
+                              </div>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                           data-value="MPU" name="payment_method" id="mpu_img">
+                                  </center>
+                                  <br>
+                              </div>
+                              <div class="col-sm-3 col-5">
+                                  <center>
+                                      <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                           data-value="CASH" name="payment_method" id="cash_img_mac">
+                                  </center>
+                                  <br>
+                              </div>
+                              <input type="hidden" name="payment_method" value="CASH">
+                              <center>
+                                  <button type="submit" id="cpa2mac_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                              </center>
+                          </div>
+                      </div>
+                      <br>
+                  </div>
               </div>
-            </div>
           </div>
       </form>
 
@@ -774,34 +721,53 @@ reg_feedback();
 var exam_date=localStorage.getItem("exam_date");
 console.log(exam_date)
 
-// $('#btn1').click(function() {
-//     setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
-// });
+const queryString = location.search;
+const urlParams = new URLSearchParams(queryString);
+selectedRegistration(urlParams.get("study_type"));
 
-// $('#btn2').click(function() {
-//     setTimeout(function() {$('#exampleModal2').modal('hide');}, 1000);
-// });
-
-// $('#btn3').click(function() {
-//     setTimeout(function() {$('#exampleModal3').modal('hide');}, 1000);
-// });
-
-$(document).on('click', '#cpa2_private_payment', function () {
-    setTimeout(function() {$('#exampleModal1').modal('hide');}, 1000);
-    $('#private_pay').modal('show');
-    return true;
+// mac
+$('#cash_img_mac').click(function() {
+    $('#cpa2mac_btn').prop('disabled', false);
 });
 
-$(document).on('click', '#cpa2_self_payment', function () {
-    setTimeout(function() {$('#exampleModal2').modal('hide');}, 1000);
-    $('#self_pay').modal('show');
-    return true;
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#cpa2mac_btn').prop('disabled', true);
+
+$('#cpa2mac_btn').click(function () {
+    setTimeout(function () {
+        $('#exampleModal3').modal('hide');
+    }, 1000);
 });
 
-$(document).on('click', '#cpa2_mac_payment', function () {
-    setTimeout(function() {$('#exampleModal3').modal('hide');}, 1000);
-    $('#mac_pay').modal('show');
-    return true;
+// self
+$('#cash_img_self').click(function() {
+    $('#cpa2self_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#cpa2self_btn').prop('disabled', true);
+
+$('#cpa2self_btn').click(function () {
+    setTimeout(function () {
+        $('#exampleModal2').modal('hide');
+    }, 1000);
+});
+
+// private
+$('#cash_img_private').click(function() {
+    $('#cpa2private_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#cpa2private_btn').prop('disabled', true);
+
+$('#cpa2private_btn').click(function () {
+    setTimeout(function () {
+        $('#exampleModal1').modal('hide');
+    }, 1000);
 });
 
 </script>

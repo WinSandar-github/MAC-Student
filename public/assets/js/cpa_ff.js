@@ -78,7 +78,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
+                '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">'+
             '</div>'+
         '</div>'+
         '<div class="row mb-2" id="degree_year'+count+'">'+
@@ -87,7 +87,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
+                '<input type="type"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">'+
             '</div>'+
         '</div>'+
 
@@ -97,7 +97,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file['+count+']" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
@@ -154,6 +154,30 @@ function delInputFile(diventry){
 
 
 // }
+
+$( "#cpaff_submit_btn" ).click(function() {
+        if(allFilled('#cpaff_form')){
+            $('#cpaffModal').modal('show');
+            send_email();
+        }
+    });
+
+function check_email_cpaff()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createCPAFFRegister();
+        $('#cpaffModal').modal('hide');
+    }
+}
 
 function createCPAFFRegister(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
@@ -372,6 +396,31 @@ function loadCPAFF(){
                     var year=accept.getFullYear();
                     var y=year+1;
                     var now=new Date();
+                    $('#previewImg').attr("src",BASE_URL+data.image);
+                    $('#previewNRCFrontImg').attr("src",BASE_URL+data.nrc_front);
+                    $('#previewNRCBackImg').attr("src",BASE_URL+data.nrc_back);
+                    $('#hidden_nrc_front').val(data.nrc_front);
+                    $('#hidden_nrc_back').val(data.nrc_back);
+                    $('#hidden_degree_file0').val(data.degree_file0);
+                    $('#hidden_cpa_certificate').val(data.cpa_certificate);
+                    $('#hidden_mpa_mem_card').val(data.mpa_mem_card);
+                    $('#hidden_cpd_record').val(data.cpd_record);
+                    $('#hidden_passport_image').val(data.passport_image);
+                    $('#hidden_three_years_full').val(data.three_years_full);
+                    //$('#branch_'+school.branch_sch_own_type).prop("checked", true);
+                    $('input[name=pass_batch_no]').val(data.pass_batch_no);
+                    $('input[name=pass_personal_no]').val(data.pass_personal_no);
+                    $('input[name=qt_pass_date]').val(data.qt_pass_date);
+                    $('input[name=qt_pass_seat_no]').val(data.qt_pass_seat_no);
+                    $('input[name=total_hours]').val(data.total_hours);
+                    $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
+                    $('input[name=degree_name0]').val(data.degree_name0);
+                    loadFile(data.cpa_certificate,"view_cpa_certificate");
+                    loadFile(data.degree_file0,"view_degree_file0");
+                    loadFile(data.mpa_mem_card,"view_mpa_mem_card");
+                    loadFile(data.cpd_record,"view_cpd_record");
+                    loadFile(data.passport_image,"view_passport_image");
+                    loadFile(data.three_years_full,"view_three_years_full");
                     $('#regno').val(data.id);
                     $('#register_date').val(data.renew_accepted_date);
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
@@ -412,19 +461,19 @@ function RenewCPAFF(){
         data:"",
         success: function(result){
             if(result.data!=null){
-                var renew_file =   $("input[name=renew_file]")[0].files[0];
+                //var renew_file =   $("input[name=renew_file]")[0].files[0];
                 // var renew_micpa    =   $("input[name=renew_micpa]")[0].files[0];
                 // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
                 // var renew_cpaff_reg        =   $("input[name=renew_cpaff_reg]")[0].files[0];
-                var data = new FormData();
+                var data = new FormData($("#cpaff_renew_form_submit")[0]);
                 // data.append('renew_file', renew_file);
                 // data.append('renew_micpa', renew_micpa);
                 // data.append('renew_cpd', renew_cpd);
                 // data.append('renew_cpaff_reg', renew_cpaff_reg);
 
-                var profile_photo = $("input[name=profile_photo]")[0].files[0];
+                //var profile_photo = $("input[name=profile_photo]")[0].files[0];
                 data.append('_method', 'PUT');
-                data.append('profile_photo',profile_photo);
+                //data.append('profile_photo',profile_photo);
                 $.ajax({
                     url: BACKEND_URL+"/cpa_ff/"+result.data.id,
                     type: 'post',
