@@ -41,6 +41,34 @@ function createDAExamRegister()
       }
     });
 }
+// DA 1 exam
+$( "#btn_da_exam_submit" ).click(function() {
+    if(allFilled('#da_exam_register_form')){
+        $('#paymentModal').modal('show');
+    }
+});
+function allFilled(form_id) {
+    var filled = true;
+    $(form_id+' input').each(function() {
+        console.log($(this).attr('id'));
+        if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+        if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+    });
+    return filled;        
+}
+$('#cash_img').click(function() {
+    $('#da1exam_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#da1exam_btn').prop('disabled', true);
+
+$('#da1exam_btn').click(function () {
+    setTimeout(function () {
+        $('#paymentModal').modal('hide');
+    }, 1000);
+});
 
 
 $('#cpa_exam_register').submit(function(e){
