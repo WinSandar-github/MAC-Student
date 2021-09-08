@@ -345,8 +345,8 @@
                                                 <input type="hidden" id="hidden_profile">
                                                 <img class="col-md-3 profile-style" id="previewImg"  accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
-                                                    <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);"  required>
-                                                    <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                    <input type="file" class="custom-file-input form-control" id="profile_photo" accept="image/*" name="profile_photo" onchange="previewImageFile(this);"  required>
+                                                    <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                                 </p>
                                             </div>
                                         </div>

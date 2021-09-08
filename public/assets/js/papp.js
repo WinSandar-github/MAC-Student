@@ -424,27 +424,14 @@ function RenewPAPP(){
             
             if(result.data!=null){
                 var send_data = new FormData($("#papp_renew_form_submit")[0]);
-                if(!$("input[name=cpa_ff_file]")[0].files[0]){
-                    send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
-                  }
-                  if(!$("input[name=file_183]")[0].files[0]){
-                    send_data.append('file_183', $('#hidden_file_183').val());
-                  }
-                  if(!$("input[name=not_fulltime_file]")[0].files[0]){
-                    send_data.append('not_fulltime_file', $('#hidden_not_fulltime_file').val());
-                  }
-                  if(!$("input[name=work_in_mm_file]")[0].files[0]){
-                    send_data.append('work_in_mm_file', $('#hidden_work_in_mm_file').val());
-                  }
-                  if(!$("input[name=rule_conf_file]")[0].files[0]){
-                    send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
-                  }
-                  if(!$("input[name=cpd_record_file]")[0].files[0]){
-                    send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
-                  }
-                  if(!$("input[name=tax_free_file]")[0].files[0]){
-                    send_data.append('tax_free_file', $('#hidden_tax_free_file').val());
-                  }
+                send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
+                send_data.append('file_183', $('#hidden_file_183').val());
+                send_data.append('not_fulltime_file', $('#hidden_not_fulltime_file').val());
+                send_data.append('work_in_mm_file', $('#hidden_work_in_mm_file').val());
+                send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
+                send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
+                send_data.append('tax_free_file', $('#hidden_tax_free_file').val());
+                
                     var firm_check = document.getElementById("firm_check");
                     var used_firm_check = document.getElementById("used_firm_check");
                     var staff_firm_check = document.getElementById("staff_firm_check");

@@ -95,8 +95,7 @@
                 <div id="school_form" class="card border-success mb-3">
                     <div class="card-body">
 
-                        <form id="school_register_form" enctype="multipart/form-data" action="javascript:void(0);"
-                              class="needs-validation" autocomplete="off" novalidate>
+                    <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
 
                             <div class="row">
                                 <h5 class="p-4">လျှောက်ထားသူ၏အချက်အလက်များ</h5>
@@ -114,7 +113,7 @@
                                         <span class="btn btn-round btn-secondary btn-file">
                                         <span class="fileinput-new">ဓာတ်ပုံ</span>
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" id="profile_photo" name="profile_photo"></span>
+                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
                                         <br>
                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists"
                                            data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -396,7 +395,7 @@
                                     <div class="form-check px-0">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                   value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' required>
+                                                   value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' >
                                             <span class="form-check-sign"></span>
                                             တစ်ဦးတည်းပိုင်လုပ်ငန်း
                                         </label>
@@ -404,7 +403,7 @@
                                     <div class="form-check px-0">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                   value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' required>
+                                                   value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' >
                                             <span class="form-check-sign"></span>
                                             နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
                                         </label>
@@ -412,7 +411,7 @@
                                     <div class="form-check px-0">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                   value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်' required>
+                                                   value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်' >
                                             <span class="form-check-sign"></span>
                                             တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
                                         </label>
@@ -420,7 +419,7 @@
                                     <div class="form-check px-0">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                   value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' required>
+                                                   value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' >
                                             <span class="form-check-sign"></span>
                                             တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
                                         </label>
@@ -557,26 +556,26 @@
                                             class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
 
                                 <div class="col-md-9">
-                                    <div class="form-check-radio">
-                                        <label class="form-check-label">
+                                    <div class="form-group">
+                                          <label class="form-check  form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type" id="private"
-                                                   value="private">
+                                                   value="private" required>
                                             ကိုယ်ပိုင်
                                             <span class="form-check-sign"></span>
                                         </label>
                                     </div>
-                                    <div class="form-check-radio">
-                                        <label class="form-check-label">
+                                    <div class="form-group">
+                                          <label class="form-check  form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type" id="rent"
-                                                   value="rent">
+                                                   value="rent" required>
                                             အငှား
                                             <span class="form-check-sign"></span>
                                         </label>
                                     </div>
-                                    <div class="form-check-radio">
-                                        <label class="form-check-label">
+                                    <div class="form-group">
+                                          <label class="form-check  form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type"
-                                                   id="use_sharing" value="use_sharing">
+                                                   id="use_sharing" value="use_sharing" required>
                                             တွဲဖက်သုံး
                                             <span class="form-check-sign"></span>
                                         </label>
@@ -623,7 +622,7 @@
                                 <label class="col-md-3 col-form-label label"><span
                                             class="pull-left">၆။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
 
-                                <div class="col-md-9">
+                                <!-- <div class="col-md-9">
                                     <div class="form-check-radio">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="radio" name="branch_sch_own_type"
@@ -648,27 +647,34 @@
                                             <span class="form-check-sign"></span>
                                         </label>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                {{--<div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="form-group">
-                                        <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type"
-                                                   id="" value="private" required>
-                                            <label class="form-check-label" for="">ကိုယ်ပိုင်</label>
-                                        </div>
-                                        <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type"
-                                                   id="" value="rent" required>
-                                            <label class="form-check-label" for="">အငှား</label>
-                                        </div>
-                                        <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="branch_sch_own_type"
-                                                   id="" value="use_sharing" required>
-                                            <label class="form-check-label" for="">တွဲဖက်သုံး</label>
-                                        </div>
+                                          <label class="form-check  form-check-inline">
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="private"
+                                                   value="private" required>
+                                            ကိုယ်ပိုင်
+                                            <span class="form-check-sign"></span>
+                                        </label>
                                     </div>
-                                </div>--}}
+                                    <div class="form-group">
+                                          <label class="form-check  form-check-inline">
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type" id="rent"
+                                                   value="rent" required>
+                                            အငှား
+                                            <span class="form-check-sign"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                          <label class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="branch_sch_own_type"
+                                                   id="use_sharing" value="use_sharing" required>
+                                            တွဲဖက်သုံး
+                                            <span class="form-check-sign"></span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             {{--ပိုင်ဆိုင်မှုပုံစံ--}}
 
@@ -861,27 +867,28 @@
                                 <label class="col-md-3 col-form-label label"><span
                                             class="pull-left">(ဏ)</span>{{ __('အဆောက်အဦအခင်းအကျင်းများအားရယူသုံးစွဲပုံ') }}
                                 </label>
+                                
                                 <div class="col-md-9">
-                                    <div class="form-check-radio">
-                                        <label class="form-check-label">
+                                    <div class="form-group">
+                                          <label class="form-check  form-check-inline">
                                             <input class="form-check-input" type="radio" name="using_type" id="private"
-                                                   value="private">
+                                                   value="private" required>
                                             ကိုယ်ပိုင်
                                             <span class="form-check-sign"></span>
                                         </label>
                                     </div>
-                                    <div class="form-check-radio">
-                                        <label class="form-check-label">
+                                    <div class="form-group">
+                                          <label class="form-check  form-check-inline">
                                             <input class="form-check-input" type="radio" name="using_type" id="rent"
-                                                   value="rent">
+                                                   value="rent" required>
                                             အငှား
                                             <span class="form-check-sign"></span>
                                         </label>
                                     </div>
-                                    <div class="form-check-radio">
-                                        <label class="form-check-label">
+                                    <div class="form-group">
+                                          <label class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="using_type"
-                                                   id="use_sharing" value="use_sharing">
+                                                   id="use_sharing" value="use_sharing" required>
                                             တွဲဖက်သုံး
                                             <span class="form-check-sign"></span>
                                         </label>
