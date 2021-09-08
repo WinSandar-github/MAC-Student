@@ -18,7 +18,7 @@
                 <!-- Page Banner Start -->
                 <div class="page-banner-content">
                     <ul class="breadcrumb">
-                         <a href="#">Home</a> 
+                         <li><a href="#">Home</a> </li>
                         <li class="active">Register 
                     </ul>
                     <h2 class="title"> {{request()->segment(count(request()->segments())) == 1 ? 
@@ -70,15 +70,21 @@
                         <div class="card col-md-5 m-2">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-12 widget-information">
+                                    <div class="col-md-12  ">
                                         <h4 class="col-md-12 card-title  text-success ">
                                             Diploma In Accountancy
                                         </h4>
-                                        <h6 class="mt-2">
-                                            Description
-                                        </h6>
                                         <hr>
+                                       
+                                            @php  
+                                            $description = explode(',',$course[0]['course_type']['course_description']);
+                                            @endphp
+                                            @foreach($description as $des)
+                                                <p class="mb-4 p_font text-justify" >{{$des}}</p>
+                                            @endforeach
 
+                                            
+            
                                     </div>
                                 </div>
                             </div>        
@@ -136,7 +142,44 @@
                                                                 <dd class="col-sm-6 my-1">{{  number_format($c['exam_fee'] ) }} Kyats</dd>
                                                                 <dt class="col-sm-6 text-end my-1">Course Fee for MAC Class</dt>
                                                                 <dd class="col-sm-6 my-1">{{  number_format($c['tution_fee']) }} Kyats</dd>
+                                                                <dt class="col-sm-6 text-end my-1">Requirement</dt>
+                                                                <dd class="col-sm-6 my-1"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{!! $key !!}">
+                                                        View Detail
+                                                        </button></dd>
+
                                                         </dl>
+                                                        
+                                                        <!-- Button trigger modal -->
+                                                        
+
+<!--Course Requirement Modal -->
+                                                        <div class="modal fade" id="exampleModal{!! $key !!}" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Requirement</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                @foreach($requirements as $require)
+                                                                        @foreach($req_str_arr as $course_req)
+                                                                    
+                                                                            @if($require['id'] == $course_req)
+
+                                                                           
+                                                                                <p>{{$require['requirement_name']}} </p>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    @endforeach
+                                                                    
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                   
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                               <!-- <p class="col-md-5">Application Fee</p>-  <p class="col-md-5">{{$c['form_fee']}} Kyats </p>  -->
                                                               <!-- <p class="col-md-5">Registration Fee for MAC Class</p>-  <p class="col-md-5">{{$c['mac_registration_fee']}}Kyats </p>  -->
                                                               <!-- <p class="col-md-5">Registration Fee for Self-Study Class</p>-  <p class="col-md-5">{{$c['selfstudy_registration_fee']}}Kyats </p>  -->
@@ -158,14 +201,16 @@
                                                     @endforeach
 
                                                 </div>  --}}
-                                                <div class="col-md-12 mt-2">
+                                                    <div class="col-md-12 mt-2">
+
+                                                    
                                                     
                                                     @if(!empty($c['active_batch']))
                                                         @foreach($c['active_batch'] as $b)
                                                             <h6>  {{$b['name']}} </h6>
                                                             <hr>
                                                             <div class="d_font">
-                                                                <input type="hidden" value="{{$b['id']}}"
+                                                                    <input type="hidden" value="{{$b['id']}}"
                                                                        class="batch_id{!! $key !!}"/>
                                                              
                                                                     <div class="application">
@@ -255,8 +300,7 @@
 
                                                                 </div>
                                                                 
-                                                            </ul>
-
+                                                     
                                                              
                                                                 <!-- <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/> -->
                                                                 <!-- <div class="d-flex  flex-column     info-btn mb-4   check_login{!! $i !!}"> -->
@@ -287,8 +331,9 @@
                                                                     </div>
                                                                     @endif
                                                             </div>
-                                                </div>
+                                                    </div>
                                             </div>
+                                       
                                             <!-- </div>
                                             <div class="col-md-6 pr-2 widget-information"> -->
                                         </div>
@@ -319,6 +364,9 @@
     .d_font{
         font-size:13px;
 
+    }
+    .p_font{
+        font-size:18px !important;
     }
 </style>
 @endprepend
