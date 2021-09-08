@@ -252,7 +252,7 @@
 
 
      <!-- cpa2 exam  -->
-     <form method="post" id="cpa_exam_register" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data"
+     <form method="post" id="cpa_exam_register" class="needs-validation" enctype="multipart/form-data"
            novalidate>
          @csrf
          <div class="modal fade" id="cpa2examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

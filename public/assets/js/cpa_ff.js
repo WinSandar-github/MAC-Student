@@ -162,6 +162,25 @@ $( "#cpaff_submit_btn" ).click(function() {
         }
     });
 
+// cpaff
+$("#cpaff_modal").click(function() {
+    $('#cpaffpaymentModal').modal('show');
+});
+
+$('#cash_img').click(function() {
+    $('#cpaff_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#cpaff_btn').prop('disabled', true);
+
+$('#cpaff_btn').click(function () {
+    setTimeout(function () {
+        $('#cpaffpaymentModal').modal('hide');
+    }, 1000);
+});
+
 function check_email_cpaff()
 {
     var text = localStorage.getItem('verify_code');
@@ -177,6 +196,42 @@ function check_email_cpaff()
         createCPAFFRegister();
         $('#cpaffModal').modal('hide');
     }
+}
+
+function cpaffPaymentSubmit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+    url: BACKEND_URL + "/approve_cpaff/" + student.id,
+    type: 'patch',
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/";
+        },
+        error:function (message){
+        }
+    })
+}
+
+function checkPaymentCpaff(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/check_payment_cpaff/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            console.log(element.payment_method)
+            if(element.payment_method != null){
+                $('#cpaff_modal').prop('disabled', true);
+
+            }else{
+                $('#cpaff_modal').prop('disabled', false);
+            }
+          })
+        }
+    });
 }
 
 function createCPAFFRegister(){
