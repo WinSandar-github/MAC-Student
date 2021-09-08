@@ -102,6 +102,85 @@ function delRowSubject(tbody){
     });
 }
 
+$( "#teacher_submit" ).click(function() {
+    if(allFill('#teacher_register_form')){
+        $('#teacherModal').modal('show');
+        send_email();
+    }
+});
+
+// teacher
+$("#teacher_modal").click(function() {
+    $('#teacherpaymentModal').modal('show');
+});
+
+$('#cash_img').click(function() {
+    $('#teacher_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#teacher_btn').prop('disabled', true);
+
+$('#teacher_btn').click(function () {
+    setTimeout(function () {
+        $('#teacherpaymentModal').modal('hide');
+    }, 1000);
+});
+
+function check_email_teacher()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createTeacherRegister();
+        $('#teacherModal').modal('hide');
+    }
+}
+
+function teacherPaymentSubmit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+    url: BACKEND_URL + "/approve_teacher/" + student.id,
+    type: 'patch',
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/";
+        },
+        error:function (message){
+        }
+    })
+}
+
+function checkPaymentTeacher(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/check_payment_teacher/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            console.log(element.payment_method)
+                if(element.payment_method != null){
+                    $('#teacher_modal').prop('disabled', true);
+
+                }else{
+                    $('#teacher_modal').prop('disabled', false);
+                }
+          })
+        }
+    });
+}
+
 function createTeacherRegister(){
     if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
     {
@@ -156,7 +235,7 @@ function teacher_reg_feedback(){
                 }else if(element.approve_reject_status == 1){
 
 
-                    $('#teacher_approve').css('display','none');
+                    $('#teacher_approve').css('display','block');
                     $('#teacher_form').css('display','none');
                     $('#teacher_pending').css('display','none');
                 }

@@ -142,13 +142,15 @@
                                                                 <dd class="col-sm-6 my-1">{{  number_format($c['exam_fee'] ) }} Kyats</dd>
                                                                 <dt class="col-sm-6 text-end my-1">Course Fee for MAC Class</dt>
                                                                 <dd class="col-sm-6 my-1">{{  number_format($c['tution_fee']) }} Kyats</dd>
-                                                        </dl>
-                                                        <h6>Requirement</h6>
-                                                        <hr>
-                                                        <!-- Button trigger modal -->
-                                                        <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{!! $key !!}">
+                                                                <dt class="col-sm-6 text-end my-1">Requirement</dt>
+                                                                <dd class="col-sm-6 my-1"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{!! $key !!}">
                                                         View Detail
-                                                        </button>
+                                                        </button></dd>
+
+                                                        </dl>
+                                                        
+                                                        <!-- Button trigger modal -->
+                                                        
 
 <!--Course Requirement Modal -->
                                                         <div class="modal fade" id="exampleModal{!! $key !!}" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">

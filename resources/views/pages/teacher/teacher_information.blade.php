@@ -289,11 +289,12 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="col-md-5 pull-right">
+                                            <div class="col-md-7 pull-right">
                                                 <input type="hidden" id="hidden_profile">
                                                 <img class="col-md-3 profile-style" id="previewImg"  accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
-                                                <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);"  required>
+                                                    <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);"  required>
+                                                    <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -373,39 +374,39 @@
                                 </div><br>
 
                                 <div class="row">
+                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
+                                    <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-
-                                    <div class="col-md-8">
-                                        <input type="hidden" id="hidden_nrc_front">
-                                                <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
-                                                <p class="mt-2">
-                                                    <div class="row">
-                                                        <div class="col-1"></div>
-                                                        <div class="col-2">
-                                                            <input type="file" class="custom-file-input" name="nrc_front"  onchange="previewNRCFile('nrc_front','nrc_front_img');">
-                                                        </div>
-                                                    </div>
-
-                                                </p>
-
-                                    </div>
+                                    <label for="" class="col-md-3 col-form-label ">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                 </div><br>
 
                                 <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
+                                    
                                     <div class="col-md-8">
-                                            <input type="hidden" id="hidden_nrc_back">
-                                            <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="">
-                                            <p class="mt-2">
-                                                    <div class="row">
-                                                        <div class="col-1"></div>
-                                                        <div class="col-2">
-                                                            <input type="file" name="nrc_back" class="custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');">
-                                                        </div>
-                                                    </div>
-                                            </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <input type="hidden" id="hidden_nrc_front">
+                                            <div class="row">
+                                                    <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                       <input type="file" class="nrc-custom-file-input" name="nrc_front"  onchange="previewNRCFile('nrc_front','nrc_front_img');">
+                                                        <br/><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                        
+                                                    </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                                <input type="hidden" id="hidden_nrc_back">
+                                                <div class="row">
+                                                    <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                       <input type="file" name="nrc_back" class="nrc-custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');">
+                                                       <br/><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>  
+                                                    </p>
+                                                </div>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div><br>
 

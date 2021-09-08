@@ -103,7 +103,7 @@
                             </div><br/> -->
 
                             <div class="row" id="mac_container">
-                                <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                                <form method="post" action="javascript:void();" id="da_mac_form" enctype="multipart/form-data">
                                     <div class="card border-success mb-3">
                                     <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
@@ -156,7 +156,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no_mac" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
+                                                            <input type="text" name="batch_no_mac" id="batch_no_mac" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -167,7 +167,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no_mac" class="form-control" placeholder="အပိုင်း" id="">
+                                                            <input type="text" name="part_no_mac" id="part_no_mac" class="form-control" placeholder="အပိုင်း" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -178,7 +178,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                        <input type="text" name="personal_no_mac" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                        <input type="text" name="personal_no_mac" id="personal_no_mac" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
                                                        
                                                     </div>
                                                 </div>  
@@ -197,7 +197,7 @@
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_mac"  data-bs-toggle="modal" data-bs-target="#macModal">{{ __('Submit') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_mac">{{ __('Submit') }}</button>
                                                     </div> 
                                                 </div>
                                             </div>
@@ -206,7 +206,7 @@
                                 </form>           
                             </div>
                             <div class="row" id="private_school_container">
-                                <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                                <form method="post" action="javascript:void();" id="da_private_school_form" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3">
                                         <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
@@ -238,7 +238,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no_private" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
+                                                            <input type="text" name="batch_no_private" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -249,7 +249,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no_private" class="form-control" placeholder="အပိုင်း" id="">
+                                                            <input type="text" name="part_no_private" class="form-control" placeholder="အပိုင်း" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -260,7 +260,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                        <input type="text" name="personal_no_private" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                        <input type="text" name="personal_no_private" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
                                                        
                                                     </div>
                                                 </div> 
@@ -279,7 +279,7 @@
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100"  data-bs-toggle="modal" data-bs-target="#privateSchoolModal" id="submit_btn_pp" >Submit</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_pp" >Submit</button>
                                                     </div>                                                    
                                                 </div>
 
@@ -407,7 +407,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no_self" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="">
+                                                            <input type="text" name="batch_no_self" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -418,7 +418,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no_self" class="form-control" placeholder="အပိုင်း" id="">
+                                                            <input type="text" name="part_no_self" class="form-control" placeholder="အပိုင်း" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -429,7 +429,7 @@
                                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                        <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                        <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
                                                        
                                                     </div>
                                                 </div>
@@ -446,7 +446,7 @@
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form" id="submit_btn_ss"  data-bs-toggle="modal" data-bs-target="#selfStudyModal">{{ __('Submit') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_ss">{{ __('Submit') }}</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -490,7 +490,7 @@
 </div>
 
 <!-- Modal MAC -->
-<form method="post" class="needs-validation" action="javascript:createMac();" enctype="multipart/form-data" novalidate>
+{{--<form method="post" class="needs-validation" action="javascript:createMac();" enctype="multipart/form-data" novalidate>
          @csrf
          <div class="modal fade" id="macModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
            <div class="modal-dialog">
@@ -614,6 +614,214 @@
         </div>
     </div>
     </div>
+</form>--}}
+<!-- MAC -->
+<form method="post" class="needs-validation" action="javascript:void();"
+enctype="multipart/form-data" novalidate>
+@csrf
+    <div class="modal fade" id="macModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div><br>
+                <div class="modal-body">
+                    <div class="row justify-content-center mb-4 radio-group">
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
+                                    height="50%" data-value="CBPAY" name="payment_method">
+                            </div><br>
+                            <h5>CBPay</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%"
+                                    height="50%" data-value="MPU" name="payment_method">
+                            </div><br>
+                            <h5>MPU</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
+                                    height="50%" data-value="CASH" name="payment_method" id="mac_channel">
+                            </div><br>
+                            <h5>CASH</h5>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                    </div>
+                </div><br>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- macModal -->
+<form method="post" class="needs-validation" action="javascript:createMac();" enctype="multipart/form-data" novalidate>
+    @csrf
+    <div class="modal fade" id="macModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div><br>
+            <div class="modal-body">
+                <center>
+                    <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                </center><br>
+                <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Registeration(MAC) Form Fee - ****** MMK</p><br>
+                <center>
+                    <button type="submit" id="mac_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                </center>
+            </div><br>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+    <!-- PRIVATE -->
+<form method="post" class="needs-validation" action="javascript:void();"
+enctype="multipart/form-data" novalidate>
+    @csrf
+    <div class="modal fade" id="privateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div><br>
+                <div class="modal-body">
+                    <div class="row justify-content-center mb-4 radio-group">
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
+                                    height="50%" data-value="CBPAY" name="payment_method">
+                            </div><br>
+                            <h5>CBPay</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%"
+                                    height="50%" data-value="MPU" name="payment_method">
+                            </div><br>
+                            <h5>MPU</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
+                                    height="50%" data-value="CASH" name="payment_method" id="private_channel">
+                            </div><br>
+                            <h5>CASH</h5>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                    </div>
+                </div><br>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- privateModal -->
+<form method="post" class="needs-validation" action="javascript:createPrivateSchool();" enctype="multipart/form-data" novalidate>
+    @csrf
+    <div class="modal fade" id="privateModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div><br>
+            <div class="modal-body">
+                <center>
+                    <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                </center><br>
+                <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Registration(Private School) Form Fee - ****** MMK</p><br>
+                <center>
+                    <button type="submit" id="private_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                </center>
+            </div><br>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<!-- SELF -->
+<form method="post" class="needs-validation" action="javascript:void();"
+enctype="multipart/form-data" novalidate>
+@csrf
+    <div class="modal fade" id="selfModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div><br>
+                <div class="modal-body">
+                    <div class="row justify-content-center mb-4 radio-group">
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
+                                    height="50%" data-value="CBPAY" name="payment_method">
+                            </div><br>
+                            <h5>CBPay</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%"
+                                    height="50%" data-value="MPU" name="payment_method">
+                            </div><br>
+                            <h5>MPU</h5>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <div class='radio mx-auto'>
+                                <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
+                                    height="50%" data-value="CASH" name="payment_method" id="self_channel">
+                            </div><br>
+                            <h5>CASH</h5>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                    </div>
+                </div><br>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- selfModal -->
+<form method="post" class="needs-validation" action="javascript:createSelfStudy();" enctype="multipart/form-data" novalidate>
+    @csrf
+    <div class="modal fade" id="selfModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div><br>
+            <div class="modal-body">
+                <center>
+                    <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
+                </center><br>
+                <h4 class="heading text-center">PAY BY CASH!</h4><br>
+                <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Registeration(Self Study) Form Fee - ****** MMK</p><br>
+                <center>
+                    <button type="submit" id="private_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
+                </center>
+            </div><br>
+            </div>
+        </div>
+    </div>
 </form>
 <!-- JavaScript Section -->
 <script>
@@ -646,6 +854,70 @@
         dateFormat: "d-m-Y",
     });
 
+</script>
+<script>
+    $( "#submit_btn_mac" ).click(function() {
+        if(allFilled('#da_mac_form')){
+            $('#macModal').modal('show');
+        }
+        else{
+        }
+    });
+    $( "#submit_btn_ss" ).click(function() {
+        if(allFilled('#self_study_form')){
+            $('#selfModal').modal('show');
+        }
+        else{
+        }
+    });
+    $( "#submit_btn_pp" ).click(function() {
+        if(allFilled('#da_private_school_form')){
+            $('#privateModal').modal('show');
+        }
+        else{
+        }
+    });
+    function allFilled(form_id) {
+        var filled = true;
+        $(form_id+' input').each(function() {
+            if($(this).val() == ''  ) filled = false;
+            //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
+        });
+        return filled;        
+    }
+
+    $(document).on('click', '#mac_channel', function () {
+            setTimeout(function() {$('#macModal').modal('hide');}, 1000);
+            $('#macModal1').modal('show');
+            return true;
+        })
+        $('#mac_btn').click(function() {
+            setTimeout(function() {
+                $('#macModal1').modal('hide');
+            }, 1000);
+        });
+
+        $(document).on('click', '#private_channel', function () {
+            setTimeout(function() {$('#privateModal').modal('hide');}, 1000);
+            $('#privateModal1').modal('show');
+            return true;
+        })
+        $('#private_btn').click(function() {
+            setTimeout(function() {
+                $('#privateModal1').modal('hide');
+            }, 1000);
+        });
+
+        $(document).on('click', '#self_channel', function () {
+            setTimeout(function() {$('#selfModal').modal('hide');}, 1000);
+            $('#selfModal1').modal('show');
+            return true;
+        })
+        $('#self_btn').click(function() {
+            setTimeout(function() {
+                $('#selfModal1').modal('hide');
+            }, 1000);
+        });
 </script>
 
 @endpush

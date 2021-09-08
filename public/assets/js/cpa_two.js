@@ -66,20 +66,10 @@ function CPA2_Private_School_Submit(){
 }
 
 $( "#cpa2_private" ).click(function() {
-        if(all_field_Fill('#cpa2_private_form')){
+        if(allFill('#cpa2_private_form')){
             $('#exampleModal1').modal('show');
         }
-        else{
-        }
     });
-    function all_field_Fill(form_id) {
-        var filled = true;
-        $(form_id+' input').each(function() {
-            console.log($(this).attr('id'));
-            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
-        });
-        return filled;        
-    }
 
 
 function CPA2_Mac_Submit(){
@@ -121,20 +111,10 @@ function CPA2_Mac_Submit(){
 }
 
 $( "#cpa2_mac" ).click(function() {
-        if(all_Fill('#cpa2_mac_form')){
+        if(allFill('#cpa2_mac_form')){
             $('#exampleModal3').modal('show');
         }
-        else{
-        }
     });
-    function all_Fill(form_id) {
-        var filled = true;
-        $(form_id+' input').each(function() {
-            console.log($(this).attr('id'));
-            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
-        });
-        return filled;        
-    }
 
 
 function CPA2_Self_Study_Submit(){
@@ -179,8 +159,6 @@ function CPA2_Self_Study_Submit(){
 $( "#cpa2_self" ).click(function() {
         if(allFill('#cpa2_self_form')){
             $('#exampleModal2').modal('show');
-        }
-        else{
         }
     });
     function allFill(form_id) {

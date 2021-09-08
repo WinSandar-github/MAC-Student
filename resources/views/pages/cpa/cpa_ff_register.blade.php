@@ -101,7 +101,9 @@
                             <p class="card-text">Your CPAFF registration form is approved.</p>
                         </div>
                     </div>
-                    
+                    <center>
+                        <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                    </center>
                 </div>
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
@@ -113,7 +115,8 @@
                 <div class="card border-success mb-3" id="cpaff_from" style="display:none;">
                     <div class="card-body">
 
-                    <form method="post" action="javascript:createCPAFFRegister();" enctype="multipart/form-data">
+                    {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
+                    <form method="post" id="cpaff_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
                     <fieldset id="fieldset" disabled>
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
@@ -551,6 +554,43 @@
                                 </div><br/>
 
                                 <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                            </div>
+                                            <div class="row">
+                                                <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                    value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
+                                                </p>
+                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                            </div>                                                    
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                            </div>
+                                            <div class="row">
+                                                <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                    value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
+                                                </p>
+                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                        
+                              </div><br> 
+
+
+                                <!-- <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                     <div class="col-md-6 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</div>
@@ -569,7 +609,7 @@
                                                 <input type="file"  class="form-control" name="nrc_back" required="" >
                                         
                                     </div>
-                                </div><br/>
+                                </div><br/> -->
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
@@ -586,7 +626,7 @@
                                     <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
                                     <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
                                     <div class="col-md-4">                                        
-                                        <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ">
+                                        <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" required="">
                                         
                                     </div>
                                 </div><br/>
@@ -625,7 +665,7 @@
                             
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" >{{ __('Submit') }}</button>
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="cpaff_submit_btn" >{{ __('Submit') }}</button>
                                     </div>
                                 </div>	
                             </fieldset>
@@ -640,6 +680,89 @@
 
         
     </div>
+
+    <!--Modal-->
+    <form method="post" class="needs-validation" action="javascript:cpaffPaymentSubmit();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="cpaffpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(FF) Registeration Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="cpaff_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div><br>
+                          <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                          </div>
+                      </div>
+                      <center>
+                          <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          </button>
+                      </center><br>
+                      <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                      </div><br><br>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -655,6 +778,7 @@
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
+    checkPaymentCpaff();
     $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",
