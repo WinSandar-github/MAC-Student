@@ -645,7 +645,7 @@
                                                                         <div class="entry21">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="memorandums[]">
+                                                                                    <input type="file" class="form-control" name="deeds_memos[]">
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
@@ -1051,8 +1051,8 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
-                                                    <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
+                                                    <!-- <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button> -->
+                                                    <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
                                                 </div>
                                             </div>
                                         </div>

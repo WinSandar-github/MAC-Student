@@ -37,21 +37,13 @@
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
-
-
 .nrc-style{
-  width: 250px !important;
+  width: 300px !important;
   height: 200px;
 }
-.pull-right .form-control{
-  border:none !important;
-  width:145px !important ;
-  padding: .0rem .0rem !important;
-}
-
 .nrc-image-style{
   width: 300px !important;
-  height: 150px;
+  height: 200px;
 }
 .nrc-custom-file-input {
   color: transparent;
@@ -85,4 +77,13 @@
 }
 .nrc-custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.pull-right .form-control{
+  width:85% !important ;
+  padding: .0rem .0rem !important;
+}
+.nrc .form-control{
+  padding: .0rem .0rem !important;
+  width: 80% !important;
+  line-height: 1.8 !important;
 }

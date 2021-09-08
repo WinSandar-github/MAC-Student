@@ -315,6 +315,37 @@ function loadPAPP(){
                     var year=accept.getFullYear();
                     var y=year+1;
                     var now=new Date();
+                    $('#previewImg').attr("src",BASE_URL+data.profile_photo);
+                    $('#hidden_degree_file0').val(data.degree_file0);
+                    $('#hidden_cpa_ff_file').val(data.cpa_ff_file);
+                    $('#hidden_file_183').val(data.file_183);
+                    $('#hidden_not_fulltime_file').val(data.not_fulltime_file);
+                    $('#hidden_work_in_mm_file').val(data.work_in_mm_file);
+                    $('#hidden_rule_conf_file').val(data.rule_conf_file);
+                    $('#hidden_cpd_record_file').val(data.cpd_record_file);
+                    $('#hidden_tax_free_file').val(data.tax_free_file);
+                    $('input[name=papp_date]').val(data.papp_date);
+                    $('input[name=used_firm_name]').val(data.used_firm_name);
+                    $('input[name=used_firm_type]').val(data.used_firm_type);
+                    $('input[name=used_firm_level]').val(data.used_firm_level);
+                    $('input[name=staff_firm_name]').val(data.staff_firm_name);
+                    $('input[name=tax_year]').val(data.tax_year);
+                    $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
+                    $('input[name=degree_name0]').val(data.degree_name0);
+                    $('input[name=total_hours]').val(data.total_hours);
+                    loadFile(data.degree_file0,"view_degree_file0");
+                    loadFile(data.cpa_ff_file,"view_cpa_ff_file");
+                    loadFile(data.file_183,"view_file_183");
+                    loadFile(data.not_fulltime_file,"view_not_fulltime_file");
+                    loadFile(data.work_in_mm_file,"view_work_in_mm_file");
+                    loadFile(data.rule_conf_file,"view_rule_conf_file");
+                    loadFile(data.cpd_record_file,"view_cpd_record_file");
+                    loadFile(data.tax_free_file,"view_tax_free_file");
+                    // $('#branch_'+school.branch_sch_own_type).prop("checked", true);
+                    // var type=data.type.split(',');
+                    // type.forEach(function(e){
+                    // $('#school'+e).prop("checked", true);
+                    // })
                     $('#regno').val(data.id);
                     $('#register_date').val(data.renew_accepted_date);
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
@@ -363,7 +394,7 @@ function RenewPAPP(){
                 // var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
 
                 var profile_photo = $("input[name=profile_photo]")[0].files[0];
-                var data = new FormData();
+                var data = new FormData($("#papp_renew_form_submit")[0]);
 
                 // data.append('renew_file', renew_file);
                 // data.append('renew_papp_reg', renew_papp_reg);
@@ -373,7 +404,7 @@ function RenewPAPP(){
                 // data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
                 // data.append('renew_rule_confession', renew_rule_confession);
 
-                data.append('profile_photo', profile_photo);
+                //data.append('profile_photo', profile_photo);
                 data.append('_method', 'PUT');
                 $.ajax({
                     url: BACKEND_URL+"/papp/"+result.data.id,
