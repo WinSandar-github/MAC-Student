@@ -567,8 +567,6 @@ function loadRenewSchool(id){
     }else{
       send_data.append('nrc_back', $('#hidden_nrc_back').val());
     }
-    send_data.append('email', $("input[name=email]").val());
-    send_data.append('password', $("input[name=password]").val());
     if(!$("input[name=attachment]")[0].files[0]){
       send_data.append('attachment', $('#hidden_attachment').val());
     }

@@ -330,7 +330,7 @@
 								<div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" >
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" disabled>
                                     </div>
 									<label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို အောင်မြင်ပါသည်။</label>
                                 </div><br/> 
@@ -364,7 +364,7 @@
 								<div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckQTPass()" >                                    
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckQTPass()" disabled>                                    
                                     </div>    
                                     <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
 								</div><br/> 
@@ -409,12 +409,10 @@
                                 <div class="row">
                                     
                                     <div class="col-md-6 col-form-label label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
-                                    <div class="col-md-1 view_cpa_certificate">
-
-                                    </div>
-                                    <div class="col-md-5">
+                                    
+                                    <div class="col-md-6 view_cpa_certificate">
                                         <input type="hidden" id="hidden_cpa_certificate">
-                                        <input type="file"  class="form-control" name="cpa_certificate" >
+                                        <!-- <input type="file"  class="form-control" name="cpa_certificate" > -->
                                     </div>
                                 </div><br/>
 

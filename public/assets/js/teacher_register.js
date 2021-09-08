@@ -220,6 +220,7 @@ function loadRenewTeacher(id){
                 var year=accept.getFullYear();
                 var y=year+1;
                 var now=new Date();
+                $('input[name=email]').val(teacher.email);
                 $('input[name=name_mm]').val(teacher.name_mm);
                 $('input[name=name_eng]').val(teacher.name_eng);
                 $('input[name=father_name_mm]').val(teacher.father_name_mm);
@@ -296,11 +297,6 @@ function loadRenewTeacher(id){
 }
 function renewTeacher(){
   var send_data=new FormData($( "#teacher_renew_form" )[0]);
-  if($("input[name=profile_photo]")[0].files[0]){
-    send_data.append('profile_photo', $("input[name=profile_photo]")[0].files[0]);
-  }else{
-    send_data.append('profile_photo', $('#hidden_profile').val());
-  }
   if($("input[name=nrc_front]")[0].files[0]){
     send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
   }else{
@@ -311,8 +307,6 @@ function renewTeacher(){
   }else{
     send_data.append('nrc_back', $('#hidden_nrc_back').val());
   }
-  send_data.append('email', $("input[name=email]").val());
-  send_data.append('password', $("input[name=password]").val());
   var id=localStorage.getItem("teacher_id");
   send_data.append('_method', 'PATCH');
   show_loader();
