@@ -102,6 +102,44 @@ function delRowSubject(tbody){
     });
 }
 
+$( "#teacher_submit" ).click(function() {
+        if(allFill('#teacher_register_form')){
+            $('#teacherModal').modal('show');
+            send_email();
+        }
+    });
+// teacher
+// $('#cash_img').click(function() {
+//     $('#teacher_btn').prop('disabled', false);
+// });
+
+// $('#btn_cbpay').prop('disabled', true);
+// $('#btn_mpu').prop('disabled', true);
+// $('#teacher_btn').prop('disabled', true);
+
+// $('#teacher_btn').click(function () {
+//     setTimeout(function () {
+//         $('#teacherModal').modal('hide');
+//     }, 1000);
+// });
+
+function check_email_teacher()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createTeacherRegister();
+        $('#teacherModal').modal('hide');
+    }
+}
+
 function createTeacherRegister(){
     if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
     {
