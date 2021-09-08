@@ -434,6 +434,11 @@ function form_feedback(){
 }
 function loadCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var a=new Date(student.date_of_birth);
+    var diff_ms = Date.now() - a.getTime();
+    var age_dt = new Date(diff_ms);
+    var age=Math.abs(age_dt.getUTCFullYear() - 1970);
+    $("#age").append(age+" years");
     $.ajax({
         url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
         type: 'GET',
@@ -461,12 +466,17 @@ function loadCPAFF(){
                     $('#hidden_mpa_mem_card').val(data.mpa_mem_card);
                     $('#hidden_cpd_record').val(data.cpd_record);
                     $('#hidden_passport_image').val(data.passport_image);
-                    $('#hidden_three_years_full').val(data.three_years_full);
-                    //$('#branch_'+school.branch_sch_own_type).prop("checked", true);
+                    if(data.cpa_part_2==1){
+                        $('#cpa_part_2_check').prop("checked", true);
+                        
+                    }else{
+                        $('#qt_pass_check').prop("checked", true);
+                        $('input[name=qt_pass_date]').val(data.qt_pass_date);
+                        $('input[name=qt_pass_seat_no]').val(data.qt_pass_seat_no);
+                    }
+                    
                     $('input[name=pass_batch_no]').val(data.pass_batch_no);
                     $('input[name=pass_personal_no]').val(data.pass_personal_no);
-                    $('input[name=qt_pass_date]').val(data.qt_pass_date);
-                    $('input[name=qt_pass_seat_no]').val(data.qt_pass_seat_no);
                     $('input[name=total_hours]').val(data.total_hours);
                     $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
                     $('input[name=degree_name0]').val(data.degree_name0);
@@ -475,7 +485,6 @@ function loadCPAFF(){
                     loadFile(data.mpa_mem_card,"view_mpa_mem_card");
                     loadFile(data.cpd_record,"view_cpd_record");
                     loadFile(data.passport_image,"view_passport_image");
-                    loadFile(data.three_years_full,"view_three_years_full");
                     $('#regno').val(data.id);
                     $('#register_date').val(data.renew_accepted_date);
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
@@ -516,23 +525,48 @@ function RenewCPAFF(){
         data:"",
         success: function(result){
             if(result.data!=null){
-                //var renew_file =   $("input[name=renew_file]")[0].files[0];
-                // var renew_micpa    =   $("input[name=renew_micpa]")[0].files[0];
-                // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
-                // var renew_cpaff_reg        =   $("input[name=renew_cpaff_reg]")[0].files[0];
-                var data = new FormData($("#cpaff_renew_form_submit")[0]);
-                // data.append('renew_file', renew_file);
-                // data.append('renew_micpa', renew_micpa);
-                // data.append('renew_cpd', renew_cpd);
-                // data.append('renew_cpaff_reg', renew_cpaff_reg);
-
-                //var profile_photo = $("input[name=profile_photo]")[0].files[0];
-                data.append('_method', 'PUT');
-                //data.append('profile_photo',profile_photo);
+                var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
+                if($("input[name=nrc_front]")[0].files[0]){
+                    send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+                  }else{
+                    send_data.append('nrc_front', $('#hidden_nrc_front').val());
+                  }
+                  if($("input[name=nrc_back]")[0].files[0]){
+                    send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+                  }else{
+                    send_data.append('nrc_back', $('#hidden_nrc_back').val());
+                  }
+                  if(!$("input[name=cpa_certificate]")[0].files[0]){
+                    send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                  }
+                  if(!$("input[name=mpa_mem_card]")[0].files[0]){
+                    send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                  }
+                  if(!$("input[name=cpd_record]")[0].files[0]){
+                    send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                  }
+                  if(!$("input[name=passport_image]")[0].files[0]){
+                    send_data.append('passport_image', $('#hidden_passport_image').val());
+                  }
+                  var cpa_part_2      = document.getElementById("cpa_part_2_check");
+                  var qt_pass         = document.getElementById("qt_pass_check");
+                  if(cpa_part_2.checked==true){
+                    send_data.append('cpa_part_2',1);
+                    send_data.append('qt_pass',0);
+                    }
+                    else if(qt_pass.checked==true){
+                        send_data.append('cpa_part_2',0);
+                        send_data.append('qt_pass',1);
+                    }else{
+                        send_data.append('cpa_part_2',0);
+                        send_data.append('qt_pass',0);
+                    }
+                
+                send_data.append('_method', 'PUT');
                 $.ajax({
                     url: BACKEND_URL+"/cpa_ff/"+result.data.id,
                     type: 'post',
-                    data:data,
+                    data:send_data,
                     contentType: false,
                     processData: false,
                     success: function(result){
