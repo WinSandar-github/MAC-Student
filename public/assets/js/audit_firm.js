@@ -471,6 +471,7 @@ function removeBracketed(file,divname){
   var split_new_file=new_file.split(',');
   for(var i=0;i<split_new_file.length;i++){
       var file="<a href='#' onclick=loadFile('"+split_new_file[i]+"') id='img' data-toggle='modal' data-target='#fileModal'>View File</a><br/>";
+      // var file="<button type='button' style='width: 30%;margin-top:1% ;' class='btn btn-primary' onclick='loadFile('"+split_new_file[i]+"')'><i class='fa fa-paperclip'></i></button>";
       $("."+divname).append(file);
     }
 }

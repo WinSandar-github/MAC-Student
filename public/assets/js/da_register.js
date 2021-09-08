@@ -136,7 +136,7 @@ function send_email()
         success: function(data){
             console.log(data)
             localStorage.setItem('verify_code', JSON.stringify(data));
-            successMessage("Your email is sending to MAC");  
+            // successMessage("Your email is sending to MAC");  
         },
         error:function (message){
             EasyLoading.hide();

@@ -240,7 +240,7 @@
         </div>
     </div>
     </div>
-</form>--}}
+</form>
     <!-- DA2 Exam Register -->
     <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
         novalidate>
@@ -305,7 +305,55 @@
              </div>
            </div>
          </div>
-     </form>
+     </form>--}}
+
+    <!-- DA One exam -->
+    <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <br>
+                     <div class="modal-body">
+                         <div class="row justify-content-center">
+                             <center>
+                                 <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Exam Registeration Form Fee - ****** MMK</h4>
+                             </center>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                          data-value="CBPAY" name="payment_method" id="cb_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                          data-value="MPU" name="payment_method" id="mpu_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                          data-value="CASH" name="payment_method" id="cash_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <input type="hidden" name="payment_method" value="CASH">
+                             <center>
+                                 <button type="submit" id="da1exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                             </center>
+                         </div>
+                     </div>
+                     <br>
+                 </div>
+             </div>
+         </div>
+    </form>
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
@@ -339,23 +387,5 @@
     }); 
 
     
-</script>
-<script>
-    $( "#btn_da_exam_submit" ).click(function() {
-        if(allFilled('#da_exam_register_form')){
-            $('#paymentModal').modal('show');
-        }
-        else{
-        }
-    });
-    function allFilled(form_id) {
-        var filled = true;
-        $(form_id+' input').each(function() {
-            console.log($(this).attr('id'));
-            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
-            if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
-        });
-        return filled;        
-    }
 </script>
 @endpush

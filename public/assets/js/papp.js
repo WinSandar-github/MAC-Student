@@ -295,8 +295,28 @@ function Papp_feedback(){
         }
     });
 }
+function loadCPAFFAge(id){
+    $.ajax({
+        url: BACKEND_URL+"/cpaff_by_stuId/"+id,
+        type: 'get',
+        data:"",
+        success: function(result){
+            var data=result.data;
+            var a=new Date(data.accepted_date);
+            var diff_ms = Date.now() - a.getTime();
+            var age_dt = new Date(diff_ms);
+            var age=Math.abs(age_dt.getUTCFullYear() - 1970);
+            $("#cpa_age").append(age+" years");
+            
+        },
+        error:function (message){
+            console.log(message);
+        }
+    });
+}
 function loadPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    loadCPAFFAge(+student.id);
     $.ajax({
         url: BACKEND_URL+"/papp_by_stuId/"+student.id,
         type: 'GET',
@@ -317,35 +337,54 @@ function loadPAPP(){
                     var now=new Date();
                     $('#previewImg').attr("src",BASE_URL+data.profile_photo);
                     $('#hidden_degree_file0').val(data.degree_file0);
-                    $('#hidden_cpa_ff_file').val(data.cpa_ff_file);
-                    $('#hidden_file_183').val(data.file_183);
-                    $('#hidden_not_fulltime_file').val(data.not_fulltime_file);
-                    $('#hidden_work_in_mm_file').val(data.work_in_mm_file);
-                    $('#hidden_rule_conf_file').val(data.rule_conf_file);
-                    $('#hidden_cpd_record_file').val(data.cpd_record_file);
-                    $('#hidden_tax_free_file').val(data.tax_free_file);
+                    $('#hidden_cpa_ff_file').val(data.cpa_ff_recommendation);
+                    $('#hidden_file_183').val(data.recommendation_183);
+                    $('#hidden_not_fulltime_file').val(data.not_fulltime_recommendation);
+                    $('#hidden_work_in_mm_file').val(data.work_in_myanmar_confession);
+                    $('#hidden_rule_conf_file').val(data.rule_confession);
+                    $('#hidden_cpd_record_file').val(data.cpd_record);
+                    $('#hidden_tax_free_file').val(data.tax_free_recommendation);
                     $('input[name=papp_date]').val(data.papp_date);
-                    $('input[name=used_firm_name]').val(data.used_firm_name);
-                    $('input[name=used_firm_type]').val(data.used_firm_type);
-                    $('input[name=used_firm_level]').val(data.used_firm_level);
-                    $('input[name=staff_firm_name]').val(data.staff_firm_name);
                     $('input[name=tax_year]').val(data.tax_year);
                     $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
                     $('input[name=degree_name0]').val(data.degree_name0);
                     $('input[name=total_hours]').val(data.total_hours);
                     loadFile(data.degree_file0,"view_degree_file0");
-                    loadFile(data.cpa_ff_file,"view_cpa_ff_file");
-                    loadFile(data.file_183,"view_file_183");
-                    loadFile(data.not_fulltime_file,"view_not_fulltime_file");
-                    loadFile(data.work_in_mm_file,"view_work_in_mm_file");
-                    loadFile(data.rule_conf_file,"view_rule_conf_file");
-                    loadFile(data.cpd_record_file,"view_cpd_record_file");
-                    loadFile(data.tax_free_file,"view_tax_free_file");
-                    // $('#branch_'+school.branch_sch_own_type).prop("checked", true);
-                    // var type=data.type.split(',');
-                    // type.forEach(function(e){
-                    // $('#school'+e).prop("checked", true);
-                    // })
+                    loadFile(data.cpa_ff_recommendation,"view_cpa_ff_file");
+                    loadFile(data.recommendation_183,"view_file_183");
+                    loadFile(data.not_fulltime_recommendation,"view_not_fulltime_file");
+                    loadFile(data.work_in_myanmar_confession,"view_work_in_mm_file");
+                    loadFile(data.rule_confession,"view_rule_conf_file");
+                    loadFile(data.cpd_record,"view_cpd_record_file");
+                    loadFile(data.tax_free_recommendation,"view_tax_free_file");
+                    if(data.use_firm==1){
+                        $('#firm_check').prop("checked", true);
+                    }
+                    if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
+                        $('#used_firm_check').prop("checked", true);
+                        $('input[name=used_firm_name]').val(data.firm_name);
+                        $('input[name=used_firm_type]').val(data.firm_type);
+                        $('input[name=used_firm_level]').val(data.firm_level);
+                    }
+                    if(data.staff_firm_name!=null ){
+                        $('#staff_firm_check').prop("checked", true);
+                        $('input[name=staff_firm_name]').val(data.staff_firm_name);
+                        
+                    }
+                    
+                    // if(data.cpa!=""){
+                    //     $('#cpa_check').prop("checked", true);
+                    //     $('#cpa_edu').css('display','block');
+                    //     $('.view_cpa_file').css('display','block');
+                    //     loadFile(data.cpa,"view_cpa_file");
+                    // }
+                    // if(data.ra!=""){
+                    //     $('#ra_check').prop("checked", true);
+                    //     $('#ra_edu').css('display','block');
+                    //     $('.view_ra_file').css('display','block');
+                    //     loadFile(data.ra,"view_ra_file");
+                    // }
+                    
                     $('#regno').val(data.id);
                     $('#register_date').val(data.renew_accepted_date);
                     if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
@@ -382,34 +421,60 @@ function RenewPAPP(){
         type: 'get',
         data:"",
         success: function(result){
-            // successMessage("Insert Successfully");
-            // location.reload();
+            
             if(result.data!=null){
-                // var renew_file =   $("input[name=renew_file]")[0].files[0];
-                // var renew_papp_reg    =   $("input[name=renew_papp_reg]")[0].files[0];
-                // var renew_micpa       =   $("input[name=renew_micpa]")[0].files[0];
-                // var renew_cpd       =   $("input[name=renew_cpd]")[0].files[0];
-                // var renew_183_recomm    =   $("input[name=renew_183_recomm]")[0].files[0];
-                // var renew_not_fulltime_recomm       =   $("input[name=renew_not_fulltime_recomm]")[0].files[0];
-                // var renew_rule_confession        =   $("input[name=renew_rule_confession]")[0].files[0];
-
-                var profile_photo = $("input[name=profile_photo]")[0].files[0];
-                var data = new FormData($("#papp_renew_form_submit")[0]);
-
-                // data.append('renew_file', renew_file);
-                // data.append('renew_papp_reg', renew_papp_reg);
-                // data.append('renew_micpa', renew_micpa);
-                // data.append('renew_cpd', renew_cpd);
-                // data.append('renew_183_recomm', renew_183_recomm);
-                // data.append('renew_not_fulltime_recomm', renew_not_fulltime_recomm);
-                // data.append('renew_rule_confession', renew_rule_confession);
-
-                //data.append('profile_photo', profile_photo);
-                data.append('_method', 'PUT');
+                var send_data = new FormData($("#papp_renew_form_submit")[0]);
+                if(!$("input[name=cpa_ff_file]")[0].files[0]){
+                    send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
+                  }
+                  if(!$("input[name=file_183]")[0].files[0]){
+                    send_data.append('file_183', $('#hidden_file_183').val());
+                  }
+                  if(!$("input[name=not_fulltime_file]")[0].files[0]){
+                    send_data.append('not_fulltime_file', $('#hidden_not_fulltime_file').val());
+                  }
+                  if(!$("input[name=work_in_mm_file]")[0].files[0]){
+                    send_data.append('work_in_mm_file', $('#hidden_work_in_mm_file').val());
+                  }
+                  if(!$("input[name=rule_conf_file]")[0].files[0]){
+                    send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
+                  }
+                  if(!$("input[name=cpd_record_file]")[0].files[0]){
+                    send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
+                  }
+                  if(!$("input[name=tax_free_file]")[0].files[0]){
+                    send_data.append('tax_free_file', $('#hidden_tax_free_file').val());
+                  }
+                    var firm_check = document.getElementById("firm_check");
+                    var used_firm_check = document.getElementById("used_firm_check");
+                    var staff_firm_check = document.getElementById("staff_firm_check");
+                    if(firm_check.checked==true){
+                        send_data.append('use_firm',1);
+                    }
+                    else{
+                        send_data.append('use_firm',0);
+                    }
+                    if(used_firm_check.checked==true){
+                        send_data.append('firm_name', $("input[name=used_firm_name]").val());
+                        send_data.append('firm_type', $("input[name=used_firm_type]").val());
+                        send_data.append('firm_step', $("input[name=used_firm_level]").val());
+                    }
+                    else{
+                        send_data.append('firm_name', "");
+                        send_data.append('firm_type', "");
+                        send_data.append('firm_step', "");
+                    }
+                    if(staff_firm_check.checked==true){
+                        send_data.append('staff_firm_name', $("input[name=staff_firm_name]").val());
+                    }
+                    else{
+                        send_data.append('staff_firm_name', "");
+                    }
+                  send_data.append('_method', 'PUT');
                 $.ajax({
                     url: BACKEND_URL+"/papp/"+result.data.id,
                     type: 'post',
-                    data:data,
+                    data:send_data,
                     contentType: false,
                     processData: false,
                     success: function(result){

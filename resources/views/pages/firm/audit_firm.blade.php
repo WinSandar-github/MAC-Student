@@ -169,16 +169,16 @@
                                             <div class="row">
                                               <div class="col-md-8">
                                                 <div class="row">
-                                                    <label for="" class="col-md-2 col-form-label">1.</label>
-                                                    <label for="" class="col-md-4 col-form-label">Email</label>
+                                                    <label for="" class="col-md-1 col-form-label">1.</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
                                                     <div class="col-md-6">
                                                         <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
                                                     </div>
                                                 </div><br>
 
                                                 <div class="row">
-                                                    <label for="" class="col-md-2 col-form-label">2.</label>
-                                                    <label for="" class="col-md-4 col-form-label">Password</label>
+                                                    <label for="" class="col-md-1 col-form-label">2.</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Password</label>
                                                     <div class="col-md-6">
                                                         <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
                                                     </div>
@@ -186,8 +186,8 @@
                                                 </div><br>
 
                                                 <div class="row">
-                                                    <label for="" class="col-md-2 col-form-label">3.</label>
-                                                    <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                                                    <label for="" class="col-md-1 col-form-label">3.</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>
                                                     <div class="col-md-6">
                                                         <input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
                                                     </div>
@@ -210,8 +210,8 @@
                                                 </div>--}}
 
                                                 <div class="row">
-                                                    <label for="" class="col-md-2 col-form-label">4.</label>
-                                                    <label for="" class="col-md-4 col-form-label">Accountancy Firm Name</label>
+                                                    <label for="" class="col-md-1 col-form-label">4.</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>
                                                     <div class="col-md-6">
                                                         <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Accountancy Firm Name!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
                                                     </div>
@@ -228,13 +228,14 @@
                                                   <p class="mt-2">
                                                     <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                                   </p>
+                                                  <div class="form-text mb-2 text-danger" >Allowed Jpeg and Png Image.</div>
                                                 </div>
                                               </div>
                                             </div>
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">5.</label>
-                                                <label for="" class="col-md-3 col-form-label">Address Of Practice(Head Office)</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">Address Of Practice(Head Office)</label>
                                                 <div class="col-md-2">
                                                     <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
                                                 </div>
@@ -802,10 +803,8 @@
                                             </div><br>
 
                                             <div class="row">
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td width="20%"></td>
-                                                        <td width="80%">
+                                                <div class="col-md-1 col-form-label"></div>
+                                                    <div class="col-md-11 col-form-label">
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <table id="myTable" class="table partner_list table-bordered">
@@ -844,9 +843,8 @@
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                        </div>
+                                                    </div>
                                             </div><br>
 
                                             <div class="row">
@@ -896,7 +894,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">10.</label>
-                                                <label for="" class="col-md-3 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">Name Of Sole Proprietor/ Managing Partner</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" required="">
                                                 </div>
@@ -1051,8 +1049,8 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <!-- <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button> -->
-                                                    <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                                    <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
                                                 </div>
                                             </div>
                                         </div>
