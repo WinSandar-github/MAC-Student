@@ -5,19 +5,23 @@ $( "#school_submit" ).click(function() {
         }
     });
 // school
-// $('#cash_img').click(function() {
-//     $('#school_btn').prop('disabled', false);
-// });
+$("#school_modal").click(function() {
+    $('#schoolpaymentModal').modal('show');
+});
 
-// $('#btn_cbpay').prop('disabled', true);
-// $('#btn_mpu').prop('disabled', true);
-// $('#school_btn').prop('disabled', true);
+$('#cash_img').click(function() {
+    $('#school_btn').prop('disabled', false);
+});
 
-// $('#school_btn').click(function () {
-//     setTimeout(function () {
-//         $('#schoolModal').modal('hide');
-//     }, 1000);
-// });
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#school_btn').prop('disabled', true);
+
+$('#school_btn').click(function () {
+    setTimeout(function () {
+        $('#schoolpaymentModal').modal('hide');
+    }, 1000);
+});
 
 function check_email_school()
 {
@@ -34,6 +38,42 @@ function check_email_school()
         createSchoolRegister();
         $('#schoolModal').modal('hide');
     }
+}
+
+function schoolPaymentSubmit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+    url: BACKEND_URL + "/approve_school/" + student.id,
+    type: 'patch',
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/";
+        },
+        error:function (message){
+        }
+    })
+}
+
+function checkPaymentSchool(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/check_payment_school/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            console.log(element.payment_method)
+            if(element.payment_method != null){
+                $('#school_modal').prop('disabled', true);
+
+            }else{
+                $('#school_modal').prop('disabled', false);
+            }
+          })
+        }
+    });
 }
 
 var counter = 0;
