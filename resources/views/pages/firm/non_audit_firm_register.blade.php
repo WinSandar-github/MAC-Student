@@ -188,12 +188,12 @@
 							<div class="card-body">
 
 								<div class="row">
-									<div class="col-md-7">
+									<div class="col-md-8">
 
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('1.') }}</label>
-											<label class="col-md-4 col-form-label" style="padding-left: 50px;">{{ __('Email') }}</label>
-											<div class="col-md-7">
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Email') }}</label>
+											<div class="col-md-6">
 												<div class="form-group">
 														<input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
 												</div>
@@ -202,8 +202,8 @@
 
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('2.') }}</label>
-											<label class="col-md-4 col-form-label" style="padding-left: 50px;">{{ __('Password') }}</label>
-											<div class="col-md-7">
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Password') }}</label>
+											<div class="col-md-6">
 												<div class="form-group">
 														<input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
 												</div>
@@ -212,8 +212,8 @@
 
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('3.') }}</label>
-											<label class="col-md-4 col-form-label" style="padding-left: 50px;">{{ __('Confirm Password') }}</label>
-											<div class="col-md-7">
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Confirm Password') }}</label>
+											<div class="col-md-6">
 												<div class="form-group">
 														<input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
 												</div>
@@ -232,8 +232,8 @@
 										
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
-											<label class="col-md-4 col-form-label" style="padding-left: 50px;">{{ __('Firm Name') }}</label>
-											<div class="col-md-7">
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Firm Name') }}</label>
+											<div class="col-md-6">
 												<div class="form-group">
 													<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" required>
 												</div>
@@ -246,12 +246,13 @@
 										</div><br>	
 									</div>
 
-									<div class="col-md-5">
-										<div class="col-md-5 pull-right">
+									<div class="col-md-4">
+										<div class="col-md-7 pull-right">
 											<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
 											<p class="mt-2">
 											<input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
 											</p>
+											<div class="form-text mb-2 text-danger" >Allowed Jpeg and Png Image.</div>
 										</div>
 									</div>
 								</div>
@@ -260,7 +261,7 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
-									<label class="col-md-3 col-form-label">{{ __('Address Of Practice(Head Office)') }}</label>
+									<label class="col-md-3 col-form-label label_align_right">{{ __('Address Of Practice(Head Office)') }}</label>
 									<div class="col-md-2">
 										<div class="form-group">
 											<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" required>
@@ -1115,7 +1116,7 @@
 								<br>
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
-									<label class="col-md-3 col-form-label">{{ __('Name Of Managing Director') }}</label>
+									<label class="col-md-3 col-form-label label_align_right">{{ __('Name Of Managing Director') }}</label>
 									<div class="col-md-8 col-form-label">
 										<div class="form-group">
 											<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" required>

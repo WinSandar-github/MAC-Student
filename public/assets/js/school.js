@@ -78,7 +78,8 @@ function checkPaymentSchool(){
 
 var counter = 0;
 function createSchoolRegister(){
-    if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+ 
+  if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
     {
         alert("Your password and confirm password do not match!");
         return;
@@ -607,8 +608,6 @@ function loadRenewSchool(id){
     }else{
       send_data.append('nrc_back', $('#hidden_nrc_back').val());
     }
-    send_data.append('email', $("input[name=email]").val());
-    send_data.append('password', $("input[name=password]").val());
     if(!$("input[name=attachment]")[0].files[0]){
       send_data.append('attachment', $('#hidden_attachment').val());
     }
@@ -697,11 +696,7 @@ function loadStudentCourse(course_id){
   
 }
 function loadFile(file,divname){
-    var file="<a href='#' onclick=viewFile('"+file+"') data-toggle='modal' data-target='#fileModal'>File</a><br/>";
+    var file="<a href='"+BASE_URL+file+"' target='_blank' >File</a>";
     $("."+divname).append(file);
     
-}
-function viewFile(file) {
-  console.log(BASE_URL+file)
-  $(".image-body #file").attr("src", BASE_URL+file);
 }

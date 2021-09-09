@@ -216,8 +216,8 @@
                                 <div class="col-md-7 pull-right">
                                     <img class="col-md-3 profile-style" id="previewImg"  accept="image/png,image/jpeg" alt="">
                                     <p class="mt-2">
-                                      <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
-                                      <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                      <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" accept="image/*" onchange="previewImageFile(this);" required>
+                                      <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                     </p>
                                 </div>
                             </div>
@@ -330,7 +330,7 @@
 								<div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" >
+                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()" disabled>
                                     </div>
 									<label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို အောင်မြင်ပါသည်။</label>
                                 </div><br/> 
@@ -364,7 +364,7 @@
 								<div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckQTPass()" >                                    
+                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckQTPass()" disabled>                                    
                                     </div>    
                                     <label class="col-md-10 col-form-label">အဖွဲ့အစည်းက ပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို အောင်မြင်ခဲ့ပါသည်။</label> 
 								</div><br/> 
@@ -409,12 +409,10 @@
                                 <div class="row">
                                     
                                     <div class="col-md-6 col-form-label label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
-                                    <div class="col-md-1 view_cpa_certificate">
-
-                                    </div>
-                                    <div class="col-md-5">
+                                    
+                                    <div class="col-md-6 view_cpa_certificate">
                                         <input type="hidden" id="hidden_cpa_certificate">
-                                        <input type="file"  class="form-control" name="cpa_certificate" >
+                                        <!-- <input type="file"  class="form-control" name="cpa_certificate" > -->
                                     </div>
                                 </div><br/>
 
@@ -426,7 +424,7 @@
                                     </div>
                                     <div class="col-md-5">
                                     <input type="hidden" id="hidden_mpa_mem_card">
-                                                <input type="file"  class="form-control" name="mpa_mem_card">
+                                                <!-- <input type="file"  class="form-control" name="mpa_mem_card"> -->
                                     </div>                                
                                 </div><br/>
 								<div class="row">
@@ -443,7 +441,7 @@
                                                 <p class="mt-2">
                                                     <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                     value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
-                                                    <br><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                    <br><span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                                 </p>
                                                                                                        
                                             </div>                                                    
@@ -459,7 +457,7 @@
                                                 <p class="mt-2">
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                     value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
-                                                    <br><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                    <br><span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
                                                 </p>
                                                                                                       
                                             </div>
@@ -469,15 +467,14 @@
                               </div><br> 
 							  <div class="row">
                                     <label class="col-md-6 col-form-label label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
-                                    <div class="col-md-1 view_cpd_record">
-
-                                    </div>
-                                    <div class="col-md-5">                                        
-                                        <input type="file"  class="form-control" name="cpd_record" >
+                                    
+                                    <div class="col-md-6 view_cpd_record">         
+                                                                 
+                                        <!-- <input type="file"  class="form-control" name="cpd_record" > -->
                                         <input type="hidden" id="hidden_cpd_record">
                                     </div>
                                 </div><br/>
-								<div class="row">
+								<!-- <div class="row">
                                     <label class="col-md-6 col-form-label label">{{ __('စုစုပေါင်း နာရီ') }}</label>
                                     <div class="col-md-1 ">
 
@@ -486,16 +483,14 @@
                                         <input type="text"  class="form-control" name="total_hours"  >
                                         
                                     </div>
-                                </div><br/>
+                                </div><br/> -->
 
                                 <div class="row">
                                     <div class="col-md-6 col-form-label label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
-                                    <div class="col-md-1 view_passport_image">
-
-                                    </div>
-                                    <div class="col-md-5">
+                                    
+                                    <div class="col-md-6 view_passport_image">
                                         <input type="hidden" id="hidden_passport_image">
-                                                <input type="file"  class="form-control" name="passport_image"  >
+                                                <!-- <input type="file"  class="form-control" name="passport_image"  > -->
                                         
                                     </div>
                                 </div><br/>
