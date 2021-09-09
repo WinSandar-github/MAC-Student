@@ -389,37 +389,37 @@ function form_feedback(){
                 }
                 else if(data.status==1 || data.renew_status==1)
                 {
-                    document.getElementById('approved').style.display='none';
-                    var accept=new Date(data.renew_accepted_date);
-                    var month=accept.getMonth()+1;
-                    var year=accept.getFullYear();
-                    var y=year+1;
-                    var now=new Date();
+                    document.getElementById('approved').style.display='block';
+                    // var accept=new Date(data.renew_accepted_date);
+                    // var month=accept.getMonth()+1;
+                    // var year=accept.getFullYear();
+                    // var y=year+1;
+                    // var now=new Date();
 
-                    if(month>8){
-                        document.getElementById('expiry_card').style.display='block';
-                        $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
-                        var now=new Date(Date.now());
-                        if(now.getFullYear()==y && now.getMonth()==11){
-                            document.getElementById('approved').style.display='none';
-                            document.getElementById('cpaff_renew_form').style.display='block';
-                        }
-                        else{
-                            document.getElementById('approved').style.display='block';
-                        }
-                    }
-                    else{
-                        document.getElementById('expiry_card').style.display='block';
-                        $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
-                        var now=new Date(Date.now());
-                        // if(now.getFullYear()==year){
-                            document.getElementById('approved').style.display='none';
-                            document.getElementById('cpaff_renew_form').style.display='block';
-                        // }
-                        // else{
-                        //     document.getElementById('approved').style.display='block';
-                        // }
-                    }
+                    // if(month>8){
+                    //     document.getElementById('expiry_card').style.display='block';
+                    //     $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
+                    //     var now=new Date(Date.now());
+                    //     if(now.getFullYear()==y && now.getMonth()==11){
+                    //         document.getElementById('approved').style.display='none';
+                    //         document.getElementById('cpaff_renew_form').style.display='block';
+                    //     }
+                    //     else{
+                    //         document.getElementById('approved').style.display='block';
+                    //     }
+                    // }
+                    // else{
+                    //     document.getElementById('expiry_card').style.display='block';
+                    //     $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
+                    //     var now=new Date(Date.now());
+                    //     // if(now.getFullYear()==year){
+                    //         document.getElementById('approved').style.display='none';
+                    //         document.getElementById('cpaff_renew_form').style.display='block';
+                    //     // }
+                    //     // else{
+                    //     //     document.getElementById('approved').style.display='block';
+                    //     // }
+                    // }
                 }
                 else if(data.status==2 || data.renew_status==2)
                 {
