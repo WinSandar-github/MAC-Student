@@ -1278,8 +1278,8 @@
 
         if(!student){
         localStorage.setItem('course_type',course_type[2])
-
         }
+
         if(student.approve_reject_status==1){
             loadRenewSchool(localStorage.getItem("school_id"));
         }

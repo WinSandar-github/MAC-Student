@@ -68,9 +68,9 @@
 									<div class="row">
 										<div class="col-md-12 widget-information">
 											<div class="row border-bottom">
-	                      <h2 class="col-md-6 card-title text-center text-success">Teacher</h2>
-                        <div class="col-md-3"></div>
-              				</div>
+                                        <h2 class="col-md-6 card-title text-center text-success">Teacher</h2>
+                                        <div class="col-md-3"></div>
+                                            </div>
 											<!-- Description -->
 											<div class="row">
 												<div class="col-md-7">
@@ -359,35 +359,35 @@
                                     <label for="" class="col-md-3 col-form-label ">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                 </div><br>
 
-                                <div class="row">
-                                    <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
-                                    
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                            <input type="hidden" id="hidden_nrc_front">
+                                    <div class="row">
+                                        <label for="" class="col-md-4 col-form-label">{{ __('') }}</label>
+                                        
+                                        <div class="col-md-8">
                                             <div class="row">
-                                                    <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
-                                                    <p class="mt-2">
-                                                       <input type="file" class="nrc-custom-file-input" name="nrc_front"  onchange="previewNRCFile('nrc_front','nrc_front_img');">
-                                                        <br/><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
-                                                        
-                                                    </p>
+                                                <div class="col-md-6">
+                                                    <input type="hidden" id="hidden_nrc_front">
+                                                    <div class="row">
+                                                            <img class="nrc-style" id="nrc_front_img"  accept="image/png,image/jpeg" alt="">
+                                                            <p class="mt-2">
+                                                            <input type="file" class="nrc-custom-file-input" name="nrc_front"  onchange="previewNRCFile('nrc_front','nrc_front_img');">
+                                                                <br/><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                                
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <input type="hidden" id="hidden_nrc_back">
+                                                        <div class="row">
+                                                            <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="">
+                                                            <p class="mt-2">
+                                                            <input type="file" name="nrc_back" class="nrc-custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');">
+                                                            <br/><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>  
+                                                            </p>
+                                                        </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                                <input type="hidden" id="hidden_nrc_back">
-                                                <div class="row">
-                                                    <img class="nrc-style" id="nrc_back_img"  accept="image/png,image/jpeg" alt="">
-                                                    <p class="mt-2">
-                                                       <input type="file" name="nrc_back" class="nrc-custom-file-input" onchange="previewNRCFile('nrc_back','nrc_back_img');">
-                                                       <br/><span class="form-text text-danger">Allowed Jpeg and Png Image.</span>  
-                                                    </p>
-                                                </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div><br>
+                                    </div><br>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
@@ -397,9 +397,6 @@
                                         <input type="text" name="phone_number" class="form-control" autocomplete='off'>
                                         </div>
                                     </div>
-                                </div>
-
-
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -418,12 +415,12 @@
                                             </tbody>
                                         </table>
 
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row" style="margin-bottom:25px;margin-top:-12px;text-align:right;">
-                                    <div class="col-md-11 pull-right">
-                                        <label class="invalid-feedback degree text-right text-danger">ပညာအရည်အချင်း ထည့်ပါ</label>
-                                    </div>
+                                    <div class="row" style="margin-bottom:25px;margin-top:-12px;text-align:right;">
+                                        <div class="col-md-11 pull-right">
+                                            <label class="invalid-feedback degree text-right text-danger">ပညာအရည်အချင်း ထည့်ပါ</label>
+                                        </div>
 
                                 </div>
                                 <div class="row" style="clear:both;">
@@ -439,13 +436,13 @@
                                                 <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee2" value="0">
                                                 <label class="form-check-label" for="no-servant">{{ __('မဟုတ်') }}</label>
 
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="invalid-feedback gov_employee text-danger">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးပါ</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="invalid-feedback gov_employee text-danger">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးပါ</label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div></br>
+                                    </div></br>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
@@ -456,62 +453,65 @@
 
                                 </div>
 
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
-                                    <label class="col-md-3 col-form-label label" >{{ __('လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း') }}</label>
-                                    <div class="col-md-8">
-                                        <table class="table tbl_certificate table-bordered input-table" id="tbl_certificate">
-                                            <thead>
-                                                <tr>
-                                                    <th class="less-font-weight text-center"  width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း</th>
-                                                    <th  class="less-font-weight text-center"  width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSubject("tbl_certificate")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_certificate_body" id="tbl_certificate_body">
-
-                                            </tbody>
-                                        </table>
                                     </div>
-                                </div>
 
-                                <div class="row" >
-                                    <label class="col-md-1 col-form-label ">{{ __('') }}</label>
-                                    <label class="col-md-3 col-form-label label " >{{ __('ဒီပလိုမာစာရင်းကိုင်သင်တန်း') }}</label>
-                                    <div class="col-md-8">
-                                        <table class="table tbl_diploma table-bordered input-table" id="tbl_diploma">
-                                            <thead>
-                                                <tr>
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center" width="80%">ဒီပလိုမာစာရင်းကိုင်သင်တန်း</th>
-                                                    <th class="less-font-weight text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDipSubject("tbl_diploma")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_diploma_body" id="tbl_diploma_body">
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                        <label class="col-md-3 col-form-label label" >{{ __('လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း') }}</label>
+                                        <div class="col-md-8">
+                                            <table class="table tbl_certificate table-bordered input-table" id="tbl_certificate">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="less-font-weight text-center"  width="10%">စဉ်</th>
+                                                        <th class="less-font-weight text-center"  width="80%">လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း</th>
+                                                        <th  class="less-font-weight text-center"  width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSubject("tbl_certificate")'><li class="fa fa-plus"></li></button></td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="tbl_certificate_body" id="tbl_certificate_body">
 
-                                            </tboddy>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                    <label class="col-md-3 col-form-label label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <textarea class="form-control " name="exp_desc" rows="3" ></textarea>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div class="row" >
+                                        <label class="col-md-1 col-form-label ">{{ __('') }}</label>
+                                        <label class="col-md-3 col-form-label label " >{{ __('ဒီပလိုမာစာရင်းကိုင်သင်တန်း') }}</label>
+                                        <div class="col-md-8">
+                                            <table class="table tbl_diploma table-bordered input-table" id="tbl_diploma">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="less-font-weight text-center" width="10%">စဉ်</th>
+                                                        <th class="less-font-weight text-center" width="80%">ဒီပလိုမာစာရင်းကိုင်သင်တန်း</th>
+                                                        <th class="less-font-weight text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDipSubject("tbl_diploma")'><li class="fa fa-plus"></li></button></td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="tbl_diploma_body" id="tbl_diploma_body">
+
+                                                </tboddy>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                        <label class="col-md-3 col-form-label label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <textarea class="form-control " name="exp_desc" rows="3" ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="regno" readonly>
+                                                <textarea class="form-control " name="exp_desc" rows="3" ></textarea>
                                             </div>
                                         </div>
-                                </div>
+                                    </div>
+                                    
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
                                     <label class="col-md-3 col-form-label label">Applied Date</label>
