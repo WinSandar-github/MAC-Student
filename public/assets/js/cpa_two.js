@@ -1,6 +1,6 @@
 $("input[id='cpa_one_pass_date']").flatpickr({
     enableTime: false,
-    dateFormat: "d-m-Y",
+    dateFormat: "M-Y",
     allowInput: true,
 });
 var boo=localStorage.getItem("isPrivateSchool");

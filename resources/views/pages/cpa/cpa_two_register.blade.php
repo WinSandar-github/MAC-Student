@@ -717,6 +717,7 @@
 @endsection
 @push('scripts')
 <script type="text/javascript">
+
 reg_feedback();
 var exam_date=localStorage.getItem("exam_date");
 console.log(exam_date)
