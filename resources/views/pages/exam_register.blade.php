@@ -137,15 +137,15 @@
                                         <div class="col-md-6">
                                             <div class="row mt-2">
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="0" name="is_full_module" value="0" required>
+                                                    <input type="radio" id="0" name="is_full_module" value="1" required>
                                                     <label for="0">Module 1</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;" required>
+                                                    <input type="radio" id="1" name="is_full_module" value="2" style="margin-left: 3%;" required>
                                                     <label for="1">Module 2</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;" required>
+                                                    <input type="radio" id="2" name="is_full_module" value="3" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
                                             </div> 

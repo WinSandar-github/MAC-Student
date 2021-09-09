@@ -658,15 +658,15 @@
                                     <div class="col-md-5">
                                         <div class="row">
                                             <div class="col-md-4 form-check">
-                                                <input type="radio" class="form-check-input" name="module" value="" id="module1" required>
+                                                <input type="radio" class="form-check-input" name="module" value="1" id="module1" required>
                                                 <label class="form-check-label">{{ _('Module-1') }}</label>
                                             </div>
                                             <div class="col-md-4 form-check">
-                                                <input type="radio" class="form-check-input" name="module" value="" id="module2" >
+                                                <input type="radio" class="form-check-input" name="module" value="2" id="module2" >
                                                 <label class="form-check-label">{{ _('Module-2') }}</label>
                                             </div>
                                             <div class="col-md-4 form-check">
-                                                <input type="radio" class="form-check-input" name="module" value="" id="allmodule" >
+                                                <input type="radio" class="form-check-input" name="module" value="3" id="allmodule" >
                                                 <label class="form-check-label">{{ _('All Module') }}</label>
                                                                                                 <div class="invalid-feedback mt-3">ဖြေဆိုမည့် Module ရွေးချယ်ပါ</div>
                                             </div>
@@ -1370,8 +1370,15 @@ loadSchoolList();
     });
     function allFilled(form_id) {
         var filled = true;
+        
         $(form_id+' input').each(function() {
-            if($(this).val() == ''  ) filled = false;
+            if($(this).attr('id')=="direct_access_no")
+            {   }
+            else if( $(this).attr('id')=="entry_success_no")
+            {   }
+            else{
+                if($(this).val() == ''  ) filled = false;
+            }
             //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
         });
         return filled;        
