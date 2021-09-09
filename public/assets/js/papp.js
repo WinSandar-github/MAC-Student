@@ -395,102 +395,104 @@ function loadCPAFFAge(id){
 }
 function loadPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    loadCPAFFAge(+student.id);
-    $.ajax({
-        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
-        type: 'GET',
-        contentType: false,
-        processData: false,
-        success: function(cData){
-            console.log(cData.data);
-            var data=cData.data;
-            if(data!=null){
-                if(data.status==1 || data.renew_status==1)
-                {
-                    document.getElementById('papp_initial').style.display='none';
-                    document.getElementById('papp_renew_form').style.display='block';
-                    var accept=new Date(data.renew_accepted_date);
-                    var month=accept.getMonth()+1;
-                    var year=accept.getFullYear();
-                    var y=year+1;
-                    var now=new Date();
-                    $('#previewImg').attr("src",BASE_URL+data.profile_photo);
-                    $('#hidden_degree_file0').val(data.degree_file0);
-                    $('#hidden_cpa_ff_file').val(data.cpa_ff_recommendation);
-                    $('#hidden_file_183').val(data.recommendation_183);
-                    $('#hidden_not_fulltime_file').val(data.not_fulltime_recommendation);
-                    $('#hidden_work_in_mm_file').val(data.work_in_myanmar_confession);
-                    $('#hidden_rule_conf_file').val(data.rule_confession);
-                    $('#hidden_cpd_record_file').val(data.cpd_record);
-                    $('#hidden_tax_free_file').val(data.tax_free_recommendation);
-                    $('input[name=papp_date]').val(data.papp_date);
-                    $('input[name=tax_year]').val(data.tax_year);
-                    $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
-                    $('input[name=degree_name0]').val(data.degree_name0);
-                    $('input[name=total_hours]').val(data.total_hours);
-                    loadFile(data.degree_file0,"view_degree_file0");
-                    loadFile(data.cpa_ff_recommendation,"view_cpa_ff_file");
-                    loadFile(data.recommendation_183,"view_file_183");
-                    loadFile(data.not_fulltime_recommendation,"view_not_fulltime_file");
-                    loadFile(data.work_in_myanmar_confession,"view_work_in_mm_file");
-                    loadFile(data.rule_confession,"view_rule_conf_file");
-                    loadFile(data.cpd_record,"view_cpd_record_file");
-                    loadFile(data.tax_free_recommendation,"view_tax_free_file");
-                    if(data.use_firm==1){
-                        $('#firm_check').prop("checked", true);
-                    }
-                    if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
-                        $('#used_firm_check').prop("checked", true);
-                        $('input[name=used_firm_name]').val(data.firm_name);
-                        $('input[name=used_firm_type]').val(data.firm_type);
-                        $('input[name=used_firm_level]').val(data.firm_level);
-                    }
-                    if(data.staff_firm_name!=null ){
-                        $('#staff_firm_check').prop("checked", true);
-                        $('input[name=staff_firm_name]').val(data.staff_firm_name);
+    loadCPAFFAge(student.id);
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+            type: 'GET',
+            contentType: false,
+            processData: false,
+            success: function(cData){
+                console.log(cData.data);
+                var data=cData.data;
+                if(data!=null){
+                    if(data.status==1 || data.renew_status==1)
+                    {
+                        document.getElementById('papp_initial').style.display='none';
+                        document.getElementById('papp_renew_form').style.display='block';
+                        var accept=new Date(data.renew_accepted_date);
+                        var month=accept.getMonth()+1;
+                        var year=accept.getFullYear();
+                        var y=year+1;
+                        var now=new Date();
+                        $('#previewImg').attr("src",BASE_URL+data.profile_photo);
+                        $('#hidden_degree_file0').val(data.degree_file0);
+                        $('#hidden_cpa_ff_file').val(data.cpa_ff_recommendation);
+                        $('#hidden_file_183').val(data.recommendation_183);
+                        $('#hidden_not_fulltime_file').val(data.not_fulltime_recommendation);
+                        $('#hidden_work_in_mm_file').val(data.work_in_myanmar_confession);
+                        $('#hidden_rule_conf_file').val(data.rule_confession);
+                        $('#hidden_cpd_record_file').val(data.cpd_record);
+                        $('#hidden_tax_free_file').val(data.tax_free_recommendation);
+                        $('input[name=papp_date]').val(data.papp_date);
+                        $('input[name=tax_year]').val(data.tax_year);
+                        $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
+                        $('input[name=degree_name0]').val(data.degree_name0);
+                        $('input[name=total_hours]').val(data.total_hours);
+                        loadFile(data.degree_file0,"view_degree_file0");
+                        loadFile(data.cpa_ff_recommendation,"view_cpa_ff_file");
+                        loadFile(data.recommendation_183,"view_file_183");
+                        loadFile(data.not_fulltime_recommendation,"view_not_fulltime_file");
+                        loadFile(data.work_in_myanmar_confession,"view_work_in_mm_file");
+                        loadFile(data.rule_confession,"view_rule_conf_file");
+                        loadFile(data.cpd_record,"view_cpd_record_file");
+                        loadFile(data.tax_free_recommendation,"view_tax_free_file");
+                        if(data.use_firm==1){
+                            $('#firm_check').prop("checked", true);
+                        }
+                        if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
+                            $('#used_firm_check').prop("checked", true);
+                            $('input[name=used_firm_name]').val(data.firm_name);
+                            $('input[name=used_firm_type]').val(data.firm_type);
+                            $('input[name=used_firm_level]').val(data.firm_level);
+                        }
+                        if(data.staff_firm_name!=null ){
+                            $('#staff_firm_check').prop("checked", true);
+                            $('input[name=staff_firm_name]').val(data.staff_firm_name);
+                            
+                        }
                         
-                    }
-                    
-                    // if(data.cpa!=""){
-                    //     $('#cpa_check').prop("checked", true);
-                    //     $('#cpa_edu').css('display','block');
-                    //     $('.view_cpa_file').css('display','block');
-                    //     loadFile(data.cpa,"view_cpa_file");
-                    // }
-                    // if(data.ra!=""){
-                    //     $('#ra_check').prop("checked", true);
-                    //     $('#ra_edu').css('display','block');
-                    //     $('.view_ra_file').css('display','block');
-                    //     loadFile(data.ra,"view_ra_file");
-                    // }
-                    
-                    $('#regno').val(data.id);
-                    $('#register_date').val(data.renew_accepted_date);
-                    if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                        $('.renew_submit').prop('disabled', false);
-
-                    }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                        $("#message").val("Your registeration will start in "+y+" year!");
-                        $('.renew_submit').prop('disabled', true);
+                        // if(data.cpa!=""){
+                        //     $('#cpa_check').prop("checked", true);
+                        //     $('#cpa_edu').css('display','block');
+                        //     $('.view_cpa_file').css('display','block');
+                        //     loadFile(data.cpa,"view_cpa_file");
+                        // }
+                        // if(data.ra!=""){
+                        //     $('#ra_check').prop("checked", true);
+                        //     $('#ra_edu').css('display','block');
+                        //     $('.view_ra_file').css('display','block');
+                        //     loadFile(data.ra,"view_ra_file");
+                        // }
+                        
+                        $('#regno').val(data.id);
+                        $('#register_date').val(data.renew_accepted_date);
+                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            $('.renew_submit').prop('disabled', false);
+    
+                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                            $("#message").val("Your registeration will start in "+y+" year!");
+                            $('.renew_submit').prop('disabled', true);
+                        }else{
+                            $('#message').val("You are verified!");
+                            $('.renew_submit').prop('disabled', true);
+                        }
+                        $('#previewImg').attr("src",BASE_URL+data.profile_photo);
+    
                     }else{
-                        $('#message').val("You are verified!");
-                        $('.renew_submit').prop('disabled', true);
+                        document.getElementById('papp_initial').style.display='block';
+                        document.getElementById('papp_renew_form').style.display='none';
                     }
-                    $('#previewImg').attr("src",BASE_URL+data.profile_photo);
-
-                }else{
+    
+                }
+                else{
                     document.getElementById('papp_initial').style.display='block';
                     document.getElementById('papp_renew_form').style.display='none';
                 }
-
             }
-            else{
-                document.getElementById('papp_initial').style.display='block';
-                document.getElementById('papp_renew_form').style.display='none';
-            }
-        }
-    });
+        });
+    }
 }
 function RenewPAPP(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
