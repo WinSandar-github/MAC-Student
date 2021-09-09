@@ -1,9 +1,9 @@
 @php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
 @endphp
 
 @extends('layouts.app')
@@ -597,7 +597,7 @@
                                                 </div>
                                             </div>
 
-											<div class="col-md-2 form-check">
+                                            <div class="col-md-2 form-check">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <input type="radio" id="yes" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
@@ -618,7 +618,7 @@
                                                         <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
                                                     </div>
                                                 </div> 
-                                            </div>											
+                                            </div>                                          
                                         </div><br/>
 
                                         <div id="rec_letter" style="display:none" >
@@ -719,7 +719,7 @@
                                                         <input type="radio" class="form-check-input" value="1" name="selected_name" onclick="selectEntry()" required>
                                                         <label class="form-check-label" for="yes">Direct</label>
                                                 </div>
-						                    </div>
+                                            </div>
 
                                             <div class="col-md-2 pt-2">
                                                 <div class="form-check">
@@ -727,7 +727,7 @@
                                                         <label class="form-check-label" for="yes">Entry Pass</label>
                                                         <div class="invalid-feedback">ဝင်ခွင့်ပုံစံ ရွေးချယ်ပါ</div>
                                                 </div>
-						                    </div>
+                                            </div>
                                             </div>
                                                                                     <br>
                                             <!-- Direct or DA Pass -->
@@ -1287,12 +1287,12 @@
         $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
-				allowInput:true
+                allowInput:true
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
-				allowInput:true,
+                allowInput:true,
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
