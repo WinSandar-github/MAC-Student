@@ -129,6 +129,85 @@ function remove(id){
 //     });
 // }
 
+// paff
+$( "#papp_submit_btn" ).click(function() {
+    if(allFilled('#papp_form')){
+        $('#pappModal').modal('show');
+        send_email();
+    }
+});
+
+function check_email_papp()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        Papp_Submit();
+        $('#pappModal').modal('hide');
+    }
+}
+
+function checkPaymentPapp(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/check_payment_papp/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+            console.log(element.payment_method)
+            if(element.payment_method != null){
+                $('#papp_modal').prop('disabled', true);
+
+            }else{
+                $('#papp_modal').prop('disabled', false);
+            }
+          })
+        }
+    });
+}
+// papp
+$("#papp_modal").click(function() {
+    $('#pappPaymentModal').modal('show');
+});
+
+$('#cash_img').click(function() {
+    $('#papp_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#papp_btn').prop('disabled', true);
+
+$('#papp_btn').click(function () {
+    setTimeout(function () {
+        $('#pappPaymentModal').modal('hide');
+    }, 1000);
+});
+
+function pappPaymentSubmit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+    url: BACKEND_URL + "/approve_papp/" + student.id,
+    type: 'patch',
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/student_papp_information";
+        },
+        error:function (message){
+        }
+    })
+}
+
 function Papp_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
@@ -262,8 +341,8 @@ function Papp_feedback(){
                 }
                 else if(data.status==1 || data.renew_status==1)
                 {
-                    document.getElementById('approved').style.display='none';
-                    document.getElementById('papp_renew_form').style.display='block';
+                    document.getElementById('approved').style.display='block';
+                    // document.getElementById('papp_renew_form').style.display='block';
                     var accept=new Date(data.renew_accepted_date);
                     var month=accept.getMonth()+1;
                     var year=accept.getFullYear();
