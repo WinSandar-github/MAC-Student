@@ -517,11 +517,7 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
-        if(student!=null){
-            if(student.approve_reject_status==1){
-                loadRenewTeacher(localStorage.getItem("teacher_id"));
-            }
-        }
+        loadRenewTeacher();
         loadDescription('teacher');
         // if(course_type[2]==1){
         //     // console.log("DA");
