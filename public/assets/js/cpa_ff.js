@@ -536,18 +536,18 @@ function RenewCPAFF(){
                   }else{
                     send_data.append('nrc_back', $('#hidden_nrc_back').val());
                   }
-                  if(!$("input[name=cpa_certificate]")[0].files[0]){
+                  //if(!$("input[name=cpa_certificate]")[0].files[0]){
                     send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
-                  }
-                  if(!$("input[name=mpa_mem_card]")[0].files[0]){
+                 // }
+                  //if(!$("input[name=mpa_mem_card]")[0].files[0]){
                     send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
-                  }
-                  if(!$("input[name=cpd_record]")[0].files[0]){
+                  //}
+                  //if(!$("input[name=cpd_record]")[0].files[0]){
                     send_data.append('cpd_record', $('#hidden_cpd_record').val());
-                  }
-                  if(!$("input[name=passport_image]")[0].files[0]){
+                  //}
+                  //if(!$("input[name=passport_image]")[0].files[0]){
                     send_data.append('passport_image', $('#hidden_passport_image').val());
-                  }
+                  //}
                   var cpa_part_2      = document.getElementById("cpa_part_2_check");
                   var qt_pass         = document.getElementById("qt_pass_check");
                   if(cpa_part_2.checked==true){
