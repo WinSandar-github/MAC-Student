@@ -700,3 +700,23 @@ function loadFile(file,divname){
     $("."+divname).append(file);
     
 }
+function loadDescription(membership_name){
+  $.ajax({
+    type: "get",
+    url: BACKEND_URL+"/showDescription/"+membership_name,
+    success: function (result) {
+      var data=result.data;
+     
+      $.each(data, function( index, value ){
+          var div=document.createElement('div');
+          div.setAttribute('class','col-md-12');
+          var desdiv=document.createElement('div');
+          desdiv.setAttribute('class','description'+index);
+          var t = document.createTextNode(value.descriptions);
+          desdiv.appendChild(t);
+          div.appendChild(desdiv);
+          $('.description-info').append(div);
+      })
+    }
+  })
+}

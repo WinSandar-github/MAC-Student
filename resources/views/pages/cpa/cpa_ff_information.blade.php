@@ -70,36 +70,10 @@
 														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
-															<h6 class="mt-2"><b>ကနဦးမှတ်ပုံတင်လျှောက်ထားခြင်း</b></h6>
-															<h6 class="mt-2"><b>(က) လျှောက်ထားနိုင်သူများ</b></h6>
-															<div class="col-md-12">
-																	<ul id="cpaff_description_lists">
-																			<li>
-																				<i class="icofont-book"></i>
-																				-အသက် ၂၁ နှစ်ပြည့်ပြီးသူ
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				- CPA Part-2 စာမေးပွဲအောင်မြင်သူ (သို့မဟုတ်) အရည်အချင်းစစ်စာမေးပွဲအောင်မြင်ပြီးသူ
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				- သတ်မှတ်အလုပ်သင်လုပ်သက်ပြည့်မြောက်ပြီးသူ
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				-စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				- MICPA အသင်းဝင်
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				- မှတ်ပုံံတင်စာရင်းကိုင် (R.A) လက်မှတ်ရရှိထားသူများ၏ PAPP မှတ်ပုံတင်လျှောက်ထားမှုကို ခွင့်ပြုပါက ယင်းတို့ကို CPA(Full-Fledged) နှင့် PAPP အဖြစ် တစ်ပြိုင်နက်တည်း မှတ်ပုံတင်ခွင့်ပြုပါသည်။
-																			</li>
-																	</ul>
-															</div>
+                                                            <div class="description-info">
+                                                            
+                                                            </div>
+															<br/>
 															<!-- Requirement -->
 															<div class="col-md-12">
 																<h4 class="col-md-12 card-title text-success">Requirement</h4>
@@ -584,6 +558,7 @@ $('#file').change(function(e) {
     }
     }
 })
+        loadDescription('cpa ff');
         loadCPAFF();
         
         // if(course_type[2]==1){
