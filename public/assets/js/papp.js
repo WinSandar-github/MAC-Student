@@ -247,53 +247,61 @@ function isLoginPAPP(){
 
 function Papp_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    $.ajax({
-        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
-        type: 'GET',
-        contentType: false,
-        processData: false,
-        success: function(cData){
-            console.log(cData.data);
-            var data=cData.data;
-            if(data!=null){
-                if(data.status==0 || data.renew_status==0)
-                {
-                    document.getElementById('pending').style.display='block';
-                }
-                else if(data.status==1 || data.renew_status==1)
-                {
-                    document.getElementById('approved').style.display='block';
-                    //document.getElementById('papp_renew_form').style.display='block';
-                    var accept=new Date(data.renew_accepted_date);
-                    var month=accept.getMonth()+1;
-                    var year=accept.getFullYear();
-                    var y=year+1;
-                    var now=new Date();
-                    $('#regno').val(data.id);
-                    $('#register_date').val(data.renew_accepted_date);
-                    if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                        $('.renew_submit').prop('disabled', false);
-
-                    }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                        $("#message").val("Your registeration will start in "+y+" year!");
-                        $('.renew_submit').prop('disabled', true);
-                    }else{
-                        $('#message').val("You are verified!");
-                        $('.renew_submit').prop('disabled', true);
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+            type: 'GET',
+            contentType: false,
+            processData: false,
+            success: function(cData){
+                console.log(cData.data);
+                var data=cData.data;
+                if(data!=null){
+                    if(data.status==0 || data.renew_status==0)
+                    {
+                        document.getElementById('pending').style.display='block';
+                        document.getElementById('approved').style.display='none';
+                        $('.register-btn').css('display','none');
+                        $('.payment-btn').css('display','none');
                     }
-
+                    else if(data.status==1 || data.renew_status==1)
+                    {
+                        document.getElementById('approved').style.display='block';
+                        document.getElementById('pending').style.display='none';
+                        $('.payment-btn').css('display','block');
+                        $('.register-btn').css({'display':'none'});
+                        $('.register-btn').removeClass('mt-4');
+                        var accept=new Date(data.renew_accepted_date);
+                        var month=accept.getMonth()+1;
+                        var year=accept.getFullYear();
+                        var y=year+1;
+                        var now=new Date();
+                        $('#regno').val(data.id);
+                        $('#register_date').val(data.renew_accepted_date);
+                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            $('.renew_submit').prop('disabled', false);
+    
+                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                            $("#message").val("Your registeration will start in "+y+" year!");
+                            $('.renew_submit').prop('disabled', true);
+                        }else{
+                            $('#message').val("You are verified!");
+                            $('.renew_submit').prop('disabled', true);
+                        }
+    
+                    }
+                    else if(data.status==2 || data.renew_status==2)
+                    {
+                        document.getElementById('rejected').style.display='block';
+                    }
                 }
-                else if(data.status==2 || data.renew_status==2)
-                {
-                    document.getElementById('rejected').style.display='block';
+                else{
+                    document.getElementById('papp_from').style.display='block';
                 }
             }
-            else{
-                document.getElementById('papp_from').style.display='block';
-            }
-        }
-    });
+        });
+    }
 }
 function loadCPAFFAge(id){
     $.ajax({

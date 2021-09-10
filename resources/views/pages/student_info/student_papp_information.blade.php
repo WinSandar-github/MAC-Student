@@ -51,13 +51,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="check_registration" style="display:none; margin-left: 7%; margin-right: 7%;">
+                <div id="rejected" style="display:none">
+                    <div class="card text-white bg-dark my-3">
+                        <div class="card-body">
+                            <p class="card-text reject">Your PAPP registration form is rejected. Please update your information.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="pending" style="display:none;">
                     <div class="card text-white bg-primary my-3">
 
                         <div class="card-body">
-                            <p class="card-text">Your Application Form is checking</p>
+                            <p class="card-text">Your PAPP registration form is being checked.</p>
                         </div>
                     </div>
+                </div>
+                <div id="approved" style="display:none;">
+                        <div class="card text-white bg-primary my-3">
+
+                            <div class="card-body">
+                                <p class="card-text">Your PAPP registration form is approved! You need to subscribe your teacher service with desire payment method!</p>
+                            </div>
+                        </div>
+
                 </div>
 								{{--<div class="card-body" id="papp_initial">
 									<div class="row">
@@ -173,11 +190,34 @@
                                                                         <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-																		<div class="pull-right mt-4">
-																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark" >Register</a>
-																			</p>
-																		</div>
+																		
+                                                                        <div class="row register-btn">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                                                                        <a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                        <div class="row payment-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        
+                                                                                        <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
 																</ul>
 															</div>
 														</div>
@@ -611,28 +651,8 @@
         localStorage.setItem('course_type',course_type[2])
         }
         loadDescription('papp');
-        loadPAPP();
-        // if(course_type[2]==1){
-        //     // console.log("DA");
-        //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I  သင်တန်း (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၅၀၀ ဦးခန့်ရှိ။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်း(၂)တန်း (MAC,SS,Private)(၃)မျိုးပေါင်း နှစ်စဉ် ၃၀၀  ဦးခန့်ရှိ။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA I အောင်မြင်ပြီးသူ  ၈၇၄၃ ဦး၊ တက်ရောက်ဆဲ ၂၇၉ ဦး ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA II အောင်မြင်ပြီးသူ  ၄၆၀၉ ဦး ရှိပါသည်။</li>";
-        //     $(".requirement_lists").append(li);
-        // }else{
-        //     // console.log("CPA");
-        //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>BCom,BAct,BBA,DA,BBSc ,ACCA (Fundamental skill level),CIMA ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA I & II သင်တန်း(၂)တန်းဖွင့်လှစ်ပြီး (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၃၅၀၀ ဦးခန့်ရှိ။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ CPA I အောင်မြင်ပြီးသူ  ၃၈၁၀ ဦး၊တက်ရောက်ဆဲ၂၇၄၁ ဦး တက်ရောက်ခွင့်ရရှိထားသူ ၁၅၀၀ ဦး ခန့်ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA II  အောင်မြင်ပြီးသူ ၂၆၂၈ ဦး ၊ CPA II တက်ရောက်ဆဲ    ၅၀၀ ဦး ရှိပါသည်။</li>";
-        //     $(".requirement_lists").append(li);
-        // }
+        Papp_feedback();
+        
     })
     //app_form_feedback();
 

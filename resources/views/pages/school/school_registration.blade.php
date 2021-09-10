@@ -74,22 +74,7 @@
         </div>
 
         <div class="container" style="overflow: hidden;">
-            <div id="school_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-                <div class="card text-white bg-primary my-3">
-
-                    <div class="card-body">
-                        <p class="card-text">Your School Registeration Form is checking</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="school_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body">
-                        <p class="card-text">Your School Registeration Form is approved!</p>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="row mt-5">
                 <div id="school_form" class="card border-success mb-3">
@@ -1563,7 +1548,7 @@
                 }
             }
 
-            school_reg_feedback();
+            
 
         });
 

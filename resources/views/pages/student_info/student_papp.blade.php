@@ -71,31 +71,7 @@
                     <br/>
                     <br/>
                 </div>
-                <div id="rejected" style="display:none">
-                    <div class="card text-white bg-dark my-3">
-                        <div class="card-body">
-                            <p class="card-text reject">Your PAPP registration form is rejected. Please update your information.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="pending" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-
-                        <div class="card-body">
-                            <p class="card-text">Your PAPP registration form is being checked.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="approved" style="display:none;">
-                        <div class="card text-white bg-primary my-3">
-
-                            <div class="card-body">
-                                <p class="card-text">Your PAPP registration form is approved.</p>
-                            </div>
-                        </div>
-
-                </div>
+                
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
