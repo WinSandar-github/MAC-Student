@@ -78,6 +78,33 @@
                     <br/>  
                     <br/>  
                 </div>       
+                <!-- <div id="rejected" style="display:none">
+                    <div class="card text-white bg-dark my-3">                            
+                        <div class="card-body">
+                            <p class="card-text reject">Your CPAFF registration form is rejected. Please update your information. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="pending" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your CPAFF registration form is being checked.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="approved" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your CPAFF registration form is approved.</p>
+                        </div>
+                    </div>
+                    <center>
+                        <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                    </center> <br>
+                </div> -->
                 
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
@@ -115,6 +142,7 @@
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                     </p>
+                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                 </div>
                             </div>
                         </div>
@@ -542,7 +570,7 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                     value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                             </div>                                                    
                                         </div>
 
@@ -556,7 +584,7 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                     value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                             </div>
                                         </div>
                                     </div>

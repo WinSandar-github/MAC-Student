@@ -233,8 +233,8 @@ function user_profile() {
 
                                 Your registeration is expired! You need to submit new registeration form again.
 
-
-                                </td><td> <a href='${FRONTEND_URL}/student_papp' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>`);
+                                
+                                </td><td> <a href='${FRONTEND_URL}/student_papp' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>`);
 
 
                             } else if (month == '10' || month == '11' || month == '12') {
