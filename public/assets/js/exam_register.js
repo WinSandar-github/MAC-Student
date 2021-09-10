@@ -43,19 +43,19 @@ function createDAExamRegister()
 }
 // DA 1 exam
 $( "#btn_da_exam_submit" ).click(function() {
-    if(allFilled('#da_exam_register_form')){
-        $('#paymentModal').modal('show');
+    if(allfilled('#da_exam_register_form')){
+        $('#da1examModal').modal('show');
     }
 });
-function allFilled(form_id) {
-    var filled = true;
-    $(form_id+' input').each(function() {
-        console.log($(this).attr('id'));
-        if($('input[type=text]') && $(this).val() == ''  ) filled = false;
-        if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
-    });
-    return filled;        
-}
+// function allFilled(form_id) {
+//     var filled = true;
+//     $(form_id+' input').each(function() {
+//         console.log($(this).attr('id'));
+//         if($(this).val() == ''  ) filled = false;
+//         if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+//     });
+//     return filled;        
+// }
 $('#cash_img').click(function() {
     $('#da1exam_btn').prop('disabled', false);
 });
@@ -66,10 +66,39 @@ $('#da1exam_btn').prop('disabled', true);
 
 $('#da1exam_btn').click(function () {
     setTimeout(function () {
-        $('#paymentModal').modal('hide');
+        $('#da1examModal').modal('hide');
     }, 1000);
 });
 
+// cpa1 exam
+$( "#cpa1submit" ).click(function() {
+    if(allfilled('#cpa1_exam_form')){
+        $('#cpa1examModal').modal('show');
+    }
+});
+function allfilled(form_id) {
+    var filled = true;
+    $(form_id+' input').each(function() {
+        console.log($(this).attr('id'));
+        if($(this).val() == ''  ) filled = false;
+        if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+    });
+    return filled;        
+}
+
+$('#cpa1exam_img').click(function() {
+    $('#cpa1exam_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#cpa1exam_btn').prop('disabled', true);
+
+$('#cpa1exam_btn').click(function () {
+    setTimeout(function () {
+        $('#cpa1examModal').modal('hide');
+    }, 1000);
+});
 
 $('#cpa_exam_register').submit(function(e){
     e.preventDefault();

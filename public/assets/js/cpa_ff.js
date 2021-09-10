@@ -201,7 +201,7 @@ function check_email_cpaff()
 function cpaffPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
-    url: BACKEND_URL + "/approve_cpaff/" + student.id,
+    url: BACKEND_URL + "/approve_cpaff_payment/" + student.id,
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");

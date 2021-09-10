@@ -265,7 +265,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center">
                         <center>
-                            <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Registeration(Self Study) Form Fee - ****** MMK</h4>
+                            <h4 style="margin-bottom:5%;">Certified Public Accountant Part One Exam Registeration Form Fee - ****** MMK</h4>
                         </center>
                         <div class="col-sm-3 col-5">
                             <center>
