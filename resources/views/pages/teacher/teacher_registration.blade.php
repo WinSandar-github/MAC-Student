@@ -435,7 +435,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">Teacher Registration Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>
