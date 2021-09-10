@@ -75,8 +75,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="row" id="audit_container"style="display:none; margin:5%;">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" action="javascript:void();" enctype="multipart/form-data">
                     <div class="card border-success mb-3">
                         <div class="card-body text-success">
                             <div class="col-md-12">
@@ -143,6 +144,10 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <br>
+                                <center>
+                                    <button id="audit_payment_btn" value="" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                                </center>
                                 <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
                                     <div class="form-group">
                                         <center>
@@ -155,11 +160,12 @@
                     </div>
                 </form>
             </div>
+
             <div class="blog-details-comment" id="app_form" style="display:block">
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form id="audit_firm_form" class="" method="post" action="javascript:createAuditFirm();" enctype="multipart/form-data" novalidate>
+                        <form id="audit_firm_form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
                             @csrf
                             <input type="hidden" value="1" name="audit_firm_type_id">
                             <div class="row">
@@ -1063,6 +1069,90 @@
                 </div><br><br>
             </div>
         </div>
+
+        <!-- Email Verification Modal -->
+        <form method="post" id="audit_email_verify_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+              novalidate>
+            @csrf
+            <div class="modal fade" id="auditFirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                            <div class="mb-3" style="text-align:center;">
+                                <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                                <label>We have been sent verification code on your email.Please check your email.</label>
+                            </div><br>
+                              <div class="mb-3" style="text-align:center;">
+                                <label style="margin-bottom: 2%;">Enter your verification code</label>
+                                <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                              </div>
+                          </div>
+                          <center>
+                              <button type="submit" id="btn1" onclick="check_email_audit()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                              </button>
+                          </center><br>
+                          <div class="col-md-12" style="text-align:center;">
+                            <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                          </div><br><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Payment Modal -->
+        <form method="post" class="needs-validation" action="javascript:auditPaymentSubmit();" enctype="multipart/form-data"
+              novalidate>
+            @csrf
+            <div class="modal fade" id="auditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <br>
+                        <div class="modal-body">
+                            <div class="row justify-content-center">
+                                <center>
+                                    <h4 style="margin-bottom:5%;">Audit Firm Registration Form Fee - ****** MMK</h4>
+                                </center>
+                                <div class="col-sm-3 col-5">
+                                    <center>
+                                        <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                             data-value="CBPAY" name="payment_method" id="cb_img">
+                                    </center>
+                                    <br>
+                                </div>
+                                <div class="col-sm-3 col-5">
+                                    <center>
+                                        <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                             data-value="MPU" name="payment_method" id="mpu_img">
+                                    </center>
+                                    <br>
+                                </div>
+                                <div class="col-sm-3 col-5">
+                                    <center>
+                                        <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                             data-value="CASH" name="payment_method" id="cash_img">
+                                    </center>
+                                    <br>
+                                </div>
+                                <input type="hidden" name="payment_method" value="CASH">
+                                <center>
+                                    <button type="submit" id="audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                                </center>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </form>
+
     </div>
     <!-- JavaScript Section -->
 @endsection
@@ -1097,7 +1187,7 @@ $(document).ready(function(){
     // pendingStatus();
     dateQuery();
     verifyStatus();
-
+    checkPaymentAudit();
     // getTotalStaff();
 
     });

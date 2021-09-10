@@ -134,8 +134,8 @@
                                   </div>
                                 </div>
                                 <div class="col-md-4">
-                                  <div class="col-md-7 pull-right">
-                                    <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                  <div class="col-md-5 pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                       <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
@@ -236,8 +236,8 @@
                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                         <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                                     </p>
-                                                                                                      
-                                                </div>                                                    
+
+                                                </div>
                                             </div>
 
                                             <div class="col-md-6">
@@ -251,12 +251,12 @@
                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                         <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                                     </p>
-                                                                                                         
+
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>                                        
-                                </div><br> 
+                                    </div>
+                                </div><br>
 
                                 <!-- <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -285,7 +285,7 @@
                                 </div>
 
                                 <div class="row">
-                                    
+
                                 </div>
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
@@ -317,7 +317,7 @@
                                     <label class="col-md-3 col-form-label label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            
+
                                             <div class="form-check mt-2 form-check-inline">
                                                 <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee" value="1">
                                                 <label class="form-check-label" for="yes-servant">{{ __('ဟုတ်') }}</label>
@@ -435,7 +435,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">Teacher Registration Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>
@@ -504,7 +504,7 @@
         </div>
     </form>
 
-    
+
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
