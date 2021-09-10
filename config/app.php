@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
+        \Yajra\DataTables\DataTablesServiceProvider::class,
     ],
 
     /*
@@ -230,6 +232,7 @@ return [
         'Input' => Illuminate\Support\Facades\Request::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
     ],
 
 ];

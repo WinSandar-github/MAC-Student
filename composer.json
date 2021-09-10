@@ -20,9 +20,10 @@
         "laravel/ui": "^2.4",
         "laravelcollective/html": "^6.2",
         "realrashid/sweet-alert": "^4.0",
-        "toetet/myanmarnrc": "^1.0",
         "symfony/error-handler": "^5.3",
-        "symfony/psr-http-message-bridge": "^2.1"
+        "symfony/psr-http-message-bridge": "^2.1",
+        "toetet/myanmarnrc": "^1.0",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

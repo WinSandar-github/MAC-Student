@@ -466,8 +466,11 @@ function app_form_feedback() {
             }
         });
     } else {
+
+
+
         
-        $('.application').show();
+        
      
 
         for (var i = 0; i < course_length; ++i) {
@@ -475,8 +478,55 @@ function app_form_feedback() {
             let batch_id = $(`.batch_id${i}`).val();
             let course_code = $(`.code${i}`).val();
 
+            $.ajax({
+                url: BACKEND_URL + "/batch/" + batch_id,
+                type: 'get',
+                contentType: false,
+                processData: false,
+                async: false,
+                success: function (result) {
+                    let batch = result.data;
+                    let date = new Date();
+                                                    // let current_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+                    var app_start_date  = new Date(batch.accept_application_start_date);
+                    var app_end_date    = new Date(batch.accept_application_end_date);
+                    var reg_start_date  = new Date(batch.mac_reg_start_date);
+                    var reg_end_date    = new Date(batch.mac_reg_end_date);
+                    var exam_start_date = new Date(batch.exam_start_date);
+                    var exam_end_date   = new Date(batch.exam_reg_end_date);
+                    if (app_start_date <= date && app_end_date >= date) {
+                        $(`.app${i}`).show();
+                        $(`.reg${i}`).hide();
+                        $(`.exm${i}`).hide();
+
+
+                        $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type})" class="btn btn-success btn-sm btn-hover-dark" >Enroll Now </a>`);
+
+                    }else if (reg_start_date <= date && reg_end_date >= date) {
+                        alert('Registion')
+                        $(`.reg${i}`).show();
+                        $(`.app${i}`).hide();
+                        $(`.exm${i}`).hide();
+
+
+                      
+
+                        $(`.check_login${i}`).append(`<p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Form Close </p>`);      
+                    }else{
+                        $(`.exm${i}`).show();
+                        $(`.reg${i}`).hide();
+                        $(`.app${i}`).hide();
+                        $(`.check_login${i}`).append(`<p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Form Close </p>`);      
+
+
+                        
+
+                    }
+
+                }
+            })
+
          
-            $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type})" class="btn btn-success btn-sm btn-hover-dark" >Enroll Now </a>`);
         }
         // $('.logined').css('display','block')
         // $('.check_login2').append(`<a href="/login" class="btn btn-primary btn-hover-dark   " >Enroll Now </a>`)
