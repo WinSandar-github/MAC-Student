@@ -1,9 +1,9 @@
 @php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
 @endphp
 
 @extends('layouts.app')
@@ -77,7 +77,8 @@
                                     <br/>
 
 
-                                <form method="Post" id="cpa_register" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                {{--<form method="Post" id="cpa_register" enctype="multipart/form-data" class="needs-validation" novalidate>--}}
+                                <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data" class="needs-validation" novalidate>
                                     @csrf
                                     <div class="col-md-12">
                                         <div class="row">
@@ -463,7 +464,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div>
-                                                    <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name" class="form-control" value="{{ old('name') }}" required="" id="name">
+                                                    <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="" id="name">
                                                 </div>
                                             </div>
                                          </div><br>
@@ -597,7 +598,7 @@
                                                 </div>
                                             </div>
 
-											<div class="col-md-2 form-check">
+                                            <div class="col-md-2 form-check">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <input type="radio" id="yes" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
@@ -618,7 +619,7 @@
                                                         <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
                                                     </div>
                                                 </div> 
-                                            </div>											
+                                            </div>                                          
                                         </div><br/>
 
                                         <div id="rec_letter" style="display:none" >
@@ -719,7 +720,7 @@
                                                         <input type="radio" class="form-check-input" value="1" name="selected_name" onclick="selectEntry()" required>
                                                         <label class="form-check-label" for="yes">Direct</label>
                                                 </div>
-						                    </div>
+                                            </div>
 
                                             <div class="col-md-2 pt-2">
                                                 <div class="form-check">
@@ -727,7 +728,7 @@
                                                         <label class="form-check-label" for="yes">Entry Pass</label>
                                                         <div class="invalid-feedback">ဝင်ခွင့်ပုံစံ ရွေးချယ်ပါ</div>
                                                 </div>
-						                    </div>
+                                            </div>
                                             </div>
                                                                                     <br>
                                             <!-- Direct or DA Pass -->
@@ -948,7 +949,7 @@
                                         --}}
                                         <div class="row m-4">
                                             <div class="col-md-2 offset-md-5">
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-100" id="cpa_one_submit">{{ __('Submit') }}</button>
                                             </div>
                                         </div>
 
@@ -1162,83 +1163,134 @@
     </div>
     </div>
 </form>--}}
-  <!-- Modal 2 -->
-  <form method="post" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+<form method="post" class="needs-validation" id="store_da_two_form" enctype="multipart/form-data" novalidate>
+         @csrf
+         <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <br>
+                     <div class="modal-body">
+                         <div class="row justify-content-center">
+                             <center>
+                                 <h4 style="margin-bottom:5%;">Certified Public Accountant Part One Exam Registeration Form Fee - ****** MMK</h4>
+                             </center>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                          data-value="CBPAY" name="payment_method" id="cb_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                          data-value="MPU" name="payment_method" id="mpu_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <div class="col-sm-3 col-5">
+                                 <center>
+                                     <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                          data-value="CASH" name="payment_method" id="cash_img">
+                                 </center>
+                                 <br>
+                             </div>
+                             <input type="hidden" name="payment_method" value="CASH">
+                             <center>
+                                 <button type="submit" id="da1exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                             </center>
+                         </div>
+                     </div>
+                     <br>
+                 </div>
+             </div>
+         </div>
+    </form>
+    <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
           novalidate>
         @csrf
-        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cpaEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <br>
                     <div class="modal-body">
-                        <div class="row justify-content-center mb-4 radio-group">
-                            <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method">
-                                </div>
-                                <br>
-                                <h5>CBPay</h5>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method">
-                                </div>
-                                <br>
-                                <h5>MPU</h5>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <div class='radio mx-auto'>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="channel">
-                                </div>
-                                <br>
-                                <h5>CASH</h5>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                        </div>
-                    </div>
-                    <br>
-                    {{--<div class="modal-footer">
-                        <center>
-                            <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100"
-                                    data-bs-toggle="modal">Submit
-                        </center>
-                    </div>--}}
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div><br>
+                          <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 123456)"></center>
+                          </div>
+                      </div>
+                      <center>
+                          <button type="submit" id="btn1" onclick="check_email_cpa()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          </button>
+                      </center><br>
+                      <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                      </div><br><br>
                 </div>
             </div>
         </div>
     </form>
 
-    <!-- Modal 3 -->
-     <form method="post" class="needs-validation"  id="store_da_two_form" enctype="multipart/form-data" novalidate>
-         @csrf
-         <div class="modal fade" id="paymentModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div><br>
-               <div class="modal-body">
-                   <center>
-                       <img src="{{asset('img/cash.png')}}" class="fit-image" width="30%" height="30%">
-                   </center><br>
-                   <h4 class="heading text-center">PAY BY CASH!</h4><br>
-                   <p style="text-align: center;font-weight: bold; font-size: 15px;">DA One Apppcation Form Fee - ****** MMK</p><br>
-                   <center>
-                     <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now 
-                   </center>
-               </div><br>
-             </div>
-           </div>
-         </div>
-     </form>
-
+    <!-- Modal 2 -->
+    <form method="post" class="needs-validation" id="cpa_register" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="cpaPaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Application Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img_app">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -1287,12 +1339,12 @@
         $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
-				allowInput:true
+                allowInput:true
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
-				allowInput:true,
+                allowInput:true,
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
@@ -1327,21 +1379,60 @@
             }
         }
 
-            $('#btn2').click(function () {
-                setTimeout(function () {
-                    $('#paymentModal1').modal('hide');
-                }, 1000);
-            });
+            // $('#btn2').click(function () {
+            //     setTimeout(function () {
+            //         $('#paymentModal1').modal('hide');
+            //     }, 1000);
+            // });
 
-            $(document).on('click', '#channel', function () {
-                setTimeout(function() {$('#paymentModal').modal('hide');}, 1000);
-                $('#paymentModal1').modal('show');
-                return true;
-            });
+            // $(document).on('click', '#channel', function () {
+            //     setTimeout(function() {$('#paymentModal').modal('hide');}, 1000);
+            //     $('#paymentModal1').modal('show');
+            //     return true;
+            // });
 
 
 
     });
 
+</script>
+<script>
+    //  $( "#cpa_one_submit" ).click(function() {
+    //     if(allFilled('#cpa_one_form')){
+    //         $('#cpaEmailModal').modal('show');
+    //         send_email();
+    //     }
+    //     else{
+    //     }
+    // });
+    // function allFilled(form_id) {
+    //     var filled = true;
+        
+    //     $(form_id+' input').each(function() {
+    //         if($(this).attr('id')=="batch_id")
+    //         {   }
+    //         else if( $(this).attr('id')=="registration_no")
+    //         {   }
+    //         else if( $(this).attr('id')=="approve_reject_status")
+    //         {   }
+    //         else{
+    //             if($(this).val() == ''  ) filled = false;
+    //         }
+    //         //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
+    //     });
+    //     return filled;        
+    // }
+        $('#btn_cash').click(function () {
+            setTimeout(function () {
+                $('#cpaPaymentModal').modal('hide');
+            }, 1000);
+        });
+
+        $('#cash_img_app').click(function() {
+            $('#btn_cash').prop('disabled', false);
+        });
+
+        $('#btn_cash').prop('disabled', true);
+        
 </script>
 @endpush

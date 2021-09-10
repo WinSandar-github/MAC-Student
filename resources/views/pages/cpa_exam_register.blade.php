@@ -394,7 +394,7 @@
                                     </td>
                                     <td width="5%">
                                         <div style="margin-top:20px;">
-                                          <input type="radio" name="is_full_module" id="0" class="" placeholder="" value="0" >
+                                          <input type="radio" name="is_full_module" id="0" class="" placeholder="" value="1" >
                                         </div>
                                     </td>
                                     <td width="10%">
@@ -404,7 +404,7 @@
                                     </td>
                                     <td width="5%">
                                       <div style="margin-top:20px;">
-                                        <input type="radio" name="is_full_module" id="1" class="" placeholder="" value="1" >
+                                        <input type="radio" name="is_full_module" id="1" class="" placeholder="" value="2" >
                                       </div>
                                     </td>
                                     <td width="10%">
@@ -414,7 +414,7 @@
                                     </td>
                                     <td width="5%">
                                       <div style="margin-top:20px;">
-                                        <input type="radio" name="is_full_module" id="2" class="" placeholder="" value="2" >
+                                        <input type="radio" name="is_full_module" id="2" class="" placeholder="" value="3" >
                                       </div>
                                     </td>
                                   </tr>

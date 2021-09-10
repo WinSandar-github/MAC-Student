@@ -86,8 +86,6 @@ function showAppList(course_code){
 
 function showExamList(course_code){
    
-     alert(course_code)
-
     
     $('#tbl_approve_exam').DataTable({
         scrollX: true,
@@ -100,13 +98,13 @@ function showExamList(course_code){
             type : "POST" ,
             data :  function (d) {
                 d.course_code        =  course_code;
-                d.grade              = 0;
+                
                 
             }
         },
         columns: [
             
-            {data: "id", name: 'No'},
+            {data: "sr_no", name: 'No'},
             {data: 'student_info.name_mm', name: 'student_info.name_mm'}, 
             {data: 'nrc', name: 'nrc'}, 
             {data: 'student_info.personal_no', name: 'personal_no'},

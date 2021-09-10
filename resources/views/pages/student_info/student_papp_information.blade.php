@@ -143,42 +143,16 @@
 														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
-															<h6 class="mt-2"><b>ကနဦးမှတ်ပုံတင်လျှောက်ထားခြင်း</b></h6>
-															<h6 class="mt-2"><b>(က) လျှောက်ထားနိုင်သူများ</b></h6>
-															<div class="col-md-12">
-																	<ul id="papp_description_lists">
-																			<li>
-																				<i class="icofont-book"></i>
-																				- CPA(FF) မှတ်ပုံတင်သက်တမ်း ၁ နှစ် ပြည့်မြောက်သူများ
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				- စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ  ပြည့်မီသူ
-																			</li>
-																	</ul>
-															</div>
+                                                            <div class="description-info">
+                                                            
+                                                            </div><br/>
 															<!-- Requirement -->
 															<div class="col-md-12">
 																<h4 class="col-md-12 card-title text-success">Requirement</h4>
 																<hr>
-																<ul>
-																	<?php
-																		if (is_array($requirements) || is_object($requirements))
-																			{
-																					foreach ($requirements as $value)
-																					{
-																							if($value['type'] == "PAPP"){
-																	?>
-																					<li>
-																						<i class="icofont-man-in-glasses"></i>
-																						<?php echo $value['name'] ?>
-																					</li>
-																	<?php
-																						}
-																					}
-																			}
-																	?>
-																</ul>
+																<div class="requirement-info">
+                                                            
+                                                                </div>
 															</div>
 														</div>
 													</div>
@@ -194,8 +168,11 @@
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
 																		<div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
 																				<a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark" >Register</a>
@@ -247,8 +224,8 @@
                                     <div class="col-md-7 pull-right">
                                         <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
                                         <p class="mt-2">
-                                        	<input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
-											<span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                        	<input type="file" class="custom-file-input form-control" id="profile_photo" name="profile_photo" accept="image/*" onchange="previewImageFile(this);" required>
+											<span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
 										</p>
                                     </div>
                                 </div>
@@ -353,9 +330,9 @@
                                         <div class="row">
                                             <label class="col-md-6"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်</label>
                                             <div class="col-md-2">
-                                                <input type="text" name="papp_date" class="form-control papp_date" >
+                                                <input type="text" name="papp_date" class="form-control papp_date" disabled>
                                             </div>
-                                            <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
+                                            <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။</label>
                                         </div>
 
 
@@ -465,12 +442,10 @@
                                     <div class="col-md-6">
                                             <label >လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                     </div>
-									<div class="col-md-1 view_cpa_ff_file">
-
-                                    </div>
-                                    <div class="col-md-3">
+									
+                                    <div class="col-md-4 view_cpa_ff_file">
 										<input type="hidden" id="hidden_cpa_ff_file">
-                                        <input type="file" class="form-control"  id="cpa_ff_file"  name="cpa_ff_file">
+                                        <!-- <input type="file" class="form-control"  id="cpa_ff_file"  name="cpa_ff_file"> -->
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -479,12 +454,10 @@
                                     <div class="col-md-6">
                                             <label style="font-size:15px;"> မှတ်ပုံတင်မည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူဖြစ်ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
-									<div class="col-md-1 view_file_183">
-
-                                    </div>
-                                    <div class="col-md-3">
+									
+                                    <div class="col-md-4 view_file_183">
 										<input type="hidden" id="hidden_file_183">
-                                            <input type="file" class="form-control" id="file_183" name="file_183">
+                                            <!-- <input type="file" class="form-control" id="file_183" name="file_183"> -->
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -493,12 +466,10 @@
                                     <div class="col-md-6">
                                             <label style="font-size:15px;"> အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့် တာဝန်ထမ်းတောင်နေသူ မဟုတ်ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
-									<div class="col-md-1 view_not_fulltime_file">
-
-                                    </div>
-                                    <div class="col-md-3">
+									
+                                    <div class="col-md-4 view_not_fulltime_file">
 									<input type="hidden" id="hidden_not_fulltime_file">
-                                            <input type="file" class="form-control" id="not_fulltime_file"  name="not_fulltime_file">
+                                            <!-- <input type="file" class="form-control" id="not_fulltime_file"  name="not_fulltime_file"> -->
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -507,12 +478,10 @@
                                     <div class="col-md-6">
                                             <label style="font-size:15px;"> လျှောက်ထားသည့်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏ အဓိကအသက်မွေးဝမ်းကျောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင်မည်ဖြစ်​ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
-									<div class="col-md-1 view_work_in_mm_file">
-
-                                    </div>
-                                    <div class="col-md-3">
+									
+                                    <div class="col-md-4 view_work_in_mm_file">
 									<input type="hidden" id="hidden_work_in_mm_file">
-                                            <input type="file"  class="form-control" id="work_in_mm_file"  name="work_in_mm_file">
+                                            <!-- <input type="file"  class="form-control" id="work_in_mm_file"  name="work_in_mm_file"> -->
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -521,12 +490,10 @@
                                     <div class="col-md-6">
                                             <label style="font-size:15px;"> လုပ်ငန်းဆောင်ရွက်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီ၏ ၉-၈-၂၀၁၈ ရက်စွဲပါအမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့်စည်းကမ်းချက်များနှင့် စပ်လျဥ်း၍ လိုက်နာခြင်း ရှိ/မရှိ၊</label>
                                     </div>
-									<div class="col-md-1 view_rule_conf_file">
-
-                                    </div>
-                                    <div class="col-md-3">
+									
+                                    <div class="col-md-4 view_rule_conf_file">
 										<input type="hidden" id="hidden_rule_conf_file">
-                                            <input type="file" class="form-control" id="rule_conf_file" name="rule_conf_file" >
+                                            <!-- <input type="file" class="form-control" id="rule_conf_file" name="rule_conf_file" > -->
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -535,16 +502,14 @@
                                     <div class="col-md-6">
                                             <label style="font-size:15px;">စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                     </div>
-									<div class="col-md-1 view_cpd_record_file">
-
-                                    </div>
-                                    <div class="col-md-3">
+									
+                                    <div class="col-md-4 view_cpd_record_file">
 										<input type="hidden" id="hidden_cpd_record_file">
-                                            <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file">
+                                            <!-- <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file"> -->
                                     </div>
                                 </div><br/>
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-6">
@@ -556,21 +521,21 @@
                                     <div class="col-md-3">
 										<input type="text" class="form-control" id="total_hours" name="total_hours" >
                                     </div>
-                                </div><br/>
+                                </div><br/> -->
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဆ) </div>
-                                    <div class="col-md-7 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
-									<div class="col-md-3">
+                                    <div class="col-md-6 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
+									<div class="col-md-4">
                                                 <input type="text" name="tax_year" class="form-control tax_year" >
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-md-8" ></label>
-                                    <div class="col-md-1 view_tax_free_file"></div>
-                                    <div class="col-md-3">
+                                    
+                                    <div class="col-md-4 view_tax_free_file">
                                     <input type="hidden" id="hidden_tax_free_file">
-                                            <input type="file" class="form-control" id="tax_free_file"  name="tax_free_file">
+                                            <!-- <input type="file" class="form-control" id="tax_free_file"  name="tax_free_file"> -->
                                     </div>
                                 </div>
                                 <br/>
@@ -578,8 +543,8 @@
 													<div class="row">
 														
 																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-																	<label class="col-md-4 col-form-label label">{{ __('သင်တန်းဆရာမှတ်ပုံတင်အမှတ်') }}</label>
-																	<div class="col-md-7">
+																	<label class="col-md-7 col-form-label label">{{ __('သင်တန်းဆရာမှတ်ပုံတင်အမှတ်') }}</label>
+																	<div class="col-md-4">
 																			<div class="form-group">
 																				<input type="text" class="form-control" id="regno" readonly>
 																			</div>
@@ -587,8 +552,8 @@
 															</div>
 															<div class="row">
 																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-																	<label class="col-md-4 col-form-label label">{{ __('Applied Date') }}</label>
-																	<div class="col-md-7">
+																	<label class="col-md-7 col-form-label label">{{ __('Applied Date') }}</label>
+																	<div class="col-md-4">
 																			<div class="form-group ">
 																				<input type="text" class="form-control" id="register_date" readonly>
 																			</div>
@@ -596,8 +561,8 @@
 															</div>
 															<div class="row">
 																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
-																	<label class="col-md-4 col-form-label label" >{{ __('Status') }}</label>
-																	<div class="col-md-7">
+																	<label class="col-md-7 col-form-label label" >{{ __('Status') }}</label>
+																	<div class="col-md-4">
 																			<div class="form-group">
 																				<input type="text" class="form-control" id="message" readonly="">
 																			</div>
@@ -645,6 +610,7 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
+        loadDescription('papp');
         loadPAPP();
         // if(course_type[2]==1){
         //     // console.log("DA");
