@@ -703,13 +703,25 @@ function loadFile(file,divname){
     
 }
 function loadDescription(membership_name){
+  $('.application-fee').html("");
+  $('.registration-fee').html("");
+  $('.description-info').html("");
+  $('.requirement-info').html("");
+  $('.yearly-fee').html("");
+  $('.renew-fee').html("");
+  $('.delay-fee').html("");
   $.ajax({
     type: "get",
     url: BACKEND_URL+"/showDescription/"+membership_name,
     success: function (result) {
       var data=result.data;
-     
+      var application_fee=0;
+      var registration_fee=0;
+      var yearly_fee=0;
+      var renew_fee=0;
+      var delay_fee=0;
       $.each(data, function( index, value ){
+        
           var div=document.createElement('div');
           div.setAttribute('class','col-md-12');
           var desdiv=document.createElement('div');
@@ -718,7 +730,27 @@ function loadDescription(membership_name){
           desdiv.appendChild(t);
           div.appendChild(desdiv);
           $('.description-info').append(div);
+
+          var rediv=document.createElement('div');
+          rediv.setAttribute('class','col-md-12');
+          var reqdiv=document.createElement('div');
+          reqdiv.setAttribute('class','requirement'+index);
+          var req = document.createTextNode(value.requirements);
+          reqdiv.appendChild(req);
+          rediv.appendChild(reqdiv);
+          $('.requirement-info').append(rediv);
+
+          application_fee +=value.form_fee;
+          registration_fee +=value.registration_fee;
+          yearly_fee +=value.yearly_fee;
+          renew_fee +=value.renew_fee;
+          delay_fee +=value.late_fee;
       })
+      $('.application-fee').append(application_fee+" MMK");
+      $('.registration-fee').append(registration_fee+" MMK");
+      $('.yearly-fee').append(yearly_fee+" MMK");
+      $('.renew-fee').append(renew_fee+" MMK");
+      $('.delay-fee').append(delay_fee+" MMK");
     }
   })
 }
