@@ -89,14 +89,17 @@
                         <p class="card-text">Your School Registeration Form is approved!</p>
                     </div>
                 </div>
+                <center>
+                    <button id="school_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                </center>
             </div>
 
             <div class="row mt-5">
                 <div id="school_form" class="card border-success mb-3">
                     <div class="card-body">
 
-                    <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
-
+                    {{--<form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>--}}
+                    <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" class="needs-validation" autocomplete="off" novalidate>
                             <div class="row">
                                 <h5 class="p-4">လျှောက်ထားသူ၏အချက်အလက်များ</h5>
                             </div>
@@ -1376,10 +1379,10 @@
     </div>
 
     <!--Modal-->
-    {{--<form method="post" class="needs-validation" action="javascript:createSchoolRegister();" enctype="multipart/form-data"
+    <form method="post" class="needs-validation" action="javascript:schoolPaymentSubmit();" enctype="multipart/form-data"
           novalidate>
         @csrf
-        <div class="modal fade" id="schoolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="schoolpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1389,7 +1392,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">School Registeration Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>
@@ -1422,7 +1425,7 @@
                 </div>
             </div>
         </div>
-    </form>--}}
+    </form>
 
     <!-- Modal -->
     <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
@@ -1564,7 +1567,7 @@
             }
 
             school_reg_feedback();
-
+            checkPaymentSchool();
         });
 
         getCourses();
