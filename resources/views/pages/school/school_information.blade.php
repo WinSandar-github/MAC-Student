@@ -70,6 +70,13 @@
 														<hr>
 														<div class="info-list description-info">
                                                             
+														</div><br/>
+                                                        <div class="col-md-12">
+																<h4 class="col-md-12 card-title text-success">Requirement</h4>
+																<hr>
+																<div class="requirement-info">
+                                                            
+                                                                </div>
 														</div>
 													</div>
 												</div>
@@ -84,8 +91,11 @@
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'></span> </li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></span></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
 																		<div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
 																				<a href="{{url('school_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
