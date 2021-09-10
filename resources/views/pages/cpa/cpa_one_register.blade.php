@@ -589,8 +589,8 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(က)</div>
-                                    <div class="col-md-9 form-check" style="padding-top:10px">
-                                        <input type="checkbox" class="" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]" >
+                                    <div class="col-md-9 " style="padding-top:10px">
+                                        <input type="checkbox" class="form-check-input" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]" >
                                                                                 <label class="">{{ _('ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း') }}</label>
                                     </div>
 
@@ -619,24 +619,24 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ခ)</div>
-                                    <div class="col-md-9 form-check" style="padding-top:10px">
-                                                                            <input type="checkbox" class="" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam" name="reg_reason[]" >
+                                    <div class="col-md-9 " style="padding-top:10px">
+                                                                            <input type="checkbox" class="form-check-input " value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam" name="reg_reason[]" >
                                                                             <label class="">{{ _(' သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ဂ)</div>
-                                    <div class="col-md-4 form-check" style="padding-top:10px">
-                                                                            <input type="checkbox" class="" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance" name="reg_reason[]" >
+                                    <div class="col-md-4 " style="padding-top:10px">
+                                                                            <input type="checkbox" class="form-check-input col-form-label" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance" name="reg_reason[]" >
                                                                             <label class="">{{ _(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ဃ)</div>
-                                    <div class="col-md-4 form-check" style="padding-top:10px">
-                                        <input type="checkbox" class="" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam" name="reg_reason[]" >
+                                    <div class="col-md-4 " style="padding-top:10px">
+                                        <input type="checkbox" class="form-check-input" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam" name="reg_reason[]" >
                                                                                 <label class="">{{ _(' စာမေးပွဲကျရှုံးခြင်း') }}</label>
                                     </div>
                                 </div>
@@ -644,8 +644,8 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(င) </div>
-                                    <div class="col-md-4 form-check" style="padding-top:10px">
-                                        <input type="checkbox" class="" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned" name="reg_reason[]" >
+                                    <div class="col-md-4 " style="padding-top:10px">
+                                        <input type="checkbox" class="form-check-input " value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned" name="reg_reason[]" >
                                                                                 <label class="">{{ _('သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>
                                     </div>
                                 </div>
@@ -658,15 +658,15 @@
                                     <div class="col-md-5">
                                         <div class="row">
                                             <div class="col-md-4 form-check">
-                                                <input type="radio" class="form-check-input" name="module" value="" id="module1" required>
+                                                <input type="radio" class="form-check-input" name="module" value="1" id="module1" required>
                                                 <label class="form-check-label">{{ _('Module-1') }}</label>
                                             </div>
                                             <div class="col-md-4 form-check">
-                                                <input type="radio" class="form-check-input" name="module" value="" id="module2" >
+                                                <input type="radio" class="form-check-input" name="module" value="2" id="module2" >
                                                 <label class="form-check-label">{{ _('Module-2') }}</label>
                                             </div>
                                             <div class="col-md-4 form-check">
-                                                <input type="radio" class="form-check-input" name="module" value="" id="allmodule" >
+                                                <input type="radio" class="form-check-input" name="module" value="3" id="allmodule" >
                                                 <label class="form-check-label">{{ _('All Module') }}</label>
                                                                                                 <div class="invalid-feedback mt-3">ဖြေဆိုမည့် Module ရွေးချယ်ပါ</div>
                                             </div>
@@ -1113,10 +1113,10 @@
                                     <div class="col-md-1">
                                         <label class="col-form-label">{{ _('၇။') }}</label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                             <label class="col-form-label">{{ _('ဖြေဆိုမည့် Module') }}</label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-4 form-check">
                                                 <input class="form-check-input" type="radio"  name="module" value="1" id="module1" required>
@@ -1370,8 +1370,15 @@ loadSchoolList();
     });
     function allFilled(form_id) {
         var filled = true;
+        
         $(form_id+' input').each(function() {
-            if($(this).val() == ''  ) filled = false;
+            if($(this).attr('id')=="direct_access_no")
+            {   }
+            else if( $(this).attr('id')=="entry_success_no")
+            {   }
+            else{
+                if($(this).val() == ''  ) filled = false;
+            }
             //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
         });
         return filled;        

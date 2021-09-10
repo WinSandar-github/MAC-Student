@@ -33,6 +33,7 @@ class StudentController extends Controller
         $course = $res['course'];
         $requirements  = $res_requirement['data'];
       
+      
         
         
         return view('pages.student_course',["course" => $course,'requirements' => $requirements]);

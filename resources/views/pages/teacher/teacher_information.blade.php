@@ -76,15 +76,9 @@
 												<div class="col-md-7">
 														<h5 class="mt-2"><strong>Description</strong></h5>
 														<hr>
-														<ul id="teacher_description_lists">
-																<li>
-																	<span>
-																		<!-- <i class="icofont-file-document"></i> -->
-																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-																		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-																 </span>
-															 </li>
-														</ul>
+														<div class="info-list description-info">
+                                                            
+														</div>
 
 														<!-- Requirement -->
 														<div class="row">
@@ -149,73 +143,17 @@
 														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
-															<h6 class="mt-2"><b>ကနဦးလျှောက်ထားခြင်း</b></h6>
-															<div class="col-md-12">
-																	<ul id="teacher_description_lists">
-																			<li>
-																				<i class="icofont-book"></i>
-																				လျှောက်လွှာကြေး ၁၀၀၀ ကျပ်ပေးသွင်းပြီး လျှောက်လွှာ (ဆရာပုံစံ-၁) ဖြင့် လျှောက်ထား ရမည်။ (ပူးတွဲ တင်ပြရမည့်အထောက်အထားများအပါအဝင်)
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				လျှောက်လွှာပါအချက်များ ပြည့်စုံပါက လျှောက်လွှာလက်ခံယူထားကြောင်း အထောက် အထားစာကို ထုတ်ပေးရသည်။
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				ကော်မတီသို့တင်ပြ၍ သဘောတူခွင့်ပြုပါက မှတ်ပုံတင်ကြေး ကျပ် ၅ သောင်း နှင့် နှစ်စဉ်ကြေး ( CPA ၁ ဘာသာ) ကျပ် ၃ သောင်း၊ ( DA ၁ ဘာသာ) ကျပ် ၂ သောင်း  ပေးသွင်းရန် အကြောင်းကြားပါသည်။
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				သတ်မှတ်ကြေးများပေးသွင်းသည့်နေ့မှ ၃၀ ရက် အတွင်း မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပါ သည်။
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				မှတ်ပုံတင်သက်တမ်းကာလမှာ ပထမဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်နေ့၏ ပြက္ခဒိန်လ အပါအဝင် ၁၂ လ (၁ နှစ်တာကာလ) ဖြစ်ပါသည်။
-																			</li>
-																	</ul>
-															</div>
-															<div class="col-md-12">
-																<h6 class="mt-2"><b>သက်တမ်းတိုးလျှောက်ထားခြင်း</b></h6>
-																<ul id="teacher_renew_des_lists">
-																		<li>
-																			<i class="icofont-book"></i>
-																			သက်တမ်းမကုန်မီ ရက် ၉၀ ထက်မစော၊ ရက် ၆၀ ထက်နောက်မကျစေဘဲ လျှောက်ထား ရမည်။
-																		</li>
-																		<li>
-																			<i class="icofont-book"></i>
-																			လျှောက်လွှာကြေး ၁၀၀၀ ကျပ်ပေးသွင်းပြီး လျှောက်လွှာ (ဆရာပုံစံ-၂) ဖြင့် လျှောက်ထား ရမည်။ (ပူးတွဲတင်ပြရမည့်အထောက်အထားများအပါအဝင်)
-																		</li>
-																		<li>
-																			<i class="icofont-book"></i>
-																			လျှောက်လွှာပါအချက်များ ပြည့်စုံပါက-ကော်မတီသို့တင်ပြ၍ သဘောတူခွင့်ပြုပါက နှစ်စဉ် ကြေး (CPA ၁ ဘာသာ) ကျပ် ၃ သောင်း၊ (DA ၁ ဘာသာ) ကျပ် ၂ သောင်းကို အကြောင်းကြားစာရရှိသည့်နေ့မှ (၁၀)ရက်အတွင်း ပေးသွင်းရန် အကြောင်းကြားပါသည်။
-																		</li>
-																		<li>
-																			<i class="icofont-book"></i>
-																			သတ်မှတ်ကြေးများပေးသွင်းသည့်နေ့မှ (၃၀) ရက်အတွင်း မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပါ သည်။
-																		</li>
-																</ul>
-															</div>
+                                                            <div class="description-info">
+                                                            
+                                                            </div>
+															<br/>
+															
 															<div class="col-md-12">
 																<h4 class="col-md-12 card-title text-success">Requirement</h4>
 																<hr>
-																<ul>
-																	<?php
-																		if (is_array($requirements) || is_object($requirements))
-																			{
-																					foreach ($requirements as $value)
-																					{
-																							if($value['type'] == "TEACHER"){
-																	?>
-																					<li>
-																						<i class="icofont-man-in-glasses"></i>
-																						<?php echo $value['name'] ?>
-																					</li>
-																	<?php
-																						}
-																					}
-																			}
-																	?>
-																</ul>
+																<div class="requirement-info">
+                                                            
+                                                                </div>
 															</div>
 														</div>
 													</div>
@@ -231,8 +169,11 @@
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong></li>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
 																		<div class="pull-right mt-4">
 																			<p class="info-btn col-md-2 mb-4 text-dark h6">
 																				<a href="{{url('teacher_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
@@ -564,10 +505,8 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
-        if(student.approve_reject_status==1){
-            loadRenewTeacher(localStorage.getItem("teacher_id"));
-        }
-
+        loadRenewTeacher();
+        loadDescription('teacher');
         // if(course_type[2]==1){
         //     // console.log("DA");
         //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";

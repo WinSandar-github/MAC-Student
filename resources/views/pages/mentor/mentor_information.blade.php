@@ -120,91 +120,51 @@
 
 								<div id="mentor">
 									<div class="row">
-										<div class="card col-md-6 m-2">
+										<div class="card col-md-7 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Mentor</h4>
-														<h6 class="mt-2">Description</h6>
+														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
+															<div class="description-info">
+                                                            
+                                                            </div>
+															<br/>
+															<!-- Requirement -->
 															<div class="col-md-12">
-																	<ul id="teacher_description_lists">
-																			<li>
-																				<i class="icofont-book"></i>
-																				အလုပ်သင်ကြားပေးသူအဖြစ် အောက်ပါသတ်မှတ်ချက်များနှင့် ကိုက်ညီသည့် PAPP များ လျှောက် ထားနိုင်ပါသည်
-																				<div class="row">
-																					<div class="col-md-12">
-																						<div class="offset-md-1 col-md-11">
-																							(၁)  PAPP အဖြစ်မှတ်ပုံတင်ထားပြီး ယင်းလုပ်ငန်းကို ၃ နှစ်တစ်ဆက်တည်းလုပ်ကိုင်ခဲ့သူ (မှတ်ပုံတင်သက်တမ်းပြတ်တောက်နေသူများကို ခွင့်မပြုပါ)
-																						</div>
-																						<div class="offset-md-1 col-md-11">
-																							(၂)  Limited Company ၅ ခုထက်မနည်း နှစ်စဉ် (၃ နှစ်တစ်ဆက်တည်း) တာဝန်ယူ စစ်ဆေးခဲ့သူ
-																						</div>
-																					</div>
-																				</div>
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				သတ်မှတ်လျှောက်လွှာပုံစံဖြင့်လျှောက်ထားရမည်၊ (လျှောက်လွှာကြေးမကောက်ခံပါ)
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				သတ်မှတ်ချက်များနှင့်ကိုက်ညီပါက အလုပ်သင်ကြားပေးနိုင်သည့် PAPP အမည်စာရင်း ထုတ် ပြန်ပါသည်။
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				သတ်မှတ်ချက်များနှင့်ကိုက်ညီပါက အလုပ်သင်ကြားပေးနိုင်သည့် PAPP အမည်စာရင်း ထုတ် ပြန်ပါသည်။
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				အလုပ်သင်တစ်ဉီးချင်းအလိုက် နေ့စဉ် ရုံးတက်/ရုံးဆင်းမှတ်တမ်းများ၊ နေ့စဉ်မှတ်တမ်းများ ၊ ခွင့် အမျိုးအစား နှင့် ခွင့်ကာလတို့ကိုလည်းကောင်း၊ ခွင့်ခံစားခြင်းမရှိပါကလည်း မရှိစာရင်းကို လစဉ် လဆန်း ၅ ရက် ထက် နောက်မကျဘဲ MAC ရုံးသို့ပေးပို့ရ။
-																			</li>
-																			<li>
-																				<i class="icofont-book"></i>
-																				ရပ်နားတင်/သေ ပါက အလုပ်သင်များကို အခြား Firm သို့ပြောင်းပေးရ။
-																			</li>
-																	</ul>
+																<h4 class="col-md-12 card-title text-success">Requirement</h4>
+																<hr>
+																<div class="requirement-info">
+                                                            
+                                                                </div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-5 m-2">
+										<!-- Fees -->
+										<div class="card col-md-4 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Mentor</h4>
-														<h6 class="mt-2">Requirement</h6>
+														<h4 class="col-md-12 card-title text-success">Fees</h4>
 														<hr>
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																	<?php
-																		if (is_array($requirements) || is_object($requirements))
-																			{
-																					foreach ($requirements as $value)
-																					{
-																							if($value['type'] == "MENTOR"){
-																	?>
-																					<li>
-																						<i class="icofont-man-in-glasses"></i>
-																						<?php echo $value['name'] ?>
-																					</li>
-																	<?php
-																						}
-																					}
-																			}
-																	?>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
+																		<div class="pull-right mt-4">
+																			<p class="info-btn col-md-2 mb-4 text-dark h6">
+																				<a href="{{url('audit_firm')}}" class="btn btn-success btn-hover-dark" >Register</a>
+																			</p>
+																		</div>
 																</ul>
-															</div>
-														</div>
-														<div class="info-list">
-															<div class="pull-right mt-4">
-																<p class="info-btn col-md-2 mb-4 text-dark h6">
-																	<a href="{{url('mentor_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
-																</p>
 															</div>
 														</div>
 													</div>
@@ -241,7 +201,7 @@
         localStorage.setItem('course_type',course_type[2])
 
         }
-        
+        loadDescription('mentor');
         // if(course_type[2]==1){
         //     // console.log("DA");
         //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";

@@ -246,95 +246,98 @@ function teacher_reg_feedback(){
         }
     });
 }
-function loadRenewTeacher(id){
-  $.ajax({
-    type : 'GET',
-    url : BACKEND_URL+"/teacher/"+id,
-    success: function (result) {
-        var teacher=result.data;
-        console.log(teacher);
-        if(teacher.approve_reject_status==1){
-          $('#teacher_initial').css('display','none');
-          $('#teacher_renew').css('display','block');
-                var accept=new Date(teacher.renew_date);
-                var month=accept.getMonth()+1;
-                var year=accept.getFullYear();
-                var y=year+1;
-                var now=new Date();
-                $('input[name=email]').val(teacher.email);
-                $('input[name=name_mm]').val(teacher.name_mm);
-                $('input[name=name_eng]').val(teacher.name_eng);
-                $('input[name=father_name_mm]').val(teacher.father_name_mm);
-                $('input[name=father_name_eng]').val(teacher.father_name_eng);
-                $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
-                $('input[name=nrc_township]').val(teacher.nrc_township);
-                $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
-                $('input[name=nrc_number]').val(teacher.nrc_number);
-                $('input[name=phone_number]').val(teacher.phone);
-                $('textarea[name=exp_desc]').val(teacher.exp_desc);
-                $('#previewImg').attr("src",BASE_URL+teacher.image);
-                $('#hidden_profile').val(teacher.image);
-                $('#hidden_nrc_front').val(teacher.nrc_front);
-                $('#hidden_nrc_back').val(teacher.nrc_back);
-                $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
-                $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                var degrees = teacher.degrees.split(',');
-                var certificates =teacher.certificates.split(',');
-                var diplomas = teacher.diplomas.split(',');
-                $.each(degrees, function( index, value ) {
-                    var tr = "<tr>";
-                    tr += `<td><input type='text' class='form-control'  value=${ index += 1 } />  </td>`;
-                    tr += `<td><input type='text' class='form-control' name='degrees[]' value=${ value } />  </td>`;
-                    tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-                    tr += "</tr>";
-                    $("#tbl_degree_body").append(tr);
-                });
-                if(teacher.gov_employee == 1){
-                  $('input:radio[id=gov_employee1]').attr('checked',true);
-                  $('input[id=gov_employee2]').attr('disabled', 'disabled');
-              }
-              else{
-                  $('input:radio[id=gov_employee2]').attr('checked',true);
-                  $('input[id=gov_employee1]').attr('disabled', 'disabled');
-              }
-                $.each(certificates, function( index, value ) {
-                  var tr = "<tr>";
-                  tr += `<td><input type='text' class='form-control' value=${ index += 1 } /> </td>`;
-                  tr += `<td><input type='text' class='form-control' name='certificates[]' value=${ value } /></td>`;
-                  tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-                  tr += "</tr>";
-                  $("#tbl_certificate_body").append(tr);
-                });
-                $.each(diplomas, function( index, value ) {
-                    var tr = "<tr>";
-                    tr += `<td><input type='text' class='form-control' value=${ index += 1 } /> </td>`;
-                    tr += `<td> <input type='text' class='form-control' name='diplomas[]' value=${ value } /></td>`;
-                    tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-                    tr += "</tr>";
-                    $("#tbl_diploma_body").append(tr);
-                });
-                $('#regno').val(teacher.id);
-                $('#register_date').val(teacher.renew_date);
-                if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                    $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                    $('.renew_submit').prop('disabled', false);
-
-                }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                    $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
-                    $('.renew_submit').prop('disabled', true);
+function loadRenewTeacher(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    if(student!=null){
+        $.ajax({
+            type : 'GET',
+            url : BACKEND_URL+"/teacher/"+student.teacher_id,
+            success: function (result) {
+                var teacher=result.data;
+                if(teacher.approve_reject_status==1){
+                  $('#teacher_initial').css('display','none');
+                  $('#teacher_renew').css('display','block');
+                        var accept=new Date(teacher.renew_date);
+                        var month=accept.getMonth()+1;
+                        var year=accept.getFullYear();
+                        var y=year+1;
+                        var now=new Date();
+                        $('input[name=email]').val(teacher.email);
+                        $('input[name=name_mm]').val(teacher.name_mm);
+                        $('input[name=name_eng]').val(teacher.name_eng);
+                        $('input[name=father_name_mm]').val(teacher.father_name_mm);
+                        $('input[name=father_name_eng]').val(teacher.father_name_eng);
+                        $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
+                        $('input[name=nrc_township]').val(teacher.nrc_township);
+                        $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
+                        $('input[name=nrc_number]').val(teacher.nrc_number);
+                        $('input[name=phone_number]').val(teacher.phone);
+                        $('textarea[name=exp_desc]').val(teacher.exp_desc);
+                        $('#previewImg').attr("src",BASE_URL+teacher.image);
+                        $('#hidden_profile').val(teacher.image);
+                        $('#hidden_nrc_front').val(teacher.nrc_front);
+                        $('#hidden_nrc_back').val(teacher.nrc_back);
+                        $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
+                        $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                        var degrees = teacher.degrees.split(',');
+                        var certificates =teacher.certificates.split(',');
+                        var diplomas = teacher.diplomas.split(',');
+                        $.each(degrees, function( index, value ) {
+                            var tr = "<tr>";
+                            tr += `<td><input type='text' class='form-control'  value=${ index += 1 } />  </td>`;
+                            tr += `<td><input type='text' class='form-control' name='degrees[]' value=${ value } />  </td>`;
+                            tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
+                            tr += "</tr>";
+                            $("#tbl_degree_body").append(tr);
+                        });
+                        if(teacher.gov_employee == 1){
+                          $('input:radio[id=gov_employee1]').attr('checked',true);
+                          $('input[id=gov_employee2]').attr('disabled', 'disabled');
+                      }
+                      else{
+                          $('input:radio[id=gov_employee2]').attr('checked',true);
+                          $('input[id=gov_employee1]').attr('disabled', 'disabled');
+                      }
+                        $.each(certificates, function( index, value ) {
+                          var tr = "<tr>";
+                          tr += `<td><input type='text' class='form-control' value=${ index += 1 } /> </td>`;
+                          tr += `<td><input type='text' class='form-control' name='certificates[]' value=${ value } /></td>`;
+                          tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
+                          tr += "</tr>";
+                          $("#tbl_certificate_body").append(tr);
+                        });
+                        $.each(diplomas, function( index, value ) {
+                            var tr = "<tr>";
+                            tr += `<td><input type='text' class='form-control' value=${ index += 1 } /> </td>`;
+                            tr += `<td> <input type='text' class='form-control' name='diplomas[]' value=${ value } /></td>`;
+                            tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
+                            tr += "</tr>";
+                            $("#tbl_diploma_body").append(tr);
+                        });
+                        $('#regno').val(teacher.id);
+                        $('#register_date').val(teacher.renew_date);
+                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            $('.renew_submit').prop('disabled', false);
+        
+                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                            $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                            $('.renew_submit').prop('disabled', true);
+                        }else{
+                            $('#message').val("You are verified!");
+                            $('.renew_submit').prop('disabled', true);
+                        }
                 }else{
-                    $('#message').val("You are verified!");
-                    $('.renew_submit').prop('disabled', true);
+                  $('#teacher_initial').css('display','block');
+                  $('#teacher_renew').css('display','none');
                 }
-        }else{
-          $('#teacher_initial').css('display','block');
-          $('#teacher_renew').css('display','none');
-        }
-
-    },
-    error: function (result) {
-    },
-});
+        
+            },
+            error: function (result) {
+            },
+        });
+    }
+  
 }
 function renewTeacher(){
   var send_data=new FormData($( "#teacher_renew_form" )[0]);
