@@ -163,7 +163,7 @@
                                                 <div class="col-md-2 col-5 pr-1">
                                                     <select class="form-control" name="nrc_state_region"
                                                             id="nrc_state_region"
-                                                            style="padding-top: 0px; margin-top: 0px !important; margin-bottom: 0px;">
+                                                            style="margin-top: 0px; margin-bottom: 0px;">
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -220,7 +220,7 @@
                                                             <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                 value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                             </p>
-                                                            <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                                         </div>                                                    
                                                     </div>
 
@@ -234,7 +234,7 @@
                                                             <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                 value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                             </p>
-                                                            <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                                         </div>
                                                     </div>
                                                 </div>
