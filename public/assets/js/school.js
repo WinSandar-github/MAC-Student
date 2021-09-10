@@ -56,8 +56,9 @@ function schoolPaymentSubmit(){
 
 function checkPaymentSchool(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
-    $.ajax({
+    
+    if(student!=null){
+      $.ajax({
         url: BACKEND_URL+"/check_payment_school/"+student.id,
         type: 'GET',
         success: function(data){
@@ -67,13 +68,14 @@ function checkPaymentSchool(){
             console.log(element.payment_method)
             if(element.payment_method != null){
                 $('#school_modal').prop('disabled', true);
-
+                loadRenewSchool();
             }else{
                 $('#school_modal').prop('disabled', false);
             }
           })
         }
     });
+    }
 }
 
 var counter = 0;
@@ -250,9 +252,9 @@ function school_reg_feedback(){
                     $('.register-btn').css('display','none');
 
                 }else if(element.approve_reject_status == 1){
-                    loadRenewSchool(localStorage.getItem("school_id"));
                     $('#school_approve').css('display','block');
                     $('#school_pending').css('display','none');
+                    $('.payment-btn').css('display','block');
                     $('.register-btn').css({'display':'none'});
                     $('.register-btn').removeClass('mt-4');
                 }

@@ -156,24 +156,26 @@ function check_email_papp()
 
 function checkPaymentPapp(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
-    $.ajax({
-        url: BACKEND_URL+"/check_payment_papp/"+student.id,
-        type: 'GET',
-        success: function(data){
-            // console.log(data);
-          var form_data = data;
-          form_data.forEach(function(element){
-            console.log(element.payment_method)
-            if(element.payment_method != null){
-                $('#papp_modal').prop('disabled', true);
-
-            }else{
-                $('#papp_modal').prop('disabled', false);
+    
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/check_payment_papp/"+student.id,
+            type: 'GET',
+            success: function(data){
+               
+              var form_data = data;
+              form_data.forEach(function(element){
+                
+                if(element.payment_method != null){
+                    $('#papp_modal').prop('disabled', true);
+                    loadPAPP();
+                }else{
+                    $('#papp_modal').prop('disabled', false);
+                }
+              })
             }
-          })
-        }
-    });
+        });
+    }
 }
 // papp
 $("#papp_modal").click(function() {
@@ -417,6 +419,7 @@ function loadPAPP(){
                     if(data.status==1 || data.renew_status==1)
                     {
                         document.getElementById('papp_initial').style.display='none';
+                        document.getElementById('approved').style.display='none';
                         document.getElementById('papp_renew_form').style.display='block';
                         var accept=new Date(data.renew_accepted_date);
                         var month=accept.getMonth()+1;
