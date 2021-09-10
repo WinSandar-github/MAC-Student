@@ -67,7 +67,8 @@
                                     <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center">လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ</h5>
                                     <br/>
-                                    <form method="post" id="cpa_exam_register" enctype="multipart/form-data">
+                                    {{--<form method="post" id="cpa_exam_register" enctype="multipart/form-data">--}}
+                                    <form  action="javascript:void();" method="post" id="cpa_exam_form" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" id="form_type" class="form-control" name="form_type">
                                         <input type="hidden" name="is_private" id="is_private" class="form-control">
@@ -120,7 +121,7 @@
                                                         
                                                     </div>
                                                     <div class="col-md-5">
-                                                            <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" >
+                                                            <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required>
                                                         
                                                     </div>
                                                 </div>
@@ -178,13 +179,13 @@
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="single-form" style="margin-bottom: 4%; margin-top: 5%;">
-                                                            <input type="radio" id="0" name="is_full_module" value="0">
+                                                            <input type="radio" id="0" name="is_full_module" value="1" checked>
                                                             <label for="0">Module 1</label>
 
-                                                            <input type="radio" id="1" name="is_full_module" value="1" style="margin-left: 3%;">
+                                                            <input type="radio" id="1" name="is_full_module" value="2" style="margin-left: 3%;">
                                                             <label for="1">Module 2</label>
 
-                                                            <input type="radio" id="2" name="is_full_module" value="2" style="margin-left: 3%;">
+                                                            <input type="radio" id="2" name="is_full_module" value="3" style="margin-left: 3%;">
                                                             <label for="2">All Modules</label>
                                                         </div>
                                                     </div>
@@ -235,7 +236,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="cpa_exam_submit">{{ __('Submit') }}</button>
                                                     </div> 
                                                 </div><br/>
                                         </div>
@@ -252,45 +253,50 @@
         </div>
     </div>
     <!-- Modal Payment -->
-<form id="payment_submit"  method="post"  class="needs-validation" enctype="multipart/form-data" novalidate>
+<form  id="cpa_exam_register"   method="post"  class="needs-validation" enctype="multipart/form-data" novalidate>
     @csrf
     <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div><br>
-        <div class="modal-body">
-            <div class="row justify-content-center mb-4 radio-group">
-                <div class="col-sm-3 col-5">
-                    <div class='radio mx-auto'> 
-                            <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
-                    </div><br>
-                    <h5>CBPay</h5>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-sm-3 col-5">
-                    <div class='radio mx-auto'> 
-                            <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
-                    </div><br>
-                    <h5>MPU</h5>
+                <br>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <center>
+                            <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Registeration(Self Study) Form Fee - ****** MMK</h4>
+                        </center>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                     data-value="CBPAY" name="payment_method" id="cb_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                     data-value="MPU" name="payment_method" id="mpu_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                     data-value="CASH" name="payment_method" id="cash_img">
+                            </center>
+                            <br>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                        <center>
+                            <button type="submit" id="cpa_exam_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                        </center>
+                    </div>
                 </div>
-                <div class="col-sm-3 col-5">
-                    <div class='radio mx-auto'> 
-                            <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
-                    </div><br>
-                    <h5>CASH</h5>
-                </div>
-                <input type="hidden" name="payment_method" value="CASH">
+                <br>
             </div>
-        </div><br>
-        <div class="modal-footer">
-            <center>
-                <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
-            </center>
         </div>
-        </div>
-    </div>
     </div>
 </form>
     <!-- JavaScript Section -->
@@ -332,5 +338,38 @@
     });
     
     loadSchoolList();
+</script>
+<script>
+    $( "#cpa_exam_submit" ).click(function() {
+        if(allFilled('#cpa_exam_form')){
+            $('#paymentModal').modal('show');
+        }
+        else{
+        }
+    });   
+    function allFilled(form_id) {
+        var filled = true;        
+        $(form_id+' input').each(function() {
+            if($(this).attr('id')=="form_type")
+            {   }
+            else if($(this).attr('id')=="is_private")
+            {   }
+            else if($(this).attr('id')=="selected_school_id")
+            {   }
+            else{ if($(this).val() == ''  ) filled = false; }
+        });
+        return filled;        
+    }
+    $('#cpa_exam_btn').click(function () {
+        setTimeout(function () {
+            $('#paymentModal').modal('hide');
+        }, 1000);
+    });
+
+    $('#cash_img').click(function() {
+        $('#cpa_exam_btn').prop('disabled', false);
+    });
+
+    $('#cpa_exam_btn').prop('disabled', true);
 </script>
 @endpush
