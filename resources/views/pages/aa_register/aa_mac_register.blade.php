@@ -61,7 +61,7 @@
                 <div class="comment-form" style="margin-bottom: 10%;">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                        <form method="post" action="javascript:void();" id="aa_mac_form" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <div class="row">
@@ -73,7 +73,7 @@
                                             </td>
                                             <td width="70%">
                                                 <div class="form-group"> 
-                                                    <select class="form-control" name="mentor_id" id="selected_mentor_id" style="width: 100%;">
+                                                    <select class="form-control" name="mentor_id" id="selected_mentor_id" style="width: 100%;" required>
                                                         <option value="" disabled selected>Select Mentor</option>
                                                     </select>
                                                 </div>
@@ -88,14 +88,14 @@
                                             </td>
                                             <td width="40%">
                                                 <div class="form-group">                                
-                                                    <select class="form-control" name="current_check_service_id" id="selected_service_id" style="width: 100%;">
+                                                    <select class="form-control" name="current_check_service_id" id="selected_service_id" style="width: 100%;" required>
                                                         <option value="" disabled selected>Select Current Service</option>
                                                     </select>
                                                 </div>
                                             </td>
                                             <td width="30%">
                                                 <div class="form-group check-service-other" style="visibility:hidden;">
-                                                   <input type="text" name="current_check_services_other" class="form-control" placeholder="other" >
+                                                   <input type="text" name="current_check_services_other" id="current_check_services_other" class="form-control" placeholder="other" >
                                                 </div>
                                             </td>
                                         </tr>
@@ -116,7 +116,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-3 offset-md-5">
-                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal" data-bs-target="#paymentMACModal">{{ __('Submit') }}</button>
+                                            <button type="submit" class="btn btn-success btn-hover-dark w-100" id="mac_submit">{{ __('Submit') }}</button>
                                         </div>
                                     </div>
 
@@ -132,43 +132,48 @@
         <!-- Modal Payment -->
 <form method="post" class="needs-validation" action="javascript:createAAMacRegister();" enctype="multipart/form-data" novalidate>
     @csrf
-    <div class="modal fade" id="paymentMACModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Choose Payment</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div><br>
-        <div class="modal-body">
-            <div class="row justify-content-center mb-4 radio-group">
-                <div class="col-sm-3 col-5">
-                    <div class='radio mx-auto'> 
-                            <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%" data-value="CBPAY" name="payment_method">
-                    </div><br>
-                    <h5>CBPay</h5>
+    <div class="modal fade" id="macModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-sm-3 col-5">
-                    <div class='radio mx-auto'> 
-                            <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%" data-value="MPU" name="payment_method">
-                    </div><br>
-                    <h5>MPU</h5>
+                <br>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <center>
+                            <h4 style="margin-bottom:5%;">AA (MAC) Form Fee - ****** MMK</h4>
+                        </center>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                        data-value="CBPAY" name="payment_method" id="cb_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                        data-value="MPU" name="payment_method" id="mpu_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                        data-value="CASH" name="payment_method" id="cash_img_mac">
+                            </center>
+                            <br>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                        <center>
+                            <button type="submit" id="aa_mac_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                        </center>
+                    </div>
                 </div>
-                <div class="col-sm-3 col-5">
-                    <div class='radio mx-auto'> 
-                            <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%" data-value="CASH" name="payment_method">
-                    </div><br>
-                    <h5>CASH</h5>
-                </div>
-                <input type="hidden" name="payment_method" value="CASH">
+                <br>
             </div>
-        </div><br>
-        <div class="modal-footer">
-            <center>
-                <button type="submit" id="btn2" class="btn btn-success btn-hover-dark w-100" data-bs-toggle="modal">Submit 
-            </center>
         </div>
-        </div>
-    </div>
     </div>
 </form>
     <!-- JavaScript Section -->
@@ -178,5 +183,36 @@
     // $('#form_type').val(localStorage.getItem('course_id'));
     loadCheckServiceMAC();
     loadMentorMAC();
+</script>
+<script>
+    $( "#mac_submit" ).click(function() {
+        if(allFilled('#aa_mac_form')){
+            $('#macModal').modal('show');
+        }
+        else{
+        }
+    });   
+    function allFilled(form_id) {
+        var filled = true;        
+        $(form_id+' input').each(function() {
+            if($(this).attr('id')=="current_check_services_other")
+            {   }
+            else if($(this).attr('id')=="form_type")
+            {   }
+            else{ if($(this).val() == ''  ) filled = false; }
+        });
+        return filled;        
+    }
+    $('#aa_mac_btn').click(function () {
+        setTimeout(function () {
+            $('#macModal').modal('hide');
+        }, 1000);
+    });
+
+    $('#cash_img_mac').click(function() {
+        $('#aa_mac_btn').prop('disabled', false);
+    });
+
+    $('#aa_mac_btn').prop('disabled', true);
 </script>
 @endpush

@@ -1,5 +1,5 @@
 $( "#school_submit" ).click(function() {
-        if(allFill('#school_register_form')){
+        if(allFilled('#school_register_form')){
             $('#schoolModal').modal('show');
             send_email();
         }
@@ -47,7 +47,7 @@ function schoolPaymentSubmit(){
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
-            location.href = FRONTEND_URL + "/";
+            location.href = FRONTEND_URL + "/school_information";
         },
         error:function (message){
         }
