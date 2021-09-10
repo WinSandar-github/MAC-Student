@@ -57,7 +57,7 @@ function formatDate(date){
 }
 
 function ConfirmSubmit(){
-    alert("check");
+    
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;

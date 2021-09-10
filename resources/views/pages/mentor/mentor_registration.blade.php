@@ -152,12 +152,12 @@
                                                 <input type="text" name="religion" class="form-control" placeholder="ကိုးကွယ်သည့်ဘာသာ" value="{{ old('religion') }}" required="">
                                             </div>
                                         </div>
-                                  </div>                                  
+                                  </div>
                                 </div>
 
                                 <div class="col-md-4">
-                                  <div class="col-md-7 pull-right">
-                                    <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                  <div class="col-md-5 pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input " id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                       <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
@@ -224,8 +224,8 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                     value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
-                                            </div>                                                    
+                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
+                                            </div>
                                         </div>
 
                                         <div class="col-md-6">
@@ -238,12 +238,12 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                     value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                        
-                              </div><br> 
+                                </div>
+                              </div><br>
 
                               <!-- <div class="row">
                                   <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -251,7 +251,7 @@
                                   <div class="col-md-8">
                                       <input type="file" name="nrc_front" class="form-control">
                                   </div>
-                              </div><br>                            
+                              </div><br>
 
                               <div class="row">
                                   <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>

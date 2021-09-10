@@ -120,57 +120,51 @@
 
 								<div id="mentor">
 									<div class="row">
-										<div class="card col-md-6 m-2">
+										<div class="card col-md-7 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Mentor</h4>
-														<h6 class="mt-2">Description</h6>
+														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
 															<div class="description-info">
                                                             
                                                             </div>
 															<br/>
+															<!-- Requirement -->
+															<div class="col-md-12">
+																<h4 class="col-md-12 card-title text-success">Requirement</h4>
+																<hr>
+																<div class="requirement-info">
+                                                            
+                                                                </div>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-5 m-2">
+										<!-- Fees -->
+										<div class="card col-md-4 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Mentor</h4>
-														<h6 class="mt-2">Requirement</h6>
+														<h4 class="col-md-12 card-title text-success">Fees</h4>
 														<hr>
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																	<?php
-																		if (is_array($requirements) || is_object($requirements))
-																			{
-																					foreach ($requirements as $value)
-																					{
-																							if($value['type'] == "MENTOR"){
-																	?>
-																					<li>
-																						<i class="icofont-man-in-glasses"></i>
-																						<?php echo $value['name'] ?>
-																					</li>
-																	<?php
-																						}
-																					}
-																			}
-																	?>
+																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
+																		<div class="pull-right mt-4">
+																			<p class="info-btn col-md-2 mb-4 text-dark h6">
+																				<a href="{{url('audit_firm')}}" class="btn btn-success btn-hover-dark" >Register</a>
+																			</p>
+																		</div>
 																</ul>
-															</div>
-														</div>
-														<div class="info-list">
-															<div class="pull-right mt-4">
-																<p class="info-btn col-md-2 mb-4 text-dark h6">
-																	<a href="{{url('mentor_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
-																</p>
 															</div>
 														</div>
 													</div>

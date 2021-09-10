@@ -16,12 +16,28 @@ function user_profile() {
                     + " City, " + acc_firm.state_region + " State,");
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
-                if (acc_firm.status == 0) {
-                    $('.status_history').append('Your Audit Firm Form is checking.');
-                } else if (acc_firm.status == 1) {
-                    $('.status_history').append('Your Audit Firm Form is Approved.');
-                } else {
-                    $('.status_history').append('Your Audit Firm Form is Rejected.');
+
+                if(data.audit_firm_type_id == 1){
+
+                  // if audit firm type
+                  if (acc_firm.status == 0) {
+                      $('.status_history').append('Your Audit Firm Form is checking.');
+                  } else if (acc_firm.status == 1) {
+                      $('.status_history').append('Your Audit Firm Form is Approved.');
+                  } else {
+                      $('.status_history').append('Your Audit Firm Form is Rejected.');
+                  }
+                }
+                else{
+
+                  //if non-audit firm type
+                  if (acc_firm.status == 0) {
+                      $('.status_history').append('Your Non-Audit Firm Form is checking.');
+                  } else if (acc_firm.status == 1) {
+                      $('.status_history').append('Your Non-Audit Firm Form is Approved.');
+                  } else {
+                      $('.status_history').append('Your Non-Audit Firm Form is Rejected.');
+                  }
                 }
             } else if (data.school) {
                 $('.title').text('School Information')
@@ -145,7 +161,7 @@ function user_profile() {
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td>Approved</td>
                         </tr>
-                       
+
                         `);
 
                         var accept = new Date(cpaff.renew_accepted_date);
@@ -157,15 +173,15 @@ function user_profile() {
                         if (month > 8) {
 
                             $(".status").append(`<tr><td colspan=4>
-                            
+
                             Your information will be expired at  <b> 31 December ${y}</b>.
-                             
+
                             </td></tr>`);
                         } else {
                             $(".status").append(`<tr><td colspan=3>
-                            
+
                             Your information will be expired at  <b> 31 December ${year}</b>.
-                             
+
                             </td><td> <a href='${FRONTEND_URL}/cpa_ff_register' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>`);
 
                         }
@@ -201,7 +217,7 @@ function user_profile() {
                                 <td>${formatDate(cpaff.updated_at)}</td>
                                 <td>Approved</td>
                             </tr>
-                           
+
                             `);
 
                             var accept = new Date(cpaff.renew_accepted_date);
@@ -214,7 +230,7 @@ function user_profile() {
                             if (now.getFullYear() == y && now.getMonth() == month) {
 
                                 $(".status").append(`<tr><td colspan=3>
-                                    
+
                                 Your registeration is expired! You need to submit new registeration form again.
 
                                 
@@ -223,18 +239,18 @@ function user_profile() {
 
                             } else if (month == '10' || month == '11' || month == '12') {
                                 $(".status").append(`<tr><td colspan=4>
-                            
+
                                 Your registeration will start in ${y} year!
-                                 
+
                                 </td></tr>`);
 
 
                             } else {
 
                                 $(".status").append(`<tr><td colspan=4>
-                            
+
                                 You are verified!
-                                 
+
                                 </td></tr>`);
                             }
 
@@ -446,8 +462,8 @@ function user_profile() {
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
                                                                     <td>
-                                    
-                                                                   
+
+
                                                                         <span class="nav-item dropdown ">
                                                                         <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">${show_text} </a>
                                                                         <div class="dropdown-menu">
@@ -459,7 +475,7 @@ function user_profile() {
                                                                     <td>
                                                                     </td>
                                                                     </tr>
-                                    
+
                                                                 `);
                                                                 } else {
 
@@ -548,10 +564,10 @@ function user_profile() {
                                             localStorage.setItem('course_id', latest_course_reg[0].batch.course.id);
                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td>
                                                 <td>
-                                                    <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>                                            
+                                                    <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
                                                 </td>
                                             </tr>
-                
+
                                             `);
 
                                         } else {
@@ -604,8 +620,8 @@ function user_profile() {
                                 $('.status').append(`
                                     <tr><td colspan=2></td><td>Action</td>
                                     <td>
-    
-                                   
+
+
                                         <span class="nav-item dropdown ">
                                         <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Registration Form</a>
                                         <div class="dropdown-menu">
@@ -617,7 +633,7 @@ function user_profile() {
                                     <td>
                                     </td>
                                     </tr>
-    
+
                                 `);
 
                             }
@@ -894,7 +910,6 @@ $('#edit_profile').click(function () {
         contentType: false,
         processData: false,
         success: function (res) {
-            console.log(res.data.email)
             $('#update_email').val(res.data.email);
             $('.date_of_birth').val(res.data.date_of_birth);
             $('#update_phone').val(res.data.phone);
