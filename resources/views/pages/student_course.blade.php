@@ -188,19 +188,7 @@
                                                               <!-- <p class="col-md-5">Course Fee for MAC Class</p>-  <p class="col-md-5">{{$c['tution_fee']}} Kyats </p>  -->
                                                     </div> 
                                                 </div>  
-                                              {{--  
-                                                <div class="col-md-12">
-                                                    <h5 class="mt-2">Requirement</h5>
-                                                    <hr>
-                                                    @foreach($requirements as $require)
-                                                        @foreach($req_str_arr as $course_req)
-                                                            @if($require['id'] == $course_req)
-                                                                <p>{{$require['name']}} </p>
-                                                            @endif
-                                                        @endforeach
-                                                    @endforeach
-
-                                                </div>  --}}
+                                            
                                                     <div class="col-md-12 mt-2">
 
                                                     
@@ -213,7 +201,7 @@
                                                                     <input type="hidden" value="{{$b['id']}}"
                                                                        class="batch_id{!! $key !!}"/>
                                                              
-                                                                    <div class="application">
+                                                                    <div class="application app{!! $key !!}">
                                                                        
                                                                         <div class="row">
 
@@ -241,7 +229,7 @@
 
                                                                     
                                                                     
-                                                                    <div class="registration">
+                                                                    <div class="registration reg{!! $key !!}">
                                                                         <div class="row">
                                                                             <dt class="col-md-6 text-end my-1">Registration in MAC Class Start Date</dt>
                                                                             <dd class="col-md-6 my-1">{{ date('d F Y',strtotime( $b['mac_reg_start_date'] ))}}  </dd> 
@@ -276,7 +264,7 @@
                                                                                 </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="exam">
+                                                                    <div class="exam exm{!! $key !!}">
                                                                         <div class="row">
                                                                             <dt class="col-md-6 my-1 text-end">Exam
                                                                                     Registration Start
@@ -317,15 +305,7 @@
                                                                 @break
                                                                 @endforeach
                                                                 @else
-                                                                    <div class="row">
-                                                                     {{-- <dt class="col-md-6 text-end my-1">Accept
-                                                                            Application Start Date</dt>
-
-                                                                        <dd class="col-md-6 my-1"> -  </dd> 
-                                                                      <dt class="col-md-6 text-end my-1">Accept
-                                                                            Application End Date</dt>
-                                                                        <dd class="col-md-6 my-1">  -  </dd> 
-                                                                    --}}
+                                                                  
                                                                     <div class="col-md-12">
                                                                     <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Coming Soon...</p>
                                                                     </div>

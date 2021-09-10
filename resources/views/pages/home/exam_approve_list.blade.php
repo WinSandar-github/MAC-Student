@@ -58,7 +58,7 @@
 
                                                 </div> --}}
                                                 <div class="card-body">
-                                                    <table id="tbl_application" class="table table-hover text-nowrap ">
+                                                    <table width="100%" id="tbl_approve_exam" class="table table-hover text-nowrap ">
                                                         <thead>
                                                             <tr>
                                                                 <th class="bold-font-weight" >No</th>
@@ -69,7 +69,7 @@
 
                                                             </tr>
                                                         </thead>
-                                                        <tbody id="tbl_app_list_body" class="hoverTable">
+                                                        <tbody id="tbl_approve_exam_body" class="hoverTable">
                                                         </tbody>
                                                     </table>
                                                             
