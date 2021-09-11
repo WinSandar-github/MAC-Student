@@ -251,7 +251,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="" readonly>
+                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                                     </div>
                                                 </div>
@@ -263,7 +263,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="အပိုင်း" id="" readonly>
+                                                            placeholder="အပိုင်း" id="part_no_self" readonly>
 
                                                     </div>
                                                 </div>
@@ -276,7 +276,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
 
                                                     </div>
                                                 </div>
@@ -367,7 +367,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="" readonly>
+                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" readonly>
 
                                                     </div>
                                                 </div>
@@ -379,7 +379,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="အပိုင်း" id="" readonly>
+                                                            placeholder="အပိုင်း" id="part_no_private" readonly>
 
                                                     </div>
                                                 </div>
@@ -392,7 +392,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" readonly>
 
                                                     </div>
                                                 </div>
@@ -474,7 +474,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="" readonly>
+                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" readonly>
 
                                                     </div>
                                                 </div>
@@ -486,7 +486,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="အပိုင်း" id="" readonly>
+                                                            placeholder="အပိုင်း" id="part_no_mac" readonly>
 
                                                     </div>
                                                 </div>
@@ -499,7 +499,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-6">
                                                         <input type="text" name="student_regno" class="form-control"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" readonly>
 
                                                     </div>
                                                 </div>
