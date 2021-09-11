@@ -79,7 +79,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
                                         <!-- <div class="row">
-                                                    <div class="col-md-1 col-form-label">{{ _('၁။') }}</div>
+                                                    <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
                                                     <div class="col-md-4 col-form-label">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                                     <div class="col-md-7">
                                                         <div class="row">
@@ -138,7 +138,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"
-                                                            id="da2_label1">{{ _('၁။') }}</label>
+                                                            id="da2_label1">{{ __('၁။') }}</label>
                                                         <label
                                                             class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-6">
@@ -160,7 +160,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div><br/> --}}
 
                                             <div class="row mb-3">
-                                                <div class="col-md-1 col-form-label" id="da2_label2">{{ _('၂။') }}
+                                                <div class="col-md-1 col-form-label" id="da2_label2">{{ __('၂။') }}
                                                 </div>
                                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                 <label
@@ -171,7 +171,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div><br />
 
                                             <div class="row">
-                                                <div class="col-md-1 col-form-label">{{ _('') }}</div>
+                                                <div class="col-md-1 col-form-label">{{ __('') }}</div>
                                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                                 <label
                                                     class="col-md-4 col-form-label">{{ __('ယခုဖြေဆိုမည့် Module') }}</label>
@@ -196,7 +196,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div><br />
 
                                             <div class="row">
-                                                {{-- <div class="col-md-1 col-form-label">{{ _('') }}</div>
+                                                {{-- <div class="col-md-1 col-form-label">{{ __('') }}</div>
                                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                                     <label class="col-md-3 col-form-label">{{ __('စာမေးပွဲကြေးပေးသွင်းပြီးသည့် ပြေစာအမှတ်') }}</label> --}}
                                                 <div class="col-md-7">
@@ -207,7 +207,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div><br />
 
                                             <div class="row" style="display:none;">
-                                                <div class="col-md-1 col-form-label">{{ _('') }}</div>
+                                                <div class="col-md-1 col-form-label">{{ __('') }}</div>
                                                 <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                                 <label class="col-md-3 col-form-label">{{ __('ရက်စွဲ') }}</label>
                                                 <div class="col-md-7 single-form">
