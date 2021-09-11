@@ -71,31 +71,7 @@
                     <br/>
                     <br/>
                 </div>
-                <div id="rejected" style="display:none">
-                    <div class="card text-white bg-dark my-3">
-                        <div class="card-body">
-                            <p class="card-text reject">Your PAPP registration form is rejected. Please update your information.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="pending" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-
-                        <div class="card-body">
-                            <p class="card-text">Your PAPP registration form is being checked.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="approved" style="display:none;">
-                        <div class="card text-white bg-primary my-3">
-
-                            <div class="card-body">
-                                <p class="card-text">Your PAPP registration form is approved.</p>
-                            </div>
-                        </div>
-
-                </div>
+                
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -111,7 +87,8 @@
                         <h5 class="card-title text-center">အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ရန် ကနဦးလျှောက်ထားခြင်း</h5>
                         <br/>
 
-                        <form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data">
+                        {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
+                        <form  method="post" id="papp_form" action="javascript:Papp_Submit();" class="needs-validation" enctype="multipart/form-data" novalidate="">
                             <fieldset id="fieldset" disabled="disabled">
                             <!-- <fieldset id="fieldset" > -->
 
@@ -494,7 +471,8 @@
 
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>
+                                        {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>--}}
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="papp_submit_btn" >{{ __('Submit') }}</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -589,6 +567,8 @@
 
 
     </div>
+
+    
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -604,6 +584,7 @@
 <script type="text/javascript">
    isLoginPAPP();
    Papp_feedback();
+   
    $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "d-M-Y",

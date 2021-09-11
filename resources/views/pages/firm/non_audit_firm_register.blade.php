@@ -80,7 +80,7 @@
             </div>
 
 			<div class="row" id="non_audit_container" style="display:none; margin-top:5%;">
-				<form method="post" enctype="multipart/form-data">
+				<form method="post" action="javascript:void();" enctype="multipart/form-data">
                     <div class="card border-success mb-3">
                         <div class="card-body text-success">
                             <div class="col-md-12">
@@ -147,6 +147,10 @@
                                         </td>
                                     </tr>
                                 </table>
+																<br>
+																<center>
+                                    <button id="non_audit_payment_btn" value="" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                                </center>
                                 <div class="row" id="check_non_audit_renew" style="display:none;text-align: center; margin-top: 2%;">
                                     <div class="form-group">
                                         <center>
@@ -161,7 +165,7 @@
             </div>
 
 			<div id="non_audit_app_form" style="display:block;">
-				<form id="non-audit-form" class="needs-validation" method="post" action="javascript:createNonAuditFirm();" enctype="multipart/form-data" novalidate>
+				<form id="non-audit-form" class="needs-validation" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
 					<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
 	            	<div class="row mt-5">
@@ -178,7 +182,7 @@
 									</div>
 								</div>
 							</div><br>
-							
+
 							<div class="card-header" style="" id="local_header">
 							<h4>Local Firm Information</h4>
 							</div>
@@ -198,7 +202,7 @@
 														<input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
 												</div>
 											</div>
-										</div><br>										
+										</div><br>
 
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('2.') }}</label>
@@ -208,7 +212,7 @@
 														<input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
 												</div>
 											</div>
-										</div><br>							
+										</div><br>
 
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('3.') }}</label>
@@ -229,7 +233,7 @@
 												</div>
 											</div>
 										</div><br>--}}
-										
+
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
 											<label class="col-md-5 col-form-label label_align_right">{{ __('Firm Name') }}</label>
@@ -243,7 +247,7 @@
 													<strong>{{ $message }}</strong>
 												</span>
 											@enderror
-										</div><br>	
+										</div><br>
 									</div>
 
 									<div class="col-md-4">
@@ -257,7 +261,7 @@
 									</div>
 								</div>
 
-														
+
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
@@ -302,7 +306,7 @@
 										</div>
 									</div>
 								</div><br>
-							
+
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
@@ -461,7 +465,7 @@
 									</div>
 								</div><br>
 
-								<div class='row organization_data'></div><br>							
+								<div class='row organization_data'></div><br>
 
 								<div id="sole-proprietorship">
 									<div class="row">
@@ -1124,7 +1128,7 @@
 									</div>
 
 								</div>
-								
+
 								<br>
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
@@ -1152,7 +1156,7 @@
 													<tfoot id="tbl_non_audit_number_foot">
 														<tr>
 															<td>Total</td>
-															<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>														
+															<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>
 														</tr>
 													</tfoot>
 												</table>
@@ -1186,7 +1190,7 @@
 															<td style="width:1000px;"><input type="text" class="form-control" name="other" id="other"></td>
 														</tr>
 													</tfoot>
-													
+
 												</table>
 											</div>
 										</div>
@@ -1279,7 +1283,7 @@
 											</div>
 										</div>
 									</div>
-								</div><br>		                  
+								</div><br>
 
 								<!-- Declaration  -->
 								<div class="row">
@@ -1294,13 +1298,13 @@
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-												(sole proprietor/ managing partner)  
+												(sole proprietor/ managing partner)
 										</div>
 									</div>
 								</div>
 
 								<div class="row  mb-3">
-									<label class="col-md-3 col-form-label">{{ __('') }}</label>								
+									<label class="col-md-3 col-form-label">{{ __('') }}</label>
 									<div class="col-md-9">
 										<div class="form-group">
 										representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
@@ -1308,8 +1312,8 @@
 									</div>
 								</div>
 
-								
-								
+
+
 								{{--<div class="row mb-3">
 										<div class="col-md-1"></div>
 										<label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
@@ -1331,6 +1335,90 @@
 			</form>
 		</div>
 	</div>
+
+	<!-- Email Verification Modal -->
+	<form method="post" id="non_audit_email_verify_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+				novalidate>
+			@csrf
+			<div class="modal fade" id="nonAuditFirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+											<center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+											<div class="mb-3" style="text-align:center;">
+													<label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+													<label>We have been sent verification code on your email.Please check your email.</label>
+											</div><br>
+												<div class="mb-3" style="text-align:center;">
+													<label style="margin-bottom: 2%;">Enter your verification code</label>
+													<center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+												</div>
+										</div>
+										<center>
+												<button type="submit" id="btn1" onclick="check_email_non_audit()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+												</button>
+										</center><br>
+										<div class="col-md-12" style="text-align:center;">
+											<p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+										</div><br><br>
+							</div>
+					</div>
+			</div>
+	</form>
+
+	<!-- Payment Modal -->
+	<form method="post" class="needs-validation" action="javascript:nonAuditPaymentSubmit();" enctype="multipart/form-data"
+				novalidate>
+			@csrf
+			<div class="modal fade" id="nonAuditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<br>
+									<div class="modal-body">
+											<div class="row justify-content-center">
+													<center>
+															<h4 style="margin-bottom:5%;">Non-Audit Firm Registration Form Fee - ****** MMK</h4>
+													</center>
+													<div class="col-sm-3 col-5">
+															<center>
+																	<img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+																			 data-value="CBPAY" name="payment_method" id="cb_img">
+															</center>
+															<br>
+													</div>
+													<div class="col-sm-3 col-5">
+															<center>
+																	<img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+																			 data-value="MPU" name="payment_method" id="mpu_img">
+															</center>
+															<br>
+													</div>
+													<div class="col-sm-3 col-5">
+															<center>
+																	<img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+																			 data-value="CASH" name="payment_method" id="cash_img">
+															</center>
+															<br>
+													</div>
+													<input type="hidden" name="payment_method" value="CASH">
+													<center>
+															<button type="submit" id="non_audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+													</center>
+											</div>
+									</div>
+									<br>
+							</div>
+					</div>
+			</div>
+	</form>
+
 </div>
 
 
@@ -1383,6 +1471,7 @@ nonAuditData();
 // pendingStatus();
 nonAuditFirmDateQuery();
 nonAuditVerifyStatus();
+checkPaymentNonAudit();
 
 </script>
 

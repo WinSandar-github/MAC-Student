@@ -1370,8 +1370,15 @@ loadSchoolList();
     });
     function allFilled(form_id) {
         var filled = true;
+        
         $(form_id+' input').each(function() {
-            if($(this).val() == ''  ) filled = false;
+            if($(this).attr('id')=="direct_access_no")
+            {   }
+            else if( $(this).attr('id')=="entry_success_no")
+            {   }
+            else{
+                if($(this).val() == ''  ) filled = false;
+            }
             //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
         });
         return filled;        

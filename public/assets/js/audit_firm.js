@@ -277,6 +277,29 @@ function createAuditFirm(){
             });
 }
 
+$( "#btn_submit_audit_firm" ).click(function() {
+    if(allFilled('#audit_firm_form')){
+        $('#auditFirmModal').modal('show');
+        send_email();
+    }
+});
+
+function check_email_audit()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        createAuditFirm();
+        $('#auditFirmModal').modal('hide');
+    }
+}
 
 function getAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
@@ -315,7 +338,7 @@ function getAuditData(){
               tr += "<td><input disabled type='text' name='bo_city[]' class='form-control' autocomplete='off' value="+item.city+"></td>";
               tr += "<td ><input disabled type='text' name='bo_state_region[]' class='form-control' autocomplete='off' value="+item.state_region+"></td>";
               tr += "<td ><input disabled type='text' name='bo_phone[]' class='form-control' autocomplete='off' value="+item.phones+"></td>";
-             
+
               tr += "<td ><input disabled type='text' name='bo_email[]' class='form-control' autocomplete='off' value="+item.email+"></td>";
               tr += "<td ><input disabled type='text' name='bo_website[]' class='form-control' autocomplete='off' value="+item.website+"></td>";
               tr += "<td ></td>" ;
@@ -331,13 +354,13 @@ function getAuditData(){
 
             if(element.organization_structure_id==1){
               $('#sole-proprietorship').css('display','block');
-              
+
             }else if(element.organization_structure_id==2){
               $('#partnership').css('display','block');
-              
+
             }else if(element.organization_structure_id==3){
               $('#company').css('display','block');
-              
+
             }
 
 
@@ -346,7 +369,7 @@ function getAuditData(){
             audit_file.forEach(function(item){
               if(item.ppa_certificate!="null"){
                 removeBracketed(item.ppa_certificate,"ppa_certis");
-                
+
               }else $(".ppa_certis").append("<span class='text-primary'>no file</span>");
 
               if(item.letterhead!="null"){
@@ -364,7 +387,7 @@ function getAuditData(){
               if(item.certi_or_reg!="null"){
                 removeBracketed(item.certi_or_reg,"certi_or_regs");
               }else $(".certi_or_regs").append("<span class='text-primary'>no file</span>");
-              
+
               if(item.deeds_memo!="null"){
                 removeBracketed(item.deeds_memo,"deeds_memos");
               }else $(".deeds_memos").append("<span class='text-primary'>no file</span>");
@@ -372,7 +395,7 @@ function getAuditData(){
               if(item.certificate_incor!="null"){
                 removeBracketed(item.certificate_incor,"certificate_incors");
               }else $(".certificate_incors").append("<span class='text-primary'>no file</span>");
-              
+
             });
 
 
@@ -380,7 +403,7 @@ function getAuditData(){
             var firm_owner_audit=element.firm_owner_audits;
             if(firm_owner_audit.length!=0){
               var count = 1;
-              
+
               firm_owner_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td>" + count+ "</td>";
@@ -397,7 +420,7 @@ function getAuditData(){
                   tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
-                
+
                 tr += "<td ></td>" ;
                 tr += "</tr>";
                 $("#tbl_partner_body").append(tr);
@@ -428,7 +451,7 @@ function getAuditData(){
             if(element.audit_total_staffs.length!=0 ){
               var audit_total_staff=element.audit_total_staffs;
               audit_total_staff.forEach(function(item){
-                
+
                 $("input[id=total_staff"+item.audit_total_staff_type_id +"]").val(item.total);
                 $("input[id=audit_staff"+item.audit_total_staff_type_id +"]").val(item.audit_staff);
                 $("input[id=nonaudit_staff"+item.audit_total_staff_type_id +"]").val(item.non_audit_staff);
@@ -437,10 +460,10 @@ function getAuditData(){
                 $("input[id=audit_staff"+item.audit_total_staff_type_id +"]").prop('disabled',true);
                 $("input[id=nonaudit_staff"+item.audit_total_staff_type_id +"]").prop('disabled',true);
 
-                
-              });              
+
+              });
             }
-            
+
 
 
             // Audit Staff
@@ -1309,3 +1332,53 @@ function checkPAPPExist(value,id){
 //               }
 //         });
 // }
+
+
+function checkPaymentAudit(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    // console.log(student)
+    $.ajax({
+        url: BACKEND_URL+"/check_payment_audit/"+student.id,
+        type: 'GET',
+        success: function(data){
+            // console.log(data);
+          var form_data = data;
+          form_data.forEach(function(element){
+                if(element.payment_method != null){
+                    $('#audit_payment_btn').prop('disabled', true);
+
+                }else{
+                    $('#audit_payment_btn').prop('disabled', false);
+                }
+          })
+        }
+    });
+}
+
+// click Go To Payment Button
+$("#audit_payment_btn").click(function() {
+    $('#auditpaymentModal').modal('show');
+});
+
+// click cash image
+$('#cash_img').click(function() {
+    $('#audit_pay_now_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#audit_pay_now_btn').prop('disabled', true);
+
+function auditPaymentSubmit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+    url: BACKEND_URL + "/approve_audit_payment/" + student.id,
+    type: 'patch',
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/";
+        },
+        error:function (message){
+        }
+    })
+}

@@ -129,6 +129,87 @@ function remove(id){
 //     });
 // }
 
+// paff
+$( "#papp_submit_btn" ).click(function() {
+    if(allFilled('#papp_form')){
+        $('#pappModal').modal('show');
+        send_email();
+    }
+});
+
+function check_email_papp()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        Papp_Submit();
+        $('#pappModal').modal('hide');
+    }
+}
+
+function checkPaymentPapp(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/check_payment_papp/"+student.id,
+            type: 'GET',
+            success: function(data){
+               
+              var form_data = data;
+              form_data.forEach(function(element){
+                
+                if(element.payment_method != null){
+                    $('#papp_modal').prop('disabled', true);
+                    loadPAPP();
+                }else{
+                    $('#papp_modal').prop('disabled', false);
+                }
+              })
+            }
+        });
+    }
+}
+// papp
+$("#papp_modal").click(function() {
+    $('#pappPaymentModal').modal('show');
+});
+
+$('#cash_img').click(function() {
+    $('#papp_btn').prop('disabled', false);
+});
+
+$('#btn_cbpay').prop('disabled', true);
+$('#btn_mpu').prop('disabled', true);
+$('#papp_btn').prop('disabled', true);
+
+$('#papp_btn').click(function () {
+    setTimeout(function () {
+        $('#pappPaymentModal').modal('hide');
+    }, 1000);
+});
+
+function pappPaymentSubmit(){
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+    url: BACKEND_URL + "/approve_papp/" + student.id,
+    type: 'patch',
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/student_papp_information";
+        },
+        error:function (message){
+        }
+    })
+}
+
 function Papp_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
@@ -247,53 +328,61 @@ function isLoginPAPP(){
 
 function Papp_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    $.ajax({
-        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
-        type: 'GET',
-        contentType: false,
-        processData: false,
-        success: function(cData){
-            console.log(cData.data);
-            var data=cData.data;
-            if(data!=null){
-                if(data.status==0 || data.renew_status==0)
-                {
-                    document.getElementById('pending').style.display='block';
-                }
-                else if(data.status==1 || data.renew_status==1)
-                {
-                    document.getElementById('approved').style.display='block';
-                    //document.getElementById('papp_renew_form').style.display='block';
-                    var accept=new Date(data.renew_accepted_date);
-                    var month=accept.getMonth()+1;
-                    var year=accept.getFullYear();
-                    var y=year+1;
-                    var now=new Date();
-                    $('#regno').val(data.id);
-                    $('#register_date').val(data.renew_accepted_date);
-                    if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                        $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                        $('.renew_submit').prop('disabled', false);
-
-                    }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                        $("#message").val("Your registeration will start in "+y+" year!");
-                        $('.renew_submit').prop('disabled', true);
-                    }else{
-                        $('#message').val("You are verified!");
-                        $('.renew_submit').prop('disabled', true);
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+            type: 'GET',
+            contentType: false,
+            processData: false,
+            success: function(cData){
+                console.log(cData.data);
+                var data=cData.data;
+                if(data!=null){
+                    if(data.status==0 || data.renew_status==0)
+                    {
+                        document.getElementById('pending').style.display='block';
+                        document.getElementById('approved').style.display='none';
+                        $('.register-btn').css('display','none');
+                        $('.payment-btn').css('display','none');
                     }
-
+                    else if(data.status==1 || data.renew_status==1)
+                    {
+                        document.getElementById('approved').style.display='block';
+                        document.getElementById('pending').style.display='none';
+                        $('.payment-btn').css('display','block');
+                        $('.register-btn').css({'display':'none'});
+                        $('.register-btn').removeClass('mt-4');
+                        var accept=new Date(data.renew_accepted_date);
+                        var month=accept.getMonth()+1;
+                        var year=accept.getFullYear();
+                        var y=year+1;
+                        var now=new Date();
+                        $('#regno').val(data.id);
+                        $('#register_date').val(data.renew_accepted_date);
+                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            $('.renew_submit').prop('disabled', false);
+    
+                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                            $("#message").val("Your registeration will start in "+y+" year!");
+                            $('.renew_submit').prop('disabled', true);
+                        }else{
+                            $('#message').val("You are verified!");
+                            $('.renew_submit').prop('disabled', true);
+                        }
+    
+                    }
+                    else if(data.status==2 || data.renew_status==2)
+                    {
+                        document.getElementById('rejected').style.display='block';
+                    }
                 }
-                else if(data.status==2 || data.renew_status==2)
-                {
-                    document.getElementById('rejected').style.display='block';
+                else{
+                    document.getElementById('papp_from').style.display='block';
                 }
             }
-            else{
-                document.getElementById('papp_from').style.display='block';
-            }
-        }
-    });
+        });
+    }
 }
 function loadCPAFFAge(id){
     $.ajax({
@@ -330,6 +419,7 @@ function loadPAPP(){
                     if(data.status==1 || data.renew_status==1)
                     {
                         document.getElementById('papp_initial').style.display='none';
+                        document.getElementById('approved').style.display='none';
                         document.getElementById('papp_renew_form').style.display='block';
                         var accept=new Date(data.renew_accepted_date);
                         var month=accept.getMonth()+1;

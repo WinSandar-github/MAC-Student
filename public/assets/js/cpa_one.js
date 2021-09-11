@@ -280,27 +280,81 @@ $('#cpa_register').submit(function(e){
   
     let batch_id = url.substring(url.lastIndexOf('/')+1);
 
-    var formData = new FormData(this);
+    //var formData = new FormData(this);
 
+    var send_data = new FormData();
+
+    var image = $("input[name=image]")[0].files[0];
+    var nrc_front = $("input[name=nrc_front]")[0].files[0];
+    var nrc_back = $("input[name=nrc_back]")[0].files[0];
+    var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
+
+    
+    // var certificate = $('#certificate0')[0].files[0];
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+
+    send_data.append('name_mm', $("input[name=name_mm]").val());
+    send_data.append('name_eng', $("input[name=name_eng]").val());
+    send_data.append('nrc_state_region', nrc_state_region);
+    send_data.append('nrc_township', nrc_township);
+    send_data.append('nrc_citizen', nrc_citizen);
+    send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
+    send_data.append('recommend_letter', recommend_letter);
+
+    send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('race', $("input[name=race]").val());
+    send_data.append('religion', $("input[name=religion]").val());
+    send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('current_address', $("input[name=current_address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
+    send_data.append('image', image);
+    send_data.append('registration_no', $("input[name=registration_no]").val());
+    // send_data.append('date', $("input[name=date]").val());
+    send_data.append('email', $("input[name=email]").val());
+    send_data.append('password', $("input[name=password]").val());
+
+    send_data.append('job_name', $("input[name=name]").val());
+    send_data.append('position', $("input[name=position]").val());
+    send_data.append('department', $("input[name=department]").val());
+    send_data.append('organization', $("input[name=organization]").val());
+    send_data.append('company_name', $("input[name=company_name]").val());
+    send_data.append('salary', $("input[name=salary]").val());
+    send_data.append('office_address', $("input[name=office_address]").val());
+
+    send_data.append('university_name', $("input[name=university_name]").val());
+    send_data.append('degree_name', $("input[name=degree_name]").val());
     certificate.map(function(){
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
-            formData.append('certificate[]',$(this).get(0).files[i]);
+            send_data.append('certificate[]',$(this).get(0).files[i]);
         }
     });
+    send_data.append('qualified_date', $("input[name=qualified_date]").val());
+    send_data.append('roll_number', $("input[name=roll_number]").val());
+
+
+    send_data.append('verify_status', $("input[name=verify_status]").val());
+    send_data.append('payment_method', $("input[name=payment_method]").val());
+    send_data.append('verify_code', $("input[name=verify_code]").val());
     
-    
-    formData.append('batch_id',batch_id)
-    show_loader(); 
+    send_data.append('batch_id',batch_id)
+    //show_loader(); 
 
         $.ajax({
             type: "POST",
             url: BACKEND_URL+"/cpa_register",
             contentType: false,
             processData: false,
-            data: formData,
+            data: send_data,
             success: function (data) {
                 console.log("cpaonedata",data);
-                EasyLoading.hide();
+                //EasyLoading.hide();
               console.log("response",data);
                 successMessage("You have successfully registerd!");
                
@@ -318,7 +372,7 @@ $('#cpa_register').submit(function(e){
                 }
             },
             error:function (message){
-                EasyLoading.hide();
+                //EasyLoading.hide();
             }
         })
 
@@ -539,4 +593,135 @@ function direct_or_da(){
 
     }
 
+}
+
+$( "#cpa_one_submit" ).click(function() {
+    if(allFilled('#cpa_one_form')){
+        $('#cpaEmailModal').modal('show');
+        send_email();
+    }
+});
+function allFilled(form_id) {
+    var filled = true;
+    $(form_id+' input').each(function() {
+        console.log($(this).attr('id'));
+        if($("#email").val() == ''){
+            filled = false;
+        }
+        if($("#password").val() == ''){
+            filled = false;
+        }
+        if($("#confirm_password").val() == ''){
+            filled = false;
+        }
+        if($("#profile_photo").val() == ''){
+            filled = false;
+        }
+        if($("#name_mm").val() == ''){
+            filled = false;
+        }
+        if($("#name_eng").val() == ''){
+            filled = false;
+        }
+        if($("#nrc_state_region").val() == ''){
+            filled = false;
+        }
+        if($("#nrc_township").val() == ''){
+            filled = false;
+        }
+        if($("#nrc_citizen").val() == ''){
+            filled = false;
+        }
+        if($("#nrc_number").val() == ''){
+            filled = false;
+        }
+        if($("#nrc_front").val() == ''){
+            filled = false;
+        }
+        if($("#nrc_back").val() == ''){
+            filled = false;
+        }
+        if($("#father_name_mm").val() == ''){
+            filled = false;
+        }
+        if($("#father_name_eng").val() == ''){
+            filled = false;
+        }
+        if($("#race").val() == ''){
+            filled = false;
+        }
+        if($("#religion").val() == ''){
+            filled = false;
+        }
+        if($("#date_of_birth").val() == ''){
+            filled = false;
+        }
+        if($("#phone").val() == ''){
+            filled = false;
+        }
+        if($("#address").val() == ''){
+            filled = false;
+        }
+        if($("#current_address").val() == ''){
+            filled = false;
+        }
+        if($("#image").val() == ''){
+            filled = false;
+        }
+        if($("#name").val() == ''){
+            filled = false;
+        }
+        if($("#position").val() == ''){
+            filled = false;
+        }
+        if($("#department").val() == ''){
+            filled = false;
+        }
+        if($("#organization").val() == ''){
+            filled = false;
+        }
+        if($("#company_name").val() == ''){
+            filled = false;
+        }
+        if($("#salary").val() == ''){
+            filled = false;
+        }
+        if($("#office_address").val() == ''){
+            filled = false;
+        }
+        if($("#degree_name").val() == ''){
+            filled = false;
+        }
+        if($("#university_name").val() == ''){
+            filled = false;
+        }
+        if($("#roll_number").val() == ''){
+            filled = false;
+        }
+        if($("#qualified_date").val() == ''){
+            filled = false;
+        }
+        if($("#certificate0").val() == ''){
+            filled = false;
+        }
+        
+       
+    });
+    return filled;        
+}
+function check_email_cpa()
+{
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if(verify_code != code){
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    }else{
+        $('#cpaPaymentModal').modal('show');
+        $('#cpaEmailModal').modal('hide');
+    }
 }
