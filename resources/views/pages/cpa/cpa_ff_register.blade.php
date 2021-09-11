@@ -249,7 +249,7 @@
                                         
                                         <div class="row mb-2">
                                             <div class="col-md-4">
-                                                <input type="radio" name="education" value="3" onclick="getCPAEducation()">
+                                                <input type="radio" name="education" id="education" value="3" onclick="getCPAEducation()">
                                                 <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                             </div>
                                             
@@ -265,7 +265,7 @@
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>                                                           
                                             </div>
                                             <div class="row mb-2" id="degree_year0">  
@@ -274,7 +274,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
                                                 </div>                                                           
                                             </div>
                                             
@@ -284,7 +284,7 @@
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
                                                 </div> 
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >

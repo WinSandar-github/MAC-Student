@@ -97,7 +97,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file['+count+']" required="">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
@@ -252,14 +252,35 @@ function createCPAFFRegister(){
     var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
     var passport_image  =   $("input[name=passport_image]")[0].files[0];
 
+    var cpa_edu         = document.getElementById("cpa_edu");
+    var ra_edu          = document.getElementById("ra_edu");
+    var education       = document.getElementById("education");
+
     var cpa_part_2      = document.getElementById("cpa_part_2_check");
     var qt_pass         = document.getElementById("qt_pass_check");
 
     var send_data = new FormData();
     send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
-    send_data.append('cpa', cpa);
-    send_data.append('ra', ra);
+
+    if(cpa_edu.checked==true){
+        send_data.append('cpa', cpa);
+    }
+    else if(ra_edu.checked==true){
+        send_data.append('ra', ra);
+    }else{
+        $('input[name="degree_name[]"]').map(function(){
+            send_data.append('degree_name[]',$(this).val());
+        });
+        $('input[name="degree_pass_year[]"]').map(function(){
+            send_data.append('degree_pass_year[]',$(this).val());
+        });
+        $('input[name="degree_file[]"]').map(function(){
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                send_data.append('degree_file[]',$(this).get(0).files[i]);
+            }
+        });
+    }    
     // send_data.append('foreign_degree', foreign_degree);
 
     // for (var i = 0; i < count; i++) {
