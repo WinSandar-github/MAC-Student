@@ -377,36 +377,42 @@ function createDaTwoMac()
     });
 }
 
-function unique_email(){
-    var send_data = new FormData();
-    send_data.append('email',$("input[name='email']").val());
-    send_data.append('nrc_number',$("input[name='nrc_number']").val());
-    $.ajax({
-        url: BACKEND_URL+"/unique_email",
-        type: 'post',
-        data:send_data,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            console.log(result)
-            if(result){
-                Swal.fire("Email or NRC has been used, please check again!");
-                $('#exampleModal').modal('hide');
-            }else{
-                $('#exampleModal').modal('show');
-                send_email();
-                return true; 
-            }
-        }
-    });
-}
-
 $( "#da_submit" ).click(function() {
     if(allFilled('#da_one_app_form')){
-        $('#exampleModal').modal('show');
-        send_email();
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
+                }
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#exampleModal').modal('show');
+                    send_email();                   
+                }
+            }
+        });
     }
 });
+
+// $( "#da_submit" ).click(function() {
+//     if(allFilled('#da_one_app_form')){
+//         $('#exampleModal').modal('show');
+//         send_email();
+//     }
+// });
 function allFilled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {
