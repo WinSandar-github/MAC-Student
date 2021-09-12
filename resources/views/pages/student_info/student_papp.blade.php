@@ -71,33 +71,7 @@
                     <br/>
                     <br/>
                 </div>
-                <div id="rejected" style="display:none">
-                    <div class="card text-white bg-dark my-3">
-                        <div class="card-body">
-                            <p class="card-text reject">Your PAPP registration form is rejected. Please update your information.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="pending" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-
-                        <div class="card-body">
-                            <p class="card-text">Your PAPP registration form is being checked.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="approved" style="display:none;">
-                    <div class="card text-white bg-primary my-3">
-
-                        <div class="card-body">
-                            <p class="card-text">Your PAPP registration form is approved.</p>
-                        </div>
-                    </div>
-                    <center>
-                        <button id="papp_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
-                    </center>
-                </div>
+                
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -114,7 +88,7 @@
                         <br/>
 
                         {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
-                        <form  method="post" id="papp_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate="">
+                        <form  method="post" id="papp_form" action="javascript:Papp_Submit();" class="needs-validation" enctype="multipart/form-data" novalidate="">
                             <fieldset id="fieldset" disabled="disabled">
                             <!-- <fieldset id="fieldset" > -->
 
@@ -123,13 +97,13 @@
                                     <div class="row">
                                         <div class="col-md-1">
                                             <div class="single-form">
-                                                <label class="col-form-label">{{ _('၁။') }}</label>
+                                                <label class="col-form-label">{{ __('၁။') }}</label>
 
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="single-form">
-                                                <label class="col-form-label" style="padding-left: 37px;">{{ _('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
+                                                <label class="col-form-label" style="padding-left: 37px;">{{ __('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
 
                                             </div>
                                         </div>
@@ -290,7 +264,7 @@
                                 <br/>
                                 <div class="row">
                                     <div class="col-md-1">
-                                            <label class="">{{ _('၂။') }}</label>
+                                            <label class="">{{ __('၂။') }}</label>
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
@@ -308,13 +282,13 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၃။') }}</label>
+                                            <label class="col-form-label">{{ __('၃။') }}</label>
 
                                         </div>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
+                                            <label class="col-form-label">{{ __('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
 
                                         </div>
                                     </div>
@@ -390,13 +364,13 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၄။') }}</label>
+                                            <label class="col-form-label">{{ __('၄။') }}</label>
 
                                         </div>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျက် လျှောက်ထားပါသည်-') }}</label>
+                                            <label class="col-form-label">{{ __('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျက် လျှောက်ထားပါသည်-') }}</label>
 
                                         </div>
                                     </div>
@@ -594,88 +568,7 @@
 
     </div>
 
-    <!-- Modal -->
-    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="pappModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
-                        <div class="mb-3" style="text-align:center;">
-                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
-                            <label>We have been sent verification code on your email.Please check your email.</label>
-                        </div><br>
-                          <div class="mb-3" style="text-align:center;">
-                            <label style="margin-bottom: 2%;">Enter your verification code</label>
-                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
-                          </div>
-                      </div>
-                      <center>
-                          <button type="submit" id="btn1" onclick="check_email_papp()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
-                          </button>
-                      </center><br>
-                      <div class="col-md-12" style="text-align:center;">
-                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
-                      </div><br><br>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--Modal-->
-    <form method="post" class="needs-validation" action="javascript:pappPaymentSubmit();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="pappPaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">PAPP Registeration Form Fee - ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="papp_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>
+    
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -691,7 +584,7 @@
 <script type="text/javascript">
    isLoginPAPP();
    Papp_feedback();
-   checkPaymentPapp();
+   
    $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "d-M-Y",

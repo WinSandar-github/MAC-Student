@@ -147,38 +147,43 @@ function check_email_teacher()
 
 function teacherPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    $.ajax({
-    url: BACKEND_URL + "/approve_teacher/" + student.id,
-    type: 'patch',
-    success: function (data) {
-            successMessage("Your payment is successfully");
-            location.href = FRONTEND_URL + "/";
-        },
-        error:function (message){
-        }
-    })
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL + "/approve_teacher/" + student.id,
+            type: 'patch',
+            success: function (data) {
+                    successMessage("Your payment is successfully");
+                    location.href = FRONTEND_URL + "/";
+                },
+                error:function (message){
+                }
+            })
+    }
+    
 }
 
 function checkPaymentTeacher(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
-    $.ajax({
-        url: BACKEND_URL+"/check_payment_teacher/"+student.id,
-        type: 'GET',
-        success: function(data){
-            // console.log(data);
-          var form_data = data;
-          form_data.forEach(function(element){
-            console.log(element.payment_method)
-                if(element.payment_method != null){
-                    $('#teacher_modal').prop('disabled', true);
-
-                }else{
-                    $('#teacher_modal').prop('disabled', false);
-                }
-          })
-        }
-    });
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/check_payment_teacher/"+student.id,
+            type: 'GET',
+            success: function(data){
+                // console.log(data);
+              var form_data = data;
+              form_data.forEach(function(element){
+                console.log(element.payment_method)
+                    if(element.payment_method != null){
+                        $('#teacher_modal').prop('disabled', true);
+                        loadRenewTeacher();
+                    }else{
+                        $('#teacher_modal').prop('disabled', false);
+                    }
+              })
+            }
+        });
+    }
+    
 }
 
 function createTeacherRegister(){
@@ -188,7 +193,7 @@ function createTeacherRegister(){
         return;
     }
     let formData = new FormData($( "#teacher_register_form" )[0]);
-    // formData.append('nrc_township',$("#nrc_township + .nice-select span").text());
+    
 
       show_loader()
 
@@ -218,26 +223,27 @@ function createTeacherRegister(){
 
 function teacher_reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
+   if(student!=null){
     $.ajax({
         url: BACKEND_URL+"/getTeacherStatus/"+student.id,
         type: 'GET',
         success: function(data){
-             //console.log(data);
+           
           var form_data = data;
           form_data.forEach(function(element){
-            // console.log(element.approve_reject_status);
+            
                 if(element.approve_reject_status == 0){
-                    // showPending();
+                    
                     $('#teacher_pending').css('display','block');
-                    $('#teacher_form').css('display','none');
-
+                    $('#teacher_approve').css('display','none');
+                    $('.register-btn').css('display','none');
+                    $('.payment-btn').css('display','none');
                 }else if(element.approve_reject_status == 1){
-
-
                     $('#teacher_approve').css('display','block');
-                    $('#teacher_form').css('display','none');
+                    $('.payment-btn').css('display','block');
                     $('#teacher_pending').css('display','none');
+                    $('.register-btn').css({'display':'none'});
+                    $('.register-btn').removeClass('mt-4');
                 }
                 else{
                     //
@@ -245,17 +251,22 @@ function teacher_reg_feedback(){
           })
         }
     });
+   }
+    
 }
 function loadRenewTeacher(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
+    
     if(student!=null){
         $.ajax({
             type : 'GET',
             url : BACKEND_URL+"/teacher/"+student.teacher_id,
             success: function (result) {
                 var teacher=result.data;
+                
                 if(teacher.approve_reject_status==1){
                   $('#teacher_initial').css('display','none');
+                  $('#teacher_approve').css('display','none');
                   $('#teacher_renew').css('display','block');
                         var accept=new Date(teacher.renew_date);
                         var month=accept.getMonth()+1;
