@@ -676,7 +676,7 @@
     })
     loadCourse();
     loadExam();
-    // reg_feedback();
+    reg_feedback();
    
     $("input[name='mac_date']").flatpickr({
         enableTime: false,
