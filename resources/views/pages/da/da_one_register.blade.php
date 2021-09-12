@@ -660,6 +660,7 @@
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
+            console.log(data.data)
             if(data){
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 console.log(current_stu_course)
