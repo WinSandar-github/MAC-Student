@@ -118,8 +118,8 @@
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
                     <form method="post" id="cpaff_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
-                    <fieldset id="fieldset" disabled>
-                    <!-- <fieldset id="fieldset" > -->
+                    <!-- <fieldset id="fieldset" disabled> -->
+                    <fieldset id="fieldset" >
                         <input type="hidden" name="status">
                         <div class="row">
                             <div class="col-md-7">
@@ -274,7 +274,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
                                                 </div>                                                           
                                             </div>
                                             
