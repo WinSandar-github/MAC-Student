@@ -217,7 +217,7 @@
                                                 
                                                 <div class="row">
                                                     <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                                    <label for="" class="col-md-5 col-form-label">လူမျိုး/ဘာသာ</label>
+                                                    <label for="" class="col-md-5 col-form-label">လူမျိုး</label>
                                                     <div class="col-md-6">
                                                         <input type="text" name="race" class="form-control" readonly>
                                                     </div>
@@ -540,7 +540,7 @@
                                                 
                                                 <div class="row">
                                                     <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                                    <label for="" class="col-md-5 col-form-label">လူမျိုး/ဘာသာ</label>
+                                                    <label for="" class="col-md-5 col-form-label">လူမျိုး</label>
                                                     <div class="col-md-6">
                                                         <input type="text" name="race" class="form-control" readonly>
                                                     </div>
@@ -859,7 +859,7 @@
                                                 
                                                 <div class="row">
                                                     <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                                    <label for="" class="col-md-5 col-form-label">လူမျိုး/ဘာသာ</label>
+                                                    <label for="" class="col-md-5 col-form-label">လူမျိုး</label>
                                                     <div class="col-md-6">
                                                         <input type="text" name="race" class="form-control" readonly>
                                                     </div>
@@ -1340,7 +1340,7 @@
                 $("input[name='date_of_birth']").val(data.data.date_of_birth);
                 $("input[name='education']").val(data.data.student_education_histroy.degree_name);
                 $("input[name='position']").val(data.data.student_job.position);
-                $("input[name='department']").val(data.data.student_job.organization);
+                $("input[name='department']").val(data.data.student_job.department);
                 $("input[name='office_address']").val(data.data.student_job.office_address);
                 $("input[name='current_address']").val(data.data.current_address);
                 $("input[name='address']").val(data.data.address);
@@ -1351,7 +1351,7 @@
                     $("#no_private").prop("checked", true);
                     $("#no_mac").prop("checked", true);
                 }else{
-                    $("#yes").prop("checked", true);
+                    $("#yes_self").prop("checked", true);
                     $("#yes_private").prop("checked", true);
                     $("#yes_mac").prop("checked", true);
                 }

@@ -74,10 +74,10 @@
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                                 <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" name="name_mm" class="form-control" readonly>
+                                                    <input type="text" name="name_mm" id="name_mm" class="form-control" readonly>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" name="name_eng" class="form-control" readonly>
+                                                    <input type="text" name="name_eng" id="name_eng" class="form-control" readonly>
                                                 </div>
                                             </div>
                                             <br>
@@ -88,13 +88,13 @@
                                                 <div class="col-md-8">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                         <div class="col-md-2 col-5 pr-1">
-                                                            <input type="text" name="nrc_state_region" class="form-control" readonly>
+                                                            <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" readonly>
                                                         </div>
                                                         <div class="col-md-3 col-7 px-1">
-                                                            <input type="text" name="nrc_township" class="form-control" readonly>
+                                                            <input type="text" name="nrc_township" id="nrc_township" class="form-control" readonly>
                                                         </div>
                                                         <div class="col-md-2 col-5 px-1">
-                                                            <input type="text" name="nrc_citizen" class="form-control" readonly>
+                                                            <input type="text" name="nrc_citizen" id="nrc_citizen" class="form-control" readonly>
                                                         </div>
 
                                                         <div class="col-md-5 col-7 pl-1">
@@ -114,10 +114,10 @@
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
                                                 <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" name="father_name_mm" class="form-control" readonly>
+                                                    <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" readonly>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" name="father_name_eng" class="form-control" readonly>
+                                                    <input type="text" name="father_name_eng" id="father_name_eng" class="form-control" readonly>
                                                 </div>
                                             </div>
                                             <br>
@@ -135,7 +135,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
                                         <label for="" class="col-md-5 col-form-label">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="personal_no" class="form-control" readonly>
+                                            <input type="text" name="personal_no" id="personal_no" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <br>
@@ -144,7 +144,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                         <label for="" class="col-md-5 col-form-label">မွေးသက္ကရာဇ်</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="date_of_birth" class="form-control" readonly>
+                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <br>
@@ -153,7 +153,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                         <label for="" class="col-md-5 col-form-label">ဆက်သွယ်ရန်လိပ်စာ</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="address" class="form-control" readonly>
+                                            <input type="text" name="address" id="address" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <br>
@@ -162,7 +162,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
                                         <label for="" class="col-md-5 col-form-label">ဖုန်းနံပါတ်</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="phone" class="form-control" readonly>
+                                            <input type="text" name="phone" id="phone" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <br>
@@ -171,7 +171,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                         <label for="" class="col-md-5 col-form-label">သင်တန်းတက်ရောက်သည့်နေရာ</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="class_address" class="form-control" readonly>
+                                            <input type="text" name="class_address" id="class_address" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <br>
@@ -198,7 +198,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" class="form-control" value="{{ old('private_school_name') }}">
+                                                    <input type="text" placeholder="ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်" name="private_school_name" id="private_school_name" class="form-control" value="{{ old('private_school_name') }}">
                                                 </div>
                                             </td>
                                         </tr>
@@ -218,7 +218,7 @@
                                         <label class="col-md-1 col-form-label">(က)</label>
                                         <label class="col-md-5 col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" required>
+                                            <input type="text" name="date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" required>
                                         </div>
                                     </div>
 
@@ -287,7 +287,7 @@
                                             </td>
                                             <td width="55%">
                                                 <div class="single-form">
-                                                    <input type="text" name="invoice_date" class="form-control" placeholder="dd/mm/yyyy">
+                                                    <input type="text" name="invoice_date" id="invoice_date" class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </td>
                                         </tr>
@@ -393,7 +393,7 @@
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
-            console.log(data.data)
+            console.log(data.data);
             if(data){
                 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
