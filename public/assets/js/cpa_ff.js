@@ -87,7 +87,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="type"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">'+
+                '<input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">'+
             '</div>'+
         '</div>'+
 
@@ -104,12 +104,13 @@ function AddCPAFFDegree(){
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
-        '</div>');
+        '</div>'
+    );
 
-        $('input[name="degree_pass_year'+count+'"]').flatpickr({
-            enableTime: false,
-            dateFormat: "M-Y",
-            allowInput: true,
+    $('.degree_pass_year').flatpickr({
+        enableTime: false,
+        dateFormat: "M-Y",
+        allowInput: true,
     });
     count++;
 
@@ -295,16 +296,25 @@ function createCPAFFRegister(){
     });
 
     if(cpa_part_2.checked==true){
-        send_data.append('cpa_part_2',1);
-        send_data.append('qt_pass',0);
+        send_data.append('pass_batch_no',$('input[name="pass_batch_no"]').val());
+        send_data.append('pass_personal_no',$('input[name="pass_personal_no"]').val());
     }
     else if(qt_pass.checked==true){
-        send_data.append('cpa_part_2',0);
-        send_data.append('qt_pass',1);
-    }else{
-        send_data.append('cpa_part_2',0);
-        send_data.append('qt_pass',0);
+        send_data.append('qt_pass_date',$('input[name="qt_pass_date"]').val());
+        send_data.append('qt_pass_seat_no',$('input[name="qt_pass_seat_no"]').val());
     }
+
+    // if(cpa_part_2.checked==true){
+    //     send_data.append('cpa_part_2',1);
+    //     send_data.append('qt_pass',0);
+    // }
+    // else if(qt_pass.checked==true){
+    //     send_data.append('cpa_part_2',0);
+    //     send_data.append('qt_pass',1);
+    // }else{
+    //     send_data.append('cpa_part_2',0);
+    //     send_data.append('qt_pass',0);
+    // }
 
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
