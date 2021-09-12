@@ -54,9 +54,12 @@ function studentLogin(){
 
 function check_login(){
 
+
     if(student_name == null){
+         
          $('.signed_in').attr('style','display:none !important');
     }else{
+         
          $('.after_signin').attr('style','display:none !important');
         $('.student_name').html("");
         $('.student_name').append(student_name);
