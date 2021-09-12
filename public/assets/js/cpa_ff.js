@@ -296,16 +296,25 @@ function createCPAFFRegister(){
     });
 
     if(cpa_part_2.checked==true){
-        send_data.append('cpa_part_2',1);
-        send_data.append('qt_pass',0);
+        send_data.append('pass_batch_no',$('input[name="pass_batch_no"]').val());
+        send_data.append('pass_personal_no',$('input[name="pass_personal_no"]').val());
     }
     else if(qt_pass.checked==true){
-        send_data.append('cpa_part_2',0);
-        send_data.append('qt_pass',1);
-    }else{
-        send_data.append('cpa_part_2',0);
-        send_data.append('qt_pass',0);
+        send_data.append('qt_pass_date',$('input[name="qt_pass_date"]').val());
+        send_data.append('qt_pass_seat_no',$('input[name="qt_pass_seat_no"]').val());
     }
+
+    // if(cpa_part_2.checked==true){
+    //     send_data.append('cpa_part_2',1);
+    //     send_data.append('qt_pass',0);
+    // }
+    // else if(qt_pass.checked==true){
+    //     send_data.append('cpa_part_2',0);
+    //     send_data.append('qt_pass',1);
+    // }else{
+    //     send_data.append('cpa_part_2',0);
+    //     send_data.append('qt_pass',0);
+    // }
 
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
