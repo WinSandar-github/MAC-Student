@@ -76,7 +76,7 @@
 
                 <!-- Header Logo Start -->
                 <div class="header-logo">
-                    <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img src="{{ asset('assets') }}/images/maclogo1.png" alt="Logo"> <label for="" class="" style="font-weight:bold;font-size:20px;">MAC</label> </a>
+                    <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img  src="{{ asset('assets') }}/images/maclogo1.png" alt="Logo"> <label for="" class="" style="font-weight:bold;font-size:20px;">MAC</label> </a>
                 </div>
                 <!-- Header Logo End -->
 
@@ -127,9 +127,9 @@
                     </ul>
 
                 </div>
-                <!-- Header Menu End -->
-                                <!-- Header Sing In & Up Start -->
+              
 
+                <!-- Header Sing In & Up Start -->
                 <div class="header-sign-in-up d-none d-lg-block signed_in"  >
                     <ul>
                         <li>
@@ -147,7 +147,6 @@
 
                 </div>
 
-                <!-- Header Sing In & Up Start -->
                 <div class="header-sign-in-up d-none d-lg-block after_signin" >
                     <ul>
                         <li><a class="sign-in" href="{{url('login')}}" >Sign In</a></li>
@@ -190,27 +189,44 @@
     </div>
     <!-- Mobile Top Medal End -->
 
+    
+
     <!-- Mobile Sing In & Up Start -->
     <div class="mobile-sign-in-up">
-        <ul>
+        <!-- <ul>
             <li><a class="sign-in" href="login.html">Sign In</a></li>
             <li><a class="sign-up" href="register.html">Sign Up</a></li>
-        </ul>
+        </ul> -->
+        <div class=" signed_in"  >
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                            <span><a class="student_name sign-in"></a></span>
+                            <div class="dropdown-content">
+                                <a onclick="logout('{{ route("home") }}')">Logout</a>
+                            </div>
+
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class=" after_signin" >
+                    <ul>
+                        <li><a class="sign-in" href="{{url('login')}}" >Sign In</a></li>
+
+                    </ul>
+                </div>
     </div>
     <!-- Mobile Sing In & Up End -->
 
     <!-- Mobile Menu Start -->
     <div class="mobile-menu-items">
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li>
-                <a href="#">Courses</a>
-                    <ul class="sub-menu">
-                        <li><a href="courses.html">Diploma in Accountancy (DA)</a></li>
-                        <li><a href="courses-details.html">Certified Public Accountant (CPA)</a></li>
-                    </ul>
-            </li>
-            <li><a href="{{url('contact')}}">Contact</a></li>
+        <ul class="nav-menu" id='mnavbar'>
+            
         </ul>
 
     </div>
