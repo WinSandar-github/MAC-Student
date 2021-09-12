@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="comment-form study" style="display:none;">
+                <div class="comment-form study" >
                     <input type="hidden" name="form_type" id="form_type">
                     <div class="form-wrapper">
                         <div class="">
@@ -123,7 +123,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                                     <label class="col-md-5 col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control" name="student_regno" readonly>
+                                                        <input type="text" class="form-control sr_no" name="student_regno"  readonly>
                                                         
                                                     </div>
                                                 </div>
@@ -153,21 +153,22 @@
                                                 <div class="row mb-2">
                                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>                                                        
                                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
+                                                    <label class="col-md-4 col-form-label">{{ __('တက်ရောက်မယ်သင်တန်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no_mac" id="batch_no_mac" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
+                                                            <input type="text" name="part_no_mac" id="part_no_mac" class="form-control course_name" disabled placeholder="အပိုင်း" id="" required>
                                                         
                                                     </div>
+                                                    
                                                 </div>
 
                                                 <div class="row mb-2">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>                                                        
                                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
+                                                    <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no_mac" id="part_no_mac" class="form-control" placeholder="အပိုင်း" id="" required>
+                                                            <input type="text" name="batch_no_mac" id="batch_no_mac" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -228,17 +229,18 @@
                                                     <label class="col-md-5 col-form-label">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>                                                       
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text"  class="form-control" name="student_regno" readonly>                                                        
+                                                            <input type="text"  class="form-control sr_no" name="student_regno" readonly>                                                        
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-2">
                                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>                                                        
                                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
+                                                   
+                                                    <label class="col-md-4 col-form-label">{{ __('တက်ရောက်မယ်သင်တန်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no_private" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
+                                                            <input type="text" name="part_no_mac" id="part_no_mac" class="form-control course_name" disabled placeholder="အပိုင်း" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -246,10 +248,10 @@
                                                 <div class="row mb-2">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>                                                        
                                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
+                                                    <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no_private" class="form-control" placeholder="အပိုင်း" id="" required>
+                                                            <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -328,7 +330,7 @@
                                                     <label class="col-md-5 col-form-label">တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>                                                       
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text"  class="form-control" name="student_regno" readonly>                                                        
+                                                            <input type="text"  class="form-control sr_no" name="student_regno " readonly>                                                        
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -404,21 +406,23 @@
                                                 <div class="row mb-2">
                                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>                                                        
                                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
+                                                   <label class="col-md-4 col-form-label">{{ __('တက်ရောက်မယ်သင်တန်း') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="batch_no_self" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
+                                                            <input type="text" name="part_no_self" class="form-control course_name" disabled placeholder="အပိုင်း" id="" required>
                                                         
                                                     </div>
+                                                
                                                 </div>
 
                                                 <div class="row mb-2">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>                                                        
                                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                                    <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
+                                                    
+                                                    <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                                     
                                                     <div class="col-md-6">
-                                                            <input type="text" name="part_no_self" class="form-control" placeholder="အပိုင်း" id="" required>
+                                                            <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
                                                         
                                                     </div>
                                                 </div>
@@ -653,9 +657,21 @@
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
         
+        selectedRegistration(urlParams.get("study_type"));
 
+        get_student_info(student_id).then(data => {
+            console.log(data.data)
+            if(data){
+                let current_stu_course = data.data.student_course_regs.slice(-1);
+                console.log(current_stu_course)
+              
+                $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                $('.course_name').val(current_stu_course[0].batch.course.name);
+                $('.batch_no').val(current_stu_course[0].batch.number);
 
-        selectedRegistration(urlParams.get("study_type"))
+        }
+
+        })
         
     })
     loadCourse();
