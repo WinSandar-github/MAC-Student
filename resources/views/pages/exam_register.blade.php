@@ -67,9 +67,119 @@
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+                                    <div class="row">
+                                        <div class="col-md-8">
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="name_mm" class="form-control" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="name_eng" class="form-control" readonly>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                <div class="col-md-8">
+                                                    <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                                        <div class="col-md-2 col-5 pr-1">
+                                                            <input type="text" name="nrc_state_region" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-md-3 col-7 px-1">
+                                                            <input type="text" name="nrc_township" class="form-control" readonly>
+                                                        </div>
+                                                        <div class="col-md-2 col-5 px-1">
+                                                            <input type="text" name="nrc_citizen" class="form-control" readonly>
+                                                        </div>
+
+                                                        <div class="col-md-5 col-7 pl-1">
+                                                            <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆"
+                                                                id="nrc_number" pattern=".{6,6}" class="form-control"
+                                                                oninput="this.value= en2mm(this.value);"
+                                                                maxlength="6" minlength="6" placeholder=""
+                                                                style="height: 38px" value="{{ old('nrc_number') }}" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="father_name_mm" class="form-control" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="father_name_eng" class="form-control" readonly>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-7 pull-right">
+                                                <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="" accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="personal_no" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label">မွေးသက္ကရာဇ်</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="date_of_birth" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label">ဆက်သွယ်ရန်လိပ်စာ</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="address" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label">ဖုန်းနံပါတ်</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="phone" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label">သင်တန်းတက်ရောက်သည့်နေရာ</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="class_address" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
-                                            <label class="col-md-6 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                            <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                            <label class="col-md-5 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             <div class="col-md-6">
                                                 <div class="form-group">                                
                                                     <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
@@ -276,6 +386,42 @@
         }
 
         loadSchoolList();
+
+        const queryString = location.search;
+        const urlParams = new URLSearchParams(queryString);
+        
+        selectedRegistration(urlParams.get("study_type"));
+
+        get_student_info(student_id).then(data => {
+            console.log(data.data)
+            if(data){
+                
+                document.getElementById('previewImg').src = BASE_URL + data.data.image;
+                $("input[name='name_mm']").val(data.data.name_mm);
+                $("input[name='name_eng']").val(data.data.name_eng);
+                $("input[name='nrc_state_region']").val(data.data.nrc_state_region);
+                $("input[name='nrc_township']").val(data.data.nrc_township);
+                $("input[name='nrc_citizen']").val(data.data.nrc_citizen);
+                $("input[name='nrc_number']").val(data.data.nrc_number);
+                $("input[name='father_name_mm']").val(data.data.father_name_mm);
+                $("input[name='father_name_eng']").val(data.data.father_name_eng);
+                $("input[name='date_of_birth']").val(data.data.date_of_birth);
+                $("input[name='address']").val(data.data.address);
+                $("input[name='phone']").val(data.data.phone);
+
+                $("input[name='personal_no']").val(data.data.student_register[0].personal_no);
+
+                if(data.data.student_register[0].type == 0){
+                    $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
+                }else if(data.data.student_register[0].type == 1){
+                    $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
+                }else{
+                    $("input[name='class_address']").val("စာရင်းကောင်စီ");
+                }
+
+            }
+
+        })
     }); 
 
     
