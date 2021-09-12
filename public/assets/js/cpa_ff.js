@@ -87,7 +87,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="type"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">'+
+                '<input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">'+
             '</div>'+
         '</div>'+
 
@@ -104,12 +104,13 @@ function AddCPAFFDegree(){
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
-        '</div>');
+        '</div>'
+    );
 
-        $('input[name="degree_pass_year'+count+'"]').flatpickr({
-            enableTime: false,
-            dateFormat: "M-Y",
-            allowInput: true,
+    $('.degree_pass_year').flatpickr({
+        enableTime: false,
+        dateFormat: "M-Y",
+        allowInput: true,
     });
     count++;
 
