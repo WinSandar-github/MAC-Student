@@ -78,7 +78,7 @@
                     <br/>  
                     <br/>  
                 </div>       
-                <div id="rejected" style="display:none">
+                <!-- <div id="rejected" style="display:none">
                     <div class="card text-white bg-dark my-3">                            
                         <div class="card-body">
                             <p class="card-text reject">Your CPAFF registration form is rejected. Please update your information. 
@@ -103,8 +103,9 @@
                     </div>
                     <center>
                         <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
-                    </center>
-                </div>
+                    </center> <br>
+                </div> -->
+                
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -117,8 +118,8 @@
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
                     <form method="post" id="cpaff_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
-                    <fieldset id="fieldset" disabled>
-                    <!-- <fieldset id="fieldset" > -->
+                    <!-- <fieldset id="fieldset" disabled> -->
+                    <fieldset id="fieldset" >
                         <input type="hidden" name="status">
                         <div class="row">
                             <div class="col-md-7">
@@ -141,6 +142,7 @@
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                     </p>
+                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +249,7 @@
                                         
                                         <div class="row mb-2">
                                             <div class="col-md-4">
-                                                <input type="radio" name="education" value="3" onclick="getCPAEducation()">
+                                                <input type="radio" name="education" id="education" value="3" onclick="getCPAEducation()">
                                                 <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                             </div>
                                             
@@ -263,7 +265,7 @@
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>                                                           
                                             </div>
                                             <div class="row mb-2" id="degree_year0">  
@@ -272,7 +274,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
                                                 </div>                                                           
                                             </div>
                                             
@@ -282,7 +284,7 @@
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
                                                 </div> 
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
@@ -568,7 +570,7 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                     value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                             </div>                                                    
                                         </div>
 
@@ -582,7 +584,7 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                     value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                             </div>
                                         </div>
                                     </div>
@@ -681,88 +683,7 @@
         
     </div>
 
-    <!--Modal-->
-    <form method="post" class="needs-validation" action="javascript:cpaffPaymentSubmit();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="cpaffpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(FF) Registeration Form Fee - ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="cpaff_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!-- Modal -->
-    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
-                        <div class="mb-3" style="text-align:center;">
-                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
-                            <label>We have been sent verification code on your email.Please check your email.</label>
-                        </div><br>
-                          <div class="mb-3" style="text-align:center;">
-                            <label style="margin-bottom: 2%;">Enter your verification code</label>
-                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
-                          </div>
-                      </div>
-                      <center>
-                          <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
-                          </button>
-                      </center><br>
-                      <div class="col-md-12" style="text-align:center;">
-                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
-                      </div><br><br>
-                </div>
-            </div>
-        </div>
-    </form>
+    
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -778,7 +699,7 @@
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
-    checkPaymentCpaff();
+    check_email_cpaff();
     $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",

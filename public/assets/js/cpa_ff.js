@@ -87,7 +87,7 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="type"  class="form-control" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">'+
+                '<input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">'+
             '</div>'+
         '</div>'+
 
@@ -97,19 +97,20 @@ function AddCPAFFDegree(){
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file['+count+']" required="">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
-        '</div>');
+        '</div>'
+    );
 
-        $('input[name="degree_pass_year'+count+'"]').flatpickr({
-            enableTime: false,
-            dateFormat: "M-Y",
-            allowInput: true,
+    $('.degree_pass_year').flatpickr({
+        enableTime: false,
+        dateFormat: "M-Y",
+        allowInput: true,
     });
     count++;
 
@@ -201,7 +202,7 @@ function check_email_cpaff()
 function cpaffPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
-    url: BACKEND_URL + "/approve_cpaff/" + student.id,
+    url: BACKEND_URL + "/approve_cpaff_payment/" + student.id,
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
@@ -215,23 +216,25 @@ function cpaffPaymentSubmit(){
 function checkPaymentCpaff(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     // console.log(student)
-    $.ajax({
-        url: BACKEND_URL+"/check_payment_cpaff/"+student.id,
-        type: 'GET',
-        success: function(data){
-            // console.log(data);
-          var form_data = data;
-          form_data.forEach(function(element){
-            console.log(element.payment_method)
-            if(element.payment_method != null){
-                $('#cpaff_modal').prop('disabled', true);
-
-            }else{
-                $('#cpaff_modal').prop('disabled', false);
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/check_payment_cpaff/"+student.id,
+            type: 'GET',
+            success: function(data){
+                // console.log(data);
+              var form_data = data;
+              form_data.forEach(function(element){
+                console.log(element.payment_method)
+                if(element.payment_method != null){
+                    $('#cpaff_modal').prop('disabled', true);
+                    loadCPAFF();
+                }else{
+                    $('#cpaff_modal').prop('disabled', false);
+                }
+              })
             }
-          })
-        }
-    });
+        });
+    }
 }
 
 function createCPAFFRegister(){
@@ -250,14 +253,35 @@ function createCPAFFRegister(){
     var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
     var passport_image  =   $("input[name=passport_image]")[0].files[0];
 
+    var cpa_edu         = document.getElementById("cpa_edu");
+    var ra_edu          = document.getElementById("ra_edu");
+    var education       = document.getElementById("education");
+
     var cpa_part_2      = document.getElementById("cpa_part_2_check");
     var qt_pass         = document.getElementById("qt_pass_check");
 
     var send_data = new FormData();
     send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
-    send_data.append('cpa', cpa);
-    send_data.append('ra', ra);
+
+    if(cpa_edu.checked==true){
+        send_data.append('cpa', cpa);
+    }
+    else if(ra_edu.checked==true){
+        send_data.append('ra', ra);
+    }else{
+        $('input[name="degree_name[]"]').map(function(){
+            send_data.append('degree_name[]',$(this).val());
+        });
+        $('input[name="degree_pass_year[]"]').map(function(){
+            send_data.append('degree_pass_year[]',$(this).val());
+        });
+        $('input[name="degree_file[]"]').map(function(){
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                send_data.append('degree_file[]',$(this).get(0).files[i]);
+            }
+        });
+    }    
     // send_data.append('foreign_degree', foreign_degree);
 
     // for (var i = 0; i < count; i++) {
@@ -272,16 +296,25 @@ function createCPAFFRegister(){
     });
 
     if(cpa_part_2.checked==true){
-        send_data.append('cpa_part_2',1);
-        send_data.append('qt_pass',0);
+        send_data.append('pass_batch_no',$('input[name="pass_batch_no"]').val());
+        send_data.append('pass_personal_no',$('input[name="pass_personal_no"]').val());
     }
     else if(qt_pass.checked==true){
-        send_data.append('cpa_part_2',0);
-        send_data.append('qt_pass',1);
-    }else{
-        send_data.append('cpa_part_2',0);
-        send_data.append('qt_pass',0);
+        send_data.append('qt_pass_date',$('input[name="qt_pass_date"]').val());
+        send_data.append('qt_pass_seat_no',$('input[name="qt_pass_seat_no"]').val());
     }
+
+    // if(cpa_part_2.checked==true){
+    //     send_data.append('cpa_part_2',1);
+    //     send_data.append('qt_pass',0);
+    // }
+    // else if(qt_pass.checked==true){
+    //     send_data.append('cpa_part_2',0);
+    //     send_data.append('qt_pass',1);
+    // }else{
+    //     send_data.append('cpa_part_2',0);
+    //     send_data.append('qt_pass',0);
+    // }
 
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
@@ -375,66 +408,47 @@ function isLoginCPAFF(){
 
 function form_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    $.ajax({
-        url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
-        type: 'GET',
-        contentType: false,
-        processData: false,
-        success: function(cData){
-            var data=cData.data;
-            if(data!=null){
-                if(data.status==0 || data.renew_status==0)
-                {
-                    document.getElementById('pending').style.display='block';
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
+            type: 'GET',
+            contentType: false,
+            processData: false,
+            success: function(cData){
+                var data=cData.data;
+                if(data!=null){
+                    console.log(data.status)
+                    if(data.status==0 || data.renew_status==0)
+                    {
+                        document.getElementById('pending').style.display='block';
+                        document.getElementById('approved').style.display='none';
+                        $('.register-btn').css('display','none');
+                        $('.payment-btn').css('display','none');
+                    }
+                    else if(data.status==1 || data.renew_status==1)
+                    {
+                        document.getElementById('approved').style.display='block';
+                        document.getElementById('pending').style.display='none';
+                        $('.payment-btn').css('display','block');
+                        $('.register-btn').css({'display':'none'});
+                        $('.register-btn').removeClass('mt-4');
+                    }
+                    else if(data.status==2 || data.renew_status==2)
+                    {
+                        document.getElementById('rejected').style.display='block';
+                    }
                 }
-                else if(data.status==1 || data.renew_status==1)
-                {
-                    document.getElementById('approved').style.display='block';
-                    // var accept=new Date(data.renew_accepted_date);
-                    // var month=accept.getMonth()+1;
-                    // var year=accept.getFullYear();
-                    // var y=year+1;
-                    // var now=new Date();
-
-                    // if(month>8){
-                    //     document.getElementById('expiry_card').style.display='block';
-                    //     $("#expire").append("Your information will be expired at "+"<b> 31 December "+y+"</b>.");
-                    //     var now=new Date(Date.now());
-                    //     if(now.getFullYear()==y && now.getMonth()==11){
-                    //         document.getElementById('approved').style.display='none';
-                    //         document.getElementById('cpaff_renew_form').style.display='block';
-                    //     }
-                    //     else{
-                    //         document.getElementById('approved').style.display='block';
-                    //     }
-                    // }
-                    // else{
-                    //     document.getElementById('expiry_card').style.display='block';
-                    //     $("#expire").append("Your information will be expired at "+"<b> 31 December "+year+"</b>.");
-                    //     var now=new Date(Date.now());
-                    //     // if(now.getFullYear()==year){
-                    //         document.getElementById('approved').style.display='none';
-                    //         document.getElementById('cpaff_renew_form').style.display='block';
-                    //     // }
-                    //     // else{
-                    //     //     document.getElementById('approved').style.display='block';
-                    //     // }
-                    // }
-                }
-                else if(data.status==2 || data.renew_status==2)
-                {
-                    document.getElementById('rejected').style.display='block';
+                else{
+                    document.getElementById('cpaff_from').style.display='block';
                 }
             }
-            else{
-                document.getElementById('cpaff_from').style.display='block';
-            }
-        }
-    });
+        });
+    }
 }
 function loadCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student!=null){
+        
         var a=new Date(student.date_of_birth);
         var diff_ms = Date.now() - a.getTime();
         var age_dt = new Date(diff_ms);
@@ -450,6 +464,7 @@ function loadCPAFF(){
                 if(data!=null){
                     if(data.status==1 || data.renew_status==1)
                     {
+                        document.getElementById('approved').style.display='none';
                         document.getElementById('cpa_initial').style.display='none';
                         document.getElementById('cpaff_renew_form').style.display='block';
                         var accept=new Date(data.renew_accepted_date);

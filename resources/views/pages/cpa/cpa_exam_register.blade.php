@@ -76,7 +76,7 @@
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"
-                                                            id="cpa1_label1">{{ _('၁။') }}</label>
+                                                            id="cpa1_label1">{{ __('၁။') }}</label>
                                                         <label
                                                             class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-6">
@@ -265,7 +265,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center">
                         <center>
-                            <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Registeration(Self Study) Form Fee - ****** MMK</h4>
+                            <h4 style="margin-bottom:5%;">Certified Public Accountant Part One Exam Registeration Form Fee - ****** MMK</h4>
                         </center>
                         <div class="col-sm-3 col-5">
                             <center>

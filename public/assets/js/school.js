@@ -1,5 +1,5 @@
 $( "#school_submit" ).click(function() {
-        if(allFill('#school_register_form')){
+        if(allFilled('#school_register_form')){
             $('#schoolModal').modal('show');
             send_email();
         }
@@ -47,7 +47,7 @@ function schoolPaymentSubmit(){
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
-            location.href = FRONTEND_URL + "/";
+            location.href = FRONTEND_URL + "/school_information";
         },
         error:function (message){
         }
@@ -56,8 +56,9 @@ function schoolPaymentSubmit(){
 
 function checkPaymentSchool(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
-    $.ajax({
+    
+    if(student!=null){
+      $.ajax({
         url: BACKEND_URL+"/check_payment_school/"+student.id,
         type: 'GET',
         success: function(data){
@@ -67,13 +68,14 @@ function checkPaymentSchool(){
             console.log(element.payment_method)
             if(element.payment_method != null){
                 $('#school_modal').prop('disabled', true);
-
+                loadRenewSchool();
             }else{
                 $('#school_modal').prop('disabled', false);
             }
           })
         }
     });
+    }
 }
 
 var counter = 0;
@@ -234,25 +236,27 @@ function createSchoolRegister(){
 
 function school_reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         url: BACKEND_URL+"/getSchoolStatus/"+student.id,
         type: 'GET',
         success: function(data){
-            // console.log(data);
+           
           var form_data = data;
           form_data.forEach(function(element){
-            // console.log(element.approve_reject_status);
+           
                 if(element.approve_reject_status == 0){
-                    // showPending();
+                    
                     $('#school_pending').css('display','block');
-                    $('#school_form').css('display','none');
+                    $('#school_approve').css('display','none');
+                    $('.register-btn').css('display','none');
 
                 }else if(element.approve_reject_status == 1){
-                    loadRenewSchool(localStorage.getItem("school_id"));
                     $('#school_approve').css('display','block');
-                    $('#school_form').css('display','none');
                     $('#school_pending').css('display','none');
+                    $('.payment-btn').css('display','block');
+                    $('.register-btn').css({'display':'none'});
+                    $('.register-btn').removeClass('mt-4');
                 }
                 else{
                     //
@@ -260,6 +264,8 @@ function school_reg_feedback(){
           })
         }
     });
+    }
+    
 }
 
 function getCourses(){
@@ -427,6 +433,7 @@ function loadRenewSchool(){
         success: function (result) {
             var school=result.data;
             if(school.approve_reject_status==1){
+                  $('#school_approve').css('display','none');
                   document.getElementById('school_detail').style.display='none';
                   document.getElementById('school_renew_form').style.display='block';
                   var accept=new Date(school.renew_date);
@@ -703,13 +710,25 @@ function loadFile(file,divname){
     
 }
 function loadDescription(membership_name){
+  $('.application-fee').html("");
+  $('.registration-fee').html("");
+  $('.description-info').html("");
+  $('.requirement-info').html("");
+  $('.yearly-fee').html("");
+  $('.renew-fee').html("");
+  $('.delay-fee').html("");
   $.ajax({
     type: "get",
     url: BACKEND_URL+"/showDescription/"+membership_name,
     success: function (result) {
       var data=result.data;
-     
+      var application_fee=0;
+      var registration_fee=0;
+      var yearly_fee=0;
+      var renew_fee=0;
+      var delay_fee=0;
       $.each(data, function( index, value ){
+        
           var div=document.createElement('div');
           div.setAttribute('class','col-md-12');
           var desdiv=document.createElement('div');
@@ -718,7 +737,27 @@ function loadDescription(membership_name){
           desdiv.appendChild(t);
           div.appendChild(desdiv);
           $('.description-info').append(div);
+
+          var rediv=document.createElement('div');
+          rediv.setAttribute('class','col-md-12');
+          var reqdiv=document.createElement('div');
+          reqdiv.setAttribute('class','requirement'+index);
+          var req = document.createTextNode(value.requirements);
+          reqdiv.appendChild(req);
+          rediv.appendChild(reqdiv);
+          $('.requirement-info').append(rediv);
+
+          application_fee +=value.form_fee;
+          registration_fee +=value.registration_fee;
+          yearly_fee +=value.yearly_fee;
+          renew_fee +=value.renew_fee;
+          delay_fee +=value.late_fee;
       })
+      $('.application-fee').append(application_fee+" MMK");
+      $('.registration-fee').append(registration_fee+" MMK");
+      $('.yearly-fee').append(yearly_fee+" MMK");
+      $('.renew-fee').append(renew_fee+" MMK");
+      $('.delay-fee').append(delay_fee+" MMK");
     }
   })
 }

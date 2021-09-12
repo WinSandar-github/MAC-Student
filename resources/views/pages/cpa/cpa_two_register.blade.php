@@ -176,11 +176,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
-                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                            <label class="col-form-label">{{ __('၂။') }}</label>
                                         
                                     </div>
                                     <div class="col-md-11">
-                                            <label class="col-form-label">{{ _('လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ဒုတိယပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်') }}</label>
+                                            <label class="col-form-label">{{ __('လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ဒုတိယပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်') }}</label>
                                         
                                     </div>
                                 </div><br>
@@ -190,7 +190,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div>
-                                            <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
+                                            <label class="col-form-label">{{ __('(က) နှစ်/လ') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5"> 
@@ -202,7 +202,7 @@
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-5">
-                                            <label class="col-form-label">{{ _('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
+                                            <label class="col-form-label">{{ __('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
                                     </div>
                                     <div class="col-md-5">
                                             <input type="text" class="form-control" id="cpa_one_access_no" value="" placeholder="ကိုယ်ပိုင်အမှတ်" required>
@@ -213,7 +213,7 @@
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-5"><div>
-                                            <label class="col-form-label">{{ _('(ဂ) အဆင့်') }}</label>
+                                            <label class="col-form-label">{{ __('(ဂ) အဆင့်') }}</label>
                                     </div></div>
                                     <div class="col-md-5"><div>
                                             <input type="text" class="form-control" id="cpa_one_success_no" value="" placeholder="အဆင့်" required>
@@ -226,7 +226,7 @@
                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required="">
+                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" required="">
                                         
                                     </div>
                                 </div>
@@ -237,7 +237,7 @@
                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="" required="">
+                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_private" required="">
                                         
                                     </div>
                                 </div>
@@ -248,7 +248,7 @@
                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required="">
+                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" required="">
                                     
                                     </div>
                                 </div>
@@ -302,11 +302,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
-                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                            <label class="col-form-label">{{ __('၂။') }}</label>
                                         
                                     </div>
                                     <div class="col-md-11">
-                                            <label class="col-form-label">{{ _('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
+                                            <label class="col-form-label">{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                         
                                     </div>
                                 </div>
@@ -317,7 +317,7 @@
                                         <input type="checkbox" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam"  name="reg_reason[]">
                                     </div>
                                     <div class="col-md-9">
-                                            <label class="col-form-label">{{ _('သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
+                                            <label class="col-form-label">{{ __('သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
                                     
                                     </div>
                                     
@@ -329,7 +329,7 @@
                                         <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance"  name="reg_reason[]">
                                     </div>
                                     <div class="col-md-9">
-                                            <label class="col-form-label">{{ _(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
+                                            <label class="col-form-label">{{ __(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
                                     
                                     </div>
                                     
@@ -341,7 +341,7 @@
                                         <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam"  name="reg_reason[]">
                                     </div>
                                     <div class="col-md-9">
-                                            <label class="col-form-label">{{ _(' စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
+                                            <label class="col-form-label">{{ __(' စာမေးပွဲကျရှုံးခြင်း') }}</label>                                   
                                     </div>
                                     
                                 </div>
@@ -352,7 +352,7 @@
                                         <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned"  name="reg_reason[]">
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="col-form-label">{{ _(' သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
+                                        <label class="col-form-label">{{ __(' သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>                                   
                                     </div>
                                     
                                 </div>
@@ -363,7 +363,7 @@
                                     <label class="col-md-5 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required="">
+                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" required="">
                                         
                                     </div>
                                 </div>
@@ -374,7 +374,7 @@
                                     <label class="col-md-5 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="" required="">
+                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_self" required="">
                                         
                                     </div>
                                 </div>
@@ -385,7 +385,7 @@
                                     <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required="">
+                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required="">
                                     
                                     </div>
                                 </div>
@@ -441,12 +441,12 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div>
-                                            <label class="col-form-label">{{ _('၂။') }}</label>
+                                            <label class="col-form-label">{{ __('၂။') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-11">
                                         <div>
-                                            <label class="col-form-label">{{ _('လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ဒုတိယပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်') }}</label>
+                                            <label class="col-form-label">{{ __('လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ဒုတိယပိုင်း) စာမေးပွဲအောင်မြင်ခဲ့သည့်') }}</label>
                                         </div>
                                     </div>
                                 </div><br>
@@ -455,7 +455,7 @@
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-5"><div>
-                                            <label class="col-form-label">{{ _('(က) နှစ်/လ') }}</label>
+                                            <label class="col-form-label">{{ __('(က) နှစ်/လ') }}</label>
                                     </div></div>
                                     <div class="col-md-5">
                                         <div>
@@ -469,7 +469,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div>
-                                            <label class="col-form-label">{{ _('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
+                                            <label class="col-form-label">{{ __('(ခ) ကိုယ်ပိုင်အမှတ်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
@@ -484,7 +484,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div>
-                                             <label class="col-form-label">{{ _('(ဂ) အဆင့်') }}</label>
+                                             <label class="col-form-label">{{ __('(ဂ) အဆင့်') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
@@ -500,7 +500,7 @@
                                     <label class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="" required="">
+                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" required="">
                                         
                                     </div>
                                 </div>
@@ -511,7 +511,7 @@
                                     <label class="col-md-4 col-form-label">{{ __('အပိုင်း') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="" required="">
+                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_mac" required="">
                                         
                                     </div>
                                 </div>
@@ -522,7 +522,7 @@
                                     <label class="col-md-4 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>                                                  
                                     
                                     <div class="col-md-5">
-                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required="">
+                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required="">
                                     
                                     </div>
                                 </div>

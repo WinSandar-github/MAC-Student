@@ -74,29 +74,14 @@
         </div>
 
         <div class="container" style="overflow: hidden;">
-            <div id="school_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-                <div class="card text-white bg-primary my-3">
-
-                    <div class="card-body">
-                        <p class="card-text">Your School Registeration Form is checking</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="school_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body">
-                        <p class="card-text">Your School Registeration Form is approved!</p>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="row mt-5">
                 <div id="school_form" class="card border-success mb-3">
                     <div class="card-body">
 
-                    <form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>
-
+                    {{--<form id="school_register_form" enctype="multipart/form-data" action="javascript:createSchoolRegister();" class="needs-validation" autocomplete="off" novalidate>--}}
+                    <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" class="needs-validation" autocomplete="off" novalidate>
                             <div class="row">
                                 <h5 class="p-4">လျှောက်ထားသူ၏အချက်အလက်များ</h5>
                             </div>
@@ -1375,54 +1360,7 @@
         </div>
     </div>
 
-    <!--Modal-->
-    {{--<form method="post" class="needs-validation" action="javascript:createSchoolRegister();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="schoolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>--}}
+    
 
     <!-- Modal -->
     <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
@@ -1564,7 +1502,7 @@
             }
 
             school_reg_feedback();
-
+            
         });
 
         getCourses();
