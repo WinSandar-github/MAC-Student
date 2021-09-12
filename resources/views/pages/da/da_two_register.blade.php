@@ -122,7 +122,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                         <div class="card-body">
 
                                             <br />
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 p-3">
                                                 <div class="row">
                                                     <div class="col-md-4 single-form">
                                                         <label class="coursename col-form-label"></label>
@@ -153,25 +153,20 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <br>
 
                                                         <div class="row">
-                                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                            <label for="" class="col-md-5 col-form-label label_align_right">Password</label>
-                                                            <div class="col-md-6">
-                                                                <input type="password" placeholder="Enter your Password!" name="password"
-                                                                    class="form-control" value="{{ old('password') }}" required="">
+                                                            <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
+                                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                                                    class="form-control" required="">
                                                             </div>
-
+                                                            <div class="col-md-3">
+                                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng"
+                                                                    class="form-control" required="">
+                                                            </div>
                                                         </div>
                                                         <br>
 
-
-                                                        <div class="row">
-                                                            <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                            <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>
-                                                            <div class="col-md-6">
-                                                                <input type="password" placeholder="Enter your Password again!"
-                                                                    name="confirm_password" class="form-control" required="">
-                                                            </div>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="col-md-7 pull-right">
@@ -184,21 +179,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                         </div>
                                                     </div>
-                                                </div>                                   
-
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                                    <label for="" class="col-md-3 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                    <div class="col-md-4">
-                                                        <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
-                                                            class="form-control" required="">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng"
-                                                            class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                                <br>
+                                                </div>                               
 
 
                                                 <div class="row">
@@ -254,8 +235,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <br>
 
                                                 <div class="row">
-                                                    <div class="col-md-2"></div>
-                                                    <div class="col-md-10">
+                                                    <div class="col-md-4"></div>
+                                                    <div class="col-md-8">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="row">
@@ -363,13 +344,11 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                     <br>
 
-                                                
-
                                                     <div class="row mb-3">
 
-                                                        <div class="col-md-1 col-form-label">{{ __('၁။') }}</div>
-                                                        <div class="col-md-5 col-form-label">တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-1 col-form-label">{{ __('၁၃။') }}</div>
+                                                        <div class="col-md-3 col-form-label label_align_right">တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</div>
+                                                        <div class="col-md-8">
                                                             <input type="text" class="form-control" readonly
                                                                 value="{{ $batch['name'] }}">
 
@@ -378,10 +357,10 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="row mb-3">
 
-                                                        <div class="col-md-1 col-form-label">{{ __('၂။') }}</div>
-                                                        <div class="col-md-5 col-form-label">
+                                                        <div class="col-md-1 col-form-label">{{ __('၁၄။') }}</div>
+                                                        <div class="col-md-3 col-form-label label_align_right">
                                                             တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-8">
                                                             <input type="text" class="form-control" name="student_regno"
                                                                 readonly>
 
@@ -461,7 +440,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
 
                                                     <div class="row mb-3">
-                                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
                                                         <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                         <label
                                                             class="col-md-4 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
