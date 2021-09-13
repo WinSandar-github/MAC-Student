@@ -120,16 +120,16 @@ function check_email_papp()
 
 function checkPaymentPapp(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    
+
     if(student!=null){
         $.ajax({
             url: BACKEND_URL+"/check_payment_papp/"+student.id,
             type: 'GET',
             success: function(data){
-               
+
               var form_data = data;
               form_data.forEach(function(element){
-                
+
                 if(element.payment_method == 'PAPP'){
                     $('#papp_modal').prop('disabled', true);
                     loadPAPP();
@@ -163,7 +163,7 @@ $('#papp_btn').click(function () {
 function pappPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
-    url: BACKEND_URL + "/approve_papp/" + student.id,
+    url: BACKEND_URL + "/approve_papp_payment/" + student.id,
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
@@ -323,7 +323,7 @@ function Papp_feedback(){
                         if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                             $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                             $('.renew_submit').prop('disabled', false);
-    
+
                         }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                             $("#message").val("Your registeration will start in "+y+" year!");
                             $('.renew_submit').prop('disabled', true);
@@ -331,7 +331,7 @@ function Papp_feedback(){
                             $('#message').val("You are verified!");
                             $('.renew_submit').prop('disabled', true);
                         }
-    
+
                     }
                     else if(data.status==2 || data.renew_status==2)
                     {
@@ -357,7 +357,7 @@ function loadCPAFFAge(id){
             var age_dt = new Date(diff_ms);
             var age=Math.abs(age_dt.getUTCFullYear() - 1970);
             $("#cpa_age").append(age+" years");
-            
+
         },
         error:function (message){
         }
@@ -419,9 +419,9 @@ function loadPAPP(){
                         if(data.staff_firm_name!=null ){
                             $('#staff_firm_check').prop("checked", true);
                             $('input[name=staff_firm_name]').val(data.staff_firm_name);
-                            
+
                         }
-                        
+
                         // if(data.cpa!=""){
                         //     $('#cpa_check').prop("checked", true);
                         //     $('#cpa_edu').css('display','block');
@@ -434,13 +434,13 @@ function loadPAPP(){
                         //     $('.view_ra_file').css('display','block');
                         //     loadFile(data.ra,"view_ra_file");
                         // }
-                        
+
                         $('#regno').val(data.id);
                         $('#register_date').val(data.renew_accepted_date);
                         if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                             $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                             $('.renew_submit').prop('disabled', false);
-    
+
                         }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                             $("#message").val("Your registeration will start in "+y+" year!");
                             $('.renew_submit').prop('disabled', true);
@@ -449,12 +449,12 @@ function loadPAPP(){
                             $('.renew_submit').prop('disabled', true);
                         }
                         $('#previewImg').attr("src",BASE_URL+data.profile_photo);
-    
+
                     }else{
                         document.getElementById('papp_initial').style.display='block';
                         document.getElementById('papp_renew_form').style.display='none';
                     }
-    
+
                 }
                 else{
                     document.getElementById('papp_initial').style.display='block';
@@ -472,7 +472,7 @@ function RenewPAPP(){
         type: 'get',
         data:"",
         success: function(result){
-            
+
             if(result.data!=null){
                 var send_data = new FormData($("#papp_renew_form_submit")[0]);
                 send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
@@ -482,7 +482,7 @@ function RenewPAPP(){
                 send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
                 send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
                 send_data.append('tax_free_file', $('#hidden_tax_free_file').val());
-                
+
                     var firm_check = document.getElementById("firm_check");
                     var used_firm_check = document.getElementById("used_firm_check");
                     var staff_firm_check = document.getElementById("staff_firm_check");
