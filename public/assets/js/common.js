@@ -1,4 +1,4 @@
-// var FRONTEND_URL="http://localhost:8080";
+// var FRONTEND_URL="http://localhost:8081";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL="http://localhost:8000/api";
 
@@ -419,16 +419,13 @@ function resetForm(form){
     window.addEventListener('load', function() {
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
       var forms = document.getElementsByClassName('needs-validation');
-      console.log("forms >>>",forms);
       // Loop over them and prevent submission
       var validation = Array.prototype.filter.call(forms, function(form) {
         form.addEventListener('submit', function(event) {
-          console.log("event >>",event);
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
           }
-          console.log("classlist >>>",form.classList);
           form.classList.add('was-validated');
         }, false);
       });

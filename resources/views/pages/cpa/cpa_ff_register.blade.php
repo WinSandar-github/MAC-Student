@@ -683,6 +683,39 @@
         
     </div>
 
+    <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div><br>
+                          <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                          </div>
+                      </div>
+                      <center>
+                          <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          </button>
+                      </center><br>
+                      <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                      </div><br><br>
+                </div>
+            </div>
+        </div>
+    </form>
     
     <!-- JavaScript Section -->
     <script>

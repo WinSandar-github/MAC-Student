@@ -93,43 +93,7 @@ function remove(id){
     //document.getElementById("edu0_remove").style.display="none";
     }
 }
-// var studentID;
-// async function SearchStudentID(){
-//     var nrc_state_region = $("#nrc_state_region").val();
-//     var nrc_township = $("#nrc_township").val();
-//     var nrc_citizen = $("#nrc_citizen").val();
-//     var nrc_number=$("input[name=nrc_number]").val();
 
-//     var nrc = new FormData();
-//     nrc.append('nrc_state_region', nrc_state_region);
-//     nrc.append('nrc_township', nrc_township);
-//     nrc.append('nrc_citizen', nrc_citizen);
-//     nrc.append('nrc_number', nrc_number);
-    // var nrc=nrc_state_region+nrc_township+nrc_citizen+nrc_number;
-    // console.log(nrc);
-    //var nrc="1kamatanaing123456";
-    // await $.ajax({
-//     url:BACKEND_URL+"/student_info_by_nrc",
-//     type: 'post',
-//     data: nrc,
-//     contentType: false,
-//     processData: false,
-//     success: function(result){
-//         console.log('result',result.data);
-//         // console.log('result',result);
-//             if(result.data!=null){
-//                 studentID=result.data.id;
-
-//                 document.getElementById("fieldset").disabled = false;
-//             }
-//             else{
-//                 document.getElementById("fieldset").disabled = true;
-//             }
-//         }
-//     });
-// }
-
-// paff
 $( "#papp_submit_btn" ).click(function() {
     if(allFilled('#papp_form')){
         $('#pappModal').modal('show');
@@ -166,7 +130,7 @@ function checkPaymentPapp(){
               var form_data = data;
               form_data.forEach(function(element){
                 
-                if(element.payment_method != null){
+                if(element.payment_method == 'PAPP'){
                     $('#papp_modal').prop('disabled', true);
                     loadPAPP();
                 }else{
@@ -282,7 +246,6 @@ function Papp_Submit(){
             location.href = FRONTEND_URL+'/';
         },
     error:function (message){
-        console.log(message);
         }
     });
 }
@@ -320,7 +283,6 @@ function isLoginPAPP(){
                 }
             },
             error:function (message){
-                console.log(message);
             }
         });
     }
@@ -335,7 +297,6 @@ function Papp_feedback(){
             contentType: false,
             processData: false,
             success: function(cData){
-                console.log(cData.data);
                 var data=cData.data;
                 if(data!=null){
                     if(data.status==0 || data.renew_status==0)
@@ -399,7 +360,6 @@ function loadCPAFFAge(id){
             
         },
         error:function (message){
-            console.log(message);
         }
     });
 }
@@ -413,7 +373,6 @@ function loadPAPP(){
             contentType: false,
             processData: false,
             success: function(cData){
-                console.log(cData.data);
                 var data=cData.data;
                 if(data!=null){
                     if(data.status==1 || data.renew_status==1)
@@ -569,13 +528,11 @@ function RenewPAPP(){
                         document.getElementById('expiry_card').style.display='none';
                     },
                     error:function (message){
-                        console.log(message);
                     }
                 });
             }
         },
         error:function (message){
-            console.log(message);
         }
     });
 }
