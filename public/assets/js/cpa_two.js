@@ -37,6 +37,9 @@ function CPA2_Private_School_Submit(){
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
     data.append('cpa_one_success_no', $("#cpa_one_success_no").val());
+    data.append('batch_no_private',$("input[id='batch_no_private']").val());
+    data.append('part_no_private',$("input[id='part_no_private']").val());
+    data.append('personal_no_private',$("input[id='personal_no_private']").val());
     data.append('type', 1);
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
@@ -82,6 +85,9 @@ function CPA2_Mac_Submit(){
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
     data.append('cpa_one_success_no', $("#cpa_one_success_no").val());
+    data.append('batch_no_mac',$("input[id='batch_no_mac']").val());
+    data.append('part_no_mac',$("input[id='part_no_mac']").val());
+    data.append('personal_no_mac',$("input[id='personal_no_mac']").val());
     data.append('type', 2);
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
@@ -126,6 +132,9 @@ function CPA2_Self_Study_Submit(){
     data.append('student_id',student.id);
     $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
     data.append('batch_part_no',$("#batch_part_no").val() );
+    data.append('batch_no_self',$("input[id='batch_no_self']").val());
+    data.append('part_no_self',$("input[id='part_no_self']").val());
+    data.append('personal_no_self',$("input[id='personal_no_self']").val());
     data.append('type',0);
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
@@ -166,6 +175,7 @@ $( "#cpa2_self" ).click(function() {
         $(form_id+' input').each(function() {
             console.log($(this).attr('id'));
             if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+          
         });
         return filled;        
     }

@@ -13,8 +13,8 @@ function AddDAEdu(){
     $("#edu").append(        
 
         '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-4"></div>'+            
-            '<div class="col-md-7">'+
+            '<div class="col-md-5"></div>'+            
+            '<div class="col-md-6">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
@@ -283,9 +283,9 @@ function createDaTwoSelfStudy()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('batch_id',$("input[name='batch_id']").val());
-    send_data.append('batch_no_self',$("input[name='batch_no_self']").val());
-    send_data.append('part_no_self',$("input[name='part_no_self']").val());
-    send_data.append('personal_no_self',$("input[name='personal_no_self']").val());
+    send_data.append('batch_no_self',$("input[id='batch_no_self']").val());
+    send_data.append('part_no_self',$("input[id='part_no_self']").val());
+    send_data.append('personal_no_self',$("input[id='personal_no_self']").val());
     send_data.append('type', 0);
     $(':checkbox:checked').map(function(){send_data.append('reg_reason[]',$(this).val())});
     send_data.append('form_type', $("input[name='form_type']").val());
@@ -316,9 +316,9 @@ function createDaTwoPrivateSchool()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('batch_id',$("input[name='batch_id']").val());
-    send_data.append('batch_no_private',$("input[name='batch_no_private']").val());
-    send_data.append('part_no_private',$("input[name='part_no_private']").val());
-    send_data.append('personal_no_private',$("input[name='personal_no_private']").val());
+    send_data.append('batch_no_private',$("input[id='batch_no_private']").val());
+    send_data.append('part_no_private',$("input[id='part_no_private']").val());
+    send_data.append('personal_no_private',$("input[id='personal_no_private']").val());
     send_data.append('type', 1);
     send_data.append('form_type', $("input[name='form_type']").val());
     if($("input[name='form_type']").val()=="da two"){
@@ -352,9 +352,9 @@ function createDaTwoMac()
     var send_data = new FormData();
     send_data.append('student_id',student_id);
     send_data.append('batch_id',$("input[name='batch_id']").val());
-    send_data.append('batch_no_mac',$("input[name='batch_no_mac']").val());
-    send_data.append('part_no_mac',$("input[name='part_no_mac']").val());
-    send_data.append('personal_no_mac',$("input[name='personal_no_mac']").val());
+    send_data.append('batch_no_mac',$("input[id='batch_no_mac']").val());
+    send_data.append('part_no_mac',$("input[id='part_no_mac']").val());
+    send_data.append('personal_no_mac',$("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
@@ -377,36 +377,42 @@ function createDaTwoMac()
     });
 }
 
-function unique_email(){
-    var send_data = new FormData();
-    send_data.append('email',$("input[name='email']").val());
-    send_data.append('nrc_number',$("input[name='nrc_number']").val());
-    $.ajax({
-        url: BACKEND_URL+"/unique_email",
-        type: 'post',
-        data:send_data,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            console.log(result)
-            if(result){
-                Swal.fire("Email or NRC has been used, please check again!");
-                $('#exampleModal').modal('hide');
-            }else{
-                $('#exampleModal').modal('show');
-                send_email();
-                return true; 
-            }
-        }
-    });
-}
-
 $( "#da_submit" ).click(function() {
     if(allFilled('#da_one_app_form')){
-        $('#exampleModal').modal('show');
-        send_email();
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
+                }
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#exampleModal').modal('show');
+                    send_email();                   
+                }
+            }
+        });
     }
 });
+
+// $( "#da_submit" ).click(function() {
+//     if(allFilled('#da_one_app_form')){
+//         $('#exampleModal').modal('show');
+//         send_email();
+//     }
+// });
 function allFilled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {

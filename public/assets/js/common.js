@@ -1,10 +1,10 @@
-var FRONTEND_URL="http://localhost:8080";
-var BASE_URL = "http://localhost:8000";
-var BACKEND_URL="http://localhost:8000/api";
+// var FRONTEND_URL="http://localhost:8080";
+// var BASE_URL = "http://localhost:8000";
+// var BACKEND_URL="http://localhost:8000/api";
 
-//  var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+ var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -38,6 +38,7 @@ $('document').ready(function(){
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
         type:'GET',
+        async:false,
         success:function(response){
             $.each(response.data,function(i,v){
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;

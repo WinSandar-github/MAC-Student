@@ -78,6 +78,33 @@
                     <br/>  
                     <br/>  
                 </div>       
+                <!-- <div id="rejected" style="display:none">
+                    <div class="card text-white bg-dark my-3">                            
+                        <div class="card-body">
+                            <p class="card-text reject">Your CPAFF registration form is rejected. Please update your information. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="pending" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your CPAFF registration form is being checked.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="approved" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        
+                        <div class="card-body">
+                            <p class="card-text">Your CPAFF registration form is approved.</p>
+                        </div>
+                    </div>
+                    <center>
+                        <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                    </center> <br>
+                </div> -->
                 
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
@@ -91,8 +118,8 @@
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
                     <form method="post" id="cpaff_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
-                    <fieldset id="fieldset" disabled>
-                    <!-- <fieldset id="fieldset" > -->
+                    <!-- <fieldset id="fieldset" disabled> -->
+                    <fieldset id="fieldset" >
                         <input type="hidden" name="status">
                         <div class="row">
                             <div class="col-md-7">
@@ -115,6 +142,7 @@
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                     </p>
+                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +249,7 @@
                                         
                                         <div class="row mb-2">
                                             <div class="col-md-4">
-                                                <input type="radio" name="education" value="3" onclick="getCPAEducation()">
+                                                <input type="radio" name="education" id="education" value="3" onclick="getCPAEducation()">
                                                 <label class="col-form-label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
                                             </div>
                                             
@@ -237,7 +265,7 @@
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>                                                           
                                             </div>
                                             <div class="row mb-2" id="degree_year0">  
@@ -246,7 +274,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">                                                              
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
                                                 </div>                                                           
                                             </div>
                                             
@@ -256,7 +284,7 @@
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
                                                 </div> 
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
@@ -542,7 +570,7 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                     value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                             </div>                                                    
                                         </div>
 
@@ -556,7 +584,7 @@
                                                 <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                     value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                 </p>
-                                                <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>                                                        
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
                                             </div>
                                         </div>
                                     </div>

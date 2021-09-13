@@ -77,7 +77,7 @@
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"
-                                                            id="cpa2_label1">{{ _('၁။') }}</label>
+                                                            id="cpa2_label1">{{ __('၁။') }}</label>
                                                         <label
                                                             class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-6">

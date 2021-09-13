@@ -97,13 +97,13 @@
                                     <div class="row">
                                         <div class="col-md-1">
                                             <div class="single-form">
-                                                <label class="col-form-label">{{ _('၁။') }}</label>
+                                                <label class="col-form-label">{{ __('၁။') }}</label>
 
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="single-form">
-                                                <label class="col-form-label" style="padding-left: 37px;">{{ _('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
+                                                <label class="col-form-label" style="padding-left: 37px;">{{ __('လျှော​က်ထားသူ၏ ကိုယ်ရေးအချက်အလက်') }}</label>
 
                                             </div>
                                         </div>
@@ -264,7 +264,7 @@
                                 <br/>
                                 <div class="row">
                                     <div class="col-md-1">
-                                            <label class="">{{ _('၂။') }}</label>
+                                            <label class="">{{ __('၂။') }}</label>
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
@@ -282,13 +282,13 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၃။') }}</label>
+                                            <label class="col-form-label">{{ __('၃။') }}</label>
 
                                         </div>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
+                                            <label class="col-form-label">{{ __('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
 
                                         </div>
                                     </div>
@@ -364,13 +364,13 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('၄။') }}</label>
+                                            <label class="col-form-label">{{ __('၄။') }}</label>
 
                                         </div>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ _('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျက် လျှောက်ထားပါသည်-') }}</label>
+                                            <label class="col-form-label">{{ __('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျက် လျှောက်ထားပါသည်-') }}</label>
 
                                         </div>
                                     </div>

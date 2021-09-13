@@ -143,9 +143,12 @@ function Private_School_Submit(){
     var data = new FormData();
     data.append('student_id',student.id)
     data.append('private_school_name',  $("#selected_school_id option:selected").text());
-    data.append('academic_year', $("#academic_year").val());
-    data.append('direct_access_no', $("#direct_access_no").val());
-    data.append('entry_success_no', $("#entry_success_no").val());
+    data.append('academic_year', $("#academic_year_private").val());
+    data.append('direct_access_no', $("#direct_access_no_private").val());
+    data.append('entry_success_no', $("#entry_success_no_private").val());
+    data.append('batch_no_private',$("input[id='batch_no_private']").val());
+    data.append('part_no_private',$("input[id='part_no_private']").val());
+    data.append('personal_no_private',$("input[id='personal_no_private']").val());
     data.append('form_type',localStorage.getItem('course_id'));
     data.append('type', 1);
     show_loader();
@@ -181,12 +184,15 @@ function Self_Study_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id',student.id);
-    data.append('academic_year', $("#academic_year").val());
-    data.append('direct_access_no', $("#direct_access_no").val());
-    data.append('entry_success_no', $("#entry_success_no").val());
+    data.append('academic_year', $("#academic_year_self").val());
+    data.append('direct_access_no', $("#direct_access_no_self").val());
+    data.append('entry_success_no', $("#entry_success_no_self").val());
     $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('batch_part_no', $("#batch_part_no").val());
+    data.append('batch_no_self',$("input[id='batch_no_self']").val());
+    data.append('part_no_self',$("input[id='part_no_self']").val());
+    data.append('personal_no_self',$("input[id='personal_no_self']").val());
     data.append('type', 0);
     data.append('form_type',localStorage.getItem('course_id'));
     show_loader();
@@ -222,15 +228,18 @@ function Mac_Submit(){
     var no_crime_file = $('#no_crime_file')[0].files[0];
     var data = new FormData();
     data.append('student_id',student.id);
-    data.append('academic_year', $("#academic_year").val());
-    data.append('direct_access_no', $("#direct_access_no").val());
-    data.append('entry_success_no', $("#entry_success_no").val());
+    data.append('academic_year', $("#academic_year_mac").val());
+    data.append('direct_access_no', $("#direct_access_no_mac").val());
+    data.append('entry_success_no', $("#entry_success_no_mac").val());
     data.append('internship', $("input[type='radio'][name='internship']:checked").val());
     data.append('good_behavior', good_morale_file);
     data.append('no_crime', no_crime_file);
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('type', 2);
     data.append('form_type',localStorage.getItem('course_id'));
+    data.append('batch_no_mac',$("input[id='batch_no_mac']").val());
+    data.append('part_no_mac',$("input[id='part_no_mac']").val());
+    data.append('personal_no_mac',$("input[id='personal_no_mac']").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/student_register",
@@ -588,10 +597,49 @@ function direct_or_da(){
 
 $( "#cpa_one_submit" ).click(function() {
     if(allFilled('#cpa_one_form')){
-        $('#cpaEmailModal').modal('show');
-        send_email();
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                console.log(result);
+                // if(result){
+                //     Swal.fire("Email or NRC has been used, please check again!");
+                //     $('#exampleModal').modal('hide');
+                // }else{
+                //     $('#exampleModal').modal('show');
+                //     send_email();
+                //     return true; 
+                // }
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
+                }
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#cpaEmailModal').modal('show');
+                    send_email();                    
+                }
+            }
+        });
     }
 });
+
+// $( "#cpa_one_submit" ).click(function() {
+//     if(allFilled('#cpa_one_form')){
+//         $('#cpaEmailModal').modal('show');
+//         send_email();
+//     }
+// });
 function allFilled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {
