@@ -42,9 +42,9 @@ function createDAExamRegister()
 }
 // DA 1 exam
 $( "#btn_da_exam_submit" ).click(function() {
-    if(allfilled('#da_exam_register_form')){
+    // if(allfilled('#da_exam_register_form')){
         $('#da1examModal').modal('show');
-    }
+    // }
 });
 // function allFilled(form_id) {
 //     var filled = true;
