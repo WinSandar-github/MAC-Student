@@ -112,7 +112,6 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-            console.log(result)
             successMessage("You have successfully registerd!");                
             location.href = FRONTEND_URL+'/' ;
         },
@@ -134,7 +133,6 @@ function send_email()
         contentType: false,
         processData: false,
         success: function(data){
-            console.log(data)
             localStorage.setItem('verify_code', JSON.stringify(data));
             // successMessage("Your email is sending to MAC");  
         },
@@ -170,7 +168,6 @@ function da_edit(){
         type:'GET',
         url: BACKEND_URL+'/student_info/'+student.id,
         success:function(result){
-            console.log(result)
              var data = result.data;
              var education = result.data.student_education_histroy;
             $('#stu_id').val(data.id);
@@ -241,7 +238,6 @@ $('#da_update').submit(function(e){
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
    
-    console.log($("input[name=batch_id]").val())
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
@@ -263,11 +259,7 @@ $('#store_da_two_form').submit(function(e){
 
         errorMessage(message);
         }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        
     });
 });
 
@@ -377,40 +369,45 @@ function createDaTwoMac()
     });
 }
 
-function unique_email(){
-    var send_data = new FormData();
-    send_data.append('email',$("input[name='email']").val());
-    send_data.append('nrc_number',$("input[name='nrc_number']").val());
-    $.ajax({
-        url: BACKEND_URL+"/unique_email",
-        type: 'post',
-        data:send_data,
-        contentType: false,
-        processData: false,
-        success: function(result){
-            console.log(result)
-            if(result){
-                Swal.fire("Email or NRC has been used, please check again!");
-                $('#exampleModal').modal('hide');
-            }else{
-                $('#exampleModal').modal('show');
-                send_email();
-                return true; 
-            }
-        }
-    });
-}
-
 $( "#da_submit" ).click(function() {
     if(allFilled('#da_one_app_form')){
-        $('#exampleModal').modal('show');
-        send_email();
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
+                }
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#exampleModal').modal('show');
+                    send_email();                   
+                }
+            }
+        });
     }
 });
+
+// $( "#da_submit" ).click(function() {
+//     if(allFilled('#da_one_app_form')){
+//         $('#exampleModal').modal('show');
+//         send_email();
+//     }
+// });
 function allFilled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {
-        console.log($(this).attr('id'));
         if($("#email").val() == ''){
             filled = false;
         }

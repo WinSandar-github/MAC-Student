@@ -83,56 +83,56 @@
                                         ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
                                     <br/>
                                     <div class="row">
-                                    <div class="col-md-8">
+                                        <div class="col-md-8">
 
-                                        <div class="row">
-                                            <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                            <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
-                                            <div class="col-md-6">
-                                                <input type="email" placeholder="Enter your Email address!" name="email"
-                                                    class="form-control" value="{{ old('email') }}" required="">
-                                                @if ($errors->has('email'))
-                                                    <span class="text-danger">
-                                                            <strong>{{ $errors->first('email') }}</strong>
-                                                        </span>
-                                                @endif
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                                <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" placeholder="Enter your Email address!" name="email"
+                                                        class="form-control" value="{{ old('email') }}" required="">
+                                                    @if ($errors->has('email'))
+                                                        <span class="text-danger">
+                                                                <strong>{{ $errors->first('email') }}</strong>
+                                                            </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                                <label for="" class="col-md-5 col-form-label label_align_right">Password</label>
+                                                <div class="col-md-6">
+                                                    <input type="password" placeholder="Enter your Password!" name="password"
+                                                        class="form-control" value="{{ old('password') }}" required="">
+                                                </div>
+
+                                            </div>
+                                            <br>
+
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>
+                                                <div class="col-md-6">
+                                                    <input type="password" placeholder="Enter your Password again!"
+                                                        name="confirm_password" class="form-control" required="">
+                                                </div>
                                             </div>
                                         </div>
-                                        <br>
+                                        <div class="col-md-4">
+                                            <div class="col-md-7 pull-right">
+                                                <img class="col-md-3 profile-style" id="previewImg"  src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                                                <p class="mt-2">
+                                                <input type="file" class="custom-file-input" id="profile_photo"  name="image"
+                                                    value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
+                                                </p>
+                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
 
-                                        <div class="row">
-                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                            <label for="" class="col-md-5 col-form-label label_align_right">Password</label>
-                                            <div class="col-md-6">
-                                                <input type="password" placeholder="Enter your Password!" name="password"
-                                                    class="form-control" value="{{ old('password') }}" required="">
-                                            </div>
-
-                                        </div>
-                                        <br>
-
-
-                                        <div class="row">
-                                            <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                            <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>
-                                            <div class="col-md-6">
-                                                <input type="password" placeholder="Enter your Password again!"
-                                                    name="confirm_password" class="form-control" required="">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="col-md-7 pull-right">
-                                            <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                            <p class="mt-2">
-                                            <input type="file" class="custom-file-input" id="profile_photo"  name="image"
-                                                   value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
-                                            </p>
-                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-
-                                        </div>
-                                    </div>
-                                </div>
                                 
  
                                 
@@ -215,7 +215,7 @@
                                                             <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                                         </div>
                                                         <div class="row">
-                                                            <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                 value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
@@ -229,7 +229,7 @@
                                                             <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                                         </div>
                                                         <div class="row">
-                                                            <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                 value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>

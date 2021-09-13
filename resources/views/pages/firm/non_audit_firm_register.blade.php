@@ -62,11 +62,7 @@
 
         </div>
           <div class="container" style="overflow: hidden;">
-			<div id="non_audit_form_pending" class="non-audit-pending-style">
-				<div class="alert alert-info" role="alert">
-					Your Non-Audit Form is checking. !!!
-				</div>
-            </div>
+			
 			<div id="non_audit_reject" style="display: none;margin-top:5%;">
 				<div class="card text-white bg-dark mb-3">
 
@@ -79,92 +75,9 @@
 				</div>
             </div>
 
-			<div class="row" id="non_audit_container" style="display:none; margin-top:5%;">
-				<form method="post" action="javascript:void();" enctype="multipart/form-data">
-                    <div class="card border-success mb-3">
-                        <div class="card-body text-success">
-                            <div class="col-md-12">
-                                {{--<div class="row">
-                                    <center><h4>Audit Firm Data</h4></center><br><br>
-                                    <table class="table table-bordered input-table border-success" width="100%" style="text-align:center;">
-                                        <tr>
-                                            <th>Accountancy Firm Name</th>
-                                            <th>Applied Date</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        <tr>
-                                            <td><span id="accountancy_firm_name"></span></td>
-                                            <td><span id="register_date"></span></td>
-                                            <td><span id="message"></span></td>
-                                        </tr>
-                                    </table>
-                                    <div class="row" id="check_renew" style="display:none;">
-                                        <div class="form-group">
-                                            <a href="{{ url('/audit_firm_renew') }}" class="btn btn-sm btn-block btn-info pull-right">Audit Firm Renew Form</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" id="check_status" style="display:none;">
-                                    <div class="form-group">
-                                        <a href="#" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
-                                    </div>
-                                </div>--}}
-                                <table width="100%">
-                                    <tr>
-                                        <td width="15%">
-                                            <div class="single-form">
-                                                <label class="col-form-label">Accountancy Firm Name</label>
-                                            </div>
-                                        </td>
-                                        <td width="85%">
-                                            <div class="single-form">
-                                                <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="15%">
-                                            <div class="single-form">
-                                                <label class="col-form-label">Applied Date</label>
-                                            </div>
-                                        </td>
-                                        <td width="85%">
-                                            <div class="single-form">
-                                                <input type="text" class="form-control" id="register_date" readonly="">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="15%">
-                                            <div class="single-form">
-                                                <label class="col-form-label">Status</label>
-                                            </div>
-                                        </td>
-                                        <td width="85%">
-                                            <div class="single-form">
-                                                <input type="text" class="form-control" id="message" readonly="">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-																<br>
-																<center>
-                                    <button id="non_audit_payment_btn" value="" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
-                                </center>
-                                <div class="row" id="check_non_audit_renew" style="display:none;text-align: center; margin-top: 2%;">
-                                    <div class="form-group">
-                                        <center>
-                                            <a href="{{ url('/non_audit_firm_renew') }}" class="btn btn-sm btn-block btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
-                                        </center>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+			
 
-			<div id="non_audit_app_form" style="display:block;">
+			<div id="non_audit_app_form">
 				<form id="non-audit-form" class="needs-validation" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
 					<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
@@ -1370,54 +1283,7 @@
 			</div>
 	</form>
 
-	<!-- Payment Modal -->
-	<form method="post" class="needs-validation" action="javascript:nonAuditPaymentSubmit();" enctype="multipart/form-data"
-				novalidate>
-			@csrf
-			<div class="modal fade" id="nonAuditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-							<div class="modal-content">
-									<div class="modal-header">
-											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<br>
-									<div class="modal-body">
-											<div class="row justify-content-center">
-													<center>
-															<h4 style="margin-bottom:5%;">Non-Audit Firm Registration Form Fee - ****** MMK</h4>
-													</center>
-													<div class="col-sm-3 col-5">
-															<center>
-																	<img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-																			 data-value="CBPAY" name="payment_method" id="cb_img">
-															</center>
-															<br>
-													</div>
-													<div class="col-sm-3 col-5">
-															<center>
-																	<img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-																			 data-value="MPU" name="payment_method" id="mpu_img">
-															</center>
-															<br>
-													</div>
-													<div class="col-sm-3 col-5">
-															<center>
-																	<img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-																			 data-value="CASH" name="payment_method" id="cash_img">
-															</center>
-															<br>
-													</div>
-													<input type="hidden" name="payment_method" value="CASH">
-													<center>
-															<button type="submit" id="non_audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-													</center>
-											</div>
-									</div>
-									<br>
-							</div>
-					</div>
-			</div>
-	</form>
+	
 
 </div>
 
@@ -1466,12 +1332,9 @@ $(document).ready(function(){
 loadNonAuditStaff();
 loadNonAuditOrganization();
 loadNonAuditTypeOfService();
-nonAuditRegFeedback();
-nonAuditData();
+
 // pendingStatus();
-nonAuditFirmDateQuery();
-nonAuditVerifyStatus();
-checkPaymentNonAudit();
+
 
 </script>
 

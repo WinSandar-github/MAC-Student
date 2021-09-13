@@ -343,28 +343,36 @@ function check_email_non_audit()
 
 function nonAuditRegFeedback(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
-  $.ajax({
+  if(student!=null){
+    $.ajax({
       url: BACKEND_URL+"/getAuditFormStatus/"+student.id,
       type: 'GET',
       success: function(data){
         data.forEach(function(element){
               if(element.approve_reject_status == 0){
-                  $('#non_audit_app_form').css('display','none');
+                  $('#non_audit_approve').css('display','none');
                   $('#non_audit_form_pending').css('display','block');
+                  $('.register-btn').css('display','none');
+                  $('.payment-btn').css('display','none');
               }else if(element.approve_reject_status == 1){
-
+                  $('#non_audit_approve').css('display','block');
                   $('#non_audit_app_form').css('display','none');
-                  $('#non_audit_form_pending').css('display','block');
+                  $('#non_audit_form_pending').css('display','none');
+                  $('.payment-btn').css('display','block');
+                  $('.register-btn').css({'display':'none'});
+                  $('.register-btn').removeClass('mt-4');
               }
         })
       }
   });
+  }
 }
 
 
 function nonAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
-  $.ajax({
+  if(student!=null){
+    $.ajax({
       type: "GET",
       url: BACKEND_URL+"/getNonAuditStatus/"+student.accountancy_firm_info_id,
       success: function (data){
@@ -377,7 +385,7 @@ function nonAuditData(){
                   $("#accountancy_firm_name").val(element.accountancy_firm_name);
                   $("#register_date").val(element.register_date);
 
-                  $('#non_audit_container').css('display','block');
+                  //$('#non_audit_container').css('display','block');
                   $('#non_audit_form_pending').css('display','none');
               }
               else{
@@ -390,6 +398,7 @@ function nonAuditData(){
           })
       }
   })
+  }
 }
 
 
@@ -607,8 +616,6 @@ function removeBracketed(file,divname){
   var new_file=file.replace(/[\'"[\]']+/g, '');
   var split_new_file=new_file.split(',');
   for(var i=0;i<split_new_file.length;i++){
-    console.log('BASE_URL',BASE_URL+"/"+split_new_file[i]);
-      // var file="<a href='#' onclick=loadFile('"+split_new_file[i]+"') id='img' data-toggle='modal' data-target='#fileModal'>View File</a><br/>";
       var file="<a href='"+BASE_URL+"/"+split_new_file[i]+"'  target='_blank'>View File</a><br/>";
       $("."+divname).append(file);
     }
@@ -651,19 +658,22 @@ function nonAuditRenewSubscribe()
 
 function nonAuditFirmDateQuery(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         type: "GET",
         url: BACKEND_URL+"/getNonAuditDateRange/"+student.accountancy_firm_info_id,
         success: function (data){
             $("#message").val(data);
         }
     })
+    }
 }
 
 function nonAuditVerifyStatus()
 {
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         type: "GET",
         url: BACKEND_URL+"/nonAuditCheckVerify/"+student.accountancy_firm_info_id,
         success: function (data){
@@ -681,27 +691,29 @@ function nonAuditVerifyStatus()
             })
         }
     })
+    }
 }
 
 function checkPaymentNonAudit(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     // console.log(student)
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         url: BACKEND_URL+"/check_payment_non_audit/"+student.id,
         type: 'GET',
         success: function(data){
-            // console.log(data);
           var form_data = data;
           form_data.forEach(function(element){
                 if(element.payment_method != null){
                     $('#non_audit_payment_btn').prop('disabled', true);
-
+                    loadNonAuditRenew();
                 }else{
                     $('#non_audit_payment_btn').prop('disabled', false);
                 }
           })
         }
     });
+    }
 }
 
 // click Go To Payment Button
@@ -730,4 +742,11 @@ function nonAuditPaymentSubmit(){
         error:function (message){
         }
     })
+}
+function loadNonAuditRenew(){
+  $('#non_audit_approve').css('display','none');
+  $('#non_audit_container').css('display','block');
+  $('#non_audit_form_pending').css('display','none');
+  $('#non_audit_initial').css({'display':'none'});
+ 
 }

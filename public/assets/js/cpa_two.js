@@ -5,19 +5,17 @@ $("input[id='cpa_one_pass_date']").flatpickr({
 });
 var boo=localStorage.getItem("isPrivateSchool");
 if(boo=="true" ){
-    console.log(boo,"true");
     if(document.getElementById('is_private_school'))
     {document.getElementById('is_private_school').style.display='block';}
 }
 else{
-    console.log(boo,"false");
     if(document.getElementById('is_private_school'))
     {document.getElementById('is_private_school').style.display='none';}
 }
 var cpaOneID;
 
 function ConfirmSubmit(){
-    alert("hello")
+     
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
@@ -51,7 +49,6 @@ function CPA2_Private_School_Submit(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -62,7 +59,6 @@ function CPA2_Private_School_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
@@ -110,7 +106,6 @@ function CPA2_Mac_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
@@ -146,7 +141,6 @@ function CPA2_Self_Study_Submit(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -159,7 +153,6 @@ function CPA2_Self_Study_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
@@ -173,8 +166,8 @@ $( "#cpa2_self" ).click(function() {
     function allFill(form_id) {
         var filled = true;
         $(form_id+' input').each(function() {
-            console.log($(this).attr('id'));
             if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+          
         });
         return filled;        
     }
@@ -197,14 +190,10 @@ $('#store_cpa_two_form').submit(function(e){
             localStorage.setItem('approve_reject', data.approve_reject_status);
             location.href = FRONTEND_URL+"/"; 
         },
-      error:function (message){
-        errorMessage(message);
-        EasyLoading.hide();
-          }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        error:function (message){
+            errorMessage(message);
+            EasyLoading.hide();
+        }
+        
     });
 });

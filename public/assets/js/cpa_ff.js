@@ -120,41 +120,7 @@ function delInputFile(diventry){
     $('.btn-remove').parents('.'+diventry+':first').remove();
 }
 
-// var  studentID;
-// function SearchStudentID(){
-//     var nrc_state_region    =   $("#nrc_state_region").val();
-//     var nrc_township        =   $("#nrc_township").val();
-//     var nrc_citizen         =   $("#nrc_citizen").val();
-//     var nrc_number          =   $("input[name=nrc_number]").val();
-//     // var nrc                 =   nrc_state_region+nrc_township+nrc_citizen+nrc_number;
-//     var nrc = new FormData();
-//     nrc.append('nrc_state_region', nrc_state_region);
-//     nrc.append('nrc_township', nrc_township);
-//     nrc.append('nrc_citizen', nrc_citizen);
-//     nrc.append('nrc_number', nrc_number);
 
-//     console.log('nrc',nrc);
-
-//     $.ajax({
-//         url:BACKEND_URL+"/student_info_by_nrc",
-//         type: 'post',
-//         data: nrc,
-//         contentType: false,
-//         processData: false,
-//         success: function(result){
-//             // console.log('result',result.data)
-//                 if(result.data!=null){
-//                     studentID=result.data.id;
-//                     document.getElementById("fieldset").disabled = false;
-//                 }
-//                 else{
-//                     document.getElementById("fieldset").disabled = true;
-//                 }
-//             }
-//         });
-
-
-// }
 
 $( "#cpaff_submit_btn" ).click(function() {
         if(allFilled('#cpaff_form')){
@@ -206,7 +172,7 @@ function cpaffPaymentSubmit(){
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
-            location.href = FRONTEND_URL + "/";
+            location.href = FRONTEND_URL + "/cpa_ff_information";
         },
         error:function (message){
         }
@@ -215,17 +181,14 @@ function cpaffPaymentSubmit(){
 
 function checkPaymentCpaff(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
     if(student!=null){
         $.ajax({
             url: BACKEND_URL+"/check_payment_cpaff/"+student.id,
             type: 'GET',
             success: function(data){
-                // console.log(data);
               var form_data = data;
               form_data.forEach(function(element){
-                console.log(element.payment_method)
-                if(element.payment_method != null){
+                if(element.payment_method == 'CPAFF'){
                     $('#cpaff_modal').prop('disabled', true);
                     loadCPAFF();
                 }else{
@@ -417,7 +380,6 @@ function form_feedback(){
             success: function(cData){
                 var data=cData.data;
                 if(data!=null){
-                    console.log(data.status)
                     if(data.status==0 || data.renew_status==0)
                     {
                         document.getElementById('pending').style.display='block';
@@ -589,7 +551,6 @@ function RenewCPAFF(){
                     contentType: false,
                     processData: false,
                     success: function(result){
-                      console.log("result >>>",result);
                         EasyLoading.hide();
                         successMessage(result.message);
                         location.reload();
