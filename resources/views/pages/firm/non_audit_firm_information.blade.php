@@ -51,14 +51,102 @@
                         </div>
                     </div>
                 </div>
-                <div class="check_registration" style="display:none; margin-left: 7%; margin-right: 7%;">
-                    <div class="card text-white bg-primary my-3">
-
-                        <div class="card-body">
-                            <p class="card-text">Your Application Form is checking</p>
-                        </div>
-                    </div>
-                </div>
+                <div id="non_audit_form_pending" class="non-audit-pending-style">
+					<div class="card text-white bg-primary my-3" role="alert">
+						<div class="card-body">
+						Your Non-Audit Form is checking. !!!
+						</div>
+					</div>
+				</div>
+				<div id="non_audit_approve" class="non-audit-pending-style">
+					<div class="card text-white bg-primary my-3" role="alert">
+						<div class="card-body">
+						Your Non-Audit Form is is approved! You need to subscribe your non audit service with desire payment method!
+						</div>
+					</div>
+				</div>
+				<div class="row" id="non_audit_container" style="display:none; margin-top:5%;">
+					<form method="post" action="javascript:void();" enctype="multipart/form-data">
+						<div class="card border-success mb-3">
+							<div class="card-body text-success">
+								<div class="col-md-12">
+									{{--<div class="row">
+										<center><h4>Audit Firm Data</h4></center><br><br>
+										<table class="table table-bordered input-table border-success" width="100%" style="text-align:center;">
+											<tr>
+												<th>Accountancy Firm Name</th>
+												<th>Applied Date</th>
+												<th>Status</th>
+											</tr>
+											<tr>
+												<td><span id="accountancy_firm_name"></span></td>
+												<td><span id="register_date"></span></td>
+												<td><span id="message"></span></td>
+											</tr>
+										</table>
+										<div class="row" id="check_renew" style="display:none;">
+											<div class="form-group">
+												<a href="{{ url('/audit_firm_renew') }}" class="btn btn-sm btn-block btn-info pull-right">Audit Firm Renew Form</a>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="check_status" style="display:none;">
+										<div class="form-group">
+											<a href="#" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
+										</div>
+									</div>--}}
+									<table width="100%">
+										<tr>
+											<td width="15%">
+												<div class="single-form">
+													<label class="col-form-label">Accountancy Firm Name</label>
+												</div>
+											</td>
+											<td width="85%">
+												<div class="single-form">
+													<input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td width="15%">
+												<div class="single-form">
+													<label class="col-form-label">Applied Date</label>
+												</div>
+											</td>
+											<td width="85%">
+												<div class="single-form">
+													<input type="text" class="form-control" id="register_date" readonly="">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td width="15%">
+												<div class="single-form">
+													<label class="col-form-label">Status</label>
+												</div>
+											</td>
+											<td width="85%">
+												<div class="single-form">
+													<input type="text" class="form-control" id="message" readonly="">
+												</div>
+											</td>
+										</tr>
+									</table>
+																	<br>
+									
+									<div class="row" id="check_non_audit_renew" style="display:none;text-align: center; margin-top: 2%;">
+										<div class="form-group">
+											<center>
+												<a href="{{ url('/non_audit_firm_renew') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
+											</center>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+            </div>
 				{{--<div class="card-body">
 					<div class="row">
 						<div class="col-md-12 widget-information">
@@ -175,11 +263,34 @@
 														<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-														<div class="pull-right mt-4">
-															<p class="info-btn col-md-2 mb-4 text-dark h6">
-																<a href="{{url('non_audit_firm_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
-															</p>
-														</div>
+														
+														<div class="row register-btn">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                                                                        <a href="{{url('non_audit_firm_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                        <div class="row payment-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        
+																						<button id="non_audit_payment_btn" value="" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
 												</ul>
 											</div>
 										</div>
@@ -189,7 +300,54 @@
 						</div>
 					</div>
 				</div>				
-				
+				<!-- Payment Modal -->
+	<form method="post" class="needs-validation" action="javascript:nonAuditPaymentSubmit();" enctype="multipart/form-data"
+				novalidate>
+			@csrf
+			<div class="modal fade" id="nonAuditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<br>
+									<div class="modal-body">
+											<div class="row justify-content-center">
+													<center>
+															<h4 style="margin-bottom:5%;">Non-Audit Firm Registration Form Fee - ****** MMK</h4>
+													</center>
+													<div class="col-sm-3 col-5">
+															<center>
+																	<img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+																			 data-value="CBPAY" name="payment_method" id="cb_img">
+															</center>
+															<br>
+													</div>
+													<div class="col-sm-3 col-5">
+															<center>
+																	<img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+																			 data-value="MPU" name="payment_method" id="mpu_img">
+															</center>
+															<br>
+													</div>
+													<div class="col-sm-3 col-5">
+															<center>
+																	<img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+																			 data-value="CASH" name="payment_method" id="cash_img">
+															</center>
+															<br>
+													</div>
+													<input type="hidden" name="payment_method" value="CASH">
+													<center>
+															<button type="submit" id="non_audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+													</center>
+											</div>
+									</div>
+									<br>
+							</div>
+					</div>
+			</div>
+	</form>
             </div>
         </div>
     </div>
@@ -214,27 +372,11 @@
         localStorage.setItem('course_type',course_type[2])
         }
 		loadDescription('non audit firm');
-        // if(course_type[2]==1){
-        //     // console.log("DA");
-        //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>အသိအမှတ်ပြုတက္ကသိုလ်တစ်ခုခုမှ ဘွဲ့ရရှိသူများ လျှောက်ထားနိုင်ပါသည်။ </li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I  သင်တန်း (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၅၀၀ ဦးခန့်ရှိ။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်း(၂)တန်း (MAC,SS,Private)(၃)မျိုးပေါင်း နှစ်စဉ် ၃၀၀  ဦးခန့်ရှိ။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA I သင်တန်းတွင် ဘာသာရပ် ၅ ခု၊ Module I တွင် ဘာသာရပ် ၃ ခု၊ Module II တွင် ဘာသာရပ် ၂ ခု ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>DA II သင်တန်းတွင် ဘာသာရပ် ၆ ခုရှိပြီး ရှိပြီး Module တစ်ခုစီတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA I အောင်မြင်ပြီးသူ  ၈၇၄၃ ဦး၊ တက်ရောက်ဆဲ ၂၇၉ ဦး ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ DA II အောင်မြင်ပြီးသူ  ၄၆၀၉ ဦး ရှိပါသည်။</li>";
-        //     $(".requirement_lists").append(li);
-        // }else{
-        //     // console.log("CPA");
-        //     var li = "<li class='mb-2'> <i class='fa fa-check'></i>BCom,BAct,BBA,DA,BBSc ,ACCA (Fundamental skill level),CIMA ဘွဲ့များကို အဆိုပါသင်တန်းသို့ တိုက်ရိုက် တက်ရောက်ခွင့်ပေးပြီး အခြားဘွဲ့များ ဝင်ခွင့်စာမေးပွဲ အောင်မြင်ပါက တက်ရောက်ခွင့်ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA I & II သင်တန်း(၂)တန်းဖွင့်လှစ်ပြီး (MAC,SS,Private)(၃)မျိုးပေါင်းနှစ်စဉ် ၃၅၀၀ ဦးခန့်ရှိ။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>Module အားလုံးကိုဖြစ်စေ၊ ကြိုက်နှစ်သက်ရာ Module တစ်ခုကိုဖြစ်စေ ၅ နှစ်အတွင်းဖြေဆိုနိုင်သည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>သင်တန်းတစ်ခုတွင်ဘာသာရပ် ၆ ခုရှိပြီး Module တစ်ခုတွင် ဘာသာရပ် ၃ ခုရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>ယနေ့ထိ CPA I အောင်မြင်ပြီးသူ  ၃၈၁၀ ဦး၊တက်ရောက်ဆဲ၂၇၄၁ ဦး တက်ရောက်ခွင့်ရရှိထားသူ ၁၅၀၀ ဦး ခန့်ရှိပါသည်။</li>";
-        //     li += "<li class='mb-2'>  <i class='fa fa-check'></i>CPA II  အောင်မြင်ပြီးသူ ၂၆၂၈ ဦး ၊ CPA II တက်ရောက်ဆဲ    ၅၀၀ ဦး ရှိပါသည်။</li>";
-        //     $(".requirement_lists").append(li);
-        // }
+		nonAuditRegFeedback();
+        nonAuditFirmDateQuery();
+		nonAuditVerifyStatus();
+		checkPaymentNonAudit();
+		nonAuditData();
     })
     //app_form_feedback();
 
