@@ -607,8 +607,6 @@ function removeBracketed(file,divname){
   var new_file=file.replace(/[\'"[\]']+/g, '');
   var split_new_file=new_file.split(',');
   for(var i=0;i<split_new_file.length;i++){
-    console.log('BASE_URL',BASE_URL+"/"+split_new_file[i]);
-      // var file="<a href='#' onclick=loadFile('"+split_new_file[i]+"') id='img' data-toggle='modal' data-target='#fileModal'>View File</a><br/>";
       var file="<a href='"+BASE_URL+"/"+split_new_file[i]+"'  target='_blank'>View File</a><br/>";
       $("."+divname).append(file);
     }
@@ -685,12 +683,10 @@ function nonAuditVerifyStatus()
 
 function checkPaymentNonAudit(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    // console.log(student)
     $.ajax({
         url: BACKEND_URL+"/check_payment_non_audit/"+student.id,
         type: 'GET',
         success: function(data){
-            // console.log(data);
           var form_data = data;
           form_data.forEach(function(element){
                 if(element.payment_method != null){

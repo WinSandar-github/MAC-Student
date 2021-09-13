@@ -1626,11 +1626,9 @@ $nrc_characters = config('myanmarnrc.characters');
 
             get_student_info(student_id).then(data => {
             
-                let student_info = data.data
-                console.log('student_info',student_info)
+                let student_info = data.data;
                 if(data){
                     let current_stu_course = data.data.student_course_regs.slice(-1);
-                    console.log('current_stu_course',current_stu_course)
                 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
