@@ -259,7 +259,7 @@
                                         
 
                                         <div  id="edu" style="display:none;">  
-                                            <div class="row mb-2" id="degree_name0">  
+                                            <div class="row mb-2" id="degree0">  
                                                 <div class="col-md-1"></div>                                                         
                                                 <div class="col-md-4 col-auto">                                                              
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>

@@ -72,7 +72,7 @@ function addInputFile(divname,diventry){
 var count=1;
 function AddCPAFFDegree(){
     $("#edu").append(
-        '<div class="row mb-2" id="degree_name'+count+'">'+
+        '<div class="row mb-2" id="degree'+count+'">'+
             '<div class="col-md-1"></div>'+
             '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
@@ -100,7 +100,7 @@ function AddCPAFFDegree(){
                 '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
-                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(degree'+count+',degree_year'+count+',edu'+count+')">'+
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
@@ -115,6 +115,16 @@ function AddCPAFFDegree(){
     count++;
 
 }
+
+function remove(id1,id2,id3){
+    
+    id1.remove();
+    id2.remove();
+    id3.remove();
+ 
+}
+
+
 
 function delInputFile(diventry){
     $('.btn-remove').parents('.'+diventry+':first').remove();

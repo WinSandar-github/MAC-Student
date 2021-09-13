@@ -43,7 +43,7 @@ function Degree_Check(){
 var count=1;
 function Add(){
     $("#edu").append(
-        '<div class="row mb-2" id="degree_name'+count+'">'+
+        '<div class="row mb-2" id="degree'+count+'">'+
             '<div class="col-md-1"></div>'+
             '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
@@ -71,7 +71,7 @@ function Add(){
                 '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
-                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(degree'+count+',degree_year'+count+',edu'+count+')">'+
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
@@ -85,13 +85,12 @@ function Add(){
     count++;
 
 }
-function remove(id){
-    id.remove();
-    var div_count =  $("#edu div").children().length;
-    // alert(div_count);
-    if(div_count==4){
-    //document.getElementById("edu0_remove").style.display="none";
-    }
+function remove(id1,id2,id3){
+    
+    id1.remove();
+    id2.remove();
+    id3.remove();
+ 
 }
 
 $( "#papp_submit_btn" ).click(function() {
