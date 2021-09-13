@@ -72,7 +72,7 @@
 
         </div>
         <div class="container" style="overflow: hidden;">
-            
+
             <div class="row mt-5">
 
 
@@ -430,13 +430,13 @@
                         </div>
                     </div>
                 </div>
-            </form>  
+            </form>
         </div>
 
 
     </div>
 
-    
+
 
 
     <!-- JavaScript Section -->
@@ -505,7 +505,7 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
-        
+
     });
 
 </script>

@@ -62,7 +62,7 @@
 
         </div>
           <div class="container" style="overflow: hidden;">
-			
+
 			<div id="non_audit_reject" style="display: none;margin-top:5%;">
 				<div class="card text-white bg-dark mb-3">
 
@@ -75,7 +75,7 @@
 				</div>
             </div>
 
-			
+
 
 			<div id="non_audit_app_form">
 				<form id="non-audit-form" class="needs-validation" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
@@ -165,7 +165,7 @@
 
 									<div class="col-md-4">
 										<div class="col-md-7 pull-right">
-											<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+											<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
 											<p class="mt-2">
 											<input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
 											</p>
@@ -1283,7 +1283,7 @@
 			</div>
 	</form>
 
-	
+
 
 </div>
 

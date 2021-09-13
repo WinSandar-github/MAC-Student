@@ -203,7 +203,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="col-md-8 pull-right">
-                                                            <img class="col-md-3 profile-style" name="previewImg" id="previewImgMac" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-3 profile-style" name="previewImg" id="previewImgMac" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <!-- <input type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
@@ -526,7 +526,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="col-md-8 pull-right">
-                                                            <img class="col-md-3 profile-style" name="previewImg" id="previewImgPrivate" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-3 profile-style" name="previewImg" id="previewImgPrivate" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <!-- <input type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>
@@ -845,7 +845,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="col-md-8 pull-right">
-                                                            <img class="col-md-3 profile-style" name="previewImg" id="previewImgSelf" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-3 profile-style" name="previewImg" id="previewImgSelf" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <!-- <input type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" required>

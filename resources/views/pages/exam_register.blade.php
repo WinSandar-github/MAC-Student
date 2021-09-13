@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="col-md-7 pull-right">
-                                                <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
 
                                             </div>
@@ -175,13 +175,13 @@
                                         </div>
                                     </div>
                                     <br>
-                                    
+
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
                                             <label class="col-md-3 col-form-label label_align_right">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             <div class="col-md-8">
-                                                <div class="form-group">                                
+                                                <div class="form-group">
                                                     <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
                                                         <option value="" disabled selected>Select School</option>
                                                     </select>
@@ -203,7 +203,7 @@
                                             </td>
                                         </tr>
                                     </table>--}}
-                                
+
                                     {{--<table width="100%">
                                         <tr>
                                             <td>
@@ -222,7 +222,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     {{--<table width="100%">
                                         <tr>
                                             <td width="35%">
@@ -258,11 +258,11 @@
                                                     <input type="radio" id="2" name="is_full_module" value="3" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
 
-                                    
+
 
                                     {{--<table width="100%">
                                         <tr>
@@ -389,13 +389,13 @@
 
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
-        
+
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
             console.log(data.data);
             if(data){
-                
+
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
@@ -422,8 +422,8 @@
             }
 
         })
-    }); 
+    });
 
-    
+
 </script>
 @endpush
