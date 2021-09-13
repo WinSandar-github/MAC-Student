@@ -175,6 +175,7 @@ $( "#cpa2_self" ).click(function() {
         $(form_id+' input').each(function() {
             console.log($(this).attr('id'));
             if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+          
         });
         return filled;        
     }
