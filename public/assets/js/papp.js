@@ -352,24 +352,24 @@ function Papp_feedback(){
                         $('.payment-btn').css('display','block');
                         $('.register-btn').css({'display':'none'});
                         $('.register-btn').removeClass('mt-4');
-                        var accept=new Date(data.renew_accepted_date);
-                        var month=accept.getMonth()+1;
-                        var year=accept.getFullYear();
-                        var y=year+1;
-                        var now=new Date();
-                        $('#regno').val(data.id);
-                        $('#register_date').val(data.renew_accepted_date);
-                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                            $('.renew_submit').prop('disabled', false);
+                        // var accept=new Date(data.renew_accepted_date);
+                        // var month=accept.getMonth()+1;
+                        // var year=accept.getFullYear();
+                        // var y=year+1;
+                        // var now=new Date();
+                        // $('#regno').val(data.id);
+                        // $('#register_date').val(data.renew_accepted_date);
+                        // if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                        //     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        //     $('.renew_submit').prop('disabled', false);
     
-                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                            $("#message").val("Your registeration will start in "+y+" year!");
-                            $('.renew_submit').prop('disabled', true);
-                        }else{
-                            $('#message').val("You are verified!");
-                            $('.renew_submit').prop('disabled', true);
-                        }
+                        // }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                        //     $("#message").val("Your registeration will start in "+y+" year!");
+                        //     $('.renew_submit').prop('disabled', true);
+                        // }else{
+                        //     $('#message').val("You are verified!");
+                        //     $('.renew_submit').prop('disabled', true);
+                        // }
     
                     }
                     else if(data.status==2 || data.renew_status==2)
@@ -448,14 +448,14 @@ function loadPAPP(){
                         loadFile(data.rule_confession,"view_rule_conf_file");
                         loadFile(data.cpd_record,"view_cpd_record_file");
                         loadFile(data.tax_free_recommendation,"view_tax_free_file");
-                        if(data.use_firm==1){
+                        if(data.use_firm==0){
                             $('#firm_check').prop("checked", true);
                         }
                         if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
                             $('#used_firm_check').prop("checked", true);
                             $('input[name=used_firm_name]').val(data.firm_name);
                             $('input[name=used_firm_type]').val(data.firm_type);
-                            $('input[name=used_firm_level]').val(data.firm_level);
+                            $('input[name=used_firm_level]').val(data.firm_step);
                         }
                         if(data.staff_firm_name!=null ){
                             $('#staff_firm_check').prop("checked", true);

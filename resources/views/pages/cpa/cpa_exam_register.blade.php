@@ -381,7 +381,7 @@
                                                         
                                                     </div>
                                                     <div class="col-md-6">
-                                                            <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required>
+                                                            <input type="text" id="last_ans_exam_no" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required>
                                                         
                                                     </div>
                                                 </div>
@@ -397,7 +397,7 @@
                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                            <input type="text" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" required>
+                                                            <input type="text" id="date" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" required>
                                                         
                                                     </div>
 
@@ -657,13 +657,10 @@
     function allFilled(form_id) {
         var filled = true;        
         $(form_id+' input').each(function() {
-            if($(this).attr('id')=="form_type")
-            {   }
-            else if($(this).attr('id')=="is_private")
-            {   }
-            else if($(this).attr('id')=="selected_school_id")
-            {   }
-            else{ if($(this).val() == ''  ) filled = false; }
+            if($(this).attr('id')=="date" && $(this).val() == '')
+            {  filled = false;  }
+            if($(this).attr('id')=="last_ans_exam_no" && $(this).val() == '')
+            {  filled = false;  }
         });
         return filled;        
     }
