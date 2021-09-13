@@ -398,7 +398,7 @@
                                                     <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
                                                     <div class="col-md-8">
-                                                        <input type="text" name="personal_no_mac" id="personal_no_mac" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
+                                                        <input type="text" name="personal_no_mac" id="personal_no_mac" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
 
                                                     </div>
                                                 </div>
@@ -699,7 +699,7 @@
                                                     <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
                                                     <div class="col-md-8">
-                                                        <input type="text" name="personal_no_private" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
+                                                        <input type="text" name="personal_no_private" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
 
                                                     </div>
                                                 </div>
@@ -1088,7 +1088,7 @@
                                                     <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
                                                     <div class="col-md-8">
-                                                        <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
+                                                        <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
 
                                                     </div>
                                                 </div>
@@ -1322,7 +1322,7 @@
 
                 $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                 $('.course_name').val(current_stu_course[0].batch.course.name);
-                $('.batch_no').val(current_stu_course[0].batch.number);
+                $('.batch_no').val(current_stu_course[0]?.batch?.number);
 
                 document.getElementById('previewImgSelf').src = BASE_URL + data.data.image;
                 document.getElementById('previewImgPrivate').src = BASE_URL + data.data.image;
