@@ -530,7 +530,7 @@ function auditRenewSubscribe()
         success: function (data) {
           EasyLoading.hide();
           successMessage("Your new subscription is success!");
-          location.href = FRONTEND_URL+'/audit_firm';
+          location.href = FRONTEND_URL+'/';
         },
         error: function (result) {
         },
