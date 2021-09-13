@@ -387,7 +387,7 @@
                                                     <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
 
                                                     <div class="col-md-8">
-                                                            <input type="text" name="batch_no_mac" id="batch_no_mac" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
+                                                            <input type="text" name="batch_no_mac" id="batch_no_mac" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" >
 
                                                     </div>
                                                 </div>
@@ -688,7 +688,7 @@
                                                     <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
 
                                                     <div class="col-md-8">
-                                                            <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
+                                                            <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" >
 
                                                     </div>
                                                 </div>
@@ -1077,7 +1077,7 @@
                                                     <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
 
                                                     <div class="col-md-8">
-                                                            <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" required>
+                                                            <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်" id="" >
 
                                                     </div>
                                                 </div>
@@ -1393,7 +1393,7 @@
         // else{
         // }
     });
-    
+
     function allFilled(form_id) {
         var filled = true;
         $(form_id+' input').each(function() {
