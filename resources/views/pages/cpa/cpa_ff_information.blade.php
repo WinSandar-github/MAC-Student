@@ -612,7 +612,6 @@
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
-        // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
         localStorage.setItem('course_type',course_type[2])

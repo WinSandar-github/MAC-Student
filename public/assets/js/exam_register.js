@@ -23,7 +23,6 @@ function createDAExamRegister()
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
 
     send_data.append('form_type',$("#form_type").val());
-    // console.log('form_type',$("input[name=form_type]").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/exam_register",
@@ -50,7 +49,6 @@ $( "#btn_da_exam_submit" ).click(function() {
 // function allFilled(form_id) {
 //     var filled = true;
 //     $(form_id+' input').each(function() {
-//         console.log($(this).attr('id'));
 //         if($(this).val() == ''  ) filled = false;
 //         if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
 //     });
@@ -79,7 +77,6 @@ $( "#cpa1submit" ).click(function() {
 function allfilled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {
-        console.log($(this).attr('id'));
         if($(this).val() == ''  ) filled = false;
         if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
     });
@@ -121,7 +118,6 @@ $('#cpa_exam_register').submit(function(e){
     form_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
-    console.log('form_type',$("input[name=form_type]").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/cpa_exam_register",
@@ -149,7 +145,6 @@ $( "#da2submit" ).click(function() {
 function all_Filled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {
-        console.log($(this).attr('id'));
         if($("#last_exam_date").val() == ''){
             filled = false;
         }

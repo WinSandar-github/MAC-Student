@@ -448,7 +448,6 @@
         });
 
         get_student_info(student_id).then(data => {
-            console.log(data.data);
             if(data){
                 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;

@@ -169,7 +169,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-4">
                                                         <div class="col-md-7 pull-right">
-                                                            <img class="col-md-3 profile-style profile_image" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-3 profile-style profile_image" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
@@ -242,7 +242,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <img class="col-md-12 nrc-image-style nrc_front_image" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                    <img class="col-md-12 nrc-image-style nrc_front_image" id="previewNRCFrontImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                                     <p class="mt-2">
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
@@ -256,7 +256,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <img class="col-md-12 nrc-image-style nrc_back_image" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                    <img class="col-md-12 nrc-image-style nrc_back_image" id="previewNRCBackImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                                     <p class="mt-2">
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
@@ -664,7 +664,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-4">
                                                         <div class="col-md-7 pull-right">
-                                                            <img class="col-md-3 profile-style profile_image" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-3 profile-style profile_image" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
@@ -737,7 +737,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <img class="col-md-12 nrc-image-style nrc_front_image" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                    <img class="col-md-12 nrc-image-style nrc_front_image" id="previewNRCFrontImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                                     <p class="mt-2">
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
@@ -751,7 +751,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <img class="col-md-12 nrc-image-style nrc_back_image" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                    <img class="col-md-12 nrc-image-style nrc_back_image" id="previewNRCBackImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                                     <p class="mt-2">
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
@@ -1089,7 +1089,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-4">
                                                         <div class="col-md-7 pull-right">
-                                                            <img class="col-md-3 profile-style profile_image" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                            <img class="col-md-3 profile-style profile_image" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
@@ -1162,7 +1162,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <img class="col-md-12 nrc-image-style nrc_front_image" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                    <img class="col-md-12 nrc-image-style nrc_front_image" id="previewNRCFrontImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                                     <p class="mt-2">
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
@@ -1176,7 +1176,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <img class="col-md-12 nrc-image-style nrc_back_image" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                    <img class="col-md-12 nrc-image-style nrc_back_image" id="previewNRCBackImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                                     <p class="mt-2">
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
@@ -1626,11 +1626,9 @@ $nrc_characters = config('myanmarnrc.characters');
 
             get_student_info(student_id).then(data => {
             
-                let student_info = data.data
-                console.log('student_info',student_info)
+                let student_info = data.data;
                 if(data){
                     let current_stu_course = data.data.student_course_regs.slice(-1);
-                    console.log('current_stu_course',current_stu_course)
                 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);

@@ -5,12 +5,10 @@ $("input[name='date_of_birth']").flatpickr({
 });
 var boo=localStorage.getItem("isPrivateSchool");
 if(boo=="true" ){
-    console.log(boo,"true");
     if(document.getElementById('is_private_school'))
     {document.getElementById('is_private_school').style.display='block';}
 }
 else{
-    console.log(boo,"false");
     if(document.getElementById('is_private_school'))
     {document.getElementById('is_private_school').style.display='none';}
 }
@@ -60,82 +58,7 @@ function AddCPAEdu(){
 
 }
 
-// var studentID=null;
-// async function SearchStudentByNRC(){
-//     var nrc_state_region = $("#nrc_state_region").val();
-//     var nrc_township = $("#nrc_township").val();
-//     var nrc_citizen = $("#nrc_citizen").val();
-//     var nrc_number=$("input[name=nrc_number]").val();
 
-//     var photo = $('#photo')[0].files[0];
-   
-//     var name_mm=document.getElementById("name_mm");
-//     var name_eng=document.getElementById("name_eng");
-//     //var photo=document.getElementById("photo");
-//     var father_name_mm=document.getElementById("father_name_mm");
-//     var father_name_eng=document.getElementById("father_name_eng");
-//     var race=document.getElementById("race");
-//     var religion=document.getElementById("religion");
-//     var date_of_birth=document.getElementById("date_of_birth");
-//     var education=document.getElementById("education");
-//     var position=document.getElementById("position");
-//     var department=document.getElementById("department");
-//     var office_area=document.getElementById("office_area");
-//     var civil_servant=document.getElementById("civil_servant");
-//     var address=document.getElementById("address");
-//     var current_address=document.getElementById("current_address");
-//     var phone=document.getElementById("phone");
-//     var email=document.getElementById("email");
-//     var nrc = new FormData();
-    
-//     nrc.append('nrc_state_region', nrc_state_region);
-//     nrc.append('nrc_township', nrc_township);
-//     nrc.append('nrc_citizen', nrc_citizen);
-//     nrc.append('nrc_number', nrc_number);
-//     await $.ajax({
-//     url:BACKEND_URL+"/student_info_by_nrc",
-//     type: 'post',
-//     data: nrc,
-//     contentType: false,
-//     processData: false,
-//     success: function(result){
-//         console.log("result",result);
-//             if(result.data!=null){
-//                 studentID=result.data.id;
-//                 console.log(result.data);
-//                 name_mm.value=result.data.name_mm;
-//                 name_eng.value=result.data.name_eng;
-//                 //photo.value=result.data.image;
-//                 //$('#photo')[0].files[0]=result.data.image;
-//                 father_name_mm.value=result.data.father_name_mm;
-//                 father_name_eng.value=result.data.father_name_eng;
-//                 race.value=result.data.race;
-//                 religion.value=result.data.religion;
-//                 date_of_birth.value=result.data.date_of_birth;
-//                 education.value=result.data.student_education_histroy.degree_name;
-//                 position.value=result.data.student_job.position;
-//                 department.value=result.data.student_job.department;
-//                 office_area.value=result.data.student_job.office_address;
-//                 if(result.data.gov_staff==1){
-//                     var yes=document.getElementById("yes");
-//                     yes.checked=true;
-//                 }
-//                 else{
-//                     var no=document.getElementById("no");
-//                     no.checked=true;
-//                 }
-//                 address.value=result.data.address;
-//                 current_address.value=result.data.current_address;
-//                 phone.value=result.data.phone;
-//                 if(email){
-//                     email.value=result.data.email;
-//                 }
-//             }
-//             else{
-//             }
-//         }
-//     });
-// }
 
 function Private_School_Submit(){
     localStorage.setItem("isPrivateSchool",true);
@@ -159,8 +82,7 @@ function Private_School_Submit(){
         data:data,
         contentType: false,
         processData: false,
-        success: function(result){
-            console.log(result);  
+        success: function(result){  
             EasyLoading.hide();
             if(result.message==undefined){
                 successMessage(result);
@@ -173,7 +95,6 @@ function Private_School_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
@@ -215,7 +136,6 @@ function Self_Study_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
@@ -260,7 +180,6 @@ function Mac_Submit(){
         },
         error:function (message){
             EasyLoading.hide();
-            console.log(message);
             }
         });
 }
@@ -353,15 +272,9 @@ $('#cpa_register').submit(function(e){
             processData: false,
             data: send_data,
             success: function (data) {
-                console.log("cpaonedata",data);
                 //EasyLoading.hide();
-              console.log("response",data);
                 successMessage("You have successfully registerd!");
-               
-              
-                // localStorage.setItem('studentinfo', JSON.stringify(data));
-                // localStorage.setItem('approve_reject', data.approve_reject_status);
-                // location.href = "/student_course/2";
+
                 if(data.name_mm != null){
                     localStorage.setItem('studentinfo', JSON.stringify(data));
                     localStorage.setItem('approve_reject', data.approve_reject_status);
@@ -386,7 +299,6 @@ function cpa_edit(){
         type:'GET',
         url: BACKEND_URL+'/student_info/'+student.id,
         success:function(result){
-            console.log(result.data)
              var data = result.data;
              var education = result.data.student_education_histroy;
             //  var cpone_dir = result.data.cpa_one_direct;
@@ -427,7 +339,6 @@ function cpa_edit(){
             $('#degree_rank').val(data.degree_rank);
             $('#old_certificate').val(education.certificate);
             $('#old_deg_certi').val(data.degree_certificate_image);
-            console.log(data.image,"Image")
             $('#old_image').val(data.image);
 
 
@@ -504,73 +415,7 @@ function check_entry_pass(){
 }
 
 
-// function updateStudentInfo(){
-//     console.log(studentID);
-//     var photo = $('#photo')[0].files[0];
-//     var update_data = new FormData();
-//     update_data.append('image', photo);
-//     update_data.append('name_mm', $("#name_mm").val());
-//     update_data.append('name_eng', $("#name_eng").val());
-//     update_data.append('nrc_state_region', $("#nrc_state_region").val());
-//     update_data.append('nrc_township', $("#nrc_township").val());
-//     update_data.append('nrc_citizen', $("#nrc_citizen").val());
-//     update_data.append('nrc_number', $("input[name=nrc_number]").val());
-//     update_data.append('father_name_mm', $("#father_name_mm").val());
-//     update_data.append('father_name_eng', $("#father_name_eng").val());
-//     update_data.append('race', $("#race").val());
-//     update_data.append('religion', $("#religion").val());
-//     update_data.append('birth_date', $("#birth_date").val());
-//     // update_data.append('education', $("#education").val());
-//     // update_data.append('position', $("#position").val());
-//     // update_data.append('department', $("#department").val());
-//     // update_data.append('office_area', $("#office_area").val());
-//     if(yes.checked){
-//         update_data.append('civil_servant',1);
-//     }
-//     else{
-//         update_data.append('civil_servant',0);
-//     }
-//     update_data.append('address', $("#address").val());
-//     update_data.append('current_address', $("#current_address").val());
-//     update_data.append('phone', $("#phone").val());
-//     // update_data.append('email', $("#email").val());
-//     if(studentID==null)
-//     {
-//         $.ajax({
-//             url: BACKEND_URL+"/da_register",
-//             type: 'post',
-//             data:update_data,
-//             contentType: false,
-//             processData: false,
-//             success: function(result){
-//                 console.log(result.message);
-//                 successMessage(result.message);
-//                 location.reload();
-//             },
-//             error:function (message){
-//                 console.log(message);
-//             }
-//         });
-//     }
-//     else{
-//         update_data.append('_method', 'PUT');
-//         $.ajax({
-//             url: BACKEND_URL+"/da_register/"+studentID,
-//             type: 'post',
-//             data:update_data,
-//             contentType: false,
-//             processData: false,
-//             success: function(result){
-//                 console.log(result.message);
-//                 successMessage(result.message);
-//                 //location.reload();
-//             },
-//             error:function (message){
-//                 console.log(message);
-//             }
-//         });
-//     }
-// }
+
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
@@ -582,7 +427,6 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
-                console.log(res)
                 $('#batch_id').val(res.data.id);
                 $('#batch_name').text(res.data.name);
             }
@@ -610,15 +454,7 @@ $( "#cpa_one_submit" ).click(function() {
             contentType: false,
             processData: false,
             success: function(result){
-                console.log(result);
-                // if(result){
-                //     Swal.fire("Email or NRC has been used, please check again!");
-                //     $('#exampleModal').modal('hide');
-                // }else{
-                //     $('#exampleModal').modal('show');
-                //     send_email();
-                //     return true; 
-                // }
+               
                 if(result.email!=null){
                     Swal.fire("Email has been used, please check again!");
                 }
@@ -643,7 +479,7 @@ $( "#cpa_one_submit" ).click(function() {
 function allFilled(form_id) {
     var filled = true;
     $(form_id+' input').each(function() {
-        console.log($(this).attr('id'));
+        
         if($("#email").val() == ''){
             filled = false;
         }
