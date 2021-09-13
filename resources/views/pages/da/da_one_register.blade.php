@@ -1373,26 +1373,27 @@
 </script>
 <script>
     $( "#submit_btn_mac" ).click(function() {
-        if(allFilled('#da_mac_form')){
+        // if(allFilled('#da_mac_form')){
             $('#macModal').modal('show');
-        }
-        else{
-        }
+        // }
+        // else{
+        // }
     });
     $( "#submit_btn_ss" ).click(function() {
-        if(allFilled('#self_study_form')){
+        // if(allFilled('#self_study_form')){
             $('#selfModal').modal('show');
-        }
-        else{
-        }
+        // }
+        // else{
+        // }
     });
     $( "#submit_btn_pp" ).click(function() {
-        if(allFilled('#da_private_school_form')){
+        // if(allFilled('#da_private_school_form')){
             $('#privateModal').modal('show');
-        }
-        else{
-        }
+        // }
+        // else{
+        // }
     });
+    
     function allFilled(form_id) {
         var filled = true;
         $(form_id+' input').each(function() {
