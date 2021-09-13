@@ -60,7 +60,7 @@ function auditData(){
                     $("#register_date").val(element.register_date);
                     // $("#message").val("Approve");
                     // showAuditList();
-                    $('#audit_container').css('display','block');
+                    //$('#audit_container').css('display','block');
                     $('#audit_form_pending').css('display','none');
                 }else{
                     // showUpdate();

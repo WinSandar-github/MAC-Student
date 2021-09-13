@@ -385,7 +385,7 @@ function nonAuditData(){
                   $("#accountancy_firm_name").val(element.accountancy_firm_name);
                   $("#register_date").val(element.register_date);
 
-                  $('#non_audit_container').css('display','block');
+                  //$('#non_audit_container').css('display','block');
                   $('#non_audit_form_pending').css('display','none');
               }
               else{
