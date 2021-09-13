@@ -89,8 +89,8 @@
 
                         {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
                         <form  method="post" id="papp_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate="">
-                            <fieldset id="fieldset" disabled="disabled">
-                            <!-- <fieldset id="fieldset" > -->
+                            <!-- <fieldset id="fieldset" disabled="disabled"> -->
+                            <fieldset id="fieldset" >
 
                             <div class="row">
                                 <div class="col-md-7">
@@ -224,7 +224,7 @@
                                             </div>
                                         </div>
                                         <div  id="edu" style="display:none;">
-                                            <div class="row mb-2" id="degree_name0">
+                                            <div class="row mb-2" id="degree0">
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-4 col-auto">
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
