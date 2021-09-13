@@ -66,53 +66,47 @@
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="30%">
-                                                <label class="col-form-label">Choose Mentor</label>
-                                            </td>
-                                            <td width="70%">
-                                                <div class="form-group"> 
-                                                    <select class="form-control" name="mentor_id" id="selected_mentor_id" style="width: 100%;" required>
-                                                        <option value="" disabled selected>Select Mentor</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><br>
+                                  <div class="row">
+                                    <div class="col-md-8">
+                                      <div class="row">
+                                          <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                          <label for="" class="col-md-3 col-form-label">Choose Mentor</label>
+                                          <div class="col-md-8">
+                                            <div class="form-group">
+                                              <select class="form-control" name="mentor_id" id="selected_mentor_id" style="width: 100%;" required>
+                                                  <option value="" disabled selected>Select Mentor</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                          <label for="" class="col-md-3 col-form-label">Choose Register Type</label>
+                                          <div class="col-md-8">
+                                            <div class="form-group">
+                                              <select class="form-control" name="current_check_service_id" id="selected_service_id" style="width: 100%;" required>
+                                                  <option value="" disabled selected>Select Current Service</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                          <label for="" class="col-md-3 col-form-label">Recommend Letter (jpg,pdf)</label>
+                                          <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="file" id="recommend_file" class="form-control" placeholder="upload photo" name="recommend_file" required="">
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="col-md-7 pull-right">
+                                          <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
 
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="30%">
-                                                <label class="col-form-label">Choose Register Type</label>
-                                            </td>
-                                            <td width="40%">
-                                                <div class="form-group">                                
-                                                    <select class="form-control" name="current_check_service_id" id="selected_service_id" style="width: 100%;" required>
-                                                        <option value="" disabled selected>Select Current Service</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td width="30%">
-                                                <div class="form-group check-service-other" style="visibility:hidden;">
-                                                   <input type="text" name="current_check_services_other" id="current_check_services_other" class="form-control" placeholder="other" >
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><br>
-
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="30%">
-                                                <label class="col-form-label">Recommend Letter (jpg,pdf)</label>
-                                            </td>
-                                            <td width="70%">
-                                                <div class="">
-                                                    <input type="file" id="recommend_file" class="form-control" placeholder="upload photo" name="recommend_file" required="">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><br>
+                                      </div>
+                                    </div>
+                                  </div>
 
                                     <div class="row mt-4">
                                         <div class="col-md-3 offset-md-5">
@@ -183,6 +177,52 @@
     // $('#form_type').val(localStorage.getItem('course_id'));
     loadCheckServiceSelf();
     loadMentorSelfandPrivate();
+
+    get_student_info(student_id).then(data => {
+        if(data){
+            var info = data.data;
+            var job_history = data.data.student_job;
+            if(info){
+              $("#aa_self_form").find("input[name=name_mm]").val(info.name_mm);
+              $("#aa_self_form").find("input[name=name_eng]").val(info.name_eng);
+              $("#aa_self_form").find("input[name=nrc_state_region]").val(info.nrc_state_region);
+              $("#aa_self_form").find("input[name=nrc_township]").val(info.nrc_township);
+              $("#aa_self_form").find("input[name=nrc_citizen]").val(info.nrc_citizen);
+              $("#aa_self_form").find("input[name=nrc_number]").val(info.nrc_number);
+              $("#aa_self_form").find("input[name=father_name_mm]").val(info.father_name_mm);
+              $("#aa_self_form").find("input[name=father_name_eng]").val(info.father_name_eng);
+              $("#aa_self_form").find("input[name=race]").val(info.race);
+              $("#aa_self_form").find("input[name=religion]").val(info.religion);
+              $("#aa_self_form").find("input[name=date_of_birth]").val(info.date_of_birth);
+              $("#aa_self_form").find("input[name=phone]").val(info.phone);
+              $("#aa_self_form").find("input[name=address]").val(info.address);
+              $("#aa_self_form").find("input[name=current_address]").val(info.current_address);
+              document.getElementById('previewImg').src = BASE_URL + data.data.image;
+            }
+
+            if(job_history){
+              $("#aa_self_form").find("input[name=name]").val(job_history.company_name);
+              $("#aa_self_form").find("input[name=position]").val(job_history.position);
+              $("#aa_self_form").find("input[name=department]").val(job_history.department);
+              $("#aa_self_form").find("input[name=organization]").val(job_history.organization);
+              //$(".da_to_cpa").find("input[name=address]").val(job_history.address);
+              //$(".da_to_cpa").find("input[name=current_address]").val(job_history.current_address);
+              $("#aa_self_form").find("input[name=company_name]").val(job_history.company_name);
+              $("#aa_self_form").find("input[name=salary]").val(job_history.salary);
+              $("#aa_self_form").find("input[name=office_address]").val(job_history.office_address);
+            }
+            // government staff OR not
+            if(info.gov_staff == 1){
+              $("#aa_self_form").find("input[name=gov_staff][value=1]").prop("checked",true);
+            }
+            else{
+              $("#aa_self_form").find("input[name=gov_staff][value=0]").prop("checked",true);
+            }
+          }
+
+          //$("#aa_mac_form").find("input").prop('disabled',true);
+    })
+
 </script>
 <script>
     $( "#self_submit" ).click(function() {
@@ -191,9 +231,9 @@
         }
         else{
         }
-    });   
+    });
     function allFilled(form_id) {
-        var filled = true;        
+        var filled = true;
         $(form_id+' input').each(function() {
             if($(this).attr('id')=="current_check_services_other")
             {   }
@@ -201,7 +241,7 @@
             {   }
             else{ if($(this).val() == ''  ) filled = false; }
         });
-        return filled;        
+        return filled;
     }
     $('#aa_self_btn').click(function () {
         setTimeout(function () {
