@@ -130,7 +130,7 @@ function checkPaymentPapp(){
               var form_data = data;
               form_data.forEach(function(element){
                 
-                if(element.payment_method != null){
+                if(element.payment_method == 'PAPP'){
                     $('#papp_modal').prop('disabled', true);
                     loadPAPP();
                 }else{

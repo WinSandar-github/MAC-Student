@@ -77,7 +77,7 @@
 
 			
 
-			<div id="non_audit_app_form" style="display:none;">
+			<div id="non_audit_app_form">
 				<form id="non-audit-form" class="needs-validation" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
 					<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
@@ -1332,7 +1332,6 @@ $(document).ready(function(){
 loadNonAuditStaff();
 loadNonAuditOrganization();
 loadNonAuditTypeOfService();
-nonAuditRegFeedback();
 
 // pendingStatus();
 

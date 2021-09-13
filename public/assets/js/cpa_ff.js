@@ -172,7 +172,7 @@ function cpaffPaymentSubmit(){
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
-            location.href = FRONTEND_URL + "/";
+            location.href = FRONTEND_URL + "/cpa_ff_information";
         },
         error:function (message){
         }
@@ -188,7 +188,7 @@ function checkPaymentCpaff(){
             success: function(data){
               var form_data = data;
               form_data.forEach(function(element){
-                if(element.payment_method != null){
+                if(element.payment_method == 'CPAFF'){
                     $('#cpaff_modal').prop('disabled', true);
                     loadCPAFF();
                 }else{
