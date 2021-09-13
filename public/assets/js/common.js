@@ -38,6 +38,7 @@ $('document').ready(function(){
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
         type:'GET',
+        async:false,
         success:function(response){
             $.each(response.data,function(i,v){
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;

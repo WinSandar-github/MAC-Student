@@ -17,7 +17,7 @@ else{
 var cpaOneID;
 
 function ConfirmSubmit(){
-    alert("hello")
+     
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
@@ -175,6 +175,7 @@ $( "#cpa2_self" ).click(function() {
         $(form_id+' input').each(function() {
             console.log($(this).attr('id'));
             if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+          
         });
         return filled;        
     }

@@ -202,7 +202,7 @@ function app_form_feedback() {
                                             var register_url;
                                             let batch = result.data;
                                             console.log(result.data, "Batch");
-                                            localStorage.setItem('course_id', batch.course_id);
+                                            
                                             if (batch) {
                                                 switch (batch.course.code) {
                                                     case 'da_1':
@@ -583,7 +583,7 @@ function loadCourse() {
     var batchId = localStorage.getItem("batchId");
     $('.coursename').append(courseName);
     $('.batchname').append(batchName);
-    $("input[name='student_regno']").val(student_regno);
+    // $("input[name='student_regno']").val(student_regno);
 
 }
 
@@ -915,4 +915,13 @@ function updateCode() {
     } else {
         alert("You code is not correct.Please check your email inbox again!");
     }
+}
+
+
+ 
+
+async function get_student_info(id){
+    let response = await fetch(BACKEND_URL+"/user_profile/"+id)
+    let data = await response.json()
+    return data;
 }

@@ -1,27 +1,33 @@
 function audit_reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     // console.log(student)
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         url: BACKEND_URL+"/getAuditFormStatus/"+student.id,
         type: 'GET',
         success: function(data){
             // console.log(data);
           var form_data = data;
           form_data.forEach(function(element){
-            // console.log(element.approve_reject_status);
+            
                 if(element.approve_reject_status == 0){
-                    // showPending();
+                    
                     $('#audit_form_pending').css('display','block');
-                    $('#app_form').css('display','none');
-
+                    $('#audit_approve').css('display','none');
+                    $('.register-btn').css('display','none');
+                    $('.payment-btn').css('display','none');
                 }else if(element.approve_reject_status == 1){
-                    $('#app_form').css('display','none');
-                    $('#audit_form_pending').css('display','block');
-                    // showAudit();
+                    $('#audit_approve').css('display','block');
+                    $('#audit_form_pending').css('display','none');
+                    $('.payment-btn').css('display','block');
+                    $('.register-btn').css({'display':'none'});
+                    $('.register-btn').removeClass('mt-4');
+                   
                 }
           })
         }
     });
+    }
 }
 
 // function showPending(){
@@ -36,7 +42,8 @@ function audit_reg_feedback(){
 
 function auditData(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         type: "GET",
         url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
         success: function (data){
@@ -66,6 +73,7 @@ function auditData(){
             })
         }
     })
+    }
 }
 
 // function pendingStatus(){
@@ -79,7 +87,8 @@ function auditData(){
 
 function dateQuery(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         type: "GET",
         url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
         success: function (data){
@@ -87,12 +96,14 @@ function dateQuery(){
             $("#message").val(data);
         }
     })
+    }
 }
 
 function verifyStatus()
 {
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         type: "GET",
         url: BACKEND_URL+"/checkVerify/"+student.accountancy_firm_info_id,
         success: function (data){
@@ -110,6 +121,7 @@ function verifyStatus()
             })
         }
     })
+    }
 }
 
 
@@ -1337,7 +1349,8 @@ function checkPAPPExist(value,id){
 function checkPaymentAudit(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     // console.log(student)
-    $.ajax({
+    if(student!=null){
+      $.ajax({
         url: BACKEND_URL+"/check_payment_audit/"+student.id,
         type: 'GET',
         success: function(data){
@@ -1346,13 +1359,14 @@ function checkPaymentAudit(){
           form_data.forEach(function(element){
                 if(element.payment_method != null){
                     $('#audit_payment_btn').prop('disabled', true);
-
+                    loadAuditRenew();
                 }else{
                     $('#audit_payment_btn').prop('disabled', false);
                 }
           })
         }
     });
+    }
 }
 
 // click Go To Payment Button
@@ -1381,4 +1395,10 @@ function auditPaymentSubmit(){
         error:function (message){
         }
     })
+}
+function loadAuditRenew(){
+  $('#audit_approve').css('display','none');
+  $('#audit_form_pending').css('display','none');
+  $('#audit_initial').css('display','none');
+  $('#audit_container').css('display','block');
 }
