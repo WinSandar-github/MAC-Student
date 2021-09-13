@@ -276,7 +276,7 @@
                                                                         ရွေးချယ်ပါ
                                                                     </div>
                                                                 </div>
-                                                                
+
 
                                                             </div>
 
@@ -370,19 +370,19 @@
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
                                                     <div class="col-md-1">
                                                                 <label id="cpa1_label2">၂။</label>
-                                                            
+
                                                         </div>
                                                     <div class="col-md-1">
                                                             <label class="col-form-label">(က)</label>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-4">
                                                             <label class="col-form-label label_align_right">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-6">
                                                             <input type="text" id="last_ans_exam_no" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required>
-                                                        
+
                                                     </div>
                                                 </div>
 
@@ -390,15 +390,15 @@
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-1">
                                                             <label class="col-form-label">(ခ)</label>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-4">
                                                             <label for="" class="col-form-label label_align_right">ကျင်းပသည့် ခုနှစ်/လ</label>
-                                                       
+
                                                     </div>
                                                     <div class="col-md-6">
                                                             <input type="text" id="date" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" required>
-                                                        
+
                                                     </div>
 
                                                 </div>
@@ -408,12 +408,12 @@
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-1">
                                                             <label class="col-form-label">(ဂ)</label>
-                                                        
+
                                                     </div>
 
                                                     <div class="col-md-4">
                                                             <label class="col-form-label label_align_right"> ဖြေဆိုအောင်မြင်ခဲ့သည့် Module</label>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="checkbox-inline">
@@ -425,17 +425,17 @@
                                                     </div>
                                                 </div>
 
-                                                
+
                                                 <div class="row mb-3">
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-1">
                                                             <label class="col-form-label">(ဃ)</label>
-                                                        
+
                                                     </div>
 
                                                     <div class="col-md-4">
                                                             <label class="col-form-label label_align_right">ယခုဖြေဆိုမည့် Module</label>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="single-form" style="margin-bottom: 4%; margin-top: 5%;">
@@ -473,7 +473,7 @@
 
                                                     <div class="row" style="display:none;">
                                                         <div class="col-md-1">
-                                                            
+
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-form">
@@ -497,7 +497,7 @@
                                                 <div class="row">
                                                     <div class="col-md-2 offset-md-5">
                                                         <button type="submit" class="btn btn-success btn-hover-dark w-100" id="cpa_exam_submit">{{ __('Submit') }}</button>
-                                                    </div> 
+                                                    </div>
                                                 </div><br/>
                                         </div>
                                     </form>
@@ -597,13 +597,13 @@
 
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
-        
+
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
             console.log(data.data)
             if(data){
-                
+
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
@@ -641,9 +641,9 @@
             }
 
         })
-       
+
     });
-    
+
     loadSchoolList();
 </script>
 <script>
@@ -653,16 +653,16 @@
         }
         else{
         }
-    });   
+    });
     function allFilled(form_id) {
-        var filled = true;        
+        var filled = true;
         $(form_id+' input').each(function() {
-            if($(this).attr('id')=="date" && $(this).val() == '')
-            {  filled = false;  }
-            if($(this).attr('id')=="last_ans_exam_no" && $(this).val() == '')
-            {  filled = false;  }
+          if($(this).attr('id')=="date" && $(this).val() == '')
+          {  filled = false;  }
+          if($(this).attr('id')=="last_ans_exam_no" && $(this).val() == '')
+          {  filled = false;  }
         });
-        return filled;        
+        return filled;
     }
     $('#cpa_exam_btn').click(function () {
         setTimeout(function () {
