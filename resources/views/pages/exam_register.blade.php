@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">Exam Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -169,9 +169,22 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label label_align_right">သင်တန်းတက်ရောက်သည့်နေရာ</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                         <div class="col-md-8">
                                             <input type="text" name="class_address" id="class_address" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">စာဖြေဌာန</label>
+                                        <div class="col-md-8">
+                                          <div class="form-group">
+                                            <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
+                                                <option value="" disabled selected>စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                            </select>
+                                          </div>
                                         </div>
                                     </div>
                                     <br>
@@ -424,6 +437,7 @@
         })
     });
 
+    loadExamDepartment();
 
 </script>
 @endpush
