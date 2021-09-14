@@ -66,13 +66,13 @@
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
                             <div class="row">
-                                <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+                                <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-9">
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                 <div class="col-md-4">
                                                     <input type="text" name="name_mm" id="name_mm" class="form-control" readonly>
                                                 </div>
@@ -84,7 +84,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                 <div class="col-md-8">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                         <div class="col-md-2 col-5 pr-1">
@@ -112,7 +112,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                 <div class="col-md-4">
                                                     <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" readonly>
                                                 </div>
@@ -122,8 +122,8 @@
                                             </div>
                                             <br>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="col-md-7 pull-right">
+                                        <div class="col-md-3" align="center">
+                                            <div class="col-md-8">
                                                 <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
 
@@ -246,15 +246,15 @@
                                         <label class="col-md-3 col-form-label label_align_right">ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-8">
                                             <div class="row mt-2">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="radio" id="0" name="is_full_module" value="1" required>
                                                     <label for="0">Module 1</label>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="radio" id="1" name="is_full_module" value="2" style="margin-left: 3%;" required>
                                                     <label for="1">Module 2</label>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="radio" id="2" name="is_full_module" value="3" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
@@ -359,6 +359,12 @@
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
+<style>
+    .profile-style {
+        width: 170px !important;
+        height: 190px;
+    }
+</style>
 <script type="text/javascript">
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
