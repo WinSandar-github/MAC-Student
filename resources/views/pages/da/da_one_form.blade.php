@@ -174,7 +174,7 @@
                                                 </div>
                                                 <div class="col-md-3 col-7 px-1">
                                                     <select class="form-control" name="nrc_township" id="nrc_township"
-                                                            style="margin-top: 0px; margin-bottom: 0px;">
+                                                            style="margin-top: 0px; margin-bottom: 0px;" required>
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_townships as $township)
                                                             <option value="{{ $township['township_mm'] }}">
@@ -186,10 +186,10 @@
                                                 </div>
                                                 <div class="col-md-2 col-5 px-1">
                                                     <select class="form-control" name="nrc_citizen" id="nrc_citizen"
-                                                            style="margin-top: 0px; margin-bottom: 0px;">
+                                                            style="margin-top: 0px; margin-bottom: 0px;" required>
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
-                                                            <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
+                                                            <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}" >
                                                                 {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                             </option>
                                                         @endforeach
