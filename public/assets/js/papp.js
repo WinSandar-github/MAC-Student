@@ -43,7 +43,7 @@ function Degree_Check(){
 var count=1;
 function Add(){
     $("#edu").append(
-        '<div class="row mb-2" id="degree_name'+count+'">'+
+        '<div class="row mb-2" id="degree'+count+'">'+
             '<div class="col-md-1"></div>'+
             '<div class="col-md-4 col-auto">'+
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
@@ -71,7 +71,7 @@ function Add(){
                 '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
-                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+                '<button class="btn btn-danger" id="myLink" onclick="remove(degree'+count+',degree_year'+count+',edu'+count+')">'+
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
@@ -85,51 +85,14 @@ function Add(){
     count++;
 
 }
-function remove(id){
-    id.remove();
-    var div_count =  $("#edu div").children().length;
-    // alert(div_count);
-    if(div_count==4){
-    //document.getElementById("edu0_remove").style.display="none";
-    }
+function remove(id1,id2,id3){
+    
+    id1.remove();
+    id2.remove();
+    id3.remove();
+ 
 }
-// var studentID;
-// async function SearchStudentID(){
-//     var nrc_state_region = $("#nrc_state_region").val();
-//     var nrc_township = $("#nrc_township").val();
-//     var nrc_citizen = $("#nrc_citizen").val();
-//     var nrc_number=$("input[name=nrc_number]").val();
 
-//     var nrc = new FormData();
-//     nrc.append('nrc_state_region', nrc_state_region);
-//     nrc.append('nrc_township', nrc_township);
-//     nrc.append('nrc_citizen', nrc_citizen);
-//     nrc.append('nrc_number', nrc_number);
-    // var nrc=nrc_state_region+nrc_township+nrc_citizen+nrc_number;
-    // console.log(nrc);
-    //var nrc="1kamatanaing123456";
-    // await $.ajax({
-//     url:BACKEND_URL+"/student_info_by_nrc",
-//     type: 'post',
-//     data: nrc,
-//     contentType: false,
-//     processData: false,
-//     success: function(result){
-//         console.log('result',result.data);
-//         // console.log('result',result);
-//             if(result.data!=null){
-//                 studentID=result.data.id;
-
-//                 document.getElementById("fieldset").disabled = false;
-//             }
-//             else{
-//                 document.getElementById("fieldset").disabled = true;
-//             }
-//         }
-//     });
-// }
-
-// paff
 $( "#papp_submit_btn" ).click(function() {
     if(allFilled('#papp_form')){
         $('#pappModal').modal('show');
@@ -156,17 +119,17 @@ function check_email_papp()
 
 function checkPaymentPapp(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
-    
+
     if(student!=null){
         $.ajax({
             url: BACKEND_URL+"/check_payment_papp/"+student.id,
             type: 'GET',
             success: function(data){
-               
+
               var form_data = data;
               form_data.forEach(function(element){
-                
-                if(element.payment_method != null){
+
+                if(element.payment_method == 'PAPP'){
                     $('#papp_modal').prop('disabled', true);
                     loadPAPP();
                 }else{
@@ -199,7 +162,7 @@ $('#papp_btn').click(function () {
 function pappPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
-    url: BACKEND_URL + "/approve_papp/" + student.id,
+    url: BACKEND_URL + "/approve_papp_payment/" + student.id,
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
@@ -282,7 +245,6 @@ function Papp_Submit(){
             location.href = FRONTEND_URL+'/';
         },
     error:function (message){
-        console.log(message);
         }
     });
 }
@@ -320,7 +282,6 @@ function isLoginPAPP(){
                 }
             },
             error:function (message){
-                console.log(message);
             }
         });
     }
@@ -335,7 +296,6 @@ function Papp_feedback(){
             contentType: false,
             processData: false,
             success: function(cData){
-                console.log(cData.data);
                 var data=cData.data;
                 if(data!=null){
                     if(data.status==0 || data.renew_status==0)
@@ -352,25 +312,25 @@ function Papp_feedback(){
                         $('.payment-btn').css('display','block');
                         $('.register-btn').css({'display':'none'});
                         $('.register-btn').removeClass('mt-4');
-                        var accept=new Date(data.renew_accepted_date);
-                        var month=accept.getMonth()+1;
-                        var year=accept.getFullYear();
-                        var y=year+1;
-                        var now=new Date();
-                        $('#regno').val(data.id);
-                        $('#register_date').val(data.renew_accepted_date);
-                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                            $('.renew_submit').prop('disabled', false);
-    
-                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                            $("#message").val("Your registeration will start in "+y+" year!");
-                            $('.renew_submit').prop('disabled', true);
-                        }else{
-                            $('#message').val("You are verified!");
-                            $('.renew_submit').prop('disabled', true);
-                        }
-    
+                        // var accept=new Date(data.renew_accepted_date);
+                        // var month=accept.getMonth()+1;
+                        // var year=accept.getFullYear();
+                        // var y=year+1;
+                        // var now=new Date();
+                        // $('#regno').val(data.id);
+                        // $('#register_date').val(data.renew_accepted_date);
+                        // if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                        //     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                        //     $('.renew_submit').prop('disabled', false);
+
+                        // }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                        //     $("#message").val("Your registeration will start in "+y+" year!");
+                        //     $('.renew_submit').prop('disabled', true);
+                        // }else{
+                        //     $('#message').val("You are verified!");
+                        //     $('.renew_submit').prop('disabled', true);
+                        // }
+
                     }
                     else if(data.status==2 || data.renew_status==2)
                     {
@@ -396,10 +356,9 @@ function loadCPAFFAge(id){
             var age_dt = new Date(diff_ms);
             var age=Math.abs(age_dt.getUTCFullYear() - 1970);
             $("#cpa_age").append(age+" years");
-            
+
         },
         error:function (message){
-            console.log(message);
         }
     });
 }
@@ -413,7 +372,6 @@ function loadPAPP(){
             contentType: false,
             processData: false,
             success: function(cData){
-                console.log(cData.data);
                 var data=cData.data;
                 if(data!=null){
                     if(data.status==1 || data.renew_status==1)
@@ -448,21 +406,21 @@ function loadPAPP(){
                         loadFile(data.rule_confession,"view_rule_conf_file");
                         loadFile(data.cpd_record,"view_cpd_record_file");
                         loadFile(data.tax_free_recommendation,"view_tax_free_file");
-                        if(data.use_firm==1){
+                        if(data.use_firm==0){
                             $('#firm_check').prop("checked", true);
                         }
                         if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
                             $('#used_firm_check').prop("checked", true);
                             $('input[name=used_firm_name]').val(data.firm_name);
                             $('input[name=used_firm_type]').val(data.firm_type);
-                            $('input[name=used_firm_level]').val(data.firm_level);
+                            $('input[name=used_firm_level]').val(data.firm_step);
                         }
                         if(data.staff_firm_name!=null ){
                             $('#staff_firm_check').prop("checked", true);
                             $('input[name=staff_firm_name]').val(data.staff_firm_name);
-                            
+
                         }
-                        
+
                         // if(data.cpa!=""){
                         //     $('#cpa_check').prop("checked", true);
                         //     $('#cpa_edu').css('display','block');
@@ -475,13 +433,13 @@ function loadPAPP(){
                         //     $('.view_ra_file').css('display','block');
                         //     loadFile(data.ra,"view_ra_file");
                         // }
-                        
+
                         $('#regno').val(data.id);
                         $('#register_date').val(data.renew_accepted_date);
                         if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                             $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                             $('.renew_submit').prop('disabled', false);
-    
+
                         }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                             $("#message").val("Your registeration will start in "+y+" year!");
                             $('.renew_submit').prop('disabled', true);
@@ -490,12 +448,12 @@ function loadPAPP(){
                             $('.renew_submit').prop('disabled', true);
                         }
                         $('#previewImg').attr("src",BASE_URL+data.profile_photo);
-    
+
                     }else{
                         document.getElementById('papp_initial').style.display='block';
                         document.getElementById('papp_renew_form').style.display='none';
                     }
-    
+
                 }
                 else{
                     document.getElementById('papp_initial').style.display='block';
@@ -513,7 +471,7 @@ function RenewPAPP(){
         type: 'get',
         data:"",
         success: function(result){
-            
+
             if(result.data!=null){
                 var send_data = new FormData($("#papp_renew_form_submit")[0]);
                 send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
@@ -523,7 +481,7 @@ function RenewPAPP(){
                 send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
                 send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
                 send_data.append('tax_free_file', $('#hidden_tax_free_file').val());
-                
+
                     var firm_check = document.getElementById("firm_check");
                     var used_firm_check = document.getElementById("used_firm_check");
                     var staff_firm_check = document.getElementById("staff_firm_check");
@@ -569,13 +527,11 @@ function RenewPAPP(){
                         document.getElementById('expiry_card').style.display='none';
                     },
                     error:function (message){
-                        console.log(message);
                     }
                 });
             }
         },
         error:function (message){
-            console.log(message);
         }
     });
 }

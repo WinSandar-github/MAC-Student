@@ -5,12 +5,10 @@ $("input[id='cpa_one_pass_date']").flatpickr({
 });
 var boo=localStorage.getItem("isPrivateSchool");
 if(boo=="true" ){
-    console.log(boo,"true");
     if(document.getElementById('is_private_school'))
     {document.getElementById('is_private_school').style.display='block';}
 }
 else{
-    console.log(boo,"false");
     if(document.getElementById('is_private_school'))
     {document.getElementById('is_private_school').style.display='none';}
 }
@@ -51,7 +49,6 @@ function CPA2_Private_School_Submit(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -62,16 +59,15 @@ function CPA2_Private_School_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
 }
 
 $( "#cpa2_private" ).click(function() {
-        if(allFill('#cpa2_private_form')){
+        // if(allFill('#cpa2_private_form')){
             $('#exampleModal1').modal('show');
-        }
+        // }
     });
 
 
@@ -110,16 +106,15 @@ function CPA2_Mac_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
 }
 
 $( "#cpa2_mac" ).click(function() {
-        if(allFill('#cpa2_mac_form')){
+        // if(allFill('#cpa2_mac_form')){
             $('#exampleModal3').modal('show');
-        }
+        // }
     });
 
 
@@ -146,7 +141,6 @@ function CPA2_Self_Study_Submit(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.log(result);  
             if(result.message==undefined){
                 successMessage(result);
                 location.href = FRONTEND_URL+'/';
@@ -159,26 +153,25 @@ function CPA2_Self_Study_Submit(){
             }
         },
         error:function (message){
-            console.log(message);
             EasyLoading.hide();
             }
         });
 }
 
 $( "#cpa2_self" ).click(function() {
-        if(allFill('#cpa2_self_form')){
+        // if(allFill('#cpa2_self_form')){
             $('#exampleModal2').modal('show');
-        }
+        // }
+});
+
+function allFill(form_id) {
+    var filled = true;
+    $(form_id+' input').each(function() {
+        if($('input[type=text]') && $(this).val() == ''  ) filled = false;
+        
     });
-    function allFill(form_id) {
-        var filled = true;
-        $(form_id+' input').each(function() {
-            console.log($(this).attr('id'));
-            if($('input[type=text]') && $(this).val() == ''  ) filled = false;
-          
-        });
-        return filled;        
-    }
+    return filled;        
+}
 
 
 $('#store_cpa_two_form').submit(function(e){
@@ -198,14 +191,10 @@ $('#store_cpa_two_form').submit(function(e){
             localStorage.setItem('approve_reject', data.approve_reject_status);
             location.href = FRONTEND_URL+"/"; 
         },
-      error:function (message){
-        errorMessage(message);
-        EasyLoading.hide();
-          }
-        // },
-        // error:function (message){
-        //   // console.log(message)
-        //   successMessage(result);
-        // }
+        error:function (message){
+            errorMessage(message);
+            EasyLoading.hide();
+        }
+        
     });
 });
