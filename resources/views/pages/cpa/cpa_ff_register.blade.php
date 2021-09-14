@@ -118,8 +118,8 @@
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
                     <form method="post" id="cpaff_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
-                    <!-- <fieldset id="fieldset" disabled> -->
-                    <fieldset id="fieldset" >
+                    <fieldset id="fieldset" disabled>
+                    <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
                         <div class="row">
                             <div class="col-md-7">
