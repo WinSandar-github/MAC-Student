@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="col-md-7 pull-right">
-                                                <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="" accept="image/png,image/jpeg" alt="">
+                                                <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
 
                                             </div>
@@ -133,8 +133,8 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                        <label for="" class="col-md-5 col-form-label">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
-                                        <div class="col-md-6">
+                                        <label for="" class="col-md-3 col-form-label label_align_right">သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="personal_no" id="personal_no" class="form-control" readonly>
                                         </div>
                                     </div>
@@ -142,8 +142,8 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                        <label for="" class="col-md-5 col-form-label">မွေးသက္ကရာဇ်</label>
-                                        <div class="col-md-6">
+                                        <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" readonly>
                                         </div>
                                     </div>
@@ -151,8 +151,8 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                        <label for="" class="col-md-5 col-form-label">ဆက်သွယ်ရန်လိပ်စာ</label>
-                                        <div class="col-md-6">
+                                        <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="address" id="address" class="form-control" readonly>
                                         </div>
                                     </div>
@@ -160,8 +160,8 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                        <label for="" class="col-md-5 col-form-label">ဖုန်းနံပါတ်</label>
-                                        <div class="col-md-6">
+                                        <label for="" class="col-md-3 col-form-label label_align_right">ဖုန်းနံပါတ်</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="phone" id="phone" class="form-control" readonly>
                                         </div>
                                     </div>
@@ -169,19 +169,19 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                        <label for="" class="col-md-5 col-form-label">သင်တန်းတက်ရောက်သည့်နေရာ</label>
-                                        <div class="col-md-6">
+                                        <label for="" class="col-md-3 col-form-label label_align_right">သင်တန်းတက်ရောက်သည့်နေရာ</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="class_address" id="class_address" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <br>
-                                    
+
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                            <label class="col-md-5 col-form-label">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
-                                            <div class="col-md-6">
-                                                <div class="form-group">                                
+                                            <label class="col-md-3 col-form-label label_align_right">ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
                                                     <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
                                                         <option value="" disabled selected>Select School</option>
                                                     </select>
@@ -203,7 +203,7 @@
                                             </td>
                                         </tr>
                                     </table>--}}
-                                
+
                                     {{--<table width="100%">
                                         <tr>
                                             <td>
@@ -216,13 +216,13 @@
 
                                     <div class="row mb-3">
                                         <label class="col-md-1 col-form-label">(က)</label>
-                                        <label class="col-md-5 col-form-label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
-                                        <div class="col-md-6">
+                                        <label class="col-md-3 col-form-label label_align_right">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" required>
                                         </div>
                                     </div>
 
-                                    
+
                                     {{--<table width="100%">
                                         <tr>
                                             <td width="35%">
@@ -243,8 +243,8 @@
 
                                     <div class="row mb-3">
                                         <label class="col-md-1 col-form-label">(ခ)</label>
-                                        <label class="col-md-5 col-form-label">ယခုဖြေဆိုမည့် Module</label>
-                                        <div class="col-md-6">
+                                        <label class="col-md-3 col-form-label label_align_right">ယခုဖြေဆိုမည့် Module</label>
+                                        <div class="col-md-8">
                                             <div class="row mt-2">
                                                 <div class="col-md-4">
                                                     <input type="radio" id="0" name="is_full_module" value="1" required>
@@ -258,11 +258,11 @@
                                                     <input type="radio" id="2" name="is_full_module" value="3" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
 
-                                    
+
 
                                     {{--<table width="100%">
                                         <tr>
@@ -389,13 +389,13 @@
 
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
-        
+
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
             console.log(data.data);
             if(data){
-                
+
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
@@ -422,8 +422,8 @@
             }
 
         })
-    }); 
+    });
 
-    
+
 </script>
 @endpush

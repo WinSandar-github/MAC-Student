@@ -171,7 +171,7 @@
                                         <div class="col-md-7 pull-right">
                                             <input type="hidden" id="hidden_profile">
                                             <div class="form-text mb-2 text-warning">Update Your Profile Photo!</div>
-                                            <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                            <img class="col-md-3 profile-style" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                             <p class="mt-2">
                                                 <input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" >
                                             </p>

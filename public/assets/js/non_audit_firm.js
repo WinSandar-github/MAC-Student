@@ -403,7 +403,7 @@ function nonAuditData(){
                   $("#accountancy_firm_name").val(element.accountancy_firm_name);
                   $("#register_date").val(element.register_date);
 
-                  $('#non_audit_container').css('display','block');
+                  //$('#non_audit_container').css('display','block');
                   $('#non_audit_form_pending').css('display','none');
               }
               else{
@@ -634,8 +634,6 @@ function removeBracketed(file,divname){
   var new_file=file.replace(/[\'"[\]']+/g, '');
   var split_new_file=new_file.split(',');
   for(var i=0;i<split_new_file.length;i++){
-    console.log('BASE_URL',BASE_URL+"/"+split_new_file[i]);
-      // var file="<a href='#' onclick=loadFile('"+split_new_file[i]+"') id='img' data-toggle='modal' data-target='#fileModal'>View File</a><br/>";
       var file="<a href='"+BASE_URL+"/"+split_new_file[i]+"'  target='_blank'>View File</a><br/>";
       $("."+divname).append(file);
     }
@@ -669,7 +667,7 @@ function nonAuditRenewSubscribe()
       success: function (data) {
         EasyLoading.hide();
         successMessage("Your new subscription is success!");
-        location.href = FRONTEND_URL+'/non_audit_firm_register';
+        location.href = FRONTEND_URL+'/';
       },
       error: function (result) {
       },
@@ -722,7 +720,6 @@ function checkPaymentNonAudit(){
         url: BACKEND_URL+"/check_payment_non_audit/"+student.id,
         type: 'GET',
         success: function(data){
-            // console.log(data);
           var form_data = data;
           form_data.forEach(function(element){
                 if(element.payment_method != null){

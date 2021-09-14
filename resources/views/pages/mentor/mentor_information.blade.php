@@ -117,7 +117,7 @@
 										</div>
 									</div>
 								</div>--}}
-
+=
 								<div id="mentor">
 									<div class="row">
 										<div class="card col-md-7 m-2">
@@ -128,7 +128,7 @@
 														<hr>
 														<div class="info-list">
 															<div class="description-info">
-                                                            
+
                                                             </div>
 															<br/>
 															<!-- Requirement -->
@@ -136,7 +136,7 @@
 																<h4 class="col-md-12 card-title text-success">Requirement</h4>
 																<hr>
 																<div class="requirement-info">
-                                                            
+
                                                                 </div>
 															</div>
 														</div>
@@ -176,7 +176,7 @@
 
 
 
-                
+
             </div>
         </div>
     </div>
