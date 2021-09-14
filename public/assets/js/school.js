@@ -1,7 +1,33 @@
 $( "#school_submit" ).click(function() {
         if(allFilled('#school_register_form')){
-            $('#schoolModal').modal('show');
-            send_email();
+            var send_data = new FormData();
+            send_data.append('email',$("input[name='email']").val());
+            send_data.append('nrc_state_region',$("#nrc_state_region").val());
+            send_data.append('nrc_township',$("#nrc_township").val());
+            send_data.append('nrc_citizen',$("#nrc_citizen").val());
+            send_data.append('nrc_number',$("#nrc_number").val());
+            $.ajax({
+                url: BACKEND_URL+"/unique_email",
+                type: 'post',
+                data:send_data,
+                contentType: false,
+                processData: false,
+                success: function(result){
+                    console.log(result);
+                    if(result.email!=null){
+                        Swal.fire("Email has been used, please check again!");
+                    }
+                    else if(result.nrc!=null){
+                        Swal.fire("NRC has been used, please check again!");
+                    }
+                    else if(result.email==null && result.nrc==null){                    
+                        $('#schoolModal').modal('show');
+                        send_email();                    
+                    }
+                }
+            });
+            // $('#schoolModal').modal('show');
+            // send_email();
         }
     });
 // school
@@ -13,8 +39,13 @@ $('#cash_img').click(function() {
     $('#school_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#school_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#school_btn').prop('disabled', true);
+});
 $('#school_btn').prop('disabled', true);
 
 $('#school_btn').click(function () {

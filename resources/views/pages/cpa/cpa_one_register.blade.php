@@ -1389,8 +1389,13 @@ loadSchoolList();
         $('#cpa1mac_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa1mac_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa1mac_btn').prop('disabled', true);
+    });
     $('#cpa1mac_btn').prop('disabled', true);
 
     $('#cpa1mac_btn').click(function () {
@@ -1404,8 +1409,13 @@ loadSchoolList();
         $('#cpa1private_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa1private_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa1private_btn').prop('disabled', true);
+    });
     $('#cpa1private_btn').prop('disabled', true);
 
     $('#cpa1private_btn').click(function () {
@@ -1419,8 +1429,13 @@ loadSchoolList();
         $('#cpa1self_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa1self_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa1self_btn').prop('disabled', true);
+    });
     $('#cpa1self_btn').prop('disabled', true);
 
     $('#cpa1self_btn').click(function () {

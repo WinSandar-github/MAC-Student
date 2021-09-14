@@ -677,6 +677,13 @@
         $('#cpa_exam_btn').prop('disabled', false);
     });
 
+    $('#cb_img').click(function() {
+        $('#cpa_exam_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa_exam_btn').prop('disabled', true);
+    });
     $('#cpa_exam_btn').prop('disabled', true);
 </script>
 @endpush

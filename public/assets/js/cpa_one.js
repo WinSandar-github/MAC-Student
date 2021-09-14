@@ -599,10 +599,14 @@ $( "#cpa_one_submit" ).click(function() {
     if(allFilled('#cpa_one_form')){
         var send_data = new FormData();
         send_data.append('email',$("input[name='email']").val());
-        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        // send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        // send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        send_data.append('nrc_state_region',$("#nrc_state_region").val());
+        send_data.append('nrc_township',$("#nrc_township").val());
+        send_data.append('nrc_citizen',$("#nrc_citizen").val());
+        send_data.append('nrc_number',$("#nrc_number").val());
         $.ajax({
             url: BACKEND_URL+"/unique_email",
             type: 'post',

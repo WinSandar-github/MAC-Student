@@ -56,7 +56,7 @@
 
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
-            
+
             <div id="audit_reject" style="display:none; margin-top:5%;">
                 <div class="card text-white bg-dark mb-3">
 
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            
+
 
             <div class="blog-details-comment" id="app_form" style="display:block">
                 <div class="comment-form">
@@ -140,7 +140,7 @@
                                               </div>
                                               <div class="col-md-4">
                                                 <div class="col-md-6 pull-right">
-                                                  <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                  <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                   <p class="mt-2">
                                                     <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                                   </p>
@@ -242,12 +242,12 @@
                                                 <label for="" class="col-md-11 col-form-label">Organization Structure</label>
                                             </div>
                                             <div class="row">
-                      		                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                      		                    <!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
+                                                <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                <!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
                                                 <div class="col-md-8" id="audit_org_validate" style="display:none;">
                                                         <label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
                                                 </div>
-                      		                </div><br>
+                                            </div><br>
 
                                             <div class='row organization_data'></div><br/>
 
@@ -752,8 +752,8 @@
                                                                                     <label class="form-check-label">No</label>
                                                                                 </td>
                                                                                 <td>
-                              																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
-                              																									</td>
+                                                                                                                                    <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
+                                                                                                                                </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -1014,7 +1014,7 @@
             </div>
         </form>
 
-        
+
 
     </div>
     <!-- JavaScript Section -->
@@ -1045,11 +1045,11 @@ $(document).ready(function(){
     loadAuditTypeOfService();
     loadAuditTotalStaffReg();
     loadAuditStaffReg();
-    
-    
+
+
     // pendingStatus();
-    
-    
+
+
     // getTotalStaff();
 
     });

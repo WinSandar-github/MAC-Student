@@ -104,8 +104,33 @@ function delRowSubject(tbody){
 
 $( "#teacher_submit" ).click(function() {
     if(allFill('#teacher_register_form')){
-        $('#teacherModal').modal('show');
-        send_email();
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("#nrc_state_region").val());
+        send_data.append('nrc_township',$("#nrc_township").val());
+        send_data.append('nrc_citizen',$("#nrc_citizen").val());
+        send_data.append('nrc_number',$("#nrc_number").val());
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
+                }
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#teacherModal').modal('show');
+                    send_email();                   
+                }
+            }
+        });
+        // $('#teacherModal').modal('show');
+        // send_email();
     }
 });
 
@@ -118,8 +143,13 @@ $('#cash_img').click(function() {
     $('#teacher_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#teacher_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#teacher_btn').prop('disabled', true);
+});
 $('#teacher_btn').prop('disabled', true);
 
 $('#teacher_btn').click(function () {

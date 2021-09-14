@@ -186,8 +186,13 @@ $('#cash_img').click(function() {
     $('#papp_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#papp_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#papp_btn').prop('disabled', true);
+});
 $('#papp_btn').prop('disabled', true);
 
 $('#papp_btn').click(function () {

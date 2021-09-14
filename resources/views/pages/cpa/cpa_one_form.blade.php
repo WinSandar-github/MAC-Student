@@ -1432,6 +1432,14 @@
             $('#btn_cash').prop('disabled', false);
         });
 
+        $('#cb_img').click(function() {
+            $('#btn_cash').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#btn_cash').prop('disabled', true);
+        });
+
         $('#btn_cash').prop('disabled', true);
         
 </script>

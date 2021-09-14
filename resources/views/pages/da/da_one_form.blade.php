@@ -703,10 +703,13 @@
                 $('#btn_cash').prop('disabled', false);
             });
 
-            $('#btn_cbpay').prop('disabled', true);
-            // $('#btn_cbpay').style('display', 'none');
-            $('#btn_mpu').prop('disabled', true);
-            // $('#btn_mpu').style('display', 'none');
+            $('#cb_img').click(function() {
+                $('#btn_cash').prop('disabled', true);
+            });
+
+            $('#mpu_img').click(function() {
+                $('#btn_cash').prop('disabled', true);
+            });
             $('#btn_cash').prop('disabled', true);
 
         });
