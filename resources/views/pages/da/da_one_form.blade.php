@@ -164,6 +164,7 @@
                                                     <select class="form-control" name="nrc_state_region"
                                                             id="nrc_state_region"
                                                             style="margin-top: 0px; margin-bottom: 0px;">
+                                                        <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -174,6 +175,7 @@
                                                 <div class="col-md-3 col-7 px-1">
                                                     <select class="form-control" name="nrc_township" id="nrc_township"
                                                             style="margin-top: 0px; margin-bottom: 0px;">
+                                                        <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_townships as $township)
                                                             <option value="{{ $township['township_mm'] }}">
                                                                 {{ $township['township_mm'] }}
@@ -185,6 +187,7 @@
                                                 <div class="col-md-2 col-5 px-1">
                                                     <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                             style="margin-top: 0px; margin-bottom: 0px;">
+                                                        <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
                                                             <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -207,8 +210,8 @@
                                     <br>
 
                                     <div class="row">
-                                            <div class="col-md-2"></div>
-                                            <div class="col-md-10">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-8">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="row">
@@ -442,7 +445,7 @@
                                         <div class="row  "  >
                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                                 <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
-                                                <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                <label for="" class="col-md-3 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                 
                                                 <div class="col-md-7"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
@@ -516,7 +519,7 @@
                                                 <input type="file" class="form-control" id="certificate0"
                                                        name="certificate[]" autocomplete="off" required="">
                                             </div>
-                                            <div class="col-md-1" id="add_div">
+                                            <div class="col-md-1 text-center" id="add_div">
                                                 <button type="button" class="btn btn-primary" id="add_btn"
                                                         onclick="AddDAEdu()">
                                                     <i class="fa fa-plus"></i>

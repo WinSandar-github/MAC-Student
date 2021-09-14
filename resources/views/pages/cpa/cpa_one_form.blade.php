@@ -997,7 +997,7 @@
 
                                         <input type="hidden" name="batch_id" id="batch_id" />
                                         <div class="row">
-                                          <div class="col-md-4">
+                                          <div class="col-md-4 m-auto">
                                               <div class="col-md-7 pull-right">
                                                   <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                   <p class="mt-2">
