@@ -344,7 +344,7 @@
                                     <br>
                                     <div class="col-md-4">
                                       <div class="col-md-7 pull-right">
-                                          <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                          <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
 
                                       </div>
                                     </div>

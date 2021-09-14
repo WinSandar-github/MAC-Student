@@ -71,7 +71,7 @@
                     <br/>
                     <br/>
                 </div>
-                
+
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <div class="col-md-5 pull-right">
-                                        <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                        <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                         <p class="mt-2">
                                         <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                         </p>
@@ -600,7 +600,7 @@
     </form>
     </div>
 
-    
+
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -616,7 +616,7 @@
 <script type="text/javascript">
    isLoginPAPP();
    Papp_feedback();
-   
+
    $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "d-M-Y",
