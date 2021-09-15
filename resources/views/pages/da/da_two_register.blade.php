@@ -42,17 +42,17 @@ $nrc_characters = config('myanmarnrc.characters');
             <div class="container">
                 <!-- <div class="status-reject" style="display:none">
                         <div class="card text-white bg-dark my-3">
-                            
+
                             <div class="card-body">
                                 status == 2 => reject
-                                <p class="card-text reject">Your DA 2 Registration Form need to prepare.Please update your form  
+                                <p class="card-text reject">Your DA 2 Registration Form need to prepare.Please update your form
                                  </p>
                             </div>
                         </div>
                     </div>
                     <div class="check_registration" style="display:none;">
                         <div class="card text-white bg-primary my-3">
-                            
+
                             <div class="card-body">
                                 <p class="card-text">Your DA 2 Registration Form is checking</p>
                             </div>
@@ -60,18 +60,18 @@ $nrc_characters = config('myanmarnrc.characters');
                     </div>
                     <div class="approve" style="display:none;">
                         <div class="card text-white bg-primary my-3">
-                            
+
                             <div class="card-body">
                                 <p class="card-text">You have the opportunity to attend the training  </p>
-                                
-                                
+
+
                             </div>
                         </div>
                         <div class="card text-white bg-primary my-3">
-                            
+
                             <div class="card-body add_exam">
-                                 
-                            
+
+
                             </div>
                         </div>
                     </div> -->
@@ -118,7 +118,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                         <h5 class="card-title text-center my-1">
                                             ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်
                                             မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
-                                            (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                            (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
 
                                         <div class="card-body">
 
@@ -134,15 +134,19 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-
+                                                <div class="row">
+                                                    <label for="" class="col-md-1 col-form-label label_align_right">{{ __('အမှတ်စဉ်') }}</label>
+                                                    <div class="col-md-2">
+                                                        <input type="text" placeholder="" name="" class="form-control" >
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-8 mt-3">
-
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
                                                             <div class="col-md-6">
-                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">                                                                
+                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">
                                                             </div>
                                                         </div>
                                                         <br>
@@ -153,18 +157,18 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
                                                                     class="form-control" readonly="">
-                                                            </div>                                                            
+                                                            </div>
                                                         </div> <br>
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">အမည်(အင်္ဂလိပ်)</label>
-                                                           
+
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng"
                                                                     class="form-control" readonly="">
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-4">
@@ -173,12 +177,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
-                                                            </p> 
+                                                            </p>
                                                             <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
 
                                                         </div>
                                                     </div>
-                                                </div>                               
+                                                </div>
 
 
                                                 <div class="row">
@@ -247,8 +251,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
-                                                                </div>                                                    
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                                </div>
                                                             </div>
 
                                                             <div class="col-md-6">
@@ -261,12 +265,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>                                        
-                                                </div><br> 
+                                                    </div>
+                                                </div><br>
 
                                                     <div class="row">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -351,7 +355,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 value="{{ old('department') }}" readonly="">
                                                         </div>
                                                     </div>
-                                                    <br>                                                    
+                                                    <br>
 
                                                     <div class="row">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
@@ -419,7 +423,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                                                 name="gov_staff" value="0"
                                                                                                 style="margin-left: 3%;"  onclick="selectStaff()">
                                                                     </div>
-                                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>                                                                 
+                                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>
 
                                                                 </div>
 
@@ -431,14 +435,14 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div id="rec_letter_self" style="display:none" >
                                                         <div class="row  "  >
                                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                                 <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                                 <div class="col-md-1"  id="degree_edu" >
                                                                     <span class="recommend_letter"></span>
                                                                 </div>
                                                                 <div class="col-md-7"  id="degree_edu" >
                                                                     <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
-                                                            </div>  
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <br>
@@ -466,22 +470,26 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 readonly>
 
                                                         </div>
-                                                    </div> <br>                                                   
+                                                    </div> <br>
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-1">{{ __('၁၉။') }}</div>
-                                                        <div class="col-md-1">
-                                                            <label class="form-check-label">(က)</label>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း"
-                                                                name="reg_reason[]">
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                            <label class="form-check-label">ယခုနှစ်တက်ရောက်ခြင်း</label>
-                                                        </div>
+                                                        <div class="col-md-3 col-form-label">မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း</div>
                                                     </div>
 
+                                                    <div class="row">
+                                                      <div class="col-md-1"></div>
+                                                      <div class="col-md-1">
+                                                          <label class="form-check-label">(က)</label>
+                                                      </div>
+                                                      <div class="col-md-1">
+                                                          <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း"
+                                                              name="reg_reason[]">
+                                                      </div>
+                                                      <div class="col-md-9">
+                                                          <label class="form-check-label">ယခုနှစ်တက်ရောက်ခြင်း</label>
+                                                      </div>
+                                                    </div><br>
 
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
@@ -563,7 +571,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                                         </div>
-                                                    </div>                                                    
+                                                    </div>
 
                                                     <div class="row mb-4">
                                                         <label class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -579,21 +587,21 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
 
 
-                                                    {{-- <div class="row">
-                                                            <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                                            <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
-                                                            <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                                        </div><br/>
-                                                        <div class="row mb-3">
-                                                            <label class="col-md-2 col-form-label"></label>
-                                                            <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                                        </div> --}}
+                                                    <div class="row">
+                                                      <label class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
+                                                      <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                                      <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    </div><br/>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-2 col-form-label"></label>
+                                                        <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်းကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                    </div>
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-2 offset-md-5">
                                                             {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100" form="self_study_form" id="submit_btn_ss" >{{ __('Submit') }}</button> --}}
                                                             <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                                data-bs-toggle="modal" data-bs-target="#exampleModal3">Submit
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal3" disabled>Submit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -617,7 +625,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                             <h5 class="card-title text-center my-1">
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်
-                                                မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> (ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5>
+                                                မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> (ကိုယ်ပိုင်သင်တန်းကျောင်းတွင်တက်ရောက်မည့် အသစ်တက်ခွင့်ရသူများ)</h5>
                                             <br />
                                             <div class="col-md-12">
                                                 <div class="row">
@@ -631,14 +639,37 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
 
+
                                                 <div class="row">
+                                                  <div class="row mb-3">
+                                                      {{--<label class="col-md-1 col-form-label"
+                                                          id="da2_label1">{{ __('') }}</label>--}}
+                                                      <label class="col-md-3 col-form-label">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
+                                                      <div class="col-md-4">
+                                                          <div class="form-group">
+                                                              <select class="form-control form-select"
+                                                                  name="private_school_name" id="selected_school_id"
+                                                                  style="width: 100%;">
+                                                                  <option value="" disabled selected>Select School</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row mb-3">
+                                                      {{--<label class="col-md-1 col-form-label"
+                                                          id="da2_label1">{{ __('') }}</label>--}}
+                                                      <label class="col-md-3 col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
+                                                      <div class="col-md-4">
+                                                          <input type="text" placeholder="" id="academic_year" name="academic_year" class="form-control" >
+                                                      </div>
+                                                  </div>
                                                     <div class="col-md-8 mt-3">
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
                                                             <div class="col-md-6">
-                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">                                                                
+                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">
                                                             </div>
                                                         </div>
                                                         <br>
@@ -649,18 +680,18 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
                                                                     class="form-control" readonly="">
-                                                            </div>                                                            
+                                                            </div>
                                                         </div> <br>
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">အမည်(အင်္ဂလိပ်)</label>
-                                                           
+
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng"
                                                                     class="form-control" readonly="">
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-4">
@@ -669,12 +700,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
-                                                            </p> 
+                                                            </p>
                                                             <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
 
                                                         </div>
                                                     </div>
-                                                </div>                               
+                                                </div>
 
 
                                                 <div class="row">
@@ -743,8 +774,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
-                                                                </div>                                                    
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                                </div>
                                                             </div>
 
                                                             <div class="col-md-6">
@@ -757,12 +788,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>                                        
-                                                </div><br> 
+                                                    </div>
+                                                </div><br>
 
                                                     <div class="row">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -847,7 +878,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 value="{{ old('department') }}" readonly="">
                                                         </div>
                                                     </div>
-                                                    <br>                                                    
+                                                    <br>
 
                                                     <div class="row">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
@@ -915,7 +946,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                                                 name="gov_staff" value="0"
                                                                                                 style="margin-left: 3%;"  onclick="selectStaff()">
                                                                     </div>
-                                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>                                                                 
+                                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>
 
                                                                 </div>
 
@@ -927,7 +958,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div id="rec_letter_private" style="display:none" >
                                                         <div class="row  "  >
                                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                                 <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                                 <div class="col-md-1"  id="degree_edu" >
                                                                     <span class="recommend_letter"></span>
@@ -935,7 +966,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 <div class="col-md-7"  id="degree_edu" >
                                                                     <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                                 </div>
-                                                            </div>  
+                                                            </div>
                                                         </div>
                                                     <br>
 
@@ -990,7 +1021,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                                     </div>
-                                                </div>                                                    
+                                                </div>
 
                                                 <div class="row mb-4">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -1009,12 +1040,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()"></div>
                                                         <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                                        
+
                                                     </div><br/>
                                                     <div class="row mb-3">
                                                         <label class="col-md-2 col-form-label"></label>
                                                         <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                                        
+
                                                     </div><br/> --}}
 
                                                 <div class="row mb-3">
@@ -1067,7 +1098,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
                                                             <div class="col-md-6">
-                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">                                                                
+                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">
                                                             </div>
                                                         </div>
                                                         <br>
@@ -1078,18 +1109,18 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
                                                                     class="form-control" readonly="">
-                                                            </div>                                                            
+                                                            </div>
                                                         </div> <br>
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">အမည်(အင်္ဂလိပ်)</label>
-                                                           
+
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng"
                                                                     class="form-control" readonly="">
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-4">
@@ -1098,12 +1129,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
-                                                            </p> 
+                                                            </p>
                                                             <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
 
                                                         </div>
                                                     </div>
-                                                </div>                               
+                                                </div>
 
 
                                                 <div class="row">
@@ -1172,8 +1203,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
-                                                                </div>                                                    
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                                </div>
                                                             </div>
 
                                                             <div class="col-md-6">
@@ -1186,12 +1217,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>                                        
-                                                </div><br> 
+                                                    </div>
+                                                </div><br>
 
                                                     <div class="row">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -1276,7 +1307,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 value="{{ old('department') }}" readonly="">
                                                         </div>
                                                     </div>
-                                                    <br>                                                    
+                                                    <br>
 
                                                     <div class="row">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
@@ -1344,7 +1375,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                                                 name="gov_staff" value="0"
                                                                                                 style="margin-left: 3%;"  onclick="selectStaff()">
                                                                     </div>
-                                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>                                                                 
+                                                                    <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>
 
                                                                 </div>
 
@@ -1356,7 +1387,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div id="rec_letter_mac" style="display:none" >
                                                         <div class="row  "  >
                                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                                 <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                                 <div class="col-md-1"  id="degree_edu" >
                                                                     <span class="recommend_letter"></span>
@@ -1364,7 +1395,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 <div class="col-md-7"  id="degree_edu" >
                                                                     <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                                 </div>
-                                                            </div>  
+                                                            </div>
                                                         </div>
                                                     <br>
 
@@ -1410,7 +1441,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                                     </div>
-                                                </div>                                                    
+                                                </div>
 
                                                 <div class="row mb-4">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -1450,7 +1481,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                     </div>
                                 </form>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -1459,9 +1490,9 @@ $nrc_characters = config('myanmarnrc.characters');
             <!-- Exam Feedback Text -->
             <!-- <div class="exam_feedback" style="display:none; margin-left: 7%; margin-right: 7%;">
                         <div class="card text-white bg-primary my-3">
-                            
+
                             <div class="card-body exam_text">
-                                
+
                             </div>
                         </div>
                     </div> -->
@@ -1564,7 +1595,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 </div>
             </form>
 
-            
+
             <!-- SELF -->
             <form method="post" class="needs-validation" action="javascript:createDaTwoSelfStudy();" enctype="multipart/form-data"
                   novalidate>
@@ -1614,7 +1645,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 </div>
             </form>
 
-        
+
         </div><br /></br />
     </div>
     </div>
@@ -1644,16 +1675,16 @@ $nrc_characters = config('myanmarnrc.characters');
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
-            
+
                 let student_info = data.data;
                 if(data){
                     let current_stu_course = data.data.student_course_regs.slice(-1);
-                
+
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
                     $('.batch_no').val(current_stu_course[0].batch.number);
 
-                    $(".profile_image").attr("src",BASE_URL+student_info.image);                
+                    $(".profile_image").attr("src",BASE_URL+student_info.image);
                     $("input[name='email']").val(student_info.email);
                     $("input[name='name_mm']").val(student_info.name_mm);
                     $("input[name='name_eng']").val(student_info.name_eng);
@@ -1687,7 +1718,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("#no_mac").prop("checked",true);
                         $("#no_self").prop("checked",true);
                         $("#no_private").prop("checked",true);
-                        
+
                     }else{
                         $("#yes_mac").prop("checked",true);
                         $("#rec_letter_mac").css("display",'block');
@@ -1697,7 +1728,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("#rec_letter_private").css("display",'block');
 
                         $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                        
+
                     }
 
                     $("input[name='phone']").val(student_info.phone);
@@ -1706,8 +1737,8 @@ $nrc_characters = config('myanmarnrc.characters');
 
                     $(".personal_no_self").val(student_info.registration_no);
 
-                    
-                    
+
+
 
                 }
 
@@ -1717,6 +1748,8 @@ $nrc_characters = config('myanmarnrc.characters');
 
         loadCourse();
         reg_feedback();
+        loadPrivateSchoolList();
+
         var exam_date = localStorage.getItem("exam_date");
         $("input[name='exam_date']").val(formatDate(exam_date));
 

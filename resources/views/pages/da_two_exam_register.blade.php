@@ -81,6 +81,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
                                             <input type="hidden" name="is_private" id="is_private" class="form-control">
+                                            <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+
+                                            <h5 class="card-title text-center my-1">
+                                                ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်း
+                                                စာမေးပွဲဖြေဆိုခွင့်လျှောက်လွှာ</br></h5>
+                                            <br />
 
                                                 <div class="row">
                                                     <div class="col-md-8 mt-3">
@@ -407,6 +413,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div><br />
 
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4 col-form-label" id="">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}
+                                                    </div>
+
+                                                </div><br />
+
                                             <div class="row mb-3">
                                                 <div class="col-md-1 col-form-label" id="da2_label2">{{ __('၁၈။') }}
                                                 </div>
@@ -444,12 +456,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div><br />
 
                                             <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">စာဖြေဌာန</label>
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">ဖြေဆိုမည့်စာဖြေဌာန</label>
                                                 <div class="col-md-8">
                                                   <div class="form-group">
                                                     <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
-                                                        <option value="" disabled selected>စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                                        <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
                                                     </select>
                                                   </div>
                                                 </div>
