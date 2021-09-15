@@ -286,8 +286,26 @@ function createAuditFirm(){
 
 $( "#btn_submit_audit_firm" ).click(function() {
     if(allFilled('#audit_firm_form')){
-        $('#auditFirmModal').modal('show');
-        send_email();
+      var send_data = new FormData();
+      send_data.append('email',$("input[name='email']").val());
+      $.ajax({
+          url: BACKEND_URL+"/unique_email",
+          type: 'post',
+          data:send_data,
+          contentType: false,
+          processData: false,
+          success: function(result){
+              if(result.email!=null){
+                  Swal.fire("Email has been used, please check again!");
+              }
+              else{                    
+                  $('#auditFirmModal').modal('show');
+                  send_email();                   
+              }
+          }
+      });
+        // $('#auditFirmModal').modal('show');
+        // send_email();
     }
 });
 
@@ -924,8 +942,13 @@ $('#cash_img').click(function() {
     $('#audit_pay_now_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#audit_pay_now_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#audit_pay_now_btn').prop('disabled', true);
+});
 $('#audit_pay_now_btn').prop('disabled', true);
 
 function auditPaymentSubmit(){

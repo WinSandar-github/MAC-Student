@@ -440,6 +440,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                             </div>  
                                                         </div>
+                                                    </div>
                                                     <br>
 
                                                     <div class="row mb-3">
@@ -572,7 +573,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                         <div class="col-md-7">
                                                             <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
+                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
                                                         </div>
                                                     </div>
@@ -999,7 +1000,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-7">
                                                         <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
                                                     </div>
                                                 </div>
@@ -1042,18 +1043,22 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                             <h5 class="card-title text-center">
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်
-                                                မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                                မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5><br/><br/>
 
                                             <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-4 single-form">
-                                                        <label class="coursename col-form-label"></label>
+                                            <div class="row">
+                                                    
+                                                    <label class="col-md-2 col-form-label label">အမှတ်စဥ်</label>
+                                                    <div class="col-md-2">
+                                                        <input type="text" name="regno" class="form-control" autocomplete="off" required>
                                                     </div>
-                                                    <div class="col-md-6 single-form"></div>
-                                                    <div class="col-md-2 single-form">
-                                                        <label class="batchname col-form-label"></label>
+                                                    <div class="col-md-2"></div>
+                                                    <label class="col-md-3 col-form-label label">ပညာသင်နှစ်</label>
+                                                    <div class="col-md-3">
+                                                    <input type="text" name="mac_semester" id="date" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" required>
+                                                        
                                                     </div>
-                                                </div>
+                                                </div><br/><br/>
 
                                                 <div class="row">
                                                     <div class="col-md-8 mt-3">
@@ -1415,11 +1420,21 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-7">
                                                         <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
+                                                    <!-- <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()"></div> -->
+                                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
 
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-md-1 col-form-label"></label>
+                                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+
+                                                </div>
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-2 offset-md-5">
@@ -1619,7 +1634,11 @@ $nrc_characters = config('myanmarnrc.characters');
         $('document').ready(function() {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
-
+            $("input[name='mac_semester']").flatpickr({
+                enableTime: false,
+                dateFormat: "Y",
+                allowInput: true,
+            });
 
 
             selectedRegistration(urlParams.get("study_type"));
@@ -1712,8 +1731,13 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#mac_btn').prop('disabled', false);
         });
 
-        $('#btn_cbpay').prop('disabled', true);
-        $('#btn_mpu').prop('disabled', true);
+        $('#cb_img').click(function() {
+            $('#mac_btn').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#mac_btn').prop('disabled', true);
+        });
         $('#mac_btn').prop('disabled', true);
 
         //Self Study
@@ -1727,8 +1751,13 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#self_btn').prop('disabled', false);
         });
 
-        $('#btn_cbpay').prop('disabled', true);
-        $('#btn_mpu').prop('disabled', true);
+        $('#cb_img').click(function() {
+            $('#self_btn').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#self_btn').prop('disabled', true);
+        });
         $('#self_btn').prop('disabled', true);
 
         //Private School
@@ -1742,8 +1771,13 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#private_btn').prop('disabled', false);
         });
 
-        $('#btn_cbpay').prop('disabled', true);
-        $('#btn_mpu').prop('disabled', true);
+        $('#cb_img').click(function() {
+            $('#private_btn').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#private_btn').prop('disabled', true);
+        });
         $('#private_btn').prop('disabled', true);
     </script>
 @endpush

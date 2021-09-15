@@ -89,8 +89,8 @@
 
                         {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
                         <form  method="post" id="papp_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate="">
-                            <!-- <fieldset id="fieldset" disabled="disabled"> -->
-                            <fieldset id="fieldset" >
+                            <fieldset id="fieldset" disabled="disabled">
+                            <!-- <fieldset id="fieldset" > -->
 
                             <div class="row">
                                 <div class="col-md-7">

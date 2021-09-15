@@ -579,7 +579,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                     <div class="col-md-2 label_align_right">
-                                            <label class="col-form-label">{{ __(' (နှစ်/လ') }}</label>
+                                            <label class="col-form-label">{{ __(' နှစ်/လ') }}</label>
                                     </div>
                                     <div class="col-md-8">
                                         <div>
@@ -608,7 +608,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                     <div class="col-md-2 label_align_right">
 
-                                             <label class="col-form-label">{{ __('(အဆင့်)') }}</label>
+                                             <label class="col-form-label">{{ __('အဆင့်') }}</label>
 
                                     </div>
                                     <div class="col-md-8">
@@ -621,7 +621,7 @@
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <label class="col-md-2 label_align_right  col-form-label">{{ __('တက်ရောက်မယ်သင်တန်း') }}</label>
+                                    <label class="col-md-2 label_align_right  col-form-label">{{ __('တက်ရောက်မည့်သင်တန်း') }}</label>
 
                                     <div class="col-md-8">
                                             <input readonly type="text" name="batch_part_no" class="form-control course_name" placeholder="အပိုင်း" id="part_no_mac" required="">
@@ -1149,7 +1149,7 @@
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <label class="col-md-2 label_align_right  col-form-label">{{ __('တက်ရောက်မယ်သင်တန်း') }}</label>
+                                    <label class="col-md-2 label_align_right  col-form-label">{{ __('တက်ရောက်မည့်သင်တန်း') }}</label>
 
                                     <div class="col-md-8">
                                             <input readonly type="text" name="batch_part_no" class="form-control course_name" placeholder="အပိုင်း" id="part_no_mac" required="">
@@ -1674,7 +1674,7 @@
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <label class="col-md-2 label_align_right  col-form-label">{{ __('တက်ရောက်မယ်သင်တန်း') }}</label>
+                                    <label class="col-md-2 label_align_right  col-form-label">{{ __('တက်ရောက်မည့်သင်တန်း') }}</label>
 
                                     <div class="col-md-8">
                                             <input readonly type="text" name="batch_part_no" class="form-control course_name" placeholder="အပိုင်း" id="part_no_mac" required="">
@@ -1979,8 +1979,13 @@ $('document').ready(function(){
         $('#cpa2mac_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa2mac_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa2mac_btn').prop('disabled', true);
+    });
     $('#cpa2mac_btn').prop('disabled', true);
 
     $('#cpa2mac_btn').click(function () {
@@ -1994,8 +1999,13 @@ $('document').ready(function(){
         $('#cpa2self_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa2self_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa2self_btn').prop('disabled', true);
+    });
     $('#cpa2self_btn').prop('disabled', true);
 
     $('#cpa2self_btn').click(function () {
@@ -2009,8 +2019,13 @@ $('document').ready(function(){
         $('#cpa2private_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa2private_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa2private_btn').prop('disabled', true);
+    });
     $('#cpa2private_btn').prop('disabled', true);
 
     $('#cpa2private_btn').click(function () {

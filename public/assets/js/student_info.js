@@ -653,6 +653,7 @@ function createPrivateSchool() {
     send_data.append('part_no_private', $("input[name='part_no_private']").val());
     send_data.append('personal_no_private', $("input[name='personal_no_private']").val());
     send_data.append('form_type', $("input[name='form_type']").val());
+    send_data.append('private_school_name', $("#selected_school_id option:selected").text());
     // if($("input[name='form_type']").val()=="da two"){
     //     send_data.append('date', formatDate($("input[name='exam_date']").val()));
     // }

@@ -349,6 +349,7 @@ function createDaTwoMac()
     send_data.append('personal_no_mac',$("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
+    send_data.append('mac_semester', $("input[name='mac_semester']").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_student_app_reg",
@@ -373,10 +374,14 @@ $( "#da_submit" ).click(function() {
     if(allFilled('#da_one_app_form')){
         var send_data = new FormData();
         send_data.append('email',$("input[name='email']").val());
-        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        // send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        // send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        send_data.append('nrc_state_region',$("#nrc_state_region").val());
+        send_data.append('nrc_township',$("#nrc_township").val());
+        send_data.append('nrc_citizen',$("#nrc_citizen").val());
+        send_data.append('nrc_number',$("#nrc_number").val());
         $.ajax({
             url: BACKEND_URL+"/unique_email",
             type: 'post',

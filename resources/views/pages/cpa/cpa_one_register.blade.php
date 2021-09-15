@@ -119,45 +119,7 @@
                 <div class="comment-form study" style="display:none;">
 
 
-                <!-- <input type="hidden" name="student_info_id" class="form-control" value="1"> -->
-                    <!-- <div class="card border-success mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                            <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                            <br/>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <a href="{{url('cpa_one_mac')}}">
-                                    <div class="card border-success mb-3">
-                                        <div class="card-body col-md-12"  style="height:100px;">
-                                            <h6 class="card-title text-center">MAC</h6>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <a href="{{url('cpa_one_self_study')}}">
-                                        <div class="card border-success mb-3" >
-                                            <div class="card-body"  style="height:100px;">
-                                                <h6 class="card-title text-center">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-4">
-                                <a href="{{url('cpa_one_private_school')}}">
-                                    <div class="card border-success mb-3">
-                                        <div class="card-body" style="height:100px;">
-                                            <h6 class="card-title text-center">Private School</h6>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                
 
                         <div class="row" id="private_school_container">
                             <div class="card border-success mb-3">
@@ -178,106 +140,101 @@
 
                                     <form class="needs-validation" id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                        <!-- <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('၁။') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <input type="text" id="private_school_name" class="form-control" value="" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('၂။') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <input type="text" id="academic_year" class="form-control" value="" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('၃။') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <input type="text" id="direct_access_no" class="form-control" value="" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('၄။') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <input type="text" id="entry_success_no" class="form-control" value="" required>
-                                                </div>
-                                            </div>
-                                        </div><br/>
+                                        
 
-                                        <div class="row">
-                                            <div class="col-md-1">
-
-                                                    <label class="col-form-label">{{ __('၅။') }}</label>
-
-                                            </div>
-                                            <div class="col-md-5">
-                                                    <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
-                                            </div>
-                                            <div class="col-md-5">
-                                                    <input type="text" class="form-control" id="batch_part_no" value="" required >
-                                            </div>
-                                        </div><br/>
-
-
-                                        <div class="row">
-                                            <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                            <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()"></div>
-                                            <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                        </div><br/>
-
-                                        <div class="row mb-3">
-                                            <label class="col-md-2 col-form-label"></label>
-                                            <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                        </div> -->
+                                <br>
                                 <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="col-md-4 pull-right">
+                                  <div class="col-md-8">
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                        <label for=""
+                                               class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                        <div class="col-md-6">
+                                            <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                                <div class="col-md-2 col-5 pr-1">
+                                                    <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
+                                                           class="form-control" disabled>
+                                                </div>
+                                                <div class="col-md-3 col-7 px-1">
+                                                  <input type="text" placeholder="" id="nrc_township" name="nrc_township"
+                                                         class="form-control" disabled>
+                                                </div>
+                                                <div class="col-md-2 col-5 px-1">
+                                                  <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
+                                                         class="form-control" disabled>
+                                                </div>
+
+                                                <div class="col-md-5 col-7 pl-1">
+                                                  <input type="text" placeholder="" id="nrc_number" name="nrc_number"
+                                                         class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                      <div class="col-md-2"></div>
+                                      <div class="col-md-10">
+                                          {{--<div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="row">
+                                                      <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                  </div>
+                                                  <div class="row">
+                                                      <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                      <p class="mt-2">
+                                                      <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                          value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
+                                                      </p>
+                                                      <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="col-md-6">
+                                                  <div class="row">
+                                                      <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                  </div>
+                                                  <div class="row">
+                                                      <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                      <p class="mt-2">
+                                                      <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                          value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
+                                                      </p>
+                                                      <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                  </div>
+                                              </div>
+                                          </div>--}}
+                                      </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="col-md-7 pull-right">
                                         <img class="col-md-3 pull-right profile-style" id="private_preview_img" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
 
                                     </div>
@@ -285,331 +242,143 @@
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-md-1">
-                                        <div>
-                                            <label class="col-form-label">{{ __('၁။') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="col-form-label">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-
-                                        <div class="form-group">
-                                            <select class="form-control" name="private_school_name" id="selected_school_id" style="width: 100%;">
-                                                <option value="" disabled selected>Select School</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div><br>
-
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <div>
-                                            <label class="col-form-label">{{ __('၂။') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div>
-                                            <input type="text" id="academic_year_private" class="form-control" value="" required placeholder="ပညာသင်နှစ်">
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <br>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <div>
-                                            <label class="col-form-label">{{ __('၃။') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div>
-                                            <input type="text" id="direct_access_no_private" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                <br>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <div>
-                                            <label class="col-form-label">{{ __('၄။') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="col-form-label">{{ __('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div>
-                                            <input type="text" id="entry_success_no_private" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" required>
-                                        </div>
-                                    </div>
-                                </div><br/>
-
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                    <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
-
-                                    <div class="col-md-5">
-                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" required>
-
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('အပိုင်း') }}</label>
-
-                                    <div class="col-md-5">
-                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_private" required>
-
-                                    </div>
-                                </div>
-
-                                <div class="row mb-4">
-                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
-
-                                    <div class="col-md-5">
-                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" required>
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
-                                               class="form-control" required="" disabled>
+                                    <label for="" class="col-md-3 col-form-label label_align_right" >လူမျိုး</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
+                                               value="{{ old('race') }}"  disabled>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                    <label for=""
-                                           class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>
                                     <div class="col-md-8">
-                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                            <div class="col-md-2 col-5 pr-1">
-                                                <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
-                                                       class="form-control" disabled>
-                                            </div>
-                                            <div class="col-md-3 col-7 px-1">
-                                              <input type="text" placeholder="" id="nrc_township" name="nrc_township"
-                                                     class="form-control" disabled>
-                                            </div>
-                                            <div class="col-md-2 col-5 px-1">
-                                              <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
-                                                     class="form-control" disabled>
-                                            </div>
-
-                                            <div class="col-md-5 col-7 pl-1">
-                                              <input type="text" placeholder="" id="nrc_number" name="nrc_number"
-                                                     class="form-control" disabled>
-                                            </div>
-                                        </div>
+                                        <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
+                                               class="form-control" value="{{ old('religion') }}" disabled >
                                     </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                  <div class="col-md-2"></div>
-                                  <div class="col-md-10">
-                                      {{--<div class="row">
-                                          <div class="col-md-6">
-                                              <div class="row">
-                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                              </div>
-                                              <div class="row">
-                                                  <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                  <p class="mt-2">
-                                                  <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                      value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
-                                                  </p>
-                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-6">
-                                              <div class="row">
-                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                              </div>
-                                              <div class="row">
-                                                  <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                  <p class="mt-2">
-                                                  <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                      value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
-                                                  </p>
-                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                              </div>
-                                          </div>
-                                      </div>--}}
-                                  </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
-                                               class="form-control" required="" disabled>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="date_of_birth" id="date_of_birth" class="form-control"
+                                               placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label" >လူမျိုး</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ပညာအရည်အချင်း</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="လူမျိုး" id="race" name="race" class="form-control"
-                                               value="{{ old('race') }}" required="" disabled>
+                                        <input type="text" placeholder="" id="degree_name" name="degree_name"
+                                               class="form-control" value="" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">ကိုးကွယ်သည့်ဘာသာ</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ဖုန်းနံပါတ်</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
-                                               class="form-control" value="{{ old('religion') }}" disabled required="">
+                                        <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
+                                               class="form-control" value="{{ old('phone') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>
                                     <div class="col-md-8">
-                                        <input type="text" id="date_of_birth" name="date_of_birth" class="form-control"
-                                               placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled required>
+                                        <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
+                                               class="form-control" value="{{ old('address') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
-                                               class="form-control" value="{{ old('phone') }}" disabled required="">
+                                        <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
+                                               class="form-control" disabled value="{{ old('current_address') }}" >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">လက်ရှိအလုပ်အကိုင်</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
-                                               class="form-control" value="{{ old('address') }}" disabled required="">
+                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" id="name" name="name"
+                                               class="form-control" value="{{ old('name') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
-                                               class="form-control" disabled value="{{ old('current_address') }}"
-                                               required="">
+                                        <input type="text" placeholder="ရာထူး" disabled id="position" name="position" class="form-control"
+                                               value="{{ old('position') }}" >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" id="name" name="name"
-                                               class="form-control" value="{{ old('name') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ရာထူး</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ရာထူး" id="position" disabled name="position" class="form-control"
-                                               value="{{ old('position') }}" required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ဌာန</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
                                     <div class="col-md-8">
                                         <input type="text" placeholder="ဌာန" id="department" name="department" class="form-control"
-                                               value="{{ old('department') }}" disabled required="">
+                                               value="{{ old('department') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row">
+                                {{--<div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">အဖွဲ့အစည်း</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="အဖွဲ့အစည်း" id="organization" name="organization"
-                                               class="form-control" value="{{ old('organization') }}" disabled required="">
+                                        <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" id="organization"
+                                               class="form-control" value="{{ old('organization') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ကုမ္ပဏီအမည်</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ကုမ္ပဏီအမည်</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="ကုမ္ပဏီအမည်" id="company_name" name="company_name"
-                                               class="form-control" value="{{ old('company_name') }}" disabled required="">
+                                        <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" id="company_name"
+                                               class="form-control" value="{{ old('company_name') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">လစာနှင့်လစာနှုန်း</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">လစာနှင့်လစာနှုန်း</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="လစာနှင့်လစာနှုန်း" id="salary" name="salary"
-                                               class="form-control" value="{{ old('salary') }}" disabled required="">
+                                        <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary"
+                                               class="form-control" value="{{ old('salary') }}" disabled >
+                                    </div>
+                                </div>
+                                <br> --}}
+
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ရုံးလိပ်စာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address"
+                                               class="form-control" value="{{ old('office_address') }}" disabled >
                                     </div>
                                 </div>
                                 <br>
 
                                 <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ရုံးလိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ရုံးလိပ်စာ" id="office_address" name="office_address"
-                                               class="form-control" value="{{ old('office_address') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="row">
-                                    <label class="col-sm-1 col-form-label">{{ __('၂၀။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
+                                    <label class="col-sm-1 col-form-label">{{ __('၁၅။') }}</label>
+                                    <label class="col-md-3 col-form-label label_align_right">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
                                     <div class="col-md-2 pt-2">
                                         <div class="form-check">
                                             <div class="row">
                                                 <div class="col-md-4"><input type="radio"
                                                                              class="form-check-input mr-3" id="yes"
                                                                              name="gov_staff" value="1"
-                                                                             style="margin-left: 3%;" disabled required onclick="selectStaff()">
+                                                                             style="margin-left: 3%;" disabled  onclick="selectStaff()">
                                                 </div>
                                                 <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
                                                 </div>
@@ -622,7 +391,7 @@
                                                 <div class="col-md-4"><input type="radio"
                                                                              class="form-check-input mr-3" id="no"
                                                                              name="gov_staff" disabled value="0"
-                                                                             style="margin-left: 3%;" required onclick="selectStaff()">
+                                                                             style="margin-left: 3%;"  onclick="selectStaff()">
                                                 </div>
                                                 <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
                                                     <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
@@ -634,6 +403,113 @@
                                     </div>
                                 </div>
                                 <br>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div>
+                                            <label class="col-form-label">{{ __('၁၆။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 label_align_right">
+                                        <div>
+                                            <label class="col-form-label">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်းအမည်') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+
+                                        <div class="form-group">
+                                            <select class="form-control" name="private_school_name" id="selected_school_id" style="width: 100%;">
+                                                <option value="" disabled selected>Select School</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><br>
+
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div>
+                                            <label class="col-form-label">{{ __('၁၇။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 label_align_right">
+                                        <div>
+                                            <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="text" id="academic_year_private" class="form-control" value="" required placeholder="ပညာသင်နှစ်">
+                                        </div>
+                                    </div>
+                                </div>
+                                                                <br>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div>
+                                            <label class="col-form-label">{{ __('၁၈။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 label_align_right">
+                                        <div>
+                                            <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="text" id="direct_access_no_private" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                <br>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div>
+                                            <label class="col-form-label">{{ __('၁၉။') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 label_align_right">
+                                        <div>
+                                            <label class="col-form-label">{{ __('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="text" id="entry_success_no_private" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" required>
+                                        </div>
+                                    </div>
+                                </div><br/>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
+
+                                    <div class="col-md-8">
+                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" required>
+
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('အပိုင်း') }}</label>
+
+                                    <div class="col-md-8">
+                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_private" required>
+
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
+
+                                    <div class="col-md-8">
+                                        <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" required>
+
+                                    </div>
+                                </div>
 
                                     <div class="row">
                                         <div class="col-md-2 offset-md-5">
@@ -663,169 +539,281 @@
                                     </div>
                                     <form id="cpa_ss_form" class="needs-validation" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                        <!-- <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('၁။') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div>
-                                                    <input type="text" id="academic_year" class="form-control" value="" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('၂။') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div>
-                                                    <label class="col-form-label">{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-1 col-form-label">(က)</div>
-                                            <div class="col-md-9 form-check" style="padding-top:10px">
-                                                <input type="checkbox" class="" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]" >
-                                                                                        <label class="">{{ __('ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း') }}</label>
-                                            </div>
+                                        
 
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3"></div>
-
-                                            <div class="col-md-4">
-                                                <label class="col-form-label">{{ __('(၁) တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်') }}</label>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <input type="text" id="direct_access_no" class="form-control" value="" required>
-                                            </div>
-                                        </div><br/>
-                                        <div class="row">
-                                            <div class="col-md-3"></div>
-                                            <div class="col-md-4">
-                                                <label class="col-form-label">{{ __('(၂) ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်') }}</label>
-
-                                            </div>
-                                            <div class="col-md-5">
-                                                    <input type="text" id="entry_success_no" class="form-control" value="" required >
-                                            </div>
-                                        </div><br/>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-1 col-form-label">(ခ)</div>
-                                            <div class="col-md-9 form-check" style="padding-top:10px">
-                                                                                    <input type="checkbox" class="" value="သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" id="enrol_no_exam" name="reg_reason[]" >
-                                                                                    <label class="">{{ __(' သင်တန်းတက်ရောက်ခဲ့ပြီး စာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-1 col-form-label">(ဂ)</div>
-                                            <div class="col-md-4 form-check" style="padding-top:10px">
-                                                                                    <input type="checkbox" class="" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" id="attendance" name="reg_reason[]" >
-                                                                                    <label class="">{{ __(' သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-1 col-form-label">(ဃ)</div>
-                                            <div class="col-md-4 form-check" style="padding-top:10px">
-                                                <input type="checkbox" class="" value="စာမေးပွဲကျရှုံးခြင်း" id="fail_exam" name="reg_reason[]" >
-                                                                                        <label class="">{{ __(' စာမေးပွဲကျရှုံးခြင်း') }}</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-1 col-form-label">(င) </div>
-                                            <div class="col-md-4 form-check" style="padding-top:10px">
-                                                <input type="checkbox" class="" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" id="resigned" name="reg_reason[]" >
-                                                                                        <label class="">{{ __('သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-2 col-form-label">(စ)</div>
-                                            <div class="col-md-4">
-                                                    <label class="col-form-label">{{ __('ဖြေဆိုမည့် Module') }}</label>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="row">
-                                                    <div class="col-md-4 form-check">
-                                                        <input type="radio" class="form-check-input" name="module" value="" id="module1" required>
-                                                        <label class="form-check-label">{{ __('Module-1') }}</label>
-                                                    </div>
-                                                    <div class="col-md-4 form-check">
-                                                        <input type="radio" class="form-check-input" name="module" value="" id="module2" >
-                                                        <label class="form-check-label">{{ __('Module-2') }}</label>
-                                                    </div>
-                                                    <div class="col-md-4 form-check">
-                                                        <input type="radio" class="form-check-input" name="module" value="" id="allmodule" >
-                                                        <label class="form-check-label">{{ __('All Module') }}</label>
-                                                                                                        <div class="invalid-feedback mt-3">ဖြေဆိုမည့် Module ရွေးချယ်ပါ</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><br/>
-
-                                        <div class="row">
-                                            <div class="col-md-1">
-
-                                                    <label class="col-form-label">{{ __('၃။') }}</label>
-
-                                            </div>
-                                            <div class="col-md-6">
-                                                    <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
-                                            </div>
-                                            <div class="col-md-5">
-                                                    <input type="text" class="form-control" id="batch_part_no" value="" required >
-                                            </div>
-                                        </div><br/>
-
-
-
-                                        <div class="row">
-                                            <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                            <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
-                                            <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                        </div><br/>
-
-                                        <div class="row mb-3">
-                                            <label class="col-md-2 col-form-label"></label>
-                                            <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                        </div> -->
+                                <br>
                                 <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="col-md-4 pull-right">
+                                  <div class="col-md-8">
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                        <label for=""
+                                               class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                        <div class="col-md-6">
+                                            <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                                <div class="col-md-2 col-5 pr-1">
+                                                    <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
+                                                           class="form-control" disabled>
+                                                </div>
+                                                <div class="col-md-3 col-7 px-1">
+                                                  <input type="text" placeholder="" id="nrc_township" name="nrc_township"
+                                                         class="form-control" disabled>
+                                                </div>
+                                                <div class="col-md-2 col-5 px-1">
+                                                  <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
+                                                         class="form-control" disabled>
+                                                </div>
+
+                                                <div class="col-md-5 col-7 pl-1">
+                                                  <input type="text" placeholder="" id="nrc_number" name="nrc_number"
+                                                         class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                      <div class="col-md-2"></div>
+                                      <div class="col-md-10">
+                                          {{--<div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="row">
+                                                      <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                  </div>
+                                                  <div class="row">
+                                                      <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                      <p class="mt-2">
+                                                      <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                          value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
+                                                      </p>
+                                                      <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="col-md-6">
+                                                  <div class="row">
+                                                      <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                  </div>
+                                                  <div class="row">
+                                                      <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                      <p class="mt-2">
+                                                      <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                          value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
+                                                      </p>
+                                                      <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                  </div>
+                                              </div>
+                                          </div>--}}
+                                      </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                        <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
+                                                   class="form-control"  disabled>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="col-md-7 pull-right">
                                         <img class="col-md-3 pull-right profile-style" id="self_study_preview_img" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
 
                                     </div>
                                   </div>
                                 </div>
                                 <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right" >လူမျိုး</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
+                                               value="{{ old('race') }}"  disabled>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
+                                               class="form-control" value="{{ old('religion') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="date_of_birth" id="date_of_birth" class="form-control"
+                                               placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ပညာအရည်အချင်း</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="" id="degree_name" name="degree_name"
+                                               class="form-control" value="" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ဖုန်းနံပါတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
+                                               class="form-control" value="{{ old('phone') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
+                                               class="form-control" value="{{ old('address') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
+                                               class="form-control" disabled value="{{ old('current_address') }}" >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">လက်ရှိအလုပ်အကိုင်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" id="name" name="name"
+                                               class="form-control" value="{{ old('name') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ရာထူး" disabled id="position" name="position" class="form-control"
+                                               value="{{ old('position') }}" >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ဌာန" id="department" name="department" class="form-control"
+                                               value="{{ old('department') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                {{--<div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" id="organization"
+                                               class="form-control" value="{{ old('organization') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ကုမ္ပဏီအမည်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" id="company_name"
+                                               class="form-control" value="{{ old('company_name') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">လစာနှင့်လစာနှုန်း</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary"
+                                               class="form-control" value="{{ old('salary') }}" disabled >
+                                    </div>
+                                </div>
+                                <br> --}}
+
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                     <label for="" class="col-md-3 col-form-label label_align_right">ရုံးလိပ်စာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address"
+                                               class="form-control" value="{{ old('office_address') }}" disabled >
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <label class="col-sm-1 col-form-label">{{ __('၁၅။') }}</label>
+                                    <label class="col-md-3 col-form-label label_align_right">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
+                                    <div class="col-md-2 pt-2">
+                                        <div class="form-check">
+                                            <div class="row">
+                                                <div class="col-md-4"><input type="radio"
+                                                                             class="form-check-input mr-3" id="yes"
+                                                                             name="gov_staff" value="1"
+                                                                             style="margin-left: 3%;" disabled  onclick="selectStaff()">
+                                                </div>
+                                                <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 pt-2">
+                                        <div class="form-check">
+                                            <div class="row">
+                                                <div class="col-md-4"><input type="radio"
+                                                                             class="form-check-input mr-3" id="no"
+                                                                             name="gov_staff" disabled value="0"
+                                                                             style="margin-left: 3%;"  onclick="selectStaff()">
+                                                </div>
+                                                <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
+                                                    <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
+                                                        ရွေးချယ်ပါ
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="row mb-3">
                                     <div class="col-md-1">
                                         <div>
-                                            <label class="col-form-label">{{ __('၁။') }}</label>
+                                            <label class="col-form-label">{{ __('၁၆။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 label_align_right">
                                         <div>
                                             <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                         <div>
                                             <input type="text" id="academic_year_self" class="form-control" value="" placeholder="ပညာသင်နှစ်" required>
                                         </div>
@@ -835,10 +823,10 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1">
                                         <div>
-                                            <label class="col-form-label">{{ __('၂။') }}</label>
+                                            <label class="col-form-label">{{ __('၁၇။') }}</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 ">
                                         <div>
                                             <label class="col-form-label">{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                         </div>
@@ -934,11 +922,11 @@
                                 </div><br/>
 
                                 <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                             <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" required>
 
                                     </div>
@@ -947,9 +935,9 @@
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('အပိုင်း') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('အပိုင်း') }}</label>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                             <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_self" required>
 
                                     </div>
@@ -958,253 +946,11 @@
                                 <div class="row mb-4">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                         <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                    <label for=""
-                                           class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                    <div class="col-md-8">
-                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                            <div class="col-md-2 col-5 pr-1">
-                                                <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
-                                                       class="form-control" disabled>
-                                            </div>
-                                            <div class="col-md-3 col-7 px-1">
-                                              <input type="text" placeholder="" id="nrc_township" name="nrc_township"
-                                                     class="form-control" disabled>
-                                            </div>
-                                            <div class="col-md-2 col-5 px-1">
-                                              <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
-                                                     class="form-control" disabled>
-                                            </div>
-
-                                            <div class="col-md-5 col-7 pl-1">
-                                              <input type="text" placeholder="" id="nrc_number" name="nrc_number"
-                                                     class="form-control" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                  <div class="col-md-2"></div>
-                                  <div class="col-md-10">
-                                      {{--<div class="row">
-                                          <div class="col-md-6">
-                                              <div class="row">
-                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                              </div>
-                                              <div class="row">
-                                                  <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                  <p class="mt-2">
-                                                  <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                      value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
-                                                  </p>
-                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-6">
-                                              <div class="row">
-                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                              </div>
-                                              <div class="row">
-                                                  <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                  <p class="mt-2">
-                                                  <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                      value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
-                                                  </p>
-                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                              </div>
-                                          </div>
-                                      </div>--}}
-                                  </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label" >လူမျိုး</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
-                                               value="{{ old('race') }}" required="" disabled>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">ကိုးကွယ်သည့်ဘာသာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
-                                               class="form-control" value="{{ old('religion') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" name="date_of_birth" id="date_of_birth" class="form-control"
-                                               placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled required>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
-                                               class="form-control" value="{{ old('phone') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
-                                               class="form-control" value="{{ old('address') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အမြဲတမ်းနေရပ်လိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
-                                               class="form-control" disabled value="{{ old('current_address') }}"
-                                               required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" id="name" name="name"
-                                               class="form-control" value="{{ old('name') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ရာထူး</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ရာထူး" disabled id="position" name="position" class="form-control"
-                                               value="{{ old('position') }}" required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ဌာန</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ဌာန" id="department" name="department" class="form-control"
-                                               value="{{ old('department') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" id="organization"
-                                               class="form-control" value="{{ old('organization') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ကုမ္ပဏီအမည်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" id="company_name"
-                                               class="form-control" value="{{ old('company_name') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">လစာနှင့်လစာနှုန်း</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary"
-                                               class="form-control" value="{{ old('salary') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ရုံးလိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address"
-                                               class="form-control" value="{{ old('office_address') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="row">
-                                    <label class="col-sm-1 col-form-label">{{ __('၂၀။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
-                                    <div class="col-md-2 pt-2">
-                                        <div class="form-check">
-                                            <div class="row">
-                                                <div class="col-md-4"><input type="radio"
-                                                                             class="form-check-input mr-3" id="yes"
-                                                                             name="gov_staff" value="1"
-                                                                             style="margin-left: 3%;" disabled required onclick="selectStaff()">
-                                                </div>
-                                                <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 pt-2">
-                                        <div class="form-check">
-                                            <div class="row">
-                                                <div class="col-md-4"><input type="radio"
-                                                                             class="form-check-input mr-3" id="no"
-                                                                             name="gov_staff" disabled value="0"
-                                                                             style="margin-left: 3%;" required onclick="selectStaff()">
-                                                </div>
-                                                <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
-                                                    <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
-                                                        ရွေးချယ်ပါ
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <br>
@@ -1236,20 +982,281 @@
                                     <div>
                                     <form  method="post" id="cpa_mac_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                            <!-- <div class="row">
-                                                <div class="col-md-1">
-                                                    <div>
-                                                        <label class="col-form-label">{{ __('၁။') }}</label>
+                                            
+                                            <div class="row">
+                                              <div class="col-md-8">
+                                                <div class="row">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                    <div class="col-md-3">
+                                                        <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
+                                                               class="form-control"  disabled>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
+                                                               class="form-control"  disabled>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <br>
+                                                <div class="row">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                                    <label for=""
+                                                           class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                    <div class="col-md-6">
+                                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                                            <div class="col-md-2 col-5 pr-1">
+                                                                <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
+                                                                       class="form-control" disabled>
+                                                            </div>
+                                                            <div class="col-md-3 col-7 px-1">
+                                                              <input type="text" placeholder="" id="nrc_township" name="nrc_township"
+                                                                     class="form-control" disabled>
+                                                            </div>
+                                                            <div class="col-md-2 col-5 px-1">
+                                                              <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
+                                                                     class="form-control" disabled>
+                                                            </div>
+
+                                                            <div class="col-md-5 col-7 pl-1">
+                                                              <input type="text" placeholder="" id="nrc_number" name="nrc_number"
+                                                                     class="form-control" disabled>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                  <div class="col-md-2"></div>
+                                                  <div class="col-md-10">
+                                                      {{--<div class="row">
+                                                          <div class="col-md-6">
+                                                              <div class="row">
+                                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                              </div>
+                                                              <div class="row">
+                                                                  <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                  <p class="mt-2">
+                                                                  <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                                      value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
+                                                                  </p>
+                                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                              </div>
+                                                          </div>
+
+                                                          <div class="col-md-6">
+                                                              <div class="row">
+                                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                              </div>
+                                                              <div class="row">
+                                                                  <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                  <p class="mt-2">
+                                                                  <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                                      value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
+                                                                  </p>
+                                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                              </div>
+                                                          </div>
+                                                      </div>--}}
+                                                  </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                    <div class="col-md-3">
+                                                        <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
+                                                               class="form-control"  disabled>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
+                                                               class="form-control"  disabled>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                <div class="col-md-7 pull-right">
+                                                    <img class="col-md-3 pull-right profile-style" id="mac_preview_img" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right" >လူမျိုး</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
+                                                           value="{{ old('race') }}"  disabled>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
+                                                           class="form-control" value="{{ old('religion') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="date_of_birth" id="date_of_birth" class="form-control"
+                                                           placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">ပညာအရည်အချင်း</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="" id="degree_name" name="degree_name"
+                                                           class="form-control" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">ဖုန်းနံပါတ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
+                                                           class="form-control" value="{{ old('phone') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
+                                                           class="form-control" value="{{ old('address') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
+                                                           class="form-control" disabled value="{{ old('current_address') }}" >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label label_align_right">လက်ရှိအလုပ်အကိုင်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" id="name" name="name"
+                                                           class="form-control" value="{{ old('name') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="ရာထူး" disabled id="position" name="position" class="form-control"
+                                                           value="{{ old('position') }}" >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="ဌာန" id="department" name="department" class="form-control"
+                                                           value="{{ old('department') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            {{--<div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="အဖွဲ့အစည်း" name="organization" id="organization"
+                                                           class="form-control" value="{{ old('organization') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label label_align_right">ကုမ္ပဏီအမည်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="ကုမ္ပဏီအမည်" name="company_name" id="company_name"
+                                                           class="form-control" value="{{ old('company_name') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label label_align_right">လစာနှင့်လစာနှုန်း</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary"
+                                                           class="form-control" value="{{ old('salary') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br> --}}
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                                 <label for="" class="col-md-3 col-form-label label_align_right">ရုံးလိပ်စာ</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address"
+                                                           class="form-control" value="{{ old('office_address') }}" disabled >
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div class="row">
+                                                <label class="col-sm-1 col-form-label">{{ __('၁၅။') }}</label>
+                                                <label class="col-md-3 col-form-label label_align_right">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
+                                                <div class="col-md-2 pt-2">
+                                                    <div class="form-check">
+                                                        <div class="row">
+                                                            <div class="col-md-4"><input type="radio"
+                                                                                         class="form-check-input mr-3" id="yes"
+                                                                                         name="gov_staff" value="1"
+                                                                                         style="margin-left: 3%;" disabled  onclick="selectStaff()">
+                                                            </div>
+                                                            <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 pt-2">
+                                                    <div class="form-check">
+                                                        <div class="row">
+                                                            <div class="col-md-4"><input type="radio"
+                                                                                         class="form-check-input mr-3" id="no"
+                                                                                         name="gov_staff" disabled value="0"
+                                                                                         style="margin-left: 3%;"  onclick="selectStaff()">
+                                                            </div>
+                                                            <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
+                                                                <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
+                                                                    ရွေးချယ်ပါ
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <div>
+                                                        <label class="col-form-label">{{ __('၁၆။') }}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 label_align_right">
                                                     <div>
                                                         <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-8">
                                                     <div>
-                                                        <input type="text" id="academic_year" class="form-control" value="" required>
+                                                        <input type="text" id="academic_year_mac" class="form-control" value="" placeholder="ပညာသင်နှစ်" required >
                                                     </div>
                                                 </div>
                                             </div>
@@ -1257,17 +1264,17 @@
                                             <div class="row">
                                                 <div class="col-md-1">
                                                     <div>
-                                                        <label class="col-form-label">{{ __('၂။') }}</label>
+                                                        <label class="col-form-label">{{ __('၁၇။') }}</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3 label_align_right">
                                                     <div>
                                                         <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-8">
                                                     <div>
-                                                        <input type="text" id="direct_access_no" class="form-control" value="" required>
+                                                        <input type="text" id="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1275,25 +1282,25 @@
                                             <div class="row">
                                                 <div class="col-md-1">
                                                     <div>
-                                                        <label class="col-form-label">{{ __('၃။') }}</label>
+                                                        <label class="col-form-label">{{ __('၁၈။') }}</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3 label_align_right">
                                                     <div>
                                                         <label class="col-form-label">{{ __('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-8">
                                                     <div>
-                                                        <input type="text" id="entry_success_no" class="form-control" value="" required>
+                                                        <input type="text" id="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                                                            <br>
+                                            <br>
                                             <div class="row">
                                                 <div class="col-md-1">
                                                     <div>
-                                                        <label class="col-form-label">{{ __('၄။') }}</label>
+                                                        <label class="col-form-label">{{ __('၁၉။') }}</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -1302,212 +1309,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                                            <br>
-                                            <div class="row">
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-1 col-form-label">(က)</div>
-                                                <div class="col-md-6">
-                                                    <label class="col-form-label">{{ __(' သင်တန်းကာလအတွင်း အောက်ပါအတိုင်း အလုပ်သင်ဆင်းလိုပါသည်-') }}</label>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2"></div>
-                                                <div class="col-md-1">
-                                                    <label class="col-form-label">{{ __('(၁)') }}</label>
-                                                </div>
-                                                <div class="col-md-3" style="padding-top:10px">
-                                                    <div class="form-check">
-                                                                                                <input type="radio" class="form-check-input" name="internship" value="အစိုးရ ဌာနတွင်" id="gov_department" required >
-                                                                                                <label class="form-check-label">{{ __('အစိုးရ ဌာနတွင်') }}</label>
-                                                                                            </div>
-                                                </div>
-
-                                            </div><br/>
-
-                                            <div class="row">
-                                                <div class="col-md-2"></div>
-                                                <div class="col-md-1">
-                                                    <label class="col-form-label">{{ __('(၂)') }}</label>
-                                                </div>
-                                                <div class="col-md-3" style="padding-top:10px">
-                                                    <div class="form-check">
-                                                        <input type="radio" class="form-check-input" name="internship"  value="ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်" id="personal_acc_training" required>
-                                                        <label class="form-check-label">{{ __('ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်') }}</label>
-                                                    </div>
-                                                </div>
-                                            </div><br/>
-
-                                            <div class="row">
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 col-form-label">(ခ)</div>
-                                                <div class="col-md-3" style="padding-top:10px">
-                                                    <div class="form-check">
-                                                        <input type="radio" class="form-check-input" value="ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"  name="internship"  id="after_second_exam" required>
-                                                        <label class="form-check-label">{{ __('ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်') }}</label>
-
-                                                    </div>
-                                                </div>
-                                            </div><br>
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <label class="col-form-label">{{ __('၅။') }}</label>
-                                                </div>
-                                                <div class="col-md-10">
-                                                        <label class="col-form-label">{{ __('အစိုးရဌာနတွင်အလုပ်သင်ဆင်းလိုကြောင်းအဆိုပြုသူများအတွက် ပူးတွဲတင်ပြရမည့် စာရွက်စာတမ်းများ') }}</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-1 col-form-label">(က) </div>
-                                                <div class="col-md-5">
-                                                    <label class="col-form-label">{{ __('အကျင့်စာရိတ္တကောင်းမွန်ကြောင်းထောက်ခံချက်') }}</label>
-
-                                                </div>
-                                                <div class="col-md-5">
-                                                        <input type="file" id="good_morale_file" class="form-control" value="" required>
-                                                </div>
-                                            </div><br/>
-                                            <div class="row">
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-1 col-form-label">(ခ)</div>
-                                                <div class="col-md-5">
-                                                        <label class="col-form-label">{{ __(' ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်') }}</label>
-
-                                                </div>
-                                                <div class="col-md-5" >
-                                                    <input type="file" class="form-control" value="" id="no_crime_file" required>
-                                                </div>
-                                            </div>
-                                        <br/><br>
-                                            <div class="row">
-                                                <div class="col-md-1">
-
-                                                        <label class="col-form-label">{{ __('၆။') }}</label>
-
-                                                </div>
-                                                <div class="col-md-6">
-                                                        <label class="col-form-label">{{ __('တက်ရောက်ခွင့်ရရှိသည့်သင်တန်းအမှတ်စဥ် /အပိုင်း/ကိုယ်ပိုင်အမှတ်') }}</label>
-                                                </div>
-                                                <div class="col-md-5">
-                                                        <input type="text" class="form-control" id="batch_part_no" value="" required>
-                                                </div>
-                                            </div><br/>
-
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <label class="col-form-label">{{ __('၇။') }}</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                        <label class="col-form-label">{{ __('ဖြေဆိုမည့် Module') }}</label>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="row">
-                                                        <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" required>
-                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
-                                                        </div>
-                                                        <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" required>
-                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
-
-                                                        </div>
-                                                        <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" required>
-                                                            <label class="form-check-label">{{ __('All Module') }}</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><br>
-
-
-                                            <div class="row">
-                                                <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                                <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_mac" onclick="ConfirmSubmitMac()"></div>
-                                                <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                            </div><br/>
-
-                                            <div class="row mb-3">
-                                                <label class="col-md-2 col-form-label"></label>
-                                                <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့် နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျက် လျှောက်ထားအပ်ပါသည်။') }}</label>
-                                            </div> -->
-
-                                <div class="row">
-                                  <div class="col-md-8">
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div>
-                                                <label class="col-form-label">{{ __('၁။') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <label class="col-form-label">{{ __('ပညာသင်နှစ်') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div>
-                                                <input type="text" id="academic_year_mac" class="form-control" value="" placeholder="ပညာသင်နှစ်" required >
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div>
-                                                <label class="col-form-label">{{ __('၂။') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <label class="col-form-label">{{ __('တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div>
-                                                <input type="text" id="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div>
-                                                <label class="col-form-label">{{ __('၃။') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <label class="col-form-label">{{ __('ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div>
-                                                <input type="text" id="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div class="col-md-7 pull-right">
-                                        <img class="col-md-3 profile-style" id="mac_preview_img" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <div>
-                                            <label class="col-form-label">{{ __('၄။') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div>
-                                            <label class="col-form-label">{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
-                                        </div>
-                                    </div>
-                                </div>
                                                                 <br>
                                 <div class="row">
                                     <div class="col-md-1"></div>
@@ -1559,7 +1360,7 @@
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <label class="col-form-label">{{ __('၅။') }}</label>
+                                        <label class="col-form-label">{{ __('၂၀။') }}</label>
                                     </div>
                                     <div class="col-md-10">
                                             <label class="col-form-label">{{ __('အစိုးရဌာနတွင်အလုပ်သင်ဆင်းလိုကြောင်းအဆိုပြုသူများအတွက် ပူးတွဲတင်ပြရမည့် စာရွက်စာတမ်းများ') }}</label>
@@ -1568,32 +1369,32 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(က) </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-2 label_align_right">
                                         <label class="col-form-label">{{ __('အကျင့်စာရိတ္တကောင်းမွန်ကြောင်းထောက်ခံချက်') }}</label>
 
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                             <input type="file" id="good_morale_file" class="form-control" value="" required>
                                     </div>
                                 </div><br/>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 col-form-label">(ခ)</div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-2 label_align_right">
                                             <label class="col-form-label">{{ __(' ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်') }}</label>
 
                                     </div>
-                                    <div class="col-md-5" >
+                                    <div class="col-md-8" >
                                         <input type="file" class="form-control" value="" id="no_crime_file" required>
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                             <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" required >
 
                                     </div>
@@ -1602,9 +1403,9 @@
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('အပိုင်း') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('အပိုင်း') }}</label>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                             <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_mac" required>
 
                                     </div>
@@ -1613,9 +1414,9 @@
                                 <div class="row mb-4">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
-                                    <label class="col-md-5 col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
+                                    <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-8">
                                         <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required>
 
                                     </div>
@@ -1623,7 +1424,7 @@
 
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <label class="col-form-label">{{ __('၇။') }}</label>
+                                        <label class="col-form-label">{{ __('၂၂။') }}</label>
                                     </div>
                                     <div class="col-md-4">
                                             <label class="col-form-label">{{ __('ဖြေဆိုမည့် Module') }}</label>
@@ -1646,248 +1447,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                    <label for=""
-                                           class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                    <div class="col-md-8">
-                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                            <div class="col-md-2 col-5 pr-1">
-                                                <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
-                                                       class="form-control" disabled>
-                                            </div>
-                                            <div class="col-md-3 col-7 px-1">
-                                              <input type="text" placeholder="" id="nrc_township" name="nrc_township"
-                                                     class="form-control" disabled>
-                                            </div>
-                                            <div class="col-md-2 col-5 px-1">
-                                              <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
-                                                     class="form-control" disabled>
-                                            </div>
 
-                                            <div class="col-md-5 col-7 pl-1">
-                                              <input type="text" placeholder="" id="nrc_number" name="nrc_number"
-                                                     class="form-control" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                  <div class="col-md-2"></div>
-                                  <div class="col-md-10">
-                                      {{--<div class="row">
-                                          <div class="col-md-6">
-                                              <div class="row">
-                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                              </div>
-                                              <div class="row">
-                                                  <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                  <p class="mt-2">
-                                                  <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                      value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
-                                                  </p>
-                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-6">
-                                              <div class="row">
-                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                              </div>
-                                              <div class="row">
-                                                  <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                  <p class="mt-2">
-                                                  <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                      value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
-                                                  </p>
-                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                              </div>
-                                          </div>
-                                      </div>--}}
-                                  </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
-                                               class="form-control" required="" disabled>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label" >လူမျိုး</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လူမျိုး" id="race" name="race" class="form-control"
-                                               value="{{ old('race') }}" required="" disabled>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">ကိုးကွယ်သည့်ဘာသာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
-                                               class="form-control" value="{{ old('religion') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" name="date_of_birth" id="date_of_birth" class="form-control"
-                                               placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled required>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
-                                               class="form-control" value="{{ old('phone') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
-                                               class="form-control" value="{{ old('address') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
-                                    <label for="" class="col-md-3 col-form-label">အမြဲတမ်းနေရပ်လိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
-                                               class="form-control" disabled value="{{ old('current_address') }}"
-                                               required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">လက်ရှိအလုပ်အကိုင်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" id="name" name="name"
-                                               class="form-control" value="{{ old('name') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ရာထူး</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ရာထူး" id="position" disabled name="position" class="form-control"
-                                               value="{{ old('position') }}" required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ဌာန</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ဌာန" id="department" name="department" class="form-control"
-                                               value="{{ old('department') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">အဖွဲ့အစည်း</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="အဖွဲ့အစည်း" id="organization" name="organization"
-                                               class="form-control" value="{{ old('organization') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၂၁။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ကုမ္ပဏီအမည်</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ကုမ္ပဏီအမည်" id="company_name" name="company_name"
-                                               class="form-control" value="{{ old('company_name') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၂၂။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">လစာနှင့်လစာနှုန်း</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="လစာနှင့်လစာနှုန်း" id="salary" name="salary"
-                                               class="form-control" value="{{ old('salary') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('၂၃။') }}</label>
-                                     <label for="" class="col-md-3 col-form-label">ရုံးလိပ်စာ</label>
-                                    <div class="col-md-8">
-                                        <input type="text" placeholder="ရုံးလိပ်စာ" id="office_address" name="office_address"
-                                               class="form-control" value="{{ old('office_address') }}" disabled required="">
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="row">
-                                    <label class="col-sm-1 col-form-label">{{ __('၂၄။') }}</label>
-                                    <label class="col-md-3 col-form-label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
-                                    <div class="col-md-2 pt-2">
-                                        <div class="form-check">
-                                            <div class="row">
-                                                <div class="col-md-4"><input type="radio"
-                                                                             class="form-check-input mr-3" id="yes"
-                                                                             name="gov_staff" value="1"
-                                                                             style="margin-left: 3%;" disabled required onclick="selectStaff()">
-                                                </div>
-                                                <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 pt-2">
-                                        <div class="form-check">
-                                            <div class="row">
-                                                <div class="col-md-4"><input type="radio"
-                                                                             class="form-check-input mr-3" id="no"
-                                                                             name="gov_staff" disabled value="0"
-                                                                             style="margin-left: 3%;" required onclick="selectStaff()">
-                                                </div>
-                                                <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
-                                                    <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
-                                                        ရွေးချယ်ပါ
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
 
                                 <div class="row">
                                     <div class="col-md-2 offset-md-5">
@@ -2076,6 +1636,7 @@
                 var info = data.data;
                 console.log("info >>>",info);
                 var job_history = data.data.student_job;
+                var education_history = data.data.student_education_histroy;
                 if(info){
                   $("#mac_container").find("input[name=name_mm]").val(info.name_mm);
                   $("#mac_container").find("input[name=name_eng]").val(info.name_eng);
@@ -2137,6 +1698,12 @@
                     $("#self_study_container").find("input[name=gov_staff][value=1]").prop("checked",true);
                     $("#private_school_container").find("input[name=gov_staff][value=1]").prop("checked",true);
                   }
+                }
+
+                if(education_history){
+                  $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
+                  $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
+                  $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
                 }
 
                 if(job_history){
@@ -2264,8 +1831,13 @@ loadSchoolList();
         $('#cpa1mac_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa1mac_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa1mac_btn').prop('disabled', true);
+    });
     $('#cpa1mac_btn').prop('disabled', true);
 
     $('#cpa1mac_btn').click(function () {
@@ -2279,8 +1851,13 @@ loadSchoolList();
         $('#cpa1private_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa1private_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa1private_btn').prop('disabled', true);
+    });
     $('#cpa1private_btn').prop('disabled', true);
 
     $('#cpa1private_btn').click(function () {
@@ -2294,8 +1871,13 @@ loadSchoolList();
         $('#cpa1self_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa1self_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa1self_btn').prop('disabled', true);
+    });
     $('#cpa1self_btn').prop('disabled', true);
 
     $('#cpa1self_btn').click(function () {
