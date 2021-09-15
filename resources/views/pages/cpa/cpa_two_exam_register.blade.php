@@ -79,11 +79,11 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                <div class="col-md-4">
+                                                <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <div class="col-md-3">
                                                     <input type="text" name="name_mm" id="name_mm" class="form-control" readonly>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" name="name_eng" id="name_eng" class="form-control" readonly>
                                                 </div>
                                             </div>
@@ -91,8 +91,8 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                                <div class="col-md-8">
+                                                <label for="" class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                <div class="col-md-6">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                         <div class="col-md-2 col-5 pr-1">
                                                             <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" readonly>
@@ -119,11 +119,11 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                <div class="col-md-4">
+                                                <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <div class="col-md-3">
                                                     <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" readonly>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" name="father_name_eng" id="father_name_eng" class="form-control" readonly>
                                                 </div>
                                             </div>
@@ -187,10 +187,10 @@
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"
-                                                            id="cpa2_label1">{{ __('၁။') }}</label>
+                                                            id="cpa2_label1">{{ __('၉။') }}</label>
                                                         <label
-                                                            class="col-md-5 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
-                                                        <div class="col-md-6">
+                                                            class="col-md-3 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
+                                                        <div class="col-md-8">
                                                             <div class="form-group">
                                                                 <select class="form-control form-select"
                                                                     name="private_school_name" id="selected_school_id"
@@ -205,7 +205,7 @@
                                                 <div class="row mb-3">
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
                                                     <div class="col-md-1">
-                                                        <label class="col-form-label" id="cpa2_label2">၂။</label>
+                                                        <label class="col-form-label" id="cpa2_label2">၁၀။</label>
 
                                                     </div>
                                                     <div class="col-md-1">

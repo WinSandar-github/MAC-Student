@@ -211,10 +211,12 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6 pl-1">
-                                            <input type="text" name="nrc_number" id="nrc_number"
-                                                   placeholder="ဥပမာ။ ။၁၂၃၄၅၆" pattern=".{6,6}" class="form-control"
-                                                   oninput="this.value=this.value.replace(/[^၀-၉]/g,'');" maxlength="6"
-                                                   minlength="6" placeholder="" style="height: 38px" required>
+                                            <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆"
+                                                    id="nrc_number" pattern=".{6,6}" class="form-control"
+                                                    oninput="this.value= en2mm(this.value);"
+                                                    maxlength="6" minlength="6" placeholder=""
+                                                    style="height: 38px" value="{{ old('nrc_number') }}"
+                                                    required>
                                         </div>
                                     </div>
                                 </div>

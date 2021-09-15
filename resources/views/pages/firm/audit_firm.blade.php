@@ -242,12 +242,12 @@
                                                 <label for="" class="col-md-11 col-form-label">Organization Structure</label>
                                             </div>
                                             <div class="row">
-                      		                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                      		                    <!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
+                                                <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                <!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
                                                 <div class="col-md-8" id="audit_org_validate" style="display:none;">
                                                         <label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
                                                 </div>
-                      		                </div><br>
+                                            </div><br>
 
                                             <div class='row organization_data'></div><br/>
 
@@ -752,8 +752,8 @@
                                                                                     <label class="form-check-label">No</label>
                                                                                 </td>
                                                                                 <td>
-                              																										<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
-                              																									</td>
+                                                                                                                                    <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
+                                                                                                                                </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

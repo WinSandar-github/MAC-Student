@@ -95,8 +95,11 @@ function createDARegister()
 
 
     send_data.append('verify_status', $("input[name=verify_status]").val());
-    send_data.append('payment_method', $("input[name=payment_method]").val());
+    send_data.append('payment_method', $("input[name=payment_method]").val()    );
     send_data.append('verify_code', $("input[name=verify_code]").val());
+    send_data.append('type',$("input[name='type']:checked").val());
+
+
 
     var url = location.pathname;
     var batch_id = url.substring(url.lastIndexOf('/')+1);
@@ -237,10 +240,13 @@ $('#da_update').submit(function(e){
 //store Da Application Form
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
+    alert($("input[name=dtype]").val());
    
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
+    formData.append('type',$("input[name='dtype']:checked").val());
+  
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
@@ -373,10 +379,14 @@ $( "#da_submit" ).click(function() {
     if(allFilled('#da_one_app_form')){
         var send_data = new FormData();
         send_data.append('email',$("input[name='email']").val());
-        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+        // send_data.append('nrc_township',$("input[name='nrc_township']").val());
+        // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+        // send_data.append('nrc_number',$("input[name='nrc_number']").val());
+        send_data.append('nrc_state_region',$("#nrc_state_region").val());
+        send_data.append('nrc_township',$("#nrc_township").val());
+        send_data.append('nrc_citizen',$("#nrc_citizen").val());
+        send_data.append('nrc_number',$("#nrc_number").val());
         $.ajax({
             url: BACKEND_URL+"/unique_email",
             type: 'post',

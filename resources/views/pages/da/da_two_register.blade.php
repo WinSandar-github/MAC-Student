@@ -440,6 +440,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                             </div>  
                                                         </div>
+                                                    </div>
                                                     <br>
 
                                                     <div class="row mb-3">
@@ -572,7 +573,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                         <div class="col-md-7">
                                                             <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
+                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
                                                         </div>
                                                     </div>
@@ -999,7 +1000,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-7">
                                                         <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
                                                     </div>
                                                 </div>
@@ -1415,7 +1416,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-7">
                                                         <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" readonly>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
 
                                                     </div>
                                                 </div>
@@ -1712,8 +1713,13 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#mac_btn').prop('disabled', false);
         });
 
-        $('#btn_cbpay').prop('disabled', true);
-        $('#btn_mpu').prop('disabled', true);
+        $('#cb_img').click(function() {
+            $('#mac_btn').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#mac_btn').prop('disabled', true);
+        });
         $('#mac_btn').prop('disabled', true);
 
         //Self Study
@@ -1727,8 +1733,13 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#self_btn').prop('disabled', false);
         });
 
-        $('#btn_cbpay').prop('disabled', true);
-        $('#btn_mpu').prop('disabled', true);
+        $('#cb_img').click(function() {
+            $('#self_btn').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#self_btn').prop('disabled', true);
+        });
         $('#self_btn').prop('disabled', true);
 
         //Private School
@@ -1742,8 +1753,13 @@ $nrc_characters = config('myanmarnrc.characters');
             $('#private_btn').prop('disabled', false);
         });
 
-        $('#btn_cbpay').prop('disabled', true);
-        $('#btn_mpu').prop('disabled', true);
+        $('#cb_img').click(function() {
+            $('#private_btn').prop('disabled', true);
+        });
+
+        $('#mpu_img').click(function() {
+            $('#private_btn').prop('disabled', true);
+        });
         $('#private_btn').prop('disabled', true);
     </script>
 @endpush

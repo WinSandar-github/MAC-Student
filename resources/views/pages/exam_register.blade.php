@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Exam Registration <span>Form</span></h2>
+                    <h2 class="title">Exam Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -66,17 +66,17 @@
                             <input type="hidden" name="form_type" id="form_type" class="form-control">
                             <input type="hidden" name="is_private" id="is_private" class="form-control">
                             <div class="row">
-                                <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
+                                <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                                     <div class="row">
                                         <div class="col-md-8">
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                <div class="col-md-4">
+                                                <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <div class="col-md-3">
                                                     <input type="text" name="name_mm" id="name_mm" class="form-control" readonly>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" name="name_eng" id="name_eng" class="form-control" readonly>
                                                 </div>
                                             </div>
@@ -84,8 +84,8 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                                <div class="col-md-8">
+                                                <label for="" class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                <div class="col-md-6">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                         <div class="col-md-2 col-5 pr-1">
                                                             <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" readonly>
@@ -112,18 +112,18 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                <div class="col-md-4">
+                                                <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                <div class="col-md-3">
                                                     <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" readonly>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" name="father_name_eng" id="father_name_eng" class="form-control" readonly>
                                                 </div>
                                             </div>
                                             <br>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="col-md-7 pull-right">
+                                        <div class="col-md-4" align="center">
+                                            <div class="col-md-8">
                                                 <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                 <p class="mt-2">
 
@@ -169,9 +169,22 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label label_align_right">သင်တန်းတက်ရောက်သည့်နေရာ</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                         <div class="col-md-8">
                                             <input type="text" name="class_address" id="class_address" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">စာဖြေဌာန</label>
+                                        <div class="col-md-8">
+                                          <div class="form-group">
+                                            <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
+                                                <option value="" disabled selected>စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                            </select>
+                                          </div>
                                         </div>
                                     </div>
                                     <br>
@@ -246,15 +259,15 @@
                                         <label class="col-md-3 col-form-label label_align_right">ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-8">
                                             <div class="row mt-2">
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="radio" id="0" name="is_full_module" value="1" required>
                                                     <label for="0">Module 1</label>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="radio" id="1" name="is_full_module" value="2" style="margin-left: 3%;" required>
                                                     <label for="1">Module 2</label>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="radio" id="2" name="is_full_module" value="3" style="margin-left: 3%;" required>
                                                     <label for="2">All Modules</label>
                                                 </div>
@@ -359,6 +372,12 @@
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
+<style>
+    .profile-style {
+        width: 170px !important;
+        height: 190px;
+    }
+</style>
 <script type="text/javascript">
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
@@ -375,12 +394,10 @@
         var boo=localStorage.getItem("isPrivateSchool");
         $('#is_private').val(boo);
         if(boo=="true" ){
-            console.log(boo,"true");
             if(document.getElementById('is_private_school'))
             {document.getElementById('is_private_school').style.display='block';}
         }
         else{
-            console.log(boo,"false");
             if(document.getElementById('is_private_school'))
             {document.getElementById('is_private_school').style.display='none';}
         }
@@ -393,7 +410,6 @@
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
-            console.log(data.data);
             if(data){
 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
@@ -424,6 +440,7 @@
         })
     });
 
+    loadExamDepartment();
 
 </script>
 @endpush

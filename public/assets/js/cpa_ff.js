@@ -148,8 +148,13 @@ $('#cash_img').click(function() {
     $('#cpaff_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#cpaff_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#cpaff_btn').prop('disabled', true);
+});
 $('#cpaff_btn').prop('disabled', true);
 
 $('#cpaff_btn').click(function () {
