@@ -384,5 +384,10 @@
         })
         app_form_feedback();
 
+
+        function direct_entry(){
+            alert("hlle")
+        }
+
     </script>
 @endpush

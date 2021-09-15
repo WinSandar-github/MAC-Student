@@ -95,8 +95,11 @@ function createDARegister()
 
 
     send_data.append('verify_status', $("input[name=verify_status]").val());
-    send_data.append('payment_method', $("input[name=payment_method]").val());
+    send_data.append('payment_method', $("input[name=payment_method]").val()    );
     send_data.append('verify_code', $("input[name=verify_code]").val());
+    send_data.append('type',$("input[name='type']:checked").val());
+
+
 
     var url = location.pathname;
     var batch_id = url.substring(url.lastIndexOf('/')+1);
@@ -237,10 +240,13 @@ $('#da_update').submit(function(e){
 //store Da Application Form
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
+    alert($("input[name=dtype]").val());
    
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
+    formData.append('type',$("input[name='dtype']:checked").val());
+  
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",

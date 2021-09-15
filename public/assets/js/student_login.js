@@ -82,7 +82,23 @@ function login_page(batch_id,course_code,course_type){
         //let ls_course_type = localStorage.getItem('course_type');
         if(course_type == 2){
 
-            location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
+            Swal.fire({
+                title: '',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Direct',
+                denyButtonText: `Entry Exam`,
+              }).then((result) => {
+                
+                if (result.isConfirmed) {
+                  location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`
+                } else if (result.isDenied) {
+                    location.href = FRONTEND_URL+`/cpa_one_entry_form/${batch_id}`
+
+                }
+              })
+
+            // location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
         }else{
             location.href = FRONTEND_URL+`/da_one_form/${batch_id}`;
 
