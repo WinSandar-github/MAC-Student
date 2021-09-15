@@ -1979,8 +1979,13 @@ $('document').ready(function(){
         $('#cpa2mac_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa2mac_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa2mac_btn').prop('disabled', true);
+    });
     $('#cpa2mac_btn').prop('disabled', true);
 
     $('#cpa2mac_btn').click(function () {
@@ -1994,8 +1999,13 @@ $('document').ready(function(){
         $('#cpa2self_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa2self_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa2self_btn').prop('disabled', true);
+    });
     $('#cpa2self_btn').prop('disabled', true);
 
     $('#cpa2self_btn').click(function () {
@@ -2009,8 +2019,13 @@ $('document').ready(function(){
         $('#cpa2private_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#cpa2private_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#cpa2private_btn').prop('disabled', true);
+    });
     $('#cpa2private_btn').prop('disabled', true);
 
     $('#cpa2private_btn').click(function () {

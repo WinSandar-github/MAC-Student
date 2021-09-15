@@ -1422,8 +1422,13 @@
         $('#mac_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#mac_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#mac_btn').prop('disabled', true);
+    });
     $('#mac_btn').prop('disabled', true);
 
     //Private School
@@ -1437,8 +1442,13 @@
         $('#private_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#private_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#private_btn').prop('disabled', true);
+    });
     $('#private_btn').prop('disabled', true);
 
     //Self Study
@@ -1452,8 +1462,13 @@
         $('#self_btn').prop('disabled', false);
     });
 
-    $('#btn_cbpay').prop('disabled', true);
-    $('#btn_mpu').prop('disabled', true);
+    $('#cb_img').click(function() {
+        $('#self_btn').prop('disabled', true);
+    });
+
+    $('#mpu_img').click(function() {
+        $('#self_btn').prop('disabled', true);
+    });
     $('#self_btn').prop('disabled', true);
 </script>
 

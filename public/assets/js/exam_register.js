@@ -60,8 +60,13 @@ $('#cash_img').click(function() {
     $('#da1exam_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#da1exam_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#da1exam_btn').prop('disabled', true);
+});
 $('#da1exam_btn').prop('disabled', true);
 
 $('#da1exam_btn').click(function () {
@@ -161,8 +166,13 @@ $('#cash_img').click(function() {
     $('#da2exam_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#da2exam_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#da2exam_btn').prop('disabled', true);
+});
 $('#da2exam_btn').prop('disabled', true);
 
 $('#da2exam_btn').click(function () {
@@ -182,8 +192,13 @@ $('#cpa2exam_img').click(function() {
     $('#cpa2exam_btn').prop('disabled', false);
 });
 
-$('#btn_cbpay').prop('disabled', true);
-$('#btn_mpu').prop('disabled', true);
+$('#cb_img').click(function() {
+    $('#cpa2exam_btn').prop('disabled', true);
+});
+
+$('#mpu_img').click(function() {
+    $('#cpa2exam_btn').prop('disabled', true);
+});
 $('#cpa2exam_btn').prop('disabled', true);
 
 $('#cpa2exam_btn').click(function () {
