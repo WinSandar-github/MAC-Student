@@ -89,7 +89,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
                                                             <div class="col-md-6">
-                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">                                                                
+                                                                <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" readonly="">
                                                             </div>
                                                         </div>
                                                         <br>
@@ -100,18 +100,18 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
                                                                     class="form-control" readonly="">
-                                                            </div>                                                            
+                                                            </div>
                                                         </div> <br>
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                             <label for="" class="col-md-5 col-form-label label_align_right">အမည်(အင်္ဂလိပ်)</label>
-                                                            
+
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng"
                                                                     class="form-control" readonly="">
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-4">
@@ -120,12 +120,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <p class="mt-2">
                                                             <input disabled type="file" class="custom-file-input" id="profile_photo"  name="image"
                                                                 value="{{ old('image') }}" accept="image/*"  onchange="previewImageFile(this);" >
-                                                            </p> 
+                                                            </p>
                                                             <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
 
                                                         </div>
                                                     </div>
-                                                </div>                               
+                                                </div>
 
 
                                                 <div class="row">
@@ -178,7 +178,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <br>    
+                                                <br>
 
                                                 <div class="row">
                                                     <div class="col-md-4"></div>
@@ -194,8 +194,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                         value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
-                                                                </div>                                                    
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                                </div>
                                                             </div>
 
                                                             <div class="col-md-6">
@@ -208,12 +208,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                     <input disabled type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                         value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
                                                                     </p>
-                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
+                                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>                                        
-                                                </div><br> 
+                                                    </div>
+                                                </div><br>
 
                                                 <div class="row">
                                                     <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
@@ -298,7 +298,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             value="{{ old('department') }}" readonly="">
                                                     </div>
                                                 </div>
-                                                <br>                                                    
+                                                <br>
 
                                                 <div class="row">
                                                     <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
@@ -366,7 +366,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                                             name="gov_staff" value="0"
                                                                                             style="margin-left: 3%;"  onclick="selectStaff()">
                                                                 </div>
-                                                                <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>                                                                 
+                                                                <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label></div>
 
                                                             </div>
 
@@ -378,7 +378,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div id="rec_letter_self" style="display:none" >
                                                     <div class="row  "  >
                                                             <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                            <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                            <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                             <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
                                                             <div class="col-md-1"  id="degree_edu" >
                                                                 <span class="recommend_letter"></span>
@@ -386,7 +386,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <div class="col-md-7"  id="degree_edu" >
                                                                 <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                             </div>
-                                                        </div>  
+                                                        </div>
                                                     </div>
                                                 <br>
                                                 <div id="is_private_school" style="display=none;">
@@ -442,6 +442,18 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
                                             </div><br />
+
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">စာဖြေဌာန</label>
+                                                <div class="col-md-8">
+                                                  <div class="form-group">
+                                                    <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
+                                                        <option value="" disabled selected>စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+                                            </div>
 
                                             <div class="row">
                                                 {{-- <div class="col-md-1 col-form-label">{{ __('') }}</div>
@@ -554,17 +566,17 @@ $nrc_characters = config('myanmarnrc.characters');
         $(document).ready(function(e) {
 
             get_student_info(student_id).then(data => {
-            
+
                 let student_info = data.data
                 if(data){
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
                     // console.log('current_stu_course',current_stu_course)
-                
+
                     // $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     // $('.course_name').val(current_stu_course[0].batch.course.name);
                     // $('.batch_no').val(current_stu_course[0].batch.number);
 
-                    $(".profile_image").attr("src",BASE_URL+student_info.image);                
+                    $(".profile_image").attr("src",BASE_URL+student_info.image);
                     $("input[name='email']").val(student_info.email);
                     $("input[name='name_mm']").val(student_info.name_mm);
                     $("input[name='name_eng']").val(student_info.name_eng);
@@ -598,7 +610,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("#no_mac").prop("checked",true);
                         $("#no_self").prop("checked",true);
                         $("#no_private").prop("checked",true);
-                        
+
                     }else{
                         $("#yes_mac").prop("checked",true);
                         $("#rec_letter_mac").css("display",'block');
@@ -608,7 +620,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("#rec_letter_private").css("display",'block');
 
                         $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                        
+
                     }
 
                     $("input[name='phone']").val(student_info.phone);
@@ -646,8 +658,9 @@ $nrc_characters = config('myanmarnrc.characters');
                     document.getElementById('is_private_school').style.display = 'none';
                     document.getElementById('da2_label2').innerHTML = "၁၇။";
                 }
-            }    
+            }
         });
-        loadSchoolList(); 
+        loadSchoolList();
+        loadExamDepartment();
     </script>
 @endpush

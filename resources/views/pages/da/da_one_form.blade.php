@@ -133,10 +133,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                
- 
-                                
-                                   
+
+
+
+
 
 
                                     <div class="row">
@@ -220,8 +220,8 @@
                                                             <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
                                                                 value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" required>
                                                             </p>
-                                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
-                                                        </div>                                                    
+                                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-6">
@@ -234,12 +234,12 @@
                                                             <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
                                                                 value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                             </p>
-                                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>                                                        
+                                                            <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>                                        
-                                    </div><br> 
+                                            </div>
+                                    </div><br>
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -328,8 +328,8 @@
                                                    value="{{ old('image') }}" accept="image/*" required="">
                                         </div>
                                     </div> --}}
-                                    <br>  
-                                    
+                                    <br>
+
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
                                          <label for="" class="col-md-3 col-form-label label_align_right">လက်ရှိအလုပ်အကိုင်</label>
@@ -430,7 +430,7 @@
                                                             ရွေးချယ်ပါ
                                                         </div>
                                                     </div>
-                                                    
+
 
                                                 </div>
 
@@ -441,14 +441,14 @@
                                     <div id="rec_letter" style="display:none" >
                                         <div class="row  "  >
                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>                                                            
+                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                                 <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
-                                                
+
                                                 <div class="col-md-7"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                     <!-- <input type="file"  class="form-control" id="certificate0"  name="certificates[]" required=""> -->
                                                 </div>
-                                            </div>  
+                                            </div>
                                         </div>
                                     <br>
 
@@ -531,7 +531,7 @@
                                         <div class="col-md-2 offset-md-5">
                                         {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
                                         <!-- Button trigger modal -->
-                                            <button id="da_submit" value="submit" 
+                                            <button id="da_submit" value="submit"
                                                     class="btn btn-success btn-hover-dark w-100">
                                                 Submit
                                             </button>
