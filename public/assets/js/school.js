@@ -434,16 +434,16 @@ function loadSchoolList(){
         type: 'get',
         data:"",
         success: function(data){
-
+          
             var school_data=data.data;
             school_data.forEach(function (element) {
                 var option = document.createElement('option');
                 option.text = element.name_mm+"/"+element.name_eng;
                 option.value = element.id;
-                select.add(option, 1);
-                $("#selected_school_id").css('display','inline');
-                $("#selected_school_id").siblings(".nice-select").css('display','none');
-                $("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
+                select.add(option,0);
+                // $("#selected_school_id").css('display','inline');
+                // $("#selected_school_id").siblings(".nice-select").css('display','none');
+                // $("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
 
 
 
