@@ -468,11 +468,6 @@ function app_form_feedback() {
     } else {
 
 
-
-
-
-
-
         for (var i = 0; i < course_length; ++i) {
 
             let batch_id = $(`.batch_id${i}`).val();
@@ -499,8 +494,9 @@ function app_form_feedback() {
                         $(`.reg${i}`).hide();
                         $(`.exm${i}`).hide();
 
-
-                        $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type})" class="btn btn-success btn-sm btn-hover-dark" >Enroll Now </a>`);
+                        
+                            $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type})" class="btn btn-success btn-sm btn-hover-dark" >Enroll Now </a>`);
+                         
 
                     }else if (reg_start_date <= date && reg_end_date >= date) {
                         alert('Registion')
