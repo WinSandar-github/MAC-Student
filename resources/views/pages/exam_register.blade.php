@@ -177,6 +177,23 @@
                                         </div>
                                     </div>
                                     <br>
+<<<<<<< HEAD
+=======
+
+                                    <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">စာဖြေဌာန</label>
+                                        <div class="col-md-8">
+                                          <div class="form-group">
+                                            <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
+                                                <option value="" disabled selected>စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+>>>>>>> 740c464551d607d89663cf0e6c6165412cf487b0
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
