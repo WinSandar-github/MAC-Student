@@ -2,7 +2,7 @@ function ConfirmSubmit(){
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
-    } 
+    }
     else{
     document.getElementById("submit_btn").disabled = true;
     }
@@ -10,10 +10,10 @@ function ConfirmSubmit(){
 
 var count=1;
 function AddDAEdu(){
-    $("#edu").append(        
+    $("#edu").append(
 
         '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+            
+            '<div class="col-md-5"></div>'+
             '<div class="col-md-6">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
@@ -23,7 +23,7 @@ function AddDAEdu(){
                 '</button>'+
             '</div>'+
         '</div>');
-        
+
     count++;
 
 }
@@ -43,7 +43,7 @@ function createDARegister()
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
 
-    
+
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -100,7 +100,7 @@ function createDARegister()
 
     var url = location.pathname;
     var batch_id = url.substring(url.lastIndexOf('/')+1);
-    
+
 
     send_data.append('batch_id', batch_id);
     // show_loader();
@@ -112,7 +112,7 @@ function createDARegister()
         contentType: false,
         processData: false,
         success: function(result){
-            successMessage("You have successfully registerd!");                
+            successMessage("You have successfully registerd!");
             location.href = FRONTEND_URL+'/' ;
         },
         error:function (message){
@@ -134,7 +134,7 @@ function send_email()
         processData: false,
         success: function(data){
             localStorage.setItem('verify_code', JSON.stringify(data));
-            // successMessage("Your email is sending to MAC");  
+            // successMessage("Your email is sending to MAC");
         },
         error:function (message){
             EasyLoading.hide();
@@ -163,7 +163,7 @@ function check_email()
 
 function da_edit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-   
+
      $.ajax({
         type:'GET',
         url: BACKEND_URL+'/student_info/'+student.id,
@@ -194,9 +194,9 @@ function da_edit(){
             $('#company_name').val(data.student_job.company_name);
             $('#salary').val(data.student_job.salary);
             $('#office_address').val(data.student_job.office_address);
-            data.gov_staff == 0 
+            data.gov_staff == 0
             ?  $("#no").prop("checked", true)
-            : $("#yes").prop("checked", true)  ; 
+            : $("#yes").prop("checked", true)  ;
             $('#uni_name').val(education.university_name);
             $('#degree_name').val(education.degree_name);
             $('#qualified_date').val(education.qualified_date);
@@ -210,17 +210,17 @@ function da_edit(){
 
 $('#da_update').submit(function(e){
     e.preventDefault();
-  
+
 
     var formData = new FormData(this);
     formData.append('_method', 'PATCH');
     var student_id = $('#stu_id').val();
- 
-     
+
+
         $.ajax({
             type: "POST",
             url: BACKEND_URL+"/student_info/"+student_id,
-            
+
             contentType: false,
             processData: false,
             data: formData,
@@ -237,7 +237,7 @@ $('#da_update').submit(function(e){
 //store Da Application Form
 $('#store_da_two_form').submit(function(e){
     e.preventDefault();
-   
+
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
@@ -248,29 +248,29 @@ $('#store_da_two_form').submit(function(e){
         data:formData,
         contentType: false,
         processData: false,
-        success: function(data){      
-            EasyLoading.hide();      
+        success: function(data){
+            EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
             //successMessage("You have successfully registerd!");
-            location.href = FRONTEND_URL+"/"; 
+            location.href = FRONTEND_URL+"/";
         },
       error:function (message){
-        EasyLoading.hide();      
+        EasyLoading.hide();
 
         errorMessage(message);
         }
-        
+
     });
 });
 
 // $('#btn2').submit(function(e){
 //     e.preventDefault();
-//     location.href = FRONTEND_URL+"/"; 
+//     location.href = FRONTEND_URL+"/";
 // });
 
 function createDaTwoSelfStudy()
 {
-     
+
     localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
@@ -303,7 +303,7 @@ function createDaTwoSelfStudy()
 }
 
 function createDaTwoPrivateSchool()
-{ 
+{
     localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
@@ -311,21 +311,24 @@ function createDaTwoPrivateSchool()
     send_data.append('batch_no_private',$("input[id='batch_no_private']").val());
     send_data.append('part_no_private',$("input[id='part_no_private']").val());
     send_data.append('personal_no_private',$("input[id='personal_no_private']").val());
+
+    send_data.append('private_school_name',$("#selected_school_id").val());
+    send_data.append('academic_year',$("input[id='academic_year']").val());
     send_data.append('type', 1);
     send_data.append('form_type', $("input[name='form_type']").val());
     if($("input[name='form_type']").val()=="da two"){
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
     }
     show_loader();
-    
+
     $.ajax({
         url: BACKEND_URL+"/store_student_app_reg",
         type: 'post',
         data:send_data,
         contentType: false,
         processData: false,
-        success: function(result){    
-            EasyLoading.hide();        
+        success: function(result){
+            EasyLoading.hide();
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";
@@ -339,7 +342,7 @@ function createDaTwoPrivateSchool()
 
 function createDaTwoMac()
 {
-    
+
     localStorage.setItem("isPrivateSchool",false);
     var send_data = new FormData();
     send_data.append('student_id',student_id);
@@ -361,7 +364,7 @@ function createDaTwoMac()
             successMessage(result);
             // location.reload();
             location.href = FRONTEND_URL+"/";
-        }, 
+        },
         error:function(message){
             EasyLoading.hide();
 
@@ -394,9 +397,9 @@ $( "#da_submit" ).click(function() {
                 else if(result.nrc!=null){
                     Swal.fire("NRC has been used, please check again!");
                 }
-                else if(result.email==null && result.nrc==null){                    
+                else if(result.email==null && result.nrc==null){
                     $('#exampleModal').modal('show');
-                    send_email();                   
+                    send_email();
                 }
             }
         });
@@ -511,10 +514,10 @@ function allFilled(form_id) {
         if($("#certificate0").val() == ''){
             filled = false;
         }
-        
-       
+
+
     });
-    return filled;        
+    return filled;
 }
 
 // $('#da_submit').click(function(){
@@ -669,3 +672,31 @@ function allFilled(form_id) {
 //     return true;
 
 // });
+
+function loadPrivateSchoolList(){
+    var select = document.getElementById("selected_school_id");
+    $.ajax({
+        url: BACKEND_URL+"/school",
+        type: 'get',
+        data:"",
+        success: function(data){
+            var school_data=data.data;
+            school_data.forEach(function (element) {
+                var option = document.createElement('option');
+                option.text = element.name_mm+"/"+element.name_eng;
+                option.value = element.id;
+                select.add(option, 1);
+                //$("#selected_school_id").css('display','inline');
+                //$("#selected_school_id").siblings(".nice-select").css('display','none');
+                //$("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
+
+
+
+            });
+        },
+        error:function (message){
+
+        }
+
+    });
+}
