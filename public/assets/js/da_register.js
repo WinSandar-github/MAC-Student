@@ -355,6 +355,7 @@ function createDaTwoMac()
     send_data.append('personal_no_mac',$("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
+    send_data.append('mac_semester', $("input[name='mac_semester']").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_student_app_reg",

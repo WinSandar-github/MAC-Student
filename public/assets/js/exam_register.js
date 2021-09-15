@@ -19,8 +19,10 @@ function createDAExamRegister()
     send_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', invoice_image);
     send_data.append('date', $("input[name=date]").val());
+    send_data.append('exam_reg_date', $("input[name=exam_reg_date]").val());
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
+    $(':checkbox:checked').map(function(){send_data.append('last_ans_module[]',$(this).val())});
 
     send_data.append('form_type',$("#form_type").val());
     send_data.append('exam_department',$('#exam_department').val());
@@ -44,9 +46,9 @@ function createDAExamRegister()
 }
 // DA 1 exam
 $( "#btn_da_exam_submit" ).click(function() {
-    // if(allfilled('#da_exam_register_form')){
+    if(allfilled('#da_exam_register_form')){
         $('#da1examModal').modal('show');
-    // }
+    }
 });
 // function allFilled(form_id) {
 //     var filled = true;
