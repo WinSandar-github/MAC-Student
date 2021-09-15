@@ -182,11 +182,11 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label label_align_right">စာဖြေဌာန</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">ဖြေဆိုမည့်စာဖြေဌာန</label>
                                         <div class="col-md-8">
                                           <div class="form-group">
                                             <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
-                                                <option value="" disabled selected>စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                                <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
                                             </select>
                                           </div>
                                         </div>
