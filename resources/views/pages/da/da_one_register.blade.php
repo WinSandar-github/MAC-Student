@@ -121,12 +121,12 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-8">
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                            <div class="col-md-4">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
                                                                 <input type="text" name="name_mm" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-md-3">
@@ -137,8 +137,8 @@
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                                            <div class="col-md-8">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                            <div class="col-md-6">
                                                                 <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                     <div class="col-md-2 col-5 pr-1">
                                                                         <input type="text" name="nrc_state_region" class="form-control" readonly>
@@ -191,8 +191,8 @@
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                            <div class="col-md-4">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
                                                                 <input type="text" name="father_name_mm" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-md-3">
@@ -201,7 +201,7 @@
                                                         </div>
                                                         <br>
                                                     </div>
-                                                    <div class="col-md-3" align="center">
+                                                    <div class="col-md-4" align="center">
                                                         <div class="col-md-8">
                                                             <img class="col-md-3 profile-style" name="previewImg" id="previewImgMac" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
@@ -445,12 +445,12 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-8">
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                            <div class="col-md-4">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
                                                                 <input type="text" name="name_mm" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-md-3">
@@ -461,8 +461,8 @@
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                                            <div class="col-md-8">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                            <div class="col-md-6">
                                                                 <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                     <div class="col-md-2 col-5 pr-1">
                                                                         <input type="text" name="nrc_state_region" class="form-control" readonly>
@@ -515,8 +515,8 @@
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                            <div class="col-md-4">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
                                                                 <input type="text" name="father_name_mm" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-md-3">
@@ -525,7 +525,7 @@
                                                         </div>
                                                         <br>
                                                     </div>
-                                                    <div class="col-md-3" align="center">
+                                                    <div class="col-md-4" align="center">
                                                         <div class="col-md-8">
                                                             <img class="col-md-3 profile-style" name="previewImg" id="previewImgPrivate" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
@@ -765,12 +765,12 @@
                                                 </div><br/>--}}
 
                                                 <div class="row">
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-8">
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                            <div class="col-md-4">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
                                                                 <input type="text" name="name_mm" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-md-3">
@@ -781,8 +781,8 @@
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                                            <div class="col-md-8">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                            <div class="col-md-6">
                                                                 <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                     <div class="col-md-2 col-5 pr-1">
                                                                         <input type="text" name="nrc_state_region" class="form-control" readonly>
@@ -835,8 +835,8 @@
 
                                                         <div class="row">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                            <div class="col-md-4">
+                                                            <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-3">
                                                                 <input type="text" name="father_name_mm" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-md-3">
@@ -845,7 +845,7 @@
                                                         </div>
                                                         <br>
                                                     </div>
-                                                    <div class="col-md-3" align="center">
+                                                    <div class="col-md-4" align="center">
                                                         <div class="col-md-8">
                                                             <img class="col-md-3 profile-style" name="previewImg" id="previewImgSelf" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                             <p class="mt-2">
