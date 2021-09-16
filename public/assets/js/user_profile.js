@@ -537,21 +537,10 @@ function user_profile() {
                                                     exam_url = '/da_two_exam_register';
                                                     break;
                                                 case 'cpa_1':
-                                                    if (latest_stu_reg[0].mentor_id === null) {
-                                                        if (latest_stu_reg[0].type == 0) {
-                                                            exam_url = "/aa_self_form/" + student_id
-                                                            exam_text = "AA Register Form(Self Study)"
-                                                        } else if (latest_stu_reg[0].type == 1) {
-                                                            exam_url = "/aa_private_form/" + student_id
-                                                            exam_text = "AA Register Form(Private)"
-                                                        } else {
-                                                            exam_url = "/aa_mac_form/" + student_id
-                                                            exam_text = "AA Register Form(MAC)"
-                                                        }
-                                                    } else {
+                                                    
 
                                                         exam_url = '/cpa_exam_register';
-                                                    }
+                                                   
                                                     break;
                                                 case 'cpa_2':
                                                     exam_url = '/cpa_two_exam_register';
@@ -617,25 +606,28 @@ function user_profile() {
                                 }
                                 localStorage.setItem('course_id', latest_course_reg[0].batch.course.id);
                                 let action_url;
-                                $('.status').append(`
+                             
+                              
+                                    let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
+                                    let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
+                                     
+
+                                    
+                                    $('.status').append(`
                                     <tr><td colspan=2></td><td>Action</td>
-                                    <td>
+                                        <td>
 
 
-                                        <span class="nav-item dropdown ">
-                                        <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Registration Form</a>
-                                        <div class="dropdown-menu">
-                                            <a href="${FRONTEND_URL + register_url}?study_type=3" class="dropdown-item">Mac</a>
-                                            <a href="${FRONTEND_URL + register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
-                                            <a href="${FRONTEND_URL + register_url}?study_type=2" class="dropdown-item">Private School</a>
-                                        </div>
-                                    </span>
-                                    <td>
+                                       
+                                            <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration</a>
+                                           
+                                        
+                                        <td>
                                     </td>
                                     </tr>
 
-                                `);
-
+                                `);  
+                               
                             }
 
 

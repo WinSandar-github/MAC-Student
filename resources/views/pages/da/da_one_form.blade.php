@@ -529,6 +529,62 @@
                                     </div>
                                     <br>
 
+                                    
+                                    <div class="row">
+                                            <div class="col-md-1">
+                                                <div>
+                                                    <label>{{ __('၂၂။') }}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-11 ">
+                                                <div>
+                                                    <label>သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>    
+                                        
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label>{{ __('') }}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <input type="radio" id="mac" class="form-check-input" value="2" name="type"   required style="margin-left: 3%;">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ ရန်ကုန်သင်တန်းကျောင်း</label>
+                                                        </div>
+                                                    </div>
+                                             
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                        <input type="radio" id="private" class="form-check-input" value="1" name="type"   required style="margin-left: 3%;">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                            <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                        <input type="radio" id="self" class="form-check-input" value="0" name="type"   required style="margin-left: 3%;">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                            <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                        </div>
+                                                    </div>
+                                               
+                                                
+                                        </div><br/>
+
 
                                     <div class="row m-4">
                                         <div class="col-md-2 offset-md-5">
