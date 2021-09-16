@@ -11,10 +11,8 @@ function ConfirmSubmit(){
 var count=1;
 function AddDAEdu(){
     $("#edu").append(
-
-        '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+
-            '<div class="col-md-6">'+
+        '<div class="row mb-3" id="edu'+count+'">'+
+            '<div class="col-md-11">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
@@ -23,9 +21,7 @@ function AddDAEdu(){
                 '</button>'+
             '</div>'+
         '</div>');
-
     count++;
-
 }
 
 
