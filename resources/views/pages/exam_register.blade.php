@@ -177,8 +177,6 @@
                                         </div>
                                     </div>
                                     <br>
-<<<<<<< HEAD
-=======
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
@@ -192,8 +190,7 @@
                                         </div>
                                     </div>
                                     <br>
-
->>>>>>> 740c464551d607d89663cf0e6c6165412cf487b0
+                                    
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
