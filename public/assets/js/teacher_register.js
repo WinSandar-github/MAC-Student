@@ -15,7 +15,8 @@ function addRowEducation(tbody){
     var cols = "";
     //var row=$('.'+tbody+' tr').length;
     cols += '<td><input type="text" class="form-control" value="" /></td>';
-    cols += '<td><input type="text" name="degrees[]" class="form-control" placeholder="ပညာအရည်အချင်း" required/></td>';
+    cols += '<td><input type="text" name="degrees[]" class="form-control" placeholder="တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ" autocomplete="off" required/></td>';
+    cols += '<td><input type="file" class="form-control" id="certificate" name="certificate" required=""></td>';
     cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("'+tbody+'")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -411,3 +412,11 @@ function renewTeacher(){
         },
     });
 }
+function selectStaff(value){
+    if(value==1){
+        $('#rec_letter').css('display','block');
+    }else{
+        $('#rec_letter').css('display','none');
+    }
+}
+

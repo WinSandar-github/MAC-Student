@@ -146,7 +146,7 @@
                                         <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                         <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
                                         <div class="col-md-8">
-                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" readonly>
+                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" disabled>
                                         </div>
                                     </div>
                                     <br>
@@ -177,20 +177,6 @@
                                         </div>
                                     </div>
                                     <br>
-
-                                    <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label label_align_right">ဖြေဆိုမည့်စာဖြေဌာန</label>
-                                        <div class="col-md-8">
-                                          <div class="form-group">
-                                            <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
-                                                <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
-                                            </select>
-                                          </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
@@ -290,7 +276,7 @@
                                     </div><br/>
                                     <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
-                                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်များအားလုံးမှန်ကန်ကြောင်းဝန်ခံပါသည်။') }}</label>
 
                                     </div>
 

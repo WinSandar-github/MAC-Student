@@ -81,7 +81,12 @@
                         <div class="card-body p-4">
                             {{--<form id="teacher_register_form" enctype="multipart/form-data" action="javascript:createTeacherRegister();" class="needs-validation" autocomplete="off" novalidate>--}}
                             <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:void();"  class="needs-validation" autocomplete="off" novalidate>
-
+                                <h5 class="card-title text-center">သင်တန်းဆရာမှတ်ပုံတင်လျှောက်လွှာ</h5><br/>
+                                <div class="row">
+                                    <div class="col-md-10"></div>
+                                    <label class="col-md-2 col-form-label">ဆရာပုံစံ-၁</label>
+                                                    
+                                </div><br/><br/>
                               <div class="row mt-3">
                                 <div class="col-md-8">
 
@@ -148,12 +153,12 @@
                                   <label class="col-md-3 col-form-label label">{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</label>
                                   <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" placeholder="အဘအမည် (မြန်မာ)" required>
+                                          <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" placeholder="အဘအမည် (မြန်မာ)" autocomplete="off" required>
                                       </div>
                                   </div>
                                   <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" name="father_name_eng" class="form-control" placeholder="အဘအမည် (အင်္ဂလိပ်)" required>
+                                          <input type="text" name="father_name_eng" class="form-control" placeholder="အဘအမည် (အင်္ဂလိပ်)" autocomplete="off" required>
                                       </div>
                                   </div>
                               </div>
@@ -165,7 +170,7 @@
                                   <div class="col-md-8">
                                       <div class="row" >
                                           <div class="col-md-2 col-5 pr-1">
-                                              <select class="form-control" name="nrc_state_region" id="nrc_state_region" required="">
+                                              <select class="form-control" name="nrc_state_region" id="nrc_state_region" required>
                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                   @foreach($nrc_regions as $region)
                                                       <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -175,7 +180,7 @@
                                               </select>
                                           </div>
                                           <div class="col-md-3 col-7 px-1">
-                                              <select class="form-control" name="nrc_township" id="nrc_township" required="" >
+                                              <select class="form-control" name="nrc_township" id="nrc_township" required>
                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                   @foreach($nrc_townships as $township)
                                                       <option value="{{ $township['township_mm'] }}">
@@ -186,7 +191,7 @@
                                               </select>
                                           </div>
                                           <div class="col-md-2 col-5 px-1">
-                                              <select class="form-control" name="nrc_citizen" id="nrc_citizen" required="">
+                                              <select class="form-control" name="nrc_citizen" id="nrc_citizen" required>
                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                   @foreach($nrc_citizens as $citizen)
                                                   <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -197,7 +202,7 @@
                                           </div>
 
                                           <div class="col-md-5 col-7 pl-1">
-                                          <input type="text" name="nrc_number" id="nrc_number" placeholder="ဥပမာ။ ။၁၂၃၄၅၆" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" required>
+                                          <input type="text" name="nrc_number" id="nrc_number" placeholder="ဥပမာ။ ။၁၂၃၄၅၆" pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6"  style="height: 38px" autocomplete="off" required>
                                           </div>
                                       </div>
                                   </div>
@@ -240,44 +245,69 @@
                                     </div>
                                 </div><br>
 
-                                <!-- <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">လူမျိုး</label>
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_front" class="form-control" required>
+                                         <input type="text" placeholder="လူမျိုး" name="race" autocomplete="off" class="form-control" required>
                                     </div>
-                                </div><br>
+                                </div><br/>
 
                                 <div class="row">
-                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label for="" class="col-md-3 col-form-label label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>
                                     <div class="col-md-8">
-                                        <input type="file" name="nrc_back" class="form-control" required>
+                                        <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" autocomplete="off" name="religion" class="form-control" required>
                                     </div>
-                                </div><br> -->
+                                </div><br/>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                    <label class="col-md-3 col-form-label label">{{ __('တယ်လီဖုန်းနံပါတ်') }}</label>
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label">မွေးသက္ကရာဇ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="date_of_birth" class="form-control" autocomplete="off"
+                                                   placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" required>
+                                    </div>
+                                </div><br/>
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                    <label class="col-md-3 col-form-label label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                        <input type="text" name="phone_number" class="form-control" placeholder="တယ်လီဖုန်းနံပါတ်" required>
+                                            <input type="text" name="phone_number" class="form-control" placeholder="ဖုန်းနံပါတ်" autocomplete="off" required>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address"
+                                                   class="form-control" value="{{ old('address') }}" autocomplete="off" required>
+                                        </div>
+                                </div><br/>
 
                                 <div class="row">
-
-                                </div>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address"
+                                                   class="form-control" value="{{ old('current_address') }}" autocomplete="off"
+                                                   required>
+                                        </div>
+                                </div><br/>
+                                
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                    <label class="col-md-3 col-form-label label">{{ __('ပညာအရည်အချင်း (ရရှိထားသော တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                    <label class="col-md-3 col-form-label label">{{ __('ပညာအရည်အချင်း') }}</label>
                                     <div class="col-md-8">
                                         <table class="table tbl_degree table-bordered input-table">
                                             <thead>
                                                 <tr >
                                                     <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="80%">ပညာအရည်အချင်း</th>
+                                                    <th class="less-font-weight text-center"  width="40%">တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ</th>
+                                                    <th class="less-font-weight text-center"  width="40%">Attached Certificate</th>
                                                     <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
                                                 </tr>
                                             </thead>
@@ -295,18 +325,16 @@
 
                                 </div>
                                 <div class="row" style="clear:both;">
-                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
                                     <label class="col-md-3 col-form-label label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
 
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee" value="1">
-                                                <label class="form-check-label" for="yes-servant">{{ __('ဟုတ်') }}</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gov_employee" value="1" onclick="selectStaff(1)"> ဟုတ်
                                             </div>
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee" value="0">
-                                                <label class="form-check-label" for="no-servant">{{ __('မဟုတ်') }}</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gov_employee" value="0" onclick="selectStaff(0)"> မဟုတ်
 
                                             </div>
                                             <div class="col-md-4">
@@ -314,10 +342,56 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div></br>
+                                </div><br/>
+                                <div id="rec_letter" style="display:none" >
+                                        <div class="row">
+                                                <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                <label for="" class="col-md-3 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+
+                                                <div class="col-md-8">
+                                                    <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    
+                                                </div>
+                                            </div>
+                                </div><br/>
+                                <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ရာထူး" name="position" class="form-control"
+                                                   value="{{ old('position') }}" autocomplete="off" required>
+                                        </div>
+                                </div><br>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ဌာန" name="department" class="form-control"
+                                                   value="{{ old('department') }}" autocomplete="off" required>
+                                        </div>
+                                </div><br>
+                                <div class="row">
+                                        <label for="" class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
+                                         <label for="" class="col-md-3 col-form-label label_align_right">ရုံးစိုက်ရာဒေသ</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="organization"
+                                                   class="form-control" value="{{ old('organization') }}" autocomplete="off" required>
+                                        </div>
+                                </div><br>
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                    <label class="col-md-3 col-form-label label">သင်ကြားမည့်သင်တန်းကျောင်းအမည်</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <select class="form-control form-select" name="school_id" id="selected_school_id" style="width: 100%;">
+                                                <option disabled selected>ရွေးပါ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>
                                     <div class="col-md-6 pull-right" style="text-align:right;">
                                         <label class="invalid-feedback col-form-label certificate text-danger">သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ ထည့်ပါ</label><br>
@@ -364,7 +438,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
                                     <label class="col-md-3 col-form-label label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
                                     <div class="col-md-8">
                                         <div class="form-group">
@@ -374,11 +448,10 @@
                                 </div><br/>
 
 
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-                                </div>--}}
+                                <div class="row mb-3">
+                                    <div class="col-md-1">၂၁။</div>
+                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များ မှန်ကန်ကြောင်း ကိုယ်တိုင်ကတိပြုဝန်ခံပါသည်။') }}</label>
+                                </div>
 
 
                                 <!-- <div class="row">
@@ -505,7 +578,7 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
-
+        
     });
 
 </script>

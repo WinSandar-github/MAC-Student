@@ -577,7 +577,7 @@
                                                     <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                                     <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="date_of_birth" class="form-control" readonly>
+                                                        <input type="text" name="date_of_birth" class="form-control" disabled>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -680,7 +680,7 @@
 
                                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label">၁၅။</label>
-                                                    <label class="col-md-3 col-form-label label_align_right">တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                    <label class="col-md-3 col-form-label label_align_right">တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
 
                                                     <div class="col-md-8">
                                                             <input type="text"  class="form-control sr_no" name="student_regno" readonly>
@@ -725,7 +725,7 @@
                                                 <div class="row">
                                                     <label class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
                                                     <!-- <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()"></div> -->
-                                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်များအားလုံး မှန်ကန်ပါသည်။') }}</label>
 
                                                 </div>
                                                 <div class="row mb-3">
