@@ -83,6 +83,12 @@
                                         ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ</h5>
                                     <br/>
                                     <div class="row">
+                                        <div class="row" style="margin-bottom:2%;">
+                                            <label class="col-md-1 col-form-label label" style="margin-left:80%;">အမှတ်စဉ်</label>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name="batch_id" value="1" readonly>
+                                            </div>
+                                        </div><br/><br/>
                                         <div class="col-md-8">
 
                                             <div class="row">
@@ -163,7 +169,7 @@
                                                 <div class="col-md-2 col-5 pr-1">
                                                     <select class="form-control" name="nrc_state_region"
                                                             id="nrc_state_region"
-                                                            style="margin-top: 0px; margin-bottom: 0px;">
+                                                            style="margin-top: 0px; margin-bottom: 0px;" required="">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -300,9 +306,9 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
-                                        <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရမည့်လိပ်စာ</label>
                                         <div class="col-md-8">
-                                            <input type="text" placeholder="နေရပ်လိပ်စာ" name="address"
+                                            <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="address"
                                                    class="form-control" value="{{ old('address') }}" required="">
                                         </div>
                                     </div>
@@ -331,7 +337,6 @@
                                                    value="{{ old('image') }}" accept="image/*" required="">
                                         </div>
                                     </div> --}}
-                                    <br>
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
@@ -577,14 +582,22 @@
                                                         <input type="radio" id="self" class="form-check-input" value="0" name="type"   required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                            <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမည့်သူများ</label>
                                                             <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                         </div>
-                                                    </div>
+                                                    </div><br>
                                                
                                                 
                                         </div><br/>
-
+                                        <div class="row">
+                                            <label class="col-md-1 col-form-label">{{ __('၂၃။') }}</label>
+                                            <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                            <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                        </div><br/>
+                                        <div class="row mb-3">
+                                            <label class="col-md-2 col-form-label"></label>
+                                            <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                        </div>
 
                                     <div class="row m-4">
                                         <div class="col-md-2 offset-md-5">
