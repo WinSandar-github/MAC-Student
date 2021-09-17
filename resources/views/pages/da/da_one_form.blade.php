@@ -659,7 +659,7 @@
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="radio" name="type" value='1' required>
                                                     <span class="form-check-sign"></span>
-                                                    ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
+                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
