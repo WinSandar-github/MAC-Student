@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPA Full Fleged <span>Detail</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Registration  <span>Form(Renew)</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -206,7 +206,16 @@
     </form>
 
             <div class="card border-success mb-3" id="cpaff_renew_form" style="display:none;"><br/><!---->
-                <h5 class="card-title text-center">CPA (Full-Fledged) မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
+                <div class="row mb-5">
+                    <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
+                        မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
+                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း)
+                    </h5>
+                    {{--<div class="d-flex justify-content-between">
+                        <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                        <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                    </div>--}}
+                </div>
                 <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data"  id="cpaff_renew_form_submit">
 
                     <div class="card-body">
@@ -547,7 +556,7 @@
                                 </div><br/>
 
                                 
-													<div class="row">
+													{{--<div class="row">
 												
 															<label class="col-md-6 col-form-label label" >{{ __('လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်အမှတ်') }}</label>
                                                             <div class="col-md-1 "> </div>
@@ -574,8 +583,12 @@
 																		<input type="text" class="form-control" id="message" readonly="">
 																	</div>
 															</div>
-													</div>
-												
+													</div>--}}
+												<div class="row">
+                                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                </div><br/>
 												<!-- <div class="col-md-3">
 													<div class="col-md-8 pull-right">
 														<img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
