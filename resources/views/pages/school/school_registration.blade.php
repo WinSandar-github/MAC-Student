@@ -920,12 +920,12 @@
                         <div class="mb-3" style="text-align:center;">
                             <label style="margin-bottom: 2%;">Enter your verification code</label>
                             <center><input type="text" class="form-control w-50" name="verify_code"
-                                           placeholder="Code must have 6 digits (eg. 1234)"></center>
+                                           placeholder="Enter Verification Code"></center>
                         </div>
                     </div>
                     <center>
                         <button type="submit" id="btn1" onclick="check_email_school()"
-                                class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                                class="btn btn-success btn-hover-dark w-30">Verify
                         </button>
                     </center>
                     <br>

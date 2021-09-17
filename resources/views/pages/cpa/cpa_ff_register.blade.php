@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPAFF Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Registration  <span>Form(Initial)</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -114,6 +114,16 @@
                     </div>
                 </div>
                 <div class="card border-success mb-3" id="cpaff_from" style="display:none;">
+                    <div class="row mb-5">
+                        <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
+                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
+                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ရန်ကနဦးလျှောက်ထားခြင်း)
+                        </h5>
+                        {{--<div class="d-flex justify-content-between">
+                            <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                            <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                        </div>--}}
+                    </div>
                     <div class="card-body">
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
@@ -138,11 +148,28 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="col-md-5 pull-right">
-                                    <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                                    {{--<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                     <p class="mt-2">
                                       <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                     </p>
-                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>--}}
+                                    {{--User Photo--}}
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-circle shadow">
+                                            <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                                 alt="Upload Photo">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                        <div class="d-flex justify-content-center">
+                                            <span class="btn btn-round btn-secondary btn-file">
+                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                            <br>
+                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                    {{--User Photo--}}
                                 </div>
                             </div>
                         </div>
@@ -560,7 +587,7 @@
                                 <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
                                 <div class="col-md-10">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        {{--<div class="col-md-6">
                                             <div class="row">
                                                 <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
                                             </div>
@@ -585,6 +612,43 @@
                                                     value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" required>
                                                 </p>
                                                 <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                            </div>
+                                        </div>--}}
+                                        <div class="col-md-6 text-center">
+                                            <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail shadow">
+                                                    <img src="{{ asset('assets/images/image_placeholder.png') }}" alt="Upload Photo">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                                <div>
+                                                    <span class="btn btn-secondary btn-round btn-file">
+                                                        <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အရှေ့)</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="hidden" value="">
+                                                        <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*" required>
+                                                    </span>
+                                                    <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                                <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 text-center">
+                                            <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail shadow">
+                                                    <img src="{{ asset('assets/images/image_placeholder.png') }}"
+                                                         alt="Upload Photo">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                                <div>
+                                                     <span class="btn btn-secondary btn-round btn-file">
+                                                         <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
+                                                         <span class="fileinput-exists">Change</span>
+                                                         <input type="hidden" value=""><input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*" required>
+                                                     </span>
+                                                    <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                                <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
                                             </div>
                                         </div>
                                     </div>
@@ -657,12 +721,12 @@
                                     </div>
                                 </div><br/>
 
-                                {{--<div class="row mb-3">
+                                <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
+                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
 
-                                </div>--}}
+                                </div>
 
 
                                 <div class="row mb-3">
@@ -702,11 +766,11 @@
                         </div><br>
                           <div class="mb-3" style="text-align:center;">
                             <label style="margin-bottom: 2%;">Enter your verification code</label>
-                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
                           </div>
                       </div>
                       <center>
-                          <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Verify
                           </button>
                       </center><br>
                       <div class="col-md-12" style="text-align:center;">

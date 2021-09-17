@@ -190,7 +190,7 @@
                                                 <div class="col-md-2 col-5 pr-1">
                                                     <select class="form-control" name="nrc_state_region"
                                                             id="nrc_state_region"
-                                                            style="margin-top: 0px; margin-bottom: 0px;">
+                                                            style="margin-top: 0px; margin-bottom: 0px;" required="">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -224,7 +224,7 @@
                                                 </div>
 
                                                 <div class="col-md-5 col-7 pl-1">
-                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆"
+                                                    <input type="text" name="nrc_number" placeholder="ဥပမာ။၁၂၃၄၅၆"
                                                            id="nrc_number" pattern=".{6,6}" class="form-control"
                                                            oninput="this.value= en2mm(this.value);"
                                                            maxlength="6" minlength="6" placeholder=""
@@ -373,9 +373,15 @@
                                     <div class="row mb-3">
                                         {{--<label for="" class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
                                         <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>--}}
+<<<<<<< HEAD
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                         <div class="col-md-9">
                                             <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="">
+=======
+                                        <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဆက်သွယ်ရမည့်လိပ်စာ</label>
+                                        <div class="col-md-9">
+                                            <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="">
+>>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                         </div>
                                     </div>
 
@@ -679,10 +685,47 @@
                                         <div class="col-md-11 ">
                                             <div>
                                                 <label>သင်တန်းတက်ရောက်မည့်နေရာ-</label>
+<<<<<<< HEAD
+=======
+                                            </div>
+                                        </div>--}}
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-1 col-form-label">{{ __('၂၃။') }}</label>
+                                        <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                        <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                    </div><br/>
+                                    <div class="row mb-3">
+                                        <p class="fw-bolder">
+                                            {{--* အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>--}}
+                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                        </p>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        {{--<div class="col-md-4">
+                                            <div>
+                                                <label>{{ __('') }}</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-8">
+
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <input type="radio" id="mac" class="form-check-input" value="2"
+                                                           name="type" required style="margin-left: 3%;">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊
+                                                        ရန်ကုန်သင်တန်းကျောင်း</label>
+                                                </div>
+>>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                             </div>
                                         </div>--}}
                                     </div>
 
+<<<<<<< HEAD
                                     <div class="row mb-3">
                                         <p class="fw-bolder">
                                             * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
@@ -731,6 +774,29 @@
                                                 </div>
                                             </div>
 
+=======
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <input type="radio" id="private" class="form-check-input" value="1"
+                                                           name="type" required style="margin-left: 3%;">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                    <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <input type="radio" id="self" class="form-check-input" value="0"
+                                                           name="type" required style="margin-left: 3%;">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                    <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                </div>
+                                            </div>
+
+>>>>>>> bb738248e28a89675ae372041549f0c3bd019681
 
                                         </div>
                                         <br/>--}}
@@ -777,12 +843,20 @@
                         <div class="mb-3" style="text-align:center;">
                             <label style="margin-bottom: 2%;">Enter your verification code</label>
                             <center><input type="text" class="form-control w-50" name="verify_code"
+<<<<<<< HEAD
                                            placeholder="Code must have 6 digits (eg. 123456)"></center>
+=======
+                                           placeholder="Enter Verification Code"></center>
+>>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                         </div>
                     </div>
                     <center>
                         <button type="submit" id="btn1" onclick="check_email()"
+<<<<<<< HEAD
                                 class="btn btn-success btn-hover-dark w-30">Send Verification Code
+=======
+                                class="btn btn-success btn-hover-dark w-30">Verify
+>>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                         </button>
                     </center>
                     <br>

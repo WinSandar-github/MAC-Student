@@ -119,16 +119,16 @@
                                                         <label class="batchname col-form-label"></label>
                                                     </div>
                                                 </div>
-                                                <table style="width:100%;margin-bottom: 2%;">
-                                                    <tr>
-                                                        <td style="width:15%">
-                                                            <label for="" class="col-form-label">{{ __('အမှတ်စဉ် - Batch One') }}</label>
-                                                        </td>
-                                                        <td style="float: right;">
-                                                            <label for="" class="col-form-label">{{ __('ပညာသင်နှစ် - 2021') }}</label>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label label">အမှတ်စဉ်</label>
+                                                    <div class="col-md-1">
+                                                        <input type="text" class="form-control sr_no" name="student_regno"  readonly>
+                                                    </div>
+                                                    <label class="col-md-2 col-form-label label" style="margin-left:50%;">ပညာသင်နှစ်</label>
+                                                    <div class="col-md-2">
+                                                        <input type="text" value="<?php echo date('Y'); ?>" class="form-control" readonly>
+                                                    </div>
+                                                </div><br/><br/>
                                                 <div class="row">
                                                     <div class="col-md-8">
 
@@ -698,7 +698,7 @@
                                                             <input type="text" name="part_no_mac" id="part_no_mac" class="form-control course_name" disabled placeholder="အပိုင်း" id="" required>
 
                                                     </div>
-                                                </div>
+                                                </div><br>
                                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
@@ -751,7 +751,7 @@
                                     <div class="card border-success mb-3">
                                         <h5 class="card-title text-center my-1">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center my-1">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
-                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
 
                                         <div class="card-body">
                                             <div class="col-md-12">
@@ -765,13 +765,12 @@
                                                         <label class="batchname col-form-label"></label>
                                                     </div>
                                                 </div>
-                                                <table style="width:100%;margin-bottom: 2%;">
-                                                    <tr>
-                                                        <td style="width:15%">
-                                                            <label for="" class="col-form-label">{{ __('အမှတ်စဉ် - Batch One') }}</label>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <div class="row">
+                                                    <label class="col-md-1 col-form-label label">အမှတ်စဉ်</label>
+                                                    <div class="col-md-1">
+                                                        <input type="text" class="form-control sr_no" name="student_regno"  readonly>
+                                                    </div>
+                                                </div><br/><br/>
                                                 {{--<div class="row">
                                                     <div class="col-md-1">
                                                         <div class="single-form">
