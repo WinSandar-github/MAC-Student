@@ -666,7 +666,7 @@
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="radio" name="type" value='0' required>
                                                     <span class="form-check-sign"></span>
-                                                    ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ
+                                                    ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ
                                                 </label>
                                             </div>
                                         </div>
@@ -716,7 +716,7 @@
                                                            name="type" required style="margin-left: 3%;">
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                    <label class="form-check-label" for="private">ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
                                                     <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                 </div>
                                             </div>
