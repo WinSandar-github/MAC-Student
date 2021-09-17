@@ -70,8 +70,6 @@ function ConfirmSubmit(){
     }
 }
 
-
-
 function addRowEducation(tbody){
     $(".degree").hide();
     var newRow = $("<tr>");

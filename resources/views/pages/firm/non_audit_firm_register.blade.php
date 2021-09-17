@@ -1303,11 +1303,11 @@
 											</div><br>
 												<div class="mb-3" style="text-align:center;">
 													<label style="margin-bottom: 2%;">Enter your verification code</label>
-													<center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+													<center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
 												</div>
 										</div>
 										<center>
-												<button type="submit" id="btn1" onclick="check_email_non_audit()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+												<button type="submit" id="btn1" onclick="check_email_non_audit()" class="btn btn-success btn-hover-dark w-30">Verify
 												</button>
 										</center><br>
 										<div class="col-md-12" style="text-align:center;">
