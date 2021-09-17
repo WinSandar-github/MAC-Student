@@ -634,7 +634,7 @@
                                                             <input type="text" name="part_no_mac" id="part_no_mac" class="form-control course_name" disabled placeholder="အပိုင်း" id="" required>
 
                                                     </div>
-                                                </div>
+                                                </div><br>
                                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
@@ -689,7 +689,7 @@
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                         <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center fw-bolder">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
-                                         (ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                         (ကိုယ်တိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
                                          
                                         <div class="card-body">
                                             <div class="col-md-12">

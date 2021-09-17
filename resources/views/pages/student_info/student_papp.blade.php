@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">PAPP Registration  <span>Form</span></h2>
+                    <h2 class="title">PAPP Registration  <span>Form(Initial)</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -175,10 +175,27 @@
                                 </div>
                                 <div class="col-md-5">
                                     <div class="col-md-5 pull-right">
-                                        <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                                        {{--<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                         <p class="mt-2">
                                         <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
-                                        </p>
+                                        </p>--}}
+                                        {{--User Photo--}}
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-new thumbnail img-circle shadow">
+                                                <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                                     alt="Upload Photo">
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                            <div class="d-flex justify-content-center">
+                                                <span class="btn btn-round btn-secondary btn-file">
+                                                <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                <br>
+                                                <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                            </div>
+                                        </div>
+                                        {{--User Photo--}}
                                     </div>
                                 </div>
                             </div>
@@ -268,6 +285,23 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
+                                            <label class="col-md-4"  style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား</label>
+                                            <div class="col-md-2">
+                                                <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" required>
+                                            </div>
+                                            <label class="col-md-5"  style="font-size:15px;">ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
+                                        </div>
+
+
+
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                            <label class="">{{ __('၃။') }}</label>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <div class="row">
                                             <label class="col-md-6"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်</label>
                                             <div class="col-md-2">
                                                 <input type="text" name="papp_date" class="form-control papp_date" placeholder="ခုနှစ်/YYYY" required>
@@ -282,7 +316,7 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ __('၃။') }}</label>
+                                            <label class="col-form-label">{{ __('၄။') }}</label>
 
                                         </div>
                                     </div>
@@ -364,7 +398,7 @@
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
-                                            <label class="col-form-label">{{ __('၄။') }}</label>
+                                            <label class="col-form-label">{{ __('၅။') }}</label>
 
                                         </div>
                                     </div>
@@ -468,7 +502,11 @@
                                             <input type="file" class="form-control" id="tax_free_file" required="" >
                                     </div>
                                 </div><br/>
-
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                </div><br/>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
                                         {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>--}}
@@ -584,11 +622,11 @@
                         </div><br>
                           <div class="mb-3" style="text-align:center;">
                             <label style="margin-bottom: 2%;">Enter your verification code</label>
-                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
                           </div>
                       </div>
                       <center>
-                          <button type="submit" id="btn1" onclick="check_email_papp()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                          <button type="submit" id="btn1" onclick="check_email_papp()" class="btn btn-success btn-hover-dark w-30">Verify
                           </button>
                       </center><br>
                       <div class="col-md-12" style="text-align:center;">
@@ -628,6 +666,11 @@
             allowInput: true,
     });
     $(".papp_date").flatpickr({
+            enableTime: false,
+            dateFormat: "Y",
+            allowInput: true,
+    });
+    $(".cpaff_pass_date").flatpickr({
             enableTime: false,
             dateFormat: "Y",
             allowInput: true,
