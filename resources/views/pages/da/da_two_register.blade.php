@@ -746,12 +746,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                             <div class="row" id="mac_container">
 
-<<<<<<< HEAD
-                                {{-- <form method="post" action="javascript:createDaTwoMac();" enctype="multipart/form-data"> --}}
-                                <form method="post" action="javascript:void();" enctype="multipart/form-data" id="da_two_mac_form">
-=======
                                 <form method="post" action="javascript:void();" enctype="multipart/form-data">
->>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                     <input type="hidden" name="batch_id" value="{{ $batch['id'] }}" />
                                     <div class="card border-success mb-3 p-3">
                                         <div class="card-body">
@@ -762,11 +757,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
                                             <div class="col-md-12">
-<<<<<<< HEAD
-                                                <div class="row">
-=======
                                                 <div class="row mt-5">
->>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                                     
                                                     <label class="col-md-2 col-form-label label">အမှတ်စဥ်</label>
                                                     <div class="col-md-2">
@@ -955,20 +946,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-<<<<<<< HEAD
-                                                    <div id="rec_letter_mac" style="display:none" >
-                                                        <div class="row  "  >
-                                                                <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                                                <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
-                                                                <div class="col-md-1"  id="degree_edu" >
-                                                                    <span class="recommend_letter"></span>
-                                                                </div>
-                                                                <!-- <div class="col-md-7"  id="degree_edu" >
-                                                                    <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
-                                                                </div> -->
-                                                            </div>
-=======
                                                 <div id="rec_letter_mac" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
@@ -980,7 +957,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                         <div class="col-md-7"  id="degree_edu" >
                                                             <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
->>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                                         </div>
                                                     </div>
                                                 </div>
@@ -995,14 +971,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-<<<<<<< HEAD
-                                                    <div class="col-md-1 col-form-label">{{ __('၁၈။') }}</div>
-                                                    <div class="col-md-4  col-form-label">တက်ရောက်ခွင့်ရရှိခဲ့သည့်အမှတ်စဥ်</div>
-                                                    <div class="col-md-7">
-=======
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>တက်ရောက်ခွင့်ရရှိခဲ့သည့်အမှတ်စဥ်</label>
                                                     <div class="col-md-8">
->>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                                         <input type="text" class="form-control sr_no" name="student_regno"
                                                             readonly>
                                                     </div>
@@ -1043,13 +1013,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
                                                     </div>
                                                 </div>
-<<<<<<< HEAD
-                                                <div class="row">
-                                                    <label class="col-md-1 col-form-label">{{ __('၂၀။') }}</label>
-                                                    <!-- <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_pp" onclick="ConfirmSubmitPP()"></div> -->
-                                                    <label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါအချက်များအားလုံးမှန်ကန်ပါသည်။') }}</label>
-=======
->>>>>>> bb738248e28a89675ae372041549f0c3bd019681
 
                                                 
                                                 <div class="row">                                                        
@@ -1068,18 +1031,9 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-<<<<<<< HEAD
-                                                <div class="row mb-3">
-                                                    <div class="col-md-2 offset-md-5">
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_mac" >{{ __('Submit') }}</button> 
-                                                        <!-- <button type="submit" class="btn btn-success btn-hover-dark w-100"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit
-                                                        </button> -->
-=======
                                                 <div class="row mb-4">
                                                     <div class="col-md-2 offset-md-5">                                                        
                                                         <button  type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn_mac" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit</button>
->>>>>>> bb738248e28a89675ae372041549f0c3bd019681
                                                     </div>
                                                 </div>
                                             </div>
