@@ -420,6 +420,18 @@
                                   </tr>
                                 </table>
 
+                                <div class="row">
+                                    <label for="" class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                    <label for="" class="col-md-3 col-form-label label_align_right">ဖြေဆိုမည့်စာဖြေဌာန</label>
+                                    <div class="col-md-8">
+                                      <div class="form-group">
+                                        <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
+                                            <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                </div>
+
                                 <table width="100%">
                                     <tr>
                                       <td width="5%">
@@ -461,7 +473,7 @@
                                   <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                               </div>
                             </div>
-                            
+
                         </form>
                     </div>
                 <!-- Form Wrapper End -->
