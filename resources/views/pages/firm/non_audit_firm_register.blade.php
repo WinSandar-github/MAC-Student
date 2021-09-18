@@ -80,60 +80,70 @@
 					<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
 	            	<div class="row mt-5">
-						<div class="card border-success card-stats mb-3">
-							<br>
-							<div class="row">
+						<div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
+							<div class="row mb-5">
+									<h5 class="card-title text-center fw-bolder" id="local_header">
+											APPLICATION FOR REGISTRATION OF LOCAL FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+									</h5>
+									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
+											APPLICATION FOR REGISTRATION OF INTERNATIONAL/FOREIGN FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+									</h5>
+							</div>
+							<div class="row mb-3">
 								<div class="col-md-12">
-									<div class="col-md-3">
-										<select class="nice-select" id="choose_firm_type" aria-label="">
-											<option value="0" selected>Choose Firm Type</option>
-											<option value="1">Local</option>
-											<option value="2">Foreign</option>
-										</select>
+									<div class="col-md-3 pull-left">
+											<select class="form-control form-select" id="choose_firm_type" aria-label="">
+												<option value="0" selected>Choose Firm Type</option>
+												<option value="1">Local</option>
+												<option value="2">Foreign</option>
+											</select>
 									</div>
+										<div class="col-md-2 pull-right">
+											<h6>For the year - {{ __("____") }}</h6>
+										</div>
 								</div>
-							</div><br>
+							</div>
 
-							<div class="card-header" style="" id="local_header">
-							<h4>Local Firm Information</h4>
-							</div>
-							<div class="card-header" style="display:none;" id="foreign_header">
-							<h4>Foreign Firm Information</h4>
-							</div>
 							<div class="card-body">
 
 								<div class="row">
 									<div class="col-md-8">
-
-										<div class="row">
-											<label class="col-md-1 col-form-label">{{ __('1.') }}</label>
-											<label class="col-md-5 col-form-label label_align_right">{{ __('Email') }}</label>
-											<div class="col-md-6">
-												<div class="form-group">
-														<input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
+										<div class="row mb-5">
+												{{--<label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
+												<label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
+												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
+												<div class="col-md-8">
+														<input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" required>
+														@if ($errors->has('email'))
+																<span class="text-danger">
+																		<strong>{{ $errors->first('email') }}</strong>
+																</span>
+														@endif
 												</div>
-											</div>
-										</div><br>
+										</div>
 
-										<div class="row">
-											<label class="col-md-1 col-form-label">{{ __('2.') }}</label>
-											<label class="col-md-5 col-form-label label_align_right">{{ __('Password') }}</label>
-											<div class="col-md-6">
-												<div class="form-group">
-														<input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
+										<div class="row mb-5">
+												{{--<label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+												<label for="" class="col-md-5 col-form-label label_align_right">Password</label>--}}
+												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Password</label>
+												<div class="col-md-8">
+														<input type="password" placeholder="Enter Password!" name="password" class="form-control" value="{{ old('password') }}" required>
 												</div>
-											</div>
-										</div><br>
+												@if ($errors->has('password'))
+														<span class="text-danger">
+																<strong>{{ $errors->first('password') }}</strong>
+														</span>
+												@endif
+										</div>
 
-										<div class="row">
-											<label class="col-md-1 col-form-label">{{ __('3.') }}</label>
-											<label class="col-md-5 col-form-label label_align_right">{{ __('Confirm Password') }}</label>
-											<div class="col-md-6">
-												<div class="form-group">
-														<input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
+										<div class="row mb-5">
+												{{--<label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+												<label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>--}}
+												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Confirm Password!</label>
+												<div class="col-md-8">
+														<input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control" required>
 												</div>
-											</div>
-										</div><br>
+										</div>
 
 										{{--<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('4') }}</label>
@@ -145,7 +155,7 @@
 											</div>
 										</div><br>--}}
 
-										<div class="row">
+										{{--<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
 											<label class="col-md-5 col-form-label label_align_right">{{ __('Firm Name') }}</label>
 											<div class="col-md-6">
@@ -158,21 +168,53 @@
 													<strong>{{ $message }}</strong>
 												</span>
 											@enderror
-										</div><br>
+										</div><br>--}}
+
+										<div class="row mb-5">
+												{{--<label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+												<label for="" class="col-md-5 col-form-label label_align_right">Firm Name</label>--}}
+												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Firm Name</label>
+												<div class="col-md-8">
+													<div class="form-group">
+														<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" required>
+													</div>
+												</div>
+												@error('name')
+													<span class="invalid-feedback" role="alert">
+														<strong>{{ $message }}</strong>
+													</span>
+												@enderror
+										</div>
+
 									</div>
 
-									<div class="col-md-4">
-										<div class="col-md-7 pull-right">
+									<div class="col-md-4 text-center">
+										{{--<div class="col-md-7 pull-right">
 											<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
 											<p class="mt-2">
 											<input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
 											</p>
 											<div class="form-text mb-2 text-danger" >Allowed Jpeg and Png Image.</div>
+										</div>--}}
+										{{--User Photo--}}
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+												<div class="fileinput-new thumbnail img-circle shadow">
+														<img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+																 alt="Upload Photo">
+												</div>
+												<div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+												<div class="d-flex justify-content-center">
+														<span class="btn btn-round btn-secondary btn-file">
+														<span class="fileinput-new">Photo</span>
+														<span class="fileinput-exists">Change</span>
+														<input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+														<br>
+														<a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+												</div>
 										</div>
+										{{--User Photo--}}
 									</div>
 								</div>
-
-
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
@@ -197,7 +239,7 @@
 											<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off" required>
 										</div>
 									</div>
-								</div><br>
+								</div>
 
 								<div class="row">
 									<div class="col-md-4"></div>
@@ -216,15 +258,14 @@
 											<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" required>
 										</div>
 									</div>
-								</div><br>
-
+								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Branch Office') }}</label>
 
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<label class="col-md-1 col-form-label"></label>
 									<div class="col-md-11">
 										<div class="card">
@@ -272,7 +313,6 @@
 										</div>
 									</div>
 								</div>
-								<br>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
@@ -280,7 +320,7 @@
 
 								</div>
 
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1 col-form-label"></div>
 									<div class="col-md-11">
 										<div class="card">
@@ -316,13 +356,13 @@
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
 										<div class="card">
@@ -363,7 +403,7 @@
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
@@ -374,7 +414,7 @@
 									<div class="col-md-8" id="org_validate" style="display:none;">
 											<label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
 									</div>
-								</div><br>
+								</div>
 
 								<div class='row organization_data'></div><br>
 
@@ -1028,26 +1068,23 @@
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
-									<label class="col-md-3 col-form-label label_align_right">{{ __('Name Of Managing Director') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Name Of Managing Director') }}</label>
 									<div class="col-md-8 col-form-label">
 										<div class="form-group">
 											<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" required>
 										</div>
 									</div>
-
 								</div>
 
-								<br>
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Total Staff') }}</label>
-
 								</div>
 
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
 										<div class="card">
@@ -1075,13 +1112,13 @@
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Types Of Service Provided') }}</label>
 
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
 										<div class="card type-service-card">
@@ -1106,7 +1143,7 @@
 											</div>
 										</div>
 									</div>
-								</div><br>
+								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -1198,16 +1235,16 @@
 
 								<!-- Declaration  -->
 								<div class="row">
-									<label class="col-md-1 col-form-label" id="label2">13.</label>
-									<label class="col-md-1 col-form-label" id="label3" style="display:none" >14.</label>
-									<label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
-									<label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
+									<label class="col-md-1 col-form-label" id="label2"></label>
+									<label class="col-md-1 col-form-label" id="label3" style="display:none" ></label>
+									<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
+									<label class="col-form-label" style="display:contents;font-weight:bold;">{{ __('I') }}</label>
 									<div class="col-md-4">
 										<div class="form-group">
 												<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-4" style="font-weight:bold;">
 										<div class="form-group">
 												(sole proprietor/ managing partner)
 										</div>
@@ -1216,7 +1253,7 @@
 
 								<div class="row  mb-3">
 									<label class="col-md-3 col-form-label">{{ __('') }}</label>
-									<div class="col-md-9">
+									<div class="col-md-9" style="font-weight:bold;">
 										<div class="form-group">
 										representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
 										</div>
