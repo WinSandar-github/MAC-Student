@@ -509,17 +509,20 @@
                                         </div> 
                                         
                                         <div class="row mb-3">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" onchange="$('#cpa_one_entry_submit').prop('disabled', !this.checked)">
-                                                    <span class="form-check-sign"></span>
-                                                    <p class="fw-bolder">
-                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
-                                                        * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
-                                                    </p>
-                                                </label>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" onchange="$('#cpa_one_entry_submit').prop('disabled', !this.checked)">
+                                                        <span class="form-check-sign"></span>
+                                                        <p class="fw-bolder">
+                                                            * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                        </p>
+                                                    </label>
+                                                </div>
+                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-m-Y') }}</h6>
                                             </div>
-                                        </div>
+                                        </div>  
                                        
                                         <div class="row justify-content-center">
                                                 <button type="submit" class="btn btn-success btn-hover-dark w-25" id="cpa_one_entry_submit" disabled>{{ __('Submit') }}</button>

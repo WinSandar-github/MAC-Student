@@ -707,7 +707,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="လူမျိုး" name="race" class="form-control"
-                                                        value="{{ old('race') }}" required="" >
+                                                        value="{{ old('race') }}" readonly="">
                                             </div>
                                         </div>
 
@@ -723,7 +723,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>မွေးသက္ကရာဇ်</label>
                                             <div class="col-md-8">
                                                 <input type="text" name="date_of_birth" class="form-control"
-                                                    placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly="">
+                                                    placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly="" disabled>
                                             </div>
                                         </div>
 
@@ -938,15 +938,18 @@
                                         </div> 
                                         
                                         <div class="row mb-3">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" onchange="$('#da_two_pass_to_cpa').prop('disabled', !this.checked)">
-                                                    <span class="form-check-sign"></span>
-                                                    <p class="fw-bolder">
-                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
-                                                        * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
-                                                    </p>
-                                                </label>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" onchange="$('#da_two_pass_to_cpa').prop('disabled', !this.checked)">
+                                                        <span class="form-check-sign"></span>
+                                                        <p class="fw-bolder">
+                                                            * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                        </p>
+                                                    </label>
+                                                </div>
+                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-m-Y') }}</h6>
                                             </div>
                                         </div>                                         
                                         
