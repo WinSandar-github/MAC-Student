@@ -89,18 +89,20 @@
 														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
-                                                            <div class="description-info">
-                                                            
-                                                            </div>
-															<br/>
-															<!-- Requirement -->
-															<div class="col-md-12">
-																<h4 class="col-md-12 card-title text-success">Requirement</h4>
-																<hr>
-																<div class="requirement-info">
-                                                            
+                                                            <div class="row mb-3">
+                                                                <div class="col-md-12">
+                                                                    <div class="description-info"></div>
                                                                 </div>
-															</div>
+                                                            </div>
+															<div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="col-md-12 card-title text-success">Requirement</h4>
+                                                                    <hr>
+                                                                    <div class="requirement-info">
+                                                                
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 														</div>
 													</div>
 												</div>
@@ -649,7 +651,7 @@ $('#file').change(function(e) {
 })
         
         form_feedback();
-        loadDescription('cpa ff');
+        loadDescription('CPA (Full Fluged)');
         checkPaymentCpaff();
     })
     //app_form_feedback();
