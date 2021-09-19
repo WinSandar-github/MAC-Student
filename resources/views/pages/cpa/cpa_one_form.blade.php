@@ -1505,7 +1505,7 @@
 
                                             <div class="col-md-11 ">
                                                 <div>
-                                                    <label>သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
+                                                    <label>သင်တန်းတက်ရောက်လိုသည်နေရာ -</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1521,28 +1521,50 @@
                                                 
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                            <input type="radio" id="dmac" class="form-check-input" value="2" name="dtype"   required style="margin-left: 3%;">
+                                                            <input type="radio" id="dmac" class="form-check-input" value="2" name="dtype" onclick="selectdType()"   required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <label class="form-check-label" for="dmac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ ရန်ကုန်သင်တန်းကျောင်း</label>
+                                                            <label class="form-check-label" for="dmac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး</label>
                                                         </div>
+                                                    </div>
+
+                                                    <div class="col-md-12" id="blk_mac" style="display:none;" >
+                                                        <div class="mx-4 row my-2 ">
+                                                            
+                                                            <div class="offset-md-1 col-md-5 form-check px-0  ">
+                                                                <input class="form-check-input" type="radio" name="mac_type" value='1' required=""  >
+                                                                <label class="form-check-label">
+                                                                    <!-- <span class="form-check-sign"></span> -->
+                                                                    ရန်ကုန်သင်တန်းကျောင်း
+                                                                </label>
+                                                                
+                                                            </div> 
+                                                            <div class="col-md-6  form-check px-0  ">
+                                                                <input class="form-check-input" type="radio" name="mac_type" value='2' required=""  >
+                                                                <label class="form-check-label">
+                                                                    <!-- <span class="form-check-sign"></span> -->
+                                                                    နေပြည်တော်သင်တန်းကျောင်း
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
                                                     </div>
                                              
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                        <input type="radio" id="dprivate" class="form-check-input" value="1" name="dtype"   required style="margin-left: 3%;">
+                                                        <input type="radio" id="dprivate" class="form-check-input" value="1" name="dtype" onclick="selectdType()"   required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <label class="form-check-label" for="dprivate">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                            <label class="form-check-label" for="dprivate"> ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
                                                             <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                        <input type="radio" id="dself" class="form-check-input" value="0" name="dtype"   required style="margin-left: 3%;">
+                                                        <input type="radio" id="dself" class="form-check-input" value="0" name="dtype" onclick="selectdType()"   required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <label class="form-check-label" for="dself">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                            <label class="form-check-label" for="dself"> ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ </label>
                                                             <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                         </div>
                                                     </div>

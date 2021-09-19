@@ -32,10 +32,7 @@ class StudentController extends Controller
         $res_requirement = json_decode($client->request('GET', Helper::$domain . '/get_requirement_id')->getBody(), true);
         $course = $res['course'];
         $requirements  = $res_requirement['data'];
-      
-      
-        
-        
+
         return view('pages.student_course',["course" => $course,'requirements' => $requirements]);
     } 
 }

@@ -65,12 +65,10 @@
 
         <!-- Reg Form -->
         <div class="container" style="overflow: hidden;">
-
             <div class="blog-details-comment">
                 <div class="comment-form">
                     <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-
                         {{--<form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>--}}
                         <form method="post" id="da_one_app_form" class="needs-validation" action="javascript:void(0);"
                               enctype="multipart/form-data" novalidate>
@@ -88,7 +86,7 @@
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
-                                            <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                                            <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
                                             <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                                         </div>
                                     </div>
@@ -159,7 +157,7 @@
                                                     <span class="btn btn-round btn-secondary btn-file">
                                                     <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                    <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
                                                     <br>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -224,9 +222,9 @@
                                                 </div>
 
                                                 <div class="col-md-5 col-7 pl-1">
-                                                    <input type="text" name="nrc_number" placeholder="ဥပမာ။၁၂၃၄၅၆"
+                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆"
                                                            id="nrc_number" pattern=".{6,6}" class="form-control"
-                                                           oninput="this.value= en2mm(this.value);"
+                                                           oninput="this.value = en2mm(this.value);"
                                                            maxlength="6" minlength="6" placeholder=""
                                                            style="height: 38px" value="{{ old('nrc_number') }}"
                                                            required>
@@ -692,97 +690,38 @@
                                                 </label>
                                             </div>
                                         </div>
-
-                                        {{--<div class="col-md-1">
-                                            <div>
-                                                <label>{{ __('၂၂။') }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-11 ">
-                                            <div>
-                                                <label>သင်တန်းတက်ရောက်မည့်နေရာ-</label>
-                                            </div>
-                                        </div>--}}
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-1 col-form-label">{{ __('၂၃။') }}</label>
-                                        <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
-                                        <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
-                                    </div><br/>
-                                    <div class="row mb-3">
-                                        <p class="fw-bolder">
-                                            {{--* အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>--}}
-                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
-                                        </p>
                                     </div>
 
                                     <div class="row mb-3">
-                                        {{--<div class="col-md-4">
-                                            <div>
-                                                <label>{{ __('') }}</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-8">
-
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <input type="radio" id="mac" class="form-check-input " value="2"
-                                                           name="type" required style="margin-left: 3%;"  onclick="selectType()">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊
-                                                        ရန်ကုန်သင်တန်းကျောင်း</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <input type="radio" id="private" class="form-check-input " value="1"
-                                                           name="type" required style="margin-left: 3%;" onclick="selectType()">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <label class="form-check-label" for="private">ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
-                                                    <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <input type="radio" id="self" class="form-check-input " value="0"
-                                                           name="type" required style="margin-left: 3%;" onclick="selectType()">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
-                                                    <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
-                                                </div>
-                                            </div>
-
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" id="submit_confirm_ss" onchange="$('#da_submit').prop('disabled', !this.checked)">
+                                                <span class="form-check-sign"></span>
+                                                <p class="fw-bolder">
+                                                    * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                    * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                </p>
+                                            </label>
 
                                         </div>
-                                        <br/>--}}
+                                    </div>
 
-                                        {{--<div class="row m-4">--}}
-                                            <div class="col-md-2 offset-md-5">
-                                            {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
-                                            <!-- Button trigger modal -->
-                                                <button id="da_submit" value="submit" class="btn btn-success btn-hover-dark w-100">
-                                                    Submit
-                                                </button>
-                                            </div>
-                                        {{--</div>--}}
+                                    <div class="row justify-content-center">
+                                        <button id="da_submit" value="submit" class="btn btn-success btn-hover-dark w-25" disabled>
+                                            Submit
+                                        </button>
                                     </div>
                                 </div>
+                            </div>
                         </form>
                     </div>
-                    <!-- Form Wrapper End -->
                 </div>
-                <br><br>
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+    <form method="post" id="form1" class="needs-validation" action="javascript:void(0);" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

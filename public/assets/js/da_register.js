@@ -244,27 +244,28 @@ $('#store_da_two_form').submit(function(e){
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
     formData.append('type',$("input[name='dtype']:checked").val());
+    formData.append('mac_type',$("input[name='dtype']:checked").val()) 
   
-    show_loader();
-    $.ajax({
-        url: BACKEND_URL+"/store_cpa_da_two_app_form",
-        type: 'post',
-        data:formData,
-        contentType: false,
-        processData: false,
-        success: function(data){
-            EasyLoading.hide();
-            localStorage.setItem('approve_reject', data.approve_reject_status);
-            //successMessage("You have successfully registerd!");
-            location.href = FRONTEND_URL+"/";
-        },
-      error:function (message){
-        EasyLoading.hide();
+    // show_loader();
+    // $.ajax({
+    //     url: BACKEND_URL+"/store_cpa_da_two_app_form",
+    //     type: 'post',
+    //     data:formData,
+    //     contentType: false,
+    //     processData: false,
+    //     success: function(data){
+    //         EasyLoading.hide();
+    //         localStorage.setItem('approve_reject', data.approve_reject_status);
+    //         //successMessage("You have successfully registerd!");
+    //         location.href = FRONTEND_URL+"/";
+    //     },
+    //   error:function (message){
+    //     EasyLoading.hide();
 
-        errorMessage(message);
-        }
+    //     errorMessage(message);
+    //     }
 
-    });
+    // });
 });
 
 // $('#btn2').submit(function(e){
@@ -723,6 +724,7 @@ function loadPrivateSchoolList(){
 }
 
 function selectType(){
+    
     var radioValue = $("input[name='type']:checked").val();
 
     if(radioValue==2){
@@ -739,3 +741,30 @@ function selectType(){
         // $("#direct").find('input').prop('required',false);
      }
 }
+
+
+function selectdType(){
+    
+    var radioValue = $("input[name='dtype']:checked").val();
+
+    if(radioValue==2){
+        $('#blk_mac').css('display','inline-block');
+        // $('#entry_pass').css('display','none');
+        // $("#direct").find('input').prop('required',true);
+     }else
+     {
+  
+        $('#blk_mac').css('display','none');
+
+        // $('#entry_pass').css('display','block');
+        // $('#direct').css('display','none');
+        // $("#direct").find('input').prop('required',false);
+     }
+}
+
+$( "#submit_btn_mac" ).click(function() {
+    if(allFilled('#da_two_mac_form')){
+        $('#exampleModal1').modal('show');
+    }
+    
+});

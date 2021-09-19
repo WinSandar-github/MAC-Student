@@ -436,6 +436,7 @@ function user_profile() {
 
 
                                                 get_course_by_code(course_code).then(data => {
+                                                   
 
 
                                                     // let batch = data.data[0].active_batch[0];
@@ -449,16 +450,18 @@ function user_profile() {
 
                                                     } else {
                                                         if (data) {
+                                                            alert("da two")
 
 
                                                             $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)
 
 
                                                             let batch = data.data[0].active_batch[0];
+                                                            
                                                          
                                                             if (batch != undefined) {
                                                                 
-                                                                localStorage.setItem('course_id', latest_course_reg[0]);
+                                                                localStorage.setItem('course_id', batch.course.id);
                                                                 if (last_exam[0].course.code == "da_1" || last_exam[0].course.code == "cpa_1") {
                                                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
                                                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
