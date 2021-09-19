@@ -33,28 +33,39 @@
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
             <form method="post" action="javascript:nonAuditRenewSubscribe();" enctype="multipart/form-data">
-                <div class="card border-success mb-3">
-                    <input type="hidden" value="2" name="audit_firm_type_id">
-		            <input type="hidden" value="1" name="local_foreign_type">
-                <!-- <br> -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-3">
-                                <select class="nice-select" id="choose_firm_type" aria-label="">
-                                    <option value="0" selected>Choose Firm Type</option>
-                                    <option value="1">Local</option>
-                                    <option value="2">Foreign</option>
-                                </select>
-                            </div>
+                <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
+                  <div class="row mb-5">
+    									<h5 class="card-title text-center fw-bolder" id="local_header">
+    											APPLICATION FOR REGISTRATION OF LOCAL FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+    									</h5>
+    									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
+    											APPLICATION FOR REGISTRATION OF INTERNATIONAL/FOREIGN FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+    									</h5>
+    							</div>
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      <div class="col-md-3 pull-left">
+                        <select class="form-control form-select" id="choose_firm_type" aria-label="">
+                            <option value="0" selected>Choose Firm Type</option>
+                            <option value="1">Local</option>
+                            <option value="2">Foreign</option>
+                        </select>
+                      </div>
+                        <div class="col-md-2 pull-right">
+                          <h6>For the year - {{ __("____") }}</h6>
                         </div>
-                    </div><br>
-							
-                    <div class="card-header" style="" id="local_header">
+                    </div>
+                  </div>
+                  <input type="hidden" value="2" name="audit_firm_type_id">
+	                <input type="hidden" value="1" name="local_foreign_type">
+                <!-- <br> -->
+
+                    <div class="card-header" style="" id="local_info">
                         <h4>Local Firm Information</h4>
                     </div>
-                    <div class="card-header" style="display:none;" id="foreign_header">
+                    <div class="card-header" style="display:none;" id="foreign_info">
                         <h4>Foreign Firm Information</h4>
-					</div>
+					          </div>
 
                     <div class="card-body">
                         <div class="col-md-12">
@@ -115,7 +126,7 @@
 														<input  type="email" placeholder="Enter your Email address!" name="email" class="form-control"   readonly="">
 												</div>
 											</div>
-										</div>									
+										</div>
 
 										{{--<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('2.') }}</label>
@@ -125,7 +136,7 @@
 														<input  type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}"  >
 												</div>
 											</div>
-										</div><br>							
+										</div><br>
 
 										<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('3.') }}</label>
@@ -135,8 +146,8 @@
 														<input  type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control" value="{{ old('password') }}">
 												</div>
 											</div>
-										</div><br> --}}  
-                                        
+										</div><br> --}}
+
                                         <div class="row">
                                             <label class="col-md-1 col-form-label" >{{ __('2.') }}</label>
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Name') }}</label>
@@ -155,7 +166,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-5">
                                             <label class="col-md-1 col-form-label" >{{ __('4.') }}</label>
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Applied Date') }}</label>
                                             <div class="col-md-6">
@@ -167,20 +178,36 @@
 
 									</div>
 
-									<div class="col-md-4">
-                                        <div class="col-md-7 pull-right">
-                                            <input type="hidden" id="hidden_profile">
-                                            <div class="form-text mb-2 text-warning">Update Your Profile Photo!</div>
-                                            <img class="col-md-3 profile-style" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
-                                            <p class="mt-2">
-                                                <input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" >
-                                            </p>
-                                            <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
-                                        </div>
-                                    </div>
-								</div><br>
-
-													
+									<div class="col-md-4 text-center">
+                    {{--<div class="col-md-7 pull-right">
+                        <input type="hidden" id="hidden_profile">
+                        <div class="form-text mb-2 text-warning">Update Your Profile Photo!</div>
+                        <img class="col-md-3 profile-style" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                        <p class="mt-2">
+                            <input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" >
+                        </p>
+                        <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
+                    </div>--}}
+                    {{--User Photo--}}
+                    <h3 class="form-text mb-2 text-warning">Update Your Profile Photo!</h3>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-circle shadow">
+                            <img id="previewImg" src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                 alt="Upload Photo">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                        <div class="d-flex justify-content-center">
+                            <span class="btn btn-round btn-secondary btn-file">
+                            <span class="fileinput-new">Photo</span>
+                            <span class="fileinput-exists">Change</span>
+                            <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                            <br>
+                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+                    </div>
+                    {{--User Photo--}}
+                  </div>
+								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
@@ -205,7 +232,7 @@
 											<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off"  readonly="">
 										</div>
 									</div>
-								</div><br>
+								</div>
 
 								<div class="row">
 									<div class="col-md-4"></div>
@@ -224,15 +251,13 @@
 											<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off"  readonly="">
 										</div>
 									</div>
-								</div><br>
-							
+								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Branch Office') }}</label>
-
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<label class="col-md-1 col-form-label"></label>
 									<div class="col-md-11">
 										<div class="card">
@@ -256,22 +281,20 @@
 														</tr>
 													<thead>
 													<tbody id="tbl_branch_body">
-														
+
 													</tbody>
 												</table>
 											</div>
 										</div>
 									</div>
 								</div>
-								<br>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
-
 								</div>
 
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1 col-form-label"></div>
 									<div class="col-md-11">
 										<div class="card">
@@ -291,20 +314,20 @@
 
 													</thead>
 													<tbody id="tbl_non_partner_body">
-														
+
 													</tbody>
 												</table>
 											</div>
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
 										<div class="card">
@@ -326,14 +349,14 @@
 
 													</thead>
 													<tbody id="tbl_director_body">
-														
+
 													</tbody>
 												</table>
 											</div>
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
@@ -344,13 +367,13 @@
 									<div class="col-md-8" id="org_validate" style="display:none;">
 											<label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
 									</div>
-								</div><br>
+								</div>
 
-								<div class='row organization_data'></div><br>							
+								<div class='row mb-3 organization_data'></div>
 
 								<div id="sole-proprietorship">
 									<div class="row">
-										<div class="col-md-1"></div> 
+										<div class="col-md-1"></div>
 										<div class="col-md-11">
 											<div class="card">
 												<div class="card-body" id="sole_proprietorship_box">
@@ -366,8 +389,8 @@
                                                     <div class="row mb-3">
                                                         <div class="col-md-11 col-auto">
                                                             <span class="letterheads" ></span>
-                                                            
-                                                        </div>                                                                
+
+                                                        </div>
                                                     </div>
 
 													<div class="controls1">
@@ -393,9 +416,9 @@
 													</div>
                                                     <div class="row mb-3">
                                                         <div class="col-md-11 col-auto">
-                                                            
-                                                            <span class="pass_photos" ></span>                                                                                    
-                                                        </div>                                                                
+
+                                                            <span class="pass_photos" ></span>
+                                                        </div>
                                                     </div>
 
 													<div class="controls2">
@@ -422,10 +445,10 @@
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-11 col-auto">
-                                                            
-                                                            <span class="owner_profiles" ></span>                                                                                    
+
+                                                            <span class="owner_profiles" ></span>
                                                         </div>
-                                                                
+
                                                     </div>
 													<div class="controls3">
 														<div class="entry3">
@@ -450,10 +473,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
-                                                                                <span class="edu_certs" ></span>                                                                                    
+
+                                                                                <span class="edu_certs" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls4">
 														<div class="entry4">
@@ -478,10 +501,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
-                                                                                <span class="work_exps" ></span>                                                                                      
+
+                                                                                <span class="work_exps" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls5">
 														<div class="entry5">
@@ -508,17 +531,17 @@
 
 													<div class="controls6">
 														<div class="entry6">
-                                                            
+
 															<div class="row mb-3">
-																<div class="col-md-1"></div>                                                                
+																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
                                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
-                                                                                <span class="nrc_passports_front" ></span>                                                                                    
+
+                                                                                <span class="nrc_passports_front" ></span>
                                                                             </div>
-                                                                            
+
                                                                      </div>
                                                                      <input type="hidden" id='hidden_nrc_passports_front'>
 																	<input disabled type="file" class="form-control" name="nrc_passports_front[]" >
@@ -532,10 +555,10 @@
 																<div class="col-md-7 col-auto">
                                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
-                                                                                <span class="nrc_passports_back" ></span>                                                                                    
+
+                                                                                <span class="nrc_passports_back" ></span>
                                                                             </div>
-                                                                            
+
                                                                      </div>
                                                                      <input type="hidden" id='hidden_nrc_passports_back'>
 																	<input disabled type="file" class="form-control" name="nrc_passports_back[]" >
@@ -556,10 +579,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
-                                                                    
-                                                                    <span class="tax_clearances" ></span>                                                                                    
+
+                                                                    <span class="tax_clearances" ></span>
                                                                 </div>
-                                                                
+
                                                     </div>
 													<div class="controls7">
 														<div class="entry7">
@@ -619,10 +642,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
-                                                                    
+
                                                                     <span class="certi_or_regs" ></span>
                                                                 </div>
-                                                                
+
                                                     </div>
 													<div class="controls9">
 														<div class="entry9">
@@ -647,10 +670,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
-                                                                    
+
                                                                     <span class="deeds_memos" ></span>
                                                                 </div>
-                                                                
+
                                                     </div>
 													<div class="controls10">
 														<div class="entry10">
@@ -675,10 +698,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="letterheads" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls11">
 														<div class="entry11">
@@ -703,10 +726,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="pass_photos" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls12">
 														<div class="entry12">
@@ -731,10 +754,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="owner_profiles" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls13">
 														<div class="entry13">
@@ -759,10 +782,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
-                                                                    
+
                                                                     <span class="edu_certs" ></span>
                                                                 </div>
-                                                                
+
                                                     </div>
 													<div class="controls14">
 														<div class="entry14">
@@ -787,10 +810,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="work_exps" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls15">
 														<div class="entry15">
@@ -821,10 +844,10 @@
 																<div class="col-md-7 col-auto">
                                                                     <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    
+
                                                                                     <span class="nrc_passports_front" ></span>
                                                                                 </div>
-                                                                                
+
                                                                     </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_front[]" >
                                                                     <input type="hidden" id='hidden_nrc_passports_front'>
@@ -842,10 +865,10 @@
 																<div class="col-md-7 col-auto">
                                                                     <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    
+
                                                                                     <span class="nrc_passports_back" ></span>
                                                                                 </div>
-                                                                                
+
                                                                     </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_back[]" >
                                                                     <input type="hidden" id='hidden_nrc_passports_back'>
@@ -866,10 +889,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
-                                                                    
+
                                                                     <span class="tax_clearances" ></span>
                                                                 </div>
-                                                                
+
                                                     </div>
 													<div class="controls17">
 														<div class="entry17">
@@ -929,10 +952,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="certificate_incors" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls19">
 														<div class="entry19">
@@ -958,10 +981,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
-                                                                    
+
                                                                     <span class="permit_foreigns" ></span>
                                                                 </div>
-                                                                
+
                                                     </div>
 													<div class="controls20">
 														<div class="entry20">
@@ -986,10 +1009,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="financial_statements" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls21">
 														<div class="entry21">
@@ -1014,10 +1037,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="tax_reg_certificate" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls22">
 														<div class="entry22">
@@ -1042,10 +1065,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="letterheads" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls23">
 														<div class="entry23">
@@ -1070,10 +1093,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="edu_certs" ></span>
                                                                             </div>
-                                                                            
+
                                                                  </div>
 													<div class="controls24">
 														<div class="entry24">
@@ -1098,10 +1121,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="work_exps" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls25">
 														<div class="entry25">
@@ -1132,10 +1155,10 @@
 																<div class="col-md-7 col-auto">
                                                                     <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    
+
                                                                                     <span class="nrc_passports_front" ></span>
                                                                                 </div>
-                                                                                
+
                                                                     </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_front[]" >
                                                                     <input type="hidden" class="form-control" id="hidden_nrc_passports_front" >
@@ -1153,10 +1176,10 @@
 																<div class="col-md-7 col-auto">
                                                                     <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    
+
                                                                                     <span class="nrc_passports_back" ></span>
                                                                                 </div>
-                                                                                
+
                                                                     </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_back[]" >
                                                                     <input type="hidden" class="form-control" id="hidden_nrc_passports_back" >
@@ -1177,10 +1200,10 @@
 													</div>
                                                     <div class="row mb-3">
                                                                             <div class="col-md-11 col-auto">
-                                                                                
+
                                                                                 <span class="tax_clearances" ></span>
                                                                             </div>
-                                                                            
+
                                                                 </div>
 													<div class="controls27">
 														<div class="entry27">
@@ -1223,29 +1246,29 @@
 									</div>
 								</div>
 
-                                <div class="modal fade" id="fileModal">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">View File</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                <div class="modal fade" id="fileModal">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">View File</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
 
-                                        </div>
-                                        <div class="modal-body image-body">
-                                            <div class="image-div">
-                                                <img src="" id="file" class="image-logo" />
-                                            </div>
+                        </div>
+                        <div class="modal-body image-body">
+                            <div class="image-div">
+                                <img src="" id="file" class="image-logo" />
+                            </div>
 
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                                            
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
 								<br>
 
 
@@ -1257,17 +1280,16 @@
 											<input disabled type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" >
 										</div>
 									</div>
-
 								</div>
-								
-								<br>
+
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Total Staff') }}</label>
 
 								</div>
 
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
 										<div class="card">
@@ -1287,7 +1309,7 @@
 													<tfoot id="tbl_non_audit_number_foot">
 														<tr>
 															<td>Total</td>
-															<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>														
+															<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>
 														</tr>
 													</tfoot>
 												</table>
@@ -1295,7 +1317,7 @@
 										</div>
 									</div>
 								</div>
-								<br>
+
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Types Of Service Provided') }}</label>
@@ -1321,7 +1343,7 @@
 															<td style="width:1000px;"><input type="text" class="form-control" name="other" id="other"></td>
 														</tr>
 													</tfoot>
-													
+
 												</table>
 											</div>
 										</div>
@@ -1397,35 +1419,35 @@
 
 														</thead>
 														<tbody id="tbl_cpa_myanmar_body">
-															
+
 														</tbody>
 													</table>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div><br>		                  
+								</div><br>
 
 								<!-- Declaration  -->
 								<div class="row">
-									<label class="col-md-1 col-form-label" id="label2">13.</label>
-									<label class="col-md-1 col-form-label" id="label3" style="display:none" >14.</label>
-									<label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
-									<label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
+									<label class="col-md-1 col-form-label" id="label2"></label>
+									<label class="col-md-1 col-form-label" id="label3" style="display:none" ></label>
+									<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
+									<label class="col-form-label" style="display:contents;font-weight:bold;">{{ __('I') }}</label>
 									<div class="col-md-4">
 										<div class="form-group">
-												<input disabled type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" >
+												<input style="font-weight:bold;" disabled type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" >
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-4" style="font-weight:bold;">
 										<div class="form-group">
-												(sole proprietor/ managing partner)  
+												(sole proprietor/ managing partner)
 										</div>
 									</div>
 								</div>
 
-								<div class="row  mb-3">
-									<label class="col-md-3 col-form-label">{{ __('') }}</label>								
+								<div class="row mb-3" style="font-weight:bold;">
+									<label class="col-md-3 col-form-label">{{ __('') }}</label>
 									<div class="col-md-9">
 										<div class="form-group">
 										representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
@@ -1433,7 +1455,7 @@
 									</div>
 								</div>
 
-                                
+
 
                             <div class="row">
                               <div class="col-md-8">
@@ -1505,7 +1527,7 @@
         loadNonAuditTypeOfService();
         getNonAuditData();
 
-        
+
     });
 </script>
 @endpush

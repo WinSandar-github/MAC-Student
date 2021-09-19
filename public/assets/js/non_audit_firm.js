@@ -3,6 +3,8 @@ $(document).ready(function(){
     if($(this).val() == "1"){
       //local
       $("#local_header").css("display","block");
+      $("#local_info").css("display","block");
+      $("#foreign_info").css("display","none");
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
@@ -12,6 +14,8 @@ $(document).ready(function(){
     else if($(this).val() == "2"){
       //foreign
       $("#foreign_header").css("display","block");
+      $("#foreign_info").css("display","block");
+      $("#local_info").css("display","none");
       $("#local_header").css("display","none");
       $("#director_staffmembers").css("display","block");
       $("input[name=local_foreign_type]").val("2");
@@ -43,12 +47,12 @@ function loadNonAuditOrganization(){
      $('.organization_data').append("<div class='col-md-2'></div>");
      organization_structure.forEach(function(element){
        if(element.id == 1 || element.id == 2){
-        var radio_data="<div class='col-md-2'>"+
+        var radio_data="<div class='col-md-3'>"+
         "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()' >"+
         " <label class='form-check-label'>"+element.name+"</label>";
        }
        else if(element.id == 4){
-         var radio_data="<div class='col-md-2'>"+
+         var radio_data="<div class='col-md-1'>"+
          "<input type='radio' name='org_stru_id' autofocus value="+element.id+" id=org"+element.id+" onclick='getOrganization()' >"+
          " <label class='form-check-label'>"+element.name+"</label>";
        }
@@ -331,9 +335,9 @@ $( "#submit_btn" ).click(function() {
               if(result.email!=null){
                   Swal.fire("Email has been used, please check again!");
               }
-              else{                    
+              else{
                   $('#nonAuditFirmModal').modal('show');
-                  send_email();                   
+                  send_email();
               }
           }
       });
@@ -771,5 +775,5 @@ function loadNonAuditRenew(){
   $('#non_audit_container').css('display','block');
   $('#non_audit_form_pending').css('display','none');
   $('#non_audit_initial').css({'display':'none'});
- 
+
 }

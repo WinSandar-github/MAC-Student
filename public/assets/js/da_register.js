@@ -11,10 +11,8 @@ function ConfirmSubmit(){
 var count=1;
 function AddDAEdu(){
     $("#edu").append(
-
-        '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-5"></div>'+
-            '<div class="col-md-6">'+
+        '<div class="row mb-3" id="edu'+count+'">'+
+            '<div class="col-md-11">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
@@ -23,9 +21,7 @@ function AddDAEdu(){
                 '</button>'+
             '</div>'+
         '</div>');
-
     count++;
-
 }
 
 
@@ -86,7 +82,9 @@ function createDARegister()
     send_data.append('degree_name', $("input[name=degree_name]").val());
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function(){
+        console.log("hello")
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            console.log($(this))
             send_data.append('certificate[]',$(this).get(0).files[i]);
         }
     });
@@ -98,6 +96,8 @@ function createDARegister()
     send_data.append('payment_method', $("input[name=payment_method]").val()    );
     send_data.append('verify_code', $("input[name=verify_code]").val());
     send_data.append('type',$("input[name='type']:checked").val());
+
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
 
 
 
@@ -517,7 +517,23 @@ function allFilled(form_id) {
             filled = false;
         }
         if($("#certificate0").val() == ''){
+           
             filled = false;
+        }
+
+      
+         
+        if($('input[name="type"]:checked').length === 0) {
+            
+             filled = false;
+             
+        }else{
+            var mac_val = $('input[name="type"]:checked').val();
+
+            if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
+                filled = false;
+            }   
+
         }
 
 
@@ -704,4 +720,22 @@ function loadPrivateSchoolList(){
         }
 
     });
+}
+
+function selectType(){
+    var radioValue = $("input[name='type']:checked").val();
+
+    if(radioValue==2){
+        $('#blk_mac').css('display','inline-block');
+        // $('#entry_pass').css('display','none');
+        // $("#direct").find('input').prop('required',true);
+     }else
+     {
+  
+        $('#blk_mac').css('display','none');
+
+        // $('#entry_pass').css('display','block');
+        // $('#direct').css('display','none');
+        // $("#direct").find('input').prop('required',false);
+     }
 }

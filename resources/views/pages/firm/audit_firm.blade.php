@@ -80,35 +80,60 @@
                             <input type="hidden" value="1" name="audit_firm_type_id">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="card border-success mb-3 p-3">
+                                    <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
+                                      <div class="row mb-5">
+                                          <h5 class="card-title text-center fw-bolder">
+                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME
+                                          </h5>
+                                      </div>
+                                      <div class="row mb-3">
+                        								<div class="col-md-12">
+                        										<div class="col-md-2 pull-right">
+                        											<h6>For the year - {{ __("____") }}</h6>
+                        										</div>
+                        								</div>
+                        							</div>
+
                                         <div class="card-body">
                                             <div class="row">
                                               <div class="col-md-8">
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">1.</label>
-                                                    <label for="" class="col-md-5 col-form-label label_align_right">Email</label>
-                                                    <div class="col-md-6">
-                                                        <input type="email" placeholder="Enter your Email address!" name="email" class="form-control" value="{{ old('email') }}" required="">
+
+                                                <div class="row mb-5">
+                                                    {{--<label for="" class="col-md-1 col-form-label">{{ __('1.') }}</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
+                                                    <div class="col-md-8">
+                                                        <input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" required>
+                                                        @if ($errors->has('email'))
+                                                            <span class="text-danger">
+                                                                <strong>{{ $errors->first('email') }}</strong>
+                                                            </span>
+                                                        @endif
                                                     </div>
-                                                </div><br>
+                                                </div>
 
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">2.</label>
-                                                    <label for="" class="col-md-5 col-form-label label_align_right">Password</label>
-                                                    <div class="col-md-6">
-                                                        <input type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                <div class="row mb-5">
+                                                    {{--<label for="" class="col-md-1 col-form-label">{{ __('2.') }}</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Password</label>--}}
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Password</label>
+                                                    <div class="col-md-8">
+                                                        <input type="password" placeholder="Enter Password!" name="password" class="form-control" value="{{ old('password') }}" required>
                                                     </div>
+                                                    @if ($errors->has('password'))
+                                                        <span class="text-danger">
+                                                            <strong>{{ $errors->first('password') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
 
-                                                </div><br>
-
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">3.</label>
-                                                    <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>
-                                                    <div class="col-md-6">
-                                                        <input type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control"  required="">
+                                                <div class="row mb-5">
+                                                    {{--<label for="" class="col-md-1 col-form-label">{{ __('3.') }}</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>--}}
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Confirm Password</label>
+                                                    <div class="col-md-8">
+                                                        <input type="password" placeholder="Confirm Password!" name="confirm_password" class="form-control" required>
                                                     </div>
-                                                </div><br>
-
+                                                </div>
 
                                                 {{--<div class="row">
 
@@ -125,33 +150,52 @@
                                                     </table>
                                                 </div>--}}
 
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">4.</label>
-                                                    <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>
-                                                    <div class="col-md-6">
+                                                <div class="row mb-5">
+                                                    {{--<label for="" class="col-md-1 col-form-label">{{ __('4.') }}</label>
+                                                    <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>--}}
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Accountancy Firm Name</label>
+                                                    <div class="col-md-8">
                                                         <input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Accountancy Firm Name!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" required="">
                                                     </div>
-                                                        @error('name')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                </div><br>
+                                                    @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                               </div>
-                                              <div class="col-md-4">
-                                                <div class="col-md-6 pull-right">
+                                              <div class="col-md-4 text-center">
+                                                {{--<div class="col-md-6 pull-right">
                                                   <img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                                   <p class="mt-2">
                                                     <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
                                                   </p>
                                                   <div class="form-text mb-2 text-danger" >Allowed Jpeg and Png Image.</div>
+                                                </div>--}}
+                                                {{--User Photo--}}
+                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                    <div class="fileinput-new thumbnail img-circle shadow">
+                                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                                             alt="Upload Photo">
+                                                    </div>
+                                                    <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <span class="btn btn-round btn-secondary btn-file">
+                                                        <span class="fileinput-new">Photo</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                        <br>
+                                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                    </div>
                                                 </div>
+                                                {{--User Photo--}}
                                               </div>
                                             </div>
 
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">5.</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">Address Of Practice(Head Office)</label>
+                                            <div class="row mb-5">
+                                                {{--<label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                                <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>--}}
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
                                                 <div class="col-md-2">
                                                     <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
                                                 </div>
@@ -164,7 +208,7 @@
                                                 <div class="col-md-2">
                                                     <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
                                                 </div>
-                                            </div><br>
+                                            </div>
 
                                             <div class="row">
                                                 <div class="col-md-4 col-form-label"></div>
@@ -177,7 +221,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
                                                 </div>
-                                            </div><br>
+                                            </div>
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">6.</label>
@@ -247,7 +291,7 @@
                                                 <div class="col-md-8" id="audit_org_validate" style="display:none;">
                                                         <label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
                                                 </div>
-                                            </div><br>
+                                            </div>
 
                                             <div class='row organization_data'></div><br/>
 
@@ -500,7 +544,7 @@
                                             <div id="company">
                                                     <div class="row">
                                                         <div class="col-md-1"></div>
-                                                        <div class="col-md-10">
+                                                        <div class="col-md-11">
                                                             <div class="card" id="audit_company">
                                                                 <div class="card-body">
                                                                     <div class="row">
@@ -716,59 +760,57 @@
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">8.</label>
                                                 <label for="" class="col-md-11 col-form-label">Sole Proprietor/Partners/Shareholders</label>
-                                            </div><br>
+                                            </div>
 
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <div class="col-md-1 col-form-label"></div>
-                                                    <div class="col-md-11 col-form-label">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <table id="myTable" class="table partner_list table-bordered">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th class="less-font-weight" rowspan="2">Sr</th>
-                                                                                <th class="less-font-weight" rowspan="2">Name</th>
-                                                                                <th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-                                                                                <th class="less-font-weight" colspan="2">Have authority to sign Auditors' report?</th>
-                                                                                <th class="less-font-weight" rowspan="2" style="text-align: right;">
-                                                                                    <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
-                                                                                        <i class="fa fa-plus"></i>
-                                                                                    </button>
-                                                                                </th>
-                                                                            </tr>
+                                                <div class="col-md-11 col-form-label">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <table id="myTable" class="table partner_list table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="less-font-weight" rowspan="2">Sr</th>
+                                                                            <th class="less-font-weight" rowspan="2">Name</th>
+                                                                            <th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
+                                                                            <th class="less-font-weight" colspan="2">Have authority to sign Auditors' report?</th>
+                                                                            <th class="less-font-weight" rowspan="2" style="text-align: right;">
+                                                                                <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
+                                                                                    <i class="fa fa-plus"></i>
+                                                                                </button>
+                                                                            </th>
+                                                                        </tr>
 
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" required></td>
-                                                                                <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id)" class="form-control" autocomplete="off" required></td>
-                                                                                <td>
-                                                                                    <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" required>
-                                                                                    <label class="form-check-label">Yes</label>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes" required>
-                                                                                    <label class="form-check-label">No</label>
-                                                                                </td>
-                                                                                <td>
-                                                                                                                                    <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
-                                                                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" required></td>
+                                                                            <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id)" class="form-control" autocomplete="off" required></td>
+                                                                            <td>
+                                                                                <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" required>
+                                                                                <label class="form-check-label">Yes</label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes" required>
+                                                                                <label class="form-check-label">No</label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                            </div><br>
+                                                </div>
+                                            </div>
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">9.</label>
                                                 <label for="" class="col-md-11 col-form-label">Director(s)/Officer(s)</label>
-                                            </div><br>
-
-                                            <div class="row">
+                                            </div>
+                                            <div class="row mb-3">
                                                 <div class="col-md-1 col-form-label"></div>
                                                 <div class="col-md-11 col-form-label">
                                                     <div class="card">
@@ -806,22 +848,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><br>
+                                            </div>
 
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <label for="" class="col-md-1 col-form-label">10.</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">Name Of Sole Proprietor/ Managing Partner</label>
-                                                <div class="col-md-8">
+                                                <label for="" class="col-md-4 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
+                                                <div class="col-md-7">
                                                     <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" required="">
                                                 </div>
-                                            </div><br>
-
+                                            </div>
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">11.</label>
                                                 <label for="" class="col-md-2 col-form-label">Total Staff</label>
-                                            </div><br>
+                                            </div>
 
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <div class="col-md-1 col-form-label"></div>
                                                 <div class="col-md-11 col-form-label">
                                                     <div class="card">
@@ -853,14 +894,14 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><br>
+                                            </div>
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">12.</label>
                                                 <label for="" class="col-md-2 col-form-label">Audit Staff</label>
-                                            </div><br>
+                                            </div>
 
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <div class="col-md-1 col-form-label"></div>
                                                 <div class="col-md-11 col-form-label">
                                                     <div class="card">
@@ -892,16 +933,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><br><br>
-
-                                            <div class="row">
+                                            </div>
+                                            <div class="row mb-3">
                                                 <label for="" class="col-md-1 col-form-label">13.</label>
                                                 <label for="" class="col-md-3 col-form-label">Types Of Service Provided</label>
                                                 <div class="col-md-4"><div class="row type_service_provided mt-1"></div></div>
                                                 <div class="col-md-4 col-form-label text-danger" id="t_s_p_id_validate" style="display:none;" >
                                                         Type of Service Provided ရွေးချယ်ပါ
                                                 </div>
-                                            </div><br>
+                                            </div>
 
                                             {{--<div class="row">
                                               <table width="100%">
@@ -940,15 +980,15 @@
                                             </div>--}}
 
                                             <div class="row">
-                                                <label class="col-md-1 col-form-label">{{ __('14.') }}</label>
-                                                <label class="col-md-2 col-form-label">{{ __('Declaration') }}</label>
-                                                <label class="col-form-label" style="display:contents;">{{ __('I') }}</label>
+                                                <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                <label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
+                                                <label class="col-form-label" style="display:contents;font-weight:bold;">{{ __('I') }}</label>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4" style="font-weight:bold;">
                                                     <div class="form-group">
                                                             (sole proprietor/ managing partner)
                                                     </div>
@@ -956,12 +996,13 @@
                                             </div>
                                             <div class="row  mb-3">
                                                 <label class="col-md-3 col-form-label">{{ __('') }}</label>
-                                                <div class="col-md-9">
+                                                <div class="col-md-9" style="font-weight:bold;">
                                                     <div class="form-group">
                                                     representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
                                                     </div>
                                                 </div>
-                                            </div><br>
+                                            </div>
+                                        </div>
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
@@ -999,11 +1040,11 @@
                             </div><br>
                               <div class="mb-3" style="text-align:center;">
                                 <label style="margin-bottom: 2%;">Enter your verification code</label>
-                                <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Code must have 6 digits (eg. 1234)"></center>
+                                <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
                               </div>
                           </div>
                           <center>
-                              <button type="submit" id="btn1" onclick="check_email_audit()" class="btn btn-success btn-hover-dark w-30">Send Verification Code
+                              <button type="submit" id="btn1" onclick="check_email_audit()" class="btn btn-success btn-hover-dark w-30">Verify
                               </button>
                           </center><br>
                           <div class="col-md-12" style="text-align:center;">
