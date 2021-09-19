@@ -759,24 +759,8 @@ function loadDescription(membership_name){
       var renew_fee=0;
       var delay_fee=0;
       $.each(data, function( index, value ){
-        
-          var div=document.createElement('div');
-          div.setAttribute('class','col-md-12');
-          var desdiv=document.createElement('div');
-          desdiv.setAttribute('class','description'+index);
-          var t = document.createTextNode(value.descriptions);
-          desdiv.appendChild(t);
-          div.appendChild(desdiv);
-          $('.description-info').append(div);
-
-          var rediv=document.createElement('div');
-          rediv.setAttribute('class','col-md-12');
-          var reqdiv=document.createElement('div');
-          reqdiv.setAttribute('class','requirement'+index);
-          var req = document.createTextNode(value.requirements);
-          reqdiv.appendChild(req);
-          rediv.appendChild(reqdiv);
-          $('.requirement-info').append(rediv);
+          $('.description-info').append(value.description);
+          $('.requirement-info').append(value.requirement);
 
           application_fee +=value.form_fee;
           registration_fee +=value.registration_fee;
