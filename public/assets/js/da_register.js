@@ -70,7 +70,7 @@ function createDARegister()
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
 
-    send_data.append('name', $("input[name=name]").val());
+    send_data.append('current_job', $("input[name=current_job]").val());
     send_data.append('position', $("input[name=position]").val());
     send_data.append('department', $("input[name=department]").val());
     send_data.append('organization', $("input[name=organization]").val());
@@ -524,12 +524,12 @@ function allFilled(form_id) {
 
       
          
-        if($('input[name="type"]:checked').length === 0) {
+        if($('input[name="attend_place"]:checked').length === 0) {
             
              filled = false;
              
         }else{
-            var mac_val = $('input[name="type"]:checked').val();
+            var mac_val = $('input[name="attend_place"]:checked').val();
 
             if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
                 filled = false;

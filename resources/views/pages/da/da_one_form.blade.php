@@ -146,7 +146,7 @@
                                                     <span class="btn btn-round btn-secondary btn-file">
                                                     <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
+                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
                                                     <br>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -646,18 +646,18 @@
                                             <div class="  col-md-12" id="blk_mac" style="display:none">
                                             <div class="mx-4 row  ">
                                                 
-                                                <div class="col-md-5 form-check px-0  ">
-                                                    <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                <div class="col-md-5 form-check-radio px-0  ">
                                                     <label class="form-check-label" for="sub_mac">
-                                                        <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                        <span class="form-check-sign"></span>
                                                         ရန်ကုန်သင်တန်းကျောင်း
                                                     </label>
                                                     
                                                 </div> 
-                                                <div class="col-md-5  form-check px-0  ">
-                                                    <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                <div class="col-md-5  form-check-radio px-0  ">
                                                     <label class="form-check-label" for="sub_mac2">
-                                                        <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                        <span class="form-check-sign"></span>
                                                         နေပြည်တော်သင်တန်းကျောင်း
                                                     </label>
                                                 </div>
