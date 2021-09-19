@@ -43,6 +43,9 @@ $().ready(function (){
             qualified_date : "required",
             certificate : "required",
             attend_place : "required",
+            mac_type : {
+                required : "#main_mac:checked"
+            },
             da_one_declare : "required"
         },
         messages:{
@@ -88,7 +91,10 @@ $().ready(function (){
             qualified_date : "Please fill your qualified date",
             certificate : "Please upload your certificate",
             attend_place : "Please select one",
-            da_one_declare : "Please accept our policy"
+            da_one_declare : "Please accept our policy",
+            mac_type : "Please select one",
+
         },
+        
     });
 });
