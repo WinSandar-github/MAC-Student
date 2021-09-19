@@ -973,7 +973,7 @@
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
+                                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type"></span></h5>
                                                     <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
                                                 </div>
                                             </div><br/>
@@ -1635,8 +1635,12 @@
             if(data){
                 var info = data.data;
                 console.log("info >>>",info);
+                let current_stu_course = data.data.student_course_regs.slice(-1);
+
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
+                var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    $('#mac_type').text(mac_name)
                 if(info){
                   $("#mac_container").find("input[name=name_mm]").val(info.name_mm);
                   $("#mac_container").find("input[name=name_eng]").val(info.name_eng);

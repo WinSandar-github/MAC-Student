@@ -275,7 +275,9 @@ $('#cpa_register').submit(function(e){
     send_data.append('degree_rank', $("input[name=degree_rank]").val());
     send_data.append('deg_certi_img', deg_certi_img);
 
-    send_data.append('type',$("input[name='type']:checked").val());
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+
 
    
 
@@ -463,7 +465,9 @@ function direct_or_da(){
 }
 
 $( "#cpa_one_submit" ).click(function() {
+     
     if(allFilled('#cpa_one_form')){
+        
         var send_data = new FormData();
         send_data.append('email',$("input[name='email']").val());
         // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
@@ -504,7 +508,7 @@ $( "#cpa_one_submit" ).click(function() {
 //     }
 // });
 function allFilled(form_id) {
-  
+   
     var filled = true;
     $(form_id+' input').each(function() {
         
@@ -608,9 +612,23 @@ function allFilled(form_id) {
             filled = false;
         }
 
-         if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
+        //  if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
+        //     filled = false;
+        //  }
+
+         if($('input[name="attend_place"]:checked').length === 0) {
+             
             filled = false;
-         }
+            
+       }else{
+           alert("hello")
+           var mac_val = $('input[name="attend_place"]:checked').val();
+
+           if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
+               filled = false;
+           }   
+
+       }
         
        
     });
@@ -762,7 +780,11 @@ $('#cpa_entry_register').submit(function(e){
     send_data.append('verify_code', $("input[name=verify_code]").val());
 
 
-    send_data.append('type',$("input[name='type']:checked").val());
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+
+
+   
 
     send_data.append('qt_entry',1);
 

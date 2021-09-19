@@ -927,16 +927,40 @@
                                                 
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                            <input type="radio" id="mac" class="form-check-input" value="2" name="type"   required style="margin-left: 3%;">
+                                                            <input type="radio" id="mac" class="form-check-input" value="2" name="attend_place" onclick="selectType()"   required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ ရန်ကုန်သင်တန်းကျောင်း</label>
+                                                            <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး</label>
                                                         </div>
+                                                    </div>
+
+                                                    <div class="  col-md-12" id="blk_mac" style="display:none">
+                                                        <div class="mx-5 row  ">
+                                                            
+                                                            <div class="col-md-6 form-check   ">
+                                                                <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                                <label class="form-check-label" for="sub_mac">
+                                                                    <!-- <span class="form-check-sign"></span> -->
+                                                                    ရန်ကုန်သင်တန်းကျောင်း
+                                                                </label>
+                                                                
+                                                            </div> 
+                                                            <div class="col-md-6  form-check  ">
+                                                                <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                                <label class="form-check-label" for="sub_mac2">
+                                                                    <!-- <span class="form-check-sign"></span> -->
+                                                                    နေပြည်တော်သင်တန်းကျောင်း
+                                                                </label>
+                                                            </div>
+                                                            <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
+
+                                                        </div>
+                                                
                                                     </div>
                                              
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                        <input type="radio" id="private" class="form-check-input" value="1" name="type"   required style="margin-left: 3%;">
+                                                        <input type="radio" id="private" class="form-check-input" value="1" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
@@ -945,7 +969,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                        <input type="radio" id="self" class="form-check-input" value="0" name="type"   required style="margin-left: 3%;">
+                                                        <input type="radio" id="self" class="form-check-input" value="0" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
                                                         </div>
                                                         <div class="col-md-8">
                                                             <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
@@ -1775,7 +1799,10 @@
     </script>
 @endsection
 @push('scripts')
+<!-- <script src="{{ asset("js/form_validation/cpa_one_validation.js") }}"></script> -->
+
 <script type="text/javascript">
+
     $(document).ready(function (e) {
         check_entry_pass()
         localStorage.removeItem('course_type');
