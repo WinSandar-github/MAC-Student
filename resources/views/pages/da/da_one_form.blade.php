@@ -70,8 +70,7 @@
                     <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
                         {{--<form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data" novalidate>--}}
-                        <form method="post" id="da_one_app_form" class="needs-validation" action="javascript:void(0);"
-                              enctype="multipart/form-data" novalidate>
+                        <form method="post" id="da_one_app_form" action="javascript:void(0);" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
@@ -98,12 +97,7 @@
                                                 <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အီးမေးလ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="email" placeholder="အီးမေးလ်လိပ်စာထည့်ပါ" name="email" class="form-control" value="{{ old('email') }}" required>
-                                                    @if ($errors->has('email'))
-                                                        <span class="text-danger">
-                                                            <strong>{{ $errors->first('email') }}</strong>
-                                                        </span>
-                                                    @endif
+                                                    <input type="email" placeholder="အီးမေးလ်လိပ်စာထည့်ပါ" name="email" class="form-control" id="email">
                                                 </div>
                                             </div>
 
@@ -112,13 +106,8 @@
                                                 <label for="" class="col-md-5 col-form-label label_align_right">Password</label>--}}
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" value="{{ old('password') }}" required>
+                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
                                                 </div>
-                                                @if ($errors->has('password'))
-                                                    <span class="text-danger">
-                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                    </span>
-                                                @endif
                                             </div>
 
                                             <div class="row mb-5">
@@ -126,7 +115,7 @@
                                                 <label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>--}}
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း</label>
                                                 <div class="col-md-8">
-                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" required>
+                                                    <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
                                                 </div>
                                             </div>
                                         </div>
@@ -157,7 +146,7 @@
                                                     <span class="btn btn-round btn-secondary btn-file">
                                                     <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                    <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
                                                     <br>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -171,11 +160,10 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
-                                                   class="form-control" required="">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" id="name_mm">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" required="">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" id="name_eng">
                                         </div>
                                     </div>
 
@@ -186,9 +174,7 @@
                                         <div class="col-md-9">
                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                 <div class="col-md-2 col-5 pr-1">
-                                                    <select class="form-control" name="nrc_state_region"
-                                                            id="nrc_state_region"
-                                                            style="margin-top: 0px; margin-bottom: 0px;" required="">
+                                                    <select class="form-control" name="nrc_state_region" id="nrc_state_region">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -198,8 +184,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-3 col-7 px-1">
-                                                    <select class="form-control" name="nrc_township" id="nrc_township"
-                                                            style="margin-top: 0px; margin-bottom: 0px;" required>
+                                                    <select class="form-control" name="nrc_township" id="nrc_township">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_townships as $township)
                                                             <option value="{{ $township['township_mm'] }}">
@@ -210,8 +195,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-2 col-5 px-1">
-                                                    <select class="form-control" name="nrc_citizen" id="nrc_citizen"
-                                                            style="margin-top: 0px; margin-bottom: 0px;" required>
+                                                    <select class="form-control" name="nrc_citizen" id="nrc_citizen">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
                                                             <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -222,12 +206,7 @@
                                                 </div>
 
                                                 <div class="col-md-5 col-7 pl-1">
-                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆"
-                                                           id="nrc_number" pattern=".{6,6}" class="form-control"
-                                                           oninput="this.value = en2mm(this.value);"
-                                                           maxlength="6" minlength="6" placeholder=""
-                                                           style="height: 38px" value="{{ old('nrc_number') }}"
-                                                           required>
+                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
                                                 </div>
                                             </div>
                                         </div>
@@ -373,7 +352,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဆက်သွယ်ရမည့်လိပ်စာ</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="">
+                                            <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="current_address" class="form-control" value="{{ old('address') }}" required="">
                                         </div>
                                     </div>
 
@@ -382,7 +361,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address" class="form-control" value="{{ old('current_address') }}" required="">
+                                            <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address" class="form-control" value="{{ old('current_address') }}" required="">
                                         </div>
                                     </div>
 
@@ -404,7 +383,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">လက်ရှိအလုပ်အကိုင်</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>လက်ရှိအလုပ်အကိုင်</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="">
+                                            <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="current_job" class="form-control" value="{{ old('name') }}" required="">
                                         </div>
                                     </div>
 
@@ -467,19 +446,27 @@
                                         <label class="col-md-3 col-form-label label_align_right">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>နိုင်ငံ့ဝန်ထမ်းဟုတ်/မဟုတ်</label>
                                         <div class="col-md-4 pt-2">
-                                            <div class="form-check">
-                                                <div class="row">
+                                            <div class="form-check form-check-inline">
+                                                <input type="radio" class="form-check-input" id="yes" name="gov_staff" value="1" onclick="$('#rec_letter').show()">
+                                                <label class="form-check-label">ဟုတ်</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input type="radio" class="form-check-input" id="yes" name="gov_staff" value="0" onclick="$('#rec_letter').hide()">
+                                                <label class="form-check-label">မဟုတ်</label>
+                                            </div>
+                                                {{--<div class="row">
                                                     <div class="col-md-4">
-                                                        <input type="radio" class="form-check-input mr-3" id="yes" name="gov_staff" value="1" required onclick="selectStaff()">
+                                                        <input type="radio" class="form-check-input mr-3" id="yes" name="gov_staff" value="1" onclick="$('#rec_letter').show()">
                                                         <label class="form-check-label " for="yes">ဟုတ်</label>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <input type="radio" class="form-check-input mr-3" id="no" name="gov_staff" value="0" required onclick="selectStaff()">
+                                                        <input type="radio" class="form-check-input mr-3" id="no" name="gov_staff" value="0" onclick="$('#rec_letter').hide()">
                                                         <label class="form-check-label " for="no">မဟုတ်</label>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                    <label id="gov_staff-error" class="error" for="type">Please select one</label>
+                                                </div>--}}
                                         </div>
+
                                         {{--<div class="col-md-2 pt-2">
                                             <div class="form-check">
                                                 <div class="row">
@@ -648,24 +635,27 @@
                                         <div class="col-sm-9 checkbox-radios py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="type" value='2' required>
+                                                    <input class="form-check-input" type="radio" name="attend_place" value='2'>
                                                     <span class="form-check-sign"></span>
                                                     ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ရန်ကုန်သင်တန်းကျောင်း
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="type" value='1' required>
+                                                    <input class="form-check-input" type="radio" name="attend_place" value='1'>
                                                     <span class="form-check-sign"></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="type" value='0' required>
+                                                    <input class="form-check-input" type="radio" name="attend_place" value='0'>
                                                     <span class="form-check-sign"></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
+                                            </div>
+                                            <div class="form-check-radio px-0">
+                                                <label id="attend_place-error" class="error" for="attend_place">Please select one</label>
                                             </div>
                                         </div>
                                     </div>
@@ -673,7 +663,7 @@
                                     <div class="row mb-3">
                                         <div class="form-check">
                                             <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" id="submit_confirm_ss" onchange="$('#da_submit').prop('disabled', !this.checked)">
+                                                <input class="form-check-input" type="checkbox" name="da_one_declare" onchange="$('#da_submit').prop('disabled', !this.checked)">
                                                 <span class="form-check-sign"></span>
                                                 <p class="fw-bolder">
                                                     * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
@@ -800,6 +790,7 @@
     </script>
 @endsection
 @push('scripts')
+    <script src="{{ asset("js/form_validation/da_one_validation.js") }}"></script>
     <script type="text/javascript">
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
@@ -820,13 +811,13 @@
                 allowInput: true,
             });
 
-            $("input[id*='nrc_number'], text[id*='nrc_number']").change(function (e) {
-                myanmarLetterOnly($(this));
-            });
+            // $("input[id*='nrc_number'], text[id*='nrc_number']").change(function (e) {
+            //     myanmarLetterOnly($(this));
+            // });
 
-            $(document).on('keydown', '#nrc_number', function () {
-                myanmarLetterOnly($(this));
-            });
+            // $(document).on('keydown', '#nrc_number', function () {
+            //     myanmarLetterOnly($(this));
+            // });
 
             $("input[id*='name_mm'], text[id*='name_mm']").change(function (e) {
                 myanmarLetterOnly($(this));
