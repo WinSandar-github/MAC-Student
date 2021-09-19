@@ -713,6 +713,8 @@
                                                         ရန်ကုန်သင်တန်းကျောင်း</label>
                                                 </div>
                                             </div>
+                                        </div>--}}
+                                    </div>
 
                                             <div class="row">
                                                 <div class="col-md-1">

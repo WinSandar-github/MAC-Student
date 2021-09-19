@@ -701,3 +701,9 @@ function loadPrivateSchoolList(){
 
     });
 }
+$( "#submit_btn_mac" ).click(function() {
+    if(allFilled('#da_two_mac_form')){
+        $('#exampleModal1').modal('show');
+    }
+    
+});

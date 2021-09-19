@@ -141,7 +141,7 @@
                                     <div class="row mb-3">
                                         <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၅။') }}</span>မွေးသက္ကရာဇ်</label>
                                         <div class="col-md-8">
-                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" readonly>
+                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" disabled>
                                         </div>
                                     </div>
 

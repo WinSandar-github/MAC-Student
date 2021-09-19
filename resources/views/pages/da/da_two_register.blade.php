@@ -1274,7 +1274,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     // $("input[name='company_name']").val(job.company_name);
                     // $("input[name='salary']").val(job.salary);
                     $("input[name='office_address']").val(job.office_address);
-
+                    
                     if(student_info.gov_staff==0){
                         $("#no_mac").prop("checked",true);
                         $("#no_self").prop("checked",true);
@@ -1287,8 +1287,10 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("#rec_letter_self").css("display",'block');
                         $("#yes_private").prop("checked",true);
                         $("#rec_letter_private").css("display",'block');
-
-                        $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        if(student_info.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        }
+                        
 
                     }
 

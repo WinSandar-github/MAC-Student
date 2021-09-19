@@ -792,3 +792,186 @@ function loadDescription(membership_name){
     }
   })
 }
+function ownTypeForm(){
+  $('#ownType_letter').css('display','block');
+}
+function branchSchForm(){
+  $('#branchSch_letter').css('display','block');
+}
+function addRowBranchSchool(tbody){
+
+  var newRow = $("<tr>");
+  var cols = "";
+  //var row=$('.'+tbody+' tr').length;
+  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td><input type="text" class="form-control" name="branch_school_address[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" required/></td>';
+  cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBranchSchool("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+  newRow.append(cols);
+  $("table."+tbody).append(newRow);
+  // order numer to be serial
+  $("."+tbody+" tbody tr").each(function(index,row){
+    $(row).find("td:first-child input").val(index + 1);
+      $(row).find("td:first-child input").css('text-align','center');
+      $(row).find("td:first-child input").css('border','none');
+  });
+  counter++;
+ 
+}
+function delRowBranchSchool(tbody){
+  $("table."+tbody).on("click", ".delete", function (event) {
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+        counter -= 1
+        // order numer to be serial
+        $(siblings).each(function(index,row){
+          $(row).find("td:first-child input").val(index + 1);
+        });
+    });
+}
+function addRowBuldingType(tbody){
+
+  var newRow = $("<tr>");
+  var cols = "";
+  //var row=$('.'+tbody+' tr').length;
+  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td><input type="text" class="form-control" name="bulding_type[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="text" class="form-control" name="building_measurement[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="number" class="form-control" name="floor_numbers[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="file" class="form-control" name="school_building_attach[]"  accept="image/*" required/></td>';
+  cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBuldingType("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+  newRow.append(cols);
+  $("table."+tbody).append(newRow);
+  // order numer to be serial
+  $("."+tbody+" tbody tr").each(function(index,row){
+    $(row).find("td:first-child input").val(index + 1);
+      $(row).find("td:first-child input").css('text-align','center');
+      $(row).find("td:first-child input").css('border','none');
+  });
+  counter++;
+ 
+}
+function delRowBuldingType(tbody){
+  $("table."+tbody).on("click", ".delete", function (event) {
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+        counter -= 1
+        // order numer to be serial
+        $(siblings).each(function(index,row){
+          $(row).find("td:first-child input").val(index + 1);
+        });
+    });
+}
+function addRowClassroom(tbody){
+
+  var newRow = $("<tr>");
+  var cols = "";
+  //var row=$('.'+tbody+' tr').length;
+  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td><input type="number" class="form-control" name="classroom_number[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="text" class="form-control" name="classroom_measurement[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="number" class="form-control" name="student_num_limit[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="text" class="form-control" name="air_con[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="file" class="form-control" name="classroom_attach[]"  accept="image/*" required/></td>';
+  cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowClassroom("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+  newRow.append(cols);
+  $("table."+tbody).append(newRow);
+  // order numer to be serial
+  $("."+tbody+" tbody tr").each(function(index,row){
+    $(row).find("td:first-child input").val(index + 1);
+      $(row).find("td:first-child input").css('text-align','center');
+      $(row).find("td:first-child input").css('border','none');
+  });
+  counter++;
+ 
+}
+function delRowClassroom(tbody){
+  $("table."+tbody).on("click", ".delete", function (event) {
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+        counter -= 1
+        // order numer to be serial
+        $(siblings).each(function(index,row){
+          $(row).find("td:first-child input").val(index + 1);
+        });
+    });
+}
+function addRowToiletType(tbody){
+
+  var newRow = $("<tr>");
+  var cols = "";
+  //var row=$('.'+tbody+' tr').length;
+  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td><input type="text" class="form-control" name="toilet_type[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="number" class="form-control" name="toilet_number[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="file" class="form-control" name="toilet_attach[]" accept="image/*" required/></td>';
+  cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowToiletType("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+  newRow.append(cols);
+  $("table."+tbody).append(newRow);
+  // order numer to be serial
+  $("."+tbody+" tbody tr").each(function(index,row){
+    $(row).find("td:first-child input").val(index + 1);
+      $(row).find("td:first-child input").css('text-align','center');
+      $(row).find("td:first-child input").css('border','none');
+  });
+  counter++;
+ 
+}
+function delRowToiletType(tbody){
+  $("table."+tbody).on("click", ".delete", function (event) {
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+        counter -= 1
+        // order numer to be serial
+        $(siblings).each(function(index,row){
+          $(row).find("td:first-child input").val(index + 1);
+        });
+    });
+}
+
+
+function addRowManageRoomNumber(tbody){
+
+  var newRow = $("<tr>");
+  var cols = "";
+  //var row=$('.'+tbody+' tr').length;
+  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td><input type="number" class="form-control" name="manage_room_numbers[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="text" class="form-control" name="manage_room_measurement[]" autocomplete="off" required/></td>';
+  cols += '<td><input type="file" class="form-control" name="manage_room_attach[]"  accept="image/*" required/></td>';
+  cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowManageRoomNumber("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+  newRow.append(cols);
+  $("table."+tbody).append(newRow);
+  // order numer to be serial
+  $("."+tbody+" tbody tr").each(function(index,row){
+    $(row).find("td:first-child input").val(index + 1);
+      $(row).find("td:first-child input").css('text-align','center');
+      $(row).find("td:first-child input").css('border','none');
+  });
+  counter++;
+ 
+}
+function delRowManageRoomNumber(tbody){
+$("table."+tbody).on("click", ".delete", function (event) {
+    var deleted_row = $(this).closest("tr");
+    var siblings = $(deleted_row).siblings();
+    $(deleted_row).remove();
+      counter -= 1
+      // order numer to be serial
+      $(siblings).each(function(index,row){
+        $(row).find("td:first-child input").val(index + 1);
+      });
+  });
+}
+function origanzationCheck(){
+  var checkbox = document.getElementById("school_type");
+  if (checkbox.checked == true) {
+      $('.origanzation').css('display','block');
+  } else {
+      $('.origanzation').css('display','none');
+  }
+}
