@@ -259,3 +259,7 @@
 .origanzation{
     display: none;
 }
+
+.error{
+    color: #ef8157;
+}
