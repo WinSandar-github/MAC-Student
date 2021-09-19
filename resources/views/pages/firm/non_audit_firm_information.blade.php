@@ -231,18 +231,18 @@
 										<h4 class="col-md-12 card-title text-success">Description</h4>
 										<hr>
 										<div class="info-list">
-											<div class="description-info">
-                                                            
-                                            </div>
-											<br/>
-											<!-- Requirement -->
-											<div class="col-md-12">
-												<h4 class="col-md-12 card-title text-success">Requirement</h4>
-												<hr>
-												<div class="requirement-info">
-                                                            
+											<div class="row mb-3">
+                                                <div class="col-md-12">
+                                                    <div class="description-info"></div>
                                                 </div>
-											</div>
+                                            </div>
+											<div class="row">
+                                                <div class="col-md-12">
+                                                    <h4 class="col-md-12 card-title text-success">Requirement</h4>
+                                                    <hr>
+                                                    <div class="requirement-info"></div>
+                                                </div>
+                                            </div>
 										</div>
 									</div>
 								</div>
@@ -371,7 +371,7 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
-		loadDescription('non audit firm');
+		loadDescription('Non-Audit');
 		nonAuditRegFeedback();
         nonAuditFirmDateQuery();
 		nonAuditVerifyStatus();

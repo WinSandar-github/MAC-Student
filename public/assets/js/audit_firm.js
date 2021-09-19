@@ -8,9 +8,9 @@ function audit_reg_feedback(){
         success: function(data){
           var form_data = data;
           form_data.forEach(function(element){
-            
+
                 if(element.approve_reject_status == 0){
-                    
+
                     $('#audit_form_pending').css('display','block');
                     $('#audit_approve').css('display','none');
                     $('.register-btn').css('display','none');
@@ -21,7 +21,7 @@ function audit_reg_feedback(){
                     $('.payment-btn').css('display','block');
                     $('.register-btn').css({'display':'none'});
                     $('.register-btn').removeClass('mt-4');
-                   
+
                 }
           })
         }
@@ -298,9 +298,9 @@ $( "#btn_submit_audit_firm" ).click(function() {
               if(result.email!=null){
                   Swal.fire("Email has been used, please check again!");
               }
-              else{                    
+              else{
                   $('#auditFirmModal').modal('show');
-                  send_email();                   
+                  send_email();
               }
           }
       });
@@ -645,7 +645,7 @@ function loadAuditTypeOfService(){
       $('.type_service_provided').append("<div class='col-md-1'></div>");
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
-          var radio_data="<div class='col-md-4'>"+
+          var radio_data="<div class='col-md-5'>"+
           "<input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='checkTypeofServiceProvided()'>"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);

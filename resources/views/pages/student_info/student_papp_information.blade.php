@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">PAPP <span>Detail</span></h2>
+                    <h2 class="title">PAPP Registration <span>Form(Renew)</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -160,17 +160,20 @@
 														<h4 class="col-md-12 card-title text-success">Description</h4>
 														<hr>
 														<div class="info-list">
-                                                            <div class="description-info">
-                                                            
-                                                            </div><br/>
-															<!-- Requirement -->
-															<div class="col-md-12">
-																<h4 class="col-md-12 card-title text-success">Requirement</h4>
-																<hr>
-																<div class="requirement-info">
-                                                            
+                                                            <div class="row mb-3">
+                                                                <div class="col-md-12">
+                                                                    <div class="description-info"></div>
                                                                 </div>
-															</div>
+                                                            </div>
+															<div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="col-md-12 card-title text-success">Requirement</h4>
+                                                                    <hr>
+                                                                    <div class="requirement-info">
+                                                                
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 														</div>
 													</div>
 												</div>
@@ -278,7 +281,16 @@
         </div>
     </form>
                 <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/><!---->
-            				<h5 class="card-title text-center">PAPP မှတ်ပုံတင် သက်တမ်းတိုးလျှောက်ထားခြင်း</h5> <br/>
+                    <div class="row mb-5">
+                        <h5 class="card-title text-center fw-bolder">
+                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
+                            အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် သက်တမ်းတိုးရန်လျှောက်ထားခြင်း
+                        </h5>
+                        {{--<div class="d-flex justify-content-between">
+                            <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                            <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                        </div>--}}
+                    </div>
                     <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data" id="papp_renew_form_submit">
                     	<div class="card-body">
 						<div class="row">
@@ -629,7 +641,7 @@
                                 </div>
                                 <br/>
 
-													<div class="row">
+													{{--<div class="row">
 														
 																	<label class="col-md-1 col-form-label" >{{ __('') }}</label>
 																	<label class="col-md-7 col-form-label label">{{ __('သင်တန်းဆရာမှတ်ပုံတင်အမှတ်') }}</label>
@@ -656,7 +668,12 @@
 																				<input type="text" class="form-control" id="message" readonly="">
 																			</div>
 																	</div>
-															</div>
+															</div>--}}
+                                                        <div class="row">
+                                                            <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                                            <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                                            <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                                        </div><br/>
 														</div>
 														<!-- <div class="col-md-3">
 															<div class="col-md-8 pull-right mt-3">
@@ -666,8 +683,9 @@
 																</p>
 															</div>
 														</div> -->
-													
-													
+
+
+
                           <div class="row ">
                               <div class="col-md-2 offset-md-5">
                                   <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
@@ -699,7 +717,7 @@
         if(!student){
         localStorage.setItem('course_type',course_type[2])
         }
-        loadDescription('papp');
+        loadDescription('PAPP');
         Papp_feedback();
         checkPaymentPapp();
     })
