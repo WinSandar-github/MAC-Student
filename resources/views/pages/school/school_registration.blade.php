@@ -361,17 +361,30 @@
                             </div>
                             <!-- လုပ်ငန်းဖွဲ့စည်းမှုပုံစံ -->
                         {{-- လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း --}}
-                            <!-- <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
                                             class="pull-left">{{ __('၁၀။') }}</span>{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}
                                 </label>
                                 <div class="col-md-8">
-                                    <div class="mb-3 col-auto">
-                                        <input type="file" id="attachment" name="attachment" class="form-control"
-                                               accept="application/pdf" required/>
+                                    
+                                    <div class="controls1">
+                                        <div class="entry1">
+                                            <div class="row mb-3">
+                                                <div class="col-md-11 col-auto">
+                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" required>
+                                                                                            
+                                                </div>
+                                                <div class="col-md-1 col-auto">
+                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls1","entry1")'>
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
+                            
                             {{--လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း--}}
                             
                             {{--ဆက်သွယ်ရန်လိပ်စာ--}}
@@ -551,21 +564,21 @@
                             {{--လုပ်ငန်းလိုင်စင်--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">(က)</span>{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
+                                            class="pull-left">(က)</span>{{ __('လုပ်ငန်းလိုင်စင်/ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်/အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ/') }}</label>
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
                                         <input type="file" id="business_license" name="business_license"
-                                               class="form-control" accept="application/pdf" required/>
+                                               class="form-control" accept="image/*" required/>
                                     </div>
                                 </div>
                             </div>
                             {{--လုပ်ငန်းလိုင်စင်--}}
 
-                            {{--ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်--}}
+                            <!-- {{--ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်--}}
                             <div class="row mb-3">
 
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">(ခ)</span>{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
+                                            class="pull-left">(ခ)</span>{{ __('') }}</label>
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
                                         <input type="file" id="" name="company_reg" class="form-control"
@@ -578,7 +591,7 @@
                             <div class="row mb-3">
 
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">(ဂ)</span>{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}
+                                            class="pull-left">(ဂ)</span>{{ __('') }}
                                 </label>
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
@@ -587,7 +600,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                             
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
                                             class="pull-left">(ဃ)</span>{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}
@@ -595,18 +608,18 @@
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
                                         <input type="file" id="" name="teacher_reg_copy" class="form-control"
-                                               accept="application/pdf" required/>
+                                        accept="image/*" required/>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="row mb-5">
                                 <label class="col-md-4 col-form-label"><span
-                                            class="pull-left">(င)</span>{{ __('ကျောင်းတည်ထောင်ခြင်းအတွက်ရွေးချယ်ထားသည့်လုပ်ငန်းဖွဲ့စည်းမှုပုံစံအရပူးတွဲတင်ပြရမည့်အထောက်အထားများ(အစုအစပ်သဘောတူညီချက်/သင်းဖွဲ့စည်းမျဉ်း/သင်းဖွဲ့မှတ်တမ်း၊ဉပဒေနှင့်အညီရေးဆွဲပြုစုထားသောအခြားစာချုပ်စာတမ်းများ)') }}
+                                            class="pull-left">(ခ)</span>{{ __('ကျောင်းတည်ထောင်ခြင်းအတွက်ရွေးချယ်ထားသည့်လုပ်ငန်းဖွဲ့စည်းမှုပုံစံအရပူးတွဲတင်ပြရမည့်အထောက်အထားများ(အစုအစပ်သဘောတူညီချက်/သင်းဖွဲ့စည်းမျဉ်း/သင်းဖွဲ့မှတ်တမ်း၊ဉပဒေနှင့်အညီရေးဆွဲပြုစုထားသောအခြားစာချုပ်စာတမ်းများ)') }}
                                 </label>
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
                                         <input type="file" id="" name="sch_establish_notes_attach" class="form-control"
-                                               accept="application/pdf" required/>
+                                        accept="image/*" required/>
                                     </div>
                                 </div>
                             </div>
@@ -695,11 +708,15 @@
                                         <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၃</label>
                                                         
                                 </div>
+                                
                                 <div id="member_list_biography_error" style="display:none;">
                                     <div class="row">
                                         <label class="col-md-1 col-form-label"></label>
                                         <label class="text-danger col-md-5 col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2 col-form-label fw-bolder">အဖွဲ့အစည်းဖြစ်ပါက</label>
                                 </div>
                                 <div class="row mb-5">
                                     <label class="col-form-label fw-bolder">{{ __('အဖွဲ့အစည်း၏အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
@@ -756,6 +773,7 @@
                                             <th class="less-font-weight text-center">သင်ကြားမည့်ဘာသာရပ်(များ)</th>
                                             <th class="less-font-weight text-center">ဖုန်းနံပါတ်</th>
                                             <th class="less-font-weight text-center">အီးမေးလ်</th>
+                                            <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ</th>
                                             <th class="text-center">
                                                 <button type="button" class="btn btn-success btn-sm btn-plus"
                                                         onclick='addRowTeacherBio("tbl_teacher_list_biography")'>
@@ -780,8 +798,8 @@
                                 <h5 class="p-4 fw-bolder">{{ __('ကျောင်းအဆောက်အဦး၊စာသင်ခန်း၊သန့်စင်ခန်း၊စီမံရုံးခန်း') }}</h5>
                             </div>
                             <div class="row">
-                                <label class="col-md-3 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('ကျောင်းအဆောက်အဦး') }}</label>
+                                <label class="col-md-12 col-form-label fw-bolder"><span
+                                            class="pull-left">၁။</span>{{ __('ကျောင်းအဆောက်အဦ(အဆောက်အဦအမျိုးအစား၊အတိုင်းအတာ၊အထပ်အရေအတွက် စသည်)') }}</label>
                             </div>
                             <div class="row mb-3">
                                 
@@ -804,8 +822,8 @@
                             </div>
 
                             <div class="row">
-                                <label class="col-md-3 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('စာသင်ခန်း') }}</label>
+                                <label class="col-md-12 col-form-label fw-bolder"><span
+                                            class="pull-left">၂။</span>{{ __('စာသင်ခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ၊ဝင်ဆံ့သင်တန်းသား၊လေအေးပေးစက်)') }}</label>
                             </div>
 
                             <div class="row mb-3">
@@ -830,8 +848,8 @@
                             </div>
 
                             <div class="row">
-                                <label class="col-md-3 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('သန့်စင်ခန်း') }}</label>
+                                <label class="col-md-12 col-form-label fw-bolder"><span
+                                            class="pull-left">၃။</span>{{ __('သန့်စင်ခန်း(အမျိုးအစား၊အရေအတွက်)') }}</label>
                             </div> 
 
                             <div class="row mb-3">
@@ -855,7 +873,7 @@
 
                             <div class="row">
                                 <label class="col-md-12 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('စီမံရုံးခန်း') }}</label>
+                                            class="pull-left">၄။</span>{{ __('စီမံရုံးခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ)') }}</label>
                             </div>
                             <div class="row mb-3">
                             

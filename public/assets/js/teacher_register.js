@@ -16,7 +16,7 @@ function addRowEducation(tbody){
     //var row=$('.'+tbody+' tr').length;
     cols += '<td><input type="text" class="form-control" value="" /></td>';
     cols += '<td><input type="text" name="degrees[]" class="form-control"  autocomplete="off" required/></td>';
-    cols += '<td><input type="file" class="form-control" id="certificate" name="certificate" required=""></td>';
+    cols += '<td><input type="file" name="degrees_certificates[]" class="form-control" id="certificate"  required=""></td>';
     cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("'+tbody+'")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -237,9 +237,9 @@ function createTeacherRegister(){
         contentType: false,
         processData: false,
         success: function (data) {
-            EasyLoading.hide();
-            successMessage(data.message);
-            location.href=FRONTEND_URL+'/';
+            // EasyLoading.hide();
+            // successMessage(data.message);
+            // location.href=FRONTEND_URL+'/';
 
             //resetForm("#teacher_register_form");
             //$(".tbl_degree_body").empty();
