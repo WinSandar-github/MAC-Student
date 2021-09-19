@@ -974,7 +974,7 @@
 
                                             <div class="row mb-5">
                                                 <h5 class="card-title text-center fw-bolder">
-                                                    မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
+                                                    မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type"></span><br>
                                                     လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                                 </h5>
                                                 
@@ -1117,8 +1117,8 @@
                                             </div>
                                             
                                             <div class="row mb-3">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>
+                                                <!-- <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label> -->
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" id="address" name="address"
@@ -1626,8 +1626,12 @@
             if(data){
                 var info = data.data;
                 console.log("info >>>",info);
+                let current_stu_course = data.data.student_course_regs.slice(-1);
+
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
+                var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    $('#mac_type').text(mac_name)
                 if(info){
                   $("#mac_container").find("input[name=name_mm]").val(info.name_mm);
                   $("#mac_container").find("input[name=name_eng]").val(info.name_eng);

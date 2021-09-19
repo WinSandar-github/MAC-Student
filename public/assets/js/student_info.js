@@ -240,7 +240,8 @@ function app_form_feedback() {
                                                     var self_end_date = new Date(batch.self_reg_end_date);
                                                     var private_start_date = new Date(batch.private_reg_start_date);
                                                     var private_end_date = new Date(batch.private_reg_end_date);
-                                                    
+
+                                                
                                                         if(current_course[0].type == 2) 
                                                         {
                                                             if (mac_start_date <= date && mac_end_date >= date) {
@@ -354,21 +355,29 @@ function app_form_feedback() {
                                                         var self_end_date = new Date(batch.self_reg_end_date);
                                                         var private_start_date = new Date(batch.private_reg_start_date);
                                                         var private_end_date = new Date(batch.private_reg_end_date);
-                                                        if (mac_start_date <= date && mac_end_date >= date) {
+                                                       
+                                                        if(current_course[0].type == 2){
 
-                                                            $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
+                                                            if (mac_start_date <= date && mac_end_date >= date) {
+    
+                                                                $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
+                                                            }
+                                                        }else  if(current_course[0].type == 1){
+                                                            if (private_start_date <= date && private_end_date >= date) {
+
+
+                                                                $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
+                                                            }
+ 
+                                                        }else{
+                                                            if (self_start_date <= date && self_end_date >= date) {
+    
+                                                                $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
+                                                            }
                                                         }
 
-                                                        if (self_start_date <= date && self_end_date >= date) {
 
-                                                            $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
-                                                        }
-
-                                                        if (private_start_date <= date && private_end_date >= date) {
-
-
-                                                            $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
-                                                        }
+                                                       
                                                     }
 
                                                 })
@@ -403,17 +412,22 @@ function app_form_feedback() {
                                                             var self_end_date = new Date(batch.self_reg_end_date);
                                                             var private_start_date = new Date(batch.private_reg_start_date);
                                                             var private_end_date = new Date(batch.private_reg_end_date);
-                                                            if (mac_start_date <= date && mac_end_date >= date) {
-                                                                $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
+                                                            if(current_course[0].type == 2){
+                                                                if (mac_start_date <= date && mac_end_date >= date) {
+                                                                    $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
+                                                                }
+                                                            }else if(current_course[0].type == 1){ 
+
+                                                                if (private_start_date <= date && private_end_date >= date) {
+                                                                    $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
+                                                                }
+                                                            }else{
+                                                                if (self_start_date <= date && self_end_date >= date) {
+                                                                    $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
+                                                                }
+
                                                             }
 
-                                                            if (self_start_date <= date && self_end_date >= date) {
-                                                                $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
-                                                            }
-
-                                                            if (private_start_date <= date && private_end_date >= date) {
-                                                                $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
-                                                            }
                                                         }
 
                                                     })
@@ -442,22 +456,21 @@ function app_form_feedback() {
                                                             var self_end_date = new Date(batch.self_reg_end_date);
                                                             var private_start_date = new Date(batch.private_reg_start_date);
                                                             var private_end_date = new Date(batch.private_reg_end_date);
-                                                            if (mac_start_date <= date && mac_end_date >= date) {
+                                                            if(current_course[0].type == 2){
+                                                                if (mac_start_date <= date && mac_end_date >= date) {
 
-                                                                $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
-                                                            }
+                                                                    $(`.mac_btn${i}`).append(`<a href="${course_url}?study_type=3"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Mac Registration Form </a>`)
+                                                                }
+                                                            }else  if(current_course[0].type == 1){
+                                                            
+                                                                if (private_start_date <= date && private_end_date >= date) {
+                                                                    $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
+                                                                }
+                                                            }else{
+                                                                if (self_start_date <= date && self_end_date >= date) {
+                                                                    $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
+                                                                }
 
-                                                            if (self_start_date <= date && self_end_date >= date) {
-
-
-
-                                                                $(`.self_btn${i}`).append(`<a href="${course_url}?study_type=1"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Selfstudy  Registration Form </a>`)
-                                                            }
-
-                                                            if (private_start_date <= date && private_end_date >= date) {
-
-
-                                                                $(`.private_btn${i}`).append(`<a href="${course_url}?study_type=2"  class=" mb-3 btn btn-sm btn-primary btn-hover-dark  " >Private School Registration Form </a>`)
                                                             }
                                                         }
 

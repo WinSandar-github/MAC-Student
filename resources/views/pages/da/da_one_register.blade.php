@@ -108,7 +108,8 @@
                                 <div class="card border-success mb-3 p-5">
                                     <div class="row">
                                         <h5 class="card-title text-center fw-bolder">
-                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
+                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type"></span>
+                                            <br/>
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
@@ -1521,6 +1522,11 @@
             get_student_info(student_id).then(data => {
                 if (data) {
                     let current_stu_course = data.data.student_course_regs.slice(-1);
+
+                
+
+                    var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    $('#mac_type').text(mac_name)
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);

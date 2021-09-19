@@ -552,32 +552,84 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၄။') }}</span>သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
-                                            <div class="col-sm-8 checkbox-radios py-2">
-                                                <div class="form-check-radio px-0">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="mac" name="type" value='2' required>
-                                                        <span class="form-check-sign"></span>
-                                                        ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ရန်ကုန်သင်တန်းကျောင်း
-                                                    </label>
-                                                </div>
-                                                <div class="form-check-radio px-0">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="private" name="type" value='1' required>
-                                                        <span class="form-check-sign"></span>
-                                                        ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
-                                                    </label>
-                                                </div>
-                                                <div class="form-check-radio px-0">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="self" name="type" value='0' required>
-                                                        <span class="form-check-sign"></span>
-                                                        ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
-                                                    </label>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div>
+                                                    <label>{{ __('၂၄') }}</label>
                                                 </div>
                                             </div>
-                                        </div>  
+
+                                            <div class="col-md-11 ">
+                                                <div>
+                                                    <label>သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>    
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label>{{ __('') }}</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <input type="radio" id="mac" class="form-check-input" value="2" name="attend_place" onclick="selectType()"   required style="margin-left: 3%;">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="  col-md-12" id="blk_mac" style="display:none">
+                                                        <div class="mx-5 row  ">
+                                                            
+                                                            <div class="col-md-6 form-check   ">
+                                                                <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                                <label class="form-check-label" for="sub_mac">
+                                                                    <!-- <span class="form-check-sign"></span> -->
+                                                                    ရန်ကုန်သင်တန်းကျောင်း
+                                                                </label>
+                                                                
+                                                            </div> 
+                                                            <div class="col-md-6  form-check  ">
+                                                                <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                                <label class="form-check-label" for="sub_mac2">
+                                                                    <!-- <span class="form-check-sign"></span> -->
+                                                                    နေပြည်တော်သင်တန်းကျောင်း
+                                                                </label>
+                                                            </div>
+                                                            <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
+
+                                                        </div>
+                                                
+                                                    </div>
+                                             
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                        <input type="radio" id="private" class="form-check-input" value="1" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                            <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                        <input type="radio" id="self" class="form-check-input" value="0" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                            <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                        </div>
+                                                    </div>
+                                               
+                                            </div>       
+                                        
                                              
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -912,7 +964,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၀။') }}</span>သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
-                                            <div class="col-sm-8 checkbox-radios py-2">
+                                            {{-- <div class="col-sm-8 checkbox-radios py-2">
                                                 <div class="form-check-radio px-0">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" id="dmac" value="2" name="dtype" required>
@@ -934,7 +986,62 @@
                                                         ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                     </label>
                                                 </div>
-                                            </div>
+                                            </div> --}}
+                                            <div class="col-md-8">
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <input type="radio" id="mac" class="form-check-input" value="2" name="dtype" onclick="selectdType()"   required style="margin-left: 3%;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <label class="form-check-label" for="mac">ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="  col-md-12" id="blk_dmac" style="display:none">
+                                                    <div class="mx-5 row  ">
+                                                        
+                                                        <div class="col-md-6 form-check   ">
+                                                            <input class="form-check-input" type="radio" id="sub_mac" name="mac_dtype" value='1'    >
+                                                            <label class="form-check-label" for="sub_mac">
+                                                                <!-- <span class="form-check-sign"></span> -->
+                                                                ရန်ကုန်သင်တန်းကျောင်း
+                                                            </label>
+                                                            
+                                                        </div> 
+                                                        <div class="col-md-6  form-check  ">
+                                                            <input class="form-check-input" type="radio" id="sub_mac2" name="mac_dtype" value='2'    >
+                                                            <label class="form-check-label" for="sub_mac2">
+                                                                <!-- <span class="form-check-sign"></span> -->
+                                                                နေပြည်တော်သင်တန်းကျောင်း
+                                                            </label>
+                                                        </div>
+                                                        <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
+
+                                                    </div>
+                                            
+                                                </div>
+                                         
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                    <input type="radio" id="private" class="form-check-input" value="1" name="dtype" onclick="selectdType()"  required style="margin-left: 3%;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                        <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                    <input type="radio" id="self" class="form-check-input" value="0" name="dtype" onclick="selectdType()"  required style="margin-left: 3%;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                        <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
+                                                    </div>
+                                                </div>
+                                           
+                                        </div>   
                                         </div> 
                                         
                                         <div class="row mb-3">
@@ -1152,7 +1259,10 @@
     </script>
 @endsection
 @push('scripts')
+<!-- <script src="{{ asset("js/form_validation/cpa_one_validation.js") }}"></script> -->
+
 <script type="text/javascript">
+
     $(document).ready(function (e) {
         check_entry_pass()
         localStorage.removeItem('course_type');
