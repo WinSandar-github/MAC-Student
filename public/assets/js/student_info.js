@@ -24,7 +24,6 @@ function ConfirmSubmitPP() {
 function ConfirmSubmitMac() {
     var radio = document.getElementById("submit_confirm_mac");
 
-    alert("Nor Hello")
     if (radio.checked == true) {
         document.getElementById("submit_btn_mac").disabled = false;
         document.getElementById("submit_confirm_pp").checked = false;

@@ -28,6 +28,13 @@ $("#photo").change(function(){
     readURL(this);
 });
 
+function selectStaff(value){
+    if(value==1){
+        $('#rec_letter').css('display','block');
+    }else{
+        $('#rec_letter').css('display','none');
+    }
+}
 function ConfirmSubmit(){
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
@@ -47,8 +54,8 @@ function AddCPAEdu(){
             '<div class="col-md-7">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]">'+
             '</div>'+
-            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
-                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+            '<div class="col-md-1 text-left mt-1"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-sm btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
@@ -621,7 +628,7 @@ function allFilled(form_id) {
             filled = false;
             
        }else{
-           alert("hello")
+         
            var mac_val = $('input[name="attend_place"]:checked').val();
 
            if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
@@ -824,6 +831,7 @@ $('#cpa_entry_register').submit(function(e){
         })
 
 })
+
 
 
 //Cpa One Entry Process End

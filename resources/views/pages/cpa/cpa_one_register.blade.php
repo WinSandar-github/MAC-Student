@@ -967,16 +967,18 @@
                         </div>
 
                         <div class="row" id="mac_container">
-                            <div class="card border-success mb-3">
+                            <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type"></span></h5>
-                                                    <h5 class="card-title text-center">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
-                                                </div>
-                                            </div><br/>
+                                        <div class="col-md-12">                                           
+
+                                            <div class="row mb-5">
+                                                <h5 class="card-title text-center fw-bolder">
+                                                    မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type"></span><br>
+                                                    လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
+                                                </h5>
+                                                
+                                            </div>
                                         </div>
 
                                     <div>
@@ -984,157 +986,146 @@
 
                                             
                                             <div class="row">
-                                              <div class="col-md-8">
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                                    <label for="" class="col-md-5 col-form-label label_align_right">အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                    <div class="col-md-3">
-                                                        <input type="text" placeholder="အမည်(မြန်မာ)" id="name_mm" name="name_mm"
-                                                               class="form-control"  disabled>
+                                                <div class="col-md-8">
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                        <div class="col-md-3">
+                                                            <input type="text" name="name_mm" class="form-control" readonly="">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input type="text" name="name_eng" class="form-control" readonly="">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" id="name_eng" name="name_eng"
-                                                               class="form-control"  disabled>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                                    <label for=""
-                                                           class="col-md-5 col-form-label label_align_right">နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                                    <div class="col-md-6">
-                                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                                            <div class="col-md-2 col-5 pr-1">
-                                                                <input type="text" placeholder="" id="nrc_state_region" name="nrc_state_region"
-                                                                       class="form-control" disabled>
-                                                            </div>
-                                                            <div class="col-md-3 col-7 px-1">
-                                                              <input type="text" placeholder="" id="nrc_township" name="nrc_township"
-                                                                     class="form-control" disabled>
-                                                            </div>
-                                                            <div class="col-md-2 col-5 px-1">
-                                                              <input type="text" placeholder="" id="nrc_citizen" name="nrc_citizen"
-                                                                     class="form-control" disabled>
-                                                            </div>
 
-                                                            <div class="col-md-5 col-7 pl-1">
-                                                              <input type="text" placeholder="" id="nrc_number" name="nrc_number"
-                                                                     class="form-control" disabled>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                        <div class="col-md-6">
+                                                            <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                                                <div class="col-md-2">
+                                                                    <input type="text" class="form-control nrc_state_region" name="nrc_state_region" style="padding: 6px;" readonly>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <input type="text" class="form-control nrc_township" name="nrc_township" readonly>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <input type="text" class="form-control nrc_number" name="nrc_number" readonly="">
+                                                                    
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                  <div class="col-md-2"></div>
-                                                  <div class="col-md-10">
-                                                      {{--<div class="row">
-                                                          <div class="col-md-6">
-                                                              <div class="row">
-                                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                                              </div>
-                                                              <div class="row">
-                                                                  <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                                  <p class="mt-2">
-                                                                  <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                                      value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
-                                                                  </p>
-                                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                                              </div>
-                                                          </div>
+                                                    {{--<div class="row">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="row">
+                                                                        <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                        <p class="mt-2">
+                                                                        <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                                            value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);" >
+                                                                        </p>
+                                                                        <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                                    </div>
+                                                                </div>
 
-                                                          <div class="col-md-6">
-                                                              <div class="row">
-                                                                  <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                                              </div>
-                                                              <div class="row">
-                                                                  <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
-                                                                  <p class="mt-2">
-                                                                  <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                                      value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
-                                                                  </p>
-                                                                  <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                                              </div>
-                                                          </div>
-                                                      </div>--}}
-                                                  </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                                    <label for="" class="col-md-5 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                    <div class="col-md-3">
-                                                        <input type="text" placeholder="အဘအမည်(မြန်မာ)" id="father_name_mm" name="father_name_mm"
-                                                               class="form-control"  disabled>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" id="father_name_eng" name="father_name_eng"
-                                                               class="form-control"  disabled>
+                                                                <div class="col-md-6">
+                                                                    <div class="row">
+                                                                        <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                                                        <p class="mt-2">
+                                                                        <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                                            value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);" >
+                                                                        </p>
+                                                                        <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>--}}
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                        <div class="col-md-3">
+                                                            <input type="text" name="father_name_mm" class="form-control" readonly="">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input type="text" name="father_name_eng" class="form-control" readonly="">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="col-md-7 pull-right">
-                                                    <img class="col-md-3 pull-right profile-style" id="mac_preview_img" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
 
+                                                <div class="col-md-4 text-center">
+                                                    {{--User Photo--}}
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail img-circle shadow" style="line-height: 160px;">
+                                                            <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                                                alt="Upload Photo" class="profile_image" id="mac_preview_img">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
+                                                        
+                                                    </div>
+                                                    {{--User Photo--}}
                                                 </div>
-                                              </div>
                                             </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right" >လူမျိုး</label>
+
+                                            <div class="row  mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
-                                                           value="{{ old('race') }}"  disabled>
+                                                    <input type="text" name="race" id="race" class="form-control" value="{{ old('race') }}" readonly="">
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>
+
+                                            <div class="row  mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>ကိုးကွယ်သည့်ဘာသာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" id="religion" name="religion"
-                                                           class="form-control" value="{{ old('religion') }}" disabled >
+                                                    <input type="text" id="religion" name="religion" class="form-control" value="{{ old('religion') }}" readonly="">
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>
+
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>မွေးသက္ကရာဇ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="date_of_birth" id="date_of_birth" class="form-control"
-                                                           placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" disabled >
+                                                        placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly="">
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">ပညာအရည်အချင်း</label>
+
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ပညာအရည်အချင်း</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="" id="degree_name" name="degree_name"
-                                                           class="form-control" value="" disabled >
+                                                    <input type="text" placeholder="ဘွဲ့အမည်" id="degree_name" name="degree_name"
+                                                        class="form-control" value="{{ old('degree_name') }}" readonly="">
                                                 </div>
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၈။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">ဖုန်းနံပါတ်</label>
+                                            </div>                                            
+                                            
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
                                                            class="form-control" value="{{ old('phone') }}" disabled >
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
-                                                <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>
+                                            
+                                            <div class="row mb-3">
+                                                <!-- <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                                <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label> -->
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="နေရပ်လိပ်စာ" id="address" name="address"
+                                                    <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" id="address" name="address"
                                                            class="form-control" value="{{ old('address') }}" disabled >
                                                 </div>
                                             </div>
-                                            <br>
+                                            
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                                 <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>

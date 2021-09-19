@@ -239,33 +239,36 @@ $('#da_update').submit(function(e){
 
 //store Da Application Form
 $('#store_da_two_form').submit(function(e){
+    
     e.preventDefault();
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
     formData.append('type',$("input[name='dtype']:checked").val());
     formData.append('mac_type',$("input[name='mac_dtype']:checked").val()) 
+    
+
   
-    // show_loader();
-    // $.ajax({
-    //     url: BACKEND_URL+"/store_cpa_da_two_app_form",
-    //     type: 'post',
-    //     data:formData,
-    //     contentType: false,
-    //     processData: false,
-    //     success: function(data){
-    //         EasyLoading.hide();
-    //         localStorage.setItem('approve_reject', data.approve_reject_status);
-    //         //successMessage("You have successfully registerd!");
-    //         location.href = FRONTEND_URL+"/";
-    //     },
-    //   error:function (message){
-    //     EasyLoading.hide();
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL+"/store_cpa_da_two_app_form",
+        type: 'post',
+        data:formData,
+        contentType: false,
+        processData: false,
+        success: function(data){
+            EasyLoading.hide();
+            localStorage.setItem('approve_reject', data.approve_reject_status);
+            //successMessage("You have successfully registerd!");
+            location.href = FRONTEND_URL+"/";
+        },
+      error:function (message){
+        EasyLoading.hide();
 
-    //     errorMessage(message);
-    //     }
+        errorMessage(message);
+        }
 
-    // });
+    });
 });
 
 // $('#btn2').submit(function(e){
@@ -746,15 +749,16 @@ function selectType(){
 function selectdType(){
     
     var radioValue = $("input[name='dtype']:checked").val();
+    alert(radioValue)
 
     if(radioValue==2){
-        $('#blk_mac').css('display','inline-block');
+        $('#blk_dmac').css('display','inline-block');
         // $('#entry_pass').css('display','none');
         // $("#direct").find('input').prop('required',true);
      }else
      {
   
-        $('#blk_mac').css('display','none');
+        $('#blk_dmac').css('display','none');
 
         // $('#entry_pass').css('display','block');
         // $('#direct').css('display','none');
