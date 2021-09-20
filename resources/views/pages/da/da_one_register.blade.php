@@ -107,7 +107,8 @@
                                     <div class="card border-success mb-3 p-5">
                                         <div class="row">
                                             <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
-                                            ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                            ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ<br/>
+                                        (MAC သင်တန်းသားများအတွက်သာ)</h5>
 
                                         </div>
                                         <div class="card-body">
@@ -387,7 +388,7 @@
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-11 ">
                                                         <div class="d-flex justify-content-between">
-                                                            <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                            <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီ ဥပဒေနှင့်နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
                                                             <h6 class="col-md-3 col-form-label" style="padding-left:60px;">ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
                                                         </div>
                                                     </div>
@@ -423,10 +424,10 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <label class="col-md-2 col-form-label label">အမှတ်စဥ်</label>
-                                                    <div class="col-md-2">
-                                                        <input type="text" name="regno" value="1" class="form-control" autocomplete="off" readonly>
-                                                    </div>
+                                                    <label class="col-md-4 col-form-label label" style="padding-left:100px;">ပညာသင်နှစ်    - 2021</label>
+                                                    <!-- <div class="col-md-2">
+                                                        <input type="text" name="regno" value="2021" class="form-control" autocomplete="off" readonly>
+                                                    </div> -->
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -667,7 +668,7 @@
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-11 ">
                                                         <div class="d-flex justify-content-between">
-                                                            <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                            <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီ ဥပဒေနှင့်နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
                                                             <h6 class="col-md-3 col-form-label" style="padding-left:60px;">ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
                                                         </div>
                                                     </div>
@@ -687,9 +688,9 @@
                                 <form id="self_study_form" method="post" action="javascript:void();" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
-                                        <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                                        <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                         <h5 class="card-title text-center fw-bolder">ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့် မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
-                                         (ကိုယ်တိုင်လေ့လာသင်ယူမယ်သူများ)</h5>
+                                         (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
                                          
                                         <div class="card-body">
                                             <div class="col-md-12">
@@ -707,6 +708,9 @@
                                                     <tr>
                                                         <td style="width:20%">
                                                             <label for="" class="col-form-label">{{ __('အမှတ်စဉ် - Batch One') }}</label>
+                                                        </td>
+                                                        <td style="float: right;">
+                                                            <label for="" class="col-form-label">{{ __('ပညာသင်နှစ် - 2021') }}</label>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -930,13 +934,6 @@
 
                                                 </div>
 
-                                                <div class="row mb-3" style="margin-left:150px;">
-                                                    <label class="col-md-4 col-form-label label_align_right">(၁) တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
-
-                                                    <div class="col-md-8">
-                                                            <input type="text"  class="form-control sr_no" name="student_regno " readonly>
-                                                    </div>
-                                                </div>
 
                                                 <div class="row mb-3" style="margin-left:100px;">
                                                     <div class="col-md-1">
@@ -1010,8 +1007,16 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                     <label class="col-md-8 col-form-label">{{ __('အပိုဒ် ၁ ပါ(ခ)/(ဂ)/(ဃ)/(င) အတွက်') }}</label>
                                                 </div> -->
+                                                
                                                 <div class="row mb-3">
-                                                    <label class="col-md-2 col-form-label label_align_right"><span class="pull-left">{{ __('၁၆။') }}</span>{{ __('(က)') }}</label>
+                                                    <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၆။') }}</span> တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+
+                                                    <div class="col-md-8">
+                                                            <input type="text"  class="form-control sr_no" name="student_regno " readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-md-2 col-form-label label_align_right"><span class="pull-left">{{ __('၁၇။') }}</span>{{ __('(က)') }}</label>
                                                    <label class="col-md-2 col-form-label label_align_right">{{ __('တက်ရောက်မည့်သင်တန်း') }}</label>
 
                                                     <div class="col-md-8">
@@ -1040,7 +1045,7 @@
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၇။') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
+                                                    <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၈။') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" required>
                                                     </div>
@@ -1056,7 +1061,7 @@
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-11 ">
                                                         <div class="d-flex justify-content-between">
-                                                            <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                            <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီ ဥပဒေနှင့်နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
                                                             <h6 class="col-md-3 col-form-label" style="padding-left:60px;">ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
                                                         </div>
                                                     </div>
