@@ -407,7 +407,7 @@
                                     <label class="col-md-3 col-form-label label" >{{ __('လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း') }}</label>
                                     
                                     <div class="col-md-8">
-                                        <select class="form-control select2" name="certificates[]"  multiple="multiple" required style="width: 100%;">
+                                        <select class="form-control select2" name="certificates[]"  multiple="multiple"  style="width: 100%;" required>
                                                
                                         </select>
                                        
@@ -419,7 +419,7 @@
                                     <label class="col-md-3 col-form-label label" >{{ __('ဒီပလိုမာစာရင်းကိုင်သင်တန်း') }}</label>
                                    
                                     <div class="col-md-8">
-                                        <select class="form-control select2" name="diplomas[]"  multiple="multiple" required style="width: 100%;">
+                                        <select class="form-control select2" name="diplomas[]"  multiple="multiple"  style="width: 100%;" required>
                                                
                                         </select>
                                        
