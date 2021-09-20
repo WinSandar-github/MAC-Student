@@ -431,7 +431,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_mac" id="personal_no_mac"
-                                                           class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
+                                                           class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="" required>
 
                                                 </div>
                                             </div>
@@ -850,7 +850,7 @@
                                     </h5>
 
                                     <div class="d-flex justify-content-between">
-                                        <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                         <h6>ပညာသင်နှစ် - {{ __("____") }}</h6>
                                     </div>
 
@@ -1133,9 +1133,9 @@
                                                 <div class="row col-md-8 py-2">
 
                                                     <div class="form-check">
-                                                        <label class="form-check-label">
+                                                        <label class="form-check-label" required>
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required>
                                                             <span class="form-check-sign"></span>
                                                             (က) ယခုနှစ်တက်ရောက်ခြင်း
                                                         </label>
@@ -1144,7 +1144,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required>
                                                             <span class="form-check-sign"></span>
                                                             (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
@@ -1153,7 +1153,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required>
                                                             <span class="form-check-sign"></span>
                                                             (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                         </label>
@@ -1162,7 +1162,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required>
                                                             <span class="form-check-sign"></span>
                                                             (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                         </label>
@@ -1171,12 +1171,12 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required>
                                                             <span class="form-check-sign"></span>
                                                             (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
                                                         </label>
                                                     </div>
-
+                                                    <label  class="error attend_place_error" style="display:none;" for="reg_reason[]">Please select registration reason.</label>
                                                 </div>
                                             </div>
 
@@ -1276,6 +1276,7 @@
                                                             All Modules
                                                         </label>
                                                     </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                                 </div>
                                             </div>
 
@@ -1360,7 +1361,7 @@
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-25" id="submit_btn_ss">{{ __('Submit') }}</button>
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-25" id="submit_btn_ss" disabled>{{ __('Submit') }}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1569,6 +1570,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset("js/form_validation/da_one_reg_validation.js") }}"></script>
     <script type="text/javascript">
         $('document').ready(function () {
             const queryString = location.search;
@@ -1635,25 +1637,23 @@
     </script>
     <script>
         $("#submit_btn_mac").click(function () {
-            // if(allFilled('#da_mac_form')){
+         if(document.getElementById('personal_no_mac').value!=""){
             $('#macModal').modal('show');
-            // }
-            // else{
-            // }
+            }
+            else{
+            }
         });
         $("#submit_btn_ss").click(function () {
-            // if(allFilled('#self_study_form')){
-            $('#selfModal').modal('show');
-            // }
-            // else{
-            // }
+            console.log($('input[name="is_full_module"]:checked').length);
+            if($('input[name="reg_reason[]"]:checked').length > 0 && $('input[name="is_full_module"]:checked').length > 0 && 
+            $("input[name=date]").val()!=""){
+                $('#selfModal').modal('show');
+            }
         });
         $("#submit_btn_pp").click(function () {
             if (allFilled('#da_private_school_form')) {
                 $('#privateModal').modal('show');
             }
-            // else{
-            // }
         });
 
         function allFilled(form_id) {
