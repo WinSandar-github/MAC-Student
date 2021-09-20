@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">PAPP Registration  <span>Form(Initial)</span></h2>
+                    <h2 class="title">PAPP Registration Initial<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -83,7 +83,10 @@
                 <div class="card border-success mb-3" id="papp_from" style="display:none;">
 
                     <div class="card-body ">
-                        <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ</h5>
+                        <div style="text-align: right;margin-top:1%;">
+                            <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၃)</h6>
+                        </div>
+                        <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                         <h5 class="card-title text-center">အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ရန် ကနဦးလျှောက်ထားခြင်း</h5>
                         <br/>
 
@@ -163,14 +166,137 @@
                                             </div>
                                         </div>
                                     </div><br/>--}}
-                                    <div class="row pt-3" style="padding-left: 90px;">
+                                    {{--<div class="row pt-3" style="padding-left: 90px;">
                                         <label class="col-md-2 col-form-label" >{{ __('(က) ') }}</label>
                                         <div class="col-md-6 col-form-label">{{ __('CPA (FF) မှတ်ပုံတင် သက်တမ်း') }}</div>
                                         <div class="col-md-4 col-form-label">
                                             <lable id="cpa_age"></label>
                                         </div>
+                                    </div>--}}
+                                    <div class="row" style="padding-left: 110px;">
+                                        <div class="col-md-2 col-form-label pt-4" >{{ __('(က)') }}</div>
+                                        <div class="col-md-3 col-form-label pt-4">{{ __('အမည်') }}</div>
+                                        <div class="col-md-4 col-form-label pt-4">
+                                            <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        </div>
                                     </div>
+                                    <div class="row" style="padding-left: 110px;">
+                                        <div class="col-md-2 col-form-label pt-4" >{{ __('(ခ)') }}</div>
+                                        <div class="col-md-3 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
+                                        <div class="col-md-4 col-form-label pt-4">
+                                            <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 110px; margin-bottom: 2%;">
+                                        <div class="col-md-2 col-form-label pt-4" >{{ __('(ဂ)') }}</div>
+                                        <div class="col-md-3 col-form-label pt-4">{{ __('အဘအမည်') }}</div>
+                                        <div class="col-md-4 col-form-label pt-4">
+                                            <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        </div>
+                                    </div> 
+                                    <div class="row" style="padding-left: 53px;">
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                    <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-7">
+                                        <div class="row">
+                                            <div class="col-md-4 col-form-label">
+                                                <input type="checkbox" value="" id="cpa_check" onclick="CPA_Check()" >
+                                                <label  class="col-form-label">CPA</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-10"  id="cpa_edu" style="display:none;">
+                                                <input type="file"  class="form-control" id="cpa_file" name="cpa_file">
+                                            </div>
+                                        </div>
 
+                                        <div class="row">
+                                            <div class="col-md-4 col-form-label">
+                                                <input type="checkbox" value=""  id="ra_check" onclick="RA_Check()" >
+                                                <label class="col-form-label">RA</label>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-10"  id="ra_edu" style="display:none;">
+                                                <input type="file" class="form-control" id="ra_file"  name="ra_file">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-2">
+                                            <div class="col-md-4 col-form-label">
+                                                <input type="checkbox" value=""  id="degree_check" onclick="Degree_Check()"  >
+                                                <label  style="font-size:15px;">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
+                                            </div>
+                                        </div>
+                                        <div  id="edu" style="display:none;">
+                                            <div class="row mb-2" id="degree0">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">
+                                                    <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
+                                                </div>
+                                                <div class="col-md-6 col-auto">
+                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2" id="degree_year0">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">
+                                                    <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
+                                                </div>
+                                                <div class="col-md-6 col-auto">
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4" id="edu0" >
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-4 col-auto">
+                                                    <label for="" class="col-form-labe"> Attached Certificate</label>
+                                                </div>
+                                                <div class="col-md-6"  id="degree_edu" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                </div>
+                                                <div class="col-md-1" id="add_div" >
+                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="Add()" >
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(င)') }}</div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(စ)') }}</div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-2 col-form-label pt-4" ></div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('တယ်လီဖုန်းနံပါတ်၊ Fax ဖုန်းနံပါတ်') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-2 col-form-label pt-4" ></div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('E-mail Address') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                    </div>
+                                </div>
 
                                 </div>
                                 <div class="col-md-5">
@@ -203,7 +329,7 @@
 
 
 
-                                <div class="row">
+                                {{--<div class="row">
                                     <label class="col-md-1 col-form-label"></label>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                     <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
@@ -276,7 +402,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <br/>
                                 <div class="row">
@@ -502,6 +628,34 @@
                                             <input type="file" class="form-control" id="tax_free_file" required="" >
                                     </div>
                                 </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဇ)') }}</label>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
+                                    <div class="col-md-4">
+                                                <input type="file"  class="form-control" name="mpa_mem_card" required="" >
+                                    </div>
+                                </div><br/>
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဈ)') }}</label>
+
+                                    <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
+                                    <div class="col-md-4">
+
+                                                <input type="file"  class="form-control" name="" required="" >
+
+                                    </div>
+                                </div><br/>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ည)') }}</div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('CPA(FF) Registeraion No.') }}</div>
+                                    <div class="col-md-4 col-form-label pt-4">
+                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                    </div>
+                                </div><br>
+
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>

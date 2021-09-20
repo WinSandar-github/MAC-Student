@@ -18,11 +18,12 @@
                 <!-- Page Banner Start -->
                 <div class="page-banner-content">
                     <ul class="breadcrumb">
-                         <li><a href="#">Home</a> </li>
-                        <li class="active">Register 
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Register
                     </ul>
                     <h2 class="title"> {{request()->segment(count(request()->segments())) == 1 ? 
-                        "Diploma In Accountancy" : "Certified Public Accountant" }}  <p class="col-md-5">Information </p></h2>
+                        "Diploma In Accountancy" : "Certified Public Accountant" }} <p class="col-md-5">Information </p>
+                    </h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -75,33 +76,32 @@
                                             Diploma In Accountancy
                                         </h4>
                                         <hr>
-                                       
-                                            @php  
-                                            $description = explode(',',$course[0]['course_type']['course_description']);
-                                            @endphp
-                                            @foreach($description as $des)
-                                                <p class="mb-4 p_font text-justify" >{{$des}}</p>
-                                            @endforeach
 
-                                            
-            
+                                        @php
+                                            $description = explode(',',$course[0]['course_type']['course_description']);
+                                        @endphp
+                                        @foreach($description as $des)
+                                            <p class="mb-4 p_font text-justify">{{$des}}</p>
+                                        @endforeach
+
+
                                     </div>
                                 </div>
-                            </div>        
+                            </div>
 
                         </div>
                         @foreach($course as $key => $c)
-                      
+
                             <?php
-                           
-                                // $course_req_arr = json_decode($c['requirement_id'],true);
-                                $req_str_arr = explode(",",$c['requirement_id']);
-                                
+
+                            // $course_req_arr = json_decode($c['requirement_id'],true);
+                            $req_str_arr = explode(",", $c['requirement_id']);
+
                             ?>
-   
+
                             <input type="hidden" class="code{!! $key !!}" value="{{$c['code']}}">
                             <input type="hidden" value="{{$c['id']}}" id="course_id{!! $key !!}"/>
-                            
+
                             <div class="card col-md-3 m-2 ">
                             <!-- <div class="card-header">
                                     <h4 class="card-title text-center">{{ $c['name']}} </h4>
@@ -130,190 +130,235 @@
                                                     <hr>
                                                     <div class="info-list">
                                                         <dl class="row d_font ">
-                                                                <dt class="col-sm-6 text-end">Application Fee</dt>
-                                                                <dd class="col-sm-6 my-1">{{ number_format($c['form_fee']) }} Kyats</dd>
-                                                                <dt class="col-sm-6 text-end my-1">Registration Fee for MAC Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{  number_format($c['mac_registration_fee']) }} Kyats</dd>
-                                                                <dt class="col-sm-6 text-end my-1">Registration Fee for Self-Study Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{  number_format($c['selfstudy_registration_fee']) }} Kyats </dd>
-                                                                <dt class="col-sm-6 text-end my-1">Registration Fee for Private School Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{  number_format($c['privateschool_registration_fee']) }} Kyats</dd>
-                                                                <dt class="col-sm-6 text-end my-1">Exam Fee</dt>
-                                                                <dd class="col-sm-6 my-1">{{  number_format($c['exam_fee'] ) }} Kyats</dd>
-                                                                <dt class="col-sm-6 text-end my-1">Course Fee for MAC Class</dt>
-                                                                <dd class="col-sm-6 my-1">{{  number_format($c['tution_fee']) }} Kyats</dd>
-                                                                <dt class="col-sm-6 text-end my-1">Requirement</dt>
-                                                                <dd class="col-sm-6 my-1"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{!! $key !!}">
-                                                        View Detail
-                                                        </button></dd>
+                                                            <dt class="col-sm-6 text-end">Application Fee</dt>
+                                                            <dd class="col-sm-6 my-1">{{ number_format($c['form_fee']) }}
+                                                                Kyats
+                                                            </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Registration Fee for MAC
+                                                                Class
+                                                            </dt>
+                                                            <dd class="col-sm-6 my-1">{{  number_format($c['mac_registration_fee']) }}
+                                                                Kyats
+                                                            </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Registration Fee for
+                                                                Self-Study Class
+                                                            </dt>
+                                                            <dd class="col-sm-6 my-1">{{  number_format($c['selfstudy_registration_fee']) }}
+                                                                Kyats
+                                                            </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Registration Fee for
+                                                                Private School Class
+                                                            </dt>
+                                                            <dd class="col-sm-6 my-1">{{  number_format($c['privateschool_registration_fee']) }}
+                                                                Kyats
+                                                            </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Exam Fee</dt>
+                                                            <dd class="col-sm-6 my-1">{{  number_format($c['exam_fee'] ) }}
+                                                                Kyats
+                                                            </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Course Fee for MAC
+                                                                Class
+                                                            </dt>
+                                                            <dd class="col-sm-6 my-1">{{  number_format($c['tution_fee']) }}
+                                                                Kyats
+                                                            </dd>
+                                                            <dt class="col-sm-6 text-end my-1">Requirement</dt>
+                                                            <dd class="col-sm-6 my-1">
+                                                                <button type="button" class="btn btn-sm btn-success"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal{!! $key !!}">
+                                                                    View Detail
+                                                                </button>
+                                                            </dd>
 
                                                         </dl>
-                                                        
-                                                        <!-- Button trigger modal -->
-                                                        
 
-<!--Course Requirement Modal -->
-                                                        <div class="modal fade" id="exampleModal{!! $key !!}" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
+                                                        <!-- Button trigger modal -->
+
+
+                                                        <!--Course Requirement Modal -->
+                                                        <div class="modal fade" id="exampleModal{!! $key !!}"
+                                                             tabindex="-1" aria-labelledby="exampleModalLabe"
+                                                             aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Requirement</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                @foreach($requirements as $require)
-                                                                        @foreach($req_str_arr as $course_req)
-                                                                    
-                                                                            @if($require['id'] == $course_req)
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Requirement</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        @foreach($requirements as $require)
+                                                                            @foreach($req_str_arr as $course_req)
 
-                                                                           
-                                                                                <p>{{$require['requirement_name']}} </p>
-                                                                            @endif
+                                                                                @if($require['id'] == $course_req)
+
+
+                                                                                    <p>{{$require['requirement_name']}} </p>
+                                                                                @endif
+                                                                            @endforeach
                                                                         @endforeach
-                                                                    @endforeach
-                                                                    
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                   
-                                                                </div>
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close
+                                                                        </button>
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                              <!-- <p class="col-md-5">Application Fee</p>-  <p class="col-md-5">{{$c['form_fee']}} Kyats </p>  -->
-                                                              <!-- <p class="col-md-5">Registration Fee for MAC Class</p>-  <p class="col-md-5">{{$c['mac_registration_fee']}}Kyats </p>  -->
-                                                              <!-- <p class="col-md-5">Registration Fee for Self-Study Class</p>-  <p class="col-md-5">{{$c['selfstudy_registration_fee']}}Kyats </p>  -->
-                                                              <!-- <p class="col-md-5">Registration Fee for Private School Class</p>-  <p class="col-md-5">{{$c['privateschool_registration_fee']}}Kyats </p>                                                              -->
-                                                            <!--   <p class="col-md-5">Exam Fee</p>-  <p class="col-md-5">{{$c['exam_fee']}} Kyats </p>  -->
-                                                              <!-- <p class="col-md-5">Course Fee for MAC Class</p>-  <p class="col-md-5">{{$c['tution_fee']}} Kyats </p>  -->
-                                                    </div> 
-                                                </div>  
-                                            
-                                                    <div class="col-md-12 mt-2">
+                                                    <!-- <p class="col-md-5">Application Fee</p>-  <p class="col-md-5">{{$c['form_fee']}} Kyats </p>  -->
+                                                    <!-- <p class="col-md-5">Registration Fee for MAC Class</p>-  <p class="col-md-5">{{$c['mac_registration_fee']}}Kyats </p>  -->
+                                                    <!-- <p class="col-md-5">Registration Fee for Self-Study Class</p>-  <p class="col-md-5">{{$c['selfstudy_registration_fee']}}Kyats </p>  -->
+                                                    <!-- <p class="col-md-5">Registration Fee for Private School Class</p>-  <p class="col-md-5">{{$c['privateschool_registration_fee']}}Kyats </p>                                                              -->
+                                                    <!--   <p class="col-md-5">Exam Fee</p>-  <p class="col-md-5">{{$c['exam_fee']}} Kyats </p>  -->
+                                                    <!-- <p class="col-md-5">Course Fee for MAC Class</p>-  <p class="col-md-5">{{$c['tution_fee']}} Kyats </p>  -->
+                                                    </div>
+                                                </div>
 
-                                                    
-                                                    
+                                                <div class="col-md-12 mt-2">
+
+
                                                     @if(!empty($c['active_batch']))
                                                         @foreach($c['active_batch'] as $b)
                                                             <h6>  {{$b['name']}} </h6>
                                                             <hr>
                                                             <div class="d_font">
-                                                                    <input type="hidden" value="{{$b['id']}}"
+                                                                <input type="hidden" value="{{$b['id']}}"
                                                                        class="batch_id{!! $key !!}"/>
-                                                             
-                                                                    <div class="application app{!! $key !!}">
-                                                                       
-                                                                        <div class="row">
 
-                                                                                <dt class="col-sm-6 text-end my-1">
-                                                                                    Batch Start Date
-                                                                                </dt>
-                                                                                <dd class="col-md-6" >  {{ date('d F Y',strtotime($b['start_date'])) }} </dd>
-                                                                          
-                                                                                <dt class="col-md-6 text-end my-1">Batch End
-                                                                                Date</dt>
-                                                                                <dd class="col-md-6 my-1">  {{  date('d F Y',strtotime($b['end_date']))}}  </dd>
-                                                                                <dt class="col-md-6 text-end my-1 ">Accept
-                                                                                    Application Start
-                                                                                    Date</dt>
-                                                                                    <dd class="col-md-6 my-1"> 
-                                                                                        {{  date('d F Y',strtotime($b['accept_application_start_date'])) }}  </dd>
-                                                                                <dt class="col-md-6 text-end my-1">Accept
-                                                                                    Application End
-                                                                                    Date</dt>
-                                                                                <dd class="col-md-6 my-1">  
-                                                                                    {{ date('d F Y',strtotime($b['accept_application_end_date']))}}  </dd>
-                                                                        
-                                                                         </div>
+                                                                <div class="application app{!! $key !!}">
+
+                                                                    <div class="row">
+
+                                                                        <dt class="col-sm-6 text-end my-1">
+                                                                            Batch Start Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6">  {{ date('d F Y',strtotime($b['start_date'])) }} </dd>
+
+                                                                        <dt class="col-md-6 text-end my-1">Batch End
+                                                                            Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">  {{  date('d F Y',strtotime($b['end_date']))}}  </dd>
+                                                                        <dt class="col-md-6 text-end my-1 ">Accept
+                                                                            Application Start
+                                                                            Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">
+                                                                            {{  date('d F Y',strtotime($b['accept_application_start_date'])) }}  </dd>
+                                                                        <dt class="col-md-6 text-end my-1">Accept
+                                                                            Application End
+                                                                            Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">
+                                                                            {{ date('d F Y',strtotime($b['accept_application_end_date']))}}  </dd>
+
                                                                     </div>
+                                                                </div>
 
-                                                                    
-                                                                    
-                                                                    <div class="registration reg{!! $key !!}">
-                                                                        <div class="row">
-                                                                            <dt class="col-md-6 text-end my-1">Registration in MAC Class Start Date</dt>
-                                                                            <dd class="col-md-6 my-1">{{ date('d F Y',strtotime( $b['mac_reg_start_date'] ))}}  </dd> 
 
-                                                                            <dt class="col-md-6 text-end my-1">Registration in MAC Class End Date</dt>
-                                                                            <dd class="col-md-6 my-1 reg"> 
-                                                                                 {{ date('d F Y',strtotime($b['mac_reg_end_date'] )) }}  </dd>  
+                                                                <div class="registration reg{!! $key !!}">
+                                                                    <div class="row">
+                                                                        <dt class="col-md-6 text-end my-1">Registration
+                                                                            in MAC Class Start Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">{{ date('d F Y',strtotime( $b['mac_reg_start_date'] ))}}  </dd>
 
-                                                                            <div class="d-flex mt-2 justify-content-center  mac_btn{!! $key !!}">
+                                                                        <dt class="col-md-6 text-end my-1">Registration
+                                                                            in MAC Class End Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1 reg">
+                                                                            {{ date('d F Y',strtotime($b['mac_reg_end_date'] )) }}  </dd>
 
-                                                                            </div>
+                                                                        <div class="d-flex mt-2 justify-content-center  mac_btn{!! $key !!}">
 
-                                                                                <dt class="col-md-6 text-end my-1">Registration in Self-Study Class Start Date</dt>
-                                                                                <dd class="col-md-6 my-1"> 
-                                                                                  {{ date('d F Y',strtotime( $b['self_reg_start_date'] )) }}  </dd> 
+                                                                        </div>
 
-                                                                                <dt class="col-md-6 text-end my-1">Registration in Self-Study Class End Date</dt>
-                                                                                <dd class="col-md-6 my-1">  
-                                                                                  {{ date('d F Y',strtotime( $b['self_reg_end_date'])) }}  </dd>  
+                                                                        <dt class="col-md-6 text-end my-1">Registration
+                                                                            in Self-Study Class Start Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">
+                                                                            {{ date('d F Y',strtotime( $b['self_reg_start_date'] )) }}  </dd>
 
-                                                                                <div class="d-flex mt-2 justify-content-center self_btn{!! $key !!}">
+                                                                        <dt class="col-md-6 text-end my-1">Registration
+                                                                            in Self-Study Class End Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">
+                                                                            {{ date('d F Y',strtotime( $b['self_reg_end_date'])) }}  </dd>
 
-                                                                                </div>
+                                                                        <div class="d-flex mt-2 justify-content-center self_btn{!! $key !!}">
 
-                                                                                <dt class="col-md-6 my-1 text-end"> Registration in Private School Class Start Date</dt>
-                                                                                <dd class="col-md-6 my-1 "> {{ date('d F Y',strtotime($b['private_reg_start_date'])) }}  </dd> 
+                                                                        </div>
 
-                                                                                <dt class="col-md-6 text-end my-1">Registration in Private School Class End Date</dt>
-                                                                                <dd class="col-md-6 my-1">  {{ date('d F Y',strtotime( $b['private_reg_end_date'])) }}  </dd>  
+                                                                        <dt class="col-md-6 my-1 text-end"> Registration
+                                                                            in Private School Class Start Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1 "> {{ date('d F Y',strtotime($b['private_reg_start_date'])) }}  </dd>
 
-                                                                                <div class="d-flex mt-2 justify-content-center private_btn{!! $key !!}">
-                                                                                </div>
+                                                                        <dt class="col-md-6 text-end my-1">Registration
+                                                                            in Private School Class End Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1">  {{ date('d F Y',strtotime( $b['private_reg_end_date'])) }}  </dd>
+
+                                                                        <div class="d-flex mt-2 justify-content-center private_btn{!! $key !!}">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="exam exm{!! $key !!}">
-                                                                        <div class="row">
-                                                                            <dt class="col-md-6 my-1 text-end">Exam
-                                                                                    Registration Start
-                                                                                    Date</dt> 
-                                                                                    <dd class="col-md-6 my-1"> {{  date('d F Y',strtotime($b['exam_start_date'] ))}}  </dd>
-                                                                            
-                                                                            <dt class="col-md-6 my-1 text-end">Exam
-                                                                                Registration End Date</dt><dd
-                                                                                    class="col-md-6 reg my-1">  {{ date('d F Y',strtotime( $b['exam_end_date'] )) }}  </dd>
-                                                                         
-                                                                        </div> 
+                                                                </div>
+                                                                <div class="exam exm{!! $key !!}">
+                                                                    <div class="row">
+                                                                        <dt class="col-md-6 my-1 text-end">Exam
+                                                                            Registration Start
+                                                                            Date
+                                                                        </dt>
+                                                                        <dd class="col-md-6 my-1"> {{  date('d F Y',strtotime($b['exam_start_date'] ))}}  </dd>
+
+                                                                        <dt class="col-md-6 my-1 text-end">Exam
+                                                                            Registration End Date
+                                                                        </dt>
+                                                                        <dd
+                                                                                class="col-md-6 reg my-1">  {{ date('d F Y',strtotime( $b['exam_end_date'] )) }}  </dd>
 
                                                                     </div>
 
-                                                              
+                                                                </div>
 
 
-                                                                <!-- <input type="hidden" value="{{$b['id']}}"
+                                                            <!-- <input type="hidden" value="{{$b['id']}}"
                                                                        id="batch_id{!! $key !!}"/> -->
                                                                 <div class="d-flex   flex-column mt-2    info-btn mb-4   check_login{!! $key !!}">
 
                                                                 </div>
-                                                                
-                                                     
-                                                             
-                                                                <!-- <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/> -->
-                                                                <!-- <div class="d-flex  flex-column     info-btn mb-4   check_login{!! $i !!}"> -->
-                                                                <!-- <div class=" info-btn mb-4   check_login{!! $i !!}"> -->
-                                                                
+
+
+                                                            <!-- <input type="hidden" value="{{$b['id']}}" id="batch_id{!! $i !!}"/> -->
+                                                            <!-- <div class="d-flex  flex-column     info-btn mb-4   check_login{!! $i !!}"> -->
+                                                            <!-- <div class=" info-btn mb-4   check_login{!! $i !!}"> -->
+
                                                                 <!-- $c['id'], 'da_register' -->
                                                                 <!-- sucess da         -->
-                                                                <!-- <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none " >Enroll Now </a> -->
-        
-                                                                <!-- <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none  logined" >Enroll Now </a> -->
-        
-        
+                                                            <!-- <a href="{{ url('cpa_register') }}" class="btn btn-primary btn-hover-dark d-none " >Enroll Now </a> -->
+
+                                                            <!-- <a href="{{ url('login') }}" class="btn btn-primary btn-hover-dark  d-none  logined" >Enroll Now </a> -->
+
+
                                                                 <!-- </div> -->
                                                                 @break
                                                                 @endforeach
                                                                 @else
-                                                                  
+
                                                                     <div class="col-md-12">
-                                                                    <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">Coming Soon...</p>
+                                                                        <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">
+                                                                            Coming Soon...</p>
                                                                     </div>
-                                                                    @endif
+                                                                @endif
                                                             </div>
-                                                    </div>
+                                                </div>
                                             </div>
-                                       
+
                                             <!-- </div>
                                             <div class="col-md-6 pr-2 widget-information"> -->
                                         </div>
@@ -338,17 +383,18 @@
     </script>
 @endsection
 @prepend('styles')
-    
-<style>
 
-    .d_font{
-        font-size:13px;
+    <style>
 
-    }
-    .p_font{
-        font-size:18px !important;
-    }
-</style>
+        .d_font {
+            font-size: 13px;
+
+        }
+
+        .p_font {
+            font-size: 18px !important;
+        }
+    </style>
 @endprepend
 
 @push('scripts')
@@ -385,7 +431,7 @@
         app_form_feedback();
 
 
-        function direct_entry(){
+        function direct_entry() {
             alert("hlle")
         }
 

@@ -70,7 +70,7 @@ function createDARegister()
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
 
-    send_data.append('name', $("input[name=name]").val());
+    send_data.append('current_job', $("input[name=current_job]").val());
     send_data.append('position', $("input[name=position]").val());
     send_data.append('department', $("input[name=department]").val());
     send_data.append('organization', $("input[name=organization]").val());
@@ -82,7 +82,9 @@ function createDARegister()
     send_data.append('degree_name', $("input[name=degree_name]").val());
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function(){
+
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            console.log($(this))
             send_data.append('certificate[]',$(this).get(0).files[i]);
         }
     });
@@ -93,7 +95,9 @@ function createDARegister()
     send_data.append('verify_status', $("input[name=verify_status]").val());
     send_data.append('payment_method', $("input[name=payment_method]").val()    );
     send_data.append('verify_code', $("input[name=verify_code]").val());
-    send_data.append('type',$("input[name='type']:checked").val());
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
 
 
 
@@ -235,11 +239,15 @@ $('#da_update').submit(function(e){
 
 //store Da Application Form
 $('#store_da_two_form').submit(function(e){
+
     e.preventDefault();
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
     formData.append('type',$("input[name='dtype']:checked").val());
+    formData.append('mac_type',$("input[name='mac_dtype']:checked").val())
+
+
 
     show_loader();
     $.ajax({
@@ -513,7 +521,23 @@ function allFilled(form_id) {
             filled = false;
         }
         if($("#certificate0").val() == ''){
+
             filled = false;
+        }
+
+
+
+        if($('input[name="attend_place"]:checked').length === 0) {
+
+             filled = false;
+
+        }else{
+            var mac_val = $('input[name="attend_place"]:checked').val();
+
+            if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
+                filled = false;
+            }
+
         }
 
 
@@ -701,3 +725,50 @@ function loadPrivateSchoolList(){
 
     });
 }
+
+function selectType(){
+
+    var radioValue = $("input[name='attend_place']:checked").val();
+
+    if(radioValue==2){
+        $('#blk_mac').css('display','inline-block');
+        // $('#entry_pass').css('display','none');
+        // $("#direct").find('input').prop('required',true);
+     }else
+     {
+
+        $('#blk_mac').css('display','none');
+
+        // $('#entry_pass').css('display','block');
+        // $('#direct').css('display','none');
+        // $("#direct").find('input').prop('required',false);
+     }
+}
+
+
+function selectdType(){
+
+    var radioValue = $("input[name='dtype']:checked").val();
+    alert(radioValue)
+
+    if(radioValue==2){
+        $('#blk_dmac').css('display','inline-block');
+        // $('#entry_pass').css('display','none');
+        // $("#direct").find('input').prop('required',true);
+     }else
+     {
+
+        $('#blk_dmac').css('display','none');
+
+        // $('#entry_pass').css('display','block');
+        // $('#direct').css('display','none');
+        // $("#direct").find('input').prop('required',false);
+     }
+}
+
+$( "#submit_btn_mac" ).click(function() {
+    if(allFilled('#da_two_mac_form')){
+        $('#exampleModal1').modal('show');
+    }
+
+});
