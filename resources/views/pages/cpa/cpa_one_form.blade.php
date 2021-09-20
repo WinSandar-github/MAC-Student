@@ -78,7 +78,7 @@
                                         (တိုက်ရိုက်တက်ရောက်ခွင့်ရသူများ)
                                     </h5>
                                     <div class="d-flex justify-content-between">
-                                        <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                         <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                                     </div>
                                 </div>
@@ -949,7 +949,7 @@
                                                         </p>
                                                     </label>
                                                 </div>
-                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-m-Y') }}</h6>
+                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                             </div>
                                         </div>                                         
                                         
