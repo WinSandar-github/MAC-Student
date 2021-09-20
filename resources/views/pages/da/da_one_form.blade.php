@@ -365,7 +365,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="registration_no" value="1">
+                                    <input type="hidden" name="registration_no" value="0">
 
                                     <input type="hidden" name="approve_reject_status">
 
@@ -451,9 +451,12 @@
                                                 <label class="form-check-label">ဟုတ်</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input type="radio" class="form-check-input" id="yes" name="gov_staff" value="0" onclick="$('#rec_letter').hide()">
+                                                <input type="radio" class="form-check-input" id="no" name="gov_staff" value="0" onclick="$('#rec_letter').hide()">
                                                 <label class="form-check-label">မဟုတ်</label>
                                             </div>
+                                            <label  class="error attend_place_error" style="display:none;" for="gov_staff">Please select one</label>
+
+                                             
                                                 {{--<div class="row">
                                                     <div class="col-md-4">
                                                         <input type="radio" class="form-check-input mr-3" id="yes" name="gov_staff" value="1" onclick="$('#rec_letter').show()">
@@ -632,30 +635,58 @@
 
                                     <div class="row mb-3">
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၂၂။') }}</span>သင်တန်းတက်ရောက်မည့်နေရာ-</label>
-                                        <div class="col-sm-9 checkbox-radios py-2">
+                                        <div class="px-5 col-sm-8 col-md-9 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="attend_place" value='2'>
+                                                <label class="form-check-label" for="main_mac">
+                                                <input class="form-check-input " type="radio" id="main_mac" name="attend_place" value='2'  onclick="selectType()">
                                                     <span class="form-check-sign"></span>
-                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ရန်ကုန်သင်တန်းကျောင်း
+                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး 
                                                 </label>
                                             </div>
+                                            <div class="  col-md-12" id="blk_mac" style="display:none">
+                                            <div class="mx-4 row  ">
+                                                
+                                                <div class="col-md-5 form-check-radio px-0  ">
+                                                    <label class="form-check-label" for="sub_mac">
+                                                    <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                        <span class="form-check-sign"></span>
+                                                        ရန်ကုန်သင်တန်းကျောင်း
+                                                    </label>
+                                                    
+                                                </div> 
+                                                <div class="col-md-5  form-check-radio px-0  ">
+                                                    <label class="form-check-label" for="sub_mac2">
+                                                    <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                        <span class="form-check-sign"></span>
+                                                        နေပြည်တော်သင်တန်းကျောင်း
+                                                    </label>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
+
+                                            </div>
+                                                
+                                            </div>
+                                                
                                             <div class="form-check-radio px-0">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="attend_place" value='1'>
-                                                    <span class="form-check-sign"></span>
+                                                <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="private">
+                                                    
+                                                    <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="selectType()">
+                                                    <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="attend_place" value='0'>
-                                                    <span class="form-check-sign"></span>
+                                                <!-- <input class="form-check-input " type="radio" name="type" value='0'  onclick="selectType()"> -->
+                                                <label class="form-check-label" for="self">
+                                                    <!-- <span class="form-check-sign"></span> -->
+                                                    <input class="form-check-input" id="self" type="radio" name="attend_place" value='0' onclick="selectType()">
+                                                    <span class="form-check-sign" ></span>
                                                     ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
                                                 </label>
                                             </div>
                                             <div class="form-check-radio px-0">
-                                                <label id="attend_place-error" class="error" for="attend_place">Please select one</label>
+                                                <label  class="error attend_place_error" style="display:none;" for="attend_place">Please select one</label>
                                             </div>
                                         </div>
                                     </div>
@@ -670,6 +701,7 @@
                                                     * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                 </p>
                                             </label>
+
                                         </div>
                                     </div>
 
@@ -861,6 +893,7 @@
             });
             $('#btn_cash').prop('disabled', true);
 
+            
         });
 
     </script>
