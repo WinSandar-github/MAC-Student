@@ -365,7 +365,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="registration_no" value="1">
+                                    <input type="hidden" name="registration_no" value="0">
 
                                     <input type="hidden" name="approve_reject_status">
 
@@ -451,7 +451,7 @@
                                                 <label class="form-check-label">ဟုတ်</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input type="radio" class="form-check-input" id="yes" name="gov_staff" value="0" onclick="$('#rec_letter').hide()">
+                                                <input type="radio" class="form-check-input" id="no" name="gov_staff" value="0" onclick="$('#rec_letter').hide()">
                                                 <label class="form-check-label">မဟုတ်</label>
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="gov_staff">Please select one</label>
