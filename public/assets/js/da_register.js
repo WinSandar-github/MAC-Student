@@ -34,7 +34,7 @@ function createDARegister()
     }
     var send_data = new FormData();
 
-    var image = $("input[name=image]")[0].files[0];
+    var image = $("input[name=profile_photo]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
@@ -240,7 +240,7 @@ $('#store_da_two_form').submit(function(e){
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
     formData.append('type',$("input[name='dtype']:checked").val());
-  
+
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
