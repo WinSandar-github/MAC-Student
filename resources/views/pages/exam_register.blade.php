@@ -141,7 +141,7 @@
                                     <div class="row mb-3">
                                         <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၅။') }}</span>မွေးသက္ကရာဇ်</label>
                                         <div class="col-md-8">
-                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" readonly>
+                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" disabled>
                                         </div>
                                     </div>
 
@@ -462,6 +462,8 @@
 
         get_student_info(student_id).then(data => {
             if(data){
+                // console.log("Data Register Form",data.data)
+                let current_stu_course = data.data.student_course_regs.slice(-1);
 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
@@ -483,7 +485,11 @@
                 }else if(data.data.student_register[0].type == 1){
                     $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
                 }else{
-                    $("input[name='class_address']").val("စာရင်းကောင်စီ");
+
+                    var mac_name = current_stu_course[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                    $("input[name='class_address']").val(mac_name);
                 }
 
             }

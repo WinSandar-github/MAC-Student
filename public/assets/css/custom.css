@@ -256,3 +256,10 @@
 .form-check-radio input[type=radio]:disabled+.form-check-sign:after,.form-check-radio input[type=radio]:disabled+.form-check-sign:before {
     color: #9a9a9a
 }
+.origanzation{
+    display: none;
+}
+
+.error{
+    color: #ef8157;
+}

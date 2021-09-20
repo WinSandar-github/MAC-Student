@@ -335,6 +335,7 @@ function user_profile() {
 
                             // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                             //show data depend on Student Register status
+                            console.log(latest_stu_reg[0])
 
                             if (latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code) {
                                 $('.regi_fee_txt').text('Exam Registration Date')
@@ -435,6 +436,7 @@ function user_profile() {
 
 
                                                 get_course_by_code(course_code).then(data => {
+                                                   
 
 
                                                     // let batch = data.data[0].active_batch[0];
@@ -448,32 +450,33 @@ function user_profile() {
 
                                                     } else {
                                                         if (data) {
+                                                            alert("da two")
 
 
                                                             $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)
 
 
                                                             let batch = data.data[0].active_batch[0];
-
+                                                            
+                                                         
                                                             if (batch != undefined) {
-
+                                                                
                                                                 localStorage.setItem('course_id', batch.course.id);
                                                                 if (last_exam[0].course.code == "da_1" || last_exam[0].course.code == "cpa_1") {
+                                                                    let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
+                                                                    let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
+                                     
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
-                                                                    <td>
+                                                                            <td>
 
 
-                                                                        <span class="nav-item dropdown ">
-                                                                        <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">${show_text} </a>
-                                                                        <div class="dropdown-menu">
-                                                                            <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
-                                                                            <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
-                                                                            <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
-                                                                        </div>
-                                                                    </span>
-                                                                    <td>
-                                                                    </td>
+                                                                            
+                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
+                                                                            
+                                                                            
+                                                                            <td>
+                                                                        </td>
                                                                     </tr>
 
                                                                 `);

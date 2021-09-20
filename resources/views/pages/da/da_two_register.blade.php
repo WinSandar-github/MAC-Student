@@ -751,7 +751,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="card border-success mb-3 p-3">
                                         <div class="card-body">
                                             <div class="row mb-5">
-                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
+                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type"></span> <br>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
                                             
                                             </div>
@@ -1240,6 +1240,8 @@ $nrc_characters = config('myanmarnrc.characters');
                 let student_info = data.data;
                 if(data){
                     let current_stu_course = data.data.student_course_regs.slice(-1);
+                    var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                    $('#mac_type').text(mac_name)
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
@@ -1274,7 +1276,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     // $("input[name='company_name']").val(job.company_name);
                     // $("input[name='salary']").val(job.salary);
                     $("input[name='office_address']").val(job.office_address);
-
+                    
                     if(student_info.gov_staff==0){
                         $("#no_mac").prop("checked",true);
                         $("#no_self").prop("checked",true);
@@ -1287,8 +1289,10 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("#rec_letter_self").css("display",'block');
                         $("#yes_private").prop("checked",true);
                         $("#rec_letter_private").css("display",'block');
-
-                        $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        if(student_info.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        }
+                        
 
                     }
 
