@@ -28,6 +28,13 @@ $("#photo").change(function(){
     readURL(this);
 });
 
+function selectStaff(value){
+    if(value==1){
+        $('#rec_letter').css('display','block');
+    }else{
+        $('#rec_letter').css('display','none');
+    }
+}
 function ConfirmSubmit(){
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
@@ -47,8 +54,8 @@ function AddCPAEdu(){
             '<div class="col-md-7">'+
                 '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]">'+
             '</div>'+
-            '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
-                '<button class="btn btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
+            '<div class="col-md-1 text-left mt-1"  id="edu'+count+'_remove">'+
+                '<button class="btn btn-sm btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
                     '<i class="fa fa-trash "></i>'+
                 '</button>'+
             '</div>'+
@@ -275,7 +282,9 @@ $('#cpa_register').submit(function(e){
     send_data.append('degree_rank', $("input[name=degree_rank]").val());
     send_data.append('deg_certi_img', deg_certi_img);
 
-    send_data.append('type',$("input[name='type']:checked").val());
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+
 
    
 
@@ -463,7 +472,9 @@ function direct_or_da(){
 }
 
 $( "#cpa_one_submit" ).click(function() {
+     
     if(allFilled('#cpa_one_form')){
+        
         var send_data = new FormData();
         send_data.append('email',$("input[name='email']").val());
         // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
@@ -504,7 +515,7 @@ $( "#cpa_one_submit" ).click(function() {
 //     }
 // });
 function allFilled(form_id) {
-  
+   
     var filled = true;
     $(form_id+' input').each(function() {
         
@@ -608,9 +619,23 @@ function allFilled(form_id) {
             filled = false;
         }
 
-         if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
+        //  if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
+        //     filled = false;
+        //  }
+
+         if($('input[name="attend_place"]:checked').length === 0) {
+             
             filled = false;
-         }
+            
+       }else{
+         
+           var mac_val = $('input[name="attend_place"]:checked').val();
+
+           if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
+               filled = false;
+           }   
+
+       }
         
        
     });
@@ -762,7 +787,11 @@ $('#cpa_entry_register').submit(function(e){
     send_data.append('verify_code', $("input[name=verify_code]").val());
 
 
-    send_data.append('type',$("input[name='type']:checked").val());
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+
+
+   
 
     send_data.append('qt_entry',1);
 
@@ -802,6 +831,7 @@ $('#cpa_entry_register').submit(function(e){
         })
 
 })
+
 
 
 //Cpa One Entry Process End
