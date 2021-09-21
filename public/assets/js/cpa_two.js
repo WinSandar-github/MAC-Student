@@ -1,3 +1,8 @@
+$("input[id='cpa_one_pass_date_mac']").flatpickr({
+    enableTime: false,
+    dateFormat: "M-Y",
+    allowInput: true,
+});
 $("input[id='cpa_one_pass_date']").flatpickr({
     enableTime: false,
     dateFormat: "M-Y",
@@ -65,9 +70,12 @@ function CPA2_Private_School_Submit(){
 }
 
 $( "#cpa2_private" ).click(function() {
-        // if(allFill('#cpa2_private_form')){
+    console.log($("input[name='batch_personal_no_private']").val()!="" ,$("input[name='cpa_one_pass_date']").val()!=""
+    , $("input[name='cpa_one_access_no']").val()!="" , $("input[name='cpa_one_success_no']").val()!="");
+        if($("input[name='batch_personal_no_private']").val()!="" && $("input[name='cpa_one_pass_date']").val()!=""
+        && $("input[name='cpa_one_access_no']").val()!="" && $("input[name='cpa_one_success_no']").val()!=""){
             $('#exampleModal1').modal('show');
-        // }
+         }
     });
 
 
@@ -112,9 +120,10 @@ function CPA2_Mac_Submit(){
 }
 
 $( "#cpa2_mac" ).click(function() {
-        // if(allFill('#cpa2_mac_form')){
+    if($("input[name='batch_personal_no_mac']").val()!="" && $("input[name='cpa_one_pass_date_mac']").val()!=""
+         && $("input[name='cpa_one_access_no_mac']").val()!="" && $("input[name='cpa_one_success_no_mac']").val()!=""){
             $('#exampleModal3').modal('show');
-        // }
+         }
     });
 
 
@@ -159,9 +168,9 @@ function CPA2_Self_Study_Submit(){
 }
 
 $( "#cpa2_self" ).click(function() {
-        // if(allFill('#cpa2_self_form')){
+        if($('input[name="reg_reason[]"]:checked').length > 0 && $("input[name='batch_personal_no_self']").val()!=""){
             $('#exampleModal2').modal('show');
-        // }
+        }
 });
 
 function allFill(form_id) {

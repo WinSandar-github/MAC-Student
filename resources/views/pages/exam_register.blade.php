@@ -71,7 +71,7 @@
                                     ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းစာမေးပွဲဖြေဆိုခွင့်လျှောက်လွှာ</h5><br/>
                                     <div class="row mb-5">
                                       <div class="d-flex justify-content-between">
-                                          <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                                          <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                           <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                                       </div>
                                     </div>
@@ -210,6 +210,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one.</label>
                                             </div>
                                         </div>
                                     </div>
@@ -294,18 +295,28 @@
                                     </div>--}}
 
 
-                                    <div class="row mb-3">
+                                    {{--<div class="row mb-3">
                                         <div class="col-md-12 ">
                                             <div class="d-flex justify-content-between">
                                                 <div class="col-md-1 mt-2">
                                                         <input type="checkbox" class="form-check-input" name="submit_confirm" id="submit_confirm_mac" >
                                                     </div>
                                                 <label class="col-md-9 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ကြောင်းဝန်ခံပါသည်။') }}</label>
-                                                <h6 class="col-md-3 col-form-label">ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                                                <h6 class="col-md-3 col-form-label"></h6>
                                             </div>
                                         </div>
+                                    </div>--}}
+                                    <div class="row mb-3">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="submit_confirm" id="submit_confirm_mac" >
+                                                <span class="form-check-sign"></span>
+                                                <p class="fw-bolder">
+                                                    * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ကြောင်းဝန်ခံပါသည်။<br>
+                                                </p>
+                                            </label>
+                                        </div>
                                     </div>
-
                                     {{--<table width="100%">
                                         <tr>
                                             <td width="45%">
@@ -450,6 +461,7 @@
         height: 190px;
     }
 </style>
+<script src="{{ asset("js/form_validation/da_one_exam_validation.js") }}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
         $('#form_type').val(localStorage.getItem('course_id'));
