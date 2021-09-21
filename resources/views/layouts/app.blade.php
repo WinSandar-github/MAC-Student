@@ -127,6 +127,7 @@
 <!-- <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script> -->
 <script src="{{ asset('assets/js/plugins/ajax-contact.js') }}"></script>
 <script src="{{ asset("assets/js/plugins/jasny-bootstrap.min.js")  }}"></script>
+<script src="{{ asset("js/underscore-min.js") }}"></script>
 
 <!-- flatpickr JS -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
