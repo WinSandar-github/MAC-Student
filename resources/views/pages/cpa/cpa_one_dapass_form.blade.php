@@ -87,6 +87,7 @@
                                 {{--<form method="Post" id="cpa_register" enctype="multipart/form-data" class="needs-validation" novalidate>--}}
                                 <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data" class="needs-validation" novalidate>
                                     @csrf
+                                    <input type="hidden" id="entry_type" value="da_pass">
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-8">
@@ -482,75 +483,40 @@
                                             </div>
                                         </div>
 
-                                       
-
-                                        <!-- ‌Acca Cima -->
-                                        <div class="row mb-3">                                            
-                                            <label class="col-md-4 col-form-label mr-2"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၂။') }}
-                                            </span>ACCA/CIMA တက်ရောက်နေသူ -</label>
-
-                                   
-                                                            
-                                                <div class="col-md-2 form-check mt-2   ">
-                                                    <input class="form-check-input" type="radio" id="acca" name="acca_cima" value='1'    >
-                                                    <label class="form-check-label" for="acca">
-                                                        <!-- <span class="form-check-sign"></span> -->
-                                                    ACCA
-                                                    </label>
-                                                    
-                                                </div> 
-                                                <div class="col-md-2  form-check mt-2 ">
-                                                    <input class="form-check-input" type="radio" id="cima" name="acca_cima" value='2'    >
-                                                    <label class="form-check-label" for="cima">
-                                                        <!-- <span class="form-check-sign"></span> -->
-                                                        CIMA
-                                                    </label>
-                                                </div>
- 
-                                                         
-                                                </div>
-
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည်အဆင့်</label>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
-                                                </div>
-                                            </div>
+                                            <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၂။') }}</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုနှစ်/လ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ခုနှစ်/လ</label>                                            
                                             <div class="col-md-8">
-                                                <div>
-                                                    <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >
+                                                <div class="">
+                                                    <input type="text" placeholder="ခုနှစ်" id="da_pass_date" name="da_pass_date" class="form-control year"  required="">
                                                 </div>
-                                            </div>
+                                            </div>                                            
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုံအမှတ်</label>                                                
+                                            <div class="col-md-8">                                                    
+                                                    <input type="text" placeholder="ခုံအမှတ်" id="da_pass_roll_number" name="da_pass_roll_number" class="form-control  ">                                                
+                                            </div>                                            
                                         </div>
                                         
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>သင်တန်းသားမှတ်ပုံတင်အမှတ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>Attched Certificate</label>
                                             <div class="col-md-8">
                                                 <div>
-                                                    <input type="text" placeholder="သင်တန်းသားမှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
+                                                    <input type="file" class="form-control" placeholder="upload photo" name="da_pass_certificate"   value="{{ old('da_pass_certificate') }}"  >
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>Attched Certificate</label>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="file" class="form-control" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"   required>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <br>
+                                         
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၂၃') }}</label>
+                                                    <label>{{ __('၂၃။') }}</label>
                                                 </div>
                                             </div>
 
