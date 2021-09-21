@@ -49,8 +49,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                             <div class="row" id="self_study_container">
                                 {{-- <form id="self_study_form" method="post" action="javascript:createDaTwoSelfStudy();" enctype="multipart/form-data"> --}}
-                                <form method="post" action="javascript:void();"
-                                    enctype="multipart/form-data">
+                                <form method="post" id="da_two_selfstudy_form" action="javascript:void();" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="batch_id" value="{{ $batch['id'] }}" />
 
@@ -79,7 +78,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                        <input type="text" name="mac_semester" id="date" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" required>
+                                                        <input type="text" name="mac_semester" id="date" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >
                                                         
                                                     </div>
                                                 </div>
@@ -305,7 +304,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>အဆင့်</label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
-                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control year"  required="">
+                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control ">
                                                         </div>
                                                     </div>                                            
                                                 </div>
@@ -354,8 +353,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 name="reg_reason[]">
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <label class="form-check-label">သင်တန်းတက်ရောက်ချိန် ၆၀%
-                                                                မပြည့်ခြင်း</label>
+                                                            <label class="form-check-label">သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
                                                         </div>
                                                     </div><br />
 
@@ -409,8 +407,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="row mb-4">
                                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" name="student_regno" class="form-control personal_no_self"
-                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
+                                                            <input type="text" name="personal_no_self" class="form-control personal_no_self"
+                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self">
 
                                                         </div>
                                                     </div>                                                   
@@ -420,7 +418,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="d-flex justify-content-between">
                                                             <div class="form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_self').prop('disabled', !this.checked)">
+                                                                    <input class="form-check-input" type="checkbox" name="da_two_self_reg_declare" onchange="$('#submit_btn_self').prop('disabled', !this.checked)">
                                                                     <span class="form-check-sign"></span>
                                                                     <p class="fw-bolder">
                                                                         * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
@@ -447,7 +445,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                             <div class="row" id="private_school_container">
                                 {{-- <form method="post" action="javascript:createDaTwoPrivateSchool();" enctype="multipart/form-data"> --}}
-                                <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                                <form method="post" id="da_two_private_form" action="javascript:void();" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="batch_id" value="{{ $batch['id'] }}" />
 
@@ -744,7 +742,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </label>
 
                                                     <div class="col-md-8">
-                                                        <input type="text" name="student_regno" class="form-control personal_no_self"
+                                                        <input type="text" name="personal_no_self" class="form-control personal_no_self"
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
                                                     </div>
                                                 </div>
@@ -753,7 +751,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="d-flex justify-content-between">
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" onchange="$('#da_two_mac_submit').prop('disabled', !this.checked)">
+                                                                <input class="form-check-input" name="da_two_private_reg_declare" type="checkbox" onchange="$('#da_two_private_submit').prop('disabled', !this.checked)">
                                                                 <span class="form-check-sign"></span>
                                                                 <p class="fw-bolder">
                                                                     * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
@@ -765,12 +763,11 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
-                                                    <div class="col-md-2 offset-md-5">                                                        
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="da_two_mac_submit"
+                                                <div class="row justify-content-center">                                                       
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="da_two_private_submit"
                                                             data-bs-toggle="modal" data-bs-target="#exampleModal2">Submit
                                                         </button>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -782,7 +779,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                             <div class="row" id="mac_container">
 
-                                <form method="post" action="javascript:void();" enctype="multipart/form-data">
+                                <form method="post" id="da_two_mac_form" action="javascript:void();" enctype="multipart/form-data">
                                     <input type="hidden" name="batch_id" value="{{ $batch['id'] }}" />
                                     <div class="card border-success mb-3 " style="padding:3% 5% 3% 5%;">
                                         <div class="card-body">
@@ -1055,7 +1052,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mb-4">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="student_regno" class="form-control personal_no_self"
+                                                        <input type="text" name="personal_no_self" class="form-control personal_no_self"
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
                                                     </div>
                                                 </div>
@@ -1065,7 +1062,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="d-flex justify-content-between">
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
+                                                                <input class="form-check-input" type="checkbox" name="da_two_mac_reg_declare" onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
                                                                 <span class="form-check-sign"></span>
                                                                 <p class="fw-bolder">
                                                                     * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
@@ -1267,6 +1264,7 @@ $nrc_characters = config('myanmarnrc.characters');
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/da_two_reg_validation.js') }}"></script>
     <script type="text/javascript">
         $('document').ready(function() {
             const queryString = location.search;
@@ -1275,8 +1273,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 enableTime: false,
                 dateFormat: "Y",
                 allowInput: true,
-            });
-
+            }); 
 
             selectedRegistration(urlParams.get("study_type"));
 
@@ -1365,6 +1362,24 @@ $nrc_characters = config('myanmarnrc.characters');
 
         var exam_date = localStorage.getItem("exam_date");
         $("input[name='exam_date']").val(formatDate(exam_date));
+
+        
+
+        $("#submit_btn_self").click(function () {
+            // var aa = $("input[name=mac_semester]").val()
+            // console.log("mac_semester",aa);
+            // console.log("da_one_pass_level",$("input[name=da_one_pass_level]").val());
+            // console.log("reg_reason",$('input[name="reg_reason[]"]:checked').length);
+            // console.log("personal_no_self",$(".personal_no_self").val());
+            if($("input[name=mac_semester]").val()!="" && 
+                $("input[name=da_one_pass_level]").val()!="" && 
+                $('input[name="reg_reason[]"]:checked').length > 0 && 
+                $(".personal_no_self").val()!=""){
+                    $('#exampleModal3').modal('show');
+            }else{
+                $('#exampleModal3').modal('hide');
+            }
+        });
 
         //MAC
         $('#mac_btn').click(function () {

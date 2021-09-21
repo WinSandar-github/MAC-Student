@@ -276,6 +276,15 @@ $('#store_da_two_form').submit(function(e){
 //     location.href = FRONTEND_URL+"/";
 // });
 
+$("#submit_btn_self").click(function () {
+    if($("input[name=mac_semester]").val()!="" && $("input[name=da_one_pass_level]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
+    {
+            $('#exampleModal3').modal('show');
+    }else{
+        $('#exampleModal3').modal('hide');
+    }
+});
+
 function createDaTwoSelfStudy()
 {
 
@@ -309,6 +318,23 @@ function createDaTwoSelfStudy()
 
     });
 }
+
+
+$("#da_two_private_submit").click(function () {
+    // var aa = $("input[name=mac_semester]").val()
+    // console.log("mac_semester",aa);
+    // console.log("da_one_pass_level",$("input[name=da_one_pass_level]").val());
+    // console.log("reg_reason",$('input[name="reg_reason[]"]:checked').length);
+    // console.log("personal_no_self",$(".personal_no_self").val());
+    if($("#selected_school_id").val() != "" && 
+        $("#academic_year").val() != "" && 
+        $("input[name=da_one_pass_level]").val() != "" &&
+        $(".personal_no_self").val() != ""){
+            $('#exampleModal2').modal('show');
+    }else{
+        $('#exampleModal2').modal('hide');
+    }
+});
 
 function createDaTwoPrivateSchool()
 {
@@ -347,6 +373,21 @@ function createDaTwoPrivateSchool()
     }
     });
 }
+
+$("#submit_btn_mac").click(function () {
+    // var aa = $("input[name=mac_semester]").val()
+    // console.log("mac_semester",aa);
+    // console.log("da_one_pass_level",$("input[name=da_one_pass_level]").val());
+    // console.log("reg_reason",$('input[name="reg_reason[]"]:checked').length);
+    // console.log("personal_no_self",$(".personal_no_self").val());
+    if($("input[name=mac_semester]").val() != "" && 
+        $("input[name=da_one_pass_level]").val() != "" &&
+        $(".personal_no_self").val() != ""){
+            $('#exampleModal1').modal('show');
+    }else{
+        $('#exampleModal1').modal('hide');
+    }
+});
 
 function createDaTwoMac()
 {
