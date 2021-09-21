@@ -384,6 +384,8 @@ function loadPAPP(){
                         document.getElementById('papp_initial').style.display='none';
                         document.getElementById('approved').style.display='none';
                         document.getElementById('papp_renew_form').style.display='block';
+                        $('.initial_text').css('display','none');
+                        $('.renew_text').css('display','block');
                         var accept=new Date(data.renew_accepted_date);
                         var month=accept.getMonth()+1;
                         var year=accept.getFullYear();
