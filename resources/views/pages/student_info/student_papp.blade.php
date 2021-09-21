@@ -91,7 +91,7 @@
                         <br/>
 
                         {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
-                        <form  method="post" id="papp_form" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate="">
+                        <form  method="post" id="papp_form" action="javascript:void();" enctype="multipart/form-data">
                             <fieldset id="fieldset" disabled="disabled">
                             <!-- <fieldset id="fieldset" > -->
 
@@ -155,7 +155,7 @@
                                                 </div>
                                                 <div class="col-md-4 col-7 pl-1">
                                                     <div class="single-form">
-                                                        <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  required="" maxlength="6">
+                                                        <input type="text" name="nrc_number" id="nrc_number" class="form-control" value="{{ old('nrc_number') }}" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
@@ -177,21 +177,36 @@
                                         <div class="col-md-2 col-form-label pt-4" >{{ __('(က)') }}</div>
                                         <div class="col-md-3 col-form-label pt-4">{{ __('အမည်') }}</div>
                                         <div class="col-md-4 col-form-label pt-4">
-                                            <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                            <input type="text" name="name_mm" class="form-control" id="name_mm">
                                         </div>
                                     </div>
                                     <div class="row" style="padding-left: 110px;">
-                                        <div class="col-md-2 col-form-label pt-4" >{{ __('(ခ)') }}</div>
-                                        <div class="col-md-3 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
-                                        <div class="col-md-4 col-form-label pt-4">
-                                            <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ခ)') }}</div>
+                                    <div class="col-md-3 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
+                                    <div class="col-md-7">
+                                        <div class="row" style="padding-top: 7%; margin-top: 0px;">
+                                            <div class="col-md-2 col-5 pr-1">
+                                                <input type="text" name="nrc_state_region" class="form-control" id="nrc_state_region" readonly="">
+                                            </div>
+                                            <div class="col-md-3 col-7 px-1">
+                                                <input type="text" name="nrc_township" class="form-control" id="nrc_township" readonly="">
+                                            </div>
+                                            <div class="col-md-2 col-5 px-1">
+                                                <input type="text" name="nrc_citizen" class="form-control" id="nrc_citizen" readonly="">
+                                            </div>
+
+                                            <div class="col-md-5 col-7 pl-1">
+                                                <input type="text" name="nrc_number" class="form-control" id="nrc_number" readonly="">
+                                            </div>
                                         </div>
                                     </div>
+                                    
+                                </div>
                                     <div class="row" style="padding-left: 110px; margin-bottom: 2%;">
                                         <div class="col-md-2 col-form-label pt-4" >{{ __('(ဂ)') }}</div>
                                         <div class="col-md-3 col-form-label pt-4">{{ __('အဘအမည်') }}</div>
                                         <div class="col-md-4 col-form-label pt-4">
-                                            <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                            <input type="text" name="father_name_mm" class="form-control" id="father_name_mm">
                                         </div>
                                     </div> 
                                     <div class="row" style="padding-left: 53px;">
@@ -273,28 +288,28 @@
                                     <div class="col-md-2 col-form-label pt-4" >{{ __('(င)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="Enter CPA batch number">
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" >{{ __('(စ)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        <input type="text"  class="form-control" name="address"  placeholder="Enter your current address">
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" ></div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('တယ်လီဖုန်းနံပါတ်၊ Fax ဖုန်းနံပါတ်') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        <input type="text"  class="form-control" name="phone"  placeholder="">
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" ></div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('E-mail Address') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        <input type="text"  class="form-control" name="contact_mail"  placeholder="Enter your phone number">
                                     </div>
                                 </div>
 
@@ -303,7 +318,7 @@
                                     <div class="col-md-5 pull-right">
                                         {{--<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
                                         <p class="mt-2">
-                                        <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);">
                                         </p>--}}
                                         {{--User Photo--}}
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -316,7 +331,7 @@
                                                 <span class="btn btn-round btn-secondary btn-file">
                                                 <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                 <span class="fileinput-exists">Change</span>
-                                                <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                <input type="file" id="profile_photo" name="profile_photo" accept="image/*"></span>
                                                 <br>
                                                 <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                             </div>
@@ -413,7 +428,7 @@
                                         <div class="row">
                                             <label class="col-md-4"  style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား</label>
                                             <div class="col-md-2">
-                                                <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" required>
+                                                <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY">
                                             </div>
                                             <label class="col-md-5"  style="font-size:15px;">ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
                                         </div>
@@ -430,7 +445,7 @@
                                         <div class="row">
                                             <label class="col-md-6"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်</label>
                                             <div class="col-md-2">
-                                                <input type="text" name="papp_date" class="form-control papp_date" placeholder="ခုနှစ်/YYYY" required>
+                                                <input type="text" name="papp_date" class="form-control papp_date" placeholder="ခုနှစ်/YYYY">
                                             </div>
                                             <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
                                         </div>
@@ -543,7 +558,7 @@
                                             <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file" class="form-control"  id="cpa_ff_file" required="" >
+                                            <input type="file" class="form-control" name="cpa_ff_file"  id="cpa_ff_file" >
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -553,7 +568,7 @@
                                             <label style="font-size:15px;"> မှတ်ပုံတင်မည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူဖြစ်ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file" class="form-control" id="file_183" required="" >
+                                            <input type="file" class="form-control" id="file_183" name="file_183">
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -563,7 +578,7 @@
                                             <label style="font-size:15px;"> အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့် တာဝန်ထမ်းတောင်နေသူ မဟုတ်ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file" class="form-control" id="not_fulltime_file" required="" >
+                                            <input type="file" class="form-control" id="not_fulltime_file" name="not_fulltime_file">
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -573,7 +588,7 @@
                                             <label style="font-size:15px;"> လျှောက်ထားသည့်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏ အဓိကအသက်မွေးဝမ်းကျောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင်မည်ဖြစ်​ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file"  class="form-control" id="work_in_mm_file" required="" >
+                                            <input type="file"  class="form-control" id="work_in_mm_file" name="work_in_mm_file">
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -583,7 +598,7 @@
                                             <label style="font-size:15px;"> လုပ်ငန်းဆောင်ရွက်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီ၏ ၉-၈-၂၀၁၈ ရက်စွဲပါအမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့်စည်းကမ်းချက်များနှင့် စပ်လျဥ်း၍ လိုက်နာခြင်း ရှိ/မရှိ၊</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file" class="form-control" id="rule_conf_file" required="" >
+                                            <input type="file" class="form-control" id="rule_conf_file" name="rule_conf_file">
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -593,7 +608,7 @@
                                             <label style="font-size:15px;">စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file" class="form-control" id="cpd_record_file" required="" >
+                                            <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file">
                                     </div>
                                 </div><br/>
 
@@ -604,7 +619,7 @@
                                             <label style="font-size:15px;">စုစုပေါင်း နာရီ</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" required="" >
+                                            <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -614,7 +629,7 @@
                                         <div class="row">
                                             <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
                                             <div class="col-md-3">
-                                                <input type="text" name="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY" required>
+                                                <input type="text" name="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
                                             </div>
                                             <label class="col-md-5" >ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု </label>
                                         </div>
@@ -625,7 +640,7 @@
 
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="file" class="form-control" id="tax_free_file" required="" >
+                                            <input type="file" class="form-control" id="tax_free_file" name="tax_free_file">
                                     </div>
                                 </div><br/>
 
@@ -634,7 +649,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဇ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card" required="" >
+                                                <input type="file"  class="form-control" name="mpa_mem_card" >
                                     </div>
                                 </div><br/>
                                 <div class="row">
@@ -643,16 +658,14 @@
 
                                     <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
                                     <div class="col-md-4">
-
-                                                <input type="file"  class="form-control" name="" required="" >
-
+                                        <input type="file"  class="form-control" name="letter" >
                                     </div>
                                 </div><br/>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" >{{ __('(ည)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('CPA(FF) Registeraion No.') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name=""  placeholder="" required="">
+                                        <input type="text"  class="form-control" name="reg_no"  placeholder="">
                                     </div>
                                 </div><br>
 
@@ -664,7 +677,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
                                         {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>--}}
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100" id="papp_submit_btn" >{{ __('Submit') }}</button>
+                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -686,7 +699,7 @@
                             <div class="col-md-7 col-form-label">သက်တမ်းတိုးလျှောက်လွှာ</div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_file" required="">
+                                        <input type="file"  class="form-control" name="renew_file">
                                 </div>
                             </div>
                         </div><br/>
@@ -695,7 +708,7 @@
                             <div class="col-md-7 col-form-label"> PAPP မှတ်ပုံတင်ကတ် </div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_papp_reg" required="">
+                                        <input type="file"  class="form-control" name="renew_papp_reg">
                                 </div>
                             </div>
                         </div><br/>
@@ -704,7 +717,7 @@
                             <div class="col-md-7 col-form-label"> MICPA membership ကတ် (သက်ဆိုင်ရာပြက္ခဒိန်နှစ်တွက် သက်တမ်းတိုးပြီး ဖြစ်ရပါမည်။)</div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_micpa" required="">
+                                        <input type="file"  class="form-control" name="renew_micpa">
                                 </div>
                             </div>
                         </div><br/>
@@ -713,7 +726,7 @@
                             <div class="col-md-7 col-form-label"> CPD နာရီ မှတ်တမ်းအထောက်အထားများ (သတ်တမ်းတိုးမည့် ပြက္ခဒိန်နှစ်မတိုင်မီ ကပ် လျက်ရှိသော နှစ်၏ နိုဝင်ဘာလမတိုင်မီ (၁၂) လ အတွင်း CPD နာရီ အနည်းဆုံး ၂၀ နာရီ ပြည့်မီရမည်ဖြစ်ပြီးတစ်ဆက်တည်းသုံးနှစ်တွင်စုစုပေါင်းနာရီ၁၂၀ပြည့်မီရမည်ဖြစ်ပါသည်။)</div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_cpd" required="">
+                                        <input type="file"  class="form-control" name="renew_cpd">
                                 </div>
                             </div>
                         </div><br/>
@@ -722,7 +735,7 @@
                             <div class="col-md-7 col-form-label"> မှတ်ပုံတင်မည့်ပြက္ခဒိန်နှစ် မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံတွင် ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူ ဖြစ်ကြောင်း ကိုယ်တိုင်ခံဝန်ချက်</div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_183_recomm" required="">
+                                        <input type="file"  class="form-control" name="renew_183_recomm">
                                 </div>
                             </div>
                         </div><br/>
@@ -731,7 +744,7 @@
                             <div class="col-md-7 col-form-label"> အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့်တာဝန်ထမ်းဆောင်နေသူ မဟုတ် ကြောင်း ကိုယ်တိုင်ခံဝန်ချက်</div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_not_fulltime_recomm" required="">
+                                        <input type="file"  class="form-control" name="renew_not_fulltime_recomm">
                                 </div>
                             </div>
                         </div><br/>
@@ -740,7 +753,7 @@
                             <div class="col-md-7 col-form-label"> လျှောက်ထားသည့် ပြက္ခဒိန်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ် ငန်းကိုမိမိ၏အဓိကအသက်မွေးဝမ်းကြောင်းလုပ်ငန်းအဖြစ်မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင် မည်ဖြစ်ကြောင်း ကိုယ်တိုင်ခံဝန်ချက်</div>
                             <div class="col-md-4">
                                 <div class="">
-                                        <input type="file"  class="form-control" name="renew_rule_confession" required="">
+                                        <input type="file"  class="form-control" name="renew_rule_confession">
                                 </div>
                             </div>
                         </div><br/>
@@ -805,7 +818,9 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/papp_validation.js') }}"></script>
 <script type="text/javascript">
+   loadCpaffData();
    isLoginPAPP();
    Papp_feedback();
 
