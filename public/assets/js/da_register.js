@@ -82,7 +82,7 @@ function createDARegister()
     send_data.append('degree_name', $("input[name=degree_name]").val());
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function(){
-       
+
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
             console.log($(this))
             send_data.append('certificate[]',$(this).get(0).files[i]);
@@ -239,16 +239,16 @@ $('#da_update').submit(function(e){
 
 //store Da Application Form
 $('#store_da_two_form').submit(function(e){
-    
+
     e.preventDefault();
     var formData = new FormData(this);
     formData.append('student_id',student_id);
     formData.append('batch_id',$("input[name=batch_id]").val());
     formData.append('type',$("input[name='dtype']:checked").val());
-    formData.append('mac_type',$("input[name='mac_dtype']:checked").val()) 
-    
+    formData.append('mac_type',$("input[name='mac_dtype']:checked").val())
 
-  
+
+
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/store_cpa_da_two_app_form",
@@ -562,22 +562,22 @@ function allFilled(form_id) {
             filled = false;
         }
         if($("#certificate0").val() == ''){
-           
+
             filled = false;
         }
 
-      
-         
+
+
         if($('input[name="attend_place"]:checked').length === 0) {
-            
+
              filled = false;
-             
+
         }else{
             var mac_val = $('input[name="attend_place"]:checked').val();
 
             if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
                 filled = false;
-            }   
+            }
 
         }
 
@@ -768,7 +768,7 @@ function loadPrivateSchoolList(){
 }
 
 function selectType(){
-    
+
     var radioValue = $("input[name='attend_place']:checked").val();
 
     if(radioValue==2){
@@ -777,7 +777,7 @@ function selectType(){
         // $("#direct").find('input').prop('required',true);
      }else
      {
-  
+
         $('#blk_mac').css('display','none');
 
         // $('#entry_pass').css('display','block');
@@ -788,7 +788,7 @@ function selectType(){
 
 
 function selectdType(){
-    
+
     var radioValue = $("input[name='dtype']:checked").val();
     alert(radioValue)
 
@@ -798,7 +798,7 @@ function selectdType(){
         // $("#direct").find('input').prop('required',true);
      }else
      {
-  
+
         $('#blk_dmac').css('display','none');
 
         // $('#entry_pass').css('display','block');
@@ -811,5 +811,5 @@ $( "#submit_btn_mac" ).click(function() {
     if(allFilled('#da_two_mac_form')){
         $('#exampleModal1').modal('show');
     }
-    
+
 });
