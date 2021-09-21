@@ -958,29 +958,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၀။') }}</span>သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
-                                            {{-- <div class="col-sm-8 checkbox-radios py-2">
-                                                <div class="form-check-radio px-0">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="dmac" value="2" name="dtype" required>
-                                                        <span class="form-check-sign"></span>
-                                                        ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး၊ရန်ကုန်သင်တန်းကျောင်း
-                                                    </label>
-                                                </div>
-                                                <div class="form-check-radio px-0">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="dprivate" value="1" name="dtype" required>
-                                                        <span class="form-check-sign"></span>
-                                                        ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
-                                                    </label>
-                                                </div>
-                                                <div class="form-check-radio px-0">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="dself" value="0" name="dtype" required>
-                                                        <span class="form-check-sign"></span>
-                                                        ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ
-                                                    </label>
-                                                </div>
-                                            </div> --}}
+                                            
                                             <div class="col-md-8">
                                                 
                                                 <div class="row">
