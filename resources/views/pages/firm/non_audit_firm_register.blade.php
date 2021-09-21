@@ -76,7 +76,7 @@
             </div>
 
 			<div id="non_audit_app_form" style="display:block;">
-				<form id="non-audit-form" class="needs-validation" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
+				<form id="non-audit-form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" >
 					<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
 	            	<div class="row mt-5">
@@ -92,14 +92,14 @@
 							<div class="row mb-3">
 								<div class="col-md-12">
 									<div class="col-md-3 pull-left">
-											<select class="form-control form-select" id="choose_firm_type" aria-label="">
+											<select class="form-control form-select" name="choose_firm_type" id="choose_firm_type" aria-label="" >
 												<option value="0" selected>Choose Firm Type</option>
 												<option value="1">Local</option>
 												<option value="2">Foreign</option>
 											</select>
 									</div>
 										<div class="col-md-2 pull-right">
-											<h6>For the year - {{ __("____") }}</h6>
+											<h6>For the year - {{ date('Y') }}</h6>
 										</div>
 								</div>
 							</div>
@@ -113,7 +113,7 @@
 												<label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
 												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
 												<div class="col-md-8">
-														<input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" required>
+														<input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
 														@if ($errors->has('email'))
 																<span class="text-danger">
 																		<strong>{{ $errors->first('email') }}</strong>
@@ -127,7 +127,7 @@
 												<label for="" class="col-md-5 col-form-label label_align_right">Password</label>--}}
 												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Password</label>
 												<div class="col-md-8">
-														<input type="password" placeholder="Enter Password!" name="password" class="form-control" value="{{ old('password') }}" required>
+														<input type="password" placeholder="Enter Password!" name="password" id="password" class="form-control" value="{{ old('password') }}" >
 												</div>
 												@if ($errors->has('password'))
 														<span class="text-danger">
@@ -141,7 +141,7 @@
 												<label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>--}}
 												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Confirm Password!</label>
 												<div class="col-md-8">
-														<input type="password" placeholder="Confirm Password" name="confirm_password" class="form-control" required>
+														<input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" class="form-control" >
 												</div>
 										</div>
 
@@ -150,7 +150,7 @@
 											<label class="col-md-3 col-form-label">{{ __('Firm Registration Number') }}</label>
 											<div class="col-md-8">
 												<div class="form-group">
-													<input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Firm Registration No" autocomplete="off" required>
+													<input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Firm Registration No" autocomplete="off" >
 												</div>
 											</div>
 										</div><br>--}}
@@ -160,7 +160,7 @@
 											<label class="col-md-5 col-form-label label_align_right">{{ __('Firm Name') }}</label>
 											<div class="col-md-6">
 												<div class="form-group">
-													<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" required>
+													<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
 												</div>
 											</div>
 											@error('name')
@@ -176,7 +176,7 @@
 												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Firm Name</label>
 												<div class="col-md-8">
 													<div class="form-group">
-														<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" required>
+														<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
 													</div>
 												</div>
 												@error('name')
@@ -192,7 +192,7 @@
 										{{--<div class="col-md-7 pull-right">
 											<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
 											<p class="mt-2">
-											<input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" required>
+											<input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" >
 											</p>
 											<div class="form-text mb-2 text-danger" >Allowed Jpeg and Png Image.</div>
 										</div>--}}
@@ -207,7 +207,7 @@
 														<span class="btn btn-round btn-secondary btn-file">
 														<span class="fileinput-new">Photo</span>
 														<span class="fileinput-exists">Change</span>
-														<input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+														<input type="file" id="profile_photo" name="profile_photo" accept="image/*" ></span>
 														<br>
 														<a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
 												</div>
@@ -221,22 +221,22 @@
 									<label class="col-md-3 col-form-label label_align_right">{{ __('Address Of Practice(Head Office)') }}</label>
 									<div class="col-md-2">
 										<div class="form-group">
-											<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" required>
+											<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" >
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
-											<input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" required>
+											<input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" >
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
-											<input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" required>
+											<input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" >
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="form-group">
-											<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off" required>
+											<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off" >
 										</div>
 									</div>
 								</div>
@@ -245,24 +245,25 @@
 									<div class="col-md-4"></div>
 									<div class="col-md-2">
 										<div class="form-group">
-											<input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" required>
+											<input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" >
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="form-group">
-											<input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" required>
+											<input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" >
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="form-group">
-											<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" required>
+											<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" >
 										</div>
 									</div>
 								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Branch Office') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
+									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
 
 								</div>
 								<div class="row mb-3">
@@ -290,19 +291,19 @@
 													<thead>
 													<tbody>
 														<tr>
-															<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off" required></td>
+															<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off" ></td>
 															{{--<td>
 																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputTele("branch_non_audit")'>
 																	<i class="fa fa-plus"></i>
 																</button>
 															</td>--}}
-															<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" required></td>
+															<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" ></td>
 															<td>
 																<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch_non_audit")'><i class="fa fa-trash"></i></button>
 															</td>
@@ -316,8 +317,8 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
-
+									<label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
+									<label for="" class="col-md-6 non_partner_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
 								</div>
 
 								<div class="row mb-3">
@@ -342,9 +343,9 @@
 													<tbody>
 														<tr>
 															<td>1</td>
-															<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" required></td>
+															<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" ></td>
 															<td>
-																<input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" required>
+																<input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" >
 															</td>
 															<td>
 																<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartnerByNonAudit("non_partner")'><i class="fa fa-trash"></i></button>
@@ -359,8 +360,8 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
-
+									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
+									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
 								</div>
 								<div class="row mb-3">
 									<div class="col-md-1"></div>
@@ -386,10 +387,10 @@
 													<tbody>
 														<tr>
 															<td>1</td>
-															<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" required></td>
-															<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" required></td>
+															<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" ></td>
 															<td>
-																<input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required>
+																<input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" >
 
 															</td>
 															<!-- <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td> -->
@@ -406,15 +407,16 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Organization Structure') }}</label>
+									<label class="col-md-4 col-form-label" id="org_validate" style="display: none;color:#ef815;">Please Select Organization Structure </label>
 								</div>
-								<div class="row">
+								{{--<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
 									<!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
 									<div class="col-md-8" id="org_validate" style="display:none;">
-											<label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
+											<label style="color:#ef815;">Please Select Organization Structure </label>
 									</div>
-								</div>
+								</div>--}}
 
 								<div class='row organization_data'></div><br>
 
@@ -1074,14 +1076,15 @@
 									<label class="col-md-3 col-form-label">{{ __('Name Of Managing Director') }}</label>
 									<div class="col-md-8 col-form-label">
 										<div class="form-group">
-											<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" required>
+											<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" >
 										</div>
 									</div>
 								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Total Staff') }}</label>
+									<label class="col-md-2 col-form-label">{{ __('Total Staff') }}</label>
+									<label for="" class="col-md-6 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
 								</div>
 
 								<div class="row mb-3">
@@ -1115,7 +1118,8 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Types Of Service Provided') }}</label>
+									<label class="col-md-4 col-form-label">{{ __('Types Of Service Provided') }}</label>
+									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
 
 								</div>
 								<div class="row mb-3">
@@ -1142,14 +1146,6 @@
 												</table>
 											</div>
 										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('') }}</label>
-									<label class="col-md-2 col-form-label">{{ __('') }}</label>
-									<div class="col-md-8" id="type_service_validate" style="display:none;">
-											<label class="text-danger">Service Provided အမျိုးအစားရွေးချယ်ပါ</label>
 									</div>
 								</div>
 
@@ -1187,8 +1183,8 @@
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
 										<label class="col-md-1 col-form-label" id="label1">13.</label>
-										<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
-
+										<label class="col-md-6 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
+										<label class="col-md-5 director_staffmembers_validate col-form-label" id="" style="display: none;color:#ef815;">Please Fill Particulars Of Directors/ Staff Members Who Is A Myanmar CPA</label>
 									</div>
 									<div class="row">
 										<div class="col-md-1"></div>
@@ -1216,7 +1212,7 @@
 														<tbody>
 															<tr>
 																<td>1</td>
-																<td><input type="text" value="" name="mf_name[]" class="form-control" autocomplete="off"></td>
+																<td><input type="text" value="" name="mf_name[]" class="form-control" autocomplete="off" ></td>
 																<td><input type="text" value="" name="mf_position[]" class="form-control" autocomplete="off"></td>
 																<td><input type="text" value="" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"></td>
 																<td><input type="text" value="" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"></td>
@@ -1241,7 +1237,7 @@
 									<label class="col-form-label" style="display:contents;font-weight:bold;">{{ __('I') }}</label>
 									<div class="col-md-4">
 										<div class="form-group">
-												<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" required>
+												<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" >
 										</div>
 									</div>
 									<div class="col-md-4" style="font-weight:bold;">
@@ -1338,6 +1334,7 @@
 @endsection
 @push('scripts')
 <script src="{{asset('assets/js/non_audit_firm.js')}}"></script>
+<script src="{{ asset("js/form_validation/non_audit_firm_validation.js") }}"></script>
 <script>
 
 $(document).ready(function(){
@@ -1345,6 +1342,7 @@ $(document).ready(function(){
 		// organization_structure radio button required validation
 		if($("input[name='org_stru_id']:checked").length == 0){
 			$('#org_validate').css('display','block');
+			$('#org_validate').css('color','#ef8157');
 		}
 		else{
 			$('#org_validate').css('display','none');
@@ -1353,13 +1351,74 @@ $(document).ready(function(){
 		// Types Of Service Provided radio button required validation
 		if($("input[name='t_s_p_id']:checked").length == 0){
 			$('#type_service_validate').css('display','block');
-			$(".type-service-card").css('border','1px solid red');
+			$('#type_service_validate').css('color','#ef8157');
+			$(".type-service-card").css('border','1px solid ef8157');
 		}
 		else{
 			$('#type_service_validate').css('display','none');
 			$(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
 		}
+
+		$(".branch_non_audit input").each(function(index,row){
+			if($(row).val() == ''){
+				$(".branch_office_validate").css('display','block');
+				$(".branch_office_validate").css('color','#ef8157');
+				event.preventDefault();
+			}
+			else{
+				$(".branch_office_validate").css('display','none');
+			}
+		});
+
+		$(".non_partner input").each(function(index,row){
+			if($(row).val() == ''){
+				$(".non_partner_validate").css('display','block');
+				$(".non_partner_validate").css('color','#ef8157');
+				event.preventDefault();
+			}
+			else{
+				$(".non_partner_validate").css('display','none');
+			}
+		});
+
+		$(".non_director input").each(function(index,row){
+			if($(row).val() == ''){
+				$(".non_director_validate").css('display','block');
+				$(".non_director_validate").css('color','#ef8157');
+				event.preventDefault();
+			}
+			else{
+				$(".non_director_validate").css('display','none');
+			}
+		});
+
+		if($("#total_non_audit_staff").val() == 0){
+			$(".total_staff_validate").css('display','block');
+			$(".total_staff_validate").css('color','#ef8157');
+			event.preventDefault();
+		}
+		else{
+			$(".total_staff_validate").css('display','none');
+		}
+
+		var choose_firm_type = $("#choose_firm_type").val();
+		if(choose_firm_type == 2){
+			$(".director_cpa_initial input").each(function(index,row){
+				if($(row).val() == ''){
+					$(".director_staffmembers_validate").css('display','block');
+					$(".director_staffmembers_validate").css('color','#ef8157');
+					event.preventDefault();
+				}
+				else{
+					$(".director_staffmembers_validate").css('display','none');
+				}
+			});
+		}
 	});
+
+	// $("#choose_firm_type").change(function(){
+	// 	alert("change");
+	// });
 
 });
 
