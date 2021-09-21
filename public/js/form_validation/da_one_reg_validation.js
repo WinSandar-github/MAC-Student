@@ -1,13 +1,13 @@
 $().ready(function (){
-    $("#da_mac_form").validate({
+
+    /*$("#da_mac_form").validate({
         rules:{
             personal_no_mac : "required",
         },
         messages:{
             personal_no_mac : "Please fill this field",
         },
-        
-    });
+    });*/
     
     $("#self_study_form").validate({
         rules:{

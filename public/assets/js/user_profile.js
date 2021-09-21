@@ -5,8 +5,11 @@ function user_profile() {
         type: 'get',
         success: function (result) {
             EasyLoading.hide();
+
             let data = result.data;
-            if (data.accountancy_firm_info_id) {
+
+            if (data.accountancy_firm_info_id)
+            {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
                 let acc_firm = data.accountancy_firm;
@@ -38,7 +41,8 @@ function user_profile() {
                         $('.status_history').append('Your Non-Audit Firm Form is Rejected.');
                     }
                 }
-            } else if (data.school) {
+            } else if (data.school)
+            {
                 $('.title').text('School Information')
                 $('.school').show();
                 let school = data.school;
@@ -56,7 +60,8 @@ function user_profile() {
                 } else {
                     $('.status_history').append('School Registration is Rejected.');
                 }
-            } else if (data.teacher) {
+            } else if (data.teacher)
+            {
                 $('.title').text('Teacher Information')
                 $('.teacher').show();
                 let teacher = data.teacher;
@@ -75,7 +80,8 @@ function user_profile() {
                 } else {
                     $('.status_history').append('Teacher Registration is Rejected.');
                 }
-            } else if (data.mentor) {
+            } else if (data.mentor)
+            {
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
@@ -147,7 +153,7 @@ function user_profile() {
                             <td>CPA Full Flaged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>-</td>
-                            <td><span class="badge badge-info">Checking</span></td>
+                            <td><span class="badge bg-info text-dark">Checking</span></td>
                         </tr>
                         `);
                     } else if (cpaff.status == 1) {
@@ -156,7 +162,7 @@ function user_profile() {
                             <td>CPA Full Flaged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
-                            <td><span class="badge badge-success">Approved</span></td>
+                            <td><span class="badge bg-success">Approved</span></td>
                         </tr>
                         `);
 
@@ -178,7 +184,7 @@ function user_profile() {
                             <td>CPA Full Flaged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
-                            <td><span class="badge badge-danger">Reject</span></td>
+                            <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
                         `);
                     }
@@ -190,7 +196,7 @@ function user_profile() {
                                 <td>PAPP  </td>
                                 <td>${formatDate(cpaff.created_at)}</td>
                                 <td>-</td>
-                                <td><span class="badge badge-info">Checking</span></td>
+                                <td><span class="badge bg-info text-dark">Checking</span></td>
                             </tr>
                             `);
                         } else if (data.papp.status == 1) {
@@ -199,7 +205,7 @@ function user_profile() {
                                 <td>PAPP</td>
                                 <td>${formatDate(cpaff.created_at)}</td>
                                 <td>${formatDate(cpaff.updated_at)}</td>
-                                <td><span class="badge badge-success">Approved</span></td>
+                                <td><span class="badge bg-success">Approved</span></td>
                             </tr>
                             `);
 
@@ -225,7 +231,7 @@ function user_profile() {
                                 <td>PAPP</td>
                                 <td>${formatDate(cpaff.created_at)}</td>
                                 <td>${formatDate(cpaff.updated_at)}</td>
-                                <td><span class="badge badge-danger">Reject</span></td>
+                                <td><span class="badge bg-danger">Reject</span></td>
                             </tr>
                             `);
                         }
@@ -272,7 +278,7 @@ function user_profile() {
                                 <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                 <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                 <td>-</td>
-                                <td><span class="badge badge-info">Checking</span></td>
+                                <td><span class="badge bg-info text-dark">Checking</span></td>
                             </tr>
                             `);
 
@@ -282,7 +288,7 @@ function user_profile() {
                                 <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                 <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                 <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                <td><span class="badge badge-success">Approve</span></td>
+                                <td><span class="badge bg-success">Approve</span></td>
                             </tr>
                             `);
 
@@ -304,7 +310,7 @@ function user_profile() {
                                                 <td>${latest_course_reg[0].batch.course.name} Registraion Form</td>
                                                 <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                                 <td>-</td>
-                                                <td><span class="badge badge-info">Checking</span></td>
+                                                <td><span class="badge bg-info text-dark">Checking</span></td>
                                             </tr>
                                             `);
                                     // $('.status').append('<p>Your Registration Form is checking.</p>')
@@ -315,7 +321,7 @@ function user_profile() {
                                         <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
                                         <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                         <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
-                                        <td><span class="badge badge-success">Approve</span></td>
+                                        <td><span class="badge bg-success">Approve</span></td>
                                     </tr>
                                     `);
 
@@ -326,7 +332,7 @@ function user_profile() {
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                                                 <td>${formatDate(last_exam[0].created_at)}</td>
                                                                 <td>-</td>
-                                                                <td><span class="badge badge-info">Checking</span></td>
+                                                                <td><span class="badge bg-info text-dark">Checking</span></td>
                                                             </tr>
                                                             `);
 
@@ -415,7 +421,7 @@ function user_profile() {
                                                     <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                                     <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                    <td><span class="badge badge-success">Approve</span></td>
+                                                    <td><span class="badge bg-success">Approve</span></td>
                                                 </tr>
                                                 `);
                                             }
@@ -425,7 +431,7 @@ function user_profile() {
                                                 <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
                                                 <td>${formatDate(last_exam[0].created_at)}</td>
                                                 <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                <td><span class="badge badge-danger">Reject</span></td>
+                                                <td><span class="badge bg-danger">Reject</span></td>
                                             </tr>
                                             `);
                                         }
@@ -477,7 +483,7 @@ function user_profile() {
                                         <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                         <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                         <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
-                                        <td><span class="badge badge-danger">Reject</span></td>
+                                        <td><span class="badge bg-danger">Reject</span></td>
                                     </tr>
                                     `);
                                 }
@@ -512,18 +518,19 @@ function user_profile() {
                                 `);
                             }
                         } else {
-                            status_course = (`
+                            $('.status').append(`
                             <tr>
                                 <td>${latest_course_reg[0].batch.course.name}</td>
                                 <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                 <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                <td><span class="badge badge-danger">Reject</span></td>
+                                <td><span class="badge bg-danger">Reject</span></td>
                             </tr>
                             `);
                             // $('.status').append('Your Application Form is Reject')
                         }
                     }
                 }
+
                 //show History of Student record
                 $.each(data.student_course_regs, function (i, current_class) {
                     let student_reg_length = cpaff === null ? data.student_course_regs.length - 1
@@ -535,7 +542,7 @@ function user_profile() {
                                 <td>${current_class.batch.course.name} Application Form</td>
                                 <td>${formatDate(current_class.created_at)}</td>
                                 <td>-</td>
-                                <td><span class="badge badge-info">Checking</span></td>
+                                <td><span class="badge bg-info text-dark">Checking</span></td>
                             </tr>
                             `);
                         } else if (current_class.approve_reject_status == 1) {
@@ -543,7 +550,7 @@ function user_profile() {
                                 <td>${current_class.batch.course.name} Application Form</td>
                                 <td>${formatDate(current_class.created_at)}</td>
                                 <td>${formatDate(current_class.updated_at)}</td>
-                                <td><span class="badge badge-success">Approve</span></td>
+                                <td><span class="badge bg-success">Approve</span></td>
                             </tr>
                             `);
                             //show data depend on Student Register status
@@ -554,7 +561,7 @@ function user_profile() {
                                         <td>${current_class.batch.course.name} Registration Form</td>
                                         <td>${formatDate(data.student_register[i].created_at)}</td>
                                         <td>-</td>
-                                        <td><span class="badge badge-info">Checking</span></td>
+                                        <td><span class="badge bg-info text-dark">Checking</span></td>
                                     </tr>
                                     `);
                                 } else if (data.student_register[i].status == 1) {
@@ -563,7 +570,7 @@ function user_profile() {
                                         <td>${current_class.batch.course.name} Registration Form</td>
                                         <td>${formatDate(data.student_register[i].created_at)}</td>
                                         <td>${formatDate(data.student_register[i].updated_at)}</td>
-                                        <td><span class="badge badge-success">Approve</span></td>
+                                        <td><span class="badge bg-success">Approve</span></td>
                                     </tr>
                                     `);
                                     if (data.exam_registers[i]) {
@@ -573,7 +580,7 @@ function user_profile() {
                                                 <td>${current_class.batch.course.name} Exam Form</td>
                                                 <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>-</td>
-                                                <td><span class="badge badge-info">Checking</span></td>
+                                                <td><span class="badge bg-info text-dark">Checking</span></td>
                                             </tr>
                                         `);
                                         } else if (data.exam_registers[i].status == 1) {
@@ -592,7 +599,7 @@ function user_profile() {
                                                 <td>${current_class.batch.course.name} Exam Form</td>
                                                 <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>${formatDate(data.exam_registers[i].updated_at)}</td>
-                                                <td><span class="badge badge-success">Approve</span></td>
+                                                <td><span class="badge bg-success">Approve</span></td>
                                             </tr>
                                             `);
                                             }
@@ -602,7 +609,7 @@ function user_profile() {
                                                 <td>${current_class.batch.course.name} Exam Form</td>
                                                 <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>-</td>
-                                                <td><span class="badge badge-success">Approve</span></td>
+                                                <td><span class="badge bg-success">Approve</span></td>
                                             </tr>
                                             `);
                                         }
@@ -659,7 +666,7 @@ function user_profile() {
                                         <td>${current_class.batch.course.name} Registration Form</td>
                                         <td>${formatDate(current_class.created_at)}</td>
                                         <td>${formatDate(current_class.updated_at)}</td>
-                                        <td><span class="badge badge-success">Approve</span></td>
+                                        <td><span class="badge bg-success">Approve</span></td>
                                     </tr>
                                     `);
                                 }
@@ -690,7 +697,7 @@ function user_profile() {
                                 <td>${current_class.batch.course.name} Application Form</td>
                                 <td>${formatDate(current_class.created_at)}</td>
                                 <td>${formatDate(current_class.updated_at)}</td>
-                                <td><span class="badge badge-danger">Reject</span></td>
+                                <td><span class="badge bg-danger">Reject</span></td>
                             </tr>
                             `);
                         }
