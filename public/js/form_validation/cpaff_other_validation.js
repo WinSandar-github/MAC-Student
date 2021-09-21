@@ -47,12 +47,8 @@ $().ready(function (){
                 required : "Please enter your nrc number",
             },
             nrc_front : "Please upload nrc photo (front)",
-            nrc_back : "Please upload nrc photo (front)",
+            nrc_back : "Please upload nrc photo (back)",
             father_name_mm : "Please enter your father name in english",
-
-
-
-
             cpa_batch_no : "Please enter cpa batch number",
             address : "Please enter your address",
             phone : "Please enter your phone number",
@@ -68,8 +64,33 @@ $().ready(function (){
 
         },
         submitHandler: function(form) {
-            $('#cpaffModal').modal('show');
-            send_email();
+            var send_data = new FormData();
+            send_data.append('email',$("input[name='email']").val());
+            send_data.append('nrc_state_region',$("#nrc_state_region").val());
+            send_data.append('nrc_township',$("#nrc_township").val());
+            send_data.append('nrc_citizen',$("#nrc_citizen").val());
+            send_data.append('nrc_number',$("#nrc_number").val());
+            $.ajax({
+                url: BACKEND_URL+"/unique_email",
+                type: 'post',
+                data:send_data,
+                contentType: false,
+                processData: false,
+                success: function(result){
+                    if(result.email!=null){
+                        Swal.fire("Email has been used, please check again!");
+                    }
+                    else if(result.nrc!=null){
+                        Swal.fire("NRC has been used, please check again!");
+                    }
+                    else if(result.email==null && result.nrc==null){
+                        $('#cpaffModal').modal('show');
+                        send_email();
+                    }
+                }
+            });
+            // $('#cpaffModal').modal('show');
+            // send_email();
         }
         
     });

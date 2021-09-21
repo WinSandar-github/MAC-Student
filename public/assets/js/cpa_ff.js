@@ -130,14 +130,75 @@ function delInputFile(diventry){
     $('.btn-remove').parents('.'+diventry+':first').remove();
 }
 
+//cpaff validation
 
+$().ready(function (){
+    $("#cpaff_form").validate({
+        rules:{
+            profile_photo : "required",
+            name_mm : "required",
+            nrc_state_region : "required",
+            nrc_township : "required",
+            nrc_citizen : "required",
+            nrc_number : {
+                required : true,
+            },
+            nrc_front : "required",
+            nrc_back : "required",
+            father_name_mm : "required",
+            cpa_batch_no : "required",
+            address : "required",
+            phone : "required",
+            contact_mail : "required",
+            cpa_certificate : "required",
+            cpa_certificate_back : "required",
+            mpa_mem_card : "required",
+            cpd_record : "required",
+            total_hours : "required",
+            passport_image : "required",
+            three_years_full : "required",
+            letter : "required",
+        },
+        messages:{
+            profile_photo : "Upload photo",
+            name_mm : "Please enter your name",
+            nrc_state_region : "Please select one",
+            nrc_township : "Please select one",
+            nrc_citizen : "Please select one",
+            nrc_number : {
+                required : "Please enter your nrc number",
+            },
+            nrc_front : "Please upload nrc photo (front)",
+            nrc_back : "Please upload nrc photo (back)",
+            father_name_mm : "Please enter your father name in english",
+            cpa_batch_no : "Please enter cpa batch number",
+            address : "Please enter your address",
+            phone : "Please enter your phone number",
+            contact_mail : "Please enter your contact mail",
+            cpa_certificate : "Please upload CPA certificate(front)",
+            cpa_certificate_back : "Please upload CPA certificate(back)",
+            mpa_mem_card : "Please upload MPA member card",
+            cpd_record : "Please upload CPD record",
+            total_hours : "Please enter total ours",
+            passport_image : "Please upload passport image",
+            three_years_full : "Please upload 3years full form",
+            letter : "Please enter your letter",
 
-$( "#cpaff_submit_btn" ).click(function() {
-        if(allFilled('#cpaff_form')){
+        },
+        submitHandler: function(form) {
             $('#cpaffModal').modal('show');
             send_email();
         }
+        
     });
+});
+
+// $( "#cpaff_submit_btn" ).click(function() {
+//         if(allFilled('#cpaff_form')){
+//             $('#cpaffModal').modal('show');
+//             send_email();
+//         }
+//     });
 
 // cpaff
 $("#cpaff_modal").click(function() {
@@ -215,6 +276,28 @@ function checkPaymentCpaff(){
     }
 }
 
+function loadCpaffData()
+{
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/get_cpaff/"+student.id,
+        type: 'get',
+        data:"",
+        success: function(data){
+            // console.log(data)
+            var cpaff_data = data.data;
+            // console.log(cpaff_data)
+            $('#name_mm').val(cpaff_data.name_mm);
+            $('#nrc_state_region').val(cpaff_data.nrc_state_region);
+            $('#nrc_township').val(cpaff_data.nrc_township);
+            $('#nrc_citizen').val(cpaff_data.nrc_citizen);
+            $('#nrc_number').val(cpaff_data.nrc_number);
+            $('#nrc_state_region').val(cpaff_data.nrc_state_region);
+            $('#father_name_mm').val(cpaff_data.father_name_mm);
+        }
+    });
+}
+
 function createCPAFFRegister(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
@@ -225,11 +308,14 @@ function createCPAFFRegister(){
     var foreign_degree  =   $('input[name="foreign_degree[]"]');
 
     var cpa_certificate =   $("input[name=cpa_certificate]")[0].files[0];
+    var cpa_certificate_back =   $("input[name=cpa_certificate_back]")[0].files[0];
     var mpa_mem_card    =   $("input[name=mpa_mem_card]")[0].files[0];
     var nrc_front       =   $("input[name=nrc_front]")[0].files[0];
     var nrc_back        =   $("input[name=nrc_back]")[0].files[0];
     var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
     var passport_image  =   $("input[name=passport_image]")[0].files[0];
+    var three_years_full  =   $("input[name=three_years_full]")[0].files[0];
+    var letter  =   $("input[name=letter]")[0].files[0];
 
     var cpa_edu         = document.getElementById("cpa_edu");
     var ra_edu          = document.getElementById("ra_edu");
@@ -301,6 +387,17 @@ function createCPAFFRegister(){
     send_data.append('mpa_mem_card', mpa_mem_card);
     send_data.append('cpd_record', cpd_record);
     send_data.append('passport_image', passport_image);
+    send_data.append('three_years_full', three_years_full);
+    send_data.append('letter', letter);
+
+
+    //save to cpaff
+    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('contact_mail', $("input[name=contact_mail]").val());
+    // send_data.append('form_type', 1);
+    send_data.append('cpa_certificate_back', cpa_certificate_back);
 
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
@@ -337,6 +434,7 @@ function selectEntry(){
 
 function isLoginCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    console.log(student)
     if(student == null){
         // location.href = FRONTEND_URL + '/login';
         location.href = FRONTEND_URL + '/cpaff_other';
@@ -377,6 +475,7 @@ function isLoginCPAFF(){
 
                     });
                 }
+                loadCpaffData();
             },
             error:function (message){
                 }
@@ -513,6 +612,29 @@ function loadCPAFF(){
     
     
 }
+
+// $('#cpaff_renew_form_submit').submit(function(e){
+//     e.preventDefault();
+//     var student = JSON.parse(localStorage.getItem('studentinfo'));
+//     var formData = new FormData(this);
+//     formData.append('_method', 'PATCH');
+
+//     $.ajax({
+//         type: "POST",
+//         url: BACKEND_URL+"/cpa_ff/"+student.id,
+//         contentType: false,
+//         processData: false,
+//         data: formData,
+//         success: function (data) {
+//             successMessage("Your renew subscription is successfully");
+//             location.href = FRONTEND_URL + "/";
+//         },
+//         error:function (message){
+//         }
+//     })
+
+// })
+
 function RenewCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
@@ -536,30 +658,35 @@ function RenewCPAFF(){
                     send_data.append('nrc_back', $('#hidden_nrc_back').val());
                   }
                   //if(!$("input[name=cpa_certificate]")[0].files[0]){
-                    send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                    // send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                    send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
                  // }
                   //if(!$("input[name=mpa_mem_card]")[0].files[0]){
-                    send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                    // send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                    // send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
                   //}
                   //if(!$("input[name=cpd_record]")[0].files[0]){
-                    send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                    // send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                    send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
                   //}
                   //if(!$("input[name=passport_image]")[0].files[0]){
-                    send_data.append('passport_image', $('#hidden_passport_image').val());
+                    // send_data.append('passport_image', $('#hidden_passport_image').val());
+                    send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
                   //}
-                  var cpa_part_2      = document.getElementById("cpa_part_2_check");
-                  var qt_pass         = document.getElementById("qt_pass_check");
-                  if(cpa_part_2.checked==true){
-                    send_data.append('cpa_part_2',1);
-                    send_data.append('qt_pass',0);
-                    }
-                    else if(qt_pass.checked==true){
-                        send_data.append('cpa_part_2',0);
-                        send_data.append('qt_pass',1);
-                    }else{
-                        send_data.append('cpa_part_2',0);
-                        send_data.append('qt_pass',0);
-                    }
+
+                  // var cpa_part_2      = document.getElementById("cpa_part_2_check");
+                  // var qt_pass         = document.getElementById("qt_pass_check");
+                  // if(cpa_part_2.checked==true){
+                  //   send_data.append('cpa_part_2',1);
+                  //   send_data.append('qt_pass',0);
+                  //   }
+                  //   else if(qt_pass.checked==true){
+                  //       send_data.append('cpa_part_2',0);
+                  //       send_data.append('qt_pass',1);
+                  //   }else{
+                  //       send_data.append('cpa_part_2',0);
+                  //       send_data.append('qt_pass',0);
+                  //   }
                 
                 send_data.append('_method', 'PUT');
                 $.ajax({
@@ -571,7 +698,8 @@ function RenewCPAFF(){
                     success: function(result){
                         EasyLoading.hide();
                         successMessage(result.message);
-                        location.reload();
+                        // location.reload();
+                        location.href = FRONTEND_URL + "/";
                         document.getElementById('approved').style.display='none';
                         document.getElementById('rejected').style.display='none';
                         document.getElementById('pending').style.display='none';
