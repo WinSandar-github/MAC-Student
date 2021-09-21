@@ -61,9 +61,7 @@ function createDARegister() {
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    $(':radio:checked').map(function () {
-        send_data.append('gov_staff', $(this).val())
-    });
+    send_data.append('gov_staff', $("input[type='radio'][name='gov_staff']:checked").val());
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
