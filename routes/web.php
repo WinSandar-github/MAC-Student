@@ -49,6 +49,7 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+Route::get('cpaff_other', 'CPAFFController@other');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
@@ -91,6 +92,8 @@ Route::get('da_one_register', 'StudentController@daOneRegister');
 //Cpa One
 Route::get('cpa_one_form/{id}', 'CPAOneRegisterController@cpaOneForm');
 Route::get('cpa_one_entry_form/{id}', 'CPAOneRegisterController@cpaOneEntryForm');
+Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassForm');
+
 
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
 //Cpa One Exam Register

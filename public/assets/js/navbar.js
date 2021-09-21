@@ -1,6 +1,11 @@
 $(document).ready(function () {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    if (student) {
+
+    // var dataTemplate = _.template($("#nav-template").html());
+    //
+    // $("#navbar").append(dataTemplate(student));
+
+   if (student) {
         var navbar = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>`;
 
         if (student.accountancy_firm_info_id != null) {
