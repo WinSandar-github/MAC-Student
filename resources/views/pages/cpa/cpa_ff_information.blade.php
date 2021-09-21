@@ -21,7 +21,8 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPA (Full-Fledged) Registration  <span>Form</span></h2>
+                    <h2 class="title cpaff_initial" style="display:block;">CPA (Full-Fledged) Initial Registration  <span>Form</span></h2>
+                    <h2 class="title cpaff_renew" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 

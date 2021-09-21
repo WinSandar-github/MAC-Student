@@ -81,22 +81,56 @@ function login_page(batch_id,course_code,course_type){
         localStorage.setItem('batch_id',batch_id);
         //let ls_course_type = localStorage.getItem('course_type');
         if(course_type == 2){
+            // Swal.fire({  
+            //     confirmButtonText: `Direct`,  
+            //     html: `Do you want to save the changes? <a class="btn btn-sm btn-primary">go some where</a>`,  
+            //     showDenyButton: true,  showCancelButton: true,  
+            //     denyButtonText: `Entry Pass`,
+            //     cancelButtonText:`Da Two Pass`
+            //   }).then((result) => {  
+            //       console.log(result)
+            //       /* Read more about isConfirmed, isDenied below */  
+            //       if (result.isConfirmed) {    
+            //         location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`
+  
+            //       } else if (result.isDenied) {    
+            //           Swal.fire('Changes are not saved', '', 'info')  
+            //        }else if(result.isDismissed){
+            //            alert("He")
+            //        }
+            //   });
+           
 
-            Swal.fire({
-                title: '',
-                showDenyButton: true,
-                showCancelButton: false,
-                confirmButtonText: 'Direct',
-                denyButtonText: `Entry Exam`,
-              }).then((result) => {
+            $('#dir_cpa').attr('href',`${FRONTEND_URL}/cpa_one_form/${batch_id}`);
+            $('#da_pass').attr('href',`${FRONTEND_URL}/cpa_one_dapass_form/${batch_id}`);
+
+            $('#entry_exam').attr('href',`${FRONTEND_URL}/cpa_one_entry_form/${batch_id}`);
+
+            
+           
+            $('#entryClassModel').modal('show');
+
+
+
+              
+
+                   
+
+            // Swal.fire({
+            //     title: '',
+            //     showDenyButton: true,
+            //     showCancelButton: false,
+            //     confirmButtonText: 'Direct',
+            //     denyButtonText: `Entry Exam`,
+            //   }).then((result) => {
                 
-                if (result.isConfirmed) {
-                  location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`
-                } else if (result.isDenied) {
-                    location.href = FRONTEND_URL+`/cpa_one_entry_form/${batch_id}`
+            //     if (result.isConfirmed) {
+            //       location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`
+            //     } else if (result.isDenied) {
+            //         location.href = FRONTEND_URL+`/cpa_one_entry_form/${batch_id}`
 
-                }
-              })
+            //     }
+            //   })
 
             // location.href = FRONTEND_URL+`/cpa_one_form/${batch_id}`;
         }else{

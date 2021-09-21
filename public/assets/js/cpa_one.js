@@ -214,9 +214,19 @@ $('#cpa_register').submit(function(e){
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var recommend_letter = $("input[name=recommend_letter]")[0].files[0];
-    var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
-    var deg_certi_img = $("input[name=deg_certi_img]")[0].files[0];
+    if($('#entry_type').val() === 'da_pass'){
+        var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
+        send_data.append('da_pass_certificate', da_pass_certificate);
 
+       
+
+    }else{
+        var deg_certi_img = $("input[name=deg_certi_img]")[0].files[0];
+        send_data.append('deg_certi_img', deg_certi_img);
+        send_data.append('acca_cima',$("input[name=acca_cima]").val())
+         
+    }
+ 
 
 
     
@@ -275,12 +285,10 @@ $('#cpa_register').submit(function(e){
 
     send_data.append('da_pass_date', $("input[name=da_pass_date]").val());
     send_data.append('da_pass_roll_number', $("input[name=da_pass_roll_number]").val());
-    send_data.append('da_pass_certificate', da_pass_certificate);
 
     send_data.append('direct_degree', $("input[name=direct_degree]").val());
     send_data.append('degree_date', $("input[name=degree_date]").val());
     send_data.append('degree_rank', $("input[name=degree_rank]").val());
-    send_data.append('deg_certi_img', deg_certi_img);
 
     send_data.append('type',$("input[name='attend_place']:checked").val());
     send_data.append('mac_type',$("input[name='mac_type']:checked").val());

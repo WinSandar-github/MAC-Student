@@ -44,6 +44,20 @@ function createDAExamRegister()
       }
     });
 }
+
+// validate submit checkbox
+$("#submit_confirm_mac").change(function() {
+    var ischecked= $(this).is(':checked');
+    if(!ischecked){
+      $("#btn_da_exam_submit").prop('disabled',true);
+      $("#da2submit").prop('disabled',true);
+    }
+    else{
+      $("#btn_da_exam_submit").prop('disabled',false);
+      $("#da2submit").prop('disabled',false);
+    }
+});
+
 // DA 1 exam
 $( "#btn_da_exam_submit" ).click(function() {
     if(allfilled('#da_exam_register_form')){
@@ -222,9 +236,7 @@ function loadExamDepartment(){
               option.text = element.name;
               option.value = element.id;
               select.add(option, 1);
-              // $("#selected_service_id").css('display','inline');
-              // $("#selected_service_id").siblings(".nice-select").css('display','none');
-              // $("#selected_service_id").siblings(".check-service-other").css('display','inline-table');
+
           });
       },
       error:function (message){
