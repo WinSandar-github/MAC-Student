@@ -184,7 +184,7 @@
                                                     <label class="col-md-1 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>(က)</label>
                                                     <label class="col-md-3 col-form-label label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required="" id="last_ans_exam_no">
+                                                        <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်"  id="last_ans_exam_no">
                                                     </div>
                                                 </div>
 
@@ -192,7 +192,7 @@
                                                     <div class="col-md-1"></div>
                                                     <label class="col-md-3 col-form-label label">ကျင်းပသည် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="date" class="form-control" placeholder="လ၊နှစ်(MMM-YYYY)" required id="date">
+                                                        <input type="text" name="date" class="form-control" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3" style="margin-left:30px;">
@@ -367,6 +367,7 @@
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
+<script src="{{ asset("js/form_validation/cpa_two_exam_validation.js") }}"></script>
     <script type="text/javascript">
         $(document).ready(function(e) {
             $('#form_type').val(localStorage.getItem('course_id'));
