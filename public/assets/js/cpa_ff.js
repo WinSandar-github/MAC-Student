@@ -338,7 +338,8 @@ function selectEntry(){
 function isLoginCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student == null){
-        location.href = FRONTEND_URL + '/login';
+        // location.href = FRONTEND_URL + '/login';
+        location.href = FRONTEND_URL + '/cpaff_other';
     }
     else{
         $.ajax({
@@ -444,6 +445,8 @@ function loadCPAFF(){
                         document.getElementById('approved').style.display='none';
                         document.getElementById('cpa_initial').style.display='none';
                         document.getElementById('cpaff_renew_form').style.display='block';
+                        $('.cpaff_initial').css('display','none');
+                        $('.cpaff_renew').css('display','block');
                         var accept=new Date(data.renew_accepted_date);
                         var month=accept.getMonth()+1;
                         var year=accept.getFullYear();
