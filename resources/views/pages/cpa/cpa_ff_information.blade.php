@@ -223,46 +223,10 @@
                     </div>--}}
                 </div>
                 <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data"  id="cpaff_renew_form_submit">
-
+                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
+                    @csrf
                     <div class="card-body">
-	                    {{--<table width="100%">
-	                        <tr>
-	                            <td width="35%">
-	                                <div class="single-form">
-	                                    <label class="col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မီ)မှတ်ပုံတင်အမှတ်</label>
-	                                </div>
-	                            </td>
-	                            <td width="75%">
-	                                <div class="single-form">
-	                                    <input type="text" class="form-control" id="regno" readonly>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td width="20%">
-	                                <div class="single-form">
-	                                    <label class="col-form-label">Applied Date</label>
-	                                </div>
-	                            </td>
-	                            <td width="75%">
-	                                <div class="single-form">
-	                                    <input type="text" class="form-control" id="register_date" readonly>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td width="20%">
-	                                <div class="single-form">
-	                                    <label class="col-form-label">Status</label>
-	                                </div>
-	                            </td>
-	                            <td width="75%">
-	                                <div class="single-form">
-	                                    <input type="text" class="form-control" id="message" readonly="">
-	                                </div>
-	                            </td>
-	                        </tr>
-	                    </table>--}}
+	                    
 						<div class="row">
                             <div class="col-md-8">
                                 <div class="row">                                    
@@ -477,7 +441,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ် (အရှေ့)</div>
+                                <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
                                 <div class="col-md-4">
                                             <input type="file"  class="form-control" name="cpa_certificate">
                                 </div>

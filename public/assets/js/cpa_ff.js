@@ -612,6 +612,29 @@ function loadCPAFF(){
     
     
 }
+
+// $('#cpaff_renew_form_submit').submit(function(e){
+//     e.preventDefault();
+//     var student = JSON.parse(localStorage.getItem('studentinfo'));
+//     var formData = new FormData(this);
+//     formData.append('_method', 'PATCH');
+
+//     $.ajax({
+//         type: "POST",
+//         url: BACKEND_URL+"/cpa_ff/"+student.id,
+//         contentType: false,
+//         processData: false,
+//         data: formData,
+//         success: function (data) {
+//             successMessage("Your renew subscription is successfully");
+//             location.href = FRONTEND_URL + "/";
+//         },
+//         error:function (message){
+//         }
+//     })
+
+// })
+
 function RenewCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
@@ -635,30 +658,35 @@ function RenewCPAFF(){
                     send_data.append('nrc_back', $('#hidden_nrc_back').val());
                   }
                   //if(!$("input[name=cpa_certificate]")[0].files[0]){
-                    send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                    // send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                    send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
                  // }
                   //if(!$("input[name=mpa_mem_card]")[0].files[0]){
-                    send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                    // send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                    // send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
                   //}
                   //if(!$("input[name=cpd_record]")[0].files[0]){
-                    send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                    // send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                    send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
                   //}
                   //if(!$("input[name=passport_image]")[0].files[0]){
-                    send_data.append('passport_image', $('#hidden_passport_image').val());
+                    // send_data.append('passport_image', $('#hidden_passport_image').val());
+                    send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
                   //}
-                  var cpa_part_2      = document.getElementById("cpa_part_2_check");
-                  var qt_pass         = document.getElementById("qt_pass_check");
-                  if(cpa_part_2.checked==true){
-                    send_data.append('cpa_part_2',1);
-                    send_data.append('qt_pass',0);
-                    }
-                    else if(qt_pass.checked==true){
-                        send_data.append('cpa_part_2',0);
-                        send_data.append('qt_pass',1);
-                    }else{
-                        send_data.append('cpa_part_2',0);
-                        send_data.append('qt_pass',0);
-                    }
+
+                  // var cpa_part_2      = document.getElementById("cpa_part_2_check");
+                  // var qt_pass         = document.getElementById("qt_pass_check");
+                  // if(cpa_part_2.checked==true){
+                  //   send_data.append('cpa_part_2',1);
+                  //   send_data.append('qt_pass',0);
+                  //   }
+                  //   else if(qt_pass.checked==true){
+                  //       send_data.append('cpa_part_2',0);
+                  //       send_data.append('qt_pass',1);
+                  //   }else{
+                  //       send_data.append('cpa_part_2',0);
+                  //       send_data.append('qt_pass',0);
+                  //   }
                 
                 send_data.append('_method', 'PUT');
                 $.ajax({
@@ -670,7 +698,8 @@ function RenewCPAFF(){
                     success: function(result){
                         EasyLoading.hide();
                         successMessage(result.message);
-                        location.reload();
+                        // location.reload();
+                        location.href = FRONTEND_URL + "/";
                         document.getElementById('approved').style.display='none';
                         document.getElementById('rejected').style.display='none';
                         document.getElementById('pending').style.display='none';
