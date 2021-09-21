@@ -48,6 +48,28 @@ $().ready(function (){
             foa_authority_to_sign : "Please select one"
 
         },
+        submitHandler: function(form) {
+            // $('#cpaffModal').modal('show');
+            // send_email();
+            var send_data = new FormData();
+            send_data.append('email',$("input[name='email']").val());
+            $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+              if(result.email!=null){
+              Swal.fire("Email has been used, please check again!");
+              }
+              else if(result.email==null){
+                $('#nonAuditFirmModal').modal('show');
+                send_email();
+              }
+            }
+        });
 
+        }
     });
 });

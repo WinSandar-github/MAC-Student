@@ -32,7 +32,7 @@
     </div>
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
-            <form method="post" action="javascript:nonAuditRenewSubscribe();" enctype="multipart/form-data">
+            <form method="post" id="non_audit_renew_form" action="javascript:nonAuditRenewSubscribe();" enctype="multipart/form-data">
                 <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                   <div class="row mb-5">
     									<h5 class="card-title text-center fw-bolder" id="local_header">
@@ -52,7 +52,7 @@
                         </select>
                       </div>
                         <div class="col-md-2 pull-right">
-                          <h6>For the year - {{ __("____") }}</h6>
+                          <h6>For the year - {{ date('Y') }}</h6>
                         </div>
                     </div>
                   </div>
@@ -1520,6 +1520,7 @@
     </div>
 </div>
 @push('scripts')
+<script src="{{ asset("js/form_validation/non_audit_firm_renew_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
         loadNonAuditStaff();
