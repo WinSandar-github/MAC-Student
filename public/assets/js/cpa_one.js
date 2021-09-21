@@ -801,22 +801,14 @@ $('#cpa_entry_register').submit(function(e){
 
    
 
-    send_data.append('qt_entry',1);
-
-   
-
-
-
-
-
-
+    // send_data.append('qt_entry',1);
 
     send_data.append('batch_id',batch_id)
     //show_loader(); 
 
         $.ajax({
             type: "POST",
-            url: BACKEND_URL+"/cpa_register",
+            url: BACKEND_URL+"/cpa_entry_exam",
             contentType: false,
             processData: false,
             data: send_data,

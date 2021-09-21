@@ -88,10 +88,13 @@ Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
-//Cpa One
+//Cpa 
 Route::get('cpa_one_form/{id}', 'CPAOneRegisterController@cpaOneForm');
 Route::get('cpa_one_entry_form/{id}', 'CPAOneRegisterController@cpaOneEntryForm');
 Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassForm');
+Route::get('cpa_one_entry_app_form/{id}', 'CPAOneRegisterController@cpaOneEntryAppForm');
+
+
 
 
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
