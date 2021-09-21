@@ -91,7 +91,7 @@ function createDARegister()
     send_data.append('payment_method', $("input[name=payment_method]").val()    );
     send_data.append('verify_code', $("input[name=verify_code]").val());
     send_data.append('type',$("input[name='attend_place']:checked").val());
-    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+    send_data.append('mac_type',$("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
     var url = location.pathname;
     var batch_id = url.substring(url.lastIndexOf('/')+1);
     send_data.append('batch_id', batch_id);
