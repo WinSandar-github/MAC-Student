@@ -277,7 +277,8 @@ $('#store_da_two_form').submit(function(e){
 // });
 
 $("#submit_btn_self").click(function () {
-    if($("input[name=mac_semester]").val()!="" && $("input[name=da_one_pass_level]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
+    console.log('mac_semester',$(".personal_no_self").val());
+    if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
     {
             $('#exampleModal3').modal('show');
     }else{
@@ -321,15 +322,11 @@ function createDaTwoSelfStudy()
 
 
 $("#da_two_private_submit").click(function () {
-    // var aa = $("input[name=mac_semester]").val()
-    // console.log("mac_semester",aa);
-    // console.log("da_one_pass_level",$("input[name=da_one_pass_level]").val());
-    // console.log("reg_reason",$('input[name="reg_reason[]"]:checked').length);
-    // console.log("personal_no_self",$(".personal_no_self").val());
+
     if($("#selected_school_id").val() != "" && 
         $("#academic_year").val() != "" && 
-        $("input[name=da_one_pass_level]").val() != "" &&
-        $(".personal_no_self").val() != ""){
+        $("input[name=da_one_pass_level_private]").val() != "" &&
+        $(".personal_no_private").val() != ""){
             $('#exampleModal2').modal('show');
     }else{
         $('#exampleModal2').modal('hide');
@@ -375,16 +372,14 @@ function createDaTwoPrivateSchool()
 }
 
 $("#submit_btn_mac").click(function () {
-    // var aa = $("input[name=mac_semester]").val()
-    // console.log("mac_semester",aa);
-    // console.log("da_one_pass_level",$("input[name=da_one_pass_level]").val());
-    // console.log("reg_reason",$('input[name="reg_reason[]"]:checked').length);
-    // console.log("personal_no_self",$(".personal_no_self").val());
-    if($("input[name=mac_semester]").val() != "" && 
-        $("input[name=da_one_pass_level]").val() != "" &&
-        $(".personal_no_self").val() != ""){
-            $('#exampleModal1').modal('show');
+    console.log('mac_semester',$("#mac_academic_year").val());
+    console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
+    console.log('mac_semester',$(".personal_no_mac").val());
+    if($("#mac_academic_year").val()!="" && $("input[name=da_one_pass_level_mac]").val()!="" && $(".personal_no_mac").val()!=""){
+        // alert("ShowHello") 
+        $('#exampleModal1').modal('show');
     }else{
+        // alert("Hide Hello") 
         $('#exampleModal1').modal('hide');
     }
 });
@@ -807,9 +802,9 @@ function selectdType(){
      }
 }
 
-$( "#submit_btn_mac" ).click(function() {
-    if(allFilled('#da_two_mac_form')){
-        $('#exampleModal1').modal('show');
-    }
+// $( "#submit_btn_mac" ).click(function() {
+//     if(allFilled('#da_two_mac_form')){
+//         $('#exampleModal1').modal('show');
+//     }
 
-});
+// });

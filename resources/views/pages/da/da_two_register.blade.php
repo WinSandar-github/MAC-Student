@@ -78,7 +78,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                        <input type="text" name="mac_semester" id="date" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >
+                                                        <input type="text" name="mac_semester" id="self_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >
                                                         
                                                     </div>
                                                 </div>
@@ -304,12 +304,67 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>အဆင့်</label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
-                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control ">
+                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level_self" name="da_one_pass_level_self" class="form-control ">
                                                         </div>
                                                     </div>                                            
                                                 </div>
 
                                                 <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label_align_right">
+                                                        <span class="pull-left">{{ __('၁၈။') }}</span>မှတ်ပုံတင်ရသည့်အကြောင်းရင်း- </label>
+
+                                                    <div class="row col-md-8 py-2">
+
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    name="reg_reason[]" required="">
+                                                                <span class="form-check-sign"></span>
+                                                                (က) ယခုနှစ်တက်ရောက်ခြင်း
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    name="reg_reason[]" required="">
+                                                                <span class="form-check-sign"></span>
+                                                                (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    name="reg_reason[]" required="">
+                                                                <span class="form-check-sign"></span>
+                                                                (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    name="reg_reason[]" required="">
+                                                                <span class="form-check-sign"></span>
+                                                                (ဃ) စာမေးပွဲကျရှုံးခြင်း
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    name="reg_reason[]" required="">
+                                                                <span class="form-check-sign"></span>
+                                                                (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
+                                                            </label>
+                                                        </div>
+                                                        <label  class="error attend_place_error" name="attend_place_error" style="display:none;" for="reg_reason[]">Please select registration reason.</label>
+
+                                                    </div>
+                                                </div>
+
+                                                {{--<div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း</label>
                                                 </div>
 
@@ -381,7 +436,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="col-md-9">
                                                             <label>သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း</label>
                                                         </div>
-                                                    </div>
+                                                    </div>--}}
 
                                                     <div class="row mb-3">
                                                         <label class="col-md-4 col-form-label label">
@@ -431,7 +486,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>    
 
                                                     <div class="row justify-content-center">                                                      
-                                                            <button  type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="submit_btn_self" data-bs-toggle="modal" data-bs-target="#exampleModal3">Submit</button>
+                                                            <button  type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="submit_btn_self" >Submit</button>
                                                         </div>
                                                     </div>
 
@@ -708,7 +763,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>အဆင့်</label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
-                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control year"  required="">
+                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level_private" name="da_one_pass_level_private" class="form-control year">
                                                         </div>
                                                     </div>                                            
                                                 </div>
@@ -742,8 +797,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </label>
 
                                                     <div class="col-md-8">
-                                                        <input type="text" name="personal_no_self" class="form-control personal_no_self"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
+                                                        <input type="text" name="personal_no_private" class="form-control personal_no_private"
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" required>
                                                     </div>
                                                 </div>
 
@@ -764,8 +819,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row justify-content-center">                                                       
-                                                        <button type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="da_two_private_submit"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal2">Submit
+                                                        <button type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="da_two_private_submit" >Submit
                                                         </button>
                                                     
                                                 </div>
@@ -796,7 +850,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                        <input type="text" name="mac_semester" id="date" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" required>
+                                                        <input type="text" name="mac_semester" id="mac_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" required>
                                                         
                                                     </div>
                                                 </div>
@@ -1024,7 +1078,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>အဆင့်</label>                                            
                                                     <div class="col-md-8">
                                                         <div class="">
-                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control year"  required="">
+                                                            <input type="text" placeholder="အဆင့်" id="da_one_pass_level_mac" name="da_one_pass_level_mac" class="form-control year">
                                                         </div>
                                                     </div>                                            
                                                 </div>
@@ -1052,8 +1106,8 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row mb-4">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="personal_no_self" class="form-control personal_no_self"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" required>
+                                                        <input type="text" name="personal_no_mac" class="form-control personal_no_mac"
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required>
                                                     </div>
                                                 </div>
 
@@ -1075,7 +1129,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>    
 
                                                 <div class="row justify-content-center">                                                      
-                                                        <button  type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="submit_btn_mac" data-bs-toggle="modal" data-bs-target="#exampleModal1">Submit</button>
+                                                        <button  type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="submit_btn_mac">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1346,6 +1400,8 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='current_address']").val(student_info.current_address);
 
                     $(".personal_no_self").val(student_info.registration_no);
+                    $(".personal_no_private").val(student_info.registration_no);
+                    $(".personal_no_mac").val(student_info.registration_no);
 
 
 
@@ -1363,23 +1419,6 @@ $nrc_characters = config('myanmarnrc.characters');
         var exam_date = localStorage.getItem("exam_date");
         $("input[name='exam_date']").val(formatDate(exam_date));
 
-        
-
-        $("#submit_btn_self").click(function () {
-            // var aa = $("input[name=mac_semester]").val()
-            // console.log("mac_semester",aa);
-            // console.log("da_one_pass_level",$("input[name=da_one_pass_level]").val());
-            // console.log("reg_reason",$('input[name="reg_reason[]"]:checked').length);
-            // console.log("personal_no_self",$(".personal_no_self").val());
-            if($("input[name=mac_semester]").val()!="" && 
-                $("input[name=da_one_pass_level]").val()!="" && 
-                $('input[name="reg_reason[]"]:checked').length > 0 && 
-                $(".personal_no_self").val()!=""){
-                    $('#exampleModal3').modal('show');
-            }else{
-                $('#exampleModal3').modal('hide');
-            }
-        });
 
         //MAC
         $('#mac_btn').click(function () {
