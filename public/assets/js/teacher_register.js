@@ -207,6 +207,7 @@ function checkPaymentTeacher(){
                 // console.log(data);
               var form_data = data;
               form_data.forEach(function(element){
+                  
                     if(element.payment_method != null){
                         $('#teacher_modal').prop('disabled', true);
                         loadRenewTeacher();
