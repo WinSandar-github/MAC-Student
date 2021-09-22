@@ -264,8 +264,10 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
-                        if(last_exam[0].exam_type_id !== 3)
+                        if(last_exam == null){            
+                                         if(last_exam[0].exam_type_id !== 3 )
                         {
+                            
                             let exam = exam_register.filter(exam => exam.grade == 1)
                             exam.map(e => {
                                 course_html += `<tr>
@@ -274,7 +276,10 @@ function user_profile() {
                                                     <td>${formatDate(e.updated_at)}</td>
                                                 </tr>`
                             })
+                            
                         }
+                    }
+                        console.log("Exam")
                         //check entry exam or direct
                         if(latest_course_reg[0].qt_entry == 1){
                             if(last_exam[0].status == 0){
