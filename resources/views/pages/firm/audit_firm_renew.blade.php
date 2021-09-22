@@ -32,7 +32,7 @@
     </div>
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
-            <form method="post" class="" action="javascript:auditRenewSubscribe();" enctype="multipart/form-data" >
+            <form id="audit_renew_form" method="post" class="" action="javascript:auditRenewSubscribe();" enctype="multipart/form-data" >
 
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
@@ -44,7 +44,7 @@
                               <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="col-md-2 pull-right">
-                                      <h6>For the year - {{ __("____") }}</h6>
+                                      <h6>For the year - {{ date('Y') }}</h6>
                                     </div>
                                 </div>
                               </div>
@@ -56,7 +56,7 @@
                                               <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
                                               <div class="col-md-8">
-                                                  <input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" required>
+                                                  <input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" readonly="">
                                                   @if ($errors->has('email'))
                                                       <span class="text-danger">
                                                           <strong>{{ $errors->first('email') }}</strong>
@@ -116,7 +116,7 @@
                                                     <span class="btn btn-round btn-secondary btn-file">
                                                     <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" ></span>
                                                     <br>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -937,6 +937,7 @@
 </div>
 
 @push('scripts')
+<script src="{{ asset("js/form_validation/audit_firm_renew_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
         loadAuditOrganization();

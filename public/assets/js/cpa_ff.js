@@ -612,6 +612,64 @@ function loadCPAFF(){
     
     
 }
+
+// $().ready(function (){
+//     $("#cpaff_renew_form_submit").validate({
+//         rules:{
+//             profile_photo : "required",
+//             name_mm : "required",
+//             nrc_front : "required",
+//             nrc_back : "required",
+//             father_name_mm : "required",
+//             cpa_batch_no : "required",
+//             address : "required",
+//             phone : "required",
+//             contact_mail : "required",
+//             cpa2_pass_date : "required",
+//             renew_accepted_date : "required",
+//             cpa2_pass_date : "required",
+//             renew_file : "required",
+//             reg_no : "required",
+//             degree_pass_year : "required",
+//             fine_person : "required",
+//             cpa_certificate : "required",
+//             cpd_record : "required",
+//             passport_image : "required",
+//         },
+//         messages:{
+//             profile_photo : "Please replace your photo with current photo",
+//             name_mm : "Please enter your name",
+//             nrc_state_region : "Please select one",
+//             nrc_township : "Please select one",
+//             nrc_citizen : "Please select one",
+//             nrc_number : {
+//                 required : "Please enter your nrc number",
+//             },
+//             nrc_front : "Please upload nrc photo (front)",
+//             nrc_back : "Please upload nrc photo (back)",
+//             father_name_mm : "Please enter your father name in english",
+//             cpa_batch_no : "Please enter cpa batch number",
+//             address : "Please enter your address",
+//             phone : "Please enter your phone number",
+//             contact_mail : "Please enter your contact mail",
+//             cpa2_pass_date : "Please fill CPA 2 passed date",
+//             renew_accepted_date : "Please renew accepted date",
+//             renew_file : "Please upload renew file",
+//             reg_no : "Please fill registeration No.",
+//             degree_pass_year : "Please fill degree passed year",
+//             fine_person : "Please fill this field",
+//             cpa_certificate : "Please upload CPA certificate",
+//             cpd_record : "Please upload CPA record",
+//             passport_image : "Please upload passport image",
+
+//         },
+//         submitHandler: function(form) {
+//             RenewCPAFF();
+//         }
+        
+//     });
+// });
+
 function RenewCPAFF(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
@@ -635,30 +693,35 @@ function RenewCPAFF(){
                     send_data.append('nrc_back', $('#hidden_nrc_back').val());
                   }
                   //if(!$("input[name=cpa_certificate]")[0].files[0]){
-                    send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                    // send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+                    send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
                  // }
                   //if(!$("input[name=mpa_mem_card]")[0].files[0]){
-                    send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                    // send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+                    // send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
                   //}
                   //if(!$("input[name=cpd_record]")[0].files[0]){
-                    send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                    // send_data.append('cpd_record', $('#hidden_cpd_record').val());
+                    send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
                   //}
                   //if(!$("input[name=passport_image]")[0].files[0]){
-                    send_data.append('passport_image', $('#hidden_passport_image').val());
+                    // send_data.append('passport_image', $('#hidden_passport_image').val());
+                    send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
                   //}
-                  var cpa_part_2      = document.getElementById("cpa_part_2_check");
-                  var qt_pass         = document.getElementById("qt_pass_check");
-                  if(cpa_part_2.checked==true){
-                    send_data.append('cpa_part_2',1);
-                    send_data.append('qt_pass',0);
-                    }
-                    else if(qt_pass.checked==true){
-                        send_data.append('cpa_part_2',0);
-                        send_data.append('qt_pass',1);
-                    }else{
-                        send_data.append('cpa_part_2',0);
-                        send_data.append('qt_pass',0);
-                    }
+
+                  // var cpa_part_2      = document.getElementById("cpa_part_2_check");
+                  // var qt_pass         = document.getElementById("qt_pass_check");
+                  // if(cpa_part_2.checked==true){
+                  //   send_data.append('cpa_part_2',1);
+                  //   send_data.append('qt_pass',0);
+                  //   }
+                  //   else if(qt_pass.checked==true){
+                  //       send_data.append('cpa_part_2',0);
+                  //       send_data.append('qt_pass',1);
+                  //   }else{
+                  //       send_data.append('cpa_part_2',0);
+                  //       send_data.append('qt_pass',0);
+                  //   }
                 
                 send_data.append('_method', 'PUT');
                 $.ajax({
@@ -670,7 +733,8 @@ function RenewCPAFF(){
                     success: function(result){
                         EasyLoading.hide();
                         successMessage(result.message);
-                        location.reload();
+                        // location.reload();
+                        location.href = FRONTEND_URL + "/";
                         document.getElementById('approved').style.display='none';
                         document.getElementById('rejected').style.display='none';
                         document.getElementById('pending').style.display='none';
