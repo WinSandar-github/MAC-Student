@@ -85,8 +85,8 @@
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
-                                            <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
-                                            <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                                            <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                            <h6>အမှတ်စဥ် - <span id="batch_number">1</span></h6>
                                         </div>
                                     </div>
 
@@ -146,7 +146,7 @@
                                                     <span class="btn btn-round btn-secondary btn-file">
                                                     <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
+                                                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
                                                     <br>
                                                     <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                 </div>
@@ -799,8 +799,7 @@
                             </div>
                             <input type="hidden" name="payment_method" value="CASH">
                             <center>
-                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30"
-                                        data-bs-toggle="modal">Pay Now
+                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now
                                 </button>
                             </center>
                         </div>

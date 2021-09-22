@@ -93,12 +93,12 @@ function remove(id1,id2,id3){
  
 }
 
-$( "#papp_submit_btn" ).click(function() {
-    if(allFilled('#papp_form')){
-        $('#pappModal').modal('show');
-        send_email();
-    }
-});
+// $( "#papp_submit_btn" ).click(function() {
+//     if(allFilled('#papp_form')){
+//         $('#pappModal').modal('show');
+//         send_email();
+//     }
+// });
 
 function check_email_papp()
 {
@@ -237,6 +237,13 @@ function Papp_Submit(){
     data.append('cpd_record', cpd_record_file);
     data.append('tax_year', $("input[name=tax_year]").val());
     data.append('tax_free_recommendation', tax_free_file);
+
+    //save to papp
+    data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    data.append('address', $("input[name=address]").val());
+    data.append('phone', $("input[name=phone]").val());
+    data.append('contact_mail', $("input[name=contact_mail]").val());
+    data.append('reg_no', $("input[name=reg_no]").val());
 
     $.ajax({
     url: BACKEND_URL+"/papp",
@@ -384,6 +391,8 @@ function loadPAPP(){
                         document.getElementById('papp_initial').style.display='none';
                         document.getElementById('approved').style.display='none';
                         document.getElementById('papp_renew_form').style.display='block';
+                        $('.initial_text').css('display','none');
+                        $('.renew_text').css('display','block');
                         var accept=new Date(data.renew_accepted_date);
                         var month=accept.getMonth()+1;
                         var year=accept.getFullYear();

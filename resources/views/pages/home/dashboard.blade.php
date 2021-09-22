@@ -391,10 +391,6 @@
                                         <div class="text-center status_history">
 
                                         </div>
-                                        
-                                    
-                        
-                                
                             </div>
 
                         </div>

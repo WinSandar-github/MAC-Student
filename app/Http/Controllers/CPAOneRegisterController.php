@@ -22,9 +22,18 @@ class CPAOneRegisterController extends Controller
     {
         return view('pages.cpa.cpa_one_form');
     }
+    public function cpaOneDaPassForm()
+    {
+        return view('pages.cpa.cpa_one_dapass_form');
+    }
     public function cpaOneEntryForm()
     {
         return view('pages.cpa.cpa_one_entry_form');
+    }
+    public function cpaOneEntryAppForm()
+    {
+        
+        return view('pages.cpa.cpa_one_entry_app_form');
     }
     public function cpaEdit()
     {

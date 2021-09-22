@@ -371,6 +371,44 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="entryClassModel" tabindex="-1" aria-labelledby="exampleModalLabe"aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-center"  style="font-weight:bold">
+                သင်တန်းတက်ရောက်ခွင့်ပုံစံ ရွေးချယ်ပါ</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="text-start " >
+                    B.Com/ B.Act/ B.B.A/ B.BSc (Accounting and Finance) ဘွဲ့ရများ
+                    ဘွဲ့တစ်ခုခုရရှိပြီး ACCA Fundamental Skills Level ပြီးစီးသူများ နှင့်
+                    CIMA Diploma in Management Accounting ပြီးစီးသူများ</p>
+                    <a id="dir_cpa" href="" class="btn btn-md btn-success">Direct</a>
+                    <hr>
+               
+                <p >DA Part II အောင်မြင်ပြီးသူများ</p>
+                <a id="da_pass" href="" class="btn btn-md btn-success">DA II Pass</a>
+
+                <hr>
+                <p  >ဝင်ခွင့်စာမေးပွဲဖြေဆိုသူများ</p>
+                <a id="entry_exam" href="" class="btn btn-md btn-success">Entry Exam</a>
+
+ 
+                   
+               
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
     <!-- JavaScript Section -->
     <script>
         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -431,9 +469,9 @@
         app_form_feedback();
 
 
-        function direct_entry() {
-            alert("hlle")
-        }
+        // function direct_entry() {
+        //     alert("hlle")
+        // }
 
     </script>
 @endpush

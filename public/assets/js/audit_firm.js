@@ -284,30 +284,30 @@ function createAuditFirm(){
             });
 }
 
-$( "#btn_submit_audit_firm" ).click(function() {
-    if(allFilled('#audit_firm_form')){
-      var send_data = new FormData();
-      send_data.append('email',$("input[name='email']").val());
-      $.ajax({
-          url: BACKEND_URL+"/unique_email",
-          type: 'post',
-          data:send_data,
-          contentType: false,
-          processData: false,
-          success: function(result){
-              if(result.email!=null){
-                  Swal.fire("Email has been used, please check again!");
-              }
-              else{
-                  $('#auditFirmModal').modal('show');
-                  send_email();
-              }
-          }
-      });
-        // $('#auditFirmModal').modal('show');
-        // send_email();
-    }
-});
+// $( "#btn_submit_audit_firm" ).click(function() {
+//     //if(allFilled('#audit_firm_form')){
+//       var send_data = new FormData();
+//       send_data.append('email',$("input[name='email']").val());
+//       $.ajax({
+//           url: BACKEND_URL+"/unique_email",
+//           type: 'post',
+//           data:send_data,
+//           contentType: false,
+//           processData: false,
+//           success: function(result){
+//               if(result.email!=null){
+//                   Swal.fire("Email has been used, please check again!");
+//               }
+//               else{
+//                   $('#auditFirmModal').modal('show');
+//                   send_email();
+//               }
+//           }
+//       });
+//         // $('#auditFirmModal').modal('show');
+//         // send_email();
+//     //}
+// });
 
 function check_email_audit()
 {

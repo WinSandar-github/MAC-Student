@@ -95,6 +95,6 @@ $().ready(function (){
             mac_type : "Please select one",
 
         },
-        
+
     });
 });

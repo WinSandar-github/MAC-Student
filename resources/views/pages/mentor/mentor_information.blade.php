@@ -117,7 +117,7 @@
 										</div>
 									</div>
 								</div>--}}
-=
+
 								<div id="mentor">
 									<div class="row">
 										<div class="card col-md-7 m-2">
