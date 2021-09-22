@@ -131,6 +131,7 @@ function createAuditFirm(){
   var profile_photo = $("input[name=profile_photo]")[0].files[0];
   send_data.append('profile_photo',profile_photo);
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
+  send_data.append('head_office_address',$("textarea[name=head_office_address]").val());
   send_data.append('township',$("input[name=township]").val());
   send_data.append('post_code',$("input[name=post_code]").val());
   send_data.append('city',$("input[name=city]").val());
@@ -152,6 +153,7 @@ function createAuditFirm(){
 
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
+  $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});
   $('input[name="bo_post_code[]"]').map(function(){send_data.append("bo_post_code[]",$(this).val());});
   $('input[name="bo_city[]"]').map(function(){send_data.append("bo_city[]",$(this).val());});
@@ -332,6 +334,7 @@ function getAuditData(){
       type: "GET",
       url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
       success: function (data){
+        console.log("data >>",data);
           var audit_data = data;
           audit_data.forEach(function(element){
             $('input[name=email]').val(student.email);
@@ -341,6 +344,7 @@ function getAuditData(){
             $("#register_date").val(element.register_date);
             $('#previewImg').attr("src",BASE_URL+element.image);
 
+            $('textarea[name=head_office_address]').val(element.head_office_address);
             $('input[name=township]').val(element.township);
             $('input[name=post_code]').val(element.postcode);
             $('input[name=city]').val(element.city);
@@ -356,6 +360,7 @@ function getAuditData(){
             branch.forEach(function(item){
               var tr = "<tr>";
               tr += "<td><input disabled type='text' name='bo_branch_name[]' class='form-control' autocomplete='off' value="+item.branch_name+"></td>";
+              tr += "<td><input disabled type='text' name='bo_address[]' class='form-control' autocomplete='off' value="+item.branch_address+"></td>";
               tr += "<td><input disabled type='text' name='bo_township[]' class='form-control' autocomplete='off' value="+item.township+"></td>";
               tr += "<td><input disabled type='text' name='bo_post_code[]' class='form-control' autocomplete='off' value="+item.postcode+"></td>";
               tr += "<td><input disabled type='text' name='bo_city[]' class='form-control' autocomplete='off' value="+item.city+"></td>";
