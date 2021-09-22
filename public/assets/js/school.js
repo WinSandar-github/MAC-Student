@@ -1,35 +1,37 @@
-$( "#school_submit" ).click(function() {
-        //if(allFilled('#school_register_form')){
-            var send_data = new FormData();
-            send_data.append('email',$("input[name='email']").val());
-            send_data.append('nrc_state_region',$("#nrc_state_region").val());
-            send_data.append('nrc_township',$("#nrc_township").val());
-            send_data.append('nrc_citizen',$("#nrc_citizen").val());
-            send_data.append('nrc_number',$("#nrc_number").val());
-            $.ajax({
-                url: BACKEND_URL+"/unique_email",
-                type: 'post',
-                data:send_data,
-                contentType: false,
-                processData: false,
-                success: function(result){
-                    console.log(result);
-                    if(result.email!=null){
-                        Swal.fire("Email has been used, please check again!");
-                    }
-                    else if(result.nrc!=null){
-                        Swal.fire("NRC has been used, please check again!");
-                    }
-                    else if(result.email==null && result.nrc==null){                    
-                        $('#schoolModal').modal('show');
-                        send_email();                    
-                    }
+function loadSchoolSubmit(){
+  $( "#school_submit" ).click(function() {
+    //if(allFilled('#school_register_form')){
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("#nrc_state_region").val());
+        send_data.append('nrc_township',$("#nrc_township").val());
+        send_data.append('nrc_citizen',$("#nrc_citizen").val());
+        send_data.append('nrc_number',$("#nrc_number").val());
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                console.log(result);
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
                 }
-            });
-            // $('#schoolModal').modal('show');
-            // send_email();
-        //}
-    });
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#schoolModal').modal('show');
+                    send_email();                    
+                }
+            }
+        });
+        // $('#schoolModal').modal('show');
+        // send_email();
+    //}
+});
+}
 // school
 $("#school_modal").click(function() {
     $('#schoolpaymentModal').modal('show');
@@ -630,6 +632,10 @@ function loadDescription(membership_name){
   $('.yearly-fee').html("");
   $('.renew-fee').html("");
   $('.delay-fee').html("");
+  $('.cpa-subject-fee').html("");
+  $('.da-subject-fee').html("");
+  $('.renew-yearly-fee').html("");
+  $('.reconnected-fee').html("");
   $.ajax({
     type: "get",
     url: BACKEND_URL+"/showDescription/"+membership_name,
@@ -640,6 +646,10 @@ function loadDescription(membership_name){
       var yearly_fee=0;
       var renew_fee=0;
       var delay_fee=0;
+      var cpa_subject_fee=0;
+      var da_subject_fee=0;
+      var renew_yearly_fee=0;
+      var reconnected_fee=0;
       $.each(data, function( index, value ){
           $('.description-info').append(value.description);
           $('.requirement-info').append(value.requirement);
@@ -649,12 +659,18 @@ function loadDescription(membership_name){
           yearly_fee +=value.yearly_fee;
           renew_fee +=value.renew_fee;
           delay_fee +=value.late_fee;
+          cpa_subject_fee +=value.cpa_subject_fee;
+          da_subject_fee +=value.da_subject_fee;
       })
       $('.application-fee').append(application_fee+" MMK");
       $('.registration-fee').append(registration_fee+" MMK");
       $('.yearly-fee').append(yearly_fee+" MMK");
       $('.renew-fee').append(renew_fee+" MMK");
       $('.delay-fee').append(delay_fee+" MMK");
+      $('.cpa-subject-fee').append(cpa_subject_fee+" MMK");
+      $('.da-subject-fee').append(da_subject_fee+" MMK");
+      $('.renew-yearly-fee').append(renew_yearly_fee+" MMK");
+      $('.reconnected-fee').append(reconnected_fee+" MMK");
     }
   })
 }
@@ -665,13 +681,31 @@ function branchSchForm(){
   $('#branchSch_letter').css('display','block');
 }
 function addRowBranchSchool(tbody){
-
+  $(".branch_school").hide();
   var newRow = $("<tr>");
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
   cols += '<td><input type="number" class="form-control" value="" /></td>';
   cols += '<td><input type="text" class="form-control" name="branch_school_address[]" autocomplete="off" required/></td>';
   cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" required/></td>';
+  cols += '<td>'+
+          '<div class="form-group">'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="private"'+
+                                                   'value="private" > ကိုယ်ပိုင်'+
+                                            
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="branch_sch_own_type[]" id="rent"'+
+                                                   'value="rent"  > အငှား '+
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="branch_sch_own_type[]"'+
+                                                   'id="use_sharing" value="use_sharing"  > တွဲဖက်သုံး'+
+                                        '</div>'+
+                                    '</div>'+
+  '</td>';
+  cols += '<td><input type="file" class="form-control" name="branch_sch_letter[]"  accept="image/*" required/></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBranchSchool("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
@@ -697,7 +731,7 @@ function delRowBranchSchool(tbody){
     });
 }
 function addRowBuldingType(tbody){
-
+  $(".tbl_bulding_type_error").hide();
   var newRow = $("<tr>");
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
@@ -731,7 +765,7 @@ function delRowBuldingType(tbody){
     });
 }
 function addRowClassroom(tbody){
-
+  $(".tbl_classroom_error").hide();
   var newRow = $("<tr>");
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
@@ -766,7 +800,7 @@ function delRowClassroom(tbody){
     });
 }
 function addRowToiletType(tbody){
-
+  $(".tbl_toilet_type_error").hide();
   var newRow = $("<tr>");
   var cols = "";
   //var row=$('.'+tbody+' tr').length;
@@ -801,7 +835,7 @@ function delRowToiletType(tbody){
 
 
 function addRowManageRoomNumber(tbody){
-
+  $(".tbl_manage_room_numbers_error").hide();
   var newRow = $("<tr>");
   var cols = "";
   //var row=$('.'+tbody+' tr').length;

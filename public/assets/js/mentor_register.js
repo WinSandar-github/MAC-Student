@@ -41,16 +41,25 @@ function ConfirmSubmit(){
 }
 
 function createMentorRegister(){
+ if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
+ {
+    alert("Your password and confirm password do not match!");
+    return;
+ }
   var send_data=new FormData();
   //$('#image')[0].files[0];
   var profile_photo = $("input[name=profile_photo]")[0].files[0];
   var nrc_front = $("input[name=nrc_front]")[0].files[0];
   var nrc_back = $("input[name=nrc_back]")[0].files[0];
+  var papp_attachment = $("input[name=papp_attachment]")[0].files[0];
+  var attachment_file = $("input[name=attachment_file]")[0].files[0];
 
   send_data.append('profile_photo',profile_photo);
   send_data.append('nrc_front', nrc_front);
   send_data.append('nrc_back', nrc_back);
-
+  send_data.append('papp_attachment', papp_attachment);
+  send_data.append('attachment_file', attachment_file);
+ 
   send_data.append('name_mm', $("input[name=name_mm]").val());
   send_data.append('name_eng', $("input[name=name_eng]").val());
   send_data.append('nrc_state_region', $("#nrc_state_region").val());
@@ -67,11 +76,10 @@ function createMentorRegister(){
   send_data.append('ra_cpa_personal_no', $("input[name=ra_cpa_personal_no]").val());
   send_data.append('cpa_reg_no', $("input[name=cpa_reg_no]").val());
   send_data.append('cpa_reg_date', $("input[name=cpa_reg_date]").val());
-  send_data.append('ppa_reg_no', $("input[name=ppa_reg_no]").val());
-  send_data.append('ppa_reg_date', $("input[name=ppa_reg_date]").val());
+  send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+  send_data.append('papp_reg_date', $("input[name=papp_reg_date]").val());
   send_data.append('address', $("textarea[name=address]").val());
   send_data.append('phone_no', $("input[name=phone_no]").val());
-  send_data.append('fax_no', $("input[name=fax_no]").val());
   send_data.append('fax_no', $("input[name=fax_no]").val());
   send_data.append('m_email', $("input[name=m_email]").val());
   send_data.append('audit_firm_name', $("input[name=audit_firm_name]").val());
@@ -92,8 +100,8 @@ function createMentorRegister(){
   send_data.append('repeat_yearly', $("input[name=repeat_yearly]:checked").val());
   send_data.append('training_absent', $("input[name=training_absent]:checked").val());
   send_data.append('training_absent_reason', $("textarea[name=training_absent_reason]").val());
-//   send_data.append('email', $("input[name=email]").val());
-//   send_data.append('password', $("input[name=password]").val());
+  send_data.append('email', $("input[name=email]").val());
+  send_data.append('password', $("input[name=password]").val());
   send_data.append('type', $("input[name=type]").val());
   send_data.append('status', $("input[name=status]").val());
 

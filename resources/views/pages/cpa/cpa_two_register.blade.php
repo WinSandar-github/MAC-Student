@@ -314,9 +314,9 @@
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>နေရပ်လိပ်စာ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                             <div class="col-md-8">
-                                                <input type="text" readonly placeholder="နေရပ်လိပ်စာ" name="address" class="form-control address" value="{{ old('address') }}" required="" id="address">
+                                                <input type="text" readonly placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" class="form-control address" value="{{ old('address') }}" required="" id="address">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -593,9 +593,9 @@
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>နေရပ်လိပ်စာ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                             <div class="col-md-8">
-                                                <input type="text" readonly placeholder="နေရပ်လိပ်စာ" name="address" class="form-control address" value="{{ old('address') }}" required="" id="address">
+                                                <input type="text" readonly placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" class="form-control address" value="{{ old('address') }}" required="" id="address">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -887,9 +887,9 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>နေရပ်လိပ်စာ</label>                                       
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>                                       
                                     <div class="col-md-8">
-                                        <input type="text" readonly placeholder="နေရပ်လိပ်စာ" name="address" class="form-control address" value="{{ old('address') }}" required="" id="address">
+                                        <input type="text" readonly placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" class="form-control address" value="{{ old('address') }}" required="" id="address">
                                     </div>
                                 </div>
                                 <div class="row">
