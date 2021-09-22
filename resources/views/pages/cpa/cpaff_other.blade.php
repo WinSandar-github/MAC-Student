@@ -117,14 +117,14 @@
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(က)') }}</div>
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ဃ)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('အမည်') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
                                         <input type="text"  class="form-control" name="name_mm"  placeholder="" >
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ခ)') }}</div>
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(င)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                     <div class="col-md-7">
                                         <div class="row" style="padding-top: 7%; margin-top: 0px;">
@@ -168,7 +168,7 @@
                                     
                                 </div>
                                 <div class="row" style="padding-left: 110px; margin-bottom: 2%;">
-                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ဂ)') }}</div>
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(စ)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('အဘအမည်') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
                                         <input type="text"  class="form-control" name="father_name_mm"  placeholder="" >
@@ -176,7 +176,7 @@
                                 </div> 
                                 <div class="row" style="padding-left: 53px;">
                                     <label class="col-md-1 col-form-label"></label>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ဆ)') }}</label>
                                     <div class="col-md-3 col-form-label">{{ __('ပညာအရည်အချင်း') }}</div>
                                     <div class="col-md-7">
                                         <div class="row mb-2">
@@ -262,14 +262,14 @@
                                 </div>
 
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(င)') }}</div>
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ဇ)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
                                         <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="" >
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(စ)') }}</div>
+                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ဈ)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-4 col-form-label pt-4">
                                         <input type="text"  class="form-control" name="address"  placeholder="" >

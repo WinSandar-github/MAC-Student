@@ -801,22 +801,14 @@ $('#cpa_entry_register').submit(function(e){
 
    
 
-    send_data.append('qt_entry',1);
-
-   
-
-
-
-
-
-
+    // send_data.append('qt_entry',1);
 
     send_data.append('batch_id',batch_id)
     //show_loader(); 
 
         $.ajax({
             type: "POST",
-            url: BACKEND_URL+"/cpa_register",
+            url: BACKEND_URL+"/cpa_entry_exam",
             contentType: false,
             processData: false,
             data: send_data,
@@ -832,6 +824,54 @@ $('#cpa_entry_register').submit(function(e){
                     // location.reload();
                     location.href = FRONTEND_URL + "/";
                 }
+            },
+            error:function (message){
+                //EasyLoading.hide();
+            }
+        })
+
+})
+
+
+$( "#cpa_one_entry_app_submit" ).click(function() {
+    
+        $('#cpaEntryAppEmailModal').modal('show');
+        send_email();  
+    
+});
+
+$('#store_cpa_entry_app').submit(function(e){
+     
+    e.preventDefault();
+
+    
+    //var formData = new FormData(this);
+
+    var send_data = new FormData();
+
+     
+
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+    // send_data.append('qt_entry',1);
+    let batch_id = url.substring(url.lastIndexOf('/')+1);
+
+    send_data.append('batch_id',batch_id);
+    send_data.append('student_info_id',student_id);
+    //show_loader(); 
+
+        $.ajax({
+            type: "POST",
+            url: BACKEND_URL+"/cpa_entry_app",
+            contentType: false,
+            processData: false,
+            data: send_data,
+            success: function (data) {
+                //EasyLoading.hide();
+                successMessage("You have successfully registerd!");
+
+                location.href = FRONTEND_URL + "/";
+                
             },
             error:function (message){
                 //EasyLoading.hide();

@@ -1,10 +1,10 @@
-// var FRONTEND_URL="http://localhost:8001";
-// var BASE_URL = "http://localhost:8000";
-// var BACKEND_URL="http://localhost:8000/api";
+var FRONTEND_URL="http://localhost:8001";
+var BASE_URL = "http://localhost:8000";
+var BACKEND_URL="http://localhost:8000/api";
 
-var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
-var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+//  var BACKEND_URL="https://demo.aggademo.me/MAC/public/index.php/api";
+// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -26,12 +26,16 @@ var toastOptions = {
     "hideMethod": "fadeOut"
 }
 
+
+
 function successMessage(message) {
     toastr.options = toastOptions;
     toastr.success(message);
 }
 
 $('document').ready(function(){
+
+
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
@@ -40,11 +44,14 @@ $('document').ready(function(){
         success:function(response){
             $.each(response.data,function(i,v){
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
+
                 $('.course_type').append(course);
-            });
+
+            })
         }
-    });
-});
+    })
+
+})
 
 function formatDate(date){
     var income_date=date.split('-');
@@ -154,15 +161,15 @@ function addRowBranch(tbody){
     var newRow = $("<tr>");
     var cols = "";
 
-    cols += '<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="bo_state_region[]" class="form-control"  autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_state_region[]" class="form-control"  autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off" /></td>';
     //cols += '<td><button class="btn btn-primary btn-sm" type="button" onclick=addInputTele("'+tbody+'")><i class="fa fa-plus"></i></button></td>';
-    cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" required /></td>';
+    cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off"  /></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -175,9 +182,9 @@ function addRowPartner(tbody){
     var cols = "";
     var row=$('.'+tbody+' tr').length;
     cols += '<td>'+ (row)+'</td>';
-    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off" required/></td>';
-    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no'+row+'" onchange="checkPAPPExist(this.value,this.id)" class="form-control"  class="form-control" autocomplete="off" required /></td>';
-    cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="1" required> Yes</td>';
+    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no'+row+'" onchange="checkPAPPExist(this.value,this.id)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign'+row+'" id="report_yes" value="1" required > Yes</td>';
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
     // cols += '<input type="radio" class="form-check-input" id="report_yes" value="1" name="foa_authority_to_sign" required>';
@@ -209,10 +216,10 @@ function addRowDirector(tbody){
     var cols = "";
     var row=$('.'+tbody+' tr').length;
     cols += '<td>'+ (row)+'</td>';
-    cols += '<td><input type="text" name="do_name[]" class="form-control" autocomplete="off" required /></td>';
-    cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" required /></td>';
-    cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" required /> </td>';
-    cols += '<td><input type="text" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" required /></td>';
+    cols += '<td><input type="text" name="do_name[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" /> </td>';
+    cols += '<td><input type="text" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("'+tbody+'")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -338,13 +345,13 @@ function getOrganization(){
         $('#org_validate').css('display','none');
         $('#audit_org_validate').css('display','none');
         /// non-audit file upload fields
-        $('#sole_proprietorship_box').find("input").prop('required',true);
-        $('#partnership_box').find("input").prop('required',false);
-        $('#company_box').find("input").prop('required',false);
+        $('#sole_proprietorship_box').find("input[type=file]").prop('required',true);
+        $('#partnership_box').find("input[type=file]").prop('required',false);
+        $('#company_box').find("input[type=file]").prop('required',false);
         /// audit file upload fields
-        $('#audit_sole_proprietorship').find("input").prop('required',true);
-        $('#audit_partnership').find("input").prop('required',false);
-        $('#audit_company').find("input").prop('required',false);
+        $('#audit_sole_proprietorship').find("input[type=file]").prop('required',true);
+        $('#audit_partnership').find("input[type=file]").prop('required',false);
+        $('#audit_company').find("input[type=file]").prop('required',false);
 
     }
     else if(radioValue==2){
@@ -354,6 +361,10 @@ function getOrganization(){
         $('#org_validate').css('display','none');
         $('#audit_org_validate').css('display','none');
         /// non-audit file upload fields
+        $('#sole_proprietorship_box').find("input[type=file]").prop('required',false);
+        $('#partnership_box').find("input[type=file]").prop('required',true);
+        $('#company_box').find("input[type=file]").prop('required',false);
+        /// audit file upload fields
         $('#audit_sole_proprietorship').find("input").prop('required',false);
         $('#audit_partnership').find("input").prop('required',true);
         $('#audit_company').find("input").prop('required',false);
@@ -366,6 +377,10 @@ function getOrganization(){
         $('#org_validate').css('display','none');
         $('#audit_org_validate').css('display','none');
         /// non-audit file upload fields
+        $('#sole_proprietorship_box').find("input[type=file]").prop('required',false);
+        $('#partnership_box').find("input[type=file]").prop('required',false);
+        $('#company_box').find("input[type=file]").prop('required',true);
+        /// audit file upload fields
         $('#audit_sole_proprietorship').find("input").prop('required',false);
         $('#audit_partnership').find("input").prop('required',false);
         $('#audit_company').find("input").prop('required',true);
@@ -380,7 +395,10 @@ function getOrganization(){
         $('#sole_proprietorship_box').find("input").prop('required',false);
         $('#partnership_box').find("input").prop('required',false);
         $('#company_box').find("input").prop('required',false);
-
+        /// audit file upload fields
+        $('#audit_sole_proprietorship').find("input").prop('required',false);
+        $('#audit_partnership').find("input").prop('required',false);
+        $('#audit_company').find("input").prop('required',false);
     }
 }
 

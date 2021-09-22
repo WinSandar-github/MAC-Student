@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MAC</title>
+    <title>DPRMS</title>
     <meta name="robots" content="noindex, follow"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -98,7 +98,18 @@
             background-color: transparent;
             font-size: 1px;
             color: transparent;
+        }
 
+        .fit-image:hover{
+            border: 4px solid #b7b7b7;
+            border-radius: 12px;
+            padding: 6px;
+        }
+
+        .fit-image:active{
+            border: 4px solid #827a7a;
+            border-radius: 12px;
+            padding: 6px;
         }
 
     </style>
@@ -127,6 +138,7 @@
 <!-- <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script> -->
 <script src="{{ asset('assets/js/plugins/ajax-contact.js') }}"></script>
 <script src="{{ asset("assets/js/plugins/jasny-bootstrap.min.js")  }}"></script>
+<script src="{{ asset("js/underscore-min.js") }}"></script>
 
 <!-- flatpickr JS -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
@@ -221,7 +233,7 @@ EasyLoading.hide();
 <script>
     function en2mm(num) {
         var nums = {0: '၀', 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉'};
-        return num.replace(/([1-9])/g, function (s, key) {
+        return num.replace(/([0-9])/g, function (s, key) {
             return nums[key] || s;
         });
     }

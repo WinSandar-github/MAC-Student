@@ -321,30 +321,30 @@ function createNonAuditFirm(){
       });
 }
 
-$( "#submit_btn" ).click(function() {
-    if(allFilled('#non-audit-form')){
-      var send_data = new FormData();
-      send_data.append('email',$("input[name='email']").val());
-      $.ajax({
-          url: BACKEND_URL+"/unique_email",
-          type: 'post',
-          data:send_data,
-          contentType: false,
-          processData: false,
-          success: function(result){
-              if(result.email!=null){
-                  Swal.fire("Email has been used, please check again!");
-              }
-              else{
-                  $('#nonAuditFirmModal').modal('show');
-                  send_email();
-              }
-          }
-      });
-        // $('#nonAuditFirmModal').modal('show');
-        // send_email();
-    }
-});
+// $( "#submit_btn" ).click(function() {
+//     if(allFilled('#non-audit-form')){
+//       var send_data = new FormData();
+//       send_data.append('email',$("input[name='email']").val());
+//       $.ajax({
+//           url: BACKEND_URL+"/unique_email",
+//           type: 'post',
+//           data:send_data,
+//           contentType: false,
+//           processData: false,
+//           success: function(result){
+//               if(result.email!=null){
+//                   Swal.fire("Email has been used, please check again!");
+//               }
+//               else{
+//                   $('#nonAuditFirmModal').modal('show');
+//                   send_email();
+//               }
+//           }
+//       });
+//         // $('#nonAuditFirmModal').modal('show');
+//         // send_email();
+//     }
+// });
 
 function check_email_non_audit()
 {
