@@ -649,8 +649,8 @@ function createSelfStudy() {
     send_data.append('batch_no_self', $("input[name='batch_no_self']").val());
     send_data.append('part_no_self', $("input[name='part_no_self']").val());
     send_data.append('personal_no_self', $("input[name='personal_no_self']").val());
-    $(':checkbox:checked').map(function () {
-        send_data.append('reg_reason[]', $(this).val())
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        send_data.append('reg_reason[]', val.value);
     });
     send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
@@ -663,8 +663,9 @@ function createSelfStudy() {
         success: function (result) {
             EasyLoading.hide();
             successMessage(result);
-            // location.reload();
-            location.href = FRONTEND_URL + "/";
+            setInterval(() => {
+                location.href = FRONTEND_URL + "/";
+            }, 3000);
         }
     });
 }
@@ -693,8 +694,9 @@ function createPrivateSchool() {
         success: function (result) {
             EasyLoading.hide();
             successMessage(result);
-            // location.reload();
-            location.href = FRONTEND_URL + "/";
+            setInterval(() => {
+                location.href = FRONTEND_URL + "/";
+            }, 3000);
         }
     });
 }
@@ -718,8 +720,9 @@ function createMac() {
         success: function (result) {
             EasyLoading.hide();
             successMessage(result);
-            // location.reload();
-            location.href = FRONTEND_URL + "/";
+            setInterval(() => {
+                location.href = FRONTEND_URL + "/";
+            }, 3000);
         }
     });
 }

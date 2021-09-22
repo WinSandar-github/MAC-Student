@@ -114,7 +114,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>အမှတ်စဥ် - {{ __('Batch One') }}</h6>
-                                            <h6>ပညာသင်နှစ် - {{ __("၂၀၂၁") }}</h6>
+                                            <h6>ပညာသင်နှစ် - {{ date('Y') }}</h6>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -345,8 +345,7 @@
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="current_address" class="form-control"
-                                                           readonly>
+                                                    <input type="text" name="current_address" class="form-control"> {{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
                                             </div>
 
@@ -354,7 +353,7 @@
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၃။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="address" class="form-control" readonly>
+                                                    <input type="text" name="address" class="form-control">{{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
                                             </div>
 
@@ -362,7 +361,7 @@
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="phone" class="form-control" readonly>
+                                                    <input type="text" name="phone" class="form-control">{{--Users should update their phone number. so remove readonly attribute--}}
                                                 </div>
                                             </div>
 
@@ -405,7 +404,6 @@
                                                     <input type="text" name="part_no_mac" id="part_no_mac"
                                                            class="form-control course_name" disabled
                                                            placeholder="အပိုင်း" id="" required>
-
                                                 </div>
 
                                             </div>
@@ -431,8 +429,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_mac" id="personal_no_mac"
-                                                           class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="">
-
+                                                           class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
                                                 </div>
                                             </div>
 
@@ -447,7 +444,7 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-11 ">
                                                     <div class="d-flex justify-content-between">
-                                                        <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကို လိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
+                                                        <label class="col-md-9 col-form-label fw-bolder">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီ ဥပဒေနှင့်နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။') }}</label>
                                                         <h6 class="col-md-3 col-form-label" style="padding-left:60px;">
                                                             ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
                                                     </div>
@@ -463,8 +460,7 @@
                                                         <span class="form-check-sign"></span>
                                                         <p class="fw-bolder">
                                                             * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
-                                                            *
-                                                            မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်းကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                         </p>
                                                     </label>
                                                 </div>
@@ -819,7 +815,7 @@
                                                         <span class="form-check-sign"></span>
                                                         <p class="fw-bolder">
                                                             * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
-                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်း ကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်း ဝန်ခံလျှက် လျှောက်ထားအပ်ပါသည်။
                                                         </p>
                                                     </label>
                                                 </div>
@@ -850,8 +846,8 @@
                                     </h5>
 
                                     <div class="d-flex justify-content-between">
-                                        <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
-                                        <h6>ပညာသင်နှစ် - {{ __("____") }}</h6>
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
                                     </div>
 
                                     <div class="card-body">
@@ -1096,8 +1092,7 @@
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="current_address" class="form-control"
-                                                           readonly>
+                                                    <input type="text" name="current_address" class="form-control"> {{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
                                             </div>
 
@@ -1105,7 +1100,7 @@
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၃။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="address" class="form-control" readonly>
+                                                    <input type="text" name="address" class="form-control"> {{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
                                             </div>
 
@@ -1113,7 +1108,7 @@
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၄။') }}</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="phone" class="form-control" readonly>
+                                                    <input type="text" name="phone" class="form-control"> {{--Users should update their phone number. so remove readonly attribute--}}
                                                 </div>
                                             </div>
 
@@ -1133,9 +1128,9 @@
                                                 <div class="row col-md-8 py-2">
 
                                                     <div class="form-check">
-                                                        <label class="form-check-label">
+                                                        <label class="form-check-label" required>
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required value="ယခုနှစ်တက်ရောက်ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (က) ယခုနှစ်တက်ရောက်ခြင်း
                                                         </label>
@@ -1144,7 +1139,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
@@ -1153,7 +1148,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                         </label>
@@ -1162,7 +1157,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required value="စာမေးပွဲကျရှုံးခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                         </label>
@@ -1171,12 +1166,12 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]">
+                                                                   name="reg_reason[]" required value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
                                                         </label>
                                                     </div>
-
+                                                    <label  class="error attend_place_error" style="display:none;" for="reg_reason[]">Please select registration reason.</label>
                                                 </div>
                                             </div>
 
@@ -1276,6 +1271,7 @@
                                                             All Modules
                                                         </label>
                                                     </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                                 </div>
                                             </div>
 
@@ -1353,14 +1349,14 @@
                                                         <span class="form-check-sign"></span>
                                                         <p class="fw-bolder">
                                                             * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
-                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                            * မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်းကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                         </p>
                                                     </label>
                                                 </div>
                                             </div>
 
                                             <div class="row justify-content-center">
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-25" id="submit_btn_ss">{{ __('Submit') }}</button>
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-25" id="submit_btn_ss" disabled>{{ __('Submit') }}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1394,7 +1390,7 @@
 
 
     <!-- MAC -->
-    <form method="post" class="needs-validation" action="javascript:create`Mac`();" enctype="multipart/form-data"
+    <form method="post" class="needs-validation" action="javascript:createMac();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="macModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1531,8 +1527,7 @@
                             </div>
                             <div class="col-sm-3 col-5">
                                 <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img_self">
+                                    <img class="fit-image w-50 h-50" src="{{asset('img/cash.png')}}" data-value="CASH" name="payment_method" id="cash_img_self">
                                 </center>
                                 <br>
                             </div>
@@ -1569,6 +1564,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset("js/form_validation/da_one_reg_validation.js") }}"></script>
     <script type="text/javascript">
         $('document').ready(function () {
             const queryString = location.search;
@@ -1621,12 +1617,17 @@
                         $("#yes_mac").prop("checked", true);
                     }
                 }
-            })
-        })
+            });
+        });
+
         loadCourse();
+
         loadExam();
+
         reg_feedback();
+
         loadSchoolList();
+
         $("input[name='mac_date']").flatpickr({
             enableTime: false,
             dateFormat: "d-m-Y",
@@ -1634,26 +1635,22 @@
 
     </script>
     <script>
+
         $("#submit_btn_mac").click(function () {
-            // if(allFilled('#da_mac_form')){
             $('#macModal').modal('show');
-            // }
-            // else{
-            // }
         });
+
         $("#submit_btn_ss").click(function () {
-            // if(allFilled('#self_study_form')){
-            $('#selfModal').modal('show');
-            // }
-            // else{
-            // }
+            console.log($('input[name="is_full_module"]:checked').length);
+            if($('input[name="reg_reason[]"]:checked').length > 0 && $('input[name="is_full_module"]:checked').length > 0 && 
+            $("input[name=date]").val()!=""){
+                $('#selfModal').modal('show');
+            }
         });
         $("#submit_btn_pp").click(function () {
             if (allFilled('#da_private_school_form')) {
                 $('#privateModal').modal('show');
             }
-            // else{
-            // }
         });
 
         function allFilled(form_id) {

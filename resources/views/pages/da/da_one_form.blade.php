@@ -799,8 +799,7 @@
                             </div>
                             <input type="hidden" name="payment_method" value="CASH">
                             <center>
-                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30"
-                                        data-bs-toggle="modal">Pay Now
+                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now
                                 </button>
                             </center>
                         </div>
