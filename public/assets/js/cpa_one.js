@@ -148,6 +148,17 @@ function Self_Study_Submit(){
         });
 }
 
+
+// $("#submit_btn_mac").click(function () {
+//     console.log('mac_semester',$(".personal_no_self").val());
+//     if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
+//     {
+//             $('#exampleModal3').modal('show');
+//     }else{
+//         $('#exampleModal3').modal('hide');
+//     }
+// });
+
 function Mac_Submit(){
     localStorage.setItem("isPrivateSchool",false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));

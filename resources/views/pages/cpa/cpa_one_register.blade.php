@@ -982,7 +982,7 @@
                                         </div>
 
                                     <div>
-                                    <form  method="post" id="cpa_mac_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
+                                    <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
                                             
                                             <div class="row">
@@ -1005,7 +1005,7 @@
                                                                     <input type="text" class="form-control nrc_state_region" name="nrc_state_region" style="padding: 6px;" readonly>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <input type="text" class="form-control nrc_township" name="nrc_township" readonly>
+                                                                    <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
@@ -1209,21 +1209,21 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ပညာသင်နှစ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" id="academic_year_mac" class="form-control" value="" placeholder="ပညာသင်နှစ်" required >
+                                                    <input type="text" id="academic_year_mac" name="academic_year_mac" class="form-control" value="" placeholder="ပညာသင်နှစ်"  >
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" id="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" required>
+                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" required>
+                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
                                             
@@ -1239,40 +1239,44 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-12 col-form-label">
                                                     <span class="pull-left" style="padding-left: 170px;">{{ __('(၁)') }}</span>
-                                                    <span class="pull-left" style="padding-left: 65px; padding-right: 45px;"><input type="radio" class="form-check-input" name="internship" value="အစိုးရ ဌာနတွင်" id="gov_department" required ></span>
+                                                    <span class="pull-left" style="padding-left: 65px; padding-right: 45px;"><input type="radio" class="form-check-input" name="internship" value="အစိုးရ ဌာနတွင်" id="gov_department" required onclick="$('#gov_department_file').show()"></span>
                                                     အစိုးရ ဌာနတွင်</label>
                                             </div>
 
-                                            <div class="row mb-3">
-                                                <label class="col-md-10 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၀။') }}</span>အစိုးရဌာနတွင်အလုပ်သင်ဆင်းလိုကြောင်းအဆိုပြုသူများအတွက် ပူးတွဲတင်ပြရမည့် စာရွက်စာတမ်းများ</label>
-                                            </div>
-
-                                
-                                            <div class="row mb-3">
-                                                <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်းထောက်ခံချက်</label>
-                                                <div class="col-md-4">
-                                                        <input type="file" id="good_morale_file" class="form-control" value="" required>
+                                            <div id="gov_department_file" style="display:none">
+                                                <div class="row mb-3">
+                                                    <label class="col-md-12 col-form-label label">အစိုးရဌာနတွင်အလုပ်သင်ဆင်းလိုကြောင်းအဆိုပြုသူများအတွက် ပူးတွဲတင်ပြရမည့် စာရွက်စာတမ်းများ</label>
                                                 </div>
-                                            </div>
 
-                                            <div class="row mb-3">
-                                                <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်</label>
-                                                <div class="col-md-4" >
-                                                    <input type="file" class="form-control" value="" id="no_crime_file" required>
+                                    
+                                                <div class="row mb-3">
+                                                    <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 310px;">{{ __('(က)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်းထောက်ခံချက်</label>
+                                                    <div class="col-md-4">
+                                                            <input type="file" id="good_morale_file" name ="good_morale_file" class="form-control" value="" required>
+                                                    </div>
                                                 </div>
+
+                                                <div class="row mb-3">
+                                                    <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 310px;">{{ __('(ခ)') }}</span>ပြစ်မှုကင်းရှုင်းကြောင်းထောက်ခံချက်</label>
+                                                    <div class="col-md-4" >
+                                                        <input type="file" class="form-control" value="" id="no_crime_file" name="no_crime_file" required>
+                                                    </div>
+                                                </div>
+
                                             </div>
+                                            
 
                                             <div class="row mb-3">
                                                 <label class="col-md-12 col-form-label">
                                                     <span class="pull-left" style="padding-left: 170px;">{{ __('(၂)') }}</span>
-                                                    <span class="pull-left" style="padding-left: 65px; padding-right: 45px;"><input type="radio" class="form-check-input" name="internship"  value="ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်" id="personal_acc_training" required></span>
+                                                    <span class="pull-left" style="padding-left: 65px; padding-right: 45px;"><input type="radio" class="form-check-input" name="internship"  value="ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်" id="personal_acc_training" onclick="$('#gov_department_file').hide()"required></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်</label>
                                             </div>
 
                                             <div class="row mb-3">
                                                 <label class="col-md-12 col-form-label">
                                                     <span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>
-                                                    <span class="pull-left" style="padding-left: 148px;padding-right: 45px;"><input type="radio" class="form-check-input" value="ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"  name="internship"  id="after_second_exam" required></span>
+                                                    <span class="pull-left" style="padding-left: 148px;padding-right: 45px;"><input type="radio" class="form-check-input" value="ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"  name="internship"  id="after_second_exam" onclick="$('#gov_department_file').hide()" required></span>
                                                     ဒုတိယပိုင်းစာမေးပွဲအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်</label>
                                             </div>
 
@@ -1322,7 +1326,7 @@
                                             </div>--}}
 
                                             <div class="row mb-3">
-                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၂၁။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၂၀။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
@@ -1516,6 +1520,7 @@
 
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/cpa_one_reg_validation.js') }}"></script>
 <script type="text/javascript">
 
 
@@ -1537,7 +1542,7 @@
 
                 var info = data.data;
                 console.log("info >>>",info);
-                let current_stu_course = data.data.student_course_regs.slice(-1);
+                // let current_stu_course = data.data.student_course_regs.slice(-1);
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
