@@ -77,7 +77,7 @@
                   <!-- Form Wrapper Start -->
                   <div class="form-wrapper">
 
-                      <form method="post" id="mentor_register_form" class="needs-validation" action="javascript:createMentorRegister();"
+                      <form method="post" id="mentor_register_form"  action="javascript:createMentorRegister();"
                             enctype="multipart/form-data" novalidate>
                           @csrf
                           <div class="row">
