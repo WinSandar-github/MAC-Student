@@ -32,7 +32,7 @@ class CPAOneRegisterController extends Controller
     }
     public function cpaOneEntryAppForm()
     {
-        return "hello";
+        
         return view('pages.cpa.cpa_one_entry_app_form');
     }
     public function cpaEdit()

@@ -302,9 +302,17 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
-
-
-                     
+                        if(last_exam[0].exam_type_id !== 3)
+                        {
+                            let exam = exam_register.filter(exam => exam.grade == 1)
+                            exam.map(e => {
+                                course_html += `<tr>
+                                                    <td>${e.course.name}</td>
+                                                    <td>${e.batch.name}</td>
+                                                    <td>${formatDate(e.updated_at)}</td>
+                                                </tr>`
+                            })
+                        }
                         //check entry exam or direct
                         if(latest_course_reg[0].qt_entry == 1){
                             if(last_exam[0].status == 0){
@@ -346,14 +354,7 @@ function user_profile() {
                            
                         }else{
                             let status_course;
-                            let exam = exam_register.filter(exam => exam.grade == 1)
-                            exam.map(e => {
-                                course_html += `<tr>
-                                                    <td>${e.course.name}</td>
-                                                    <td>${e.batch.name}</td>
-                                                    <td>${formatDate(e.updated_at)}</td>
-                                                </tr>`
-                            })
+                          
                             $('.course').html(course_html)
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 $('.status').append(`
@@ -705,7 +706,7 @@ function user_profile() {
                         : data.student_course_regs.length;
 
 
-                    if (i < student_reg_length) {
+                    if (i < student_reg_length && current_class.qt_entry == 0) {
 
 
                         // $('.status_history').append(`<h6 class=" text-center"">${current_class.batch.course.name}</h6><hr>`);
