@@ -60,7 +60,8 @@ $("#submit_confirm_mac").change(function() {
 
 // DA 1 exam
 $( "#btn_da_exam_submit" ).click(function() {
-    if(allfilled('#da_exam_register_form')){
+    console.log($("input[name='date']").val()!="", $('input[name="is_full_module"]:checked').length > 0 , $("input[name='exam_department']").val()!="")
+    if($("input[name='date']").val()!="" && $('input[name="is_full_module"]:checked').length > 0 && $("input[name='exam_department']").val()!=""){
         $('#da1examModal').modal('show');
     }
 });
