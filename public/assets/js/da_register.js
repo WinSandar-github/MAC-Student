@@ -262,7 +262,18 @@ $('#store_da_two_form').submit(function (e) {
 //     location.href = FRONTEND_URL+"/";
 // });
 
-function createDaTwoSelfStudy() {
+$("#submit_btn_self").click(function () {
+    console.log('mac_semester',$(".personal_no_self").val());
+    if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
+    {
+            $('#exampleModal3').modal('show');
+    }else{
+        $('#exampleModal3').modal('hide');
+    }
+});
+
+function createDaTwoSelfStudy()
+{
 
     localStorage.setItem("isPrivateSchool", false);
     var send_data = new FormData();
@@ -297,8 +308,22 @@ function createDaTwoSelfStudy() {
     });
 }
 
-function createDaTwoPrivateSchool() {
-    localStorage.setItem("isPrivateSchool", true);
+
+$("#da_two_private_submit").click(function () {
+
+    if($("#selected_school_id").val() != "" && 
+        $("#academic_year").val() != "" && 
+        $("input[name=da_one_pass_level_private]").val() != "" &&
+        $(".personal_no_private").val() != ""){
+            $('#exampleModal2').modal('show');
+    }else{
+        $('#exampleModal2').modal('hide');
+    }
+});
+
+function createDaTwoPrivateSchool()
+{
+    localStorage.setItem("isPrivateSchool",true);
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -334,7 +359,21 @@ function createDaTwoPrivateSchool() {
     });
 }
 
-function createDaTwoMac() {
+$("#submit_btn_mac").click(function () {
+    console.log('mac_semester',$("#mac_academic_year").val());
+    console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
+    console.log('mac_semester',$(".personal_no_mac").val());
+    if($("#mac_academic_year").val()!="" && $("input[name=da_one_pass_level_mac]").val()!="" && $(".personal_no_mac").val()!=""){
+        // alert("ShowHello") 
+        $('#exampleModal1').modal('show');
+    }else{
+        // alert("Hide Hello") 
+        $('#exampleModal1').modal('hide');
+    }
+});
+
+function createDaTwoMac()
+{
 
     localStorage.setItem("isPrivateSchool", false);
     var send_data = new FormData();
@@ -729,7 +768,7 @@ function selectType() {
 function selectdType() {
 
     var radioValue = $("input[name='dtype']:checked").val();
-    alert(radioValue)
+    // alert(radioValue)
 
     if (radioValue == 2) {
         $('#blk_dmac').css('display', 'inline-block');
@@ -745,9 +784,9 @@ function selectdType() {
     }
 }
 
-$("#submit_btn_mac").click(function () {
-    if (allFilled('#da_two_mac_form')) {
-        $('#exampleModal1').modal('show');
-    }
+// $( "#submit_btn_mac" ).click(function() {
+//     if(allFilled('#da_two_mac_form')){
+//         $('#exampleModal1').modal('show');
+//     }
 
-});
+// });
