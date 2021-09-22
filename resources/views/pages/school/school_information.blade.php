@@ -107,10 +107,12 @@
 															<div class="col-md-12">
 																<ul>
 																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'></span> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></span></li>
+																		<li><i class="icofont-money"></i> <strong>Initial Registration Fee</strong><span class='registration-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fee</strong><span class='renew-yearly-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='reconnected-fee'></li>
 																		<div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6">

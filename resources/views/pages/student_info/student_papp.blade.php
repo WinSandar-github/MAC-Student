@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">PAPP Registration Initial<span>Form</span></h2>
+                    <h2 class="title">PAPP Initial Registration<span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -86,9 +86,10 @@
                         <div style="text-align: right;margin-top:1%;">
                             <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၃)</h6>
                         </div>
-                        <h5 class="card-title text-center">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
-                        <h5 class="card-title text-center">အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ရန် ကနဦးလျှောက်ထားခြင်း</h5>
-                        <br/>
+                        <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
+                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
+                            အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ရန် ကနဦးလျှောက်ထားခြင်း
+                        </h5>
 
                         {{--<form  method="post" action="javascript:Papp_Submit();" enctype="multipart/form-data" >--}}
                         <form  method="post" id="papp_form" action="javascript:void();" enctype="multipart/form-data">
@@ -176,7 +177,7 @@
                                     <div class="row" style="padding-left: 110px;">
                                         <div class="col-md-2 col-form-label pt-4" >{{ __('(က)') }}</div>
                                         <div class="col-md-3 col-form-label pt-4">{{ __('အမည်') }}</div>
-                                        <div class="col-md-4 col-form-label pt-4">
+                                        <div class="col-md-7 col-form-label pt-7">
                                             <input type="text" name="name_mm" class="form-control" id="name_mm">
                                         </div>
                                     </div>
@@ -205,7 +206,7 @@
                                     <div class="row" style="padding-left: 110px; margin-bottom: 2%;">
                                         <div class="col-md-2 col-form-label pt-4" >{{ __('(ဂ)') }}</div>
                                         <div class="col-md-3 col-form-label pt-4">{{ __('အဘအမည်') }}</div>
-                                        <div class="col-md-4 col-form-label pt-4">
+                                        <div class="col-md-7 col-form-label pt-7">
                                             <input type="text" name="father_name_mm" class="form-control" id="father_name_mm">
                                         </div>
                                     </div> 
@@ -287,29 +288,29 @@
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" >{{ __('(င)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
-                                    <div class="col-md-4 col-form-label pt-4">
+                                    <div class="col-md-7 col-form-label pt-7">
                                         <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="Enter CPA batch number">
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" >{{ __('(စ)') }}</div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
-                                    <div class="col-md-4 col-form-label pt-4">
+                                    <div class="col-md-7 col-form-label pt-7">
                                         <input type="text"  class="form-control" name="address"  placeholder="Enter your current address">
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" ></div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('တယ်လီဖုန်းနံပါတ်၊ Fax ဖုန်းနံပါတ်') }}</div>
-                                    <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name="phone"  placeholder="">
+                                    <div class="col-md-7 col-form-label pt-7">
+                                        <input type="text"  class="form-control" name="phone"  placeholder="Enter your phone number">
                                     </div>
                                 </div>
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-2 col-form-label pt-4" ></div>
                                     <div class="col-md-3 col-form-label pt-4">{{ __('E-mail Address') }}</div>
-                                    <div class="col-md-4 col-form-label pt-4">
-                                        <input type="text"  class="form-control" name="contact_mail"  placeholder="Enter your phone number">
+                                    <div class="col-md-7 col-form-label pt-7">
+                                        <input type="text"  class="form-control" name="contact_mail"  placeholder="Enter your email address">
                                     </div>
                                 </div>
 
@@ -426,11 +427,13 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-4"  style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား</label>
+                                            {{--<label class="col-md-4"  style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား</label>
                                             <div class="col-md-2">
                                                 <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY">
                                             </div>
-                                            <label class="col-md-5"  style="font-size:15px;">ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
+                                            <label class="col-md-5"  style="font-size:15px;">ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>--}}
+
+                                            <label class="col-md-11" class="form-control" style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" style="width: 100px;display: inline;"> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
                                         </div>
 
 
@@ -443,11 +446,13 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-6"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်</label>
+                                            {{--<label class="col-md-6"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်</label>
                                             <div class="col-md-2">
                                                 <input type="text" name="papp_date" class="form-control papp_date" placeholder="ခုနှစ်/YYYY">
                                             </div>
-                                            <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
+                                            <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>--}}
+
+                                            <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ် <input type="text" name="papp_date" style="display: inline; width: 100px;" class="form-control papp_date" placeholder="ခုနှစ်/YYYY"> ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
                                         </div>
 
 
@@ -671,13 +676,12 @@
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
+                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onchange="$('#papp_submit').prop('disabled', !this.checked)"></div>
                                     <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                 </div><br/>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>--}}
-                                        <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                        <button type="submit" id="papp_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
                                     </div>
                                 </div>
                             </fieldset>

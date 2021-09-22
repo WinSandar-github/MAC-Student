@@ -103,125 +103,42 @@ function delRowSubject(tbody){
     });
 }
 
-$( "#teacher_submit" ).click(function() {
+
+function loadTeacherSubmit(){
+    $( "#teacher_submit" ).click(function() {
     
-    if($("#teacher_register_form").validate({
-        rules:{
-            email : "required",
-            password : "required",
-            confirm_password : {
-                required : true,
-                equalTo : "#password"
-            },
-            profile_photo : "required",
-            name_mm : "required",
-            name_eng : "required",
-            nrc_state_region : "required",
-            nrc_township : "required",
-            nrc_citizen : "required",
-            nrc_number : {
-                required : true,
-            },
-            nrc_front : "required",
-            nrc_back : "required",
-            father_name_mm : "required",
-            father_name_eng : "required",
-            race : "required",
-            religion : "required",
-            date_of_birth : "required",
-            phone : "required",
-            current_address : "required",
-            address : "required",
-            current_job : "required",
-            position : "required",
-            department : "required",
-            organization : "required",
-            company_name : "required",
-            salary : "required",
-            office_address : "required",
-            gov_staff : "required",
-            recommend_letter : {
-                required : "#gov_staff:checked"
-            },
-            selected_school_id : "required",
-            exp_desc : "required",
+        //if(allFill('#teacher_register_form')){
+            var send_data = new FormData();
+            send_data.append('email',$("input[name='email']").val());
+            send_data.append('nrc_state_region',$("#nrc_state_region").val());
+            send_data.append('nrc_township',$("#nrc_township").val());
+            send_data.append('nrc_citizen',$("#nrc_citizen").val());
+            send_data.append('nrc_number',$("#nrc_number").val());
             
-        },
-        messages:{
-            email : "Please enter your email",
-            password : "Please provide your password",
-            confirm_password : {
-                required : "Please provide your password",
-                equalTo : "Please enter the same password as above"
-            },
-            profile_photo : "Upload photo",
-            name_mm : "Please enter your name",
-            name_eng : "Please enter your name in english",
-            nrc_state_region : "Please select one",
-            nrc_township : "Please select one",
-            nrc_citizen : "Please select one",
-            nrc_number : {
-                required : "Please enter your nrc number",
-            },
-            nrc_front : "Please upload nrc photo (front)",
-            nrc_back : "Please upload nrc photo (front)",
-            father_name_mm : "Please enter your father name",
-            father_name_eng : "Please enter your father name in english",
-            race : "Please enter your race",
-            religion : "Please enter your religion",
-            date_of_birth : "Select your date of birth",
-            phone : "Please enter your phone number",
-            current_address : "Please enter your current address",
-            address : "Please enter your address",
-            current_job : "Please enter your current job",
-            position : "Please enter your position",
-            department : "Please enter your department",
-            organization : "Please enter your organization",
-            company_name : "Please enter your company name",
-            salary : "Please enter your salary",
-            office_address : "Please enter your office address",
-            gov_staff : "Please select one",
-            recommend_letter : {
-                required : "Please upload recommend letter"
-            },
-            selected_school_id : "Please select one",
-            exp_desc : "သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ ထည့်ပါ",
-            
-
-        },
-        
-    })){//allFill('#teacher_register_form')
-        var send_data = new FormData();
-        send_data.append('email',$("input[name='email']").val());
-        send_data.append('nrc_state_region',$("#nrc_state_region").val());
-        send_data.append('nrc_township',$("#nrc_township").val());
-        send_data.append('nrc_citizen',$("#nrc_citizen").val());
-        send_data.append('nrc_number',$("#nrc_number").val());
-        
-        $.ajax({
-            url: BACKEND_URL+"/unique_email",
-            type: 'post',
-            data:send_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
-                if(result.email!=null){
-                    Swal.fire("Email has been used, please check again!");
+            $.ajax({
+                url: BACKEND_URL+"/unique_email",
+                type: 'post',
+                data:send_data,
+                contentType: false,
+                processData: false,
+                success: function(result){
+                    if(result.email!=null){
+                        Swal.fire("Email has been used, please check again!");
+                    }
+                    else if(result.nrc!=null){
+                        Swal.fire("NRC has been used, please check again!");
+                    }
+                    else if(result.email==null && result.nrc==null){                    
+                        $('#teacherModal').modal('show');
+                        send_email();                   
+                    }
                 }
-                else if(result.nrc!=null){
-                    Swal.fire("NRC has been used, please check again!");
-                }
-                else if(result.email==null && result.nrc==null){                    
-                    $('#teacherModal').modal('show');
-                    send_email();                   
-                }
-            }
-        });
-        // $('#teacherModal').modal('show');
-        // send_email();
-    }
-});
-
+            });
+            // $('#teacherModal').modal('show');
+            // send_email();
+        //}
+    });
+}
 // teacher
 $("#teacher_modal").click(function() {
     $('#teacherpaymentModal').modal('show');
@@ -290,7 +207,6 @@ function checkPaymentTeacher(){
                 // console.log(data);
               var form_data = data;
               form_data.forEach(function(element){
-                console.log(element.payment_method)
                     if(element.payment_method != null){
                         $('#teacher_modal').prop('disabled', true);
                         loadRenewTeacher();
@@ -381,86 +297,96 @@ function loadRenewTeacher(){
             type : 'GET',
             url : BACKEND_URL+"/teacher/"+student.teacher_id,
             success: function (result) {
-                var teacher=result.data;
+                var teacher_data=result.data;
+               
+                teacher_data.forEach(function(teacher){
+                    if(teacher.approve_reject_status==1){
+                        $('#teacher_initial').css('display','none');
+                        $('#teacher_approve').css('display','none');
+                        $('#teacher_renew').css('display','block');
+                              var accept=new Date(teacher.renew_date);
+                              var month=accept.getMonth()+1;
+                              var year=accept.getFullYear();
+                              var y=year+1;
+                              var now=new Date();
+                              $('input[name=email]').val(teacher.email);
+                              $('input[name=name_mm]').val(teacher.name_mm);
+                              $('input[name=name_eng]').val(teacher.name_eng);
+                              $('input[name=father_name_mm]').val(teacher.father_name_mm);
+                              $('input[name=father_name_eng]').val(teacher.father_name_eng);
+                              $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
+                              $('input[name=nrc_township]').val(teacher.nrc_township);
+                              $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
+                              $('input[name=nrc_number]').val(teacher.nrc_number);
+                              $('input[name=phone_number]').val(teacher.phone);
+                              $('textarea[name=exp_desc]').val(teacher.exp_desc);
+                              $('#teacher_id').val(teacher.id);
+                              $('#student_info_id').val(teacher.student_info.id);
+                              //$('#previewImg').attr("src",BASE_URL+teacher.image);
+                              $('#hidden_profile').val(teacher.image);
+                              $('#hidden_nrc_front').val(teacher.nrc_front);
+                              $('#hidden_nrc_back').val(teacher.nrc_back);
+                              $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
+                              $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                              loadEductaionHistory(teacher.student_info.id);
+                              loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
+                              loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
+                            
+                            $("input[name=race]").val(teacher.race);
+                            $("input[name=religion]").val(teacher.religion);
+                            $("input[name=date_of_birth]").val(teacher.date_of_birth);
+                            $("input[name=address]").val(teacher.address);
+                            $("input[name=current_address]").val(teacher.current_address);
+                            $("input[name=position]").val(teacher.position);
+                            $("input[name=department]").val(teacher.department);
+                            $("input[name=organization]").val(teacher.organization);
+                              if(teacher.gov_employee == 1){
+                                $('input:radio[id=gov_employee1]').attr('checked',true);
+                                $('#rec_letter').css('display','block');
+                                if(teacher.recommend_letter!=""){
+                                    $(".recommend_letter").append(`<a href='${BASE_URL+teacher.recommend_letter}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+                                }
+                                $('#hrecommend_letter').val(teacher.recommend_letter);
+                            }
+                            else{
+                                $('input:radio[id=gov_employee2]').attr('checked',true);
+                                $('#rec_letter').css('display','none');
+                            }
+                            
+                              $('#regno').val(teacher.id);
+                                var period_date=teacher.renew_date.split('-');
+                                var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
+                                $('#register_date').val(period+" to 31-12-"+now.getFullYear());
+                              if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                                  $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                                  $('.renew_submit').prop('disabled', true);
+                                  $('#submit_confirm').prop('disabled', false);
+              
+                              }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                                  $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                                  $('.renew_submit').prop('disabled', true);
+                                  $('#submit_confirm').prop('disabled', true);
+                              }else{
+                                  $('#message').val("You are verified!");
+                                  $('.renew_submit').prop('disabled', true);
+                                  $('#submit_confirm').prop('disabled', true);
+                              }
+                              if(teacher.school_id!=null){
+                                $('input:radio[id=school_staff1]').attr('checked',true);
+                                $('.private_type').css('display','block');
+                                $('.individual_type').css('display','none');
+                              }else{
+                                $('input:radio[id=school_staff2]').attr('checked',true);
+                                $('.individual_type').css('display','block');
+                                $('.private_type').css('display','none');
+                                $('input[name=school_name]').val(teacher.school_name);
+                              }
+                      }else{
+                        $('#teacher_initial').css('display','block');
+                        $('#teacher_renew').css('display','none');
+                      }
+                })
                 
-                if(teacher.approve_reject_status==1){
-                  $('#teacher_initial').css('display','none');
-                  $('#teacher_approve').css('display','none');
-                  $('#teacher_renew').css('display','block');
-                        var accept=new Date(teacher.renew_date);
-                        var month=accept.getMonth()+1;
-                        var year=accept.getFullYear();
-                        var y=year+1;
-                        var now=new Date();
-                        $('input[name=email]').val(teacher.email);
-                        $('input[name=name_mm]').val(teacher.name_mm);
-                        $('input[name=name_eng]').val(teacher.name_eng);
-                        $('input[name=father_name_mm]').val(teacher.father_name_mm);
-                        $('input[name=father_name_eng]').val(teacher.father_name_eng);
-                        $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
-                        $('input[name=nrc_township]').val(teacher.nrc_township);
-                        $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
-                        $('input[name=nrc_number]').val(teacher.nrc_number);
-                        $('input[name=phone_number]').val(teacher.phone);
-                        $('textarea[name=exp_desc]').val(teacher.exp_desc);
-                        $('#previewImg').attr("src",BASE_URL+teacher.image);
-                        $('#hidden_profile').val(teacher.image);
-                        $('#hidden_nrc_front').val(teacher.nrc_front);
-                        $('#hidden_nrc_back').val(teacher.nrc_back);
-                        $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
-                        $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                        var degrees = teacher.degrees.split(',');
-                        var certificates =teacher.certificates.split(',');
-                        var diplomas = teacher.diplomas.split(',');
-                        $.each(degrees, function( index, value ) {
-                            var tr = "<tr>";
-                            tr += `<td><input type='text' class='form-control'  value=${ index += 1 } />  </td>`;
-                            tr += `<td><input type='text' class='form-control' name='degrees[]' value=${ value } />  </td>`;
-                            tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-                            tr += "</tr>";
-                            $("#tbl_degree_body").append(tr);
-                        });
-                        if(teacher.gov_employee == 1){
-                          $('input:radio[id=gov_employee1]').attr('checked',true);
-                          $('input[id=gov_employee2]').attr('disabled', 'disabled');
-                      }
-                      else{
-                          $('input:radio[id=gov_employee2]').attr('checked',true);
-                          $('input[id=gov_employee1]').attr('disabled', 'disabled');
-                      }
-                        $.each(certificates, function( index, value ) {
-                          var tr = "<tr>";
-                          tr += `<td><input type='text' class='form-control' value=${ index += 1 } /> </td>`;
-                          tr += `<td><input type='text' class='form-control' name='certificates[]' value=${ value } /></td>`;
-                          tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-                          tr += "</tr>";
-                          $("#tbl_certificate_body").append(tr);
-                        });
-                        $.each(diplomas, function( index, value ) {
-                            var tr = "<tr>";
-                            tr += `<td><input type='text' class='form-control' value=${ index += 1 } /> </td>`;
-                            tr += `<td> <input type='text' class='form-control' name='diplomas[]' value=${ value } /></td>`;
-                            tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-                            tr += "</tr>";
-                            $("#tbl_diploma_body").append(tr);
-                        });
-                        $('#regno').val(teacher.id);
-                        $('#register_date').val(teacher.renew_date);
-                        if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                            $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                            $('.renew_submit').prop('disabled', false);
-        
-                        }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                            $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
-                            $('.renew_submit').prop('disabled', true);
-                        }else{
-                            $('#message').val("You are verified!");
-                            $('.renew_submit').prop('disabled', true);
-                        }
-                }else{
-                  $('#teacher_initial').css('display','block');
-                  $('#teacher_renew').css('display','none');
-                }
         
             },
             error: function (result) {
@@ -481,7 +407,14 @@ function renewTeacher(){
   }else{
     send_data.append('nrc_back', $('#hidden_nrc_back').val());
   }
-  var id=localStorage.getItem("teacher_id");
+  if($("input[name=recommend_letter]")[0].files[0]){
+    send_data.append('recommend_letter', $("input[name=recommend_letter]")[0].files[0]);
+  }else{
+    send_data.append('recommend_letter', $('#hrecommend_letter').val());
+  }
+  var id=$('#teacher_id').val();
+  send_data.append('student_info_id', $('#student_info_id').val());
+
   send_data.append('_method', 'PATCH');
   show_loader();
     $.ajax({
@@ -521,7 +454,6 @@ function loadSubject(course_id,select){
         type : 'GET',
         url : BACKEND_URL+"/getSubject/"+course_id,
         success: function (result) {
-            console.log(result.data);
             $.each(result.data, function( index, value ){
                 var option = document.createElement('option');
                 option.text = value.subject_name;
@@ -532,4 +464,39 @@ function loadSubject(course_id,select){
         error: function (result) {
         },
     });
+}
+function selectSchoolType(value){
+    if(value==1){
+        $('.private_type').css('display','block');
+        
+    }else{
+        $('.private_type').css('display','none');
+    }
+}
+function loadEductaionHistory(student_info_id){
+    $.ajax({
+      type : 'GET',
+      url : BACKEND_URL+"/getEducationHistory/"+student_info_id,
+      success: function(result){
+          $.each(result.data, function( index, value ) {
+            
+              var tr = "<tr>";
+              tr += `<td class="less-font-weight text-center"> ${ index += 1 } </td>`;
+              tr += `<td> ${ value.university_name } </td>`;
+              tr += `<td><a href='${BASE_URL+value.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a></td>`;
+              tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
+              tr += "</tr>";
+              $(".tbl_degree_body").append(tr);
+          });
+      }
+    });
+}
+function loadCertificates(name,select){
+    var name=name.split(',');
+    $.each(name, function( index, item ){
+        var $newOption = $("<option selected='selected'></option>").val(item).text(item);
+        $("#"+select).append($newOption).trigger('change');
+       
+    })
+    
 }
