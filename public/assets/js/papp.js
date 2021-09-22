@@ -284,8 +284,10 @@ function isLoginPAPP(){
                     }
                     else{
                         $("#cpa_age").append(age+" years");
-                        document.getElementById('fieldset').disabled=true;
-                        document.getElementById('check_cpa_age').style.display='block';
+                        // document.getElementById('fieldset').disabled=true;
+                        // document.getElementById('check_cpa_age').style.display='block';
+                        document.getElementById('fieldset').disabled=false;
+                        document.getElementById('check_cpa_age').style.display='none';
                     }
                 }
                 else{
@@ -547,5 +549,40 @@ function RenewPAPP(){
         },
         error:function (message){
         }
+    });
+}
+
+var counter = 0;
+function addRowPapp(tbody){
+    $(".papp").hide();
+    var newRow = $("<tr>");
+    var cols = "";
+    //var row=$('.'+tbody+' tr').length;
+    cols += '<td><input type="text" class="form-control" value="" /></td>';
+    cols += '<td><input type="text" name="company[]" class="form-control"  autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="period[]" class="form-control"  autocomplete="off" required/></td>';
+    cols += '<td><input type="text" name="manager[]" class="form-control"  autocomplete="off" required/></td>';
+    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowPapp("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    newRow.append(cols);
+    $("table."+tbody).append(newRow);
+    // order numer to be serial
+    $("."+tbody+" tbody tr").each(function(index,row){
+      $(row).find("td:first-child input").val(index + 1);
+        $(row).find("td:first-child input").css('text-align','center');
+        $(row).find("td:first-child input").css('border','none');
+    });
+    counter++;
+}
+
+function delRowPapp(tbody){
+  $("table."+tbody).on("click", ".delete", function (event) {
+      var deleted_row = $(this).closest("tr");
+      var siblings = $(deleted_row).siblings();
+      $(deleted_row).remove();
+        counter -= 1
+        // order numer to be serial
+        $(siblings).each(function(index,row){
+          $(row).find("td:first-child input").val(index + 1);
+        });
     });
 }

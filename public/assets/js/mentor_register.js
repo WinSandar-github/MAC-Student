@@ -81,7 +81,6 @@ function createMentorRegister(){
   send_data.append('address', $("textarea[name=address]").val());
   send_data.append('phone_no', $("input[name=phone_no]").val());
   send_data.append('fax_no', $("input[name=fax_no]").val());
-  send_data.append('fax_no', $("input[name=fax_no]").val());
   send_data.append('m_email', $("input[name=m_email]").val());
   send_data.append('audit_firm_name', $("input[name=audit_firm_name]").val());
   send_data.append('audit_started_date', $("input[name=audit_started_date]").val());
