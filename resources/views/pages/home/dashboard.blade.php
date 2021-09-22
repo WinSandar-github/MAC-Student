@@ -499,7 +499,14 @@
                                                 <span id="teacher_phone"></span>
                                             </div>
                                         </div>
-                                    
+                                        <div class="row m-2 mt-3 border-bottom period" style="display:none;" >
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">This certificate is valid for the period</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="period_time"></span>
+                                            </div>
+                                        </div>
 
                                 </div>
 

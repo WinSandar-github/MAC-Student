@@ -76,6 +76,15 @@ function user_profile() {
                 } else {
                     $('.status_history').append('Teacher Registration is Rejected.');
                 }
+                if(teacher.payment_method!=null){
+                    $('.period').show();
+                    var now=new Date();
+                    var period_date=teacher.renew_date.split('-');
+                    var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
+                    $('#period_time').text(period+" to 31-12-"+now.getFullYear());
+                }
+                
+                
             } else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
@@ -1031,3 +1040,10 @@ $('#changePwd').submit(function (e) {
 
     }
 })
+function monthDiff(d1, d2) {
+    var months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}

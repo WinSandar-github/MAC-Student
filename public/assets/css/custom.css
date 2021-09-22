@@ -256,7 +256,7 @@
 .form-check-radio input[type=radio]:disabled+.form-check-sign:after,.form-check-radio input[type=radio]:disabled+.form-check-sign:before {
     color: #9a9a9a
 }
-.origanzation{
+.origanzation,.private_type,.individual_type{
     display: none;
 }
 
