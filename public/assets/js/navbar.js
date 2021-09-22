@@ -65,10 +65,11 @@ $(document).ready(function () {
                         <ul class="sub-menu">
                             <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fleged</a></li>
                             <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
+                            <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                            <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
                         </ul>
                     </li>
-                    <li><a href="${FRONTEND_URL}/school_information">School</a></li>
-                    <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
+                    
                     <li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }

@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Audit <span>Firm</span></h2>
+                    <h2 class="title">Audit <span>Firm </span><span>Initial Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -83,7 +83,7 @@
                                     <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                                       <div class="row mb-5">
                                           <h5 class="card-title text-center fw-bolder">
-                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME
+                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME(Initial)
                                           </h5>
                                       </div>
                                       <div class="row mb-3">
@@ -192,11 +192,15 @@
                                               </div>
                                             </div>
 
-                                            <div class="row mb-5">
-                                                {{--<label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
-                                                <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>--}}
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
-                                                <div class="col-md-2">
+                                            <div class="row mb-3">
+                                              <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+                                              <div class="col-md-8">
+                                                  <textarea name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                              </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-md-2 offset-md-4">
                                                     <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" >
                                                 </div>
                                                 <div class="col-md-2">
@@ -230,14 +234,14 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-1 col-form-label"></div>
-                                                <div class="col-md-11 col-form-label">
+                                                <div class="col-md-12 col-form-label">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <table class="table branch table-bordered input-table">
                                                                 <thead>
                                                                     <tr>
                                                                         <th class="less-font-weight">Name</th>
+                                                                        <th class="less-font-weight">Address</th>
                                                                         <th class="less-font-weight">Township</th>
                                                                         <th class="less-font-weight">Post Code</th>
                                                                         <th class="less-font-weight">City</th>
@@ -256,6 +260,7 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" ></td>
+                                                                        <td><input type="text" name="bo_address[]" class="form-control" autocomplete="off" ></td>
                                                                         <td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" ></td>
                                                                         <td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" ></td>
                                                                         <td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" ></td>
@@ -766,9 +771,17 @@
                                                 <label for="" class="col-md-6 partner_list_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
                                             </div>
 
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label"></label>
+                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                  Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
+                                                  (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
+                                                  auditor's report of the accountancy firm)
+                                                </label>
+                                            </div>
+
                                             <div class="row mb-3">
-                                                <div class="col-md-1 col-form-label"></div>
-                                                <div class="col-md-11 col-form-label">
+                                                <div class="col-md-12 col-form-label">
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <table id="myTable" class="table partner_list table-bordered">
@@ -780,7 +793,7 @@
                                                                             <th class="less-font-weight" colspan="2">
                                                                               Have authority to sign Auditors' report?
                                                                               <!-- <label class="col-form-label error attend_place_error" for="" style="color:#ef815;">Please select one</label> -->
-                                                                              <label  class="col-md-4 col-form-label error attend_place_error" style="display: none;color:#ef815;" for="foa_authority_to_sign">Please select one</label>
+
                                                                             </th>
                                                                             <th class="less-font-weight" rowspan="2" style="text-align: right;">
                                                                                 <button class="btn btn-primary btn-sm" type="button" onclick='addRowPartner("partner_list")'>
@@ -793,15 +806,15 @@
                                                                         <tr>
                                                                             <td>1</td>
                                                                             <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
-
-                                                                            <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id)" class="form-control" autocomplete="off" ></td>
+                                                                            <!-- checkPAPPExist(this.value,this.id) -->
+                                                                            <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="" class="form-control" autocomplete="off" ></td>
                                                                             <td>
                                                                                 <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" >
-                                                                                <label class="form-check-label">Yes</label>
+                                                                                <label class="form-check-label" style="display:flex;">Yes</label>
                                                                             </td>
                                                                             <td>
                                                                                 <input type="radio" value="2" name="foa_authority_to_sign" id="report_yes" >
-                                                                                <label class="form-check-label">No</label>
+                                                                                <label class="form-check-label" style="display:flex;">No</label>
                                                                             </td>
                                                                             <td>
                                                                                 <button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartner("partner_list")'><i class="fa fa-trash"></i></button>
@@ -819,9 +832,14 @@
                                                 <label for="" class="col-md-4 col-form-label">Director(s)/Officer(s)</label>
                                                 <label for="" class="col-md-4 director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
                                             </div>
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label"></label>
+                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                  All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
+                                                </label>
+                                            </div>
                                             <div class="row mb-3">
-                                                <div class="col-md-1 col-form-label"></div>
-                                                <div class="col-md-11 col-form-label">
+                                                <div class="col-md-12 col-form-label">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <table id="myTable" class="table director table-bordered">
@@ -873,8 +891,7 @@
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-md-1 col-form-label"></div>
-                                                <div class="col-md-11 col-form-label">
+                                                <div class="col-md-12 col-form-label">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <table id="tbl_audit_total_staff" class="table text-nowrap">
@@ -913,8 +930,7 @@
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-md-1 col-form-label"></div>
-                                                <div class="col-md-11 col-form-label">
+                                                <div class="col-md-12 col-form-label">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <table id="tbl_audit_staff" class="table text-nowrap">
@@ -1006,6 +1022,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row  mb-3">
                                                 <label class="col-md-3 col-form-label">{{ __('') }}</label>
                                                 <div class="col-md-9" style="font-weight:bold;">
@@ -1014,11 +1031,19 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="row">
+                                              <div class="col-md-12">
+                                                <div class="col-md-3 pull-right">
+                                                  <h6 class="pull-right">Date - {{ date('d-M-Y') }}</h6>
+                                                </div>
+                                              </div>
+                                            </div>
                                         </div>
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
                                                     <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
                                                 </div>
                                             </div>
@@ -1106,7 +1131,7 @@ $(document).ready(function(){
           }
         });
 
-        $(".partner_list input").each(function(index,row){
+        $(".partner_list input[type=text]").each(function(index,row){
           if($(row).val() == ''){
             $(".partner_list_validate").css('display','block');
             $(".partner_list_validate").css('color','#ef8157');

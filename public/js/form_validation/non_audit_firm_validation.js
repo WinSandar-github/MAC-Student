@@ -21,8 +21,8 @@ $().ready(function (){
             name_sole_proprietor : "required",
             //t_s_p_id : "required",
             declaration : "required",
-            foa_authority_to_sign : "required"
-
+            foa_authority_to_sign : "required",
+            head_office_address : "required"
         },
         messages:{
             //choose_firm_type : "dddd"
@@ -45,8 +45,8 @@ $().ready(function (){
             name_sole_proprietor : "Please enter Name Of Sole Proprietor/ Managing Partner",
             //t_s_p_id : "Please select Type of Service Provided",
             declaration : "Please enter declaration",
-            foa_authority_to_sign : "Please select one"
-
+            foa_authority_to_sign : "Please select one",
+            head_office_address : "Please enter head office address"
         },
         submitHandler: function(form) {
             // $('#cpaffModal').modal('show');
