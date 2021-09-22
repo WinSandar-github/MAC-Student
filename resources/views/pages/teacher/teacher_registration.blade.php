@@ -79,6 +79,7 @@
                         <div class="card-body p-4">
                             <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:void();"  autocomplete="off" ><!--class="needs-validation"-->
                                 <div class="row mb-3">
+                                    <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center fw-bolder">သင်တန်းဆရာမှတ်ပုံတင်လျှောက်လွှာ</h5>
                                 </div>
                                 <div class="row mb-4">
@@ -100,7 +101,7 @@
                                   <div class="row mb-5">
                                         <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                         <div class="col-md-6">
-                                            <input type="password" name="password" class="form-control" placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။" autocomplete='off' >
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="လျို့ဝှက်နံပါတ် ထည့်ပါ။" autocomplete='off' >
                                            
                                         </div>
                                   </div>
@@ -333,10 +334,10 @@
                                         <div class="form-group">
 
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gov_employee" value="1" onclick="selectStaff(1)" > ဟုတ်
+                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_staff1" value="1" onclick="selectStaff(1)" > ဟုတ်
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gov_employee" value="0" onclick="selectStaff(0)" > မဟုတ်
+                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_staff" value="0" onclick="selectStaff(0)" > မဟုတ်
 
                                             </div>
                                             <div class="col-md-4">
@@ -349,50 +350,73 @@
                                     <div id="rec_letter" style="display:none" >
                                             <div class="row mb-3">
                                                     <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                    <label for="" class="col-md-3 col-form-labe mt-1 label_align_right"> အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                    <label for="" class="col-md-3 col-form-labe mt-1 label_align_right">သက်ဆိုင်ရာ ဌာနအကြီးအကဲ၏ ခွင့်ပြုမိန့်</label>
 
                                                     <div class="col-md-8">
                                                         <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                         
                                                     </div>
-                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                    <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" placeholder="ရာထူး" name="position" class="form-control"
+                                                            value="{{ old('position') }}" autocomplete="off" >
+                                                    </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                    <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" placeholder="ဌာန" name="department" class="form-control"
+                                                            value="{{ old('department') }}" autocomplete="off" >
+                                                    </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                    <label for="" class="col-md-3 col-form-label label_align_right">ရုံးစိုက်ရာဒေသ</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="organization"
+                                                            class="form-control" value="{{ old('organization') }}" autocomplete="off" >
+                                                    </div>
+                                            </div>
+                                    </div>
+                                </div>
+                    
+                                
+                                <div class="row mb-3">
+                                    <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
+                                    <label class="col-md-3 col-form-label label">သင်ကြားမည့်သင်တန်းကျောင်းအမည်</label>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+
+                                            <div class="form-check m-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="school_type" id="school_staff1" value="1" onclick="selectSchoolType(1)" > Private
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="school_type" id="school_staff2" value="0" onclick="selectSchoolType(0)" > Individual
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="invalid-feedback school_type text-danger">သင်ကြားမည့်သင်တန်းကျောင်းအမည် Private/Individual ရွေးပါ</label>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                         <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
-                                        <div class="col-md-8">
-                                            <input type="text" placeholder="ရာထူး" name="position" class="form-control"
-                                                   value="{{ old('position') }}" autocomplete="off" >
-                                        </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                         <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
-                                        <div class="col-md-8">
-                                            <input type="text" placeholder="ဌာန" name="department" class="form-control"
-                                                   value="{{ old('department') }}" autocomplete="off" >
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                         <label for="" class="col-md-3 col-form-label label_align_right">ရုံးစိုက်ရာဒေသ</label>
-                                        <div class="col-md-8">
-                                            <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="organization"
-                                                   class="form-control" value="{{ old('organization') }}" autocomplete="off" >
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
-                                    <label class="col-md-3 col-form-label label">သင်ကြားမည့်သင်တန်းကျောင်းအမည်(Private/Individual)</label>
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <label class="col-md-3 col-form-label label"></label>
                                     <div class="col-md-8">
-                                  
-                                        <select class="form-control" name="selected_school_id" id="selected_school_id"  >
-                                                <option value="" disabled selected>ရွေးပါ</option>
-                                                <option value="1">ABC</option>
-                                                <option value="2">DEF</option>
-                                        </select>
+                                        <div class="private_type">
+                                            <select class="form-control" name="selected_school_id" id="selected_school_id"  >
+                                                    <option value="" disabled selected>ရွေးပါ</option>
+                                                    
+                                            </select>
+                                        </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -400,7 +424,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>
                                     <div class="col-md-6 pull-right" style="text-align:right;">
-                                        <label class="invalid-feedback col-form-label certificate text-danger">သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ ထည့်ပါ</label><br>
+                                        <label class="invalid-feedback col-form-label certificate text-danger">သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ ထည့်ပါ</label>
                                     </div>
 
                                 </div>
@@ -516,6 +540,7 @@
 @push('scripts')
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
 <script src="{{asset('assets/js/teacher_register.js')}}"></script>
+<script src="{{ asset('js/form_validation/teacher_validation.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
         $("input[name='date_of_birth']").flatpickr({
@@ -529,8 +554,9 @@
         $( "#teacher_register_form" ).submit(function( event ) {
             var checkedNum = $('input[name="gov_employee"]:checked').length;
             var tbl_degree = $('.tbl_degree_body tr').length;
-            var tbl_certificate = $('.tbl_certificate_body tr').length;
-            var tbl_diploma = $('.tbl_diploma_body tr').length;
+            var tbl_certificate = $('#selected_cpa_subject').length;
+            var tbl_diploma = $('#selected_da_subject').length;
+            var school_type = $('input[name="school_type"]:checked').length;
             if (!checkedNum) {
                 $(".gov_employee").show();
                 event.preventDefault();
@@ -547,6 +573,11 @@
                 $(".certificate").show();
                 event.preventDefault();
             }
+            if(!school_type){
+                $(".school_type").show();
+                event.preventDefault();
+            }
+            
         });
         $('input[type=radio][name="gov_employee"]').change(function() {
             var checkedNum = $('input[name="gov_employee"]:checked').length;
@@ -555,6 +586,15 @@
             }
             else {
                 $(".gov_employee").hide();
+            }
+        });
+        $('input[type=radio][name="school_type"]').change(function() {
+            var school_type = $('input[name="school_type"]:checked').length;
+            if (!school_type) {
+                $(".school_type").show();
+            }
+            else {
+                $(".school_type").hide();
             }
         });
         $("input[id*='name_mm'], text[id*='name_mm']").on('keyup', function(e) {
