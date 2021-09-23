@@ -301,6 +301,26 @@ function isLoginPAPP(){
     }
 }
 
+function loadPappData()
+{
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/papp_by_stuId/"+student.id,
+        type: 'get',
+        data:"",
+        success: function(data){
+            // console.log(data)
+            var papp_data = data.data;
+            // console.log(papp_data)
+            $('#cpa_batch_no').val(papp_data.cpa_batch_no);
+            $('#address').val(papp_data.address);
+            $('#phone').val(papp_data.phone);
+            $('#contact_mail').val(papp_data.contact_mail);
+            $('#reg_no').val(papp_data.reg_no);
+        }
+    });
+}
+
 function Papp_feedback(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     if(student!=null){

@@ -6,7 +6,7 @@ $().ready(function (){
             reg_reason : "required",
             personal_no_self : "required",
             da_two_self_reg_declare : "required",
-            
+            is_full_module:"required",
         },
         messages:{
             mac_semester : "Please enter Semester Year!",
@@ -14,9 +14,11 @@ $().ready(function (){
             reg_reason: "Please Select One!",
             personal_no_self : "Please enter personal number!",
             da_two_self_reg_declare : "Please accept our policy!",            
-
+            is_full_module:"Please select one.",
         },
-        
+        submitHandler: function(form) {
+            $('#exampleModal3').modal('show');
+        }
     });
 
     $("#da_two_private_form").validate({
@@ -26,6 +28,7 @@ $().ready(function (){
             da_one_pass_level : "required",
             personal_no_private : "required",
             da_two_private_reg_declare : "required",
+            is_full_module:"required",
             
         },
         messages:{
@@ -34,9 +37,11 @@ $().ready(function (){
             da_one_pass_level : "Please enter DA One Passed Level!",
             personal_no_private : "Please enter personal number!",
             da_two_private_reg_declare : "Please accept our policy!",            
-
+            is_full_module:"Please select one.",
         },
-        
+        submitHandler: function(form) {
+            $('#exampleModal2').modal('show');
+        }
     });
 
     $("#da_two_mac_form").validate({
@@ -45,15 +50,17 @@ $().ready(function (){
             da_one_pass_level : "required",
             personal_no_mac : "required",
             da_two_mac_reg_declare : "required",
-            
+            is_full_module:"required",
         },
         messages:{
             mac_semester : "Please enter Academic Year!",
             da_one_pass_level : "Please enter DA One Passed Level!",
             personal_no_mac : "Please enter personal number!",
             da_two_mac_reg_declare : "Please accept our policy!",            
-
+            is_full_module:"Please select one.",
         },
-        
+        submitHandler: function(form) {
+            $('#exampleModal1').modal('show');
+        }
     });
 });

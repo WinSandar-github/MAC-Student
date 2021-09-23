@@ -1,25 +1,39 @@
 $().ready(function (){
-
-    /*$("#da_mac_form").validate({
+    $("#da_private_school_form").validate({
         rules:{
-            personal_no_mac : "required",
+            is_full_module : "required",
         },
         messages:{
-            personal_no_mac : "Please fill this field",
+            is_full_module : "Please select one",
         },
-    });*/
+        submitHandler: function(form) {
+            $('#privateModal').modal('show');
+        }
+    });
+    $("#da_mac_form").validate({
+        rules:{
+            is_full_module : "required",
+        },
+        messages:{
+            is_full_module : "Please select one",
+        },
+        submitHandler: function(form) {
+            $('#macModal').modal('show');
+        }
+    });
+    
     
     $("#self_study_form").validate({
         rules:{
             reg_reason : 'required',
-            date: 'required',
             is_full_module : 'required',
         },
         messages:{
             reg_reason: "Please select registration reason.",
-            date: "Please fill this field.",
             is_full_module : "Please select one.",
         },
-        
+        submitHandler: function(form) {
+            $('#selfModal').modal('show');
+        }
     });
 });
