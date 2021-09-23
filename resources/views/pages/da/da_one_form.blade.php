@@ -495,7 +495,7 @@
                                             <label for="" class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                             <label for="" class="col-md-2 col-form-labe mt-1 label_align_right">အထက်လူကြီး၏ထောက်ခံစာ</label>--}}
 
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
                                             <div class="col-md-9" id="degree_edu">
                                                 <input type="file" class="form-control" id="recommend_letter" name="recommend_letter">
                                                 <!-- <input type="file"  class="form-control" id="certificate0"  name="certificates[]" required=""> -->
