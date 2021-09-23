@@ -272,9 +272,11 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
-                        if(last_exam == null){            
+                        if(last_exam[0]){  
+                                     
                             if(last_exam[0].exam_type_id !== 3 ){
-                            let exam = exam_register.filter(exam => exam.grade == 1)
+                                
+                            let exam = exam_register.filter(exam => exam.grade == 1 && exam.exam_type_id !== 3)
                             exam.map(e => {
                                 course_html += `<tr>
                                                     <td>${e.course.name}</td>
