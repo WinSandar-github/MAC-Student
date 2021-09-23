@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Non-Audit   <span>Service</span></h2>
+                    <h2 class="title">Non-Audit <span>Service </span><span>Initial Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -83,10 +83,10 @@
 						<div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
 							<div class="row mb-5">
 									<h5 class="card-title text-center fw-bolder" id="local_header">
-											APPLICATION FOR REGISTRATION OF LOCAL FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+											(NON-AUDIT) ACCOUNTANCY SERVICES (Initial)
 									</h5>
 									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
-											APPLICATION FOR REGISTRATION OF INTERNATIONAL/FOREIGN FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+											 (NON-AUDIT) ACCOUNTANCY SERVICES (Initial)
 									</h5>
 							</div>
 							<div class="row mb-3">
@@ -216,10 +216,15 @@
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
-									<label class="col-md-3 col-form-label label_align_right">{{ __('Address Of Practice(Head Office)') }}</label>
-									<div class="col-md-2">
+								<div class="row mb-3">
+									<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+									<div class="col-md-8">
+											<textarea name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+									</div>
+								</div>
+
+								<div class="row mb-3">
+									<div class="col-md-2 offset-md-4">
 										<div class="form-group">
 											<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" >
 										</div>
@@ -267,14 +272,14 @@
 
 								</div>
 								<div class="row mb-3">
-									<label class="col-md-1 col-form-label"></label>
-									<div class="col-md-11">
+									<div class="col-md-12">
 										<div class="card">
 											<div class="card-body">
 												<table class="table branch_non_audit table-bordered input-table">
 													<thead>
 														<tr>
 															<th class="less-font-weight">Name</th>
+															<th class="less-font-weight">Address</th>
 															<th class="less-font-weight">Township</th>
 															<th class="less-font-weight">Post Code</th>
 															<th class="less-font-weight">City</th>
@@ -292,6 +297,7 @@
 													<tbody>
 														<tr>
 															<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" ></td>
+															<td><input type="text" name="bo_address[]" class="form-control" autocomplete="off" ></td>
 															<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" ></td>
 															<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" ></td>
 															<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" ></td>
@@ -322,8 +328,7 @@
 								</div>
 
 								<div class="row mb-3">
-									<div class="col-md-1 col-form-label"></div>
-									<div class="col-md-11">
+									<div class="col-md-12">
 										<div class="card">
 											<div class="card-body">
 												<table id="myTable" class="table non_partner table-bordered input-table">
@@ -364,8 +369,7 @@
 									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
 								</div>
 								<div class="row mb-3">
-									<div class="col-md-1"></div>
-									<div class="col-md-11">
+									<div class="col-md-12">
 										<div class="card">
 											<div class="card-body">
 												<table id="myTable" class="table non_director table-bordered">
@@ -405,7 +409,7 @@
 									</div>
 								</div>
 
-								<div class="row">
+								<div class="row mb-3">
 									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Organization Structure') }}</label>
 									<label class="col-md-4 col-form-label" id="org_validate" style="display: none;color:#ef815;">Please Select Organization Structure </label>
@@ -1088,8 +1092,7 @@
 								</div>
 
 								<div class="row mb-3">
-									<div class="col-md-1"></div>
-									<div class="col-md-11">
+									<div class="col-md-12">
 										<div class="card">
 											<div class="card-body">
 												<table id="tbl_non_audit_number" class="table">
@@ -1123,8 +1126,7 @@
 
 								</div>
 								<div class="row mb-3">
-									<div class="col-md-1"></div>
-									<div class="col-md-11">
+									<div class="col-md-12">
 										<div class="card type-service-card">
 											<div class="card-body">
 												<table id="tbl_type_service" class="table">
@@ -1187,8 +1189,7 @@
 										<label class="col-md-5 director_staffmembers_validate col-form-label" id="" style="display: none;color:#ef815;">Please Fill Particulars Of Directors/ Staff Members Who Is A Myanmar CPA</label>
 									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-md-11">
+										<div class="col-md-12">
 											<div class="card">
 												<div class="card-body">
 													<table id="myTable" class="table director_cpa_initial table-bordered">
@@ -1242,7 +1243,7 @@
 									</div>
 									<div class="col-md-4" style="font-weight:bold;">
 										<div class="form-group">
-												(sole proprietor/ managing partner)
+												(managing director)
 										</div>
 									</div>
 								</div>
@@ -1252,10 +1253,18 @@
 									<div class="col-md-9" style="font-weight:bold;">
 										<div class="form-group">
 										representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+										I am fully responsible for the application and updates of the firm particulars.
 										</div>
 									</div>
 								</div>
 
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-3 pull-right">
+											<h6 class="pull-right">Date - {{ date('d-M-Y') }}</h6>
+										</div>
+									</div>
+								</div>
 
 
 								{{--<div class="row mb-3">

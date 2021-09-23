@@ -456,7 +456,7 @@
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="gov_staff">Please select one</label>
 
-                                             
+
                                                 {{--<div class="row">
                                                     <div class="col-md-4">
                                                         <input type="radio" class="form-check-input mr-3" id="yes" name="gov_staff" value="1" onclick="$('#rec_letter').show()">
@@ -640,20 +640,20 @@
                                                 <label class="form-check-label" for="main_mac">
                                                 <input class="form-check-input " type="radio" id="main_mac" name="attend_place" value='2'  onclick="selectType()">
                                                     <span class="form-check-sign"></span>
-                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး 
+                                                    ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး
                                                 </label>
                                             </div>
                                             <div class="  col-md-12" id="blk_mac" style="display:none">
                                             <div class="mx-4 row  ">
-                                                
+
                                                 <div class="col-md-5 form-check-radio px-0  ">
                                                     <label class="form-check-label" for="sub_mac">
                                                     <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
                                                         <span class="form-check-sign"></span>
                                                         ရန်ကုန်သင်တန်းကျောင်း
                                                     </label>
-                                                    
-                                                </div> 
+
+                                                </div>
                                                 <div class="col-md-5  form-check-radio px-0  ">
                                                     <label class="form-check-label" for="sub_mac2">
                                                     <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
@@ -664,13 +664,13 @@
                                                 <label  class="error attend_place_error" style="display:none;" for="mac_type">Please select one</label>
 
                                             </div>
-                                                
+
                                             </div>
-                                                
+
                                             <div class="form-check-radio px-0">
                                                 <!-- <input class="form-check-input" type="radio" name="type" value='1'  onclick="selectType()"> -->
                                                 <label class="form-check-label" for="private">
-                                                    
+
                                                     <input class="form-check-input" type="radio" id="private" name="attend_place" value='1' onclick="selectType()">
                                                     <span class="form-check-sign" ></span>
                                                     ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း
@@ -892,7 +892,7 @@
             });
             $('#btn_cash').prop('disabled', true);
 
-            
+
         });
 
     </script>
