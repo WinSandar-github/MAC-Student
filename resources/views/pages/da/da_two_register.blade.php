@@ -261,7 +261,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div id="rec_letter_self" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -749,7 +749,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
                                                             <span class="pull-left">{{ __('') }}</span>
-                                                            <span class="pull-center" style="padding-right:75px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:75px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-1"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -1091,7 +1091,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div id="rec_letter_mac" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
