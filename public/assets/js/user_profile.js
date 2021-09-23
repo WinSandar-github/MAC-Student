@@ -485,7 +485,6 @@ function user_profile() {
     
                                                         } else {
                                                             if (data) {
-                                                                alert("da two")
     
     
                                                                 $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)
