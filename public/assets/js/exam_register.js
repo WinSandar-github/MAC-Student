@@ -22,8 +22,10 @@ function createDAExamRegister()
     send_data.append('exam_reg_date', $("input[name=exam_reg_date]").val());
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
-    $(':checkbox:checked').map(function(){send_data.append('last_ans_module[]',$(this).val())});
-
+    // $(':checkbox:checked').map(function(){send_data.append('last_ans_module[]',$(this).val())});
+    $('input[name="last_ans_module[]"]:checked').map(function (key, val) {
+        send_data.append('last_ans_module[]', val.value);
+    });
     send_data.append('form_type',$("#form_type").val());
     send_data.append('exam_department',$('#exam_department').val());
 
@@ -59,12 +61,11 @@ $("#submit_confirm_mac").change(function() {
 });
 
 // DA 1 exam
-$( "#btn_da_exam_submit" ).click(function() {
-    console.log($("input[name='date']").val()!="", $('input[name="is_full_module"]:checked').length > 0 , $("input[name='exam_department']").val()!="")
-    if($("input[name='date']").val()!="" && $('input[name="is_full_module"]:checked').length > 0 && $("input[name='exam_department']").val()!=""){
-        $('#da1examModal').modal('show');
-    }
-});
+// $( "#btn_da_exam_submit" ).click(function() {
+//     if( $("input[name='exam_department']").val()!=""){
+//         $('#da1examModal').modal('show');
+//     }
+// });
 // function allFilled(form_id) {
 //     var filled = true;
 //     $(form_id+' input').each(function() {
@@ -179,15 +180,15 @@ $('#cpa_exam_register').submit(function(e){
 //     return filled;
 // }
 
-$("#da2submit").click(function () {
-    if($("input[name=last_exam_date]").val() != "" &&
-        $('input[name="last_ans_module[]"]:checked').length > 0 && 
-        $("#exam_department").val() != "" ){
-            $('#da2examModal').modal('show');
-    }else{
-        $('#da2examModal').modal('hide');
-    }
-});
+// $("#da2submit").click(function () {
+//     if($("input[name=last_exam_date]").val() != "" &&
+//         $('input[name="last_ans_module[]"]:checked').length > 0 && 
+//         $("#exam_department").val() != "" ){
+//             $('#da2examModal').modal('show');
+//     }else{
+//         $('#da2examModal').modal('hide');
+//     }
+// });
 
 $('#cash_img').click(function() {
     $('#da2exam_btn').prop('disabled', false);

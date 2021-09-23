@@ -314,12 +314,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                   <div class="row mt-2">
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 1" required> Module 1
+                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 1" > Module 1
                                                           </label>
                                                       </div>
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 2" required> Module 2
+                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 2" > Module 2
                                                           </label>
                                                       </div>
                                                       <label  class="error attend_place_error" name="attend_place_error" style="display:none;" for="last_ans_module[]">Please select Module.</label>
@@ -380,11 +380,37 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ယခုဖြေဆိုမည့် Module</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" placeholder="" name="module" id="module" class="form-control" value="" readonly="">
+                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left">{{ __('၁၉။') }}</span>ယခုဖြေဆိုမည့် Module</label>
+                                        <div class="col-md-8">
+                                            <div class="row" disabled>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="form-check-inline">
+                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            Module 1
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="form-check-inline">
+                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            Module 2
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-check-inline">
+                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            All Modules
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one.</label>
                                             </div>
+                                        </div>
+                                    </div>
 
                                             <div class="row">
                                                 {{-- <div class="col-md-1 col-form-label">{{ __('') }}</div>
@@ -516,6 +542,16 @@ $nrc_characters = config('myanmarnrc.characters');
                 let student_reg = data.data.student_register
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
+                    console.log(data.data,"student_reg");
+                    if(student_reg[1].module=="1"){
+                         $("#0").prop("checked", true);
+                    }
+                    else if(student_reg[1].module=="2"){
+                        $("#1").prop("checked", true);
+                    }
+                    else if(student_reg[1].module=="3"){
+                        $("#2").prop("checked", true);
+                    }
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
                     // console.log('current_stu_course',current_stu_course)
 
@@ -576,6 +612,17 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='current_address']").val(student_info.current_address);
 
                     $(".personal_no_self").val(student_info.registration_no);
+                    if(data.data.student_register[0].type == 0){
+                        $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
+                    }else if(data.data.student_register[0].type == 1){
+                        $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
+                    }else{
+
+                        var mac_name = data.data.student_course_regs[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                        $("input[name='class_address']").val(mac_name);
+                    }
                 }
 
             });
