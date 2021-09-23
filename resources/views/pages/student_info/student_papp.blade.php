@@ -582,14 +582,16 @@
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="letter" >
                                     </div>
-                                </div><br/>
-                                <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-2 col-form-label pt-4" >{{ __('(ည)') }}</div>
-                                    <div class="col-md-3 col-form-label pt-4">{{ __('CPA(FF) Registeraion No.') }}</div>
-                                    <div class="col-md-4 col-form-label pt-4">
+                                </div><br/><br>
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(ည)') }}</label>
+
+                                    <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
+                                    <div class="col-md-4">
                                         <input type="text"  class="form-control" name="reg_no"  placeholder="Enter CPA(FF) Registeraion No.">
                                     </div>
-                                </div><br>
+                                </div><br/><br>
 
                                 <div class="row">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>

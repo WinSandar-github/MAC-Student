@@ -473,7 +473,7 @@ function isLoginCPAFF(){
                             var age=Math.abs(age_dt.getUTCFullYear() - 1970);
                             if(age>=21){
                                 $("#age").append(age+" years");
-                                document.getElementById('fieldset').disabled=false;
+                                // document.getElementById('fieldset').disabled=false;
                                 document.getElementById('pass_cpa_two').style.display='none';
                             }
                             else{
@@ -485,7 +485,7 @@ function isLoginCPAFF(){
                             return false;
                         }
                         else{
-                            document.getElementById('fieldset').disabled=true;
+                            // document.getElementById('fieldset').disabled=true;
                             document.getElementById('pass_cpa_two').style.display='block';
                             return true;
                         }
