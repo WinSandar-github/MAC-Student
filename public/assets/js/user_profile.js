@@ -272,21 +272,20 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
-                        if(last_exam == null){            
-                                         if(last_exam[0].exam_type_id !== 3 )
-                        {
-                            
-                            let exam = exam_register.filter(exam => exam.grade == 1)
+                        if(last_exam[0]){  
+                                     
+                            if(last_exam[0].exam_type_id !== 3 ){
+                                
+                            let exam = exam_register.filter(exam => exam.grade == 1 && exam.exam_type_id !== 3)
                             exam.map(e => {
                                 course_html += `<tr>
                                                     <td>${e.course.name}</td>
                                                     <td>${e.batch.name}</td>
                                                     <td>${formatDate(e.updated_at)}</td>
                                                 </tr>`
-                            })
-                            
+                            });
+                            }
                         }
-                    }
                         console.log("Exam")
                         //check entry exam or direct
                         if(latest_course_reg[0].qt_entry == 1){
@@ -401,8 +400,11 @@ function user_profile() {
                                             <td>Approve</td>
                                         </tr>
                                         `);
-    
-                                        if (last_exam[0] && (last_exam[0].course.code == latest_course_reg[0].batch.course.code)) {
+                                       
+                                        if (last_exam[0] && 
+                                            (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
+                                            (last_exam[0].exam_type_id !== 3)
+                                            ) {
                                             if (last_exam[0].status == 0) {
                                                 $('.status').append(`
                                                                 <tr>
@@ -483,7 +485,6 @@ function user_profile() {
     
                                                         } else {
                                                             if (data) {
-                                                                alert("da two")
     
     
                                                                 $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)

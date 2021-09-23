@@ -460,13 +460,8 @@ function check_entry_pass(){
         error:function (message){
         }
     })
-
-    
-    
+  
 }
-
-
-
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
@@ -484,6 +479,16 @@ function direct_or_da(){
         })        
         $('.da_to_cpa').show();
     }else{
+        let batch_id = url.substring(url.lastIndexOf('/')+1);
+        $.ajax({
+            type: "get",
+            url: BACKEND_URL+"/batch/"+batch_id,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                $('#batch_number').append(res.data.id);
+            }
+        })   
         $('.dir_cpa_app_form').show();
 
     }
