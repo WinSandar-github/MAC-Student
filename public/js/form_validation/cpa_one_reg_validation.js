@@ -29,7 +29,7 @@ $().ready(function (){
             module : "Please Select Module!",
         },
         submitHandler: function(form) {
-            $('#selfStudyModal').modal('show');
+            $('#macModal').modal('show');
         }
         
     });
@@ -95,7 +95,7 @@ $().ready(function (){
             
         },
         submitHandler: function(form) {
-            $('#privateSchoolModal').modal('show');
+            $('#selfStudyModal').modal('show');
         }
         
     });

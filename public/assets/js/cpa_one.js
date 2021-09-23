@@ -473,6 +473,7 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
+                $('.batch_id').append(res.data.id);
                 $('#batch_id').val(res.data.id);
                 $('#batch_name').text(res.data.name);
             }

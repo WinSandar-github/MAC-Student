@@ -132,7 +132,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <!-- <h6>အမှတ်စဥ် - {{ __("____") }}</h6> -->
+                                                    <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
                                                 </div>
                                                 
                                             </div>
@@ -412,17 +412,17 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        {{--<div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>ပညာသင်နှစ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="academic_year_private" name="academic_year_private" class="form-control" value=""  placeholder="ပညာသင်နှစ်">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--}}
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="direct_access_no_private" name="direct_access_no_private" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
@@ -431,7 +431,7 @@
                                         </div> 
 
                                          <div class="row">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="entry_success_no_private" name="entry_success_no_private" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
@@ -502,7 +502,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <!-- <h6>အမှတ်စဥ် - {{ __("____") }}</h6> -->
+                                                    <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
                                                 </div>
                                                 
                                             </div>
@@ -769,17 +769,17 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        {{--<div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ပညာသင်နှစ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="academic_year_self" name="academic_year_self" class="form-control" value=""  placeholder="ပညာသင်နှစ်">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--}}
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                             <div class="row col-md-8 py-2">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
@@ -790,14 +790,14 @@
                                                     </div>
 
                                                     <div id="current_year_attendance" style="display:none">
-                                                        <div class="row mb-3">
+                                                        <div class="row mb-3" id="direct_access_no_self_div">
                                                             <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('(၁)') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                             <div class="col-md-5">
                                                                 <input type="text" id="direct_access_no_self" name="direct_access_no_self" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်">
                                                             </div>
                                                         </div>
 
-                                                        <div class="row mb-3">
+                                                        <div class="row mb-3" id="entry_success_no_self_div" >
                                                             <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('(၂)') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်</label>
                                                             <div class="col-md-5">
                                                                     <input type="text" id="entry_success_no_self" name="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်">
@@ -986,7 +986,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label">
-                                                <span class="pull-left">{{ __('၁၈။') }}</span>
+                                                <span class="pull-left">{{ __('၁၇။') }}</span>
                                                 <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                     <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" >
@@ -1638,7 +1638,7 @@
 
                 var info = data.data;
                 console.log("info >>>",info);
-                // let current_stu_course = data.data.student_course_regs.slice(-1);
+                // console.log("exam_register >>>",info.exam_registers[0]);
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
@@ -1675,7 +1675,7 @@
                   $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
                   document.getElementById('mac_preview_img').src = BASE_URL + data.data.image;
                   //$("#mac_container").find("previewImg").attr('src',BASE_URL + data.data.image);
-
+                  
                   $("#self_study_container").find("input[name=name_mm]").val(info.name_mm);
                   $("#self_study_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
                   $("#self_study_container").find("input[name=name_eng]").val(info.name_eng);
@@ -1751,6 +1751,16 @@
                     $("#self_study_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                     $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                   }
+
+                if(info.acca_cima==1 || info.acca_cima==2){
+                    console.log("Direct")
+                    // document.getElementById(direct_access_no_self_div).style.display='block';
+                    $("#direct_access_no_self_div").show();
+                    $("#entry_success_no_self_div").hide();
+                }else{
+                    $("#direct_access_no_self_div").hide();
+                    $("#entry_success_no_self_div").show();
+                }
 
                 // if(education_history){
                 //     console.log("education_history",education_history);

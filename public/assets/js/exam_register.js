@@ -209,11 +209,11 @@ $('#da2exam_btn').click(function () {
 });
 
 //cpa2 exam
-$( "#cpa2submit" ).click(function() {
-    if(all_Filled('#cpa2_exam_form')){
-        $('#cpa2examModal').modal('show');
-    }
-});
+// $( "#cpa2submit" ).click(function() {
+//     if(all_Filled('#cpa2_exam_form')){
+//         $('#cpa2examModal').modal('show');
+//     }
+// });
 
 $('#cpa2exam_img').click(function() {
     $('#cpa2exam_btn').prop('disabled', false);

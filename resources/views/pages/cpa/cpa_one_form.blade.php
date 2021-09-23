@@ -672,10 +672,14 @@
                                     <div class="card-body">
 
                                         <div class="row mb-5">
-                                            <h5 class="card-title text-center fw-bolder">
+                                            <h5 class="card-title text-center fw-bolder mb-3">
                                                 မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
                                                 လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
                                             </h5>
+                                            <div class="d-flex justify-content-between">
+                                                <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
+                                            </div>
                                             
                                         </div>
 
@@ -684,13 +688,44 @@
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="row mb-3">
-                                                    <label class="col-md-3 col-form-label pull-left">Batch Name</label>
-                                                    <div class=col-md-9><p id="batch_name" class="mt-2"></p></div>
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                    <div class="col-md-3">
+                                                        <input type="text" name="name_mm" class="form-control" readonly="">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" name="name_eng" class="form-control" readonly="">
+                                                    </div>
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-3 col-form-label pull-left">Payment</label>
-                                                    <div class=col-md-9><p class="text-primary mt-2">Payment System Coming Soon...</p></div>
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                                    <div class="col-md-6">
+                                                        <div class="row" style="padding-top: 0px; margin-top: 0px;">
+                                                            <div class="col-md-2">
+                                                                <input type="text" class="form-control nrc_state_region" name="nrc_state_region" style="padding: 6px;" readonly>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input type="text" class="form-control nrc_township" name="nrc_township" readonly>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control nrc_number" name="nrc_number" readonly="">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                    <div class="col-md-3">
+                                                        <input type="text" name="father_name_mm" class="form-control" readonly="">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" name="father_name_eng" class="form-control" readonly="">
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -708,46 +743,7 @@
                                             </div>
                                         </div>                                      
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                            <div class="col-md-4">
-                                                <input type="text" name="name_mm" class="form-control" readonly="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="text" name="name_eng" class="form-control" readonly="">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
-                                            <div class="col-md-8">
-                                                <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                                    <div class="col-md-2">
-                                                        <input type="text" class="form-control nrc_state_region" name="nrc_state_region" style="padding: 6px;" readonly>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <input type="text" class="form-control nrc_township" name="nrc_township" readonly>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <input type="text" class="form-control nrc_number" name="nrc_number" readonly="">
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                            <div class="col-md-4">
-                                                <input type="text" name="father_name_mm" class="form-control" readonly="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="text" name="father_name_eng" class="form-control" readonly="">
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
@@ -884,16 +880,15 @@
                                             </div>
                                         </div>
 
-                                        <div id="rec_letter_self" style="display:none" >
+                                        <div id="rec_letter_da_to_cpa" style="display:none" >
                                             <div class="row mb-3 "  >
-                                                <label class="col-md-4 col-form-label label">
-                                                    <span class="pull-left">{{ __('') }}</span>
+                                                <label class="col-md-5 col-form-label label">
                                                     <span class="pull-center" style="padding-right:35px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                 </label>
-                                                <div class="col-md-1"  id="degree_edu" >
+                                                <div class="col-md-2"  id="degree_edu" >
                                                     <span class="recommend_letter"></span>
                                                 </div>
-                                                <div class="col-md-7"  id="degree_edu" >
+                                                <div class="col-md-5"  id="degree_edu" >
                                                     <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                 </div>
                                             </div>
@@ -999,7 +994,7 @@
                                                     <input type="radio" id="private" class="form-check-input" value="1" name="dtype" onclick="selectdType()"  required style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                        <label class="form-check-label" for="private">ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
                                                         <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                     </div>
                                                 </div>
@@ -1008,7 +1003,7 @@
                                                     <input type="radio" id="self" class="form-check-input" value="0" name="dtype" onclick="selectdType()"  required style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                        <label class="form-check-label" for="self">ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ</label>
                                                         <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                     </div>
                                                 </div>
@@ -1334,6 +1329,9 @@
                   if(data){
                       var info = data.data;
                       console.log("info >>>",info);
+                      console.log("exam_register >>>",info.exam_registers.slice(-1));
+                      var exam_register = info.exam_registers.slice(-1);
+
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
@@ -1375,6 +1373,10 @@
                       // government staff OR not
                       if(info.gov_staff == 1){
                         $(".da_to_cpa").find("input[name=gov_staff][value=1]").prop("checked",true);
+                        $("#rec_letter_da_to_cpa").css("display",'block');
+                        if(info.recommend_letter!=null){
+                                $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                            }
                       }
                       else{
                         $(".da_to_cpa").find("input[name=gov_staff][value=0]").prop("checked",true);
