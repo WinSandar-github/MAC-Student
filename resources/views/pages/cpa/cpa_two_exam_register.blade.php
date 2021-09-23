@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="card border-success mb-3">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ<br/>
+                                    <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံ စာရင်းကောင်စီ<br/>
                                         လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ</h5>
                                     <br />
                                     {{-- <form method="post" id="cpa_exam_register" enctype="multipart/form-data"> --}}
@@ -190,7 +190,7 @@
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-1"></div>
-                                                    <label class="col-md-3 col-form-label label">ကျင်းပသည် ခုနှစ်/လ</label>
+                                                    <label class="col-md-3 col-form-label label">ကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date" class="form-control" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
                                                     </div>
@@ -401,6 +401,7 @@
 
         get_student_info(student_id).then(data => {
             if(data){
+                console.log('info',data.data);
                 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
@@ -415,7 +416,7 @@
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
 
-                $("input[name='personal_no']").val(data.data.student_register[0].personal_no);
+                $("input[name='personal_no']").val(data.data.personal_no);
 
                 if(data.data.student_register[0].type == 0){
                     $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");

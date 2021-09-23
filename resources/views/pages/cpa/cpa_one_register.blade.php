@@ -421,7 +421,7 @@
                                             </div>
                                         </div>--}}
 
-                                        <div class="row mb-3">
+                                        <div class="row mb-3" id="direct_access_no_private_div">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
@@ -430,7 +430,7 @@
                                             </div>
                                         </div> 
 
-                                         <div class="row">
+                                         <div class="row" id="entry_success_no_private_div">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
@@ -441,7 +441,7 @@
 
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label">
-                                        <span class="pull-left">{{ __('၁၉။') }}</span>
+                                        <span class="pull-left">{{ __('၁၈။') }}</span>
                                         <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                     <div class="col-md-8">
                                             <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" >
@@ -1048,7 +1048,7 @@
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                    <!-- <h6>အမှတ်စဥ် - {{ __("____") }}</h6> -->
+                                                    <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -1277,29 +1277,29 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            {{--<div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ပညာသင်နှစ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" id="academic_year_mac" name="academic_year_mac" class="form-control" value="" placeholder="ပညာသင်နှစ်"  >
                                                 </div>
-                                            </div>
+                                            </div>--}}
 
-                                            <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                            <div class="row mb-3" id="direct_access_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                            <div class="row mb-3" id="entry_success_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                 <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
                                             
                                             <div class="row mb-3">
-                                                <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရန်အဆိုပြုချက် - </label>
+                                                <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၇။') }}</span>စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရန်အဆိုပြုချက် - </label>
                                                 
                                             </div>
 
@@ -1396,13 +1396,13 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="batch_personal_no" class="form-control personal_no_self" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" >
+                                                    <input type="text" name="batch_personal_no" class="form-control " placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" >
 
                                                 </div>
                                             </div>--}}
 
                                             <div class="row mb-3">
-                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၂၀။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၈။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
@@ -1642,8 +1642,8 @@
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
-                console.log("education_history",education_history);
-                $(".personal_no_self").val(info.registration_no);
+                // console.log("education_history",education_history);
+                // $(".personal_no_self").val(info.registration_no);
                 var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
                 if(info){
@@ -1690,6 +1690,7 @@
                   $("#self_study_container").find("input[name=phone]").val(info.phone);
                   $("#self_study_container").find("input[name=address]").val(info.address);
                   $("#self_study_container").find("input[name=current_address]").val(info.current_address);
+                  $("#self_study_container").find("input[id=personal_no_self]").val(info.personal_no);
 
                   $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
 
@@ -1702,6 +1703,7 @@
                   $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
                   $("#self_study_container").find("input[name=salary]").val(job_history.salary);
                   $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
+                  
                   document.getElementById('self_study_preview_img').src = BASE_URL + data.data.image;
 
                   $("#private_school_container").find("input[name=name_mm]").val(info.name_mm);
@@ -1718,6 +1720,7 @@
                   $("#private_school_container").find("input[name=phone]").val(info.phone);
                   $("#private_school_container").find("input[name=address]").val(info.address);
                   $("#private_school_container").find("input[name=current_address]").val(info.current_address);
+                  $("#private_school_container").find("input[id=personal_no_private]").val(info.personal_no);
 
                   $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
 
@@ -1757,9 +1760,17 @@
                     // document.getElementById(direct_access_no_self_div).style.display='block';
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
+                    $("#direct_access_no_private_div").show();
+                    $("#entry_success_no_private_div").hide();
+                    $("#direct_access_no_mac_div").show();
+                    $("#entry_success_no_mac_div").hide();
                 }else{
                     $("#direct_access_no_self_div").hide();
                     $("#entry_success_no_self_div").show();
+                    $("#direct_access_no_private_div").hide();
+                    $("#entry_success_no_private_div").show();
+                    $("#direct_access_no_mac_div").hide();
+                    $("#entry_success_no_mac_div").show();
                 }
 
                 // if(education_history){

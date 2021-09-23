@@ -74,11 +74,11 @@
                                 <div class="row mb-5">
                                     <h5 class="card-title text-center fw-bolder">
                                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                        လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
+                                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
                                     </h5>
                                     <div class="d-flex justify-content-between">
-                                        <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
-                                        <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
                                     </div>
                                 </div>
 
@@ -426,7 +426,7 @@
 
                                         <div id="rec_letter" style="display:none" >
                                             <div class="row mb-3"  >
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
                                                 <div class="col-md-8"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
                                                 </div>
@@ -612,7 +612,7 @@
                                                         </p>
                                                     </label>
                                                 </div>
-                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-m-Y') }}</h6>
+                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                             </div>
                                         </div>  
                                        

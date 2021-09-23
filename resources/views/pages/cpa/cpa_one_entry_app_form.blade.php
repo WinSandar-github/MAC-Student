@@ -74,11 +74,11 @@
                                 <div class="row mb-5">
                                     <h5 class="card-title text-center fw-bolder">
                                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                        လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
+                                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
                                     </h5>
                                     <div class="d-flex justify-content-between">
-                                        <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
-                                        <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
                                     </div>
                                 </div>
 
@@ -479,7 +479,7 @@
                                                         </p>
                                                     </label>
                                                 </div>
-                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-m-Y') }}</h6>
+                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                             </div>
                                         </div>  
                                        
@@ -747,6 +747,7 @@
                       var info = data.data;
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
+                      console.log('entryinfo',info);
                     
 
                       if(info){

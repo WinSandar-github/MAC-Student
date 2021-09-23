@@ -465,6 +465,7 @@ function check_entry_pass(){
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
+    console.log('student',student)
     if(student){
         let batch_id = url.substring(url.lastIndexOf('/')+1);
         $.ajax({
@@ -487,6 +488,8 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
+                console.log('res',res);
+                $('.batch_id').append(res.data.id);
                 $('#batch_number').append(res.data.id);
             }
         })   

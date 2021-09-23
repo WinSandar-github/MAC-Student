@@ -939,7 +939,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ခုနှစ်/လ</label>
                                             <div class="col-md-8">
                                                 <div class="">
-                                                    <input type="text" readonly value="12-Aug-2020" placeholder="ခုနှစ်" id="da_pass_date" name="da_pass_date" class="form-control year"  required="">
+                                                    <input type="text" readonly value="" placeholder="ခုနှစ်" id="da_pass_date" name="da_pass_date" class="form-control year"  required="">
                                                 </div>
                                             </div>                                            
                                         </div>
@@ -1236,7 +1236,7 @@
         localStorage.removeItem('batch_id');
         direct_or_da();
 
-        $("#yes")
+        
 
         $("input[name='degree_date']").flatpickr({
                 enableTime: false,
@@ -1329,9 +1329,11 @@
                   if(data){
                       var info = data.data;
                       console.log("info >>>",info);
-                      console.log("exam_register >>>",info.exam_registers.slice(-1));
+                      
                       var exam_register = info.exam_registers.slice(-1);
-
+                        console.log("exam_register >>>",exam_register);
+                    //   var examdd = moment(exam_date).format('M-Y');
+                    //   console.log("examdd >>>",examdd);
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
@@ -1349,6 +1351,10 @@
                         $(".da_to_cpa").find("input[name=phone]").val(info.phone);
                         $(".da_to_cpa").find("input[name=address]").val(info.address);
                         $(".da_to_cpa").find("input[name=current_address]").val(info.current_address);
+
+                        $(".da_to_cpa").find("input[name=da_pass_date]").val(exam_register[0].updated_at);
+                        $(".da_to_cpa").find("input[name=current_address]").val(info.current_address);
+
                         document.getElementById('da_to_cpa_preview_img').src = BASE_URL + data.data.image;
                       }
 
