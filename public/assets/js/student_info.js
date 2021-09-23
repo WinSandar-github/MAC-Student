@@ -649,6 +649,7 @@ function createSelfStudy() {
     send_data.append('batch_no_self', $("input[name='batch_no_self']").val());
     send_data.append('part_no_self', $("input[name='part_no_self']").val());
     send_data.append('personal_no_self', $("input[name='personal_no_self']").val());
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     $('input[name="reg_reason[]"]:checked').map(function (key, val) {
         send_data.append('reg_reason[]', val.value);
     });
@@ -678,6 +679,7 @@ function createPrivateSchool() {
     send_data.append('batch_no_private', $("input[name='batch_no_private']").val());
     send_data.append('part_no_private', $("input[name='part_no_private']").val());
     send_data.append('personal_no_private', $("input[name='personal_no_private']").val());
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('private_school_name', $("#selected_school_id option:selected").text());
     // if($("input[name='form_type']").val()=="da two"){
@@ -709,6 +711,7 @@ function createMac() {
     send_data.append('batch_no_mac', $("input[name='batch_no_mac']").val());
     send_data.append('part_no_mac', $("input[name='part_no_mac']").val());
     send_data.append('personal_no_mac', $("input[name='personal_no_mac']").val());
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
     $.ajax({
@@ -951,6 +954,7 @@ function updateCode() {
 
 async function get_student_info(id){
     let response = await fetch(BACKEND_URL+"/user_profile/"+id)
-    let data = await response.json()
+    let data = await response.json();
+    console.log("return data", data)
     return data;
 }

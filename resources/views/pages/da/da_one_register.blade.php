@@ -340,7 +340,19 @@
                                                     </div>
                                                 </div>--}}
                                             </div>
-
+                                            <div id="rec_letter_mac" style="display:none" >
+                                                <div class="row mb-3 "  >
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    </label>
+                                                    <div class="col-md-2 text-center"  id="degree_edu" >
+                                                        <span class="recommend_letter"></span>
+                                                    </div>
+                                                    <div class="col-md-6"  id="degree_edu" >
+                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
@@ -432,7 +444,36 @@
                                                            class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
                                                 </div>
                                             </div>
-
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၇။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 1
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='2' required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 2
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='3' required>
+                                                            <span class="form-check-sign"></span>
+                                                            All Modules
+                                                        </label>
+                                                    </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
                                             {{--<div class="row">
                                                 <div class="col-md-1 mt-2">
                                                     <input type="checkbox" class="form-check-input"
@@ -712,7 +753,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <div id="rec_letter_private" style="display:none" >
+                                                <div class="row mb-3 "  >
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    </label>
+                                                    <div class="col-md-2 text-center"  id="degree_edu" >
+                                                        <span class="recommend_letter"></span>
+                                                    </div>
+                                                    <div class="col-md-6"  id="degree_edu" >
+                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
@@ -786,7 +839,36 @@
 
                                                 </div>
                                             </div>
-
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၇။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 1
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='2' required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 2
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='3' required>
+                                                            <span class="form-check-sign"></span>
+                                                            All Modules
+                                                        </label>
+                                                    </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
                                             {{--<div class="row">
                                                 <div class="col-md-1 mt-2">
                                                     <input type="checkbox" class="form-check-input"
@@ -1087,7 +1169,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <div id="rec_letter_self" style="display:none" >
+                                                <div class="row mb-3 "  >
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    </label>
+                                                    <div class="col-md-2 text-center"  id="degree_edu" >
+                                                        <span class="recommend_letter"></span>
+                                                    </div>
+                                                    <div class="col-md-6"  id="degree_edu" >
+                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
@@ -1248,7 +1342,7 @@
                                                 <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၇။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
-                                                        <label class="form-check-label" for="0">
+                                                        <label class="form-check-label">
                                                             <input class="form-check-input" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
@@ -1299,7 +1393,7 @@
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="batch_no_private" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်">
+                                                    <input type="text" name="batch_no_self" class="form-control batch_no" disabled placeholder="သင်တန်းအမှတ်စဥ်">
                                                 </div>
                                             </div>
 
@@ -1320,7 +1414,7 @@
                                                 </label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="date" id="date" class="form-control"
-                                                           placeholder="လ၊ခုနှစ်(MMM-YYYY)" required>
+                                                           placeholder="လ၊ခုနှစ်(MMM-YYYY)">
                                                 </div>
                                             </div>
 
@@ -1575,16 +1669,13 @@
             get_student_info(student_id).then(data => {
                 if (data) {
                     let current_stu_course = data.data.student_course_regs.slice(-1);
-
-                
-
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
                     $('.batch_no').val(current_stu_course[0]?.batch?.number);
-
+                    
                     document.getElementById('previewImgSelf').src = BASE_URL + data.data.image;
                     document.getElementById('previewImgPrivate').src = BASE_URL + data.data.image;
                     document.getElementById('previewImgMac').src = BASE_URL + data.data.image;
@@ -1612,9 +1703,15 @@
                         $("#no_private").prop("checked", true);
                         $("#no_mac").prop("checked", true);
                     } else {
-                        $("#yes_self").prop("checked", true);
-                        $("#yes_private").prop("checked", true);
-                        $("#yes_mac").prop("checked", true);
+                        $("#yes_mac").prop("checked",true);
+                        $("#rec_letter_mac").css("display",'block');
+                        $("#yes_self").prop("checked",true);
+                        $("#rec_letter_self").css("display",'block');
+                        $("#yes_private").prop("checked",true);
+                        $("#rec_letter_private").css("display",'block');
+                        if(data.data.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        }
                     }
                 }
             });
@@ -1628,7 +1725,7 @@
 
         loadSchoolList();
 
-        $("input[name='mac_date']").flatpickr({
+        $("input[name='date']").flatpickr({
             enableTime: false,
             dateFormat: "d-m-Y",
         });
@@ -1636,31 +1733,31 @@
     </script>
     <script>
 
-        $("#submit_btn_mac").click(function () {
-            $('#macModal').modal('show');
-        });
+        // $("#submit_btn_mac").click(function () {
+        //     $('#macModal').modal('show');
+        // });
 
-        $("#submit_btn_ss").click(function () {
-            console.log($('input[name="is_full_module"]:checked').length);
-            if($('input[name="reg_reason[]"]:checked').length > 0 && $('input[name="is_full_module"]:checked').length > 0 && 
-            $("input[name=date]").val()!=""){
-                $('#selfModal').modal('show');
-            }
-        });
-        $("#submit_btn_pp").click(function () {
-            if (allFilled('#da_private_school_form')) {
-                $('#privateModal').modal('show');
-            }
-        });
+        // $("#submit_btn_ss").click(function () {
+        //     console.log($('input[name="is_full_module"]:checked').length);
+        //     if($('input[name="reg_reason[]"]:checked').length > 0 && $('input[name="is_full_module"]:checked').length > 0 && 
+        //     $("input[name=date]").val()!=""){
+        //         $('#selfModal').modal('show');
+        //     }
+        // });
+        // $("#submit_btn_pp").click(function () {
+        //     if (allFilled('#da_private_school_form')) {
+        //         $('#privateModal').modal('show');
+        //     }
+        // });
 
-        function allFilled(form_id) {
-            var filled = true;
-            $(form_id + ' input').each(function () {
-                if ($(this).val() == '') filled = false;
-                //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
-            });
-            return filled;
-        }
+        // function allFilled(form_id) {
+        //     var filled = true;
+        //     $(form_id + ' input').each(function () {
+        //         if ($(this).val() == '') filled = false;
+        //         //if($(this).is(':checkbox') && $('input[type=checkbox][name=reg_reason]:checked').length == 0) filled = false;
+        //     });
+        //     return filled;
+        // }
 
         //MAC
         $('#mac_btn').click(function () {

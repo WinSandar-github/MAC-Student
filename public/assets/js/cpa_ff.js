@@ -232,9 +232,6 @@ function check_email_cpaff()
     var code = $("input[name=verify_code]").val();
     if(verify_code != code){
         successMessage("Your code is not correct.Please check your email inbox again!");
-        // $('#exampleModal').modal('show');
-        // $('#exampleModal1').modal('hide');
-        // $('#exampleModal').modal('show');
     }else{
         createCPAFFRegister();
         $('#cpaffModal').modal('hide');
@@ -288,12 +285,33 @@ function loadCpaffData()
             var cpaff_data = data.data;
             // console.log(cpaff_data)
             $('#name_mm').val(cpaff_data.name_mm);
+            $('#name_eng').val(cpaff_data.name_eng);
             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
             $('#nrc_township').val(cpaff_data.nrc_township);
             $('#nrc_citizen').val(cpaff_data.nrc_citizen);
             $('#nrc_number').val(cpaff_data.nrc_number);
             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
             $('#father_name_mm').val(cpaff_data.father_name_mm);
+            $('#father_name_eng').val(cpaff_data.father_name_eng);
+        }
+    });
+}
+
+function loadCpaffInitialData()
+{
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL+"/cpaff_by_stuId/"+student.id,
+        type: 'get',
+        data:"",
+        success: function(data){
+            // console.log(data)
+            var cpaff_data = data.data;
+            console.log(cpaff_data)
+            $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
+            $('#address').val(cpaff_data.address);
+            $('#phone').val(cpaff_data.phone);
+            $('#contact_mail').val(cpaff_data.contact_mail);
         }
     });
 }
@@ -455,7 +473,7 @@ function isLoginCPAFF(){
                             var age=Math.abs(age_dt.getUTCFullYear() - 1970);
                             if(age>=21){
                                 $("#age").append(age+" years");
-                                document.getElementById('fieldset').disabled=false;
+                                // document.getElementById('fieldset').disabled=false;
                                 document.getElementById('pass_cpa_two').style.display='none';
                             }
                             else{
@@ -467,7 +485,7 @@ function isLoginCPAFF(){
                             return false;
                         }
                         else{
-                            document.getElementById('fieldset').disabled=true;
+                            // document.getElementById('fieldset').disabled=true;
                             document.getElementById('pass_cpa_two').style.display='block';
                             return true;
                         }
