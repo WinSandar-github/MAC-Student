@@ -199,7 +199,7 @@
                                         <div class="row mb-2">
                                             <div class="col-md-7">
                                                 <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
-                                                <label class="col-form-label">CPA</label>
+                                                <label class="col-form-label" style="padding-left:5%;">CPA</label>
                                             </div>
                                         </div>
                                         <div id="cpa">
@@ -214,7 +214,7 @@
                                         <div class="row mb-2">
                                             <div class="col-md-7">
                                                 <input type="radio" name="education" id="ra_edu" value="2" onclick="getCPAEducation()">
-                                                <label class="col-form-label">RA</label>
+                                                <label class="col-form-label" style="padding-left:5%;">RA</label>
                                             </div>
                                         </div>
                                         <div id="ra">
@@ -300,9 +300,11 @@
                             </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-md-9 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ') }}</label>
                                 </div>
-                                <div class="row mb-3" style="padding-left:90px;">
+                                <div class="row mb-3">
+                                    <label class="col-md-1 col-form-label"></label>
                                     <label class="col-md-10 col-form-label">{{ __('ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားတော်၏နိုင်ငံသားဖြစ်ပြီး ') }}</label>
 
                                 </div>
