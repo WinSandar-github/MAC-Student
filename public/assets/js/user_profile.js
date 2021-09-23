@@ -176,7 +176,7 @@ function user_profile() {
                             $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
                         } else {
                             $(".status").append(`<tr><td colspan=3>Your information will be expired at  <b> 31 December ${year}</b>
-                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_register' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
+                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
                             `);
                         }
                     } else {
@@ -224,7 +224,11 @@ function user_profile() {
                             } else if (month == '10' || month == '11' || month == '12') {
                                 $(".status").append(`<tr><td colspan=4>Your registeration will start in ${y} year!</td></tr>`);
                             } else {
-                                $(".status").append(`<tr><td colspan=4>You are verified!</td></tr>`);
+                                // $(".status").append(`<tr><td colspan=4>You are verified!</td></tr>`);
+                                $(".status").append(`<tr>
+                                    <td colspan=3>Your information will be expired at <b> 31 December ${year} </b></td>
+                                    <td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>
+                                `);
                             }
                         } else {
                             $('.status').append(`
@@ -272,21 +276,20 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
-                        if(last_exam == null){            
-                                         if(last_exam[0].exam_type_id !== 3 )
-                        {
-                            
-                            let exam = exam_register.filter(exam => exam.grade == 1)
+                        if(last_exam[0]){  
+                                     
+                            if(last_exam[0].exam_type_id !== 3 ){
+                                
+                            let exam = exam_register.filter(exam => exam.grade == 1 && exam.exam_type_id !== 3)
                             exam.map(e => {
                                 course_html += `<tr>
                                                     <td>${e.course.name}</td>
                                                     <td>${e.batch.name}</td>
                                                     <td>${formatDate(e.updated_at)}</td>
                                                 </tr>`
-                            })
-                            
+                            });
+                            }
                         }
-                    }
                         console.log("Exam")
                         //check entry exam or direct
                         if(latest_course_reg[0].qt_entry == 1){
@@ -401,8 +404,11 @@ function user_profile() {
                                             <td>Approve</td>
                                         </tr>
                                         `);
-    
-                                        if (last_exam[0] && (last_exam[0].course.code == latest_course_reg[0].batch.course.code)) {
+                                       
+                                        if (last_exam[0] && 
+                                            (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
+                                            (last_exam[0].exam_type_id !== 3)
+                                            ) {
                                             if (last_exam[0].status == 0) {
                                                 $('.status').append(`
                                                                 <tr>
@@ -456,7 +462,8 @@ function user_profile() {
                                                             break;
                                                         case 'cpa_2':
                                                             course_code = "Membership"
-                                                            form_url = "/cpa_ff_register"
+                                                            // form_url = "/cpa_ff_register"
+                                                            form_url = "/cpa_ff_information"
                                                             break;
                                                         default:
                                                             course_code = "da_1",
