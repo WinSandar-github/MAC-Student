@@ -92,19 +92,19 @@ $('#da1exam_btn').click(function () {
 });
 
 // cpa1 exam
-$( "#cpa1submit" ).click(function() {
-    if(allfilled('#cpa1_exam_form')){
-        $('#cpa1examModal').modal('show');
-    }
-});
-function allfilled(form_id) {
-    var filled = true;
-    $(form_id+' input').each(function() {
-        if($(this).val() == ''  ) filled = false;
-        if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
-    });
-    return filled;
-}
+// $( "#cpa1submit" ).click(function() {
+//     if(allfilled('#cpa1_exam_form')){
+//         $('#cpa1examModal').modal('show');
+//     }
+// });
+// function allfilled(form_id) {
+//     var filled = true;
+//     $(form_id+' input').each(function() {
+//         if($(this).val() == ''  ) filled = false;
+//         if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+//     });
+//     return filled;
+// }
 
 $('#cpa1exam_img').click(function() {
     $('#cpa1exam_btn').prop('disabled', false);
