@@ -1328,12 +1328,8 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                      console.log("info >>>",info);
                       
                       var exam_register = info.exam_registers.slice(-1);
-                        console.log("exam_register >>>",exam_register);
-                    //   var examdd = moment(exam_date).format('M-Y');
-                    //   console.log("examdd >>>",examdd);
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
@@ -1352,7 +1348,7 @@
                         $(".da_to_cpa").find("input[name=address]").val(info.address);
                         $(".da_to_cpa").find("input[name=current_address]").val(info.current_address);
 
-                        $(".da_to_cpa").find("input[name=da_pass_date]").val(exam_register[0].updated_at);
+                        $(".da_to_cpa").find("input[name=da_pass_date]").val(formatDate(exam_register[0].updated_at));
                         $(".da_to_cpa").find("input[name=current_address]").val(info.current_address);
 
                         document.getElementById('da_to_cpa_preview_img').src = BASE_URL + data.data.image;

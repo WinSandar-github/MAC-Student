@@ -413,6 +413,31 @@
                                                 <input type="text" name="batch_personal_no_private" class="form-control personal_no_private" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required="">
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3">
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-7">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -724,6 +749,31 @@
                                                 <input type="text" name="batch_personal_no_self" class="form-control personal_no_self" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" >
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -1045,6 +1095,31 @@
 
                                     </div>
                                 </div>
+
+                                <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+
                                 <div class="row mb-3">
                                     <div class="form-check">
                                         <label class="form-check-label">
@@ -1254,7 +1329,6 @@ $('document').ready(function(){
 
     reg_feedback();
     var exam_date=localStorage.getItem("exam_date");
-    console.log(exam_date)
 
     const queryString = location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -1265,10 +1339,8 @@ $('document').ready(function(){
 
             if(data){
                 let student_info = data.data;
-                console.log('student_info',student_info);
                 let current_stu_course = student_info.student_course_regs.slice(-1);
                 let exam_registers = student_info.exam_registers.slice(-1);
-                console.log('exam_registers',exam_registers);
 
                 $('.name_mm').val(student_info.name_mm);
                 $('.name_eng').val(student_info.name_eng);
@@ -1281,8 +1353,8 @@ $('document').ready(function(){
                 $('.personal_no_self').val(student_info.personal_no);
                 $('.personal_no_mac').val(student_info.personal_no);
 
-                $('.cpa_one_pass_date_private').val(exam_registers[0].updated_at);
-                $('.cpa_one_pass_date_mac').val(exam_registers[0].updated_at);
+                $('.cpa_one_pass_date_private').val(formatDate(exam_registers[0].updated_at));
+                $('.cpa_one_pass_date_mac').val(formatDate(exam_registers[0].updated_at));
 
                 $('.cpa_one_success_no_private').val(exam_registers[0].grade);
                 $('.cpa_one_success_no_mac').val(exam_registers[0].grade);
@@ -1295,44 +1367,22 @@ $('document').ready(function(){
                 $('.position').val(student_info.student_job.position);
                 $('.department').val(student_info.student_job.department);
                 $('.office_address').val(student_info.student_job.office_address);
-                if(student_info.gov_staff==1){
-                    var yes=document.getElementById("yes_mac");
-                    yes.checked=true;
-                    $('#rec_letter_mac').show();
-                    if(student_info.recommend_letter!=null){
-                            $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                        }
-                }
-                else{
-                    var no=document.getElementById("no_mac");
-                    no.checked=true;
-                }
 
-                if(student_info.gov_staff==1){
-                    var yes=document.getElementById("yes_private");
-                    yes.checked=true;
-                    $('#rec_letter_private').show();
-                    if(student_info.recommend_letter!=null){
-                            $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                if (data.data.gov_staff == 0) {
+                        $("#no_self").prop("checked", true);
+                        $("#no_private").prop("checked", true);
+                        $("#no_mac").prop("checked", true);
+                    } else {
+                        $("#yes_mac").prop("checked",true);
+                        $("#rec_letter_mac").css("display",'block');
+                        $("#yes_self").prop("checked",true);
+                        $("#rec_letter_self").css("display",'block');
+                        $("#yes_private").prop("checked",true);
+                        $("#rec_letter_private").css("display",'block');
+                        if(data.data.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
                         }
-                }
-                else{
-                    var no=document.getElementById("no_private");
-                    no.checked=true;
-                }
-
-                if(student_info.gov_staff==1){
-                    var yes=document.getElementById("yes_self");
-                    yes.checked=true;
-                    $('#rec_letter_self').show();
-                    if(student_info.recommend_letter!=null){
-                            $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                        }
-                }
-                else{
-                    var no=document.getElementById("no_self");
-                    no.checked=true;
-                }
+                    }
 
                 $('.current_address').val(student_info.current_address);
                 $('.address').val(student_info.address);

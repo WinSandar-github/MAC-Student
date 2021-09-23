@@ -444,7 +444,7 @@
                                         <span class="pull-left">{{ __('၁၈။') }}</span>
                                         <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                     <div class="col-md-8">
-                                            <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" >
+                                            <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" readonly>
 
                                     </div>
                                 </div>
@@ -453,7 +453,7 @@
                                     <label class="col-md-4 col-form-label label">
                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>အပိုင်း</label>
                                     <div class="col-md-8">
-                                            <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_private" >
+                                            <input type="text" name="batch_part_no" class="form-control course_name" placeholder="အပိုင်း" id="part_no_private" readonly>
 
                                     </div>
                                 </div>
@@ -466,7 +466,29 @@
 
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-7">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
 
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 <div class="row mb-3 mt-3">
                                     <div class="form-check">
                                         <label class="form-check-label">
@@ -791,16 +813,16 @@
 
                                                     <div id="current_year_attendance" style="display:none">
                                                         <div class="row mb-3" id="direct_access_no_self_div">
-                                                            <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('(၁)') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                            <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                             <div class="col-md-5">
                                                                 <input type="text" id="direct_access_no_self" name="direct_access_no_self" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်">
                                                             </div>
                                                         </div>
 
                                                         <div class="row mb-3" id="entry_success_no_self_div" >
-                                                            <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('(၂)') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်</label>
+                                                            <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left:85px">{{ __('') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                                             <div class="col-md-5">
-                                                                    <input type="text" id="entry_success_no_self" name="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်">
+                                                                    <input type="text" id="entry_success_no_self" name="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -917,11 +939,11 @@
                                         <div class="row">
                                             <div class="col-md-3"></div>
                                             <div class="col-md-4">
-                                                <label class="col-form-label">{{ __('(၂) ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်') }}</label>
+                                                <label class="col-form-label">{{ __('(၂) ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်') }}</label>
 
                                             </div>
                                             <div class="col-md-5">
-                                                    <input type="text" id="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့် အမှတ်စဥ်">
+                                                    <input type="text" id="entry_success_no_self" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်">
                                             </div>
                                         </div><br/>
                                         <div class="row">
@@ -989,7 +1011,7 @@
                                                 <span class="pull-left">{{ __('၁၇။') }}</span>
                                                 <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                             <div class="col-md-8">
-                                                    <input type="text" name="batch_no" class="form-control" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" >
+                                                    <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                             </div>
                                         </div>
@@ -998,7 +1020,7 @@
                                             <label class="col-md-4 col-form-label label">
                                                 <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>အပိုင်း</label>
                                             <div class="col-md-8">
-                                                    <input type="text" name="batch_part_no" class="form-control" placeholder="အပိုင်း" id="part_no_self" >
+                                                    <input type="text" name="batch_part_no" class="form-control course_name" placeholder="အပိုင်း" id="part_no_self" readonly>
 
                                             </div>
                                         </div>
@@ -1007,7 +1029,7 @@
                                             <label class="col-md-4 col-form-label label">
                                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                             <div class="col-md-8">
-                                                <input type="text" name="batch_personal_no" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" >
+                                                <input type="text" name="batch_personal_no" class="form-control personal_no_self" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self"  >
 
                                             </div>
                                         </div>
@@ -1294,7 +1316,7 @@
                                             <div class="row mb-3" id="entry_success_no_mac_div">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲ အောင်မြင်သည့်အမှတ်စဥ်" >
+                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
                                             
@@ -1637,13 +1659,9 @@
                     
 
                 var info = data.data;
-                console.log("info >>>",info);
-                // console.log("exam_register >>>",info.exam_registers[0]);
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
-                // console.log("education_history",education_history);
-                // $(".personal_no_self").val(info.registration_no);
                 var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
                 if(info){
@@ -1756,7 +1774,6 @@
                   }
 
                 if(info.acca_cima==1 || info.acca_cima==2){
-                    console.log("Direct")
                     // document.getElementById(direct_access_no_self_div).style.display='block';
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();

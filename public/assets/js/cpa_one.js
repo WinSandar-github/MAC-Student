@@ -79,6 +79,7 @@ function Private_School_Submit(){
     data.append('batch_no_private',$("input[id='batch_no_private']").val());
     data.append('part_no_private',$("input[id='part_no_private']").val());
     data.append('personal_no_private',$("input[id='personal_no_private']").val());
+    data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('form_type',localStorage.getItem('course_id'));
     data.append('type', 1);
     show_loader();
@@ -115,7 +116,10 @@ function Self_Study_Submit(){
     data.append('academic_year', $("#academic_year_self").val());
     data.append('direct_access_no', $("#direct_access_no_self").val());
     data.append('entry_success_no', $("#entry_success_no_self").val());
-    $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    // $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        data.append('reg_reason[]', val.value);
+    });
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('batch_part_no', $("#batch_part_no").val());
     data.append('batch_no_self',$("input[id='batch_no_self']").val());
@@ -148,16 +152,6 @@ function Self_Study_Submit(){
         });
 }
 
-
-// $("#submit_btn_mac").click(function () {
-//     console.log('mac_semester',$(".personal_no_self").val());
-//     if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
-//     {
-//             $('#exampleModal3').modal('show');
-//     }else{
-//         $('#exampleModal3').modal('hide');
-//     }
-// });
 
 function Mac_Submit(){
     localStorage.setItem("isPrivateSchool",false);
@@ -465,7 +459,6 @@ function check_entry_pass(){
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
-    console.log('student',student)
     if(student){
         let batch_id = url.substring(url.lastIndexOf('/')+1);
         $.ajax({
@@ -488,7 +481,6 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
-                console.log('res',res);
                 $('.batch_id').append(res.data.id);
                 $('#batch_number').append(res.data.id);
             }
