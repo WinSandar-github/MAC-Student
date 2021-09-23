@@ -1616,6 +1616,12 @@
 
  $('document').ready(function(){
 
+    $("input[name='academic_year_self']").flatpickr({
+                enableTime: false,
+                dateFormat: "Y",
+                allowInput: true,
+        });
+
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
         selectedRegistration(urlParams.get("study_type"))
@@ -1734,8 +1740,10 @@
                     $("#self_study_container").find("input[name=gov_staff][value=1]").prop("checked",true);
                     $("#private_school_container").find("input[name=gov_staff][value=1]").prop("checked",true);
                     $("#rec_letter_mac").css("display",'block');
-                    if(student_info.recommend_letter!=null){
-                            $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                    $("#rec_letter_private").css("display",'block');
+                    $("#rec_letter_self").css("display",'block');
+                    if(info.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
                         }
                   }
                   else{
