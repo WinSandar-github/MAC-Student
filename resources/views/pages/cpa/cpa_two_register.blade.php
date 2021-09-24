@@ -283,30 +283,50 @@
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
-                                            <div class="col-md-2 form-check">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <input type="radio" disabled id="yes_private" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <label class="form-check-label" for="">ဟုတ်</label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                    <div class="col-md-2 pt-2">
+                                                        <div class="form-check">
+                                                            <div class="row">
+                                                                <div class="col-md-4"><input disabled type="radio"
+                                                                                            class="form-check-input mr-3" id="yes_private"
+                                                                                            name="gov_staff" value="1"
+                                                                                            style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                </div>
+                                                                <div class="col-md-8"><label class="form-check-label " for="yes_private">ဟုတ်</label>
+                                                                </div>
+                                                            </div>
 
-                                            <div class="col-md-2 form-check">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                    <input type="radio" disabled id="no_private" class="form-check-input no" value="0" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-8">
-                                                        <label class="form-check-label" for="">မဟုတ်</label>
-                                                        <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
+                                                    <div class="col-md-2 pt-2">
+                                                        <div class="form-check">
+                                                            <div class="row">
+                                                                <div class="col-md-4"><input disabled type="radio"
+                                                                                            class="form-check-input mr-3" id="no_private"
+                                                                                            name="gov_staff" value="0"
+                                                                                            style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                </div>
+                                                                <div class="col-md-8"><label class="form-check-label " for="no_private">မဟုတ်</label></div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                        </div>
+
+                                                <div id="rec_letter_private" style="display:none" >
+                                                    <div class="row mb-3 "  >
+                                                        <label class="col-md-4 col-form-label label">
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                        </label>
+                                                        <div class="col-md-2 text-center"  id="degree_edu" >
+                                                            <span class="recommend_letter"></span>
+                                                        </div>
+                                                        <div class="col-md-6"  id="degree_edu" >
+                                                            <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             <div class="col-md-8">
@@ -347,27 +367,27 @@
                                                 <label class="col-form-label">{{ __(' နှစ်/လ') }}</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date" value="" name="cpa_one_pass_date" required>
+                                                <input type="text" class="form-control cpa_one_pass_date_private" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date" value="" name="cpa_one_pass_date" required>
                                             </div>
                                         </div>
-                                        <div class="row mb-3">
+                                        {{--<div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                             <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                             <div class="col-md-2 label_align_right">
                                                 <label class="col-form-label">{{ __(' ကိုယ်ပိုင်အမှတ်') }}</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" id="cpa_one_access_no" name="cpa_one_access_no" placeholder="ကိုယ်ပိုင်အမှတ်" value="" required>
+                                                <input type="text" class="form-control personal_no_private" id="cpa_one_access_no" name="cpa_one_access_no" placeholder="ကိုယ်ပိုင်အမှတ်" value="" required>
                                             </div>
-                                        </div>
+                                        </div>--}}
                                         <div class="row mb-3">
                                             <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                                            <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                            <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                             <div class="col-md-2 label_align_right">
                                                 <label class="col-form-label">{{ __('အဆင့်') }}</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" id="cpa_one_success_no" name="cpa_one_success_no" placeholder="အဆင့်" value="" required>
+                                                <input type="text" class="form-control cpa_one_success_no_private" id="cpa_one_success_no" name="cpa_one_success_no" placeholder="အဆင့်" value="" required>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -390,9 +410,34 @@
                                             <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                             <label class="col-md-2 label_align_right col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                             <div class="col-md-8">
-                                                <input type="text" name="batch_personal_no_private" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required="">
+                                                <input type="text" name="batch_personal_no_private" class="form-control personal_no_private" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required="">
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3">
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-7">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -563,29 +608,50 @@
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
-                                            <div class="col-md-2 form-check">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <input type="radio" disabled id="yes_self" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                    <div class="col-md-2 pt-2">
+                                                        <div class="form-check">
+                                                            <div class="row">
+                                                                <div class="col-md-4"><input disabled type="radio"
+                                                                                            class="form-check-input mr-3" id="yes_self"
+                                                                                            name="gov_staff" value="1"
+                                                                                            style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                </div>
+                                                                <div class="col-md-8"><label class="form-check-label " for="yes_self">ဟုတ်</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-8">
-                                                        <label class="form-check-label" for="">ဟုတ်</label>
+                                                    <div class="col-md-2 pt-2">
+                                                        <div class="form-check">
+                                                            <div class="row">
+                                                                <div class="col-md-4"><input disabled type="radio"
+                                                                                            class="form-check-input mr-3" id="no_self"
+                                                                                            name="gov_staff" value="0"
+                                                                                            style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                </div>
+                                                                <div class="col-md-8"><label class="form-check-label " for="no_self">မဟုတ်</label></div>
+
+                                                            </div>
+
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 form-check">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                    <input type="radio" disabled id="no_self" class="form-check-input no" value="0" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <label class="form-check-label" for="">မဟုတ်</label>
-                                                        <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
+
+                                                <div id="rec_letter_self" style="display:none" >
+                                                    <div class="row mb-3 "  >
+                                                        <label class="col-md-4 col-form-label label">
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                        </label>
+                                                        <div class="col-md-2 text-center"  id="degree_edu" >
+                                                            <span class="recommend_letter"></span>
+                                                        </div>
+                                                        <div class="col-md-6"  id="degree_edu" >
+                                                            <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             <div class="col-md-8">
@@ -680,9 +746,34 @@
                                             <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                             <label class="col-md-2 label_align_right col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                             <div class="col-md-8">
-                                                <input type="text" name="batch_personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" >
+                                                <input type="text" name="batch_personal_no_self" class="form-control personal_no_self" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self" >
                                             </div>
                                         </div>
+
+                                        <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+
                                         <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
@@ -856,30 +947,50 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
-                                    <div class="col-md-2 form-check">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <input type="radio" disabled id="yes_mac" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label class="form-check-label" for="">ဟုတ်</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                    <div class="col-md-2 pt-2">
+                                                        <div class="form-check">
+                                                            <div class="row">
+                                                                <div class="col-md-4"><input disabled type="radio"
+                                                                                            class="form-check-input mr-3" id="yes_mac"
+                                                                                            name="gov_staff" value="1"
+                                                                                            style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                </div>
+                                                                <div class="col-md-8"><label class="form-check-label " for="yes_mac">ဟုတ်</label>
+                                                                </div>
+                                                            </div>
 
-                                    <div class="col-md-2 form-check">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                            <input type="radio" disabled id="no_mac" class="form-check-input no" value="0" name="gov_staff" onclick="selectStaff()" required style="margin-left: 3%;">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label class="form-check-label" for="">မဟုတ်</label>
-                                                <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
-                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 pt-2">
+                                                        <div class="form-check">
+                                                            <div class="row">
+                                                                <div class="col-md-4"><input disabled type="radio"
+                                                                                            class="form-check-input mr-3" id="no_mac"
+                                                                                            name="gov_staff" value="0"
+                                                                                            style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                </div>
+                                                                <div class="col-md-8"><label class="form-check-label " for="no_mac">မဟုတ်</label></div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                         </div>
-                                    </div>
-                                </div>
+
+                                                <div id="rec_letter_mac" style="display:none" >
+                                                    <div class="row mb-3 "  >
+                                                        <label class="col-md-4 col-form-label label">
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                        </label>
+                                                        <div class="col-md-2 text-center"  id="degree_edu" >
+                                                            <span class="recommend_letter"></span>
+                                                        </div>
+                                                        <div class="col-md-6"  id="degree_edu" >
+                                                            <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                  <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                     <div class="col-md-8">
@@ -923,10 +1034,10 @@
                                         <label class="col-form-label">{{ __(' (နှစ်/လ)') }}</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date_mac" name="cpa_one_pass_date_mac" value="">
+                                        <input type="text" class="form-control cpa_one_pass_date_mac" placeholder="လ ၊ နှစ် (MMM-YYYY)" id="cpa_one_pass_date_mac" name="cpa_one_pass_date_mac" value="">
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                {{--<div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                     <div class="col-md-2 label_align_right">
@@ -935,13 +1046,13 @@
 
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="cpa_one_access_no" name="cpa_one_access_no_mac" placeholder="ကိုယ်ပိုင်အမှတ်" value="" >
+                                        <input type="text" class="form-control personal_no_mac" id="cpa_one_access_no" name="cpa_one_access_no_mac" placeholder="ကိုယ်ပိုင်အမှတ်" value="" >
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                     <div class="col-md-2 label_align_right">
 
                                              <label class="col-form-label">{{ __('(အဆင့်)') }}</label>
@@ -949,7 +1060,7 @@
                                     </div>
                                     <div class="col-md-8">
 
-                                             <input type="text" class="form-control" id="cpa_one_success_no" name="cpa_one_success_no_mac" placeholder="အဆင့်" value="" >
+                                             <input type="text" class="form-control cpa_one_success_no_mac" id="cpa_one_success_no" name="cpa_one_success_no_mac" placeholder="အဆင့်" value="" >
 
                                     </div>
                                 </div><br>
@@ -980,10 +1091,35 @@
                                     <label class="col-md-2 label_align_right col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
                                     <div class="col-md-8">
-                                        <input type="text" name="batch_personal_no_mac" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" value="" >
+                                        <input type="text" name="batch_personal_no_mac" class="form-control personal_no_mac" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" value="" >
 
                                     </div>
                                 </div>
+
+                                <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                        </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <label class="form-check-label">{{ __('All Module') }}</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check-radio px-0">
+                                                        <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                                    </div>
+                                                </div>
+                                        </div>
+
                                 <div class="row mb-3">
                                     <div class="form-check">
                                         <label class="form-check-label">
@@ -1193,7 +1329,6 @@ $('document').ready(function(){
 
     reg_feedback();
     var exam_date=localStorage.getItem("exam_date");
-    console.log(exam_date)
 
     const queryString = location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -1205,6 +1340,7 @@ $('document').ready(function(){
             if(data){
                 let student_info = data.data;
                 let current_stu_course = student_info.student_course_regs.slice(-1);
+                let exam_registers = student_info.exam_registers.slice(-1);
 
                 $('.name_mm').val(student_info.name_mm);
                 $('.name_eng').val(student_info.name_eng);
@@ -1212,6 +1348,16 @@ $('document').ready(function(){
                 $('.nrc_township').val(student_info.nrc_township);
                 $('.nrc_citizen').val(student_info.nrc_citizen);
                 $('.nrc_number').val(student_info.nrc_number);
+
+                $('.personal_no_private').val(student_info.personal_no);
+                $('.personal_no_self').val(student_info.personal_no);
+                $('.personal_no_mac').val(student_info.personal_no);
+
+                $('.cpa_one_pass_date_private').val(formatDate(exam_registers[0].updated_at));
+                $('.cpa_one_pass_date_mac').val(formatDate(exam_registers[0].updated_at));
+
+                $('.cpa_one_success_no_private').val(exam_registers[0].grade);
+                $('.cpa_one_success_no_mac').val(exam_registers[0].grade);
 
                 $('.father_name_mm').val(student_info.father_name_mm);
                 $('.father_name_eng').val(student_info.father_name_eng);
@@ -1221,32 +1367,22 @@ $('document').ready(function(){
                 $('.position').val(student_info.student_job.position);
                 $('.department').val(student_info.student_job.department);
                 $('.office_address').val(student_info.student_job.office_address);
-                if(student_info.gov_staff==1){
-                    var yes=document.getElementById("yes_mac");
-                    yes.checked=true;
-                }
-                else{
-                    var no=document.getElementById("no_mac");
-                    no.checked=true;
-                }
 
-                if(student_info.gov_staff==1){
-                    var yes=document.getElementById("yes_private");
-                    yes.checked=true;
-                }
-                else{
-                    var no=document.getElementById("no_private");
-                    no.checked=true;
-                }
-
-                if(student_info.gov_staff==1){
-                    var yes=document.getElementById("yes_self");
-                    yes.checked=true;
-                }
-                else{
-                    var no=document.getElementById("no_self");
-                    no.checked=true;
-                }
+                if (data.data.gov_staff == 0) {
+                        $("#no_self").prop("checked", true);
+                        $("#no_private").prop("checked", true);
+                        $("#no_mac").prop("checked", true);
+                    } else {
+                        $("#yes_mac").prop("checked",true);
+                        $("#rec_letter_mac").css("display",'block');
+                        $("#yes_self").prop("checked",true);
+                        $("#rec_letter_self").css("display",'block');
+                        $("#yes_private").prop("checked",true);
+                        $("#rec_letter_private").css("display",'block');
+                        if(data.data.recommend_letter!=null){
+                            $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        }
+                    }
 
                 $('.current_address').val(student_info.current_address);
                 $('.address').val(student_info.address);
