@@ -302,7 +302,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <span class="pull-left" style="padding-left: 30px;">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ
                                                 </label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="last_exam_date" id="last_exam_date" class="form-control" value="">
+                                                    <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="date" id="date" class="form-control" value="">
                                                 </div>
                                             </div><br />
 
@@ -629,7 +629,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
             $('#form_type').val(localStorage.getItem('course_id'));
-            $("input[name='last_exam_date']").flatpickr({
+            $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
                 allowInput: true,
