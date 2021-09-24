@@ -258,7 +258,8 @@ $('#cpa_register').submit(function(e){
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
+    send_data.append('gov_staff', $("input[name=gov_staff]").val());
+    // $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
@@ -297,16 +298,6 @@ $('#cpa_register').submit(function(e){
 
     send_data.append('type',$("input[name='attend_place']:checked").val());
     send_data.append('mac_type',$("input[name='mac_type']:checked").val());
-
-
-   
-
-
-
-
-
-
-
     send_data.append('batch_id',batch_id)
     //show_loader(); 
 
@@ -459,7 +450,9 @@ function check_entry_pass(){
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
+    console.log('student',student);
     if(student){
+        console.log('student',student);
         let batch_id = url.substring(url.lastIndexOf('/')+1);
         $.ajax({
             type: "get",
@@ -486,6 +479,7 @@ function direct_or_da(){
             }
         })   
         $('.dir_cpa_app_form').show();
+        // $('.da_pass_to_cpa').show();
 
     }
 
@@ -776,7 +770,8 @@ $('#cpa_entry_register').submit(function(e){
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
+    send_data.append('gov_staff', $("input[name=gov_staff]").val());
+    // $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
@@ -825,6 +820,7 @@ $('#cpa_entry_register').submit(function(e){
             processData: false,
             data: send_data,
             success: function (data) {
+                console.log('data',data)
                 //EasyLoading.hide();
                 successMessage("You have successfully registerd!");
 

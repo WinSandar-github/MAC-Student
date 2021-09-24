@@ -484,7 +484,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label">
                                                 <span class="pull-left" style="padding-right: 30px;">{{ __('၂၄။') }}</span>
-                                                သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
+                                                သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
                                             {{-- <div class="col-sm-8 checkbox-radios py-2">
                                                 <div class="form-check-radio px-0">
                                                     <label class="form-check-label">
@@ -548,7 +548,7 @@
                                                     <input type="radio" id="private" class="form-check-input" value="1" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="private">ကိုင်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
+                                                        <label class="form-check-label" for="private">ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း</label>
                                                         <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                     </div>
                                                 </div>
@@ -557,7 +557,7 @@
                                                     <input type="radio" id="self" class="form-check-input" value="0" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="self">ကိုင်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                        <label class="form-check-label" for="self">ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
                                                         <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                     </div>
                                                 </div>
