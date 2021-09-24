@@ -283,8 +283,8 @@ function createDaTwoSelfStudy()
     send_data.append('part_no_self', $("input[id='part_no_self']").val());
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
     send_data.append('type', 0);
-    $(':checkbox:checked').map(function () {
-        send_data.append('reg_reason[]', $(this).val())
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        send_data.append('reg_reason[]', val.value);
     });
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
