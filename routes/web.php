@@ -150,6 +150,13 @@ Route::get('mentor_register', 'MentorController@index');
 // Mentor Information Page
 Route::get('mentor_information', 'MentorInfoController@info');
 
+// Article Register Form
+Route::get('article_gov_registration', 'ArticleController@articleGov');
+Route::get('article_firm_registration', 'ArticleController@articleFirm');
+
+// Article Information Page
+Route::get('article_information', 'ArticleInfoController@info');
+
 //list of all result
 Route::get('application_list/{course_id}','ReportController@app_list');
 

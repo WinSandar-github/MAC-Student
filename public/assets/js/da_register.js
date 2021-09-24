@@ -262,15 +262,15 @@ $('#store_da_two_form').submit(function (e) {
 //     location.href = FRONTEND_URL+"/";
 // });
 
-$("#submit_btn_self").click(function () {
-    console.log('mac_semester',$(".personal_no_self").val());
-    if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
-    {
-            $('#exampleModal3').modal('show');
-    }else{
-        $('#exampleModal3').modal('hide');
-    }
-});
+// $("#submit_btn_self").click(function () {
+//     console.log('mac_semester',$(".personal_no_self").val());
+//     if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
+//     {
+//             $('#exampleModal3').modal('show');
+//     }else{
+//         $('#exampleModal3').modal('hide');
+//     }
+// });
 
 function createDaTwoSelfStudy()
 {
@@ -283,9 +283,10 @@ function createDaTwoSelfStudy()
     send_data.append('part_no_self', $("input[id='part_no_self']").val());
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
     send_data.append('type', 0);
-    $(':checkbox:checked').map(function () {
-        send_data.append('reg_reason[]', $(this).val())
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        send_data.append('reg_reason[]', val.value);
     });
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
     show_loader();
     $.ajax({
@@ -330,7 +331,7 @@ function createDaTwoPrivateSchool()
     send_data.append('batch_no_private', $("input[id='batch_no_private']").val());
     send_data.append('part_no_private', $("input[id='part_no_private']").val());
     send_data.append('personal_no_private', $("input[id='personal_no_private']").val());
-
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('private_school_name', $("#selected_school_id").val());
     send_data.append('academic_year', $("input[id='academic_year']").val());
     send_data.append('type', 1);
@@ -385,6 +386,7 @@ function createDaTwoMac()
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('mac_semester', $("input[name='mac_semester']").val());
+    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
@@ -509,43 +511,43 @@ function allFilled(form_id) {
         if ($("#image").val() == '') {
             filled = false;
         }
-        if ($("#name").val() == '') {
-            filled = false;
-        }
-        if ($("#position").val() == '') {
-            filled = false;
-        }
-        if ($("#department").val() == '') {
-            filled = false;
-        }
-        if ($("#organization").val() == '') {
-            filled = false;
-        }
-        if ($("#company_name").val() == '') {
-            filled = false;
-        }
-        if ($("#salary").val() == '') {
-            filled = false;
-        }
-        if ($("#office_address").val() == '') {
-            filled = false;
-        }
-        if ($("#degree_name").val() == '') {
-            filled = false;
-        }
-        if ($("#university_name").val() == '') {
-            filled = false;
-        }
-        if ($("#roll_number").val() == '') {
-            filled = false;
-        }
-        if ($("#qualified_date").val() == '') {
-            filled = false;
-        }
-        if ($("#certificate0").val() == '') {
+        // if ($("#name").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#position").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#department").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#organization").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#company_name").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#salary").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#office_address").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#degree_name").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#university_name").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#roll_number").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#qualified_date").val() == '') {
+        //     filled = false;
+        // }
+        // if ($("#certificate0").val() == '') {
 
-            filled = false;
-        }
+        //     filled = false;
+        // }
 
 
         if ($('input[name="attend_place"]:checked').length === 0) {

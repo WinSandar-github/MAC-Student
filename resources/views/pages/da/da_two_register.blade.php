@@ -261,7 +261,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div id="rec_letter_self" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -318,7 +318,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="form-check">
                                                             <label class="form-check-label">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="reg_reason[]" required="">
+                                                                    name="reg_reason[]" required="" value="ယခုနှစ်တက်ရောက်ခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (က) ယခုနှစ်တက်ရောက်ခြင်း
                                                             </label>
@@ -327,7 +327,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="form-check">
                                                             <label class="form-check-label">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="reg_reason[]" required="">
+                                                                    name="reg_reason[]" required="" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                             </label>
@@ -336,7 +336,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="form-check">
                                                             <label class="form-check-label">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="reg_reason[]" required="">
+                                                                    name="reg_reason[]" required="" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                             </label>
@@ -345,7 +345,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="form-check">
                                                             <label class="form-check-label">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="reg_reason[]" required="">
+                                                                    name="reg_reason[]" required="" value="စာမေးပွဲကျရှုံးခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                             </label>
@@ -354,7 +354,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <div class="form-check">
                                                             <label class="form-check-label">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="reg_reason[]" required="">
+                                                                    name="reg_reason[]" required="" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
                                                             </label>
@@ -468,7 +468,36 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>                                                   
 
-
+<div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၂၀။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 1
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='2' required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 2
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='3' required>
+                                                            <span class="form-check-sign"></span>
+                                                            All Modules
+                                                        </label>
+                                                    </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
                                                     <div class="row mb-5">
                                                         <div class="d-flex justify-content-between">
                                                             <div class="form-check">
@@ -539,7 +568,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             <div class="row mb-4">
                                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('') }}</span>ပညာသင်နှစ်</label>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" placeholder="" id="academic_year" name="academic_year" class="form-control" >
+                                                                    <input type="text" placeholder="ခုနှစ်(YYYY)" id="academic_year" name="academic_year" class="form-control" >
                                                                 </div>
                                                             </div>
 
@@ -720,7 +749,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
                                                             <span class="pull-left">{{ __('') }}</span>
-                                                            <span class="pull-center" style="padding-right:75px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:75px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-1"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -801,7 +830,36 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" required>
                                                     </div>
                                                 </div>
-
+                                                <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၉။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 1
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='2' required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 2
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='3' required>
+                                                            <span class="form-check-sign"></span>
+                                                            All Modules
+                                                        </label>
+                                                    </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
                                                 <div class="row mb-3">
                                                     <div class="d-flex justify-content-between">
                                                         <div class="form-check">
@@ -1033,7 +1091,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div id="rec_letter_mac" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -1110,7 +1168,36 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required>
                                                     </div>
                                                 </div>
-
+                                                <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၉။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 1
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='2' required>
+                                                            <span class="form-check-sign"></span>
+                                                            Module 2
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4 form-check-radio">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="is_full_module" value='3' required>
+                                                            <span class="form-check-sign"></span>
+                                                            All Modules
+                                                        </label>
+                                                    </div>
+                                                    <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
                                                 
                                                 <div class="row mb-3">
                                                     <div class="d-flex justify-content-between">
@@ -1328,13 +1415,18 @@ $nrc_characters = config('myanmarnrc.characters');
                 dateFormat: "Y",
                 allowInput: true,
             }); 
-
+            $("input[name='academic_year']").flatpickr({
+                enableTime: false,
+                dateFormat: "Y",
+                allowInput: true,
+            });
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
 
                 let student_info = data.data;
                 console.log("student_info",student_info)
+                
                 if(data){
                     let current_stu_course = data.data.student_course_regs.slice(-1);
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
@@ -1402,8 +1494,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $(".personal_no_self").val(student_info.registration_no);
                     $(".personal_no_private").val(student_info.registration_no);
                     $(".personal_no_mac").val(student_info.registration_no);
-
-
+                    $("input[name='exam_date']").val(formatDate(data.data.exam_registers[0].updated_at));
 
 
                 }
@@ -1416,8 +1507,9 @@ $nrc_characters = config('myanmarnrc.characters');
         reg_feedback();
         loadPrivateSchoolList();
 
-        var exam_date = localStorage.getItem("exam_date");
-        $("input[name='exam_date']").val(formatDate(exam_date));
+        // var exam_date = localStorage.getItem("exam_date");
+        // console.log(exam_date,"aa")
+        // $("input[name='exam_date']").val(formatDate(exam_date));
 
 
         //MAC
