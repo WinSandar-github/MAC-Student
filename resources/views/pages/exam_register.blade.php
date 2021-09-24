@@ -185,11 +185,11 @@
                                     <div class="row mb-3">
                                         <label for="" class="col-md-4 label_align_right"><span class="pull-left">{{ __('၁၀။') }}</span>ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-8">
-                                            <div class="row" disabled>
+                                            <div class="row">
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1"  disabled required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -197,7 +197,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2"   disabled required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -205,7 +205,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3"  disabled required>
                                                             All Modules
                                                         </div>
                                                     </div>
