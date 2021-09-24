@@ -550,13 +550,13 @@
                                         <div class="row">
                                             <div class="col-md-1">
                                                 <div>
-                                                    <label>{{ __('၂၃') }}</label>
+                                                    <label>{{ __('၂၃။') }}</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-11 ">
                                                 <div>
-                                                    <label>သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
+                                                    <label>သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
                                                 </div>
                                             </div>
                                         </div>

@@ -485,42 +485,42 @@ function direct_or_da(){
 
 }
 
-$( "#cpa_one_submit" ).click(function() {
+// $( "#cpa_one_submit" ).click(function() {
      
-    if(allFilled('#cpa_one_form')){
+//     if(allFilled('#cpa_one_form')){
         
-        var send_data = new FormData();
-        send_data.append('email',$("input[name='email']").val());
-        // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        // send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        // send_data.append('nrc_number',$("input[name='nrc_number']").val());
-        send_data.append('nrc_state_region',$("#nrc_state_region").val());
-        send_data.append('nrc_township',$("#nrc_township").val());
-        send_data.append('nrc_citizen',$("#nrc_citizen").val());
-        send_data.append('nrc_number',$("#nrc_number").val());
-        $.ajax({
-            url: BACKEND_URL+"/unique_email",
-            type: 'post',
-            data:send_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
+//         var send_data = new FormData();
+//         send_data.append('email',$("input[name='email']").val());
+//         // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+//         // send_data.append('nrc_township',$("input[name='nrc_township']").val());
+//         // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+//         // send_data.append('nrc_number',$("input[name='nrc_number']").val());
+//         send_data.append('nrc_state_region',$("#nrc_state_region").val());
+//         send_data.append('nrc_township',$("#nrc_township").val());
+//         send_data.append('nrc_citizen',$("#nrc_citizen").val());
+//         send_data.append('nrc_number',$("#nrc_number").val());
+//         $.ajax({
+//             url: BACKEND_URL+"/unique_email",
+//             type: 'post',
+//             data:send_data,
+//             contentType: false,
+//             processData: false,
+//             success: function(result){
                
-                if(result.email!=null){
-                    Swal.fire("Email has been used, please check again!");
-                }
-                else if(result.nrc!=null){
-                    Swal.fire("NRC has been used, please check again!");
-                }
-                else if(result.email==null && result.nrc==null){                    
-                    $('#cpaEmailModal').modal('show');
-                    send_email();                    
-                }
-            }
-        });
-    }
-});
+//                 if(result.email!=null){
+//                     Swal.fire("Email has been used, please check again!");
+//                 }
+//                 else if(result.nrc!=null){
+//                     Swal.fire("NRC has been used, please check again!");
+//                 }
+//                 else if(result.email==null && result.nrc==null){                    
+//                     $('#cpaEmailModal').modal('show');
+//                     send_email();                    
+//                 }
+//             }
+//         });
+//     }
+// });
 
 // $( "#cpa_one_submit" ).click(function() {
 //     if(allFilled('#cpa_one_form')){
@@ -528,133 +528,133 @@ $( "#cpa_one_submit" ).click(function() {
 //         send_email();
 //     }
 // });
-function allFilled(form_id) {
+// function allFilled(form_id) {
    
-    var filled = true;
-    $(form_id+' input').each(function() {
+//     var filled = true;
+//     $(form_id+' input').each(function() {
         
-        if($("#email").val() == ''){
-            filled = false;
-        }
-        if($("#password").val() == ''){
-            filled = false;
-        }
-        if($("#confirm_password").val() == ''){
-            filled = false;
-        }
-        if($("#profile_photo").val() == ''){
-            filled = false;
-        }
-        if($("#name_mm").val() == ''){
-            filled = false;
-        }
-        if($("#name_eng").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_state_region").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_township").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_citizen").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_number").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_front").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_back").val() == ''){
-            filled = false;
-        }
-        if($("#father_name_mm").val() == ''){
-            filled = false;
-        }
-        if($("#father_name_eng").val() == ''){
-            filled = false;
-        }
-        if($("#race").val() == ''){
-            filled = false;
-        }
-        if($("#religion").val() == ''){
-            filled = false;
-        }
-        if($("#date_of_birth").val() == ''){
-            filled = false;
-        }
-        if($("#phone").val() == ''){
-            filled = false;
-        }
-        if($("#address").val() == ''){
-            filled = false;
-        }
-        if($("#current_address").val() == ''){
-            filled = false;
-        }
-        if($("#image").val() == ''){
-            filled = false;
-        }
-        if($("#name").val() == ''){
-            filled = false;
-        }
-        if($("#position").val() == ''){
-            filled = false;
-        }
-        if($("#department").val() == ''){
-            filled = false;
-        }
-        if($("#organization").val() == ''){
-            filled = false;
-        }
-        if($("#company_name").val() == ''){
-            filled = false;
-        }
-        if($("#salary").val() == ''){
-            filled = false;
-        }
-        if($("#office_address").val() == ''){
-            filled = false;
-        }
-        if($("#degree_name").val() == ''){
-            filled = false;
-        }
-        if($("#university_name").val() == ''){
-            filled = false;
-        }
-        if($("#roll_number").val() == ''){
-            filled = false;
-        }
-        if($("#qualified_date").val() == ''){
-            filled = false;
-        }
-        if($("#certificate0").val() == ''){
-            filled = false;
-        }
+//         if($("#email").val() == ''){
+//             filled = false;
+//         }
+//         if($("#password").val() == ''){
+//             filled = false;
+//         }
+//         if($("#confirm_password").val() == ''){
+//             filled = false;
+//         }
+//         if($("#profile_photo").val() == ''){
+//             filled = false;
+//         }
+//         if($("#name_mm").val() == ''){
+//             filled = false;
+//         }
+//         if($("#name_eng").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_state_region").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_township").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_citizen").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_number").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_front").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_back").val() == ''){
+//             filled = false;
+//         }
+//         if($("#father_name_mm").val() == ''){
+//             filled = false;
+//         }
+//         if($("#father_name_eng").val() == ''){
+//             filled = false;
+//         }
+//         if($("#race").val() == ''){
+//             filled = false;
+//         }
+//         if($("#religion").val() == ''){
+//             filled = false;
+//         }
+//         if($("#date_of_birth").val() == ''){
+//             filled = false;
+//         }
+//         if($("#phone").val() == ''){
+//             filled = false;
+//         }
+//         if($("#address").val() == ''){
+//             filled = false;
+//         }
+//         if($("#current_address").val() == ''){
+//             filled = false;
+//         }
+//         if($("#image").val() == ''){
+//             filled = false;
+//         }
+//         if($("#name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#position").val() == ''){
+//             filled = false;
+//         }
+//         if($("#department").val() == ''){
+//             filled = false;
+//         }
+//         if($("#organization").val() == ''){
+//             filled = false;
+//         }
+//         if($("#company_name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#salary").val() == ''){
+//             filled = false;
+//         }
+//         if($("#office_address").val() == ''){
+//             filled = false;
+//         }
+//         if($("#degree_name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#university_name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#roll_number").val() == ''){
+//             filled = false;
+//         }
+//         if($("#qualified_date").val() == ''){
+//             filled = false;
+//         }
+//         if($("#certificate0").val() == ''){
+//             filled = false;
+//         }
 
-        //  if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
-        //     filled = false;
-        //  }
+//         //  if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
+//         //     filled = false;
+//         //  }
 
-         if($('input[name="attend_place"]:checked').length === 0) {
+//          if($('input[name="attend_place"]:checked').length === 0) {
              
-            filled = false;
+//             filled = false;
             
-       }else{
+//        }else{
          
-           var mac_val = $('input[name="attend_place"]:checked').val();
+//            var mac_val = $('input[name="attend_place"]:checked').val();
 
-           if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
-               filled = false;
-           }   
+//            if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
+//                filled = false;
+//            }   
 
-       }
+//        }
         
        
-    });
-    return filled;        
-}
+//     });
+//     return filled;        
+// }
 
 function check_email_cpa()
 {
@@ -674,38 +674,38 @@ function check_email_cpa()
 }
 
 //Cpa One Entry Process Start
-$( "#cpa_one_entry_submit" ).click(function() {
+// $( "#cpa_one_entry_submit" ).click(function() {
     
-    if(allFilled('#cpa_one_entry_form')){
+//     if(allFilled('#cpa_one_entry_form')){
 
-        var send_data = new FormData();
-        send_data.append('email',$("input[name='email']").val());
-        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        send_data.append('nrc_number',$("input[name='nrc_number']").val());
-        $.ajax({
-            url: BACKEND_URL+"/unique_email",
-            type: 'post',
-            data:send_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
+//         var send_data = new FormData();
+//         send_data.append('email',$("input[name='email']").val());
+//         send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+//         send_data.append('nrc_township',$("input[name='nrc_township']").val());
+//         send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+//         send_data.append('nrc_number',$("input[name='nrc_number']").val());
+//         $.ajax({
+//             url: BACKEND_URL+"/unique_email",
+//             type: 'post',
+//             data:send_data,
+//             contentType: false,
+//             processData: false,
+//             success: function(result){
                
-                if(result.email!=null){
-                    Swal.fire("Email has been used, please check again!");
-                }
-                else if(result.nrc!=null){
-                    Swal.fire("NRC has been used, please check again!");
-                }
-                else if(result.email==null && result.nrc==null){                    
-                    $('#cpaEntryEmailModal').modal('show');
-                    send_email();                    
-                }
-            }
-        });
-    }
-});
+//                 if(result.email!=null){
+//                     Swal.fire("Email has been used, please check again!");
+//                 }
+//                 else if(result.nrc!=null){
+//                     Swal.fire("NRC has been used, please check again!");
+//                 }
+//                 else if(result.email==null && result.nrc==null){                    
+//                     $('#cpaEntryEmailModal').modal('show');
+//                     send_email();                    
+//                 }
+//             }
+//         });
+//     }
+// });
 
 function check_email_cpa_entry()
 {
@@ -721,6 +721,8 @@ function check_email_cpa_entry()
     }else{
         $('#cpaEntryPaymentModal').modal('show');
         $('#cpaEntryEmailModal').modal('hide');
+        
+        
     }
 }
 

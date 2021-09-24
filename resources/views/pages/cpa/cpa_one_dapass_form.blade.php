@@ -84,7 +84,7 @@
 
 
                                 {{--<form method="Post" id="cpa_register" enctype="multipart/form-data" class="needs-validation" novalidate>--}}
-                                <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data"  novalidate>
                                     @csrf
                                     <input type="hidden" id="entry_type" value="da_pass">
                                     <div class="col-md-12">
@@ -109,7 +109,7 @@
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
                                                     <div class="col-md-6">
                                                         <div>
-                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" class="form-control" value="{{ old('password') }}" required="">
+                                                            <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ။" name="password" id="password" class="form-control" value="{{ old('password') }}" required="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -426,6 +426,8 @@
                                             </div>
                                         </div>
 
+                                        <label  class="error attend_place_error" style="display:none; padding-left:332px; " for="gov_staff">Please select one</label>
+
                                         <div id="rec_letter" style="display:none" >
                                             <div class="row mb-3"  >
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ</label>
@@ -521,7 +523,7 @@
 
                                             <div class="col-md-11 ">
                                                 <div>
-                                                    <label>သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
+                                                    <label>သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -586,6 +588,7 @@
                                                             <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                         </div>
                                                     </div>
+                                                    <label  class="error attend_place_error" style="display:none; " for="attend_place">Please select one</label>
                                                
                                             </div>       
                                         
@@ -674,7 +677,7 @@
     </div>
     </div>
 </form>--}}
-<form method="post" class="needs-validation" id="store_da_two_form" enctype="multipart/form-data" novalidate>
+    <form method="post" class="needs-validation" id="store_da_two_form" enctype="multipart/form-data" novalidate>
          @csrf
          <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
              <div class="modal-dialog">
@@ -768,7 +771,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Application Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">Certified Public Accountant Part One Application Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>
@@ -814,7 +817,7 @@
     </script>
 @endsection
 @push('scripts')
-<!-- <script src="{{ asset("js/form_validation/cpa_one_validation.js") }}"></script> -->
+<script src="{{ asset("js/form_validation/cpa_one_dapass_validation.js") }}"></script>
 
 <script type="text/javascript">
 
