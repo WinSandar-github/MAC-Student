@@ -272,6 +272,9 @@
                                             <tbody class="status">
 
                                             </tbody>
+                                            <tfoot class="papp_btn">
+                                                
+                                            </tfoot>
                                         </table>    
                                         
                                     </div>
@@ -521,9 +524,9 @@
                             
                         </div>
 
-                        <!-- cpaff dashboard -->
+                        <!-- cpaff other dashboard -->
 
-                        {{--<div class="cpaff">
+                        <div class="cpaff_other">
                             <div class="row">
                                 
                                 <div class="col-md-8 offset-md-2">
@@ -587,8 +590,8 @@
                             </div>
 
                             
-                        </div>--}}
-                        <!-- end cpaff dashboard -->
+                        </div>
+                        <!-- end cpaff other dashboard -->
 
                         
                     </div>
