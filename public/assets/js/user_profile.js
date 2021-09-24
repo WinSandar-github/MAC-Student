@@ -7,6 +7,7 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
+            // console.log(data)
 
             if (data.accountancy_firm_info_id)
             {
@@ -89,7 +90,49 @@ function user_profile() {
                 }
                 
                 
-            } else if (data.mentor) {
+            }
+            // else if (data.cpa_ff)
+            // {
+            //     $('.title').text('CPA Full-Fledged Information')
+            //     $('.cpaff').show();
+            //     let cpaff = data.cpa_ff;
+            //     console.log(cpaff)
+            //     localStorage.setItem("cpff_id", cpaff.id);
+            //     $('#cpaff_name_mm').text(cpaff.name_mm);
+            //     $('#cpaff_name_eng').text(cpaff.name_eng);
+            //     $("#cpaff_nrc").text(cpaff.nrc_state_region + "/" + cpaff.nrc_township + "(" + cpaff.nrc_citizen + ")" + cpaff.nrc_number);
+            //     // $("#sch_date_of_birth").text(teacher.date_of_birth);
+            //     // $("#sch_date_of_birth").hide();
+            //     $("#cpaff_email").text(cpaff.email);
+            //     $('#cpaff_phone').text(cpaff.phone);
+            //     // var payment_url = FRONTEND_URL + "/cpa_ff_information";
+            //     var papp_url = FRONTEND_URL + "/student_papp_information";
+            //     if (cpaff.status == 0) {
+            //         $('.status_history').append('CPA Full-Fledged Registration Form is checking.');
+            //     } else if (cpaff.status == 1) {
+            //         $('.status_history').append('CPA Full-Fledged Registration Form is Approved.&nbsp;');
+            //         // $('.status_history').append(`<a href= ${payment_url} class="btn btn-success btn-sm xl-auto" style="margin-bottom:5px;"> Go To Payment </a>`);
+            //         $('.status_papp').append('Now you can apply PAPP Registration form &nbsp;&nbsp;&nbsp;');
+            //         $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > Go To PAPP form </a>`);
+            //     } else {
+            //         $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
+            //     }
+            //     if(cpaff.payment_method!=null){
+            //         var papp_url = FRONTEND_URL + "/student_papp_information";
+            //         $('.period').show();
+            //         var now=new Date();
+            //         var period_date=cpaff.renew_accepted_date.split('-');
+            //         var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
+            //         // console.log(period);
+            //         $('#period_time_cpaff').text(period+" to 31-12-"+now.getFullYear());
+
+            //         $('.status_papp').append('Now you can apply PAPP Registration form &nbsp;&nbsp;&nbsp;');
+            //         $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > Go To PAPP form </a>`);
+            //     }
+                
+                
+            // }
+             else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;

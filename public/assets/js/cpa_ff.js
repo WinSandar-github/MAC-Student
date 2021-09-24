@@ -245,7 +245,7 @@ function cpaffPaymentSubmit(){
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
-            location.href = FRONTEND_URL + "/cpa_ff_information";
+            location.href = FRONTEND_URL + "/";
         },
         error:function (message){
         }

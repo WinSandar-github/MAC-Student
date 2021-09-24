@@ -20,9 +20,12 @@ $(document).ready(function () {
             navbar += `<li><a href="${FRONTEND_URL}/school_information">School</a></li>`;
         } else if (student.teacher_id) {
             navbar += `<li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>`;
+        } else if (student.cpaff_id != null) {
+            navbar += `<li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full-Fledged</a></li>`;
+            navbar += `<li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>`;
         } else if (student.mentor_id != null) {
             navbar += `<li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>`;
-        }  else if (student.article_id != null) {
+        } else if (student.article_id != null) {
             navbar += `<li><a href="${FRONTEND_URL}/article_information">Article</a></li>`;
         } else {
             navbar += `<li>
@@ -68,7 +71,7 @@ $(document).ready(function () {
                     <li>
                         <a href="#">Membership</a>
                         <ul class="sub-menu">
-                            <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fleged</a></li>
+                            <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fledged</a></li>
                             <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
                             <li><a href="${FRONTEND_URL}/school_information">School</a></li>
                             <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
