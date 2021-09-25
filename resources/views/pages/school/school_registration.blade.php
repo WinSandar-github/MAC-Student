@@ -16,6 +16,9 @@
             max-height: 350px;
             overflow-y: auto !important;
         }
+        .error-border{
+            border: 1px solid red;
+        }
     </style>
 @section('content')
     <div class="main-wrapper">
@@ -68,7 +71,7 @@
             <div class="row mt-5">
                 <div id="school_form" class="card border-success mb-3">
                     <div class="card-body p-4">
-                     <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" autocomplete="off" >
+                     <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" autocomplete="off" name="school_register_form">
                                 <div class="row mb-3">
                                     <h5 class="card-title text-center fw-bolder">ကျောင်းဖွင့်လှစ်လုပ်ကိုင်ခွင့်လျှောက်လွှာ</h5>
                                 </div>
@@ -294,8 +297,8 @@
                             <!-- DOB -->
 
                             <!-- Education -->
-                            
-                            <div class="row ">
+                           
+                                <div class="row ">
                                     <label class="col-md-4 col-form-label text-end"><span
                                             class="pull-left">{{ __('၈။') }}</span>{{ __('ပညာအရည်အချင်း') }}</label>
                                     <div class="col-md-8">
@@ -315,9 +318,10 @@
 
                                     </div>
                                 </div>
-                                <div class="row mb-3" style="text-align:right;display:none;">
+                            
+                                <div class="row mb-3 degree" style="text-align:right;display:none;">
                                             <div class="col-md-11 pull-right">
-                                                <label class="text-danger col-form-label font-weight-bold degree text-right">ပညာအရည်အချင်း ထည့်ပါ</label>
+                                                <label class="text-danger col-form-label font-weight-bold  text-right">ပညာအရည်အချင်း ထည့်ပါ</label>
                                             </div>
 
                                 </div>
@@ -378,12 +382,12 @@
                                         <div class="entry1">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" required>
+                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" >
                                                                                             
                                                 </div>
                                                 <div class="col-md-1 col-auto">
-                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls1","entry1")'>
-                                                        <i class="fa fa-plus"></i>
+                                                    <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls1","entry1")'>
+                                                        <li class="fa fa-plus"></li>
                                                     </button>
                                                 </div>
                                             </div>
@@ -440,8 +444,8 @@
                                 <label class="col-md-4 col-form-label label"><span
                                             class="pull-left">၂။</span>{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
                                 <div class="col-md-8">
-                                    <select name="attend_course[]" id="attend_course"
-                                                class="form-control multiple-attend-course" multiple="multiple" required
+                                    <select class="multiple-attend-course form-select" name="attend_course[]" id="attend_course"
+                                                 multiple="multiple" 
                                                 style="width:100%">
                                     </select>
                                     
@@ -455,7 +459,7 @@
                                             class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" style="resize:none;" name="school_address"
-                                                  class="form-control" autocomplete='off' required></textarea>
+                                                  class="form-control" autocomplete='off' ></textarea>
                                     
                                 </div>
                             </div>
@@ -482,12 +486,12 @@
                                             
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
-                                            <input class="form-check-input" type="radio" name="own_type" id="rent"
+                                            <input class="form-check-input" type="radio" name="own_type" id="private"
                                                    value="rent" onclick="ownTypeForm()"> အငှား
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type"
-                                                   id="use_sharing" value="use_sharing" onclick="ownTypeForm()"> တွဲဖက်သုံး
+                                                   id="private" value="use_sharing" onclick="ownTypeForm()"> တွဲဖက်သုံး
                                         </div>
                                     </div>
                                 </div>
@@ -515,7 +519,7 @@
                             {{--ကျောင်းခွဲတည်နေရာလိပ်စာ--}}
                             <div class="row mb-3">
                                 
-                                <label class="col-md-4 col-form-label "><span
+                                <label class="col-md-4 col-form-label label"><span
                                             class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                             </div>
                             <div class="row">
@@ -525,7 +529,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="less-font-weight text-center"  >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="40%">ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
+                                                    <th class="less-font-weight text-center"  width="30%">ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
                                                     <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
                                                     <th class="less-font-weight text-center"  >ပိုင်ဆိုင်မှုပုံစံ</th>
                                                     <th class="less-font-weight text-center"  >သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</th>
@@ -539,9 +543,9 @@
                                 </div>
                             </div>
                             
-                            <div class="row mb-5" style="text-align:right;display:none;">
+                            <div class="row mb-5 branch_school" style="text-align:right;display:none;">
                                             <div class="col-md-11 pull-right">
-                                                <label class="text-danger col-form-label font-weight-bold branch_school text-right">ကျောင်းခွဲတည်နေရာလိပ်စာ ထည့်ပါ</label>
+                                                <label class="text-danger col-form-label font-weight-bold  text-right">ကျောင်းခွဲတည်နေရာလိပ်စာ ထည့်ပါ</label>
                                             </div>
 
                                 </div>
@@ -594,19 +598,19 @@
                             {{--လုပ်ငန်းလိုင်စင်--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">(က)</span>{{ __('လုပ်ငန်းလိုင်စင်/ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်/အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ/') }}</label>
+                                            class="pull-left">(က)</span>{{ __('လုပ်ငန်းလိုင်စင်/ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်/အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
                                 <div class="col-md-8">
                                     
                                     <div class="controls2">
                                         <div class="entry2">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*" required>
+                                                    <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*" >
                                                                                             
                                                 </div>
                                                 <div class="col-md-1 col-auto">
-                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls2","entry2")'>
-                                                        <i class="fa fa-plus"></i>
+                                                    <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls2","entry2")'>
+                                                        <li class="fa fa-plus"></li>
                                                     </button>
                                                 </div>
                                             </div>
@@ -664,12 +668,12 @@
                                         <div class="entry3">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*" required>
+                                                    <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*" >
                                                                                             
                                                 </div>
                                                 <div class="col-md-1 col-auto">
-                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls3","entry3")'>
-                                                        <i class="fa fa-plus"></i>
+                                                    <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls3","entry3")'>
+                                                        <li class="fa fa-plus"></li>
                                                     </button>
                                                 </div>
                                             </div>
@@ -686,13 +690,9 @@
                                 <h5 class="p-4 fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)နှင့်ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်') }}</h5>
                             </div>
 
-                            <div id="sch_establish_error" style="display:none;">
-                                <div class="row">
-                                    <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
-                                </div>
-                            </div>
+                            
 
-                            <div class="row mb-3">
+                            <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)') }}</label>
                                 <div class="tbl-responsive">
                                     <table class="table tbl_sch_established_persons table-bordered input-table">
@@ -720,13 +720,14 @@
                                     </table>
                                 </div>
                             </div>
-                            <div id="sch_governs_error" style="display:none;">
-                                <div class="row">
+                            <div id="sch_establish_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
                                     <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
                                 </div>
                             </div>
+                            
 
-                            <div class="row mb-5">
+                            <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ') }}</label>
                                 <div class="tbl-responsive">
                                     <table class="table tbl_sch_governs table-bordered input-table">
@@ -754,7 +755,11 @@
                                     </table>
                                 </div>
                             </div>
-                            
+                            <div id="sch_governs_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
+                                    <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
+                                </div>
+                            </div>
                             <div class="origanzation">
                                 <div class="row">
                                         <div class="col-md-10"></div>
@@ -762,15 +767,11 @@
                                                         
                                 </div>
                                 
-                                <div id="member_list_biography_error" style="display:none;">
-                                    <div class="row">
-                                        <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <label class="col-md-2 col-form-label fw-bolder">အဖွဲ့အစည်းဖြစ်ပါက</label>
                                 </div>
-                                <div class="row mb-5">
+                                <div class="row mb-1">
                                     <label class="col-form-label fw-bolder">{{ __('အဖွဲ့အစည်း၏အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                     <div class="tbl-responsive">
                                         <table class="table tbl_member_list_biography table-bordered input-table">
@@ -798,28 +799,30 @@
                                         </table>
                                     </div>
                                 </div>
+                                <div id="member_list_biography_error" style="display:none;text-align:right;">
+                                    <div class="row mb-5">
+                                        <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
+                                    </div>
+                                </div>
                             </div>
+                            
                             <div class="row">
                                     <div class="col-md-10"></div>
                                     <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၄</label>
                                                     
                             </div>
-                            <div id="teacher_list_bio_error" style="display:none;">
-                                <div class="row">
-                                    <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
-                                </div>
-                            </div>
-
-                            <div class="row mb-5">
+                            
+                            <input type="hidden" id="student_info_id" >
+                            <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                 <div class="tbl-responsive">
                                     <table class="table tbl_teacher_list_biography table-bordered input-table">
                                         <thead>
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
+                                            <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
                                             <th class="less-font-weight text-center">အမည်</th>
                                             <th class="less-font-weight text-center">နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
-                                            <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
                                             <th class="less-font-weight text-center">ပညာအရည်အချင်း</th>
                                             <th class="less-font-weight text-center">သင်ကြားမည့်ဘာသာရပ်(များ)</th>
                                             <th class="less-font-weight text-center">ဖုန်းနံပါတ်</th>
@@ -833,13 +836,17 @@
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tbody class="tbl_teacher_list_biography_body">
+                                        <tbody class="tbl_teacher_list_biography_body" id="tbl_teacher_list_biography_body">
 
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            
+                            <div id="teacher_list_bio_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
+                                    <label class="text-danger col-form-label font-weight-bold">အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များထည့်ပါ</label>
+                                </div>
+                            </div>
                             <div class="row">
                                     <div class="col-md-10"></div>
                                     <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၅</label>
@@ -849,16 +856,12 @@
                                 <h5 class="p-4 fw-bolder">{{ __('ကျောင်းအဆောက်အဦး၊စာသင်ခန်း၊သန့်စင်ခန်း၊စီမံရုံးခန်း') }}</h5>
                             </div>
                             
-                            <div class="tbl_bulding_type_error" style="display:none;">
-                                <div class="row">
-                                    <label class="text-danger col-form-label font-weight-bold">ကျောင်းအဆောက်အဦ(အဆောက်အဦအမျိုးအစား၊အတိုင်းအတာ၊အထပ်အရေအတွက်) ထည့်ပါ</label>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <label class="col-md-12 col-form-label fw-bolder"><span
                                             class="pull-left">၁။</span>{{ __('ကျောင်းအဆောက်အဦ(အဆောက်အဦအမျိုးအစား၊အတိုင်းအတာ၊အထပ်အရေအတွက် စသည်)') }}</label>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row mb-1">
                                 
                                         <table class="table tbl_bulding_type table-bordered input-table">
                                             <thead>
@@ -877,9 +880,9 @@
                                         </table>
                                 
                             </div>
-                            <div class="tbl_classroom_error" style="display:none;">
-                                <div class="row">
-                                    <label class="text-danger col-form-label font-weight-bold">စာသင်ခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ၊ဝင်ဆံ့သင်တန်းသား၊လေအေးပေးစက်) ထည့်ပါ</label>
+                            <div class="tbl_bulding_type_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
+                                    <label class="text-danger col-form-label font-weight-bold">ကျောင်းအဆောက်အဦ(အဆောက်အဦအမျိုးအစား၊အတိုင်းအတာ၊အထပ်အရေအတွက်) ထည့်ပါ</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -887,7 +890,7 @@
                                             class="pull-left">၂။</span>{{ __('စာသင်ခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ၊ဝင်ဆံ့သင်တန်းသား၊လေအေးပေးစက်)') }}</label>
                             </div>
                             
-                            <div class="row mb-3">
+                            <div class="row mb-1">
                                 
                                         <table class="table tbl_classroom table-bordered input-table">
                                             <thead>
@@ -907,9 +910,9 @@
                                         </table>
                                 
                             </div>
-                            <div class="tbl_toilet_type_error" style="display:none;">
-                                <div class="row">
-                                    <label class="text-danger col-form-label font-weight-bold">သန့်စင်ခန်း(အမျိုးအစား၊အရေအတွက်) ထည့်ပါ</label>
+                            <div class="tbl_classroom_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
+                                    <label class="text-danger col-form-label font-weight-bold">စာသင်ခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ၊ဝင်ဆံ့သင်တန်းသား၊လေအေးပေးစက်) ထည့်ပါ</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -917,7 +920,7 @@
                                             class="pull-left">၃။</span>{{ __('သန့်စင်ခန်း(အမျိုးအစား၊အရေအတွက်)') }}</label>
                             </div> 
 
-                            <div class="row mb-3">
+                            <div class="row mb-1">
                                
                                         <table class="table tbl_toilet_type table-bordered input-table">
                                             <thead>
@@ -935,16 +938,16 @@
                                         </table>
                                 
                             </div>
-                            <div class="tbl_manage_room_numbers_error" style="display:none;">
-                                <div class="row">
-                                    <label class="text-danger col-form-label font-weight-bold">စီမံရုံးခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ)ထည့်ပါ</label>
+                            <div class="tbl_toilet_type_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
+                                    <label class="text-danger col-form-label font-weight-bold">သန့်စင်ခန်း(အမျိုးအစား၊အရေအတွက်) ထည့်ပါ</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <label class="col-md-12 col-form-label fw-bolder"><span
                                             class="pull-left">၄။</span>{{ __('စီမံရုံးခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ)') }}</label>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row mb-1">
                             
                                     <table class="table tbl_manage_room_numbers table-bordered input-table">
                                             <thead>
@@ -962,7 +965,11 @@
                                     </table>
                                 
                             </div>
-
+                            <div class="tbl_manage_room_numbers_error" style="display:none;text-align:right;">
+                                <div class="row mb-5">
+                                    <label class="text-danger col-form-label font-weight-bold">စီမံရုံးခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ)ထည့်ပါ</label>
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label class="col-md-10 col-form-label fw-bolder">
                                     <input type="checkbox" id="submit_confirm" onclick="ConfirmSubmitTeacher()">
@@ -1044,7 +1051,9 @@
 
         $(document).ready(function (e) {
             $('.js-example-basic-multiple').select2();
-
+            // $('.select2').select2({
+            //     placeholder: "Select"
+            // });
             $("#school_register_form").submit(function (event) {
                 var tbl_establish = $('.tbl_sch_established_persons_body tr').length;
                 var tbl_governs = $('.tbl_sch_governs_body tr').length;
@@ -1085,6 +1094,7 @@
                 if(!tbl_degree){
                     $(".degree").show();
                     event.preventDefault();
+                    
                 }
                 if(!tbl_branch_school){
                     $(".branch_school").show();
