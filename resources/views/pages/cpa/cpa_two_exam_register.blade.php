@@ -236,14 +236,14 @@
                                                     </div>
                                                     <div class="col-md-8 " style="margin-left:60px;">
                                                         <div class="single-form" >
-                                                            <input type="radio" id="module1" name="is_full_module" value="1">
+                                                            <input disabled type="radio" id="module1" name="is_full_module" value="1">
                                                             <label for="module1">Module 1</label>
 
-                                                            <input type="radio" id="module2" name="is_full_module" value="2"
+                                                            <input disabled type="radio" id="module2" name="is_full_module" value="2"
                                                                 style="margin-left: 3%;" checked="">
                                                             <label for="module2">Module 2</label>
 
-                                                            <input type="radio" id="allmodule" name="is_full_module" value="3"
+                                                            <input  disabled type="radio" id="allmodule" name="is_full_module" value="3"
                                                                 style="margin-left: 3%;">
                                                             <label for="allmodule">All Modules</label>
                                                         </div>
