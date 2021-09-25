@@ -8,8 +8,6 @@
     <!-- Slider Start -->
     @include('pages/home/index')
     @include('pages/home/dashboard')
-
-
     <!-- Call to Action End -->
 @endsection
 
@@ -21,7 +19,6 @@
                 user_profile();
             }
 
-            
             $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",

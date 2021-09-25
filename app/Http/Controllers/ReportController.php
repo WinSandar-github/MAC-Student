@@ -14,10 +14,6 @@ class ReportController extends Controller
         $client = new \GuzzleHttp\Client();
        
         $res = json_decode($client->request('GET', Helper::$domain.'/course/'.$course_id)->getBody(),true);
-
-     
-         
-       
         $course = $res['data'];
         // switch ($course['code']) {
         //     case "da_1":

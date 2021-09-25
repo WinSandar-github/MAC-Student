@@ -60,7 +60,6 @@ function showAppList(course_code){
             type : "POST" ,
             data :  function (d) {
                 d.course_code        =  course_code
-                
             }
         },
         columns: [
@@ -98,8 +97,7 @@ function showExamList(course_code){
             type : "POST" ,
             data :  function (d) {
                 d.course_code        =  course_code;
-                
-                
+             
             }
         },
         columns: [
