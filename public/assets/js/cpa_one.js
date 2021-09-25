@@ -91,6 +91,7 @@ function Private_School_Submit(){
         contentType: false,
         processData: false,
         success: function(result){  
+            // console.log('result',result);
             EasyLoading.hide();
             if(result.message==undefined){
                 successMessage(result);

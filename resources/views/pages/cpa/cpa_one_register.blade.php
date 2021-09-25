@@ -1659,6 +1659,10 @@
                     
 
                 var info = data.data;
+                console.log('info',info);
+                if(info.acca_cima){
+                    
+                }
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
