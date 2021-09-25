@@ -126,9 +126,14 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">5.</label>
-                                        <label for="" class="col-md-3 col-form-label label_align_right">Address Of Practice(Head Office)</label>
-                                        <div class="col-md-2">
+                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+                                      <div class="col-md-8">
+                                          <textarea readonly="" name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-2 offset-md-4">
                                             <input readonly="" type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
                                         </div>
                                         <div class="col-md-2">
@@ -169,6 +174,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th class="less-font-weight">Name</th>
+                                                                <th class="less-font-weight">Address</th>
                                                                 <th class="less-font-weight">Township</th>
                                                                 <th class="less-font-weight">Post Code</th>
                                                                 <th class="less-font-weight">City</th>

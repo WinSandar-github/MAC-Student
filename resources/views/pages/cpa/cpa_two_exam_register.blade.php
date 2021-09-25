@@ -64,9 +64,18 @@
                         <div class="row">
                             <div class="card border-success mb-3">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">မြန်မာနိုင်ငံ စာရင်းကောင်စီ<br/>
-                                        လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ</h5>
-                                    <br />
+                                    
+                                    <div class="row mb-5">
+                                        <h5 class="card-title text-center fw-bolder">
+                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
+                                            လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ<br>
+                                        </h5>
+                                        <div class="d-flex justify-content-between">
+                                            <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                            <!-- <h6>အမှတ်စဥ် - {{ __("____") }}</h6> -->
+                                        </div>
+                                    </div>
+
                                     {{-- <form method="post" id="cpa_exam_register" enctype="multipart/form-data"> --}}
                                     <form method="post" id="cpa2_exam_form" action="javascript:void();" enctype="multipart/form-data">
                                         @csrf
@@ -184,15 +193,15 @@
                                                     <label class="col-md-1 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>(က)</label>
                                                     <label class="col-md-3 col-form-label label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်"  id="last_ans_exam_no">
+                                                        <input type="text" name="last_ans_exam_no" class="form-control last_ans_exam_no" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်"  id="last_ans_exam_no">
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-1"></div>
-                                                    <label class="col-md-3 col-form-label label">ကျင်းပသည် ခုနှစ်/လ</label>
+                                                    <label class="col-md-3 col-form-label label">ကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" name="date" class="form-control" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
+                                                        <input type="text" name="date" class="form-control date" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3" style="margin-left:30px;">
@@ -227,16 +236,16 @@
                                                     </div>
                                                     <div class="col-md-8 " style="margin-left:60px;">
                                                         <div class="single-form" >
-                                                            <input type="radio" id="0" name="is_full_module" value="1">
-                                                            <label for="0">Module 1</label>
+                                                            <input type="radio" id="module1" name="is_full_module" value="1">
+                                                            <label for="module1">Module 1</label>
 
-                                                            <input type="radio" id="1" name="is_full_module" value="2"
+                                                            <input type="radio" id="module2" name="is_full_module" value="2"
                                                                 style="margin-left: 3%;" checked="">
-                                                            <label for="1">Module 2</label>
+                                                            <label for="module2">Module 2</label>
 
-                                                            <input type="radio" id="2" name="is_full_module" value="3"
+                                                            <input type="radio" id="allmodule" name="is_full_module" value="3"
                                                                 style="margin-left: 3%;">
-                                                            <label for="2">All Modules</label>
+                                                            <label for="allmodule">All Modules</label>
                                                         </div>
                                                     </div>
 
@@ -401,6 +410,21 @@
 
         get_student_info(student_id).then(data => {
             if(data){
+                let student_info = data.data;
+
+                let current_stu_reg=student_info.student_register.slice(-1);
+
+                    if(current_stu_reg[0].module=="1"){
+                         $("#module1").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="2"){
+                        $("#module2").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="3"){
+                        $("#allmodule").prop("checked", true);
+                    }
+
+                let exam_registers = student_info.exam_registers.slice(-1);
                 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
@@ -415,14 +439,21 @@
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
 
-                $("input[name='personal_no']").val(data.data.student_register[0].personal_no);
+                $("input[name='personal_no']").val(data.data.personal_no);
+
+                $("#last_ans_exam_no").val(exam_registers[0].batch.number);
+                $("#date").val(formatDate(exam_registers[0].updated_at));
 
                 if(data.data.student_register[0].type == 0){
-                    $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
+                    $("input[name='class_address']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
                 }else if(data.data.student_register[0].type == 1){
-                    $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
+                    $("input[name='class_address']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
                 }else{
-                    $("input[name='class_address']").val("စာရင်းကောင်စီ");
+
+                    var mac_name = current_stu_course[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                    $("input[name='class_address']").val(mac_name);
                 }
 
             }

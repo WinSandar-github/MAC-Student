@@ -79,6 +79,7 @@ function Private_School_Submit(){
     data.append('batch_no_private',$("input[id='batch_no_private']").val());
     data.append('part_no_private',$("input[id='part_no_private']").val());
     data.append('personal_no_private',$("input[id='personal_no_private']").val());
+    data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('form_type',localStorage.getItem('course_id'));
     data.append('type', 1);
     show_loader();
@@ -115,7 +116,10 @@ function Self_Study_Submit(){
     data.append('academic_year', $("#academic_year_self").val());
     data.append('direct_access_no', $("#direct_access_no_self").val());
     data.append('entry_success_no', $("#entry_success_no_self").val());
-    $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    // $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        data.append('reg_reason[]', val.value);
+    });
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('batch_part_no', $("#batch_part_no").val());
     data.append('batch_no_self',$("input[id='batch_no_self']").val());
@@ -147,6 +151,7 @@ function Self_Study_Submit(){
             }
         });
 }
+
 
 function Mac_Submit(){
     localStorage.setItem("isPrivateSchool",false);
@@ -449,13 +454,8 @@ function check_entry_pass(){
         error:function (message){
         }
     })
-
-    
-    
+  
 }
-
-
-
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
@@ -467,12 +467,24 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
+                $('.batch_id').append(res.data.id);
                 $('#batch_id').val(res.data.id);
                 $('#batch_name').text(res.data.name);
             }
         })        
         $('.da_to_cpa').show();
     }else{
+        let batch_id = url.substring(url.lastIndexOf('/')+1);
+        $.ajax({
+            type: "get",
+            url: BACKEND_URL+"/batch/"+batch_id,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                $('.batch_id').append(res.data.id);
+                $('#batch_number').append(res.data.id);
+            }
+        })   
         $('.dir_cpa_app_form').show();
 
     }
@@ -801,22 +813,14 @@ $('#cpa_entry_register').submit(function(e){
 
    
 
-    send_data.append('qt_entry',1);
-
-   
-
-
-
-
-
-
+    // send_data.append('qt_entry',1);
 
     send_data.append('batch_id',batch_id)
     //show_loader(); 
 
         $.ajax({
             type: "POST",
-            url: BACKEND_URL+"/cpa_register",
+            url: BACKEND_URL+"/cpa_entry_exam",
             contentType: false,
             processData: false,
             data: send_data,
@@ -832,6 +836,54 @@ $('#cpa_entry_register').submit(function(e){
                     // location.reload();
                     location.href = FRONTEND_URL + "/";
                 }
+            },
+            error:function (message){
+                //EasyLoading.hide();
+            }
+        })
+
+})
+
+
+$( "#cpa_one_entry_app_submit" ).click(function() {
+    
+        $('#cpaEntryAppEmailModal').modal('show');
+        send_email();  
+    
+});
+
+$('#store_cpa_entry_app').submit(function(e){
+     
+    e.preventDefault();
+
+    
+    //var formData = new FormData(this);
+
+    var send_data = new FormData();
+
+     
+
+    send_data.append('type',$("input[name='attend_place']:checked").val());
+    send_data.append('mac_type',$("input[name='mac_type']:checked").val());
+    // send_data.append('qt_entry',1);
+    let batch_id = url.substring(url.lastIndexOf('/')+1);
+
+    send_data.append('batch_id',batch_id);
+    send_data.append('student_info_id',student_id);
+    //show_loader(); 
+
+        $.ajax({
+            type: "POST",
+            url: BACKEND_URL+"/cpa_entry_app",
+            contentType: false,
+            processData: false,
+            data: send_data,
+            success: function (data) {
+                //EasyLoading.hide();
+                successMessage("You have successfully registerd!");
+
+                location.href = FRONTEND_URL + "/";
+                
             },
             error:function (message){
                 //EasyLoading.hide();

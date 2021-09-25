@@ -189,7 +189,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1"  disabled required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -197,7 +197,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2"   disabled required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -205,7 +205,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3"  disabled required>
                                                             All Modules
                                                         </div>
                                                     </div>
@@ -220,7 +220,7 @@
                                             <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၉။') }}</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             <div class="col-md-8">
                                                 <div class="form-group">
-                                                            <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;">
+                                                            <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
                                                                 <option disabled selected>Select School</option>
                                                             </select>
                                                 </div>
@@ -241,7 +241,7 @@
                                     <div class="row mb-3">
                                         <label class="col-md-5 offset-md-1 col-form-label label_align_right"><span class="pull-left">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" autocomplete="off" required>
+                                            <input type="text" name="date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" autocomplete="off" >
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -503,6 +503,18 @@
                 // console.log("Data Register Form",data.data)
                 let current_stu_course = data.data.student_course_regs.slice(-1);
 
+                let current_stu_reg=data.data.student_register.slice(-1);
+                     console.log(current_stu_reg[0]?.module,"current_stu_course")
+
+                    if(current_stu_reg[0].module=="1"){
+                         $("#0").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="2"){
+                        $("#1").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="3"){
+                        $("#2").prop("checked", true);
+                    }
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);

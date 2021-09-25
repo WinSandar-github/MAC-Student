@@ -1,5 +1,5 @@
 $().ready(function (){
-    $("#da_one_app_form").validate({
+    $("#cpa_one_form").validate({
         rules:{
             email : "required",
             password : "required",
@@ -26,7 +26,7 @@ $().ready(function (){
             phone : "required",
             current_address : "required",
             address : "required",
-            current_job : "required",
+            name : "required",
             position : "required",
             department : "required",
             organization : "required",
@@ -35,16 +35,20 @@ $().ready(function (){
             office_address : "required",
             gov_staff : "required",
             recommend_letter : {
-                required : "#gov_staff:checked"
+                required : "#yes:checked"
             },
             degree_name : "required",
             university_name : "required",
             roll_number : "required",
             qualified_date : "required",
             certificate : "required",
+            acca_cima : "required",
+            direct_degree : "required",
+            degree_date : "required",
+            degree_rank : "required",
             attend_place : "required",
             mac_type : {
-                required : "#main_mac:checked"
+                required : "#mac:checked"
             },
             da_one_declare : "required"
         },
@@ -74,7 +78,7 @@ $().ready(function (){
             phone : "Please enter your phone number",
             current_address : "Please enter your current address",
             address : "Please enter your address",
-            current_job : "Please enter your current job",
+            name : "Please enter your current job",
             position : "Please enter your position",
             department : "Please enter your department",
             organization : "Please enter your organization",
@@ -90,9 +94,43 @@ $().ready(function (){
             roll_number : "Please enter your roll number",
             qualified_date : "Please fill your qualified date",
             certificate : "Please upload your certificate",
+            acca_cima : "Please select one",
+            direct_degree : "Please enter pass degree level",
+            degree_date : "Please enter pass degree date",
+            degree_rank : "Please enter indentify number",
             attend_place : "Please select one",
             da_one_declare : "Please accept our policy",
-            mac_type : "Please select one",
+            // mac_type : "Please select one",
+            mac_type : {
+                required : "Please select one"
+            },
+            submitHandler: function(form) {
+                var send_data = new FormData();
+                send_data.append('email',$("input[name='email']").val());
+                send_data.append('nrc_state_region',$("#nrc_state_region").val());
+                send_data.append('nrc_township',$("#nrc_township").val());
+                send_data.append('nrc_citizen',$("#nrc_citizen").val());
+                send_data.append('nrc_number',$("#nrc_number").val());
+                $.ajax({
+                    url: BACKEND_URL+"/unique_email",
+                    type: 'post',
+                    data:send_data,
+                    contentType: false,
+                    processData: false,
+                    success: function(result){
+                        if(result.email!=null){
+                            Swal.fire("Email has been used, please check again!");
+                        }
+                        else if(result.nrc!=null){
+                            Swal.fire("NRC has been used, please check again!");
+                        }
+                        else if(result.email==null && result.nrc==null){
+                            $('#cpaEmailModal').modal('show');
+                            send_email();
+                        }
+                    }
+                });
+            }
 
         },
         

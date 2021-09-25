@@ -77,7 +77,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                 <div class="card-body ">
                                     <div class="col-md-12">
                                         {{-- <form  method="post" action="javascript:createDAExamRegister();" enctype="multipart/form-data"> --}}
-                                        <form method="post" id="da2_exam" action="javascript:void();" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                        <form method="post" id="da2_exam" action="javascript:void();" enctype="multipart/form-data" novalidate>
                                             <!-- <fieldset id="fieldset" disabled> -->
                                             <input type="hidden" id="form_type" class="form-control" id="form_type">
                                             <input type="hidden" name="is_private" id="is_private" class="form-control">
@@ -302,7 +302,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <span class="pull-left" style="padding-left: 30px;">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ
                                                 </label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="last_exam_date" id="last_exam_date" class="form-control" value="" required="">
+                                                    <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="last_exam_date" id="last_exam_date" class="form-control" value="">
                                                 </div>
                                             </div><br />
 
@@ -314,16 +314,19 @@ $nrc_characters = config('myanmarnrc.characters');
                                                   <div class="row mt-2">
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 1"> Module 1
+                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 1" > Module 1
                                                           </label>
                                                       </div>
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 2"> Module 2
+                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 2" > Module 2
                                                           </label>
                                                       </div>
+                                                      <label  class="error attend_place_error" name="attend_place_error" style="display:none;" for="last_ans_module[]">Please select Module.</label>
                                                   </div>
+                                                  
                                                 </div>
+                                                
                                             </div><br />
 
                                             {{--<div class="row">
@@ -355,7 +358,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
                                                 <div class="col-md-8">
                                                   <div class="form-group">
-                                                    <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
+                                                    <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" >
                                                         <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
                                                     </select>
                                                   </div>
@@ -377,11 +380,37 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ယခုဖြေဆိုမည့် Module</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" placeholder="" name="module" id="module" class="form-control" value="" readonly="">
+                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left">{{ __('၁၉။') }}</span>ယခုဖြေဆိုမည့် Module</label>
+                                        <div class="col-md-8">
+                                            <div class="row" disabled>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="form-check-inline">
+                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            Module 1
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="form-check-inline">
+                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            Module 2
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-check-inline">
+                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            All Modules
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one.</label>
                                             </div>
+                                        </div>
+                                    </div>
 
                                             <div class="row">
                                                 {{-- <div class="col-md-1 col-form-label">{{ __('') }}</div>
@@ -405,24 +434,24 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
 
-                                            <div class="row mb-3">
-                                                <div class="col-md-1 mt-2">
-                                                    <input type="checkbox" class="form-check-input" name="submit_confirm" id="submit_confirm_mac" >
-                                                </div>
-                                                <div class="col-md-11 ">
-                                                    <div class="d-flex justify-content-between">
-                                                        <label class="col-md-9 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်များအားလုံးမှန်ကန်ကြောင်းဝန်ခံပါသည်။') }}</label>
-                                                        <h6 class="col-md-3 col-form-label" style="padding-left:60px;">ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
+                                            <div class="row mb-4 mt-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="da_two_exam_reg_declare" onchange="$('#da2submit').prop('disabled', !this.checked)">
+                                                            <span class="form-check-sign"></span>
+                                                            <p class="fw-bolder">
+                                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊
+                                                            </p>
+                                                        </label>
                                                     </div>
+                                                    <h6 class="">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                                 </div>
-                                            </div>
+                                            </div> 
 
-                                            <div class="row">
-                                                <div class="col-md-2 offset-md-5">
-                                                    {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button> --}}
-                                                    <button type="submit" id="da2submit" value="submit" class="btn btn-success btn-hover-dark w-100" disabled>Submit
-                                                    </button>
-                                                </div>
+                                            <div class="row justify-content-center mb-4">
+                                                    <button type="submit" id="da2submit" value="submit" class="btn btn-success btn-hover-dark w-25" disabled>Submit</button>
+                                                
                                             </div>
                                             </fieldset>
                                         </form>
@@ -503,6 +532,7 @@ $nrc_characters = config('myanmarnrc.characters');
 @endsection
 
 @push('scripts')
+<script src="{{ asset('js/form_validation/da_two_exam_validation.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(e) {
 
@@ -512,6 +542,16 @@ $nrc_characters = config('myanmarnrc.characters');
                 let student_reg = data.data.student_register
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
+                    console.log(data.data,"student_reg");
+                    if(student_reg[1].module=="1"){
+                         $("#0").prop("checked", true);
+                    }
+                    else if(student_reg[1].module=="2"){
+                        $("#1").prop("checked", true);
+                    }
+                    else if(student_reg[1].module=="3"){
+                        $("#2").prop("checked", true);
+                    }
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
                     // console.log('current_stu_course',current_stu_course)
 
@@ -572,6 +612,17 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='current_address']").val(student_info.current_address);
 
                     $(".personal_no_self").val(student_info.registration_no);
+                    if(data.data.student_register[0].type == 0){
+                        $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
+                    }else if(data.data.student_register[0].type == 1){
+                        $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
+                    }else{
+
+                        var mac_name = data.data.student_course_regs[0].mac_type == 2 ?   "စာရင်းကောင်စီ(နေပြည်တော်သင်တန်းကျောင်း)" : "စာရင်းကောင်စီ(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                        $("input[name='class_address']").val(mac_name);
+                    }
                 }
 
             });

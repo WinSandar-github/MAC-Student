@@ -9,15 +9,33 @@ $().ready(function (){
             },
             profile_photo : "required",
             name_mm : "required",
+            name_eng : "required",
             nrc_state_region : "required",
             nrc_township : "required",
             nrc_citizen : "required",
             nrc_number : {
                 required : true,
             },
+            cpa:{
+                required : "#cpa_edu:checked"
+            },
+            ra:{
+                required : "#ra_edu:checked"
+            },
+            // degree_name:{
+            //     required : "#education:checked"
+            // },
+            // degree_pass_year:{
+            //     required : "#education:checked"
+            // },
+            // degree_file:{
+            //     required : "#education:checked"
+            // },
+            education:"required",
             nrc_front : "required",
             nrc_back : "required",
             father_name_mm : "required",
+            father_name_eng : "required",
             cpa_batch_no : "required",
             address : "required",
             phone : "required",
@@ -39,17 +57,25 @@ $().ready(function (){
                 equalTo : "Please enter the same password as above"
             },
             profile_photo : "Upload photo",
-            name_mm : "Please enter your name",
+            name_mm : "Please enter your name in Myanmar",
+            name_eng : "Please enter your name in English",
             nrc_state_region : "Please select one",
             nrc_township : "Please select one",
             nrc_citizen : "Please select one",
             nrc_number : {
                 required : "Please enter your nrc number",
             },
+            education:"Please select one",
+            cpa:"Please upload CPA file",
+            ra:"Please upload RA file",
+            // degree_name:"Please enter this field",
+            // degree_pass_year:"Please enter this field",
+            // degree_file:"Please upload degree file",
             nrc_front : "Please upload nrc photo (front)",
             nrc_back : "Please upload nrc photo (back)",
-            father_name_mm : "Please enter your father name in english",
-            cpa_batch_no : "Please enter cpa batch number",
+            father_name_mm : "Please enter your father name in Myanmar",
+            father_name_eng : "Please enter your father name in English",
+            cpa_batch_no : "Please enter CPA batch number",
             address : "Please enter your address",
             phone : "Please enter your phone number",
             contact_mail : "Please enter your contact mail",
@@ -209,11 +235,9 @@ function createCpaffOtherRegister(){
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('form_type', 1);
     send_data.append('cpa_certificate_back', cpa_certificate_back);
-
-    // save to student_info
-    send_data.append('email', $("input[name=email]").val());
-    send_data.append('password', $("input[name=password]").val());
+    
     send_data.append('name_mm', $("input[name=name_mm]").val());
+    send_data.append('name_eng', $("input[name=name_eng]").val());
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
@@ -222,7 +246,12 @@ function createCpaffOtherRegister(){
     send_data.append('nrc_citizen', nrc_citizen);
     send_data.append('nrc_number', $("input[name=nrc_number]").val());
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
 
+    // save to student_info
+    send_data.append('email', $("input[name=email]").val());
+    send_data.append('password', $("input[name=password]").val());
+    
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
         type: 'post',

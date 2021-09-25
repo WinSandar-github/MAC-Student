@@ -89,10 +89,13 @@ Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
-//Cpa One
+//Cpa 
 Route::get('cpa_one_form/{id}', 'CPAOneRegisterController@cpaOneForm');
 Route::get('cpa_one_entry_form/{id}', 'CPAOneRegisterController@cpaOneEntryForm');
 Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassForm');
+Route::get('cpa_one_entry_app_form/{id}', 'CPAOneRegisterController@cpaOneEntryAppForm');
+
+
 
 
 Route::get('cpa_edit', 'CPAOneRegisterController@cpaEdit');
@@ -146,6 +149,13 @@ Route::get('mentor_register', 'MentorController@index');
 
 // Mentor Information Page
 Route::get('mentor_information', 'MentorInfoController@info');
+
+// Article Register Form
+Route::get('article_gov_registration', 'ArticleController@articleGov');
+Route::get('article_firm_registration', 'ArticleController@articleFirm');
+
+// Article Information Page
+Route::get('article_information', 'ArticleInfoController@info');
 
 //list of all result
 Route::get('application_list/{course_id}','ReportController@app_list');
