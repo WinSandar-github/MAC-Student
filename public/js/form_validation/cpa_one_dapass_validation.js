@@ -50,7 +50,10 @@ $().ready(function (){
             mac_type : {
                 required : "#mac:checked"
             },
-            da_one_declare : "required"
+            da_one_declare : "required",
+            da_pass_date : "required",
+            da_pass_roll_number : "required",
+            da_pass_certificate : "required",
         },
         messages:{
             email : "Please enter your email",
@@ -104,6 +107,10 @@ $().ready(function (){
             mac_type : {
                 required : "Please select one"
             },
+            da_pass_date : "Please enter DA 2 exam passed date",
+            da_pass_roll_number : "Please enter DA 2 roll_number",
+            da_pass_certificate : "Please enter DA 2 certificate",
+        },
             submitHandler: function(form) {
                 var send_data = new FormData();
                 send_data.append('email',$("input[name='email']").val());
@@ -130,9 +137,7 @@ $().ready(function (){
                         }
                     }
                 });
-            }
-
-        },
+            }       
         
     });
 });

@@ -1,5 +1,5 @@
 $().ready(function (){
-    $("#da_one_app_form").validate({
+    $("#cpa_one_entry_form").validate({
         rules:{
             email : "required",
             password : "required",
@@ -26,25 +26,29 @@ $().ready(function (){
             phone : "required",
             current_address : "required",
             address : "required",
-            // current_job : "required",
-            // position : "required",
-            // department : "required",
-            // organization : "required",
-            // company_name : "required",
-            // salary : "required",
-            // office_address : "required",
+            name : "required",
+            position : "required",
+            department : "required",
+            organization : "required",
+            company_name : "required",
+            salary : "required",
+            office_address : "required",
             gov_staff : "required",
             recommend_letter : {
-                required : "#gov_staff:checked"
+                required : "#yes:checked"
             },
-            // degree_name : "required",
-            // university_name : "required",
-            // roll_number : "required",
-            // qualified_date : "required",
-            // certificate : "required",
+            degree_name : "required",
+            university_name : "required",
+            roll_number : "required",
+            qualified_date : "required",
+            certificate : "required",
+            acca_cima : "required",
+            direct_degree : "required",
+            degree_date : "required",
+            degree_rank : "required",
             attend_place : "required",
             mac_type : {
-                required : "#main_mac:checked"
+                required : "#mac:checked"
             },
             da_one_declare : "required"
         },
@@ -65,7 +69,7 @@ $().ready(function (){
                 required : "Please enter your nrc number",
             },
             nrc_front : "Please upload nrc photo (front)",
-            nrc_back : "Please upload nrc photo (front)",
+            nrc_back : "Please upload nrc photo (back)",
             father_name_mm : "Please enter your father name",
             father_name_eng : "Please enter your father name in english",
             race : "Please enter your race",
@@ -74,26 +78,32 @@ $().ready(function (){
             phone : "Please enter your phone number",
             current_address : "Please enter your current address",
             address : "Please enter your address",
-            // current_job : "Please enter your current job",
-            // position : "Please enter your position",
-            // department : "Please enter your department",
-            // organization : "Please enter your organization",
-            // company_name : "Please enter your company name",
-            // salary : "Please enter your salary",
-            // office_address : "Please enter your office address",
+            name : "Please enter your current job",
+            position : "Please enter your position",
+            department : "Please enter your department",
+            organization : "Please enter your organization",
+            company_name : "Please enter your company name",
+            salary : "Please enter your salary",
+            office_address : "Please enter your office address",
             gov_staff : "Please select one",
             recommend_letter : {
                 required : "Please upload recommend letter"
             },
-            // degree_name : "Please enter your degree name",
-            // university_name : "Please enter your university name",
-            // roll_number : "Please enter your roll number",
-            // qualified_date : "Please fill your qualified date",
-            // certificate : "Please upload your certificate",
+            degree_name : "Please enter your degree name",
+            university_name : "Please enter your university name",
+            roll_number : "Please enter your roll number",
+            qualified_date : "Please fill your qualified date",
+            certificate : "Please upload your certificate",
+            acca_cima : "Please select one",
+            direct_degree : "Please enter pass degree level",
+            degree_date : "Please enter pass degree date",
+            degree_rank : "Please enter indentify number",
             attend_place : "Please select one",
             da_one_declare : "Please accept our policy",
-            mac_type : "Please select one",
-
+            // mac_type : "Please select one",
+            mac_type : {
+                required : "Please select one"
+            }
         },
         submitHandler: function(form) {
             var send_data = new FormData();
@@ -109,6 +119,7 @@ $().ready(function (){
                 contentType: false,
                 processData: false,
                 success: function(result){
+                    // console.log('result',result);
                     if(result.email!=null){
                         Swal.fire("Email has been used, please check again!");
                     }
@@ -116,11 +127,14 @@ $().ready(function (){
                         Swal.fire("NRC has been used, please check again!");
                     }
                     else if(result.email==null && result.nrc==null){
-                        $('#exampleModal').modal('show');
+                        $('#cpaEntryEmailModal').modal('show');
                         send_email();
                     }
                 }
             });
         }
+
+        
+        
     });
 });

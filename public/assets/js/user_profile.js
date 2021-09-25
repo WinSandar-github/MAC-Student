@@ -7,6 +7,7 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
+            console.log(data)
 
             if (data.accountancy_firm_info_id)
             {
@@ -89,7 +90,57 @@ function user_profile() {
                 }
                 
                 
-            } else if (data.mentor) {
+            }
+
+
+            else if (data.cpa_ff && data.student_course_regs == '')
+            {
+                $('.title').text('CPA Full-Fledged Information')
+                $('.cpaff_other').show();
+                let cpaff = data.cpa_ff;
+                console.log(cpaff)
+                localStorage.setItem("cpff_id", cpaff.id);
+                $('#cpaff_name_mm').text(cpaff.name_mm);
+                $('#cpaff_name_eng').text(cpaff.name_eng);
+                $("#cpaff_nrc").text(cpaff.nrc_state_region + "/" + cpaff.nrc_township + "(" + cpaff.nrc_citizen + ")" + cpaff.nrc_number);
+                // $("#sch_date_of_birth").text(teacher.date_of_birth);
+                // $("#sch_date_of_birth").hide();
+                $("#cpaff_email").text(cpaff.email);
+                $('#cpaff_phone').text(cpaff.phone);
+                // var payment_url = FRONTEND_URL + "/cpa_ff_information";
+                var papp_url = FRONTEND_URL + "/student_papp_information";
+                if (cpaff.status == 0) {
+                    $('.status_history').append('CPA Full-Fledged Registration Form is checking.');
+                    // $('.status_papp').append('Action &nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                } else if (cpaff.status == 1) {
+                    $('.status_history').append('CPA Full-Fledged Registration Form is Approved.&nbsp;&nbsp;');
+                    // $('.status_history').append(`<a href= ${payment_url} class="btn btn-success btn-sm xl-auto" style="margin-bottom:5px;"> Go To Payment </a>`);
+                    // $('.status_papp').append('Now you can apply PAPP Registration form &nbsp;&nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > Go To PAPP form </a>`);
+                    $('.status_papp').append('Action &nbsp;&nbsp;');
+                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                } else {
+                    $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
+                }
+                if(cpaff.payment_method!=null){
+                    var papp_url = FRONTEND_URL + "/student_papp_information";
+                    $('.period').show();
+                    var now=new Date();
+                    var period_date=cpaff.renew_accepted_date.split('-');
+                    var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
+                    // console.log(period);
+                    $('#period_time_cpaff').text(period+" to 31-12-"+now.getFullYear());
+
+                    // $('.status_papp').append('Now you can apply PAPP Registration form &nbsp;&nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > Go To PAPP form </a>`);
+                    // $('.status_papp').append('Action &nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                }
+                
+                
+            }
+             else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
@@ -157,6 +208,7 @@ function user_profile() {
                             <td><span class="badge bg-info text-dark">Checking</span></td>
                         </tr>
                         `);
+                        $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     } else if (cpaff.status == 1) {
                         $('.status').append(`
                         <tr>
@@ -166,7 +218,7 @@ function user_profile() {
                             <td><span class="badge bg-success">Approved</span></td>
                         </tr>
                         `);
-
+                        // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         var accept = new Date(cpaff.renew_accepted_date);
                         var month = accept.getMonth();
                         var year = accept.getFullYear();
@@ -176,8 +228,9 @@ function user_profile() {
                             $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
                         } else {
                             $(".status").append(`<tr><td colspan=3>Your information will be expired at  <b> 31 December ${year}</b>
-                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_register' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
+                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
                             `);
+                            $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         }
                     } else {
                         $('.status').append(`
@@ -200,6 +253,7 @@ function user_profile() {
                                 <td><span class="badge bg-info text-dark">Checking</span></td>
                             </tr>
                             `);
+                            $('.papp_btn').css('display', 'none');
                         } else if (data.papp.status == 1) {
                             $('.status').append(`
                             <tr>
@@ -209,7 +263,7 @@ function user_profile() {
                                 <td><span class="badge bg-success">Approved</span></td>
                             </tr>
                             `);
-
+                            $('.papp_btn').css('display', 'none');
                             var accept = new Date(cpaff.renew_accepted_date);
                             var month = accept.getMonth();
                             var year = accept.getFullYear();
@@ -224,7 +278,11 @@ function user_profile() {
                             } else if (month == '10' || month == '11' || month == '12') {
                                 $(".status").append(`<tr><td colspan=4>Your registeration will start in ${y} year!</td></tr>`);
                             } else {
-                                $(".status").append(`<tr><td colspan=4>You are verified!</td></tr>`);
+                                // $(".status").append(`<tr><td colspan=4>You are verified!</td></tr>`);
+                                $(".status").append(`<tr>
+                                    <td colspan=3>Your information will be expired at <b> 31 December ${year} </b></td>
+                                    <td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>
+                                `);
                             }
                         } else {
                             $('.status').append(`
@@ -272,21 +330,20 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
-                        if(last_exam == null){            
-                                         if(last_exam[0].exam_type_id !== 3 )
-                        {
-                            
-                            let exam = exam_register.filter(exam => exam.grade == 1)
+                        if(last_exam[0]){  
+                                     
+                            if(last_exam[0].exam_type_id !== 3 ){
+                                
+                            let exam = exam_register.filter(exam => exam.grade == 1 && exam.exam_type_id !== 3)
                             exam.map(e => {
                                 course_html += `<tr>
                                                     <td>${e.course.name}</td>
                                                     <td>${e.batch.name}</td>
                                                     <td>${formatDate(e.updated_at)}</td>
                                                 </tr>`
-                            })
-                            
+                            });
+                            }
                         }
-                    }
                         console.log("Exam")
                         //check entry exam or direct
                         if(latest_course_reg[0].qt_entry == 1){
@@ -401,8 +458,11 @@ function user_profile() {
                                             <td>Approve</td>
                                         </tr>
                                         `);
-    
-                                        if (last_exam[0] && (last_exam[0].course.code == latest_course_reg[0].batch.course.code)) {
+                                       
+                                        if (last_exam[0] && 
+                                            (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
+                                            (last_exam[0].exam_type_id !== 3)
+                                            ) {
                                             if (last_exam[0].status == 0) {
                                                 $('.status').append(`
                                                                 <tr>
@@ -456,7 +516,8 @@ function user_profile() {
                                                             break;
                                                         case 'cpa_2':
                                                             course_code = "Membership"
-                                                            form_url = "/cpa_ff_register"
+                                                            // form_url = "/cpa_ff_register"
+                                                            form_url = "/cpa_ff_information"
                                                             break;
                                                         default:
                                                             course_code = "da_1",
@@ -479,11 +540,11 @@ function user_profile() {
     
     
                                                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr>`);
+                                                            // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
     
     
                                                         } else {
                                                             if (data) {
-                                                                alert("da two")
     
     
                                                                 $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)

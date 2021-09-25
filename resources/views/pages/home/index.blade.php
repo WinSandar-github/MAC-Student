@@ -13,7 +13,7 @@
                 <!-- Slider Content Start -->
                 <div class="slider-content">
                     <h4 class="sub-title">Start your favourite course</h4>
-                    <h2 class="main-title">Now learning from anywhere, and build your <span>bright career.</span></h2>
+                    <h2 class="main-title mb-5">Now learning from anywhere, and build your <span>bright career.</span></h2>
                     <li>It has survived not only five centuries but also the leap into electronic typesetting.</li>
                     <a class="btn btn-lg btn-success btn-hover-dark" href="#">Start A Course</a>
                 </div>

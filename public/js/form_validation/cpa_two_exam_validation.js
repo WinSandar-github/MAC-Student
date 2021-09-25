@@ -9,6 +9,8 @@ $().ready(function (){
             last_ans_exam_no:"Please enter this field.",
             date:"Please enter this field.",
         },
-        
+        submitHandler: function(form) {
+            $('#cpa2examModal').modal('show');
+        }
     });
 });

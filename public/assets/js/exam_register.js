@@ -22,8 +22,10 @@ function createDAExamRegister()
     send_data.append('exam_reg_date', $("input[name=exam_reg_date]").val());
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
     $(':radio:checked').map(function(){send_data.append('is_full_module',$(this).val())});
-    $(':checkbox:checked').map(function(){send_data.append('last_ans_module[]',$(this).val())});
-
+    // $(':checkbox:checked').map(function(){send_data.append('last_ans_module[]',$(this).val())});
+    $('input[name="last_ans_module[]"]:checked').map(function (key, val) {
+        send_data.append('last_ans_module[]', val.value);
+    });
     send_data.append('form_type',$("#form_type").val());
     send_data.append('exam_department',$('#exam_department').val());
 
@@ -59,11 +61,11 @@ $("#submit_confirm_mac").change(function() {
 });
 
 // DA 1 exam
-$( "#btn_da_exam_submit" ).click(function() {
-    if(allfilled('#da_exam_register_form')){
-        $('#da1examModal').modal('show');
-    }
-});
+// $( "#btn_da_exam_submit" ).click(function() {
+//     if( $("input[name='exam_department']").val()!=""){
+//         $('#da1examModal').modal('show');
+//     }
+// });
 // function allFilled(form_id) {
 //     var filled = true;
 //     $(form_id+' input').each(function() {
@@ -92,19 +94,19 @@ $('#da1exam_btn').click(function () {
 });
 
 // cpa1 exam
-$( "#cpa1submit" ).click(function() {
-    if(allfilled('#cpa1_exam_form')){
-        $('#cpa1examModal').modal('show');
-    }
-});
-function allfilled(form_id) {
-    var filled = true;
-    $(form_id+' input').each(function() {
-        if($(this).val() == ''  ) filled = false;
-        if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
-    });
-    return filled;
-}
+// $( "#cpa1submit" ).click(function() {
+//     if(allfilled('#cpa1_exam_form')){
+//         $('#cpa1examModal').modal('show');
+//     }
+// });
+// function allfilled(form_id) {
+//     var filled = true;
+//     $(form_id+' input').each(function() {
+//         if($(this).val() == ''  ) filled = false;
+//         if($(this).is(':radio') && $('input[type=radio][name=is_full_module]:checked').length == 0) filled = false;
+//     });
+//     return filled;
+// }
 
 $('#cpa1exam_img').click(function() {
     $('#cpa1exam_btn').prop('disabled', false);
@@ -160,23 +162,33 @@ $('#cpa_exam_register').submit(function(e){
 })
 
 //da2 exam
-$( "#da2submit" ).click(function() {
-    if(all_Filled('#da2_exam')){
-        $('#da2examModal').modal('show');
-    }
-});
-function all_Filled(form_id) {
-    var filled = true;
-    $(form_id+' input').each(function() {
-        if($("#last_exam_date").val() == ''){
-            filled = false;
-        }
-        if($("#date").val() == ''){
-            filled = false;
-        }
-    });
-    return filled;
-}
+// $( "#da2submit" ).click(function() {
+//     if(all_Filled('#da2_exam')){
+//         $('#da2examModal').modal('show');
+//     }
+// });
+// function all_Filled(form_id) {
+//     var filled = true;
+//     $(form_id+' input').each(function() {
+//         if($("#last_exam_date").val() == ''){
+//             filled = false;
+//         }
+//         if($("#date").val() == ''){
+//             filled = false;
+//         }
+//     });
+//     return filled;
+// }
+
+// $("#da2submit").click(function () {
+//     if($("input[name=last_exam_date]").val() != "" &&
+//         $('input[name="last_ans_module[]"]:checked').length > 0 && 
+//         $("#exam_department").val() != "" ){
+//             $('#da2examModal').modal('show');
+//     }else{
+//         $('#da2examModal').modal('hide');
+//     }
+// });
 
 $('#cash_img').click(function() {
     $('#da2exam_btn').prop('disabled', false);
@@ -198,11 +210,11 @@ $('#da2exam_btn').click(function () {
 });
 
 //cpa2 exam
-$( "#cpa2submit" ).click(function() {
-    if(all_Filled('#cpa2_exam_form')){
-        $('#cpa2examModal').modal('show');
-    }
-});
+// $( "#cpa2submit" ).click(function() {
+//     if(all_Filled('#cpa2_exam_form')){
+//         $('#cpa2examModal').modal('show');
+//     }
+// });
 
 $('#cpa2exam_img').click(function() {
     $('#cpa2exam_btn').prop('disabled', false);

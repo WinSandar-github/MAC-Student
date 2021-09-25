@@ -74,11 +74,11 @@
                                 <div class="row mb-5">
                                     <h5 class="card-title text-center fw-bolder">
                                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                        လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
+                                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
                                     </h5>
                                     <div class="d-flex justify-content-between">
-                                        <h6>ရက်စွဲ - {{ date('d-m-Y') }}</h6>
-                                        <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
                                     </div>
                                 </div>
 
@@ -182,7 +182,7 @@
                                         
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>လူမျိုး</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="လူမျိုး" name="race" class="form-control" value="{{ old('race') }}" required="" id="race">
@@ -191,7 +191,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ကိုးကွယ်သည့် ဘာသာ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>ကိုးကွယ်သည့် ဘာသာ</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ကိုးကွယ်သည့် ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="" id="religion">
@@ -200,7 +200,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>မွေးသက္ကရာဇ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>မွေးသက္ကရာဇ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" name="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)"  id="date_of_birth"  required>
@@ -209,7 +209,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>ဖုန်းနံပါတ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>ဖုန်းနံပါတ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" required="">
@@ -218,7 +218,7 @@
                                         </div>
 
                                         <div class="row mb-3">                                            
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" class="form-control" value="{{ old('address') }}" required="" id="address">
@@ -227,7 +227,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address" class="form-control" value="{{ old('current_address') }}" required="" id="current_address">
@@ -240,7 +240,7 @@
                                         <input type="hidden" name="approve_reject_status">                                    
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>လက်ရှိအလုပ်အကိုင်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>လက်ရှိအလုပ်အကိုင်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name" class="form-control" value="{{ old('name') }}" required="" id="name">
@@ -249,7 +249,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရာထူး</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ရာထူး</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ရာထူး" name="position" id="position" class="form-control" value="{{ old('position') }}" required="">
@@ -258,7 +258,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၅။') }}</span>ဌာန</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>ဌာန</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ဌာန" name="department" id="department" class="form-control" value="{{ old('department') }}" required="">
@@ -267,7 +267,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>အဖွဲ့အစည်း</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>အဖွဲ့အစည်း</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="အဖွဲ့အစည်း" id="organization" name="organization" class="form-control" value="{{ old('organization') }}" required="">
@@ -276,7 +276,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>ကုမ္ပဏီအမည်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ကုမ္ပဏီအမည်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ကုမ္ပဏီအမည်" id="company_name" name="company_name" class="form-control" value="{{ old('company_name') }}" required="">
@@ -285,7 +285,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>လစာနှင့်လစာနှုန်း</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၅။') }}</span>လစာနှင့်လစာနှုန်း</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="လစာနှင့်လစာနှုန်း" name="salary" id="salary" class="form-control" value="{{ old('salary') }}" required="">
@@ -294,7 +294,7 @@
                                          </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ရုံးလိပ်စာ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ရုံးလိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input readonly type="text" placeholder="ရုံးလိပ်စာ" name="office_address" id="office_address" class="form-control" value="{{ old('office_address') }}" required="">
@@ -303,7 +303,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
                                             <div class="col-md-2 form-check pt-2">
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -339,7 +339,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" >{{ __('၂၁။') }}</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော-</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" >{{ __('၁၈။') }}</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော-</label>
                                         </div>
 
                                         <div class="row mb-3">
@@ -383,7 +383,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label">
-                                                <span class="pull-left" style="padding-right: 30px;">{{ __('၂၄။') }}</span>
+                                                <span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>
                                                 သင်တန်းတက်ရောက်လိုသည်နေရာ-</label>
                                             {{-- <div class="col-sm-8 checkbox-radios py-2">
                                                 <div class="form-check-radio px-0">
@@ -479,7 +479,7 @@
                                                         </p>
                                                     </label>
                                                 </div>
-                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-m-Y') }}</h6>
+                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
                                             </div>
                                         </div>  
                                        
@@ -747,6 +747,7 @@
                       var info = data.data;
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
+                      console.log('entryinfo',info);
                     
 
                       if(info){

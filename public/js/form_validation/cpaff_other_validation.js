@@ -235,10 +235,7 @@ function createCpaffOtherRegister(){
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('form_type', 1);
     send_data.append('cpa_certificate_back', cpa_certificate_back);
-
-    // save to student_info
-    send_data.append('email', $("input[name=email]").val());
-    send_data.append('password', $("input[name=password]").val());
+    
     send_data.append('name_mm', $("input[name=name_mm]").val());
     send_data.append('name_eng', $("input[name=name_eng]").val());
     var nrc_state_region = $("#nrc_state_region").val();
@@ -250,6 +247,11 @@ function createCpaffOtherRegister(){
     send_data.append('nrc_number', $("input[name=nrc_number]").val());
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+
+    // save to student_info
+    send_data.append('email', $("input[name=email]").val());
+    send_data.append('password', $("input[name=password]").val());
+    
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
         type: 'post',
