@@ -59,9 +59,12 @@ function user_profile() {
                 } else {
                     $('.status_history').append('School Registration is Rejected.');
                 }
-            } else if (data.teacher) {
-                $('.title').text('Teacher Information')
-                $('.teacher').show();
+            } else if (data.teacher)
+            {
+                
+                 $('.title').text('Teacher Information')
+                 $('.teacher').show();
+                 $('.cpaff_other').hide();
                 let teacher = data.teacher;
                 localStorage.setItem("teacher_id", teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
