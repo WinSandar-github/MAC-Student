@@ -63,9 +63,12 @@ function user_profile() {
                 }
             } else if (data.teacher)
             {
-                $('.title').text('Teacher Information')
-                $('.teacher').show();
+                
+                 $('.title').text('Teacher Information')
+                 $('.teacher').show();
+                 $('.cpaff_other').hide();
                 let teacher = data.teacher;
+                
                 localStorage.setItem("teacher_id", teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
                 $('#teacher_name_eng').text(teacher.name_eng);
