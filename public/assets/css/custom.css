@@ -263,3 +263,6 @@
 .error{
     color: #ef8157;
 }
+.error-border{
+    border: 1px solid red;
+}

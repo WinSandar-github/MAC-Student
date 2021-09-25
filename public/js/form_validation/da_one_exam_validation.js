@@ -2,11 +2,13 @@ $().ready(function (){
     
     $("#da_exam_register_form").validate({
         rules:{
-            is_full_module:"required",
+            exam_department:"required",
         },
         messages:{
-            last_ans_exam_no:"Please select one.",
+            exam_department:"Please select one.",
         },
-        
+        submitHandler: function(form) {
+            $('#da1examModal').modal('show');
+        }
     });
 });

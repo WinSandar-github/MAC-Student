@@ -170,7 +170,7 @@
                                   </div>
 
                                   <div class="row mb-3">
-                                      <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>လူမျိူး/ကိုးကွယ်သည့်ဘာသာ</label>
+                                      <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
                                       <div class="col-md-9">
                                         <div class="row">
                                           <div class="col-md-6">
@@ -537,7 +537,7 @@
                                             <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="$('#submit_btn').prop('disabled', !this.checked)">
                                             <span class="form-check-sign"></span>
                                             <p class="fw-bolder">
-                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်စွာရေးသွင်းထားပါသည်။၊<br>
+                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်စွာရေးသွင်းထားပါသည်။<br>
                                             </p>
                                         </label>
 

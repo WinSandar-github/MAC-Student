@@ -13,10 +13,10 @@ function addRowEducation(tbody){
     $(".degree").hide();
     var newRow = $("<tr>");
     var cols = "";
-    //var row=$('.'+tbody+' tr').length;
+    var row=$('.'+tbody+' tr').length;
     cols += '<td><input type="text" class="form-control" value="" /></td>';
-    cols += '<td><input type="text" name="degrees[]" class="form-control"  autocomplete="off" required/></td>';
-    cols += '<td><input type="file" name="degrees_certificates[]" class="form-control" id="certificate"  required=""></td>';
+    cols += '<td><input type="text" name="degrees[]" class="form-control" id="degrees'+row+'" autocomplete="off"></td>';
+    cols += '<td><input type="file" name="degrees_certificates[]" class="form-control" id="degrees_certificates'+row+'" ></td>';
     cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("'+tbody+'")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
@@ -207,6 +207,7 @@ function checkPaymentTeacher(){
                 // console.log(data);
               var form_data = data;
               form_data.forEach(function(element){
+                  
                     if(element.payment_method != null){
                         $('#teacher_modal').prop('disabled', true);
                         loadRenewTeacher();

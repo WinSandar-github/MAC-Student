@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DPRMS</title>
+    <title>Myanmar Accountancy Council</title>
     <meta name="robots" content="noindex, follow"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -162,7 +162,7 @@
 
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
-<script src="{{ asset("vendor/jquery-validation/dist/jquery.validate.min.js") }}"></script>
+<script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.js') }}"></script>
 <script src="{{ asset("vendor/jquery-validation/dist/additional-methods.min.js") }}"></script>
 
 <!-- <script src="assets/js/plugins.min.js"></script> -->

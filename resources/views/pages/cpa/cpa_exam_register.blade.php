@@ -282,7 +282,7 @@
                                                 <div id="rec_letter" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>အထက်လူကြီး၏ထောက်ခံစာ
+                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -370,7 +370,7 @@
                                                         <span class="pull-left" id="cpa1_label2">၂၀။</span>
                                                         <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
-                                                            <input type="text" id="last_ans_exam_no" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်" required >
+                                                            <input type="text" id="last_ans_exam_no" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်"  >
 
                                                     </div>
                                                 </div>
@@ -379,7 +379,7 @@
                                                     <label class="col-md-4 col-form-label label">
                                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
-                                                            <input type="text" id="date" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" required>
+                                                            <input type="text" id="date" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" >
 
                                                     </div>
 
@@ -416,29 +416,36 @@
                                                     <div class="row col-md-8 py-2" style="padding-left: 35px;">
                                                         <div class="col-md-4 form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="radio" 
-                                                                        id="0" name="is_full_module" value="1"  >
+                                                                <input disabled class="form-check-input" type="radio" 
+                                                                        id="module1" name="is_full_module" value="1"  >
                                                                 <span class="form-check-sign"></span>
                                                                 Module 1
                                                             </label>
                                                         </div>
                                                         <div class="col-md-4 form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="radio"
-                                                                        id="1" name="is_full_module" value="2" >
+                                                                <input disabled class="form-check-input" type="radio"
+                                                                        id="module2" name="is_full_module" value="2" >
                                                                 <span class="form-check-sign"></span>
                                                                 Module 2
                                                             </label>
                                                         </div>
                                                         <div class="col-md-4 form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="radio"
-                                                                        id="2" name="is_full_module" value="3" >
+                                                                <input disabled class="form-check-input" type="radio"
+                                                                        id="allmodule" name="is_full_module" value="3" >
                                                                 <span class="form-check-sign"></span>
                                                                 All Modules
                                                             </label>
                                                         </div>
                                                         <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၂၀။') }}</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="attend_place" id="attend_place" class="form-control" readonly>
                                                     </div>
                                                 </div>
 
@@ -631,9 +638,46 @@
         selectedRegistration(urlParams.get("study_type"));
 
         get_student_info(student_id).then(data => {
-            console.log(data.data)
-            if(data){
+           var student_info = data.data ;
+           console.log('student_info',student_info);
 
+            let current_stu_reg=student_info.student_register.slice(-1);
+
+                    if(current_stu_reg[0].module=="1"){
+                         $("#module1").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="2"){
+                        $("#module2").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="3"){
+                        $("#allmodule").prop("checked", true);
+                    }
+
+            if(student_info.gov_staff==0){
+                $("#no").prop("checked", true);
+            }else{
+                $("#yes").prop("checked", true);
+                $("#rec_letter").css("display",'block');
+                if(student_info.recommend_letter!=null){
+                        $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                    }
+            }
+
+            if(student_info.student_register[0].type == 0){
+                $("input[name='attend_place']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
+            }else if(student_info.student_register[0].type == 1){
+                $("input[name='attend_place']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
+            }else{
+
+                var mac_name = current_stu_course[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                $("input[name='attend_place']").val(mac_name);
+            }
+            let exam_registers = student_info.exam_registers.slice(-1);
+
+            if(data){
+                console.log('data',data);
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
@@ -662,15 +706,10 @@
                 $("input[name='roll_number']").val(data.data.student_education_histroy.roll_number);
                 $("input[name='qualified_date']").val(data.data.student_education_histroy.qualified_date);
 
-                if(data.data.gov_staff == 0 ){
-                    $("#no").prop("checked", true);
-                }else{
-                    $("#yes").prop("checked", true);
-                    $("#rec_letter_mac").css("display",'block');
-                    if(data.data.recommend_letter!=null){
-                            $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
-                        }
-                }
+                $("#last_ans_exam_no").val(exam_registers[0].batch.number);
+                $("#date").val(formatDate(exam_registers[0].updated_at));
+
+                
 
             }
 
