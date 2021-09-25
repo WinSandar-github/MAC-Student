@@ -15,8 +15,8 @@ function addRowEducation(tbody){
     var cols = "";
     var row=$('.'+tbody+' tr').length;
     cols += '<td><input type="text" class="form-control" value="" /></td>';
-    cols += '<td><input type="text" name="degrees[]" class="form-control" id="degrees'+row+'" autocomplete="off"></td>';
-    cols += '<td><input type="file" name="degrees_certificates[]" class="form-control" id="degrees_certificates'+row+'" ></td>';
+    cols += '<td><input type="text" name="degrees[]" class="form-control" id="degrees'+row+'" autocomplete="off" required></td>';
+    cols += '<td><input type="file" name="degrees_certificates[]" class="form-control" id="degrees_certificates'+row+'" required></td>';
     cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("'+tbody+'")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table."+tbody).append(newRow);
