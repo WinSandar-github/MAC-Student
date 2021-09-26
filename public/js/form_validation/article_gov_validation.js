@@ -1,6 +1,12 @@
 $().ready(function (){
     $("#article_gov_register_form").validate({
         rules:{
+            email : "required",
+            password : "required",
+            confirm_password : {
+                required : true,
+                equalTo : "#password"
+            },
             name_mm : "required",
             name_eng : "required",
             father_name_mm : "required",
@@ -38,8 +44,15 @@ $().ready(function (){
             labor_registration_attach : "required",
             recommend_attach : "required",
             police_attach : "required",
+            mentor_declare : "required",
         },
         messages:{
+            email : "Please enter your email",
+            password : "Please provide your password",
+            confirm_password : {
+                required : "Please provide your password",
+                equalTo : "Please enter the same password as above"
+            },
             name_mm : "Please enter your name",
             name_eng : "Please enter your name in english",
             father_name_mm : "Please enter your father name",

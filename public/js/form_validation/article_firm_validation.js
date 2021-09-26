@@ -1,12 +1,12 @@
 $().ready(function (){
     $("#article_register_form").validate({
         rules:{
-            // email : "required",
-            // password : "required",
-            // confirm_password : {
-            //     required : true,
-            //     equalTo : "#password"
-            // },
+            email : "required",
+            password : "required",
+            confirm_password : {
+                required : true,
+                equalTo : "#password"
+            },
             name_mm : "required",
             name_eng : "required",
             father_name_mm : "required",
@@ -43,14 +43,15 @@ $().ready(function (){
             experience_file : {
                 required : "#experience_yes:checked"
             },
+            mentor_declare : "required",
         },
         messages:{
-            // email : "Please enter your email",
-            // password : "Please provide your password",
-            // confirm_password : {
-            //     required : "Please provide your password",
-            //     equalTo : "Please enter the same password as above"
-            // },
+            email : "Please enter your email",
+            password : "Please provide your password",
+            confirm_password : {
+                required : "Please provide your password",
+                equalTo : "Please enter the same password as above"
+            },
             name_mm : "Please enter your name",
             name_eng : "Please enter your name in english",
             father_name_mm : "Please enter your father name",
