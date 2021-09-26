@@ -79,6 +79,7 @@ function Private_School_Submit(){
     data.append('batch_no_private',$("input[id='batch_no_private']").val());
     data.append('part_no_private',$("input[id='part_no_private']").val());
     data.append('personal_no_private',$("input[id='personal_no_private']").val());
+    data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('form_type',localStorage.getItem('course_id'));
     data.append('type', 1);
     show_loader();
@@ -115,7 +116,10 @@ function Self_Study_Submit(){
     data.append('academic_year', $("#academic_year_self").val());
     data.append('direct_access_no', $("#direct_access_no_self").val());
     data.append('entry_success_no', $("#entry_success_no_self").val());
-    $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    // $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        data.append('reg_reason[]', val.value);
+    });
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('batch_part_no', $("#batch_part_no").val());
     data.append('batch_no_self',$("input[id='batch_no_self']").val());
@@ -148,16 +152,6 @@ function Self_Study_Submit(){
         });
 }
 
-
-// $("#submit_btn_mac").click(function () {
-//     console.log('mac_semester',$(".personal_no_self").val());
-//     if($("#self_academic_year").val()!="" && $("input[name=da_one_pass_level_self]").val()!="" && $('input[name="reg_reason[]"]:checked').length > 0 && $(".personal_no_self").val()!="")
-//     {
-//             $('#exampleModal3').modal('show');
-//     }else{
-//         $('#exampleModal3').modal('hide');
-//     }
-// });
 
 function Mac_Submit(){
     localStorage.setItem("isPrivateSchool",false);
@@ -264,7 +258,8 @@ $('#cpa_register').submit(function(e){
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
+    send_data.append('gov_staff', $("input[name=gov_staff]").val());
+    // $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
@@ -303,16 +298,6 @@ $('#cpa_register').submit(function(e){
 
     send_data.append('type',$("input[name='attend_place']:checked").val());
     send_data.append('mac_type',$("input[name='mac_type']:checked").val());
-
-
-   
-
-
-
-
-
-
-
     send_data.append('batch_id',batch_id)
     //show_loader(); 
 
@@ -465,7 +450,9 @@ function check_entry_pass(){
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
+    console.log('student',student);
     if(student){
+        console.log('student',student);
         let batch_id = url.substring(url.lastIndexOf('/')+1);
         $.ajax({
             type: "get",
@@ -473,6 +460,7 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
+                $('.batch_id').append(res.data.id);
                 $('#batch_id').val(res.data.id);
                 $('#batch_name').text(res.data.name);
             }
@@ -486,51 +474,53 @@ function direct_or_da(){
             contentType: false,
             processData: false,
             success: function (res) {
+                $('.batch_id').append(res.data.id);
                 $('#batch_number').append(res.data.id);
             }
         })   
         $('.dir_cpa_app_form').show();
+        // $('.da_pass_to_cpa').show();
 
     }
 
 }
 
-$( "#cpa_one_submit" ).click(function() {
+// $( "#cpa_one_submit" ).click(function() {
      
-    if(allFilled('#cpa_one_form')){
+//     if(allFilled('#cpa_one_form')){
         
-        var send_data = new FormData();
-        send_data.append('email',$("input[name='email']").val());
-        // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        // send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        // send_data.append('nrc_number',$("input[name='nrc_number']").val());
-        send_data.append('nrc_state_region',$("#nrc_state_region").val());
-        send_data.append('nrc_township',$("#nrc_township").val());
-        send_data.append('nrc_citizen',$("#nrc_citizen").val());
-        send_data.append('nrc_number',$("#nrc_number").val());
-        $.ajax({
-            url: BACKEND_URL+"/unique_email",
-            type: 'post',
-            data:send_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
+//         var send_data = new FormData();
+//         send_data.append('email',$("input[name='email']").val());
+//         // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+//         // send_data.append('nrc_township',$("input[name='nrc_township']").val());
+//         // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+//         // send_data.append('nrc_number',$("input[name='nrc_number']").val());
+//         send_data.append('nrc_state_region',$("#nrc_state_region").val());
+//         send_data.append('nrc_township',$("#nrc_township").val());
+//         send_data.append('nrc_citizen',$("#nrc_citizen").val());
+//         send_data.append('nrc_number',$("#nrc_number").val());
+//         $.ajax({
+//             url: BACKEND_URL+"/unique_email",
+//             type: 'post',
+//             data:send_data,
+//             contentType: false,
+//             processData: false,
+//             success: function(result){
                
-                if(result.email!=null){
-                    Swal.fire("Email has been used, please check again!");
-                }
-                else if(result.nrc!=null){
-                    Swal.fire("NRC has been used, please check again!");
-                }
-                else if(result.email==null && result.nrc==null){                    
-                    $('#cpaEmailModal').modal('show');
-                    send_email();                    
-                }
-            }
-        });
-    }
-});
+//                 if(result.email!=null){
+//                     Swal.fire("Email has been used, please check again!");
+//                 }
+//                 else if(result.nrc!=null){
+//                     Swal.fire("NRC has been used, please check again!");
+//                 }
+//                 else if(result.email==null && result.nrc==null){                    
+//                     $('#cpaEmailModal').modal('show');
+//                     send_email();                    
+//                 }
+//             }
+//         });
+//     }
+// });
 
 // $( "#cpa_one_submit" ).click(function() {
 //     if(allFilled('#cpa_one_form')){
@@ -538,133 +528,133 @@ $( "#cpa_one_submit" ).click(function() {
 //         send_email();
 //     }
 // });
-function allFilled(form_id) {
+// function allFilled(form_id) {
    
-    var filled = true;
-    $(form_id+' input').each(function() {
+//     var filled = true;
+//     $(form_id+' input').each(function() {
         
-        if($("#email").val() == ''){
-            filled = false;
-        }
-        if($("#password").val() == ''){
-            filled = false;
-        }
-        if($("#confirm_password").val() == ''){
-            filled = false;
-        }
-        if($("#profile_photo").val() == ''){
-            filled = false;
-        }
-        if($("#name_mm").val() == ''){
-            filled = false;
-        }
-        if($("#name_eng").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_state_region").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_township").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_citizen").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_number").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_front").val() == ''){
-            filled = false;
-        }
-        if($("#nrc_back").val() == ''){
-            filled = false;
-        }
-        if($("#father_name_mm").val() == ''){
-            filled = false;
-        }
-        if($("#father_name_eng").val() == ''){
-            filled = false;
-        }
-        if($("#race").val() == ''){
-            filled = false;
-        }
-        if($("#religion").val() == ''){
-            filled = false;
-        }
-        if($("#date_of_birth").val() == ''){
-            filled = false;
-        }
-        if($("#phone").val() == ''){
-            filled = false;
-        }
-        if($("#address").val() == ''){
-            filled = false;
-        }
-        if($("#current_address").val() == ''){
-            filled = false;
-        }
-        if($("#image").val() == ''){
-            filled = false;
-        }
-        if($("#name").val() == ''){
-            filled = false;
-        }
-        if($("#position").val() == ''){
-            filled = false;
-        }
-        if($("#department").val() == ''){
-            filled = false;
-        }
-        if($("#organization").val() == ''){
-            filled = false;
-        }
-        if($("#company_name").val() == ''){
-            filled = false;
-        }
-        if($("#salary").val() == ''){
-            filled = false;
-        }
-        if($("#office_address").val() == ''){
-            filled = false;
-        }
-        if($("#degree_name").val() == ''){
-            filled = false;
-        }
-        if($("#university_name").val() == ''){
-            filled = false;
-        }
-        if($("#roll_number").val() == ''){
-            filled = false;
-        }
-        if($("#qualified_date").val() == ''){
-            filled = false;
-        }
-        if($("#certificate0").val() == ''){
-            filled = false;
-        }
+//         if($("#email").val() == ''){
+//             filled = false;
+//         }
+//         if($("#password").val() == ''){
+//             filled = false;
+//         }
+//         if($("#confirm_password").val() == ''){
+//             filled = false;
+//         }
+//         if($("#profile_photo").val() == ''){
+//             filled = false;
+//         }
+//         if($("#name_mm").val() == ''){
+//             filled = false;
+//         }
+//         if($("#name_eng").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_state_region").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_township").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_citizen").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_number").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_front").val() == ''){
+//             filled = false;
+//         }
+//         if($("#nrc_back").val() == ''){
+//             filled = false;
+//         }
+//         if($("#father_name_mm").val() == ''){
+//             filled = false;
+//         }
+//         if($("#father_name_eng").val() == ''){
+//             filled = false;
+//         }
+//         if($("#race").val() == ''){
+//             filled = false;
+//         }
+//         if($("#religion").val() == ''){
+//             filled = false;
+//         }
+//         if($("#date_of_birth").val() == ''){
+//             filled = false;
+//         }
+//         if($("#phone").val() == ''){
+//             filled = false;
+//         }
+//         if($("#address").val() == ''){
+//             filled = false;
+//         }
+//         if($("#current_address").val() == ''){
+//             filled = false;
+//         }
+//         if($("#image").val() == ''){
+//             filled = false;
+//         }
+//         if($("#name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#position").val() == ''){
+//             filled = false;
+//         }
+//         if($("#department").val() == ''){
+//             filled = false;
+//         }
+//         if($("#organization").val() == ''){
+//             filled = false;
+//         }
+//         if($("#company_name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#salary").val() == ''){
+//             filled = false;
+//         }
+//         if($("#office_address").val() == ''){
+//             filled = false;
+//         }
+//         if($("#degree_name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#university_name").val() == ''){
+//             filled = false;
+//         }
+//         if($("#roll_number").val() == ''){
+//             filled = false;
+//         }
+//         if($("#qualified_date").val() == ''){
+//             filled = false;
+//         }
+//         if($("#certificate0").val() == ''){
+//             filled = false;
+//         }
 
-        //  if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
-        //     filled = false;
-        //  }
+//         //  if($(this).is(':radio') && $('input[type=radio][name=type]:checked').length == 0){
+//         //     filled = false;
+//         //  }
 
-         if($('input[name="attend_place"]:checked').length === 0) {
+//          if($('input[name="attend_place"]:checked').length === 0) {
              
-            filled = false;
+//             filled = false;
             
-       }else{
+//        }else{
          
-           var mac_val = $('input[name="attend_place"]:checked').val();
+//            var mac_val = $('input[name="attend_place"]:checked').val();
 
-           if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
-               filled = false;
-           }   
+//            if(mac_val === '2' &&   $('input[name="mac_type"]:checked').length === 0){
+//                filled = false;
+//            }   
 
-       }
+//        }
         
        
-    });
-    return filled;        
-}
+//     });
+//     return filled;        
+// }
 
 function check_email_cpa()
 {
@@ -684,38 +674,38 @@ function check_email_cpa()
 }
 
 //Cpa One Entry Process Start
-$( "#cpa_one_entry_submit" ).click(function() {
+// $( "#cpa_one_entry_submit" ).click(function() {
     
-    if(allFilled('#cpa_one_entry_form')){
+//     if(allFilled('#cpa_one_entry_form')){
 
-        var send_data = new FormData();
-        send_data.append('email',$("input[name='email']").val());
-        send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        send_data.append('nrc_number',$("input[name='nrc_number']").val());
-        $.ajax({
-            url: BACKEND_URL+"/unique_email",
-            type: 'post',
-            data:send_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
+//         var send_data = new FormData();
+//         send_data.append('email',$("input[name='email']").val());
+//         send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+//         send_data.append('nrc_township',$("input[name='nrc_township']").val());
+//         send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+//         send_data.append('nrc_number',$("input[name='nrc_number']").val());
+//         $.ajax({
+//             url: BACKEND_URL+"/unique_email",
+//             type: 'post',
+//             data:send_data,
+//             contentType: false,
+//             processData: false,
+//             success: function(result){
                
-                if(result.email!=null){
-                    Swal.fire("Email has been used, please check again!");
-                }
-                else if(result.nrc!=null){
-                    Swal.fire("NRC has been used, please check again!");
-                }
-                else if(result.email==null && result.nrc==null){                    
-                    $('#cpaEntryEmailModal').modal('show');
-                    send_email();                    
-                }
-            }
-        });
-    }
-});
+//                 if(result.email!=null){
+//                     Swal.fire("Email has been used, please check again!");
+//                 }
+//                 else if(result.nrc!=null){
+//                     Swal.fire("NRC has been used, please check again!");
+//                 }
+//                 else if(result.email==null && result.nrc==null){                    
+//                     $('#cpaEntryEmailModal').modal('show');
+//                     send_email();                    
+//                 }
+//             }
+//         });
+//     }
+// });
 
 function check_email_cpa_entry()
 {
@@ -731,6 +721,8 @@ function check_email_cpa_entry()
     }else{
         $('#cpaEntryPaymentModal').modal('show');
         $('#cpaEntryEmailModal').modal('hide');
+        
+        
     }
 }
 
@@ -780,7 +772,8 @@ $('#cpa_entry_register').submit(function(e){
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
+    send_data.append('gov_staff', $("input[name=gov_staff]").val());
+    // $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
     // send_data.append('date', $("input[name=date]").val());
@@ -829,6 +822,7 @@ $('#cpa_entry_register').submit(function(e){
             processData: false,
             data: send_data,
             success: function (data) {
+                console.log('data',data)
                 //EasyLoading.hide();
                 successMessage("You have successfully registerd!");
 

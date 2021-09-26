@@ -283,8 +283,8 @@ function createDaTwoSelfStudy()
     send_data.append('part_no_self', $("input[id='part_no_self']").val());
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
     send_data.append('type', 0);
-    $(':checkbox:checked').map(function () {
-        send_data.append('reg_reason[]', $(this).val())
+    $('input[name="reg_reason[]"]:checked').map(function (key, val) {
+        send_data.append('reg_reason[]', val.value);
     });
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
@@ -407,37 +407,37 @@ function createDaTwoMac()
     });
 }
 
-$("#da_submit").click(function () {
-    if (allFilled('#da_one_app_form')) {
-        var send_data = new FormData();
-        send_data.append('email', $("input[name='email']").val());
-        // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
-        // send_data.append('nrc_township',$("input[name='nrc_township']").val());
-        // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
-        // send_data.append('nrc_number',$("input[name='nrc_number']").val());
-        send_data.append('nrc_state_region', $("#nrc_state_region").val());
-        send_data.append('nrc_township', $("#nrc_township").val());
-        send_data.append('nrc_citizen', $("#nrc_citizen").val());
-        send_data.append('nrc_number', $("#nrc_number").val());
-        $.ajax({
-            url: BACKEND_URL + "/unique_email",
-            type: 'post',
-            data: send_data,
-            contentType: false,
-            processData: false,
-            success: function (result) {
-                if (result.email != null) {
-                    Swal.fire("Email has been used, please check again!");
-                } else if (result.nrc != null) {
-                    Swal.fire("NRC has been used, please check again!");
-                } else if (result.email == null && result.nrc == null) {
-                    $('#exampleModal').modal('show');
-                    send_email();
-                }
-            }
-        });
-    }
-});
+// $("#da_submit").click(function () {
+//     if (allFilled('#da_one_app_form')) {
+//         var send_data = new FormData();
+//         send_data.append('email', $("input[name='email']").val());
+//         // send_data.append('nrc_state_region',$("input[name='nrc_state_region']").val());
+//         // send_data.append('nrc_township',$("input[name='nrc_township']").val());
+//         // send_data.append('nrc_citizen',$("input[name='nrc_citizen']").val());
+//         // send_data.append('nrc_number',$("input[name='nrc_number']").val());
+//         send_data.append('nrc_state_region', $("#nrc_state_region").val());
+//         send_data.append('nrc_township', $("#nrc_township").val());
+//         send_data.append('nrc_citizen', $("#nrc_citizen").val());
+//         send_data.append('nrc_number', $("#nrc_number").val());
+//         $.ajax({
+//             url: BACKEND_URL + "/unique_email",
+//             type: 'post',
+//             data: send_data,
+//             contentType: false,
+//             processData: false,
+//             success: function (result) {
+//                 if (result.email != null) {
+//                     Swal.fire("Email has been used, please check again!");
+//                 } else if (result.nrc != null) {
+//                     Swal.fire("NRC has been used, please check again!");
+//                 } else if (result.email == null && result.nrc == null) {
+//                     $('#exampleModal').modal('show');
+//                     send_email();
+//                 }
+//             }
+//         });
+//     }
+// });
 
 // $( "#da_submit" ).click(function() {
 //     if(allFilled('#da_one_app_form')){

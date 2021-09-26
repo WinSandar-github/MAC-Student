@@ -823,6 +823,12 @@
 @push('scripts')
     <script src="{{ asset("js/form_validation/da_one_validation.js") }}"></script>
     <script type="text/javascript">
+
+        // to clear data when user click browser back button
+        $(window).bind('pageshow', function (){
+            $("#da_one_app_form").get(0).reset();
+        });
+
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
 
@@ -891,9 +897,6 @@
                 $('#btn_cash').prop('disabled', true);
             });
             $('#btn_cash').prop('disabled', true);
-
-
         });
-
     </script>
 @endpush
