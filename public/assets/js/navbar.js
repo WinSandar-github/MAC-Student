@@ -5,7 +5,7 @@ $(document).ready(function () {
     //
     // $("#navbar").append(dataTemplate(student));
 
-   if (student) {
+    if (student) {
         var navbar = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>`;
 
         if (student.accountancy_firm_info_id != null) {
@@ -83,8 +83,8 @@ $(document).ready(function () {
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }
     $('#navbar').append(navbar);
-    
-     if (student) {
+
+    if (student) {
         var mnavbar = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>`;
 
         if (student.accountancy_firm_info_id != null) {
@@ -166,5 +166,5 @@ $(document).ready(function () {
                     <li><a href="${FRONTEND_URL}/article_information">Article</a></li>
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }
-     $('#mnavbar').append(mnavbar);
+    $('#mnavbar').append(mnavbar);
 });
