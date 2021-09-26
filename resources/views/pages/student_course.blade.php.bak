@@ -23,6 +23,7 @@
                     <h2 class="title">
                         {{
                             $course[0]['course_type']['course_name']
+                            /*->course_type->course_name*/
                             /*request()->segment(count(request()->segments())) == 1
                                 ? "Diploma In Accountancy"
                                 : (request()->segment(count(request()->segments() == 2)) ? "Certified Public Accountant" : 'QT')*/
@@ -71,39 +72,42 @@
                     <div class="row">
                         @php
                             $i=0; $date=Date('Y-m-d');
-                        @endphp
+                        @endphp 
                         <input type="hidden" id="course_length" value={{sizeof($course)}}>
                         <div class="card col-md-5 m-2">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12  ">
                                         <h4 class="col-md-12 card-title  text-success ">
-                                            {{ $course[0]['course_type']['course_name'] }}
+                                            Diploma In Accountancy
                                         </h4>
                                         <hr>
 
-                                        <?php
-                                        $description = explode(',', $course[0]['course_type']['course_description']);
-                                        foreach ($description as $des) {
-                                            echo '<p class="mb-4 p_font text-justify">' . $des . '</p>';
-                                        }
-                                        ?>
-                                        {{--@foreach($description as $des)
-                                            <p class="mb-4 p_font text-justify">{{ $des }}</p>
-                                        @endforeach--}}
+                                        @php
+                                            $description = explode(',',$course[0]['course_type']['course_description']);
+                                        @endphp
+                                        @foreach($description as $des)
+                                            <p class="mb-4 p_font text-justify">{{$des}}</p>
+                                        @endforeach
+
+
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                         @foreach($course as $key => $c)
+
                             <?php
+
                             // $course_req_arr = json_decode($c['requirement_id'],true);
                             $req_str_arr = explode(",", $c['requirement_id']);
+
                             ?>
 
                             <input type="hidden" class="code{!! $key !!}" value="{{$c['code']}}">
                             <input type="hidden" value="{{$c['id']}}" id="course_id{!! $key !!}"/>
+
                             <div class="card col-md-3 m-2 ">
                             <!-- <div class="card-header">
                                     <h4 class="card-title text-center">{{ $c['name']}} </h4>
@@ -225,6 +229,7 @@
                                                 <div class="col-md-12 mt-2">
 
                                                     @if(!empty($c['active_batch']))
+
                                                         @foreach($c['active_batch'] as $b)
                                                             <h6>  {{$b['name']}} </h6>
                                                             <hr>
@@ -349,22 +354,17 @@
                                                                 <!-- </div> -->
                                                                 @break
                                                                 @endforeach
-                                                    @else
-                                                        @if($course[0]['course_type']['course_name'] == 'CPA (Qualified Test)')
-                                                            <div class="col-md-12">
-                                                                <a class="btn btn-success btn-lg d-flex justify-content-center mb-4 text-dark h6" href="{{ route('qt_register') }}">
-                                                                Register Now</a>
+                                                                @else
+
+                                                                    <div class="col-md-12">
+                                                                        <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">
+                                                                            Coming Soon...</p>
+                                                                    </div>
+                                                                @endif
                                                             </div>
-                                                        @else
-                                                            <div class="col-md-12">
-                                                                <p class="btn btn-info btn-lg d-flex justify-content-center mb-4 text-dark h6">
-                                                                    Coming Soon...</p>
-                                                            </div>
-                                                        @endif
-                                                    @endif
-                                                    </div>
                                                 </div>
                                             </div>
+
                                             <!-- </div>
                                             <div class="col-md-6 pr-2 widget-information"> -->
                                         </div>

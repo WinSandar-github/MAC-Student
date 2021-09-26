@@ -26,16 +26,17 @@ var toastOptions = {
     "hideMethod": "fadeOut"
 }
 
-
-
 function successMessage(message) {
     toastr.options = toastOptions;
     toastr.success(message);
 }
 
+function errorMessage(message) {
+    toastr.options = toastOptions;
+    toastr.error(message);
+}
+
 $('document').ready(function(){
-
-
     //getCourseType for Nav bar
     $.ajax({
         url:BACKEND_URL+'/get_course_type',
@@ -44,14 +45,11 @@ $('document').ready(function(){
         success:function(response){
             $.each(response.data,function(i,v){
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
-
                 $('.course_type').append(course);
-
-            })
+            });
         }
-    })
-
-})
+    });
+});
 
 function formatDate(date){
     var income_date=date.split('-');
@@ -60,13 +58,11 @@ function formatDate(date){
 }
 
 function ConfirmSubmit(){
-
     var radio = document.getElementById("submit_confirm");
     if (radio.checked == true){
         document.getElementById("submit_btn").disabled= false;
-    }
-    else{
-    document.getElementById("submit_btn").disabled = true;
+    } else{
+        document.getElementById("submit_btn").disabled = true;
     }
 }
 
@@ -82,6 +78,7 @@ function addRowEducation(tbody){
     $("table."+tbody).append(newRow);
     counter++;
 }
+
 function delRowEducation(tbody){
     $("table."+tbody).on("click", ".delete", function (event) {
         $(this).closest("tr").remove();
@@ -90,7 +87,6 @@ function delRowEducation(tbody){
 }
 
 function addRowSubject(tbody){
-
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
@@ -106,8 +102,8 @@ function addRowSubject(tbody){
         $(".certificate").hide();
     }
 }
-function addRowDipSubject(tbody){
 
+function addRowDipSubject(tbody){
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
