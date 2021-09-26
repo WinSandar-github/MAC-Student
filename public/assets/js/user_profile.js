@@ -201,7 +201,7 @@ function user_profile() {
                     if (cpaff.status == 0) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>-</td>
                             <td><span class="badge bg-info text-dark">Checking</span></td>
@@ -211,7 +211,7 @@ function user_profile() {
                     } else if (cpaff.status == 1) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span></td>
@@ -234,7 +234,7 @@ function user_profile() {
                     } else {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>

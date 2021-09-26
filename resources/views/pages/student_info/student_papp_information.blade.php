@@ -461,7 +461,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('CPA(FF) Registeraion No.') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="reg_no" id="reg_no">
+                                        <input type="text"  class="form-control" name="reg_no" id="reg_no" required="">
                                     </div>
                                 </div>
                             </div>
@@ -564,7 +564,7 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_date" class="form-control">ခုနှစ်အတွက်ရက်စွဲပါမှတ်ပုံတင်အမှတ် <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။</label>
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" class="form-control">ခုနှစ်အတွက်ရက်စွဲပါမှတ်ပုံတင်အမှတ် <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။</label>
                                         </div>
 
 
@@ -659,7 +659,7 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
+                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
                                         </div>
 
 
@@ -746,7 +746,7 @@
                                             <label >PAPP မှတ်ပုံတင်ကတ်ပြား၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file" class="form-control"  id="cpa_ff_file"  name="cpa_ff_file">
+                                        <input type="file" class="form-control"  id="cpa_ff_file"  name="cpa_ff_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_cpa_ff_file">
 										<input type="hidden" id="hidden_cpa_ff_file">
@@ -760,7 +760,7 @@
                                             <label style="font-size:15px;"> မှတ်ပုံတင်မည့် ပြက္ခဒိန်နှစ်မတိုင်မီနှစ်တွင် မြန်မာနိုင်ငံ၌ ၁၈၃ ရက်ထက်မနည်း နေထိုင်သူဖြစ်ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file" class="form-control" id="file_183" name="file_183">
+                                        <input type="file" class="form-control" id="file_183" name="file_183" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_file_183">
 										<input type="hidden" id="hidden_file_183">
@@ -774,7 +774,7 @@
                                             <label style="font-size:15px;"> အခြားလုပ်ငန်းအဖွဲ့အစည်းတစ်ရပ်ရပ်တွင် အချိန်ပြည့် တာဝန်ထမ်းတောင်နေသူ မဟုတ်ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file" class="form-control" id="not_fulltime_file"  name="not_fulltime_file">
+                                        <input type="file" class="form-control" id="not_fulltime_file"  name="not_fulltime_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_not_fulltime_file">
 									<input type="hidden" id="hidden_not_fulltime_file">
@@ -788,7 +788,7 @@
                                             <label style="font-size:15px;"> လျှောက်ထားသည့်နှစ်အတွက် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကို မိမိ၏ အဓိကအသက်မွေးဝမ်းကျောင်းလုပ်ငန်းအဖြစ် မြန်မာနိုင်ငံအတွင်းတွင် လုပ်ကိုင်မည်ဖြစ်​ကြောင်း ခံဝန်ချက်၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file"  class="form-control" id="work_in_mm_file"  name="work_in_mm_file">
+                                        <input type="file"  class="form-control" id="work_in_mm_file"  name="work_in_mm_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_work_in_mm_file">
 									<input type="hidden" id="hidden_work_in_mm_file">
@@ -802,7 +802,7 @@
                                             <label style="font-size:15px;"> လုပ်ငန်းဆောင်ရွက်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီ၏ ၉-၈-၂၀၁၈ ရက်စွဲပါအမိန့်ကြော်ငြာစာအမှတ် ၂၇/၂၀၁၈ ၏ နောက်ဆက်တွဲတွင် ဖော်ပြထားသည့်စည်းကမ်းချက်များနှင့် စပ်လျဥ်း၍ လိုက်နာခြင်း ရှိ/မရှိ၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file" class="form-control" id="rule_conf_file" name="rule_conf_file" >
+                                        <input type="file" class="form-control" id="rule_conf_file" name="rule_conf_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_rule_conf_file">
 										<input type="hidden" id="hidden_rule_conf_file">
@@ -816,7 +816,7 @@
                                             <label style="font-size:15px;">စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file">
+                                        <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_cpd_record_file">
 										<input type="hidden" id="hidden_cpd_record_file">
@@ -864,7 +864,7 @@
                                 <div class="row">
                                     <label class="col-md-8" ></label>
                                     <div class="col-md-4">
-                                        <input type="file" class="form-control" id="tax_free_file"  name="tax_free_file">
+                                        <input type="file" class="form-control" id="tax_free_file"  name="tax_free_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_tax_free_file">
                                     <input type="hidden" id="hidden_tax_free_file">
