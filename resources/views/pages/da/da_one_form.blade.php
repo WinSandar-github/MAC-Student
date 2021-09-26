@@ -192,7 +192,6 @@
                                                             </option>
                                                         @endforeach
                                                     </select>
-                                                    </select>
                                                 </div>
                                                 <div class="col-md-2 col-5 px-1">
                                                     <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen">
