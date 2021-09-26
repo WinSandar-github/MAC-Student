@@ -398,7 +398,7 @@ function createDaTwoMac()
             EasyLoading.hide();
             successMessage(result);
             // location.reload();
-            //location.href = FRONTEND_URL + "/";
+            location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
             EasyLoading.hide();
