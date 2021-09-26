@@ -1333,6 +1333,7 @@
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
+                          console.log('info',info);
                         $(".da_to_cpa").find("input[name=name_mm]").val(info.name_mm);
                         $(".da_to_cpa").find("input[name=name_eng]").val(info.name_eng);
                         $(".da_to_cpa").find("input[name=nrc_state_region]").val(info.nrc_state_region);
@@ -1349,6 +1350,7 @@
                         $(".da_to_cpa").find("input[name=current_address]").val(info.current_address);
 
                         $(".da_to_cpa").find("input[name=da_pass_date]").val(formatDate(exam_register[0].updated_at));
+                        $(".da_to_cpa").find("input[name=da_pass_roll_number]").val(info.personal_no);
                         $(".da_to_cpa").find("input[name=current_address]").val(info.current_address);
 
                         document.getElementById('da_to_cpa_preview_img').src = BASE_URL + data.data.image;

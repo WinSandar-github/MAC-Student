@@ -559,7 +559,7 @@
                                                     <input type="radio" id="self" class="form-check-input" value="0" name="attend_place" onclick="selectType()"  style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="self">ကိုယ်ပိုင်လေ့လာသင်ယူမယ်သူများ</label>
+                                                        <label class="form-check-label" for="self">ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ</label>
                                                         <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                     </div>
                                                 </div>
@@ -778,7 +778,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Application Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">Certified Public Accountant Part One Entry Exam Registeration Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>

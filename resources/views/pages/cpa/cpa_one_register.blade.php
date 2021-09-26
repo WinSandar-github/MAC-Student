@@ -1306,22 +1306,10 @@
                                                 </div>
                                             </div>--}}
 
-                                            <div class="row mb-3" id="direct_access_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" id="entry_success_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
-                                                </div>
-                                            </div>
+                                            
                                             
                                             <div class="row mb-3">
-                                                <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၇။') }}</span>စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရန်အဆိုပြုချက် - </label>
+                                                <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၆။') }}</span>စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရန်အဆိုပြုချက် - </label>
                                                 
                                             </div>
 
@@ -1424,7 +1412,7 @@
                                             </div>--}}
 
                                             <div class="row mb-3">
-                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၈။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၇။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
@@ -1444,6 +1432,20 @@
                                                     <div class="form-check-radio px-0">
                                                         <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
                                                     </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" id="direct_access_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" id="entry_success_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
 
@@ -1660,9 +1662,12 @@
 
                 var info = data.data;
                 console.log('info',info);
-                if(info.acca_cima){
-                    
-                }
+                // if(!info.exam_registers[0]){
+                //     console.log("Hello")
+                // }else{
+                //     console.log("Not")
+                // }
+                
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
@@ -1777,7 +1782,7 @@
                     $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                   }
 
-                if(info.acca_cima==1 || info.acca_cima==2){
+                if(info.acca_cima && !info.da_pass_roll_number){
                     // document.getElementById(direct_access_no_self_div).style.display='block';
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
@@ -1787,11 +1792,11 @@
                     $("#entry_success_no_mac_div").hide();
                 }else{
                     $("#direct_access_no_self_div").hide();
-                    $("#entry_success_no_self_div").show();
+                    $("#entry_success_no_self_div").hide();
                     $("#direct_access_no_private_div").hide();
-                    $("#entry_success_no_private_div").show();
+                    $("#entry_success_no_private_div").hide();
                     $("#direct_access_no_mac_div").hide();
-                    $("#entry_success_no_mac_div").show();
+                    $("#entry_success_no_mac_div").hide();
                 }
 
                 // if(education_history){

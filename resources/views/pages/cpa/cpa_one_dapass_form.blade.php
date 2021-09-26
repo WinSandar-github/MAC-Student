@@ -827,8 +827,11 @@
         localStorage.removeItem('batch_id');
         direct_or_da();
 
-        $("#yes")
-
+        $("input[name='da_pass_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
+        });
         $("input[name='degree_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
@@ -836,12 +839,12 @@
         });
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "d-M-Y",
                 allowInput: true,
         });
         $(".month").flatpickr({
                 enableTime: false,
-                 dateFormat: "m",
+                 dateFormat: "M",
 
         });
         // $("input[name='year']").flatpickr({
