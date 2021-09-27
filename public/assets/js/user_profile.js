@@ -76,6 +76,7 @@ function user_profile() {
                     $('.status_history').append('Teacher Registration is checking.');
                 } else if (teacher.approve_reject_status == 1) {
                     $('.status_history').append('Teacher Registration is Approved.');
+                    $('.payment-btn').show();
                 } else {
                     $('.status_history').append('Teacher Registration is Rejected.');
                 }
@@ -85,6 +86,8 @@ function user_profile() {
                     var period_date = teacher.renew_date.split('-');
                     var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
                     $('#period_time').text(period + " to 31-12-" + now.getFullYear());
+                    $('.renew-btn').show();
+                    $('.payment-btn').hide();
                 }
 
 

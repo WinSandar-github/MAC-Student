@@ -166,7 +166,7 @@
                                 <div class="col-md-8">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region"
+                                            <select class="form-control form-select" name="nrc_state_region" id="nrc_state_region"
                                                     required="">
                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                 @foreach($nrc_regions as $region)
@@ -177,7 +177,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <select class="form-control" name="nrc_township" id="nrc_township"
+                                            <select class="form-control form-select" name="nrc_township" id="nrc_township"
                                                     required="">
                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                 @foreach($nrc_townships as $township)
@@ -188,7 +188,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen"
+                                            <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen"
                                                     required="">
                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                 @foreach($nrc_citizens as $citizen)
@@ -312,7 +312,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="tbl_degree_body">
-
+                                                <tr>
+                                                    <td class="text-center"><input type="number" class="form-control" value="1" style="border:none"/></td>
+                                                    <td><input type="text" name="degrees[]" class="form-control"  autocomplete="off" required></td>
+                                                    <td><input type="file" name="degrees_certificates[]" class="form-control"  required></td>
+                                                    <td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick='delRowEducation("tbl_degree_body")'><li class="fa fa-times"></li></button></td>
+                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -335,40 +340,49 @@
                                     {{ __('လုပ်ငန်းဖွဲ့စည်းမှုပုံစံကျောင်းကို အောက်ဖော်ပြပါလုပ်ငန်းဖွဲ့စည်းမှုပုံစံဖြင့်ဆောင်ရွက်ပါမည်(ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ရန်)') }}
                                 </label>
 
-                                <div class="col-sm-8 checkbox-radios">
-                                    <div class="form-check px-0">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="school_type[]" id="school_type"
-                                                   value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' onclick="origanzationCheck()">
-                                            <span class="form-check-sign"></span>
-                                            တစ်ဦးတည်းပိုင်လုပ်ငန်း
-                                        </label>
-                                    </div>
-                                    <div class="form-check px-0">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="school_type[]" id="school_type"
-                                                   value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' onclick="origanzationCheck()">
-                                            <span class="form-check-sign"></span>
-                                            နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
-                                        </label>
-                                    </div>
-                                    <div class="form-check px-0">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="school_type[]" id="school_type"
-                                                   value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်' onclick="origanzationCheck()">
-                                            <span class="form-check-sign"></span>
-                                            တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
-                                        </label>
-                                    </div>
-                                    <div class="form-check px-0">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="school_type[]" id="school_type"
-                                                   value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' onclick="origanzationCheck()">
-                                            <span class="form-check-sign"></span>
-                                            တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
-                                        </label>
+
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="school_type" 
+                                                        value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' onclick="origanzationCheck(this)"> တစ်ဦးတည်းပိုင်လုပ်ငန်း
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="school_type" 
+                                                        value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' onclick="origanzationCheck(this)"> နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="school_type" 
+                                                        value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်' onclick="origanzationCheck(this)"> တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="school_type" 
+                                                        value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            
+                                
                             </div>
                             <!-- လုပ်ငန်းဖွဲ့စည်းမှုပုံစံ -->
                         {{-- လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း --}}
@@ -696,7 +710,7 @@
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)') }}</label>
                                 <div class="tbl-responsive">
                                     <table class="table tbl_sch_established_persons table-bordered input-table">
-                                        <thead>
+                                        <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
                                             <th class="less-font-weight text-center">အမည်</th>
@@ -731,7 +745,7 @@
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ') }}</label>
                                 <div class="tbl-responsive">
                                     <table class="table tbl_sch_governs table-bordered input-table">
-                                        <thead>
+                                        <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
                                             <th class="less-font-weight text-center">အမည်</th>
@@ -775,7 +789,7 @@
                                     <label class="col-form-label fw-bolder">{{ __('အဖွဲ့အစည်း၏အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                     <div class="tbl-responsive">
                                         <table class="table tbl_member_list_biography table-bordered input-table">
-                                            <thead>
+                                            <thead class="text-nowrap">
                                             <tr>
                                                 <th class="less-font-weight text-center">စဉ်</th>
                                                 <th class="less-font-weight text-center">အမည်</th>
@@ -815,9 +829,9 @@
                             <input type="hidden" id="student_info_id" >
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
-                                <div class="tbl-responsive">
+                                <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
                                     <table class="table tbl_teacher_list_biography table-bordered input-table">
-                                        <thead>
+                                        <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
                                             <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
@@ -864,7 +878,7 @@
                             <div class="row mb-1">
                                 
                                         <table class="table tbl_bulding_type table-bordered input-table">
-                                            <thead>
+                                            <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
                                                     <th class="less-font-weight text-center" >အဆောက်အဦအမျိုးအစား</th>
@@ -893,7 +907,7 @@
                             <div class="row mb-1">
                                 
                                         <table class="table tbl_classroom table-bordered input-table">
-                                            <thead>
+                                            <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
                                                     <th class="less-font-weight text-center"  >အခန်းအရေအတွက်</th>
@@ -923,7 +937,7 @@
                             <div class="row mb-1">
                                
                                         <table class="table tbl_toilet_type table-bordered input-table">
-                                            <thead>
+                                            <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center"  >စဉ်</th>
                                                     <th class="less-font-weight text-center"  >အမျိုးအစား</th>
@@ -950,7 +964,7 @@
                             <div class="row mb-1">
                             
                                     <table class="table tbl_manage_room_numbers table-bordered input-table">
-                                            <thead>
+                                            <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
                                                     <th class="less-font-weight text-center"  >အခန်းအရေအတွက်</th>
@@ -1096,10 +1110,10 @@
                     event.preventDefault();
                     
                 }
-                if(!tbl_branch_school){
-                    $(".branch_school").show();
-                    event.preventDefault();
-                }
+                // if(!tbl_branch_school){
+                //     $(".branch_school").show();
+                //     event.preventDefault();
+                // }
                 if (!tbl_bulding_type) {
                     $(".tbl_bulding_type_error").show();
                     event.preventDefault();

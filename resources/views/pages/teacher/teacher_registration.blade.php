@@ -8,6 +8,7 @@
 
 @extends('layouts.app')
 @section('content')
+
 <style>
     .form-group{
         margin-bottom: 1rem;
@@ -77,7 +78,7 @@
 
                     <div id="teacher_form" class="card border-success mb-3">
                         <div class="card-body p-4">
-                            <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:void();"  autocomplete="off" ><!--class="needs-validation"-->
+                            <form id="teacher_register_form" enctype="multipart/form-data" action="javascript:void();"  class="needs-validation" autocomplete="off" novalidate><!--class="needs-validation"-->
                                 <div class="row mb-3">
                                     <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                     <h5 class="card-title text-center fw-bolder">သင်တန်းဆရာမှတ်ပုံတင်လျှောက်လွှာ</h5>
@@ -158,7 +159,7 @@
                                     <div class="col-md-8">
                                         <div class="row" >
                                             <div class="col-md-2 col-5 pr-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region" >
+                                                <select class="form-control form-select" name="nrc_state_region" id="nrc_state_region" >
                                                     <option value="" disabled selected>ရွေးပါ</option>
                                                     @foreach($nrc_regions as $region)
                                                         <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
@@ -168,7 +169,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-3 col-7 px-1">
-                                                <select class="form-control" name="nrc_township" id="nrc_township" >
+                                                <select class="form-control form-select" name="nrc_township" id="nrc_township" >
                                                     <option value="" disabled selected>ရွေးပါ</option>
                                                     @foreach($nrc_townships as $township)
                                                         <option value="{{ $township['township_mm'] }}">
@@ -179,7 +180,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-2 col-5 px-1">
-                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen" >
+                                                <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen" >
                                                     <option value="" disabled selected>ရွေးပါ</option>
                                                     @foreach($nrc_citizens as $citizen)
                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
@@ -271,7 +272,7 @@
                                     <label for="" class="col-md-3 col-form-label label">မွေးသက္ကရာဇ်</label>
                                     <div class="col-md-8">
                                         <input type="text" name="date_of_birth" class="form-control" autocomplete="off"
-                                                   placeholder="DD-MMM-YYYY" >
+                                                   placeholder="dd-mm-yyyy" >
                                     </div>
                                 </div>
 
@@ -315,7 +316,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="tbl_degree_body">
-
+                                                <tr>
+                                                    <td class="text-center"><input type="number" class="form-control" value="1" style="border:none"/></td>
+                                                    <td><input type="text" name="degrees[]" class="form-control"  autocomplete="off" required></td>
+                                                    <td><input type="file" name="degrees_certificates[]" class="form-control"  required></td>
+                                                    <td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick='delRowEducation("tbl_degree_body")'><li class="fa fa-times"></li></button></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         
@@ -411,7 +417,7 @@
                                     <label class="col-md-3 col-form-label label"></label>
                                     <div class="col-md-8">
                                         <div class="private_type">
-                                            <select class="form-control" name="selected_school_id" id="selected_school_id"  >
+                                            <select class="form-control form-select" name="selected_school_id" id="selected_school_id"  >
                                                     <option value="" disabled selected>ရွေးပါ</option>
                                                     
                                             </select>
@@ -432,27 +438,30 @@
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label" ></label>
                                     <label class="col-md-3 col-form-label label" >{{ __('လက်မှတ်ရ ပြည်သူ့စာရင်းကိုင်သင်တန်း') }}</label>
-                                    
                                     <div class="col-md-8">
-                                        <select class="form-control select2" name="certificates[]" id="selected_cpa_subject"  multiple="multiple"  style="width: 100%;" >
+                                        <select class="select2 form-control" name="certificates[]" id="selected_cpa_subject"  multiple="multiple"  style="width: 100%;"  required >
                                                
                                         </select>
-                                       
+                                        
                                     </div>
+                                    
+                                    
+                        
                                 </div>
-
+                                
                                 <div class="row mb-3" >
                                     <label class="col-md-1 col-form-label "></label>
                                     <label class="col-md-3 col-form-label label" >{{ __('ဒီပလိုမာစာရင်းကိုင်သင်တန်း') }}</label>
-                                   
                                     <div class="col-md-8">
-                                        <select class="form-control select2" name="diplomas[]" id="selected_da_subject"  multiple="multiple"  style="width: 100%;" >
+                                        <select class="form-control select2" name="diplomas[]" id="selected_da_subject"  multiple="multiple"  style="width: 100%;" required>
                                                
                                         </select>
                                        
                                     </div>
+                                    
                                 </div>
-
+                                
+                                
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
                                     <label class="col-md-3 col-form-label label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
@@ -541,8 +550,10 @@
 <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
 <script src="{{asset('assets/js/teacher_register.js')}}"></script>
 <script src="{{ asset('js/form_validation/teacher_validation.js') }}"></script>
+
 <script type="text/javascript">
     $(document).ready(function (e) {
+        
         $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -618,6 +629,10 @@
         }
         loadSubject(2,"selected_cpa_subject");
         loadSubject(1,"selected_da_subject");
+        
+        loadSchoolList();
+        
+         
     });
 
 </script>
