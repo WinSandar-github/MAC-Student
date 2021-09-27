@@ -26,16 +26,17 @@ var toastOptions = {
     "hideMethod": "fadeOut"
 }
 
-
-
 function successMessage(message) {
     toastr.options = toastOptions;
     toastr.success(message);
 }
 
-$('document').ready(function () {
+function errorMessage(message) {
+    toastr.options = toastOptions;
+    toastr.error(message);
+}
 
-
+$('document').ready(function(){
     //getCourseType for Nav bar
     $.ajax({
         url: BACKEND_URL + '/get_course_type',
@@ -45,14 +46,11 @@ $('document').ready(function () {
             console.log(response)
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
-
                 $('.course_type').append(course);
-
-            })
+            });
         }
-    })
-
-})
+    });
+});
 
 function formatDate(date) {
     var income_date = date.split('-');
@@ -60,6 +58,13 @@ function formatDate(date) {
     return date;
 }
 
+<<<<<<< HEAD
+function ConfirmSubmit(){
+    var radio = document.getElementById("submit_confirm");
+    if (radio.checked == true){
+        document.getElementById("submit_btn").disabled= false;
+    } else{
+=======
 function ConfirmSubmit() {
 
     var radio = document.getElementById("submit_confirm");
@@ -67,6 +72,7 @@ function ConfirmSubmit() {
         document.getElementById("submit_btn").disabled = false;
     }
     else {
+>>>>>>> ee4e57df2cd2f7620cec44b2e078b78017ac86b0
         document.getElementById("submit_btn").disabled = true;
     }
 }
@@ -83,15 +89,25 @@ function addRowEducation(tbody) {
     $("table." + tbody).append(newRow);
     counter++;
 }
+<<<<<<< HEAD
+
+function delRowEducation(tbody){
+    $("table."+tbody).on("click", ".delete", function (event) {
+=======
 function delRowEducation(tbody) {
     $("table." + tbody).on("click", ".delete", function (event) {
+>>>>>>> ee4e57df2cd2f7620cec44b2e078b78017ac86b0
         $(this).closest("tr").remove();
         counter -= 1
     });
 }
 
+<<<<<<< HEAD
+function addRowSubject(tbody){
+=======
 function addRowSubject(tbody) {
 
+>>>>>>> ee4e57df2cd2f7620cec44b2e078b78017ac86b0
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
@@ -107,8 +123,12 @@ function addRowSubject(tbody) {
         $(".certificate").hide();
     }
 }
+<<<<<<< HEAD
+=======
 function addRowDipSubject(tbody) {
+>>>>>>> ee4e57df2cd2f7620cec44b2e078b78017ac86b0
 
+function addRowDipSubject(tbody){
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;

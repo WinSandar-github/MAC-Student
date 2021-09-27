@@ -289,7 +289,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div><br />
+                                                </div>
 
                                                 <div class="row mb-3">
                                                     <div class="col-md-4 col-form-label" id="">{{ __('စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်') }}
@@ -297,20 +297,23 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label">
+                                                <label class="col-md-1 col-form-label label">
                                                     <span class="pull-left" id="da2_label2">{{ __('') }}</span>
-                                                    <span class="pull-left" style="padding-left: 30px;">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ
+                                                </label>
+                                                <label class="col-md-3 col-form-label label">
+                                                    <span class="pull-left">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ
                                                 </label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="လ၊နှစ်(MMM-YYYY)" name="date" id="date" class="form-control" value="">
                                                 </div>
-                                            </div><br />
+                                            </div>
 
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label" style="margin-left:56px;">
-                                                  <span style="margin-right:27px;">(ခ)</span>  အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(√ )အမှတ်အသားပြုရန်
+                                                <label class="col-md-1 col-form-label label"></label>
+                                                <label class="col-md-3 col-form-label label">
+                                                  <span  class="pull-left">(ခ)</span>  အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(√ )အမှတ်အသားပြုရန်
                                                 </label>
-                                                <div class="col-md-6 offset-md-1">
+                                                <div class="col-md-6 offset-md-0" >
                                                   <div class="row mt-2">
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
@@ -327,7 +330,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                   
                                                 </div>
                                                 
-                                            </div><br />
+                                            </div>
 
                                             {{--<div class="row">
                                                 <label class="col-md-4 col-form-label label">
