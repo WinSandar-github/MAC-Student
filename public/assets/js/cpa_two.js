@@ -30,6 +30,29 @@ function ConfirmSubmit(){
     }
 }
 
+function get_cpa_course(){
+    let student = JSON.parse(localStorage.getItem("studentinfo"));
+    console.log('student',student);
+    if(student){
+        // console.log('student',student);
+        let batch_id = url.substring(url.lastIndexOf('/')+1);
+        $.ajax({
+            type: "get",
+            url: BACKEND_URL+"/batch/"+batch_id,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                console.log('res',res)
+                // $('.batch_id').append(res.data.id);
+                $('.batch_no').val(res.data.name);
+                $('.course_name').val(res.data.course.name);
+            }
+        })        
+        
+    }
+
+}
+
 function CPA2_Private_School_Submit(){
     localStorage.setItem("isPrivateSchool",true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));

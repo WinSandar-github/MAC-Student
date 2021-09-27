@@ -56,7 +56,7 @@ function AddCPAEdu(){
             '</div>'+
             '<div class="col-md-1 text-left mt-1"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-sm btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
-                    '<i class="fa fa-trash "></i>'+
+                    '<i class="fa fa-trash " style="padding-right: 5px;"></i>'+
                 '</button>'+
             '</div>'+
         '</div>');

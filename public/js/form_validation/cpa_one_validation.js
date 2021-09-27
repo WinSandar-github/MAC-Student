@@ -135,4 +135,24 @@ $().ready(function (){
 
         
     });
+
+    $("#da2_pass_cpa_one_form").validate({
+        rules:{            
+            dtype : "required",
+            mac_dtype : {
+                required : "#mac:checked"
+            },            
+        },
+        messages:{            
+            dtype : "Please select one",
+            mac_dtype : {
+                required : "Please select one"
+            },
+        },
+        submitHandler: function(form) {
+            $('#paymentModal').modal('show');
+        }
+
+        
+    });
 });

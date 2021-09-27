@@ -476,8 +476,8 @@
                                                     <input type="file"  class="form-control" id="certificate0"  name="certificate[]" required="">
                                                 </div>
                                                 <div class="col-md-1 mt-1 text-left" id="add_div" >
-                                                    <button type="button" class="btn btn-sm btn-primary" id="add_btn" onclick="AddCPAEdu()" >
-                                                        <i class="fa fa-plus"></i>
+                                                    <button type="button" class="btn btn-sm btn-success" id="add_btn" onclick="AddCPAEdu()" >
+                                                        <i class="fa fa-plus" style="padding-right: 5px;"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -511,9 +511,9 @@
                                                     </label>
                                                 </div>
                                             </div> --}}
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 mt-2">
                                                 
-                                                <div class="row mt-1">
+                                                <div class="row mb-3">
                                                     <div class="col-md-1">
                                                         <input type="radio" id="mac" class="form-check-input" value="2" name="attend_place" onclick="selectType()"   style="margin-left: 3%;">
                                                     </div>
@@ -522,8 +522,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="  col-md-11 my-1" id="blk_mac" style="display:none">
-                                                    <div class="mx-5 row  ">
+                                                <div class="  col-md-12 mx-5" id="blk_mac" style="display:none">
+                                                    <div class="mx-5 row mb-3 ">
                                                         
                                                         <div class="col-md-6 form-check   ">
                                                             <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
@@ -546,7 +546,7 @@
                                             
                                                 </div>
                                          
-                                                <div class="row">
+                                                <div class="row mb-3">
                                                     <div class="col-md-1">
                                                     <input type="radio" id="private" class="form-check-input" value="1" name="attend_place" onclick="selectType()"  style="margin-left: 3%;">
                                                     </div>

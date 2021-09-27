@@ -105,7 +105,7 @@
                                                                         <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" style="padding: 6px;" readonly>
                                                                     </div>
 
                                                                     <div class="col-md-4">
@@ -508,7 +508,7 @@
                                                             <input class="form-check-input" type="checkbox" onchange="$('#cpa_exam_submit').prop('disabled', !this.checked)">
                                                             <span class="form-check-sign"></span>
                                                             <p class="fw-bolder">
-                                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ကြောင်းဝန်ခံပါသည်။၊<br>
+                                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ကြောင်းဝန်ခံပါသည်။<br>
                                                                 
                                                             </p>
                                                         </label>

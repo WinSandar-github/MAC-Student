@@ -495,7 +495,7 @@
                                             <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_pp').prop('disabled', !this.checked)">
                                             <span class="form-check-sign"></span>
                                             <p class="fw-bolder">
-                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                 * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                             </p>
                                         </label>
@@ -1040,7 +1040,7 @@
                                                     <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_ss').prop('disabled', !this.checked)">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                         * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                     </p>
                                                 </label>
@@ -1455,7 +1455,7 @@
                                                         <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
                                                         <span class="form-check-sign"></span>
                                                         <p class="fw-bolder">
-                                                            * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                            * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                             * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                         </p>
                                                     </label>
