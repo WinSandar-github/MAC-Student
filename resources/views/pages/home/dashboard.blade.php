@@ -525,7 +525,6 @@
                         </div>
 
                         <!-- cpaff other dashboard -->
-                                        {{--
                         <div class="cpaff_other">
                             <div class="row">
                                 
@@ -591,7 +590,6 @@
 
                             
                         </div>
-                        --}}    
                         <!-- end cpaff other dashboard -->
 
                         
