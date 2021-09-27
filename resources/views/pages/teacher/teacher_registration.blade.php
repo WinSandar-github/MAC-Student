@@ -8,23 +8,7 @@
 
 @extends('layouts.app')
 @section('content')
-<link rel="stylesheet" href="assets/bootstrap-multiselect-master/docs/css/bootstrap-4.5.2.min.css" type="text/css">
-        <link rel="stylesheet" href="assets/bootstrap-multiselect-master/docs/css/bootstrap-example.min.css" type="text/css">
-        <link rel="stylesheet" href="assets/bootstrap-multiselect-master/docs/css/prettify.min.css" type="text/css">
-        <link rel="stylesheet" href="assets/bootstrap-multiselect-master/docs/css/fontawesome-5.15.1-web/all.css" type="text/css">
 
-        <script type="text/javascript" src="assets/bootstrap-multiselect-master/docs/js/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-multiselect-master/docs/js/bootstrap.bundle-4.5.2.min.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-multiselect-master/docs/js/prettify.min.js"></script>
-
-        <link rel="stylesheet" href="assets/bootstrap-multiselect-master/dist/css/bootstrap-multiselect.css" type="text/css">
-        <script type="text/javascript" src="assets/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js"></script>
-  
-  <script>
-        $(document).ready(function () {
-            $('#multiple-checkboxes').multiselect(); 
-        });
-</script>
 <style>
     .form-group{
         margin-bottom: 1rem;
