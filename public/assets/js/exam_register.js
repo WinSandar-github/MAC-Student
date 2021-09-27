@@ -142,6 +142,10 @@ $('#cpa_exam_register').submit(function(e){
     form_data.append('private_school_id', school_id);
     form_data.append('private_school_name', school_name);
     // send_data.append('invoice_image', $("input[name=invoice_image]").val());
+    form_data.append('exam_department',$('#exam_department').val());
+    // $('input[name="last_ans_module[]"]:checked').map(function (key, val) {
+    //     form_data.append('last_ans_module[]', val.value);
+    // });
     $(':radio:checked').map(function(){form_data.append('is_full_module',$(this).val())});
     show_loader();
     $.ajax({
@@ -151,6 +155,7 @@ $('#cpa_exam_register').submit(function(e){
         contentType: false,
         processData: false,
         success: function(result){
+            console.log('result',result);
              EasyLoading.hide();
              localStorage.setItem('approve_reject', 1);
              location.href = FRONTEND_URL + "/";

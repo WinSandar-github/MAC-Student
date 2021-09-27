@@ -272,7 +272,7 @@
                                                 <div id="rec_letter" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                            <span class="pull-left" style="padding-left: 113px;">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -439,18 +439,18 @@
                                                         <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 113px;">{{ __('(ဂ)') }}</span>အဆိုပါစာမေးပွဲအောင်မြင်ခဲ့သည့် Moduleရှိပါက ဆိုင်ရာအကွက်တွင်အမှတ်အသားပြုရန် - </label>
                                                     </div>
 
-                                                    <div class="row mb-3" style="padding-left: 340px;">                                                    
+                                                    <div class="row mb-3" style="padding-left: 382px;">                                                    
                                                         <div class="row col-md-8">
                                                             <div class="col-md-4 form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox" name="last_ans_module"  value="1">
+                                                                    <input class="form-check-input" type="checkbox"  name="last_ans_module[]"  value="Module 1">
                                                                     <span class="form-check-sign"></span>
                                                                     Module 1
                                                                 </label>
                                                             </div>
                                                             <div class="col-md-4 form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox" name="last_ans_module"  value="2">
+                                                                    <input class="form-check-input" type="checkbox"  name="last_ans_module[]"  value="Module 2">
                                                                     <span class="form-check-sign"></span>
                                                                     Module 2
                                                                 </label>

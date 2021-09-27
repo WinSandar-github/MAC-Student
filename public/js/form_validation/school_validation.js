@@ -38,14 +38,15 @@ $().ready(function (){
             "sch_establish_notes_attach[]":"required",
             "branch_school_address[]":"required",
             "branch_school_attach[]":"required",
-            branch_sch_own_type:{
-                required : true,
-            },
+            // branch_sch_own_type:{
+            //     required : true,
+            // },
             "establisher_name[]":"required",
             "establisher_nrc[]":"required",
             "establisher_cpa_papp_no[]":"required",
             "establisher_education[]":"required",
             "establisher_address[]":"required",
+            "establisher_ph_number[]":"required",
             "establisher_email[]":"required",
             "govern_name[]":"required",
             "govern_nrc[]":"required",
@@ -53,6 +54,7 @@ $().ready(function (){
             "govern_education[]":"required",
             "govern_responsibility[]":"required",
             "govern_email[]":"required",
+            "govern_ph_number[]":"required",
             "teacher_registration_no[]":"required",
             "teacher_name[]":"required",
             "teacher_nrc[]":"required",
@@ -143,12 +145,14 @@ $().ready(function (){
             "establisher_education[]":"Please enter",
             "establisher_address[]":"Please enter",
             "establisher_email[]":"Please enter",
+            "establisher_ph_number[]":"Please enter",
             "govern_name[]":"Please enter",
             "govern_nrc[]":"Please enter",
             "govern_cpa_papp_no[]":"Please enter",
             "govern_education[]":"Please enter",
             "govern_responsibility[]":"Please enter",
             "govern_email[]":"Please enter",
+            "govern_ph_number[]":"Please enter",
             "teacher_registration_no[]":"Please enter",
             "teacher_name[]":"Please enter",
             "teacher_nrc[]":"Please enter",
@@ -181,9 +185,51 @@ $().ready(function (){
             "manage_room_attach[]":"Please choose file",
         },
         
+        submitHandler: function(form) {
+            $( "#school_submit" ).click(function(e) {
+    
+    
+                var send_data = new FormData();
+                  send_data.append('email',$("input[name='email']").val());
+                  send_data.append('nrc_state_region',$("#nrc_state_region").val());
+                  send_data.append('nrc_township',$("#nrc_township").val());
+                  send_data.append('nrc_citizen',$("#nrc_citizen").val());
+                  send_data.append('nrc_number',$("#nrc_number").val());
+                //if(isValid) {
+                  
+                    $.ajax({
+                      url: BACKEND_URL+"/checkEmail",
+                      type: 'post',
+                      data:send_data,
+                      contentType: false,
+                      processData: false,
+                      success: function(result){
+                          console.log(result)
+                          if(result==2){
+                              $('#student_info_id').val(0);
+                              $('#schoolModal').modal('show');
+                              send_email(); 
+                          }else{
+                            if(result==2){                    
+                              Swal.fire("Email has been used, please check again!");
+                            }else{
+                              $('#student_info_id').val(result[0].id);
+                              $('#schoolModal').modal('show');
+                              send_email();
+                            }
+                          }
+                        
+                      }
+                    });
+               // }  
+          
+                 
+              
+            });
+        }
         
         
     })){
-        loadSchoolSubmit();
+        //loadSchoolSubmit();
     }
-    });
+});

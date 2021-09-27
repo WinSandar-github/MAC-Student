@@ -295,25 +295,8 @@
 														</tr>
 													<thead>
 													<tbody>
-														<tr>
-															<td><input type="text" name="bo_branch_name[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_address[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_township[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_post_code[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_city[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_state_region[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_phone[]" class="form-control" autocomplete="off" ></td>
-															{{--<td>
-																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputTele("branch_non_audit")'>
-																	<i class="fa fa-plus"></i>
-																</button>
-															</td>--}}
-															<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off" ></td>
-															<td>
-																<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowBranch("branch_non_audit")'><i class="fa fa-trash"></i></button>
-															</td>
-														</tr>
+														
+
 													</tbody>
 												</table>
 											</div>

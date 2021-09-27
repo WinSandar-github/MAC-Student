@@ -87,6 +87,7 @@
                                     @csrf
                                     <div class="col-md-12">
                                         <div class="row">
+                                        <input type="hidden" id="entry_type" value="entry_form">
                                             <div class="col-md-8">
 
                                                 <div class="row mb-4">                                                    

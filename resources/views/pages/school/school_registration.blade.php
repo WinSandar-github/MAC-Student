@@ -71,7 +71,7 @@
             <div class="row mt-5">
                 <div id="school_form" class="card border-success mb-3">
                     <div class="card-body p-4">
-                     <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" autocomplete="off" name="school_register_form">
+                     <form id="school_register_form" enctype="multipart/form-data" action="javascript:void();" class="needs-validation" autocomplete="off" novalidate>
                                 <div class="row mb-3">
                                     <h5 class="card-title text-center fw-bolder">ကျောင်းဖွင့်လှစ်လုပ်ကိုင်ခွင့်လျှောက်လွှာ</h5>
                                 </div>
@@ -382,7 +382,7 @@
                                         <div class="entry1">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" >
+                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" required>
                                                                                             
                                                 </div>
                                                 <div class="col-md-1 col-auto">
@@ -444,7 +444,7 @@
                                 <label class="col-md-4 col-form-label label"><span
                                             class="pull-left">၂။</span>{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
                                 <div class="col-md-8">
-                                    <select class="multiple-attend-course form-select" name="attend_course[]" id="attend_course"
+                                    <select class="multiple-attend-course" name="attend_course[]" id="attend_course" required
                                                  multiple="multiple" 
                                                 style="width:100%">
                                     </select>
@@ -605,7 +605,7 @@
                                         <div class="entry2">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*" >
+                                                    <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*" required>
                                                                                             
                                                 </div>
                                                 <div class="col-md-1 col-auto">
@@ -668,7 +668,7 @@
                                         <div class="entry3">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*" >
+                                                    <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*" required>
                                                                                             
                                                 </div>
                                                 <div class="col-md-1 col-auto">
@@ -1046,7 +1046,7 @@
 @push('scripts')
     <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
     <script src="{{ asset('assets/js/school.js') }}"></script>
-    <script src="{{ asset('js/form_validation/school_validation.js') }}"></script>
+    <script src="{{ asset('js/form_validation/school_validation.js') }}"></script> 
     <script type="text/javascript">
 
         $(document).ready(function (e) {

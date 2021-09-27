@@ -389,7 +389,7 @@
                                         <div id="rec_letter_private" style="display:none" >
                                             <div class="row mb-3 "  >
                                                 <label class="col-md-4 col-form-label label">
-                                                    <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    <span class="pull-left" style="padding-left:85px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                 </label>
                                                 <div class="col-md-2 text-center"  id="degree_edu" >
                                                     <span class="recommend_letter"></span>
@@ -780,7 +780,7 @@
                                         <div id="rec_letter_self" style="display:none" >
                                             <div class="row mb-3 "  >
                                                 <label class="col-md-4 col-form-label label">
-                                                    <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    <span class="pull-left" style="padding-left:85px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                 </label>
                                                 <div class="col-md-2 text-center"  id="degree_edu" >
                                                     <span class="recommend_letter"></span>
@@ -1288,7 +1288,7 @@
                                             <div id="rec_letter_mac" style="display:none" >
                                                 <div class="row mb-3 "  >
                                                     <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                        <span class="pull-left" style="padding-left:85px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                     </label>
                                                     <div class="col-md-2 text-center"  id="degree_edu" >
                                                         <span class="recommend_letter"></span>
@@ -1782,7 +1782,7 @@
                     $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                   }
 
-                if(info.acca_cima && !info.da_pass_roll_number){
+                if(info.acca_cima){
                     // document.getElementById(direct_access_no_self_div).style.display='block';
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
@@ -1790,6 +1790,13 @@
                     $("#entry_success_no_private_div").hide();
                     $("#direct_access_no_mac_div").show();
                     $("#entry_success_no_mac_div").hide();
+                }else if(!info.acca_cima && !info.da_pass_roll_number){
+                    $("#direct_access_no_self_div").hide();
+                    $("#entry_success_no_self_div").show();
+                    $("#direct_access_no_private_div").hide();
+                    $("#entry_success_no_private_div").show();
+                    $("#direct_access_no_mac_div").hide();
+                    $("#entry_success_no_mac_div").show();
                 }else{
                     $("#direct_access_no_self_div").hide();
                     $("#entry_success_no_self_div").hide();

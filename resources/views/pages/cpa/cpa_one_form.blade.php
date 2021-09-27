@@ -87,6 +87,7 @@
                                 {{--<form method="Post" id="cpa_register" enctype="multipart/form-data" class="needs-validation" novalidate>--}}
                                 <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data"  novalidate>
                                     @csrf
+                                    <input type="hidden" id="entry_type" value="direct">
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-8">
@@ -684,7 +685,7 @@
                                         </div>
 
                                         <input type="hidden" name="batch_id" id="batch_id" />
-
+                                        <input type="hidden" id="entry_type" value="da_pass">
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="row mb-3">
@@ -1086,7 +1087,7 @@
     </div>
     </div>
 </form>--}}
-<form method="post" class="needs-validation" id="store_da_two_form" enctype="multipart/form-data" novalidate>
+    <form method="post" class="needs-validation" id="store_da_two_form" enctype="multipart/form-data" novalidate>
          @csrf
          <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
              <div class="modal-dialog">
