@@ -15,11 +15,23 @@ function AddDAEdu() {
     count++;
 }
 
+var exp_count = 1;
+function AddExp() {
+    $("#experience").append(
+        '<div class="row mb-3" id="experience' + exp_count + '">' +
+        '<div class="col-md-11">' +
+        '<input type="file"  class="form-control"  id="experience_file' + exp_count + '"  name="experience_file[]" required="">' +
+        '</div>' +
+        '<div class="col-md-1 text-center"  id="experience' + exp_count + '_remove">' +
+        '<button class="btn btn-danger" id="myLink" onclick="remove(experience' + exp_count + ')">' +
+        '<i class="fa fa-trash "></i>' +
+        '</button>' +
+        '</div>' +
+        '</div>');
+    exp_count++;
+}
+
 function createArticleFirmRegister() {
-    if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
-        alert("Your password and confirm password do not match!");
-        return;
-    }
     var send_data = new FormData();
 
     var image = $("input[name=profile_photo]")[0].files[0];
@@ -28,15 +40,8 @@ function createArticleFirmRegister() {
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
-    var experience_file = $("input[name=experience_file]")[0].files[0];
-
-    var labor_registration_attach = $("input[name=labor_registration_attach]")[0].files[0];
-    var recommend_attach = $("input[name=recommend_attach]")[0].files[0];
-    var police_attach = $("input[name=police_attach]")[0].files[0];
 
     send_data.append('image', image);
-    send_data.append('email', $("input[name=email]").val());
-    send_data.append('password', $("input[name=password]").val());
     send_data.append('name_mm', $("input[name=name_mm]").val());
     send_data.append('name_eng', $("input[name=name_eng]").val());
     send_data.append('personal_no', $("input[name=personal_no]").val());
@@ -48,10 +53,13 @@ function createArticleFirmRegister() {
     send_data.append('nrc_back', nrc_back);
     send_data.append('education', $("input[name=education]").val());
     $('input[name="certificate[]"]').map(function () {
-
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
-            console.log($(this))
             send_data.append('certificate[]', $(this).get(0).files[i]);
+        }
+    });
+    $('input[name="experience_file[]"]').map(function () {
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            send_data.append('experience_file[]', $(this).get(0).files[i]);
         }
     });
     send_data.append('race', $("input[name=race]").val());
@@ -68,20 +76,23 @@ function createArticleFirmRegister() {
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
+    send_data.append('previous_papp_name', $("input[name=previous_papp_name]").val());
+    send_data.append('previous_papp_start_date', $("input[name=previous_papp_start_date]").val());
+    send_data.append('previous_papp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('papp_name', $("input[name=papp_name]").val());
     send_data.append('pass_date', $("input[name=pass_date]").val());
     send_data.append('pass_no', $("input[name=pass_no]").val());
 
     show_loader();
     $.ajax({
-        url: BACKEND_URL + "/article_register",
+        url: BACKEND_URL + "/article_firm_register",
         type: 'post',
         data: send_data,
         contentType: false,
         processData: false,
         success: function (result) {
             EasyLoading.hide();
-            successMessage("You have successfully registered. Use your email and password to login.");
+            successMessage("You have successfully registered.");
             setInterval(() => {
                 location.href = FRONTEND_URL + '/';
             }, 3000);
@@ -94,10 +105,6 @@ function createArticleFirmRegister() {
 }
 
 function createArticleGovRegister() {
-    if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
-        alert("Your password and confirm password do not match!");
-        return;
-    }
     var send_data = new FormData();
 
     var image = $("input[name=profile_photo]")[0].files[0];
@@ -111,8 +118,6 @@ function createArticleGovRegister() {
     var police_attach = $("input[name=police_attach]")[0].files[0];
 
     send_data.append('image', image);
-    send_data.append('email', $("input[name=email]").val());
-    send_data.append('password', $("input[name=password]").val());
     send_data.append('name_mm', $("input[name=name_mm]").val());
     send_data.append('name_eng', $("input[name=name_eng]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
@@ -153,14 +158,14 @@ function createArticleGovRegister() {
 
     show_loader();
     $.ajax({
-        url: BACKEND_URL + "/article_register",
+        url: BACKEND_URL + "/article_gov_register",
         type: 'post',
         data: send_data,
         contentType: false,
         processData: false,
         success: function (result) {
             EasyLoading.hide();
-            successMessage("You have successfully registered. Use your email and password to login.");
+            successMessage("You have successfully registered.");
             setInterval(() => {
                 location.href = FRONTEND_URL + '/';
             }, 3000);
