@@ -418,7 +418,7 @@
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                 <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" required=""> ၊ခုနှစ် <input type="text" name="degree_pass_year" class="form-control" style="display: inline;width: 100px;" required="">)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
-                                    <input type="file"  class="form-control" name="renew_file" style="width:90%;" required="">
+                                    <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                 </div>
                             </div><br/>
 
@@ -452,7 +452,7 @@
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                 <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                 <div class="col-md-4">
-                                            <input type="file"  class="form-control" name="mpa_mem_card" required="">
+                                            <input type="file"  class="form-control" name="mpa_mem_card" required="" accept="image/*">
                                 </div>
                             </div><br><br>
                             <div class="row mb-3">
@@ -460,7 +460,7 @@
                                 <label class="col-md-1 col-form-label"></label>
                                 <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
                                 <div class="col-md-4">
-                                            <input type="file"  class="form-control" name="mpa_mem_card_back" required="">
+                                            <input type="file"  class="form-control" name="mpa_mem_card_back" required="" accept="image/*">
                                 </div>
                             </div>
 
@@ -609,13 +609,13 @@ $('#file').change(function(e) {
     //app_form_feedback();
     $("input[name='cpa2_pass_date']").flatpickr({
             enableTime: false,
-            dateFormat: "M-Y",
+            dateFormat: "Y",
             allowInput: true,
     });
 
     $("input[name='renew_accepted_date']").flatpickr({
             enableTime: false,
-            dateFormat: "M-Y",
+            dateFormat: "Y",
             allowInput: true,
     });
 

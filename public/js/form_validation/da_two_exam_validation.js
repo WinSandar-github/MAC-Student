@@ -18,7 +18,8 @@ $().ready(function (){
         },
         
         submitHandler: function(form) {
-            $('#da2examModal').modal('show');
+            // $('#da2examModal').modal('show');
+            createDAExamRegister();
         }
     });  
 

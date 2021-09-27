@@ -406,7 +406,7 @@
     </div>
 
     <!-- DA One exam -->
-    <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
+    {{--<form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data" novalidate>
          @csrf
          <div class="modal fade" id="da1examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
              <div class="modal-dialog">
@@ -451,7 +451,7 @@
                  </div>
              </div>
          </div>
-    </form>
+    </form>--}}
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
