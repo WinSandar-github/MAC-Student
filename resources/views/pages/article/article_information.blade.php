@@ -8,32 +8,8 @@
 
 @extends('layouts.app')
 <style>
-    .modal{
-        text-align: center;
-    }
-    .modal:before{
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-    }
-    .modal-dialog {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .modal-body{
-        padding: 2rem !important;
-        margin: 0;
-        border-radius:3px;
-    }   
-    .btn_information{
-        width: 150px;
-        height: 50px;
-        padding-top: 11px !important; 
-    }
-    .btn-info{
-        color:#fff !important;
-        line-height:2;
+    .article_btn{
+        width : 130px;
     }
 </style>
 
@@ -153,24 +129,47 @@
             </div>
         </div>
     </div>
-    <div class="cards">
-        <div class="ctaCard">
-        Card 1
-        </div>
-    </div>
     <!-- Selected Article Modal -->
-    <div class="modal" id="articleModal">
+    <div class="modal fade" id="articleModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="{{url('article_firm_registration')}}" class="btn btn_information btn-info btn-hover-dark">Firm</a>
+                <div class="modal-header">
+                    <h3 class="modal-title text-center"  style="font-weight:bold">
+                    စာရင်းကိုင်အလုပ်သင်လျှောက်လွှာပုံစံ ရွေးချယ်ပါ</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="firm_article_row">
+                        <p class="text-start " >စာရင်းကိုင်အလုပ်သင်လျှောက်ထားလိုသည့် ကာလ ကိုရွေးပါ။</p>
+                        <div class="row mb-4">
+                            <div class="col-md-4" align="right">
+                                <input type="radio" class="form-check-input mr-3" value="1" id="article_year1" name="article_year">
+                                <label class="form-check-label " for="">One</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="form-check-input mr-3" value="2" id="article_year2" name="article_year" >
+                                <label class="form-check-label " for="">Two</label>
+                            </div>
+                            <div class="col-md-4" align="left">
+                                <input type="radio" class="form-check-input mr-3" value="3" id="article_year3" name="article_year">
+                                <label class="form-check-label " for="">Three</label><br>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <a href="{{url('article_gov_registration')}}" class="btn btn_information btn-danger btn-hover-dark">Government</a>
-                        </div>                        
+                        <!-- <a href="{{url('article_firm_registration')}}" class="btn btn-md btn-success article_btn mt-3">Firm</a> -->
+                        <button class="btn btn-success btn-hover-dark article_btn" id="articel_firm_btn">Firm</button>
                     </div>
+                    <hr id="article_hr" style="display:none;">
+                    <div id="gov_article_row" style="display:none;">
+                        <a href="{{url('article_gov_registration')}}" class="btn btn-md btn-success article_btn">Government</a>
+                        <!-- <button class="btn btn-success btn-hover-dark article_btn" id="articel_gov_btn">Government</button> -->
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -190,18 +189,49 @@
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
-        // console.log('course_type',course_type[2]);
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
-        localStorage.setItem('course_type',course_type[2])
-
+            localStorage.setItem('course_type',course_type[2])
         }
         loadDescription('Article');
-    })
 
-    $('#register_btn').click(function () {
-        $('#articleModal').modal('toggle');
-    });
+        $('#register_btn').click(function () {
+            if(!student){
+                location.href = FRONTEND_URL + '/login';
+            }else{
+                get_student_info(student_id).then(data => {
+                    let student_info = data.data
+                    let student_reg = data.data.student_register
+                    let lastest_row = student_reg.length - 1;
+                    let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+                    let exam_result = student_reg[lastest_row].status;  // pass/fail
+                    let module = student_reg[lastest_row].module;  // module 1/2/all
+                    let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+                    
+                    if(type == 0 || type == 1){
+                        $("#gov_article_row").hide();
+                        $("#article_hr").hide();
+                    }else{
+                        $("#gov_article_row").show();
+                        $("#article_hr").show();
+                    }
+                    $('#articleModal').modal('toggle');
+                });
+            }
+        });
+
+        $('#articel_firm_btn').click(function () {
+            var radioValue = $("input[name='article_year']:checked").val();
+            if (radioValue == 1) {
+                location.href = FRONTEND_URL + '/article_firm_registration?data=' + 1;
+            } else if (radioValue == 2) {
+                location.href = FRONTEND_URL + '/article_firm_registration?data=' + 2;
+            } else {
+                location.href = FRONTEND_URL + '/article_firm_registration?data=' + 3;
+            }
+        });
+
+    })
 
 </script>
 @endpush
