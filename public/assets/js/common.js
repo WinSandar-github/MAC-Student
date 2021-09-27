@@ -105,8 +105,6 @@ function addRowSubject(tbody) {
         $(".certificate").hide();
     }
 }
-// function addRowDipSubject(tbody) {
-
 
 function addRowDipSubject(tbody){
     var newRow = $("<tr>");

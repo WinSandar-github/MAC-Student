@@ -83,7 +83,7 @@
                                         <input type="hidden" name="is_private" id="is_private" class="form-control">
                                             <div class="col-md-12 mt-3">
                                                 <div class="row">
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-8">
 
                                                         <div class="row mb-3">
                                                             <label  class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
@@ -100,13 +100,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                     <div class="col-md-2 col-5 pr-1">
-                                                                        <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" readonly>
+                                                                        <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" style="padding:6px" readonly>
                                                                     </div>
                                                                     <div class="col-md-3 col-7 px-1">
-                                                                        <input type="text" name="nrc_township" id="nrc_township" class="form-control" readonly>
+                                                                        <input type="text" name="nrc_township" id="nrc_township" class="form-control" style="padding:6px" readonly>
                                                                     </div>
                                                                     <div class="col-md-3 col-5 px-1">
-                                                                        <input type="text" name="nrc_citizen" id="nrc_citizen" class="form-control" readonly>
+                                                                        <input type="text" name="nrc_citizen" id="nrc_citizen" class="form-control"  style="padding:6px" readonly>
                                                                     </div>
 
                                                                     <div class="col-md-4 col-7 pl-1">
@@ -131,7 +131,7 @@
                                                         </div>
                                                     </div>
                                                     {{--User Photo--}}
-                                                    <div class="col-md-3" align="center">
+                                                    <div class="col-md-4" align="center">
                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                                             <div class="fileinput-new thumbnail img-circle shadow">
                                                                 <img class="col-md-3 profile-style" name="previewImg" id="previewImg" src="" accept="image/png,image/jpeg" alt="">
@@ -171,10 +171,20 @@
                                                         <input type="text" name="class_address" id="class_address" class="form-control" readonly>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <select class="form-control form-select" name="exam_department" id="exam_department"  >
+                                                                <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
                                                         <label class="col-md-1 col-form-label"
-                                                            id="cpa2_label1">{{ __('၉။') }}</label>
+                                                            id="cpa2_label1">{{ __('၁၀။') }}</label>
                                                         <label class="col-md-3 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
@@ -190,21 +200,23 @@
                                         
                                                 <div class="row mb-3">
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
-                                                    <label class="col-md-1 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>(က)</label>
-                                                    <label class="col-md-3 col-form-label label">နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
+                                                    <!-- <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label> -->
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-left" id="cpa2_label2">{{ __('၁၁။') }}</span>
+                                                        <span class="pull-left" style="padding-left: 35px;">{{ __('(က)') }}</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="last_ans_exam_no" class="form-control last_ans_exam_no" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်"  id="last_ans_exam_no">
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <div class="col-md-1"></div>
-                                                    <label class="col-md-3 col-form-label label">ကျင်းပသည့် ခုနှစ်/လ</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 58px;">{{ __('(ခ)') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date" class="form-control date" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
                                                     </div>
                                                 </div>
-                                                <div class="row mb-3" style="margin-left:30px;">
+
+                                                {{--<div class="row mb-3" style="margin-left:30px;">
                                                     <div class="col-md-1">
                                                         <label class="col-form-label">(ခ)</label>
                                                     </div>
@@ -215,7 +227,7 @@
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col-md-4"></div>
-                                                    <div class="col-md-6 ">
+                                                    <div class="col-md-6 mx-2 ">
                                                         <label class="checkbox-inline">
                                                             <input type="checkbox" name="last_ans_module" value="1">&nbsp;Module 1
                                                         </label>
@@ -223,32 +235,53 @@
                                                             <input type="checkbox" name="last_ans_module" value="2">&nbsp;Module 2
                                                         </label>
                                                     </div>
+                                                </div>--}}
+
+                                                <div class="row mb-3">
+                                                    <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 58px;">{{ __('(ဂ)') }}</span>အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန် - </label>
                                                 </div>
 
-                                                <div class="row mb-3" style="margin-left:30px;">
-                                                    <div class="col-md-1 mt-3">
-                                                        <label class="col-form-label">(ဂ)</label>
-
-                                                    </div>
-                                                    <div class="col-md-2 mt-3">
-                                                        <label class="col-form-label label_align_right">ယခုဖြေဆိုမည့် Module</label>
-
-                                                    </div>
-                                                    <div class="col-md-8 " style="margin-left:60px;">
-                                                        <div class="single-form" >
-                                                            <input disabled type="radio" id="module1" name="is_full_module" value="1">
-                                                            <label for="module1">Module 1</label>
-
-                                                            <input disabled type="radio" id="module2" name="is_full_module" value="2"
-                                                                style="margin-left: 3%;" checked="">
-                                                            <label for="module2">Module 2</label>
-
-                                                            <input  disabled type="radio" id="allmodule" name="is_full_module" value="3"
-                                                                style="margin-left: 3%;">
-                                                            <label for="allmodule">All Modules</label>
+                                                <div class="row mb-3" style="padding-left: 363px;">                                                    
+                                                    <div class="row col-md-8 mx-5">
+                                                        <div class="col-md-4 form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" value="1">
+                                                                <span class="form-check-sign"></span>
+                                                                Module 1
+                                                            </label>
                                                         </div>
+                                                        <div class="col-md-4 form-check">
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" value="2">
+                                                                <span class="form-check-sign"></span>
+                                                                Module 2
+                                                            </label>
+                                                        </div>
+                                                        
                                                     </div>
+                                                </div>
+                                                
 
+                                                <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 42px;">{{ __('(ဃ)') }}</span>ဖြေဆိုမည့် Module</label>
+                                                    <div class="col-md-8 mt-2">
+                                                        <div class="row mx-2">
+                                                            <div class="col-md-4 form-check">
+                                                                <input class="form-check-input" disabled type="radio" id="module1" name="is_full_module" value="1">
+                                                                <label class="form-check-label">{{ __('Module-1') }}</label>
+                                                            </div>
+                                                            <div class="col-md-4 form-check">
+                                                                <input class="form-check-input" disabled type="radio" id="module2" name="is_full_module" value="2">
+                                                                <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                                            </div>
+                                                            <div class="col-md-4 form-check">
+                                                                <input class="form-check-input" disabled type="radio" id="allmodule" name="is_full_module" value="3" >
+                                                                <label class="form-check-label">{{ __('All Module') }}</label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
                                                 </div>
 
                                                 {{-- 
@@ -301,12 +334,11 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="row mb-3">
-                                                    <div class="col-md-2 offset-md-5">
+                                                <div class="row mb-3 justify-content-center">
                                                         {{-- <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button> --}}
-                                                        <button type="submit" id="cpa2submit" class="btn btn-success btn-hover-dark w-100" disabled>Submit
+                                                        <button type="submit" id="cpa2submit" class="btn btn-success btn-hover-dark w-25" disabled>Submit
                                                         </button>
-                                                    </div>
+                                                    
                                                 </div>
                                         </div>
                                     </form>
@@ -397,13 +429,13 @@
             if (boo == "true") {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'block';
-                    document.getElementById('cpa2_label1').innerHTML = "၉။";
-                    document.getElementById('cpa2_label2').innerHTML = "၁၀။";
+                    document.getElementById('cpa2_label1').innerHTML = "၁၀။";
+                    document.getElementById('cpa2_label2').innerHTML = "၁၁။";
                 }
             } else {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'none';
-                    document.getElementById('cpa2_label2').innerHTML = "၉။";
+                    document.getElementById('cpa2_label2').innerHTML = "၁၀။";
                 }
             }
         });
@@ -411,9 +443,10 @@
         get_student_info(student_id).then(data => {
             if(data){
                 let student_info = data.data;
+                console.log('student_info',student_info)
 
                 let current_stu_reg=student_info.student_register.slice(-1);
-
+                console.log('current_stu_reg',current_stu_reg);
                     if(current_stu_reg[0].module=="1"){
                          $("#module1").prop("checked", true);
                     }
@@ -425,6 +458,8 @@
                     }
 
                 let exam_registers = student_info.exam_registers.slice(-1);
+                let student_course_regs = student_info.student_course_regs.slice(-1);
+                console.log('student_course_regs',student_course_regs);
                 
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
@@ -439,7 +474,14 @@
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
 
-                $("input[name='personal_no']").val(data.data.personal_no);
+                if(data.data.course_type_id==1){
+                    $("input[name='personal_no']").val(data.data.personal_no);
+                }else if(data.data.course_type_id==2){
+                    $("input[name='personal_no']").val(data.data.cpersonal_no);
+                }else{
+                    $("input[name='personal_no']").val("-");
+                }
+                
 
                 $("#last_ans_exam_no").val(exam_registers[0].batch.number);
                 $("#date").val(formatDate(exam_registers[0].updated_at));
@@ -448,18 +490,16 @@
                     $("input[name='class_address']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
                 }else if(data.data.student_register[0].type == 1){
                     $("input[name='class_address']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
+                }else if(data.data.student_register[0].type == 2 && student_course_regs[0].mac_type==1){
+                    $("input[name='class_address']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)");
                 }else{
-
-                    var mac_name = current_stu_course[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
-
-
-                    $("input[name='class_address']").val(mac_name);
+                    $("input[name='class_address']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)");
                 }
 
             }
 
         })
-
+        loadExamDepartment();
         loadSchoolList();
     </script>
 @endpush

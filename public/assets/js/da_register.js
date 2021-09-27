@@ -234,6 +234,12 @@ $('#store_da_two_form').submit(function (e) {
     formData.append('batch_id', $("input[name=batch_id]").val());
     formData.append('type', $("input[name='dtype']:checked").val());
     formData.append('mac_type', $("input[name='mac_dtype']:checked").val())
+    // if($('#entry_type').val() === 'da_pass'){
+        // var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
+        // send_data.append('da_pass_certificate', da_pass_certificate);
+        formData.append('da_pass_date', $("input[name=da_pass_date]").val());
+        formData.append('da_pass_roll_number', $("input[name=da_pass_roll_number]").val());
+    // }
 
 
     show_loader();
@@ -363,9 +369,9 @@ function createDaTwoPrivateSchool()
 }
 
 $("#submit_btn_mac").click(function () {
-    console.log('mac_semester',$("#mac_academic_year").val());
-    console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
-    console.log('mac_semester',$(".personal_no_mac").val());
+    // console.log('mac_semester',$("#mac_academic_year").val());
+    // console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
+    // console.log('mac_semester',$(".personal_no_mac").val());
     if($("#mac_academic_year").val()!="" && $("input[name=da_one_pass_level_mac]").val()!="" && $(".personal_no_mac").val()!=""){
         // alert("ShowHello") 
         $('#exampleModal1').modal('show');

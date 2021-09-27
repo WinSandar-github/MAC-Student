@@ -168,7 +168,7 @@
 
                                                         <div class="col-md-2">
                                                           <div class="">
-                                                            <select class="form-control" name="nrc_state_region"
+                                                            <select class="form-control form-select" name="nrc_state_region"
                                                                     id="nrc_state_region"
                                                                     style="margin-top: 0px; margin-bottom: 0px;">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
@@ -183,7 +183,7 @@
 
                                                         <div class="col-md-3">
                                                           <div class="">
-                                                            <select class="form-control" name="nrc_township" id="nrc_township"
+                                                            <select class="form-control form-select" name="nrc_township" id="nrc_township"
                                                                     style="margin-top: 0px; margin-bottom: 0px;">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_townships as $township)
@@ -197,7 +197,7 @@
 
                                                         <div class="col-md-2">
                                                           <div class="">
-                                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen"
+                                                            <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen"
                                                                     style="margin-top: 0px; margin-bottom: 0px;">
                                                                 <option value="" disabled selected>ရွေးပါ</option>
                                                                 @foreach($nrc_citizens as $citizen)
@@ -477,8 +477,8 @@
                                                     <input type="file"  class="form-control" id="certificate0"  name="certificate[]" required="">
                                                 </div>
                                                 <div class="col-md-1 text-left mt-1" id="add_div" >
-                                                    <button type="button" class="btn btn-sm btn-primary" id="add_btn" onclick="AddCPAEdu()" >
-                                                        <i class="fa fa-plus"></i>
+                                                    <button type="button" class="btn btn-sm btn-success" id="add_btn" onclick="AddCPAEdu()" >
+                                                        <i class="fa fa-plus" style="padding-right: 5px;"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -512,32 +512,13 @@
                                                 </div>
                                             </div>
                                         </div>
+                                          
+                                        <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" >၂၃။</span>သင်တန်းတက်ရောက်လိုသည့်နေရာ - </label>
 
-                                         
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <div>
-                                                    <label>{{ __('၂၃။') }}</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-11 ">
-                                                <div>
-                                                    <label>သင်တန်းတက်ရောက်လိုသည့်နေရာ-</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br>    
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div>
-                                                    <label>{{ __('') }}</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 mt-2">
                                                 
-                                                    <div class="row">
+                                                    <div class="row mb-3">
                                                         <div class="col-md-1">
                                                             <input type="radio" id="mac" class="form-check-input" value="2" name="attend_place" onclick="selectType()"   required style="margin-left: 3%;">
                                                         </div>
@@ -546,8 +527,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="  col-md-12" id="blk_mac" style="display:none">
-                                                        <div class="mx-5 row  ">
+                                                    <div class="  col-md-12 mx-5" id="blk_mac" style="display:none">
+                                                        <div class="mx-5 row  mb-3">
                                                             
                                                             <div class="col-md-6 form-check   ">
                                                                 <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
@@ -570,7 +551,7 @@
                                                 
                                                     </div>
                                              
-                                                    <div class="row">
+                                                    <div class="row mb-3">
                                                         <div class="col-md-1">
                                                         <input type="radio" id="private" class="form-check-input" value="1" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
                                                         </div>
@@ -579,7 +560,7 @@
                                                             <!-- <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div> -->
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="row mb-3">
                                                         <div class="col-md-1">
                                                         <input type="radio" id="self" class="form-check-input" value="0" name="attend_place" onclick="selectType()"  required style="margin-left: 3%;">
                                                         </div>
@@ -827,8 +808,11 @@
         localStorage.removeItem('batch_id');
         direct_or_da();
 
-        $("#yes")
-
+        $("input[name='da_pass_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "M-Y",
+                allowInput: true,
+        });
         $("input[name='degree_date']").flatpickr({
                 enableTime: false,
                 dateFormat: "M-Y",
@@ -836,12 +820,12 @@
         });
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "d-M-Y",
                 allowInput: true,
         });
         $(".month").flatpickr({
                 enableTime: false,
-                 dateFormat: "m",
+                 dateFormat: "M",
 
         });
         // $("input[name='year']").flatpickr({
@@ -919,7 +903,7 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                      console.log("info >>>",info);
+                    //   console.log("info >>>",info);
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
