@@ -78,8 +78,13 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                        <input type="text" name="mac_semester" id="self_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >
-                                                        
+                                                        {{--<input type="text" name="mac_semester" id="self_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >--}}
+                                                        <select class="form-control form-select"  name="mac_semester" id="self_academic_year"  placeholder="ခုနှစ်(YYYY)" required>                                
+                                                            <option value="" selected disabled>ပညာသင်နှစ်</option>    
+                                                        {{--<option value="0" selected>Student Application</option>
+                                                            <option value="1">Student Registration</option>
+                                                            <option value="2">Exam Registration</option>--}}
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -439,8 +444,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>--}}
 
                                                     <div class="row mb-3">
-                                                        <label class="col-md-4 col-form-label label">
+                                                        <label class="col-md-1 col-form-label label">
                                                             <span class="pull-left">{{ __('၁၉။') }}</span>
+                                                        </label>
+                                                        <label class="col-md-3 col-form-label label">
                                                             <span class="pull-center" style="padding-right: 35px;">{{ __('(က)') }}</span>တက်ရောက်မည့်သင်တန်း
                                                         </label>
                                                         <div class="col-md-8">
@@ -454,7 +461,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                                         <div class="col-md-8">
                                                             <input type="text" name="student_regno" class="form-control batch_no"
-                                                                placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
+                                                                placeholder="သင်တန်းအမှတ်စဥ်" value="{{ $batch['id'] }}" id="batch_no_self" readonly>
 
                                                         </div>
                                                     </div>
@@ -533,7 +540,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                     @csrf
                                     <input type="hidden" name="batch_id" value="{{ $batch['id'] }}" />
 
-                                    <div class="card border-success mb-3 p-3">
+                                    <div class="card border-success mb-3"  style="padding:3% 5% 3% 5%;">
                                         <div class="card-body">
                                             <h5 class="card-title text-center my-1 fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ <br>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br> 
@@ -549,8 +556,21 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         <label class="batchname col-form-label"></label>
                                                     </div>
                                                 </div>
-
-                                                  <div class="row mt-5">
+                                                <div class="row mt-2">
+                                                    
+                                                    <label class="col-md-3 col-form-label"></label>
+                                                    
+                                                    <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
+                                                    <div class="col-md-2">
+                                                    {{--<input type="text" placeholder="ခုနှစ်(YYYY)" id="academic_year" name="academic_year" class="form-control" >--}}
+                                                    <select class="form-control form-select"  id="academic_year" name="academic_year" placeholder="ခုနှစ်(YYYY)"  required>                                
+                                                            <option value="" selected disabled>ပညာသင်နှစ်</option>
+                                                            {{--<option value="1">Student Registration</option>
+                                                            <option value="2">Exam Registration</option>--}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                  <div class="row mt-2">
                                                         <div class="col-md-8">
                                                             <div class="row mb-3">
                                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('') }}</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
@@ -565,12 +585,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row mb-4">
+                                                            {{--<div class="row mb-4">
                                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('') }}</span>ပညာသင်နှစ်</label>
                                                                 <div class="col-md-6">
                                                                     <input type="text" placeholder="ခုနှစ်(YYYY)" id="academic_year" name="academic_year" class="form-control" >
                                                                 </div>
-                                                            </div>
+                                                            </div>--}}
 
                                                             <div class="row mb-3">
                                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
@@ -798,10 +818,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-left">{{ __('၁၈။') }}</span>
-                                                        <span class="pull-center" style="padding-right:61px">{{ __('(က)') }}</span>တက်ရောက်မည့်သင်တန်း
-                                                    </label>
+                                                <label class="col-md-1 col-form-label label">
+                                                    <span class="pull-left">{{ __('၁၈။') }}</span>
+                                                </label>
+                                                <label class="col-md-3 col-form-label label">
+                                                    <span class="pull-center" style="padding-right: 35px;">{{ __('(က)') }}</span>တက်ရောက်မည့်သင်တန်း
+                                                </label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="student_regno" class="form-control course_name"
                                                             placeholder="အပိုင်း" id="part_no_self" readonly>
@@ -816,7 +838,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-8">
                                                         <input type="text" name="student_regno" class="form-control batch_no"
-                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
+                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" value="{{ $batch['id'] }}" readonly>
                                                     </div>
                                                 </div>
 
@@ -908,8 +930,14 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                        <input type="text" name="mac_semester" id="mac_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" required>
+                                                        <!-- <select name="mac_semester" id="mac_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" required> -->
                                                         
+                                                        <select class="form-control form-select" name="mac_semester" id="mac_academic_year" required>                                
+                                                            <option value="" selected disabled>ပညာသင်နှစ်</option>    
+                                                        {{--<option value="0" selected>Student Application</option>
+                                                            <option value="1">Student Registration</option>
+                                                            <option value="2">Exam Registration</option>--}}
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -1142,8 +1170,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-left">{{ __('၁၈။') }}</span>
+                                                    <label class="col-md-1 col-form-label label">
+                                                        <span class="pull-left">{{ __('၁၈။') }}</span> 
+                                                    </label>
+                                                    <label class="col-md-3 col-form-label label">
                                                         <span class="pull-center" style="padding-right: 35px;">{{ __('(က)') }}</span>တက်ရောက်မည့်သင်တန်း
                                                     </label>
 
@@ -1157,7 +1187,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="student_regno" class="form-control batch_no"
-                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" readonly>
+                                                            placeholder="သင်တန်းအမှတ်စဥ်" value="{{ $batch['id'] }}" id="batch_no_mac" readonly>
                                                     </div>
                                                 </div>
 
@@ -1410,16 +1440,16 @@ $nrc_characters = config('myanmarnrc.characters');
         $('document').ready(function() {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
-            $("input[name='mac_semester']").flatpickr({
-                enableTime: false,
-                dateFormat: "Y",
-                allowInput: true,
-            }); 
-            $("input[name='academic_year']").flatpickr({
-                enableTime: false,
-                dateFormat: "Y",
-                allowInput: true,
-            });
+            // $("input[name='mac_semester']").flatpickr({
+            //     enableTime: false,
+            //     dateFormat: "Y",
+            //     allowInput: true,
+            // }); 
+            // $("input[name='academic_year']").flatpickr({
+            //     enableTime: false,
+            //     dateFormat: "Y",
+            //     allowInput: true,
+            // });
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
@@ -1434,7 +1464,8 @@ $nrc_characters = config('myanmarnrc.characters');
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    $('.batch_no').val(current_stu_course[0].batch.number);
+                     $('.course_name').val("Diploma In Accountancy Part Two");
+                    // $('.batch_no').val(current_stu_course[0].batch.number);
                     var reg_srno = current_stu_course[0].batch.number;
                     // $('#reg_srno').append(reg_srno+1)
 
@@ -1491,9 +1522,9 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='address']").val(student_info.address);
                     $("input[name='current_address']").val(student_info.current_address);
 
-                    $(".personal_no_self").val(student_info.registration_no);
-                    $(".personal_no_private").val(student_info.registration_no);
-                    $(".personal_no_mac").val(student_info.registration_no);
+                    $(".personal_no_self").val(student_info.personal_no);
+                    $(".personal_no_private").val(student_info.personal_no);
+                    $(".personal_no_mac").val(student_info.personal_no);
                     $("input[name='exam_date']").val(formatDate(data.data.exam_registers[0].updated_at));
 
 
@@ -1570,6 +1601,42 @@ $nrc_characters = config('myanmarnrc.characters');
         $('#mpu_img').click(function() {
             $('#private_btn').prop('disabled', true);
         });
-        $('#private_btn').prop('disabled', true);
+        $('#private_btn').prop('disabled', true);  
+           
+    </script>
+    <script>
+           
+    var select_mac = document.getElementById("mac_academic_year");
+    var year_mac=2010;
+    var current_year_mac=new Date().getFullYear();
+    var year_diff_mac=current_year_mac-year_mac;
+    for (let index = 0; index <= year_diff_mac; index++) {
+        var option_mac = document.createElement('option');
+        option_mac.text = year_mac+index;
+        option_mac.value = year_mac+index;   
+        select_mac.add(option_mac, 0);
+    }   
+    
+    var select_self = document.getElementById("self_academic_year");
+    var year_self=2010;
+    var current_year_self=new Date().getFullYear();
+    var year_diff_self=current_year_self-year_self;
+    for (let index = 0; index <= year_diff_self; index++) {
+        var option_self = document.createElement('option');
+        option_self.text = year_self+index;
+        option_self.value = year_self+index;    
+        select_self.add(option_self, 0);
+    }   
+
+    var select_private = document.getElementById("academic_year");
+    var year_private=2010;
+    var current_year_private=new Date().getFullYear();
+    var year_diff_private=current_year_private-year_private;
+    for (let index = 0; index <= year_diff_private; index++) {
+        var option_private = document.createElement('option');
+        option_private.text = year_private+index;
+        option_private.value = year_private+index;    
+        select_private.add(option_private, 0);
+    }   
     </script>
 @endpush

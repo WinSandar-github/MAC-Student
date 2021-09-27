@@ -201,7 +201,7 @@ function user_profile() {
                     if (cpaff.status == 0) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>-</td>
                             <td><span class="badge bg-info text-dark">Checking</span></td>
@@ -211,7 +211,7 @@ function user_profile() {
                     } else if (cpaff.status == 1) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span></td>
@@ -234,7 +234,7 @@ function user_profile() {
                     } else {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
@@ -713,31 +713,22 @@ function user_profile() {
 
                                     }
                                     localStorage.setItem('course_id', latest_course_reg[0].batch.course.id);
+
                                     let action_url;
 
-
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
+
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-
-
 
                                     $('.status').append(`
                                         <tr><td colspan=2></td><td>Action</td>
-                                            <td>
-    
-    
-                                           
+                                            <td>       
                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration</a>
-                                               
-                                            
                                             <td>
                                         </td>
                                         </tr>
-    
                                     `);
-
                                 }
-
 
                             } else {
                                 status_course = (`
@@ -751,10 +742,6 @@ function user_profile() {
                                 // $('.status').append('Your Application Form is Reject')
                             }
                         }
-
-
-
-
                     }
                 }
 

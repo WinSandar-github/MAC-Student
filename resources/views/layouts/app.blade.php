@@ -77,7 +77,7 @@
             display: table;
             background-size: cover;
             background-position: center center;
-            box-shadow: 0 5px 8px rgba(black, 0.35);
+            box-shadow: 0 5px 8px rgba(255, 255, 255, 0.35);
 
         }
 
