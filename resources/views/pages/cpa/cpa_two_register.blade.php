@@ -1354,7 +1354,7 @@ $('document').ready(function(){
                 let current_stu_course = student_info.student_course_regs.slice(-1);
                 let exam_registers = student_info.exam_registers.slice(-1);
 
-                console.log('student_info',student_info);
+                // console.log('student_info',student_info);
 
                 $('.name_mm').val(student_info.name_mm);
                 $('.name_eng').val(student_info.name_eng);

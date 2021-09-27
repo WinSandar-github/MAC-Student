@@ -368,9 +368,9 @@ function createDaTwoPrivateSchool()
 }
 
 $("#submit_btn_mac").click(function () {
-    console.log('mac_semester',$("#mac_academic_year").val());
-    console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
-    console.log('mac_semester',$(".personal_no_mac").val());
+    // console.log('mac_semester',$("#mac_academic_year").val());
+    // console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
+    // console.log('mac_semester',$(".personal_no_mac").val());
     if($("#mac_academic_year").val()!="" && $("input[name=da_one_pass_level_mac]").val()!="" && $(".personal_no_mac").val()!=""){
         // alert("ShowHello") 
         $('#exampleModal1').modal('show');

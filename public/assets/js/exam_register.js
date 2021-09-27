@@ -155,7 +155,7 @@ $('#cpa_exam_register').submit(function(e){
         contentType: false,
         processData: false,
         success: function(result){
-            console.log('result',result);
+            // console.log('result',result);
              EasyLoading.hide();
              localStorage.setItem('approve_reject', 1);
              location.href = FRONTEND_URL + "/";

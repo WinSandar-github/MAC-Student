@@ -626,7 +626,7 @@
 // console.log("study_type",selectedRegistration(urlParams.get("study_type")));
         get_student_info(student_id).then(data => {
            var student_info = data.data ;
-           console.log('student_info',student_info);
+        //    console.log('student_info',student_info);
 
            if(student_info.acca_cima){
                $('#last_exam_data').hide();

@@ -447,9 +447,9 @@ function check_entry_pass(){
 
 function direct_or_da(){
     let student = JSON.parse(localStorage.getItem("studentinfo"));
-    console.log('student',student);
+    // console.log('student',student);
     if(student){
-        console.log('student',student);
+        // console.log('student',student);
         let batch_id = url.substring(url.lastIndexOf('/')+1);
         $.ajax({
             type: "get",
@@ -819,7 +819,7 @@ $('#cpa_entry_register').submit(function(e){
             processData: false,
             data: send_data,
             success: function (data) {
-                console.log('data',data)
+                // console.log('data',data)
                 //EasyLoading.hide();
                 successMessage("You have successfully registerd!");
 

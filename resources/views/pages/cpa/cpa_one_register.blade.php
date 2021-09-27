@@ -1661,7 +1661,7 @@
                     
 
                 var info = data.data;
-                console.log('info',info);
+                // console.log('info',info);
                 // if(!info.exam_registers[0]){
                 //     console.log("Hello")
                 // }else{

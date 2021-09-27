@@ -903,7 +903,7 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                      console.log("info >>>",info);
+                    //   console.log("info >>>",info);
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
