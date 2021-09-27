@@ -92,7 +92,7 @@ function user_profile() {
 
 
             } else if (data.cpa_ff && data.student_course_regs == '') {
-                $('.title').text('CPA Full-Fledged Information')
+                $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 let cpaff = data.cpa_ff;
                 console.log(cpaff)
@@ -100,40 +100,48 @@ function user_profile() {
                 $('#cpaff_name_mm').text(cpaff.name_mm);
                 $('#cpaff_name_eng').text(cpaff.name_eng);
                 $("#cpaff_nrc").text(cpaff.nrc_state_region + "/" + cpaff.nrc_township + "(" + cpaff.nrc_citizen + ")" + cpaff.nrc_number);
-                // $("#sch_date_of_birth").text(teacher.date_of_birth);
-                // $("#sch_date_of_birth").hide();
                 $("#cpaff_email").text(cpaff.email);
                 $('#cpaff_phone').text(cpaff.phone);
-                // var payment_url = FRONTEND_URL + "/cpa_ff_information";
                 var papp_url = FRONTEND_URL + "/student_papp_information";
+                var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
                 if (cpaff.status == 0) {
-                    $('.status_history').append('CPA Full-Fledged Registration Form is checking.');
-                    // $('.status_papp').append('Action &nbsp;&nbsp;');
-                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                    $('.status_history').append('CPA Full-Fledged Registration Form is checking.<br><br>');
+                    $('.status_papp').append('Action &nbsp;&nbsp;');
+                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else if (cpaff.status == 1) {
-                    $('.status_history').append('CPA Full-Fledged Registration Form is Approved.&nbsp;&nbsp;');
-                    // $('.status_history').append(`<a href= ${payment_url} class="btn btn-success btn-sm xl-auto" style="margin-bottom:5px;"> Go To Payment </a>`);
-                    // $('.status_papp').append('Now you can apply PAPP Registration form &nbsp;&nbsp;&nbsp;');
-                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > Go To PAPP form </a>`);
+                    $('.status_history').append('CPA Full-Fledged Registration Form is Approved.<br><br>');
+                    $('.status_history').append('Action &nbsp;&nbsp;');
+                    $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA Full Fledged Renew Form </a><hr>`);
                     $('.status_papp').append('Action &nbsp;&nbsp;');
                     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
                 }
-                if (cpaff.payment_method != null) {
-                    var papp_url = FRONTEND_URL + "/student_papp_information";
-                    $('.period').show();
-                    var now = new Date();
-                    var period_date = cpaff.renew_accepted_date.split('-');
-                    var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
-                    // console.log(period);
-                    $('#period_time_cpaff').text(period + " to 31-12-" + now.getFullYear());
-
-                    // $('.status_papp').append('Now you can apply PAPP Registration form &nbsp;&nbsp;&nbsp;');
-                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > Go To PAPP form </a>`);
-                    // $('.status_papp').append('Action &nbsp;&nbsp;');
-                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                if(data.papp && data.student_course_regs == '')
+                {
+                    console.log(data.papp.status)
+                    if (data.papp.status == 0) {
+                        $('.status_history').append('PAPP Registration Form is checking.<br><br>');
+                        $('.status_papp').css('display', 'none');
+                    } else if (data.papp.status == 1) {
+                        $('.status_papp').css('display', 'none');
+                        var papp_renew_url = FRONTEND_URL + "/student_papp_information";
+                        $('.status_history').append('PAPP Registration Form is Approved.<br><br>');
+                        $('.status_history').append('Action &nbsp;&nbsp;');
+                        $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                    } else {
+                        $('.status_history').append('PAPP Registration Form is Rejected.');
+                    }
                 }
+                // if (cpaff.payment_method != null) {
+                //     var papp_url = FRONTEND_URL + "/student_papp_information";
+                //     $('.period').show();
+                //     var now = new Date();
+                //     var period_date = cpaff.renew_accepted_date.split('-');
+                //     var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
+                //     // console.log(period);
+                //     $('#period_time_cpaff').text(period + " to 31-12-" + now.getFullYear());
+                // }
 
 
             } else if (data.mentor) {
