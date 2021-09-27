@@ -77,7 +77,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_gov_register_form"  action="javascript:javascript:void(0);"
+                            <form method="post" id="article_gov_register_form"  action="javascript:javascript:createArticleGovRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 <div class="row">
@@ -97,8 +97,8 @@
 
                                         <div class="row">
 
-                                            {{--<div class="col-md-8">
-                                                <div class="row mb-5">
+                                            <div class="col-md-8">
+                                                {{--<div class="row mb-5">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အီးမေးလ်</label>
                                                     <div class="col-md-8">
                                                         <input type="email" placeholder="အီးမေးလ်လိပ်စာထည့်ပါ" name="email" class="form-control" id="email">
@@ -117,13 +117,11 @@
                                                     <div class="col-md-8">
                                                         <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
                                                     </div>
-                                                </div>
-                                            </div>--}}
+                                                </div>--}}
 
-                                            <div class="col-md-8">
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                    <div class="col-md-8">
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                                    <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" id="name_mm" class="form-control" value="{{ old('name_mm') }}" >
@@ -136,16 +134,23 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>မွေးသက္ကရာဇ်</label>
-                                                    <div class="col-md-8">
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>မွေးသက္ကရာဇ်</label>
+                                                    <div class="col-md-9">
                                                         <input type="text" name="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" value="{{ old('date_of_birth') }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" name="education" class="form-control" placeholder="ပညာအရည်အချင်း">
+                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                        <div class="col-md-6">
+                                                            <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control" value="{{ old('race') }}" >
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" name="religion" id="religion" class="form-control" value="{{ old('religion') }}" >
+                                                        </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,18 +177,29 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
                                             <div class="col-md-9">
-                                                <div class="row">
-                                                <div class="col-md-6">
-                                                    <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control" value="{{ old('race') }}" >
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" name="religion" id="religion" class="form-control" value="{{ old('religion') }}" >
-                                                </div>
+                                                <input type="text" name="education" class="form-control" placeholder="ပညာအရည်အချင်း">
+                                            </div>
+                                        </div> 
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                            <div class="col-md-8" id="edu">
+                                                <div class="row mb-3" id="edu0">
+                                                    <div class="col-md-11" id="degree_edu">
+                                                        <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-1 text-center" id="add_div">
+                                                        <button type="button" class="btn btn-primary" id="add_btn" onclick="AddDAEdu()">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
@@ -416,9 +432,20 @@
                                         <div class="row mb-3" style="margin-left: 100px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်း ရဲစခန်းထောက်ခံစာ</label>
                                             <div class="col-md-9">
-                                                <div class="row">
-                                                    <input type="file" name="police_attach" class="form-control">
-                                                </div>
+                                                <input type="file" name="police_attach" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_142">
+                                                    <span class="form-check-sign"></span>
+                                                    <p class="fw-bolder">
+                                                        * ရုံးအမိန့်အမှတ် ၁၄၂ အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                    </p>
+                                                </label><br>
+                                                <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
                                             </div>
                                         </div>
 
@@ -458,57 +485,6 @@
 
 
     </div>
-
-    <!-- Modal 2 -->
-    <form method="post" class="needs-validation" action="javascript:createArticleGovRegister();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">Diploma in Accountancy Part One Application Form Fee -
-                                    ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="btn_cash" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now
-                                </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>
 
     <!-- JavaScript Section -->
     <script>
