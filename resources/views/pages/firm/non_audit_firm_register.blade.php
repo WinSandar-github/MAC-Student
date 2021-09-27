@@ -269,38 +269,34 @@
 									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
 									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
-
 								</div>
+
 								<div class="row mb-3">
 									<div class="col-md-12">
-										<div class="card">
-											<div class="card-body">
-												<table class="table branch_non_audit table-bordered input-table">
-													<thead>
-														<tr>
-															<th class="less-font-weight">Name</th>
-															<th class="less-font-weight">Address</th>
-															<th class="less-font-weight">Township</th>
-															<th class="less-font-weight">Post Code</th>
-															<th class="less-font-weight">City</th>
-															<th class="less-font-weight">State/Region</th>
-															<th class="less-font-weight">Telephone</th>
-															<th class="less-font-weight">Email</th>
-															<th class="less-font-weight">Website</th>
-															<th >
-																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowBranch("branch_non_audit")'>
-																	<i class="fa fa-plus"></i>
-																</button>
-															</th>
-														</tr>
-													<thead>
-													<tbody>
-														
+										<table class="table branch_non_audit table-bordered input-table">
+											<thead>
+												<tr>
+													<th class="less-font-weight text-center">Name</th>
+													<th class="less-font-weight text-center">Address</th>
+													<th class="less-font-weight text-center">Township</th>
+													<th class="less-font-weight text-center">Post Code</th>
+													<th class="less-font-weight text-center">City</th>
+													<th class="less-font-weight text-center">State/Region</th>
+													<th class="less-font-weight text-center">Telephone</th>
+													<th class="less-font-weight text-center">Email</th>
+													<th class="less-font-weight text-center">Website</th>
+													<th  class="less-font-weight text-center text-center"  >
+														<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranch("branch_non_audit")'>
+															<li class="fa fa-plus"></li>
+														</button>
+													</th>
+												</tr>
+											<thead>
+											<tbody>
 
-													</tbody>
-												</table>
-											</div>
-										</div>
+
+											</tbody>
+										</table>
 									</div>
 								</div>
 
@@ -317,12 +313,13 @@
 												<table id="myTable" class="table non_partner table-bordered input-table">
 													<thead>
 														<tr>
-															<th class="less-font-weight" rowspan="2">Sr</th>
-															<th class="less-font-weight" rowspan="2">Name</th>
-															<th class="less-font-weight" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
-															<th >
-																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowPartnerByNonAudit("non_partner")'>
-																	<i class="fa fa-plus"></i>
+															<th class="less-font-weight text-center" rowspan="2">Sr</th>
+															<th class="less-font-weight text-center" rowspan="2">Name</th>
+															<th class="less-font-weight text-center" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
+
+															<th  class="less-font-weight text-center"  >
+																<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerByNonAudit("non_partner")'>
+																	<li class="fa fa-plus"></li>
 																</button>
 															</th>
 														</tr>
@@ -335,8 +332,11 @@
 															<td>
 																<input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" >
 															</td>
-															<td>
-																<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowPartnerByNonAudit("non_partner")'><i class="fa fa-trash"></i></button>
+
+															<td class="text-center">
+																	<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowPartnerByNonAudit("non_partner")'>
+																		<li class="fa fa-times"></li>
+																	</button>
 															</td>
 														</tr>
 													</tbody>
@@ -358,14 +358,14 @@
 												<table id="myTable" class="table non_director table-bordered">
 													<thead>
 														<tr>
-															<th class="less-font-weight">Sr</th>
-															<th class="less-font-weight">Name</th>
-															<th class="less-font-weight">Position</th>
-															<th class="less-font-weight" >Passport / CSC No.</th>
+															<th class="less-font-weight text-center">Sr</th>
+															<th class="less-font-weight text-center">Name</th>
+															<th class="less-font-weight text-center">Position</th>
+															<th class="less-font-weight text-center" >Passport / CSC No.</th>
 															<!-- <th class="less-font-weight" >CSC No.</th> -->
-															<th >
-																<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowDirectorByNonAudit("non_director")'>
-																	<i class="fa fa-plus"></i>
+															<th  class="less-font-weight text-center">
+																<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorByNonAudit("non_director")'>
+																	<li class="fa fa-plus"></li>
 																</button>
 															</th>
 														</tr>
@@ -381,8 +381,11 @@
 
 															</td>
 															<!-- <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td> -->
-															<td>
-																<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorByNonAudit("non_director")'><i class="fa fa-trash"></i></button>
+
+															<td class="text-center">
+																	<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorByNonAudit("non_director")'>
+																		<li class="fa fa-times"></li>
+																	</button>
 															</td>
 														</tr>
 													</tbody>
@@ -395,7 +398,7 @@
 								<div class="row mb-3">
 									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Organization Structure') }}</label>
-									<label class="col-md-4 col-form-label" id="org_validate" style="display: none;color:#ef815;">Please Select Organization Structure </label>
+									<label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="org_stru_id">Please select one</label>
 								</div>
 								{{--<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -1123,8 +1126,10 @@
 
 													</tbody>
 													<tfoot id="tbl_type_service_foot">
-														<tr style='display:none' id='tr_other'>
-															<td style="width:1000px;"><input type="text" class="form-control" name="other" id="other"></td>
+														<tr id='tr_other'>
+															<td style="width:1000px;">
+																<input type="text" class="form-control" name="other" id="other">
+															</td>
 														</tr>
 													</tfoot>
 
@@ -1178,17 +1183,17 @@
 													<table id="myTable" class="table director_cpa_initial table-bordered">
 														<thead>
 															<tr>
-																<th class="less-font-weight" rowspan="2">Sr</th>
-																<th class="less-font-weight" rowspan="2">Name</th>
-																<th class="less-font-weight" rowspan="2">Position</th>
-																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
-																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
-																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-																<th class="less-font-weight" style="text-align: right;">
-																	<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
-																		<i class="fa fa-plus"></i>
-																	</button>
+																<th class="less-font-weight text-center" rowspan="2">Sr</th>
+																<th class="less-font-weight text-center" rowspan="2">Name</th>
+																<th class="less-font-weight text-center" rowspan="2">Position</th>
+																<th class="less-font-weight text-center" rowspan="2">CPA(Passed Reg.No)</th>
+																<th class="less-font-weight text-center" rowspan="2">CPA (Full-Fledged) Reg.No</th>
+																<th class="less-font-weight text-center" rowspan="2">Public Practice Reg.No</th>
 
+																<th  class="less-font-weight text-center">
+																	<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
+																		<li class="fa fa-plus"></li>
+																	</button>
 																</th>
 															</tr>
 
@@ -1201,8 +1206,11 @@
 																<td><input type="text" value="" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"></td>
 																<td><input type="text" value="" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"></td>
 																<td><input type="text" value="" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"></td>
-																<td>
-																	<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorCPA("director_cpa_initial")'><i class="fa fa-trash"></i></button>
+
+																<td class="text-center">
+																		<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorCPA("director_cpa_initial")'>
+																			<li class="fa fa-times"></li>
+																		</button>
 																</td>
 															</tr>
 														</tbody>
@@ -1215,30 +1223,34 @@
 
 								<!-- Declaration  -->
 								<div class="row">
-									<label class="col-md-1 col-form-label" id="label2"></label>
-									<label class="col-md-1 col-form-label" id="label3" style="display:none" ></label>
-									<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
-									<label class="col-form-label" style="display:contents;font-weight:bold;">{{ __('I') }}</label>
+										<label class="col-md-1 col-form-label">{{ __('') }}</label>
+										<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
+								</div>
+
+								<div class="row">
+									<label class="col-md-1 col-form-label">{{ __('') }}</label>
+
 									<div class="col-md-4">
-										<div class="form-group">
-												<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" >
-										</div>
+											<div class="form-group" style="display:flex;">
+													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
+													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" >
+											</div>
 									</div>
 									<div class="col-md-4" style="font-weight:bold;">
-										<div class="form-group">
-												(managing director)
-										</div>
+											<div class="form-group">
+															(sole proprietor/ managing partner)
+											</div>
 									</div>
 								</div>
 
 								<div class="row  mb-3">
-									<label class="col-md-3 col-form-label">{{ __('') }}</label>
-									<div class="col-md-9" style="font-weight:bold;">
-										<div class="form-group">
-										representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
-										I am fully responsible for the application and updates of the firm particulars.
+										<label class="col-md-1 col-form-label">{{ __('') }}</label>
+										<div class="col-md-9" style="font-weight:bold;">
+												<div class="form-group">
+													representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+													I am fully responsible for the application and updates of the firm particulars.
+												</div>
 										</div>
-									</div>
 								</div>
 
 								<div class="row">
@@ -1331,86 +1343,10 @@
 
 $(document).ready(function(){
 	$("#non-audit-form").submit(function( event ) {
-		// organization_structure radio button required validation
-		if($("input[name='org_stru_id']:checked").length == 0){
-			$('#org_validate').css('display','block');
-			$('#org_validate').css('color','#ef8157');
-		}
-		else{
-			$('#org_validate').css('display','none');
-		}
 
-		// Types Of Service Provided radio button required validation
-		if($("input[name='t_s_p_id']:checked").length == 0){
-			$('#type_service_validate').css('display','block');
-			$('#type_service_validate').css('color','#ef8157');
-			$(".type-service-card").css('border','1px solid ef8157');
-		}
-		else{
-			$('#type_service_validate').css('display','none');
-			$(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
-		}
-
-		$(".branch_non_audit input").each(function(index,row){
-			if($(row).val() == ''){
-				$(".branch_office_validate").css('display','block');
-				$(".branch_office_validate").css('color','#ef8157');
-				event.preventDefault();
-			}
-			else{
-				$(".branch_office_validate").css('display','none');
-			}
-		});
-
-		$(".non_partner input").each(function(index,row){
-			if($(row).val() == ''){
-				$(".non_partner_validate").css('display','block');
-				$(".non_partner_validate").css('color','#ef8157');
-				event.preventDefault();
-			}
-			else{
-				$(".non_partner_validate").css('display','none');
-			}
-		});
-
-		$(".non_director input").each(function(index,row){
-			if($(row).val() == ''){
-				$(".non_director_validate").css('display','block');
-				$(".non_director_validate").css('color','#ef8157');
-				event.preventDefault();
-			}
-			else{
-				$(".non_director_validate").css('display','none');
-			}
-		});
-
-		if($("#total_non_audit_staff").val() == 0){
-			$(".total_staff_validate").css('display','block');
-			$(".total_staff_validate").css('color','#ef8157');
-			event.preventDefault();
-		}
-		else{
-			$(".total_staff_validate").css('display','none');
-		}
-
-		var choose_firm_type = $("#choose_firm_type").val();
-		if(choose_firm_type == 2){
-			$(".director_cpa_initial input").each(function(index,row){
-				if($(row).val() == ''){
-					$(".director_staffmembers_validate").css('display','block');
-					$(".director_staffmembers_validate").css('color','#ef8157');
-					event.preventDefault();
-				}
-				else{
-					$(".director_staffmembers_validate").css('display','none');
-				}
-			});
-		}
 	});
 
-	// $("#choose_firm_type").change(function(){
-	// 	alert("change");
-	// });
+
 
 });
 

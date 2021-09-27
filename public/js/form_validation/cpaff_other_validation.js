@@ -41,11 +41,10 @@ $().ready(function (){
             phone : "required",
             contact_mail : "required",
             cpa_certificate : "required",
-            cpa_certificate_back : "required",
             mpa_mem_card : "required",
+            mpa_mem_card_back : "required",
             cpd_record : "required",
             total_hours : "required",
-            passport_image : "required",
             three_years_full : "required",
             letter : "required",
         },
@@ -80,11 +79,10 @@ $().ready(function (){
             phone : "Please enter your phone number",
             contact_mail : "Please enter your contact mail",
             cpa_certificate : "Please upload CPA certificate(front)",
-            cpa_certificate_back : "Please upload CPA certificate(back)",
-            mpa_mem_card : "Please upload MPA member card",
+            mpa_mem_card : "Please upload MPA member card(front)",
+            mpa_mem_card_back : "Please upload MPA member card(back)",
             cpd_record : "Please upload CPD record",
             total_hours : "Please enter total ours",
-            passport_image : "Please upload passport image",
             three_years_full : "Please upload 3years full form",
             letter : "Please enter your letter",
 
@@ -146,12 +144,13 @@ function createCpaffOtherRegister(){
     var foreign_degree  =   $('input[name="foreign_degree[]"]');
 
     var cpa_certificate =   $("input[name=cpa_certificate]")[0].files[0];
-    var cpa_certificate_back =   $("input[name=cpa_certificate_back]")[0].files[0];
+    // var cpa_certificate_back =   $("input[name=cpa_certificate_back]")[0].files[0];
     var mpa_mem_card    =   $("input[name=mpa_mem_card]")[0].files[0];
+    var mpa_mem_card_back    =   $("input[name=mpa_mem_card_back]")[0].files[0];
     var nrc_front       =   $("input[name=nrc_front]")[0].files[0];
     var nrc_back        =   $("input[name=nrc_back]")[0].files[0];
     var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
-    var passport_image  =   $("input[name=passport_image]")[0].files[0];
+    // var passport_image  =   $("input[name=passport_image]")[0].files[0];
     var three_years_full  =   $("input[name=three_years_full]")[0].files[0];
     var letter  =   $("input[name=letter]")[0].files[0];
 
@@ -220,11 +219,12 @@ function createCpaffOtherRegister(){
 
     send_data.append('cpa_certificate', cpa_certificate);
     send_data.append('mpa_mem_card', mpa_mem_card);
+    send_data.append('mpa_mem_card_back', mpa_mem_card_back);
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
-    send_data.append('mpa_mem_card', mpa_mem_card);
+    
     send_data.append('cpd_record', cpd_record);
-    send_data.append('passport_image', passport_image);
+    // send_data.append('passport_image', passport_image);
     send_data.append('three_years_full', three_years_full);
     send_data.append('letter', letter);
 
@@ -234,7 +234,6 @@ function createCpaffOtherRegister(){
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('form_type', 1);
-    send_data.append('cpa_certificate_back', cpa_certificate_back);
     
     send_data.append('name_mm', $("input[name=name_mm]").val());
     send_data.append('name_eng', $("input[name=name_eng]").val());

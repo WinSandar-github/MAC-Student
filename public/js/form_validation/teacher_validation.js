@@ -88,8 +88,23 @@ if($("#teacher_register_form").validate({
             required :"Please enter school name"
         },
     },
-    
+    submitHandler: function(form) {
+        function allFilled(form) {
+            var filled = true;
+            $(form+' input').each(function() {
+              if($(this).attr('name')=="diplomas[]" && $(this).val() == '')
+              {  filled = false;  }
+              if($(this).attr('name')=="certificates[]" && $(this).val() == '')
+              {  filled = false;  }
+              
+            });
+            return filled;
+            
+        }
+        
+        
+    }
 })){
-    loadTeacherSubmit();
+    
 }
 });
