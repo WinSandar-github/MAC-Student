@@ -849,7 +849,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="col-md-8">
                                                         <input type="text" name="personal_no_private" class="form-control personal_no_private"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private" required>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
@@ -1195,7 +1195,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="personal_no_mac" class="form-control personal_no_mac"
-                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required>
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac">
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">

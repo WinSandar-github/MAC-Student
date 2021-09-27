@@ -72,7 +72,7 @@
                                     <div class="row mb-5">
                                       <div class="d-flex justify-content-between">
                                           <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                          <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
+                                          <h6>အမှတ်စဥ် - <span name="da_batch_no" id="da_batch_no"></span></h6>
                                       </div>
                                     </div>
                                     <div class="row">
@@ -500,11 +500,9 @@
 
         get_student_info(student_id).then(data => {
             if(data){
-                // console.log("Data Register Form",data.data)
                 let current_stu_course = data.data.student_course_regs.slice(-1);
 
                 let current_stu_reg=data.data.student_register.slice(-1);
-                     console.log(current_stu_reg[0]?.module,"current_stu_course")
 
                     if(current_stu_reg[0].module=="1"){
                          $("#0").prop("checked", true);
@@ -515,7 +513,9 @@
                     else if(current_stu_reg[0].module=="3"){
                         $("#2").prop("checked", true);
                     }
+                    console.log(current_stu_course[0].batch.number);
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
+                $("#da_batch_no").append(current_stu_course[0].batch.number);
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
                 $("input[name='nrc_state_region']").val(data.data.nrc_state_region);
@@ -528,7 +528,7 @@
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
 
-                $("input[name='personal_no']").val(data.data.student_register[0].personal_no);
+                $("input[name='personal_no']").val(data.data.personal_no);
 
                 if(data.data.student_register[0].type == 0){
                     $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
