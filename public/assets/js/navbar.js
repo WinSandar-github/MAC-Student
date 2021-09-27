@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
     // var dataTemplate = _.template($("#nav-template").html());

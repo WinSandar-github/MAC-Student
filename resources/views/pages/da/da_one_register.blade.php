@@ -74,6 +74,8 @@
 
             <div class="comment-form study">
                 <input type="hidden" name="form_type" id="form_type">
+                <input type="hidden" name="remain_module" id="remain_module">
+
                 <div class="form-wrapper">
                     <div class="">
                         <!-- <div class="row">
@@ -113,7 +115,7 @@
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
-                                            <h6>အမှတ်စဥ် - {{ __('Batch One') }}</h6>
+                                            <h6 >အမှတ်စဥ် - <span id="batch_name">{{ __('Batch One') }}</span></h6>
                                             <h6>ပညာသင်နှစ် - {{ date('Y') }}</h6>
                                         </div>
                                     </div>
@@ -441,7 +443,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_mac" id="personal_no_mac"
-                                                           class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
+                                                           class="form-control personal_no" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -449,23 +451,23 @@
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -834,7 +836,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
 
                                                 <div class="col-md-8">
-                                                    <input type="text" name="personal_no_private" class="form-control"
+                                                    <input type="text" name="personal_no_private" class="form-control personal_no"
                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="">
 
                                                 </div>
@@ -844,15 +846,15 @@
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
-                                                                   name="is_full_module" value="1" required>
+                                                            <input class="form-check-input module_one" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required disabled>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
@@ -860,7 +862,7 @@
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -1343,23 +1345,23 @@
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -1403,7 +1405,7 @@
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်">
+                                                    <input type="text" name="personal_no_self" class="form-control _no" placeholder="ကိုယ်ပိုင်အမှတ်">
                                                 </div>
                                             </div>
 
@@ -1668,13 +1670,62 @@
 
             get_student_info(student_id).then(data => {
                 if (data) {
+                    console.log(data)
                     let current_stu_course = data.data.student_course_regs.slice(-1);
+                    let last_exam = data.data.exam_registers.slice(-1);
+                    
+
+                    
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    if(last_exam[0].grade == 1){
+                        let batch_id = localStorage.getItem('batch_id');
+                        $.ajax({
+                        type: "get",
+                        url: BACKEND_URL+"/batch/"+batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                            $('#batch_name').text(res.data.name);
+                            
+                            $('.batch_no').val(res.data.number);
+                            $('.personal_no').val(data.data.personal_no);
+                            $('#remain_module').val(last_exam[0].is_full_module)
+
+                            if(last_exam[0].is_full_module == "1"){
+                                alert("full module")
+                                $(".module_two").prop("checked", true);
+                              
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+ 
+                            }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                                $(':radio:not(:checked)').attr('disabled', true);
+                                 
+                            }
+
+                            
+                           
+
+                            }
+                        })   
+                        
+                        
+                    }else{
+                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    }
+                     
                     
                     document.getElementById('previewImgSelf').src = BASE_URL + data.data.image;
                     document.getElementById('previewImgPrivate').src = BASE_URL + data.data.image;
@@ -1716,14 +1767,15 @@
                 }
             });
         });
-
+ 
         loadCourse();
-
-        loadExam();
-
-        reg_feedback();
+         
+        // loadExam();
+         reg_feedback();
+ 
 
         loadSchoolList();
+ 
 
         $("input[name='date']").flatpickr({
             enableTime: false,

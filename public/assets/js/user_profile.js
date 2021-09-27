@@ -59,12 +59,11 @@ function user_profile() {
                 } else {
                     $('.status_history').append('School Registration is Rejected.');
                 }
-            } else if (data.teacher)
-            {
-                
-                 $('.title').text('Teacher Information')
-                 $('.teacher').show();
-                 $('.cpaff_other').hide();
+            } else if (data.teacher) {
+
+                $('.title').text('Teacher Information')
+                $('.teacher').show();
+                $('.cpaff_other').hide();
                 let teacher = data.teacher;
                 localStorage.setItem("teacher_id", teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
@@ -329,6 +328,8 @@ function user_profile() {
                         // }else{
                         //     $('#exam_date').text("မရှိသေးပါ")
                         // }
+
+                        //show course histroy
                         if (last_exam[0]) {
 
                             if (last_exam[0].exam_type_id !== 3) {
@@ -411,6 +412,8 @@ function user_profile() {
                             let status_course;
 
                             $('.course').html(course_html)
+
+
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 $('.status').append(`
                                 <tr>
@@ -467,10 +470,17 @@ function user_profile() {
                                             <td>Approve</td>
                                         </tr>
                                         `);
+                                        var module = [];
+                                        exam_register.filter(exam => {
+                                            if (exam.course.id == latest_course_reg[0].batch.course.id) {
+                                                module.push(exam.is_full_module)
+                                            }
+                                        })
+
 
                                         if (last_exam[0] &&
                                             (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
-                                            (last_exam[0].exam_type_id !== 3)
+                                            (last_exam[0].exam_type_id !== 3) && (containsAll([1, 2], module) || last_exam[0].is_full_module == 3)
                                         ) {
                                             if (last_exam[0].status == 0) {
                                                 $('.status').append(`
@@ -483,9 +493,16 @@ function user_profile() {
                                                                 `);
 
                                             } else if (last_exam[0].status == 1) {
-                                                // $('.status').append(`<p>Your Exam Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>   `)
-
+                                                $('.status').append(`
+                                                <tr>
+                                                    <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                    <td>${formatDate(last_exam[0].created_at)}</td>
+                                                    <td>${formatDate(last_exam[0].updated_at)}</td>
+                                                    <td>Approve</td>
+                                                </tr>
+                                                `);
                                                 if (last_exam[0].grade == 1) {
+
                                                     $('.regi_fee_txt').text('Application Form Fees')
                                                     $('#batch_name').text('-');
                                                     $('#course_name').text('-');
@@ -495,7 +512,7 @@ function user_profile() {
                                                     // $('.status').append(`<p>You have been pass ${last_exam[0].course.name} </p>`)
                                                     $('.status').append(`
                                                         <tr>
-                                                            <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                            <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                             <td>${formatDate(last_exam[0].created_at)}</td>
                                                             <td>${formatDate(last_exam[0].updated_at)}</td>
                                                             <td>Pass</td>
@@ -504,111 +521,193 @@ function user_profile() {
 
                                                     let course_code;
                                                     let form_url;
-                                                    let show_text;
-                                                    switch (last_exam[0].course.code) {
-                                                        case 'da_1':
-                                                            course_code = "da_2",
-                                                                form_url = '/da_two_register/',
-                                                                show_text = "Registration Form"
-
-                                                            break;
-                                                        case 'da_2':
-                                                            course_code = "cpa_1",
-                                                                form_url = '/cpa_one_form/',
-                                                                show_text = "Application form"
-                                                            break;
-                                                        case 'cpa_1':
-                                                            course_code = "cpa_2",
-                                                                form_url = '/cpa_two_register/',
-                                                                show_text = "Registration Form"
-
-                                                            break;
-                                                        case 'cpa_2':
-                                                            course_code = "Membership"
-                                                            // form_url = "/cpa_ff_register"
-                                                            form_url = "/cpa_ff_information"
-                                                            break;
-                                                        default:
-                                                            course_code = "da_1",
-                                                                form_url = '/da_one_form/'
-
-                                                            break;
-
-                                                    }
-                                                    localStorage.setItem('exam_grade', last_exam[0].grade)
+                                                    let show_text; ""
+                                                    //Check moudule for next course
+                                                    if (last_exam[0].is_full_module != 3 || containsAll([1, 2], module)) {
 
 
-                                                    get_course_by_code(course_code).then(data => {
+                                                        switch (last_exam[0].course.code) {
+                                                            case 'da_1':
+                                                                course_code = "da_2",
+                                                                    form_url = '/da_two_register/',
+                                                                    show_text = "Registration Form"
+
+                                                                break;
+                                                            case 'da_2':
+                                                                course_code = "cpa_1",
+                                                                    form_url = '/cpa_one_form/',
+                                                                    show_text = "Application form"
+                                                                break;
+                                                            case 'cpa_1':
+                                                                course_code = "cpa_2",
+                                                                    form_url = '/cpa_two_register/',
+                                                                    show_text = "Registration Form"
+
+                                                                break;
+                                                            case 'cpa_2':
+                                                                course_code = "Membership"
+                                                                // form_url = "/cpa_ff_register"
+                                                                form_url = "/cpa_ff_information"
+                                                                break;
+                                                            default:
+                                                                course_code = "da_1",
+                                                                    form_url = '/da_one_form/'
+
+                                                                break;
+
+                                                        }
+                                                        localStorage.setItem('exam_grade', last_exam[0].grade)
+
+
+                                                        get_course_by_code(course_code).then(data => {
 
 
 
-                                                        // let batch = data.data[0].active_batch[0];
+                                                            // let batch = data.data[0].active_batch[0];
 
 
-                                                        if (Object.keys(data.data).length === 0) {
+                                                            if (Object.keys(data.data).length === 0) {
 
 
-                                                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr>`);
+                                                                $('.status').append(`< tr > <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr > `);
 
 
-                                                            // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
+                                                                // $('.status').append(`< tr > <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr > `);
 
 
-                                                        } else {
-                                                            if (data) {
+                                                            } else {
+                                                                if (data) {
 
 
-                                                                $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)
+                                                                    $('#registration_fee').text(data.data[0].active_batch[0].course.form_fee)
 
 
-                                                                let batch = data.data[0].active_batch[0];
+                                                                    let batch = data.data[0].active_batch[0];
 
 
-                                                                if (batch != undefined) {
+                                                                    if (batch != undefined) {
 
-                                                                    localStorage.setItem('course_id', batch.course.id);
-                                                                    if (last_exam[0].course.code == "da_1" || last_exam[0].course.code == "cpa_1") {
-                                                                        let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
-                                                                        let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
+                                                                        localStorage.setItem('course_id', batch.course.id);
+                                                                        if (last_exam[0].course.code == "da_1" || last_exam[0].course.code == "cpa_1") {
+                                                                            let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
+                                                                            let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
 
-                                                                        $('.status').append(`
-                                                                        <tr><td colspan=2></td><td>Action</td>
-                                                                                <td>
-    
-    
-                                                                                
-                                                                                    <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
-                                                                                
-                                                                                
-                                                                                <td>
-                                                                            </td>
-                                                                        </tr>
-    
-                                                                    `);
+                                                                            $('.status').append(`
+                                                                                <tr> <td colspan=2 ></td ><td>Action</td>
+                                                                                    <td>
+        
+        
+                                                                                    
+                                                                                        <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
+                                                                                    
+                                                                                    
+                                                                                    <td>
+                                                                                </td>
+                                                                            </tr>
+        
+                                                                        `);
+                                                                        } else {
+
+                                                                            $('.status').append(`< tr > <td colspan=2 ></td ><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr > `);
+                                                                        }
+
+
                                                                     } else {
-
-                                                                        $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href='${FRONTEND_URL}${form_url}${batch.id}' class="btn btn-sm btn-success" > ${data.data[0].name} ${show_text}</a></td></tr>`);
+                                                                        $('.status').append(`< tr > <td colspan=2 ></td ><td>Action</td><td></td><a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")"> Course</a></td></tr>`);
                                                                     }
 
 
-                                                                } else {
-                                                                    $('.status').append(`<tr><td colspan=2></td><td>Action</td><td></td><a href='javascript:void(0)' onclick='alert("The class is not currently ‌available")"> Course</a></td></tr>`);
+                                                                }
+                                                            }
+                                                        })
+                                                    } else {
+                                                        get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
+
+                                                            var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
+
+                                                            if (next_batch !== null) {
+
+
+                                                                $('.regi_fee_txt').text('Mac Registration Date')
+                                                                $('.self_study').show();
+                                                                $('.private_school').show();
+                                                                $('#registration_date').append(
+                                                                    formatDate(next_batch[0].mac_reg_start_date) + " to <br>" +
+                                                                    formatDate(next_batch[0].mac_reg_end_date)
+                                                                );
+                                                                $('#selfstudy_date').append(
+                                                                    formatDate(next_batch[0].self_reg_start_date) + " to <br>" +
+                                                                    formatDate(next_batch[0].self_reg_end_date)
+                                                                );
+                                                                $('#pschool_date').append(
+                                                                    formatDate(next_batch[0].private_reg_start_date) + " to <br>" +
+                                                                    formatDate(next_batch[0].private_reg_end_date)
+                                                                );
+                                                                $('#batch_name').text(next_batch[0].name);
+                                                                $('#course_name').text('-');
+                                                                $('#exam_date').text('-');
+
+
+                                                                switch (next_batch[0].course.code) {
+                                                                    case 'da_1':
+                                                                        register_url = '/da_one_register';
+                                                                        break;
+                                                                    case 'da_2':
+                                                                        register_url = '/da_two_register';
+                                                                        break;
+                                                                    case 'cpa_1':
+                                                                        register_url = '/cpa_one_register';
+                                                                        break;
+                                                                    case 'cpa_2':
+                                                                        register_url = '/cpa_two_register';
+                                                                        break;
+                                                                    default:
+                                                                        register_url = '/da_one_register';
+                                                                        break;
+
+
                                                                 }
 
+                                                                localStorage.setItem('course_id', next_batch[0].course.id);
+                                                                localStorage.setItem('batch_id', next_batch[0].id);
+
+                                                                let action_url;
+
+                                                                let study_type = next_batch[0].type === 0 ? 1 : next_batch[0].type === 1 ? 2 : 3;
+
+                                                                let study_name = next_batch[0].type === 0 ? "Selfstudy" : next_batch[0].type === 1 ? "Private School" : "Mac";
+
+                                                                $('.status').append(`
+                                                                    <tr><td colspan=2></td><td>Action</td>
+                                                                        <td>       
+                                                                            <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
+                                                                        <td>
+                                                                    </td>
+                                                                    </tr>
+                                                                `);
+                                                            } else {
+                                                                $('.status').append(`
+                                                                <tr><td colspan=2></td><td>Action</td>
+                                                                    <td>       
+                                                                        <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
+                                                                    <td>
+                                                                </td>
+                                                                </tr>`)
 
                                                             }
-                                                        }
-                                                    })
 
+                                                        })
+
+                                                    }
                                                 } else {
                                                     $('.status').append(`
-                                                    <tr>
-                                                        <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
+                                                                    < tr >
+                                                        <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                         <td>${formatDate(last_exam[0].created_at)}</td>
                                                         <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                        <td>Approve</td>
-                                                    </tr>
-                                                    `);
+                                                        <td>Fail</td>
+                                                    </tr >
+                                                                    `);
 
                                                 }
 
@@ -620,11 +719,20 @@ function user_profile() {
                                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                                     <td>${formatDate(last_exam[0].updated_at)}</td>
                                                     <td>Reject</td>
-                                                </tr>
-                                                `);
+                                                </tr >
+                                                                    `);
 
                                             }
                                         } else {
+                                            $('.status').append(`
+                                            <tr>
+                                                <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
+                                                <td>${formatDate(latest_stu_reg[0].created_at)}</td>
+                                                <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
+                                                <td>Approve</td>
+                                            </tr>
+                                            `);
+
 
                                             var date = new Date();
                                             var current_month = date.getMonth();
@@ -658,22 +766,25 @@ function user_profile() {
                                                         break;
 
                                                 }
+
                                                 localStorage.setItem('course_id', latest_course_reg[0].batch.course.id);
-                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td>
+                                                $('.status').append(`<tr> <td colspan=2 ></td><td>Action</td>
                                                     <td>
                                                         <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
                                                     </td>
                                                 </tr>
-    
+
                                                 `);
 
                                             } else {
-                                                $('.status').append(`<tr><td colspan=2></td><td>Action</td>
+                                                $('.status').append(`
+                                                <tr> 
+                                                <td colspan=2 ></td ><td>Action</td>
                                                     <td>
                                                     <p>The exam schedule will be announced soon</p>
                                                     </td>
-                                                    </tr>
-                                                    `);
+                                                </tr>
+                                                `);
                                             }
 
 
@@ -686,8 +797,8 @@ function user_profile() {
                                             <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                             <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
                                             <td>Reject</td>
-                                        </tr>
-                                        `);
+                                        </tr >
+                                                                    `);
                                     }
 
                                 } else {
@@ -721,24 +832,24 @@ function user_profile() {
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
 
                                     $('.status').append(`
-                                        <tr><td colspan=2></td><td>Action</td>
+                                                                    < tr > <td colspan=2 ></td ><td>Action</td>
                                             <td>       
                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration</a>
                                             <td>
                                         </td>
                                         </tr>
-                                    `);
+                                                                `);
                                 }
 
                             } else {
-                                status_course = (`
-                                <tr>
+                                $('.status').append(`
+                                                                    < tr >
                                     <td>${latest_course_reg[0].batch.course.name}</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
                                     <td>Reject</td>
-                                </tr>
-                                `);
+                                </tr >
+                                                                    `);
                                 // $('.status').append('Your Application Form is Reject')
                             }
                         }
@@ -754,7 +865,7 @@ function user_profile() {
                     if (i < student_reg_length && current_class.qt_entry == 0) {
 
 
-                        // $('.status_history').append(`<h6 class=" text-center"">${current_class.batch.course.name}</h6><hr>`);
+                        // $('.status_history').append(`< h6 class=" text-center"">${current_class.batch.course.name}</h6><hr>`);
                         if (current_class.approve_reject_status == 0) {
                             $('.status_history').append(`<tr>
                                 <td>${current_class.batch.course.name} Application Form</td>
@@ -1049,4 +1160,12 @@ $('#changePwd').submit(function (e) {
         });
     }
 })
+
+
+function containsAll(needles, haystack) {
+    for (var i = 0; i < needles.length; i++) {
+        if ($.inArray(needles[i], haystack) == -1) return false;
+    }
+    return true;
+}
 

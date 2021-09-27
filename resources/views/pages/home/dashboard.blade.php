@@ -286,7 +286,7 @@
                             <div class="row mt-3 ">
                                 <div class="col-md-4">
                                     <h5 class="text-center border-bottom pb-2" style="font-weight:bold; background-color:#E7F8EE;">
-                                    Course Histroy
+                                    Course History
                                     </h5>
                                     <div class="row">
                                         <table class="table table-border">
