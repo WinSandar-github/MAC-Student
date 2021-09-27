@@ -146,7 +146,8 @@ function check_email() {
         // $('#exampleModal1').modal('hide');
         // $('#exampleModal').modal('show');
     } else {
-        $('#exampleModal1').modal('show');
+        // $('#exampleModal1').modal('show');
+        createDARegister();
         $('#exampleModal').modal('hide');
     }
 }

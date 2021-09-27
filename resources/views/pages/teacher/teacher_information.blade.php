@@ -580,7 +580,7 @@
                                                             <input type="hidden" id="hrecommend_letter">
                                                             <input type="hidden" id="student_info_id">
                                                             <input type="hidden" id="teacher_id">
-                                                            
+                                                            <input type="hidden" id="hschool_name">
                                                             
                                                     </div>
                                                     
@@ -738,6 +738,7 @@
         });
         loadSubject(2,"selected_cpa_subject");
         loadSubject(1,"selected_da_subject");
+        loadSchoolList();
     })
     //app_form_feedback();
 
