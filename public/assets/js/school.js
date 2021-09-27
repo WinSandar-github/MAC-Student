@@ -155,7 +155,7 @@ function getCourses(){
       success:function(response){
            var opt;
           $.each(response.data,function(i,v){
-              opt += `<option value=${v.id}  >${v.name}</option>`;
+              opt += `<option value=${v.id}  >${v.code.toUpperCase().replace("_", " ")}</option>`;
           })
           $(".multiple-attend-course").append(opt);
           //$(".attend_course").siblings(".nice-select").css('display','none');
