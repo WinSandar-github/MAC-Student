@@ -117,12 +117,12 @@ function loadNonAuditTypeOfService(){
       type_service_provided.forEach(function(element){
         if(element.audit_firm_type_id==1){
           var radio_data="<div class='col-md-2'>"+
-          "<input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
+          "<input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" >"+
           " <label class='form-check-label'>"+element.name+"</label>";
           $('.type_service_provided').append(radio_data);
         }else{
           var tr = "<tr>";
-          tr += "<td><input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" onclick='validateRequired()'>"+
+          tr += "<td><input type='checkbox' name='t_s_p_id' value="+element.id+" id=type_service"+element.id+" >"+
                 " <label class='form-check-label'>"+element.name+"</label>";
           tr += "</tr>";
           $('#tbl_type_service_body').append(tr);
@@ -134,20 +134,15 @@ function loadNonAuditTypeOfService(){
   });
 }
 
-
-
-function validateRequired(){
-    var radioValue = $("input[name='t_s_p_id']:checked").val();
-    if(radioValue==8){
-      $("#tr_other").css('display','block');
-    }
-
-    $("#type_service_validate").css('display','none');
-    $(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
-}
-
-
-
+// function validateRequired(){
+//     var radioValue = $("input[name='t_s_p_id']:checked").val();
+//     if(radioValue==8){
+//       $("#tr_other").css('display','block');
+//     }
+//
+//     $("#type_service_validate").css('display','none');
+//     $(".type-service-card").css('border','1px solid rgba(0,0,0,.125)');
+// }
 
 function createNonAuditFirm(){
   if($("input[name=password]").val()!=$("input[name=confirm_password]").val())
@@ -155,7 +150,6 @@ function createNonAuditFirm(){
       alert("Your password and confirm password do not match!");
       return;
   }
-
 
   var send_data=new FormData();
   // send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
@@ -174,7 +168,14 @@ function createNonAuditFirm(){
   send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
-  send_data.append('other',$('input[name=other]').val());
+  var checked_other = $('#type_service8').prop('checked');
+  if(checked_other == true){
+    send_data.append('other',$('input[name=other]').val());
+  }
+  else{
+    send_data.append('other','');
+  }
+  //send_data.append('other',$('input[name=other]').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
   send_data.append('email',$("input[name=email]").val());
