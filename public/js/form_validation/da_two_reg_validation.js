@@ -17,7 +17,8 @@ $().ready(function (){
             is_full_module:"Please select one.",
         },
         submitHandler: function(form) {
-            $('#exampleModal3').modal('show');
+            // $('#exampleModal3').modal('show');
+            createDaTwoSelfStudy();
         }
     });
 
@@ -40,7 +41,8 @@ $().ready(function (){
             is_full_module:"Please select one.",
         },
         submitHandler: function(form) {
-            $('#exampleModal2').modal('show');
+            // $('#exampleModal2').modal('show');
+            createDaTwoPrivateSchool();
         }
     });
 
@@ -60,7 +62,8 @@ $().ready(function (){
             is_full_module:"Please select one.",
         },
         submitHandler: function(form) {
-            $('#exampleModal1').modal('show');
+            // $('#exampleModal1').modal('show');
+            createDaTwoMac();
         }
     });
 });

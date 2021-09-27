@@ -106,5 +106,5 @@
 </div>
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/payment.js') }}"></script>
+<script src="{{ asset('assets/js/payment.js') }}"></script>
 @endpush

@@ -472,7 +472,7 @@ $nrc_characters = config('myanmarnrc.characters');
     </div>
 
     <!-- Modal -->
-     <form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data"
+     {{--<form method="post" class="needs-validation" action="javascript:createDAExamRegister();" enctype="multipart/form-data"
            novalidate>
          @csrf
          <div class="modal fade" id="da2examModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -518,7 +518,7 @@ $nrc_characters = config('myanmarnrc.characters');
                  </div>
              </div>
          </div>
-     </form>
+     </form>--}}
 
 
     <!-- JavaScript Section -->

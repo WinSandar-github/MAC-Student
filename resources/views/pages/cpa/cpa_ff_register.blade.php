@@ -380,7 +380,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card"  >
+                                                <input type="file"  class="form-control" name="mpa_mem_card" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -388,7 +388,7 @@
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back"  >
+                                                <input type="file"  class="form-control" name="mpa_mem_card_back"  accept="image/*">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -598,7 +598,7 @@
 
     $("input[name='cpa2_pass_date']").flatpickr({
             enableTime: false,
-            dateFormat: "M-Y",
+            dateFormat: "Y",
             allowInput: true,
     });
     $(document).on('keydown', '#father_name_mm', function () {
