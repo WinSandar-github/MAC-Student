@@ -38,6 +38,8 @@ $().ready(function (){
             labor_registration_attach : "required",
             recommend_attach : "required",
             police_attach : "required",
+            confirm_142 : "required",
+            mentor_declare : "required",
         },
         messages:{
             name_mm : "Please enter your name",
@@ -73,6 +75,7 @@ $().ready(function (){
             labor_registration_attach : "Please upload your attachment",
             recommend_attach : "Please upload your attachment",
             police_attach : "Please upload your attachment",
+            confirm_142 : "Please check one",
         },
         
     });

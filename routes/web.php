@@ -162,8 +162,10 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 
 
 //Payment Page
-Route::get('payment', 'PaymentController@payment');
-Route::get('cash', 'PaymentController@cash');
-Route::get('da_verify_email', 'PaymentController@verifyEmail');
+// Route::get('payment', 'PaymentController@payment');
+// Route::get('cash', 'PaymentController@cash');
+// Route::get('da_verify_email', 'PaymentController@verifyEmail');
+Route::get('payment_method', 'PaymentController@paymentMethod');
+Route::get('/setPayment', 'PaymentController@setPayment');
 
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
