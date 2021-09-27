@@ -160,8 +160,8 @@
                     </div>
                     <hr id="article_hr" style="display:none;">
                     <div id="gov_article_row" style="display:none;">
-                        <a href="{{url('article_gov_registration')}}" class="btn btn-md btn-success article_btn">Government</a>
-                        <!-- <button class="btn btn-success btn-hover-dark article_btn" id="articel_gov_btn">Government</button> -->
+                        <!-- <a href="{{url('article_gov_registration')}}" class="btn btn-md btn-success article_btn" id="articel_gov_btn">Government</a> -->
+                        <button class="btn btn-success btn-hover-dark article_btn" id="articel_gov_btn">Government</button>
                     </div>
                     
                 </div>
@@ -202,20 +202,45 @@
                 get_student_info(student_id).then(data => {
                     let student_info = data.data
                     let student_reg = data.data.student_register
+                    let article = data.data.article;
                     let lastest_row = student_reg.length - 1;
                     let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
                     let exam_result = student_reg[lastest_row].status;  // pass/fail
                     let module = student_reg[lastest_row].module;  // module 1/2/all
                     let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-                    
-                    if(type == 0 || type == 1){
-                        $("#gov_article_row").hide();
-                        $("#article_hr").hide();
-                    }else{
-                        $("#gov_article_row").show();
-                        $("#article_hr").show();
+                    var get_year = 0;
+
+                    for(var i=0; i<article.length; i++){
+                        get_year += article[i].article_form_type;
                     }
-                    $('#articleModal').modal('toggle');
+
+                    if(get_year == 1){
+                        $("#article_year3").prop('disabled', true);
+                    }else if(get_year == 2){
+                        $("#article_year2").prop('disabled', true);
+                        $("#article_year3").prop('disabled', true);
+                    }else if(get_year == 3){
+                        $("#article_year1").prop('disabled', true);
+                        $("#article_year2").prop('disabled', true);
+                        $("#article_year3").prop('disabled', true);
+                        $('#articel_firm_btn').prop('disabled', true);
+                        $('#articel_gov_btn').prop('disabled', true);
+
+                    }
+
+                    if(course == "cpa_1" || course == "cpa_2"){
+                        if(type == 0 || type == 1){
+                            $("#gov_article_row").hide();
+                            $("#article_hr").hide();
+                        }else{
+                            $("#gov_article_row").show();
+                            $("#article_hr").show();
+                        }
+                        $('#articleModal').modal('toggle');
+                    }else{
+                        alert("You aren't cpa student.");
+                        $("#register_btn").prop('disabled', true);
+                    }
                 });
             }
         });
@@ -229,6 +254,10 @@
             } else {
                 location.href = FRONTEND_URL + '/article_firm_registration?data=' + 3;
             }
+        });
+
+        $('#articel_gov_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_gov_registration';
         });
 
     })
