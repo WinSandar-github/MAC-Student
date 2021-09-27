@@ -17,7 +17,7 @@ $().ready(function (){
             phone_no : "required",
             h_email : "required",
             website : "required",
-            //org_stru_id : "required",
+            org_stru_id : "required",
             name_sole_proprietor : "required",
             //t_s_p_id : "required",
             declaration : "required",
@@ -41,7 +41,7 @@ $().ready(function (){
             phone_no : "Please enter phone number",
             h_email : "Please enter email",
             website : "Please enter website",
-            //org_stru_id : "Please select Organization Structure",
+            org_stru_id : "Please select Organization Structure",
             name_sole_proprietor : "Please enter Name Of Sole Proprietor/ Managing Partner",
             //t_s_p_id : "Please select Type of Service Provided",
             declaration : "Please enter declaration",
@@ -149,8 +149,8 @@ function validatePartners(){
   // validate Sole Proprietor/Partners/Shareholders table
   var tbl_partner = $('.non_partner tbody tr').length;
   if (tbl_partner == 0) {
-      $(".partner_list_validate").css('display', 'block');
-      $(".partner_list_validate").css('color','#ef8157');
+      $(".non_partner_validate").css('display', 'block');
+      $(".non_partner_validate").css('color','#ef8157');
       flag = false;
       //event.preventDefault();
   }
@@ -161,12 +161,12 @@ function validatePartners(){
       var fona_pass_csc_inco = $(row).find("input[name='fona_pass_csc_inco[]']").val();
 
       if(name != '' && fona_pass_csc_inco != ''){
-        $(".partner_list_validate").css('display','none');
+        $(".non_partner_validate").css('display','none');
         flag = true;
       }
       else{
-        $(".partner_list_validate").css('display','block');
-        $(".partner_list_validate").css('color','#ef8157');
+        $(".non_partner_validate").css('display','block');
+        $(".non_partner_validate").css('color','#ef8157');
         flag = false;
       }
 
@@ -190,8 +190,8 @@ function validateDirectorsOfficers(){
   // validate Directors Officers table
   var tbl_director = $('.non_director tbody tr').length;
   if (tbl_director == 0) {
-      $(".director_validate").css('display', 'block');
-      $(".director_validate").css('color','#ef8157');
+      $(".non_director_validate").css('display', 'block');
+      $(".non_director_validate").css('color','#ef8157');
       flag = false;
       //event.preventDefault();
   }
@@ -202,12 +202,12 @@ function validateDirectorsOfficers(){
       var passport = $(row).find("input[name='dona_passport[]']").val();
 
       if(name != '' && position != '' && passport != ''){
-        $(".director_validate").css('display','none');
+        $(".non_director_validate").css('display','none');
         flag = true;
       }
       else{
-        $(".director_validate").css('display','block');
-        $(".director_validate").css('color','#ef8157');
+        $(".non_director_validate").css('display','block');
+        $(".non_director_validate").css('color','#ef8157');
         flag = false;
       }
 
@@ -225,21 +225,6 @@ function validateDirectorsOfficers(){
   }
   return flag;
 }
-
-// function validateAuditStaff(){
-//   var flag;
-//   // validate Audit Staff
-//   if($("#total_audit").val() == 0 && $("#total_non_audit").val() == 0 && $("#total_staff").val()){
-//     $(".total_staff_validate").css('display','block');
-//     $(".total_staff_validate").css('color','#ef8157');
-//     flag = false;
-//   }
-//   else{
-//     $(".total_staff_validate").css('display','none');
-//     flag = true;
-//   }
-//   return flag;
-// }
 
 function validateTotalStaff(){
   var flag;

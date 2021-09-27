@@ -398,7 +398,7 @@
 								<div class="row mb-3">
 									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Organization Structure') }}</label>
-									<label class="col-md-4 col-form-label" id="org_validate" style="display: none;color:#ef815;">Please Select Organization Structure </label>
+									<label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="org_stru_id">Please select one</label>
 								</div>
 								{{--<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
@@ -1183,17 +1183,17 @@
 													<table id="myTable" class="table director_cpa_initial table-bordered">
 														<thead>
 															<tr>
-																<th class="less-font-weight" rowspan="2">Sr</th>
-																<th class="less-font-weight" rowspan="2">Name</th>
-																<th class="less-font-weight" rowspan="2">Position</th>
-																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
-																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
-																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
-																<th class="less-font-weight" style="text-align: right;">
-																	<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
-																		<i class="fa fa-plus"></i>
-																	</button>
+																<th class="less-font-weight text-center" rowspan="2">Sr</th>
+																<th class="less-font-weight text-center" rowspan="2">Name</th>
+																<th class="less-font-weight text-center" rowspan="2">Position</th>
+																<th class="less-font-weight text-center" rowspan="2">CPA(Passed Reg.No)</th>
+																<th class="less-font-weight text-center" rowspan="2">CPA (Full-Fledged) Reg.No</th>
+																<th class="less-font-weight text-center" rowspan="2">Public Practice Reg.No</th>
 
+																<th  class="less-font-weight text-center">
+																	<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
+																		<li class="fa fa-plus"></li>
+																	</button>
 																</th>
 															</tr>
 
@@ -1206,8 +1206,11 @@
 																<td><input type="text" value="" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"></td>
 																<td><input type="text" value="" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"></td>
 																<td><input type="text" value="" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"></td>
-																<td>
-																	<button class="delete btn btn-danger btn-sm" type="button" onclick='delRowDirectorCPA("director_cpa_initial")'><i class="fa fa-trash"></i></button>
+
+																<td class="text-center">
+																		<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorCPA("director_cpa_initial")'>
+																			<li class="fa fa-times"></li>
+																		</button>
 																</td>
 															</tr>
 														</tbody>
@@ -1343,7 +1346,7 @@ $(document).ready(function(){
 
 	});
 
-	
+
 
 });
 

@@ -72,11 +72,11 @@ $().ready(function (){
                 var audit_staff_validate_flag = validateAuditStaff();
                 var total_staff_validate_flag = validateTotalStaff();
 
-                console.log(branch_off_validate_flag);
-                console.log(partners_validate_flag);
-                console.log(directors_validate_flag);
-                console.log(audit_staff_validate_flag);
-                console.log(total_staff_validate_flag);
+                // console.log(branch_off_validate_flag);
+                // console.log(partners_validate_flag);
+                // console.log(directors_validate_flag);
+                // console.log(audit_staff_validate_flag);
+                // console.log(total_staff_validate_flag);
 
                 if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && audit_staff_validate_flag == true && total_staff_validate_flag == true){
                   $('#auditFirmModal').modal('show');
@@ -229,13 +229,13 @@ function validateDirectorsOfficers(){
 function validateAuditStaff(){
   var flag;
   // validate Audit Staff
-  if($("#total_audit").val() == 0 && $("#total_non_audit").val() == 0 && $("#total_staff").val()){
-    $(".total_staff_validate").css('display','block');
-    $(".total_staff_validate").css('color','#ef8157');
+  if($("#total_full_time").val() == 0 && $("#total_part_time").val() == 0 && $("#total_time").val()){
+    $(".audit_staff_validate").css('display','block');
+    $(".audit_staff_validate").css('color','#ef8157');
     flag = false;
   }
   else{
-    $(".total_staff_validate").css('display','none');
+    $(".audit_staff_validate").css('display','none');
     flag = true;
   }
   return flag;
@@ -243,7 +243,7 @@ function validateAuditStaff(){
 
 function validateTotalStaff(){
   var flag;
-  if($("#total_full_time").val() == 0 && $("#total_part_time").val() == 0 && $("#total_time").val()){
+  if($("#total_audit").val() == 0 && $("#total_non_audit").val() == 0 && $("#total_staff").val()){
     $(".total_staff_validate").css('display','block');
     $(".total_staff_validate").css('color','#ef8157');
     flag = false;

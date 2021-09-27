@@ -1,10 +1,10 @@
-var FRONTEND_URL = "http://localhost:8001";
-var BASE_URL = "http://localhost:8000";
-var BACKEND_URL = "http://localhost:8000/api";
+// var FRONTEND_URL = "http://localhost:8001";
+// var BASE_URL = "http://localhost:8000";
+// var BACKEND_URL = "http://localhost:8000/api";
 
-// var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -314,7 +314,7 @@ function addRowDirectorCPA(tbody) {
     cols += '<td><input type="text" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"/> </td>';
     cols += '<td><input type="text" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"/> </td>';
     cols += '<td><input type="text" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"/> </td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorCPA("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowDirectorCPA("'+tbody+'")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
