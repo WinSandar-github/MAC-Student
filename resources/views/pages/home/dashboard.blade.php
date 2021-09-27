@@ -499,11 +499,13 @@
                                             </div>
                                         </div>
                                         <div class="row m-2 mt-3 border-bottom period" style="display:none;" >
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">This certificate is valid for the period</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="period_time"></span>
+                                            <div class="row" >
+                                                <div class="col-md-6">
+                                                    <p class="ml-2" style="font-weight:bold">This certificate is valid for the period</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span id="period_time"></span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -519,8 +521,34 @@
                                   <div class="text-center status_history">
 
                                   </div>
+                                  
                             </div>
-
+                            <div class="row payment-btn" style="display:none;">
+                                <div class="col-md-6"></div>
+                                <div class="">
+                                    <div class="pull-right mt-4">
+                                        <p class="info-btn text-dark h6">
+                                                                                        
+                                            <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Go to payment</a>
+                                        </p>
+                                                                                    
+                                    </div>
+                                </div>
+                                                                            
+                            </div>
+                            <div class="row renew-btn" style="display:none;">
+                                <div class="col-md-6"></div>
+                                <div class="">
+                                    <div class="pull-right mt-4">
+                                        <p class="info-btn text-dark h6">
+                                                                                        
+                                            <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                        </p>
+                                                                                    
+                                    </div>
+                                </div>
+                                                                            
+                            </div>
                             
                         </div>
 

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset("assets/css/plugins/bootstrap/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap/bootstrap.min.css') }}">
 
     <!-- CSS-->
     <link rel="stylesheet" href="{{ asset('assets/css/cpa_ff.css') }}">
@@ -54,6 +54,8 @@
     <!-- dataTables -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dataTables/dataTables.bootstrap5.min.css') }}">
+
+   
     @stack('styles')
     <style>
 
@@ -137,7 +139,7 @@
 <script src="{{ asset('assets/js/plugins/video-playlist.js') }}"></script>
 <!-- <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script> -->
 <script src="{{ asset('assets/js/plugins/ajax-contact.js') }}"></script>
-<script src="{{ asset("assets/js/plugins/jasny-bootstrap.min.js")  }}"></script>
+<script src="{{ asset('assets/js/plugins/jasny-bootstrap.min.js')  }}"></script>
 <script src="{{ asset("js/underscore-min.js") }}"></script>
 
 <!-- flatpickr JS -->

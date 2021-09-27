@@ -168,7 +168,7 @@ function addRowSchEstablishPerson(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="text" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" name="establisher_name[]" class="form-control" placeholder="" id="establisher_name'+row+'" required></td>';
   cols += '<td><input type="text" name="establisher_nrc[]" class="form-control" placeholder="" id="establisher_nrc'+row+'" required></td>';
   cols += '<td><input type="text" name="establisher_cpa_papp_no[]" class="form-control" placeholder="" id="establisher_cpa_papp_no'+row+'" required></td>';
@@ -180,11 +180,11 @@ function addRowSchEstablishPerson(tbody){
   newRow.append(cols);
   $("table."+tbody).append(newRow);
   // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  // $("."+tbody+" tbody tr").each(function(index,row){
+  //   $(row).find("td:first-child input").val(index + 1);
+  //     $(row).find("td:first-child input").css('text-align','center');
+  //     $(row).find("td:first-child input").css('border','none');
+  // });
   counter++;
 }
 
@@ -206,7 +206,7 @@ function addRowSchGoverns(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="text" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" name="govern_name[]" class="form-control" placeholder="" id="govern_name'+row+'" required></td>';
   cols += '<td><input type="text" name="govern_nrc[]" class="form-control" placeholder="" id="govern_nrc'+row+'"></td>';
   cols += '<td><input type="text" name="govern_cpa_papp_no[]" class="form-control" placeholder="" id="govern_cpa_papp_no'+row+'" required></td>';
@@ -217,12 +217,7 @@ function addRowSchGoverns(tbody){
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRow("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
 }
 
@@ -231,7 +226,7 @@ function addRowMembershipBio(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="text" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" name="member_name[]" class="form-control" placeholder="" id="member_name'+row+'" required></td>';
   cols += '<td><input type="text" name="member_nrc[]" class="form-control" placeholder="" id="member_nrc'+row+'" required></td>';
   cols += '<td><input type="text" name="member_cpa_papp_no[]" class="form-control" placeholder="" id="member_cpa_papp_no'+row+'" required></td>';
@@ -242,12 +237,7 @@ function addRowMembershipBio(tbody){
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRow("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
 }
 var count=0;
@@ -256,7 +246,7 @@ function addRowTeacherBio(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="text" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" name="teacher_registration_no[]" class="form-control" id="teacher_registration_no'+count+'" placeholder="" onfocusout="loadTeacherById('+count+')" required/></td>';
   cols += '<td><input type="text" name="teacher_name[]" class="form-control"  placeholder="" id="teacher_name'+row+'" required></td>';
   cols += '<td><input type="text" name="teacher_nrc[]" class="form-control"  placeholder="" id="teacher_nrc'+row+'" required></td>';
@@ -269,12 +259,7 @@ function addRowTeacherBio(tbody){
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowTeacherBio("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   count++;
 }
 function delRowTeacherBio(tbody){
@@ -300,7 +285,7 @@ function loadSchoolList(){
             var school_data=data.data;
             school_data.forEach(function (element) {
                 var option = document.createElement('option');
-                option.text = element.name_mm+"/"+element.name_eng;
+                option.text = element.school_name;
                 option.value = element.id;
                 select.add(option,0);
                 
@@ -658,7 +643,7 @@ function addRowBranchSchool(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" class="form-control" name="branch_school_address[]" id="branch_school_address'+ row + '" autocomplete="off" required></td>';
   cols += '<td><input type="file" class="form-control" name="branch_school_attach[]"  accept="image/*" id="branch_school_attach'+ row + '" required></td>';
   cols += '<td>'+
@@ -682,12 +667,7 @@ function addRowBranchSchool(tbody){
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBranchSchool("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
  
 }
@@ -708,7 +688,7 @@ function addRowBuldingType(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" class="form-control" name="bulding_type[]" autocomplete="off" id="bulding_type'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="building_measurement[]" autocomplete="off" id="building_measurement'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="floor_numbers[]" autocomplete="off" id="floor_numbers'+row+'" required></td>';
@@ -716,12 +696,7 @@ function addRowBuldingType(tbody){
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBuldingType("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
  
 }
@@ -742,21 +717,16 @@ function addRowClassroom(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="number" class="form-control" name="classroom_number[]" autocomplete="off" id="classroom_number'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="classroom_measurement[]" autocomplete="off" id="classroom_measurement'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="student_num_limit[]" autocomplete="off" id="student_num_limit'+row+'" required></td>';
-  cols += '<td><input type="text" class="form-control" name="air_con[]" autocomplete="off" id="air_con'+row+'" required></td>';
+  cols += '<td><input type="number" class="form-control" name="air_con[]" autocomplete="off" id="air_con'+row+'" required></td>';
   cols += '<td><input type="file" class="form-control" name="classroom_attach[]"  accept="image/*" id="classroom_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowClassroom("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
  
 }
@@ -777,19 +747,14 @@ function addRowToiletType(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="text" class="form-control" name="toilet_type[]" autocomplete="off" id="toilet_type'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="toilet_number[]" autocomplete="off" id="toilet_number'+row+'" required></td>';
   cols += '<td><input type="file" class="form-control" name="toilet_attach[]" accept="image/*" id="toilet_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowToiletType("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
  
 }
@@ -812,19 +777,14 @@ function addRowManageRoomNumber(tbody){
   var newRow = $("<tr>");
   var cols = "";
   var row=$('.'+tbody+' tr').length;
-  cols += '<td><input type="number" class="form-control" value="" /></td>';
+  cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="number" class="form-control" name="manage_room_numbers[]" autocomplete="off" id="manage_room_numbers'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="manage_room_measurement[]" autocomplete="off" id="manage_room_measurement'+row+'" required/></td>';
   cols += '<td><input type="file" class="form-control" name="manage_room_attach[]"  accept="image/*" id="manage_room_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowManageRoomNumber("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
   $("table."+tbody).append(newRow);
-  // order numer to be serial
-  $("."+tbody+" tbody tr").each(function(index,row){
-    $(row).find("td:first-child input").val(index + 1);
-      $(row).find("td:first-child input").css('text-align','center');
-      $(row).find("td:first-child input").css('border','none');
-  });
+  
   counter++;
  
 }
@@ -840,12 +800,11 @@ $("table."+tbody).on("click", ".delete", function (event) {
       });
   });
 }
-function origanzationCheck(){
-  var checkbox = document.getElementById("school_type");
-  if (checkbox.checked == true) {
-      $('.origanzation').css('display','block');
-  } else {
-      $('.origanzation').css('display','none');
+function origanzationCheck(radio){
+  if (radio.value == "တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း") {
+    $('.origanzation').css('display','block');
+  }else {
+    $('.origanzation').css('display','none');
   }
 }
 function addInputFile(divname, diventry) {
@@ -915,8 +874,14 @@ function loadEductaionHistoryByTeacher(student_info_id,row){
           education.push(value.university_name)
           
         });
-        document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[4].children[0].value=education.join();
+        if(education.length!=0){
+          document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[4].children[0].value=education.join();
+          document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[4].children[0].readOnly = true;
+        }else{
+          document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[4].children[0].value="null";
         document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[4].children[0].readOnly = true;
+        }
+        
     }
   });
   
