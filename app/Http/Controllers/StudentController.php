@@ -26,7 +26,6 @@ class StudentController extends Controller
 
     public function course($course_type_id)
     {
-       
         $client = new \GuzzleHttp\Client();
         $res = json_decode($client->request('GET', Helper::$domain . '/publish_batch/' . $course_type_id)->getBody(), true);
         $res_requirement = json_decode($client->request('GET', Helper::$domain . '/get_requirement_id')->getBody(), true);

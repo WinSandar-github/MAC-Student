@@ -323,12 +323,13 @@ function createCPAFFRegister() {
     var foreign_degree = $('input[name="foreign_degree[]"]');
 
     var cpa_certificate = $("input[name=cpa_certificate]")[0].files[0];
-    var cpa_certificate_back = $("input[name=cpa_certificate_back]")[0].files[0];
+    // var cpa_certificate_back = $("input[name=cpa_certificate_back]")[0].files[0];
     var mpa_mem_card = $("input[name=mpa_mem_card]")[0].files[0];
+    var mpa_mem_card_back = $("input[name=mpa_mem_card_back]")[0].files[0];
     var nrc_front = $("input[name=nrc_front]")[0].files[0];
     var nrc_back = $("input[name=nrc_back]")[0].files[0];
     var cpd_record = $("input[name=cpd_record]")[0].files[0];
-    var passport_image = $("input[name=passport_image]")[0].files[0];
+    // var passport_image = $("input[name=passport_image]")[0].files[0];
     var three_years_full = $("input[name=three_years_full]")[0].files[0];
     var letter = $("input[name=letter]")[0].files[0];
 
@@ -400,8 +401,9 @@ function createCPAFFRegister() {
     send_data.append('nrc_front', nrc_front);
     send_data.append('nrc_back', nrc_back);
     send_data.append('mpa_mem_card', mpa_mem_card);
+    send_data.append('mpa_mem_card_back', mpa_mem_card_back);
     send_data.append('cpd_record', cpd_record);
-    send_data.append('passport_image', passport_image);
+    // send_data.append('passport_image', passport_image);
     send_data.append('three_years_full', three_years_full);
     send_data.append('letter', letter);
 
@@ -412,7 +414,7 @@ function createCPAFFRegister() {
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     // send_data.append('form_type', 1);
-    send_data.append('cpa_certificate_back', cpa_certificate_back);
+    // send_data.append('cpa_certificate_back', cpa_certificate_back);
 
     $.ajax({
         url: BACKEND_URL + "/cpa_ff",
@@ -707,7 +709,8 @@ function RenewCPAFF() {
                 // }
                 //if(!$("input[name=mpa_mem_card]")[0].files[0]){
                 // send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
-                // send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
+                send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
+                send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
                 //}
                 //if(!$("input[name=cpd_record]")[0].files[0]){
                 // send_data.append('cpd_record', $('#hidden_cpd_record').val());
@@ -715,7 +718,7 @@ function RenewCPAFF() {
                 //}
                 //if(!$("input[name=passport_image]")[0].files[0]){
                 // send_data.append('passport_image', $('#hidden_passport_image').val());
-                send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
+                // send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
                 //}
 
                 // var cpa_part_2      = document.getElementById("cpa_part_2_check");

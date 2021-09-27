@@ -77,7 +77,7 @@
             display: table;
             background-size: cover;
             background-position: center center;
-            box-shadow: 0 5px 8px rgba(black, 0.35);
+            box-shadow: 0 5px 8px rgba(255, 255, 255, 0.35);
 
         }
 
@@ -162,8 +162,8 @@
 
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
-<script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.js') }}"></script>
-<script src="{{ asset("vendor/jquery-validation/dist/additional-methods.min.js") }}"></script>
+<script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery-validation/dist/additional-methods.min.js') }}"></script>
 
 <!-- <script src="assets/js/plugins.min.js"></script> -->
 <script src="{{ asset('assets/js/navbar.js') }}"></script>

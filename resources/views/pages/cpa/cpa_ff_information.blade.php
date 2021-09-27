@@ -406,7 +406,7 @@
 
                         <div class="row">
                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpa2_pass_date" class="form-control" style="display: inline;width: 100px;"> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" class="form-control" style="display: inline;width: 100px;"> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpa2_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
                         </div><br/>
 
                         <div class="row">
@@ -416,16 +416,16 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;"> ၊ခုနှစ် <input type="text" name="degree_pass_year" class="form-control" style="display: inline;width: 100px;">)  (မိတ္တူတင်ပြရန်)</div>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" required=""> ၊ခုနှစ် <input type="text" name="degree_pass_year" class="form-control" style="display: inline;width: 100px;" required="">)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
-                                    <input type="file"  class="form-control" name="renew_file" style="width:90%;">
+                                    <input type="file"  class="form-control" name="renew_file" style="width:90%;" required="">
                                 </div>
                             </div><br/>
 
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                <div class="col-md-6 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;">
+                                <div class="col-md-6 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" required="">
                             </div><br/><br>
 
                             <div class="row">
@@ -443,22 +443,31 @@
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
                                 <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
                                 <div class="col-md-4">
-                                            <input type="file"  class="form-control" name="cpa_certificate">
+                                            <input type="file"  class="form-control" name="cpa_certificate" required="">
                                 </div>
                             </div><br/><br>
 
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
+                                <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                 <div class="col-md-4">
-                                            <input type="file"  class="form-control" name="mpa_mem_card" >
+                                            <input type="file"  class="form-control" name="mpa_mem_card" required="">
                                 </div>
-                            </div><br/>
+                            </div><br><br>
+                            <div class="row mb-3">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-1 col-form-label"></label>
+                                <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
+                                <div class="col-md-4">
+                                            <input type="file"  class="form-control" name="mpa_mem_card_back" required="">
+                                </div>
+                            </div>
 
-                            <div class="row">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-8">
+                            <div class="row mb-3">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
+                                <div class="col-md-10">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row">
@@ -497,10 +506,10 @@
 
                           <div class="row">
                               <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                              <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                               <div class="col-md-6 col-form-label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</div>
                               <div class="col-md-4">
-                                          <input type="file"  class="form-control" name="cpd_record">
+                                          <input type="file"  class="form-control" name="cpd_record" required="">
                               </div>
                           </div><br/>
 
@@ -509,19 +518,19 @@
                               <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
                               <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
                               <div class="col-md-4">
-                                  <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ">
+                                  <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" required="">
 
                               </div>
                           </div><br/><br>
 
-                          <div class="row">
+                          {{--<div class="row">
                               <div class="col-md-1"></div>
                               <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                               <div class="col-md-6 col-form-label">{{ __('ပတ်စပို့အရွယ်ဓာတ်ပုံ') }}</div>
                               <div class="col-md-4">
                                           <input type="file"  class="form-control" name="passport_image">
                               </div>
-                          </div><br/><br>
+                          </div><br/><br>--}}
 
                           <div class="row">
                               <div class="col-md-1"></div>
@@ -530,7 +539,7 @@
                               <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
                               <div class="col-md-4">
 
-                                          <input type="file"  class="form-control" name="letter" >
+                                          <input type="file"  class="form-control" name="letter" required="">
 
                               </div>
                           </div><br/><br>
@@ -592,7 +601,7 @@ $('#file').change(function(e) {
 })
         
         form_feedback();
-        loadDescription('CPA (Full Fluged)');
+        loadDescription('CPA (Full Fledged)');
         checkPaymentCpaff();
         loadCpaffData();
         loadCpaffInitialData();

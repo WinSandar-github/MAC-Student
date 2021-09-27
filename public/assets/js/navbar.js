@@ -5,7 +5,7 @@ $(document).ready(function () {
     //
     // $("#navbar").append(dataTemplate(student));
 
-   if (student) {
+    if (student) {
         var navbar = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>`;
 
         if (student.accountancy_firm_info_id != null) {
@@ -57,8 +57,17 @@ $(document).ready(function () {
                             <ul class="sub-menu">
                                 <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fledged</a></li>
                                 <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
+                                <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                                <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="${FRONTEND_URL}/mentor_information">Mentor</a>
+                        </li>
+                        <li>
+                            <a href="${FRONTEND_URL}/article_information">Article</a>
+                        </li>
+
                         <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
         }
     } else {
@@ -68,13 +77,7 @@ $(document).ready(function () {
                         <ul class="sub-menu course_type">
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">Firm</a>
-                        <ul class="sub-menu">
-                            <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
-                            <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
-                        </ul>
-                    </li>
+
                     <li>
                         <a href="#">Membership</a>
                         <ul class="sub-menu">
@@ -87,11 +90,18 @@ $(document).ready(function () {
 
                     <li><a href="${FRONTEND_URL}/mentor_information">Mentor</a></li>
                     <li><a href="${FRONTEND_URL}/article_information">Article</a></li>
+                    <li>
+                        <a href="#">Firm</a>
+                        <ul class="sub-menu">
+                            <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
+                            <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
+                        </ul>
+                    </li>
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }
     $('#navbar').append(navbar);
 
-     if (student) {
+    if (student) {
         var mnavbar = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>`;
 
         if (student.accountancy_firm_info_id != null) {
@@ -173,5 +183,5 @@ $(document).ready(function () {
                     <li><a href="${FRONTEND_URL}/article_information">Article</a></li>
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }
-     $('#mnavbar').append(mnavbar);
+    $('#mnavbar').append(mnavbar);
 });
