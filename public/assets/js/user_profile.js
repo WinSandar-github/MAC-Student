@@ -59,12 +59,10 @@ function user_profile() {
                 } else {
                     $('.status_history').append('School Registration is Rejected.');
                 }
-            } else if (data.teacher)
-            {
-                
-                 $('.title').text('Teacher Information')
-                 $('.teacher').show();
-                 $('.cpaff_other').hide();
+            } else if (data.teacher){
+                $('.title').text('Teacher Information')
+                $('.teacher').show();
+                $('.cpaff_other').hide();
                 let teacher = data.teacher;
                 localStorage.setItem("teacher_id", teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
@@ -90,10 +88,7 @@ function user_profile() {
                 }
 
 
-            }
-
-
-            else if (data.cpa_ff && data.student_course_regs == '') {
+            } else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged Information')
                 $('.cpaff_other').show();
                 let cpaff = data.cpa_ff;
@@ -138,8 +133,7 @@ function user_profile() {
                 }
 
 
-            }
-            else if (data.mentor) {
+            } else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
@@ -412,12 +406,22 @@ function user_profile() {
 
                             $('.course').html(course_html)
                             if (latest_course_reg[0].approve_reject_status == 0) {
+                                // $('.status').append(`
+                                // <tr>
+                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                //     <td>-</td>
+                                //     <td class="badge badge-inf">Checking</td>
+                                // </tr>
+                                // `);
                                 $('.status').append(`
                                 <tr>
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td>Checking</td>
+                                    <td>
+                                        <a href="/payment_method/${data.id}" class="btn btn-info">Payment</a>
+                                    </td>
                                 </tr>
                                 `);
 

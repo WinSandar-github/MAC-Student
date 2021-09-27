@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\CustomClass\Helper;
 
 class PaymentController extends Controller
 {
@@ -21,8 +22,17 @@ class PaymentController extends Controller
     //     return view('pages.da.da_verify_email');
     // }
 
-    public function paymentMethod()
+    public function paymentMethod($id)
     {
+        // pay form type => application / register form / exam form / ...
+        // id
+
+        // $client = new \GuzzleHttp\Client();
+        // $student_info = json_decode($client->request('GET', Helper::$domain .'/user_profile/' . $id)->getBody(),true);
+
+        // $data = array();
+        // $data['name'] = $student_info->data
+
         return view('pages.payment.payment_method');
     }
 
