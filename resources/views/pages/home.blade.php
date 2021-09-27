@@ -20,8 +20,6 @@
             if (student_id != null) {
                 user_profile();
             }
-
-            
             $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",

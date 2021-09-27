@@ -59,12 +59,10 @@ function user_profile() {
                 } else {
                     $('.status_history').append('School Registration is Rejected.');
                 }
-            } else if (data.teacher)
-            {
-                
-                 $('.title').text('Teacher Information')
-                 $('.teacher').show();
-                 $('.cpaff_other').hide();
+            } else if (data.teacher){
+                $('.title').text('Teacher Information')
+                $('.teacher').show();
+                $('.cpaff_other').hide();
                 let teacher = data.teacher;
                 localStorage.setItem("teacher_id", teacher.id);
                 $('#teacher_name_mm').text(teacher.name_mm);
@@ -93,10 +91,7 @@ function user_profile() {
                 }
 
 
-            }
-
-
-            else if (data.cpa_ff && data.student_course_regs == '') {
+            } else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged Information')
                 $('.cpaff_other').show();
                 let cpaff = data.cpa_ff;
@@ -141,8 +136,7 @@ function user_profile() {
                 }
 
 
-            }
-            else if (data.mentor) {
+            } else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
                 let mentor = data.mentor;
@@ -204,7 +198,7 @@ function user_profile() {
                     if (cpaff.status == 0) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>-</td>
                             <td><span class="badge bg-info text-dark">Checking</span></td>
@@ -214,7 +208,7 @@ function user_profile() {
                     } else if (cpaff.status == 1) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span></td>
@@ -237,7 +231,7 @@ function user_profile() {
                     } else {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Flaged </td>
+                            <td>CPA Full Fledged </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
@@ -415,12 +409,22 @@ function user_profile() {
 
                             $('.course').html(course_html)
                             if (latest_course_reg[0].approve_reject_status == 0) {
+                                // $('.status').append(`
+                                // <tr>
+                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                //     <td>-</td>
+                                //     <td class="badge badge-inf">Checking</td>
+                                // </tr>
+                                // `);
                                 $('.status').append(`
                                 <tr>
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td>Checking</td>
+                                    <td>
+                                        <a href="/payment_method/${data.id}" class="btn btn-info">Payment</a>
+                                    </td>
                                 </tr>
                                 `);
 
@@ -716,31 +720,22 @@ function user_profile() {
 
                                     }
                                     localStorage.setItem('course_id', latest_course_reg[0].batch.course.id);
+
                                     let action_url;
 
-
                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
+
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
-
-
 
                                     $('.status').append(`
                                         <tr><td colspan=2></td><td>Action</td>
-                                            <td>
-    
-    
-                                           
+                                            <td>       
                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration</a>
-                                               
-                                            
                                             <td>
                                         </td>
                                         </tr>
-    
                                     `);
-
                                 }
-
 
                             } else {
                                 status_course = (`
@@ -754,10 +749,6 @@ function user_profile() {
                                 // $('.status').append('Your Application Form is Reject')
                             }
                         }
-
-
-
-
                     }
                 }
 

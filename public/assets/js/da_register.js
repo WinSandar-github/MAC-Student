@@ -16,7 +16,7 @@ function AddDAEdu() {
         '<input type="file"  class="form-control"  id="certificate' + count + '"  name="certificate[]" required="">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
-        '<button class="btn btn-danger" id="myLink" onclick="remove(edu' + count + ')">' +
+        '<button class="btn btn-danger" id="myLink" style="padding-left:5px;"  onclick="remove(edu' + count + ')">' +
         '<i class="fa fa-trash "></i>' +
         '</button>' +
         '</div>' +
@@ -282,6 +282,7 @@ function createDaTwoSelfStudy()
     send_data.append('batch_no_self', $("input[id='batch_no_self']").val());
     send_data.append('part_no_self', $("input[id='part_no_self']").val());
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
+    send_data.append('academic_year', $("#self_academic_year").val());
     send_data.append('type', 0);
     $('input[name="reg_reason[]"]:checked').map(function (key, val) {
         send_data.append('reg_reason[]', val.value);
@@ -333,7 +334,7 @@ function createDaTwoPrivateSchool()
     send_data.append('personal_no_private', $("input[id='personal_no_private']").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('private_school_name', $("#selected_school_id").val());
-    send_data.append('academic_year', $("input[id='academic_year']").val());
+    send_data.append('academic_year', $("#academic_year").val());
     send_data.append('type', 1);
     send_data.append('form_type', $("input[name='form_type']").val());
     if ($("input[name='form_type']").val() == "da two") {
@@ -375,7 +376,6 @@ $("#submit_btn_mac").click(function () {
 
 function createDaTwoMac()
 {
-
     localStorage.setItem("isPrivateSchool", false);
     var send_data = new FormData();
     send_data.append('student_id', student_id);
@@ -385,7 +385,7 @@ function createDaTwoMac()
     send_data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
     send_data.append('form_type', $("input[name='form_type']").val());
-    send_data.append('mac_semester', $("input[name='mac_semester']").val());
+    send_data.append('academic_year', $("#mac_academic_year").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     show_loader();
     $.ajax({

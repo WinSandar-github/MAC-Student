@@ -92,7 +92,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">Submit</button>
                                                 </div> 
                                             </div>
                                             
