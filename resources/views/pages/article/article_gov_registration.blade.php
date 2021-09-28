@@ -120,8 +120,8 @@
                                                 </div>--}}
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                                    <div class="col-md-9">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
+                                                    <div class="col-md-8">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" id="name_mm" class="form-control" value="{{ old('name_mm') }}" >
@@ -134,15 +134,15 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>မွေးသက္ကရာဇ်</label>
-                                                    <div class="col-md-9">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>မွေးသက္ကရာဇ်<span style="color:red">*</span></label>
+                                                    <div class="col-md-8">
                                                         <input type="text" name="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" value="{{ old('date_of_birth') }}">
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ</label>
-                                                    <div class="col-md-9">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လူမျိုး/ကိုးကွယ်သည့်ဘာသာ<span style="color:red">*</span></label>
+                                                    <div class="col-md-8">
                                                         <div class="row">
                                                         <div class="col-md-6">
                                                             <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control" value="{{ old('race') }}" >
@@ -177,7 +177,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="education" class="form-control" placeholder="ပညာအရည်အချင်း">
                                             </div>
@@ -185,7 +185,7 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
-                                            <div class="col-md-8" id="edu">
+                                            <div class="col-md-9" id="edu">
                                                 <div class="row mb-3" id="edu0">
                                                     <div class="col-md-11" id="degree_edu">
                                                         <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
@@ -202,7 +202,7 @@
                                         
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၅။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                     <div class="col-md-2 col-5 pr-1">
@@ -293,14 +293,14 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>အလုပ်သမားမှတ်ပုံတင်အမှတ်</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>အလုပ်သမားမှတ်ပုံတင်အမှတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="အလုပ်သမားမှတ်ပုံတင်အမှတ်" name="labor_registration_no" id="labor_registration_no" class="form-control" >
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                 <div class="col-md-6">
@@ -314,7 +314,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>အဘ၏အလုပ်အကိုင်နှင့်နေရပ်လိပ်စာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>အဘ၏အလုပ်အကိုင်နှင့်နေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                 <div class="col-md-6">
@@ -328,7 +328,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>အိမ်ထောင် ရှိ/မရှိ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>အိမ်ထောင် ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div class="form-check">
                                                     <div class="row">
@@ -363,42 +363,42 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>ဇာတိမြို့နယ်</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>ဇာတိမြို့နယ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="home_address" class="form-control" placeholder="ဇာတိမြို့နယ်">
                                             </div>
                                         </div>
                                             
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ကြီးပြင်းရာမြို့နယ်</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ကြီးပြင်းရာမြို့နယ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="current_address" class="form-control" placeholder="ကြီးပြင်းရာမြို့နယ်">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>နေရပ်လိပ်စာ(အပြည့်အစုံ)</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>နေရပ်လိပ်စာ(အပြည့်အစုံ)<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <textarea name="address" class="form-control" placeholder="နေရပ်လိပ်စာ" rows="3" style="resize:none;"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>ခေတ္တ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>ခေတ္တ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="tempory_address" class="form-control" placeholder="ခေတ္တ">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>အမြဲတမ်း</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>အမြဲတမ်း<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="permanent_address" class="form-control" placeholder="အမြဲတမ်း">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>ဖုန်းနံပါတ်/e-mail</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>ဖုန်းနံပါတ်/e-mail<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -412,7 +412,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>အောက်ပါများ(မူရင်းအတိုင်း)ပူးတွဲတင်ပြပါသည်။</label>
+                                            <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>အောက်ပါများ(မူရင်းအတိုင်း)ပူးတွဲတင်ပြပါသည်။<span style="color:red">*</span></label>
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
@@ -442,7 +442,7 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * ရုံးအမိန့်အမှတ် ၁၄၂ အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၄၂) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>

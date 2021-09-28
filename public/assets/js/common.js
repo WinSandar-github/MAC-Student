@@ -1,5 +1,5 @@
 // var FRONTEND_URL = "http://localhost:8001";
-// var BASE_URL = "http://localhost:8000";
+// var BASE_URL = "http://localhost:8000";     
 // var BACKEND_URL = "http://localhost:8000/api";
 
 var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
@@ -105,8 +105,6 @@ function addRowSubject(tbody) {
         $(".certificate").hide();
     }
 }
-// function addRowDipSubject(tbody) {
-
 
 function addRowDipSubject(tbody){
     var newRow = $("<tr>");

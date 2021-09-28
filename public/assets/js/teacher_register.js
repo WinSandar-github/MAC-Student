@@ -14,7 +14,7 @@ function addRowEducation(tbody){
     var newRow = $("<tr>");
     var cols = "";
     var row=$('.'+tbody+' tr').length;
-    cols += '<td><input type="text" class="form-control" value="" /></td>';
+    cols += '<td class="text-center"><input type="number" class="form-control" value="" /></td>';
     cols += '<td><input type="text" name="degrees[]" class="form-control" id="degrees'+row+'" autocomplete="off" required></td>';
     cols += '<td><input type="file" name="degrees_certificates[]" class="form-control" id="degrees_certificates'+row+'" required></td>';
     cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("'+tbody+'")><li class="fa fa-times"></li></button></td>';
@@ -102,43 +102,38 @@ function delRowSubject(tbody){
         });
     });
 }
-
-
-function loadTeacherSubmit(){
-    $( "#teacher_submit" ).click(function() {
+$( "#teacher_submit" ).click(function() {
     
-        //if(allFill('#teacher_register_form')){
-            var send_data = new FormData();
-            send_data.append('email',$("input[name='email']").val());
-            send_data.append('nrc_state_region',$("#nrc_state_region").val());
-            send_data.append('nrc_township',$("#nrc_township").val());
-            send_data.append('nrc_citizen',$("#nrc_citizen").val());
-            send_data.append('nrc_number',$("#nrc_number").val());
-            
-            $.ajax({
-                url: BACKEND_URL+"/unique_email",
-                type: 'post',
-                data:send_data,
-                contentType: false,
-                processData: false,
-                success: function(result){
-                    if(result.email!=null){
-                        Swal.fire("Email has been used, please check again!");
-                    }
-                    else if(result.nrc!=null){
-                        Swal.fire("NRC has been used, please check again!");
-                    }
-                    else if(result.email==null && result.nrc==null){                    
-                        $('#teacherModal').modal('show');
-                        send_email();                   
-                    }
+        var send_data = new FormData();
+        send_data.append('email',$("input[name='email']").val());
+        send_data.append('nrc_state_region',$("#nrc_state_region").val());
+        send_data.append('nrc_township',$("#nrc_township").val());
+        send_data.append('nrc_citizen',$("#nrc_citizen").val());
+        send_data.append('nrc_number',$("#nrc_number").val());
+        
+        $.ajax({
+            url: BACKEND_URL+"/unique_email",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                if(result.email!=null){
+                    Swal.fire("Email has been used, please check again!");
                 }
-            });
-            // $('#teacherModal').modal('show');
-            // send_email();
-        //}
-    });
-}
+                else if(result.nrc!=null){
+                    Swal.fire("NRC has been used, please check again!");
+                }
+                else if(result.email==null && result.nrc==null){                    
+                    $('#teacherModal').modal('show');
+                    send_email();                   
+                }
+            }
+        });
+        
+});
+
+
 // teacher
 $("#teacher_modal").click(function() {
     $('#teacherpaymentModal').modal('show');
@@ -327,11 +322,19 @@ function loadRenewTeacher(){
                               $('#hidden_profile').val(teacher.image);
                               $('#hidden_nrc_front').val(teacher.nrc_front);
                               $('#hidden_nrc_back').val(teacher.nrc_back);
+                              $('#hschool_name').val(teacher.school_name);
                               $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                               $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
                               loadEductaionHistory(teacher.student_info.id);
-                              loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
-                              loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
+                                if(teacher.certificates.search(/[\'"[\]']+/g)==0){
+                                    loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
+                                    loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
+                                
+                                }else{
+                                    loadCertificates(teacher.certificates,"selected_cpa_subject");
+                                    loadCertificates(teacher.diplomas,"selected_da_subject");
+                                }
+                              
                             
                             $("input[name=race]").val(teacher.race);
                             $("input[name=religion]").val(teacher.religion);
@@ -415,7 +418,7 @@ function renewTeacher(){
   }
   var id=$('#teacher_id').val();
   send_data.append('student_info_id', $('#student_info_id').val());
-
+  send_data.append('school_name', $('#hschool_name').val());
   send_data.append('_method', 'PATCH');
   show_loader();
     $.ajax({
@@ -449,23 +452,7 @@ function ConfirmSubmitTeacher(){
         $('.submit_btn').prop("disabled",true);
     }
 }
-function loadSubject(course_id,select){
-    var select = document.getElementById(select);
-    $.ajax({
-        type : 'GET',
-        url : BACKEND_URL+"/getSubject/"+course_id,
-        success: function (result) {
-            $.each(result.data, function( index, value ){
-                var option = document.createElement('option');
-                option.text = value.subject_name;
-                option.value = value.subject_name;
-                select.add(option,0);
-            });
-        },
-        error: function (result) {
-        },
-    });
-}
+
 function selectSchoolType(value){
     if(value==1){
         $('.private_type').css('display','block');
@@ -494,10 +481,50 @@ function loadEductaionHistory(student_info_id){
 }
 function loadCertificates(name,select){
     var name=name.split(',');
-    $.each(name, function( index, item ){
-        var $newOption = $("<option selected='selected'></option>").val(item).text(item);
-        $("#"+select).append($newOption).trigger('change');
+    
+    $.each(name, function( index, id ){
+        $.ajax({
+            url : BACKEND_URL+"/getSubject",
+            data: 'subject_id='+id,
+            type: 'post',
+            success: function (result) {
+                $.each(result.data, function( index, value ){
+                    $.each(value, function(key, val){
+                        var $newOption = $("<option selected='selected'></option>").val(val.subject_id).text(val.subject_name);
+                        $("#"+select).append($newOption).trigger('change');
+                    })
+                });
+            },
+            error: function (result) {
+            },
+        });
+        
        
     })
+    
+}
+
+
+function loadSubject(course_id,select){
+    
+    $.ajax({
+        url : BACKEND_URL+"/getSubject",
+        data: 'course_id='+course_id,
+        type: 'post',
+        success: function (result) {
+            $.each(result.data, function( index, value ){
+                var group = $(`<optgroup label="${index.toUpperCase().replace("_", " ")}"/>`);
+                
+                $.each(value, function(key, val){
+                    
+                    $('<option />').attr('value', val.subject_id).html(val.subject_name).appendTo(group);
+                });
+                group.appendTo($('#'+select));
+                
+            });
+        },
+        error: function (result) {
+        },
+    });
     
 }
