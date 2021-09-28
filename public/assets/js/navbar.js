@@ -34,11 +34,14 @@ $(document).ready(function () {
                             </ul>
                         </li>
                         <li>
-                            <a href="${FRONTEND_URL}/school_information">School</a>
-                        </li>
-                        <li>
-                            <a href="${FRONTEND_URL}/teacher_information">Teacher</a>
-                        </li>
+                            <a href="#">Membership</a>
+                            <ul class="sub-menu">
+                                <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fledged</a></li>
+                                <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
+                                <li><a href="${FRONTEND_URL}/school_information">School</a></li>
+                                <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
+                            </ul>
+                        </li>                       
                         <li>
                             <a href="${FRONTEND_URL}/mentor_information">Mentor</a>
                         </li>
@@ -51,22 +54,7 @@ $(document).ready(function () {
                               <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
                               <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#">Membership</a>
-                            <ul class="sub-menu">
-                                <li><a href="${FRONTEND_URL}/cpa_ff_information">CPA Full Fledged</a></li>
-                                <li><a href="${FRONTEND_URL}/student_papp_information">PAPP</a></li>
-                                <li><a href="${FRONTEND_URL}/school_information">School</a></li>
-                                <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="${FRONTEND_URL}/mentor_information">Mentor</a>
-                        </li>
-                        <li>
-                            <a href="${FRONTEND_URL}/article_information">Article</a>
-                        </li>
+                        </li>                       
 
                         <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
         }
