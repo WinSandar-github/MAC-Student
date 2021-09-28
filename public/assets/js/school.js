@@ -838,22 +838,20 @@ function loadTeacherById(row){
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].value=value.nrc_state_region+'/'+value.nrc_township+'/'+value.nrc_number;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].readOnly = true;
           loadEductaionHistoryByTeacher(value.student_info.id,row);
-          if(value.certificates.search(/[\'"[\]']+/g)==0){
-            var newcertificates=loadCertificates(value.certificates.replace(/[\'"[\]']+/g, ''));
-            var newdiplomas=loadCertificates(value.diplomas.replace(/[\'"[\]']+/g, ''));
-            subject.push(newcertificates);
-            subject.push(newdiplomas);
-            document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].value=subject.join();
-            document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].readOnly = true;
-          }else{
-            var certificates = value.certificates.split(',');
-            var diplomas = value.diplomas.split(',');
-            subject.push(certificates);
-            subject.push(diplomas);
-            document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].value=subject.join();
-            document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].readOnly = true;
-          }
           
+          if(value.certificates.search(/[\'"[\]']+/g)==0){
+            loadCertificates(value.certificates.replace(/[\'"[\]']+/g, ''),row);
+            
+          }else{
+            loadCertificates(value.certificates,row);
+            
+          }
+          if(value.diplomas.search(/[\'"[\]']+/g)==0){
+            loadCertificates(value.diplomas.replace(/[\'"[\]']+/g, ''),row);
+           
+          }else{
+            loadCertificates(value.diplomas,row);
+          }
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[6].children[0].value=value.phone;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[6].children[0].readOnly = true;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[7].children[0].value=value.email;
@@ -865,6 +863,7 @@ function loadTeacherById(row){
 }
 function loadEductaionHistoryByTeacher(student_info_id,row){
   var education=[];
+  
   $.ajax({
     type : 'GET',
     url : BACKEND_URL+"/getEducationHistory/"+student_info_id,
@@ -886,8 +885,29 @@ function loadEductaionHistoryByTeacher(student_info_id,row){
   });
   
 }
-function loadCertificates(name){
+function loadCertificates(name,row){
   var name=name.split(',');
-  return name;
-  
+  //return name;
+  var subject=[];
+ 
+  $.each(name, function( index, id ){
+    $.ajax({
+        url : BACKEND_URL+"/getSubject",
+        data: 'subject_id='+id,
+        type: 'post',
+        success: function (result) {
+            $.each(result.data, function( index, value ){
+                   
+                        $.each(value, function(key, val){
+                          subject.push(index.toUpperCase().replace("_", " ")+":"+val.subject_name);
+                          document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].value=subject.join();
+                          document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].readOnly = true;
+                        });
+                        
+            });
+        },
+        error: function (result) {
+        },
+    });
+});
 }
