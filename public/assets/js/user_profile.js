@@ -12,6 +12,7 @@ function user_profile() {
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
+                $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
