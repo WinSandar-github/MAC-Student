@@ -422,7 +422,7 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td class="badge badge-inf">Checking</td>
+                                    <td>Checking</td>
                                 </tr>
                                 `);
                                 // $('.status').append(`
