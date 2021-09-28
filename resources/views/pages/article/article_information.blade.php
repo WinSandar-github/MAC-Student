@@ -204,7 +204,7 @@
                     let student_reg = data.data.student_register
                     let article = data.data.article;
                     let lastest_row = student_reg.length - 1;
-                    let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+                    let course = student_reg[lastest_row]?.course?.code;  // cpa1/cpa2
                     let exam_result = student_reg[lastest_row].status;  // pass/fail
                     let module = student_reg[lastest_row].module;  // module 1/2/all
                     let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
