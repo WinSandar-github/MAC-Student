@@ -417,24 +417,24 @@ function user_profile() {
 
                             $('.course').html(course_html)
                             if (latest_course_reg[0].approve_reject_status == 0) {
-                                // $('.status').append(`
-                                // <tr>
-                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
-                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
-                                //     <td>-</td>
-                                //     <td class="badge badge-inf">Checking</td>
-                                // </tr>
-                                // `);
                                 $('.status').append(`
                                 <tr>
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td>
-                                        <a href="/payment_method/${data.id}" class="btn btn-info">Payment</a>
-                                    </td>
+                                    <td class="badge badge-inf">Checking</td>
                                 </tr>
                                 `);
+                                // $('.status').append(`
+                                // <tr>
+                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                //     <td>-</td>
+                                //     <td>
+                                //         <a href="/payment_method/${data.id}" class="btn btn-info">Payment</a>
+                                //     </td>
+                                // </tr>
+                                // `);
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
                                 $('.status').append(`
