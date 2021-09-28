@@ -7,7 +7,7 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
-            console.log(data)
+            console.log(data.accountancy_firm_info_id)
 
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
@@ -20,7 +20,7 @@ function user_profile() {
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
 
-                if (data.audit_firm_type_id == 1) {
+                if (acc_firm.audit_firm_type_id == 1) {
 
                     // if audit firm type
                     if (acc_firm.status == 0) {
@@ -41,6 +41,8 @@ function user_profile() {
                         $('.status_history').append('Your Non-Audit Firm Form is Rejected.');
                     }
                 }
+
+
             } else if (data.school) {
                 $('.title').text('School Information')
                 $('.school').show();
@@ -379,11 +381,11 @@ function user_profile() {
                                         <td>${formatDate(last_exam[0].updated_at)}</td>
                                         <td><span class="badge bg-success">Passed</span></td>
                                     </tr>
-                                    
+
                                     <tr><td colspan=2></td><td>Action</td><td>
                                     <a href="${FRONTEND_URL}/cpa_one_register?study_type=${study_type}" class="btn btn-sm btn-success">CPA One ${study_name} Registration Form</a>
 
-                                    
+
                                      </td></tr>
                                     `);
                                 } else {
@@ -589,16 +591,16 @@ function user_profile() {
                                                                         $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
                                                                                 <td>
-    
-    
-                                                                                
+
+
+
                                                                                     <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
-                                                                                
-                                                                                
+
+
                                                                                 <td>
                                                                             </td>
                                                                         </tr>
-    
+
                                                                     `);
                                                                     } else {
 
@@ -679,7 +681,7 @@ function user_profile() {
                                                         <a href="${FRONTEND_URL}${exam_url}" class="btn btn-sm btn-success text-light"> ${exam_text}</a>
                                                     </td>
                                                 </tr>
-    
+
                                                 `);
 
                                             } else {
@@ -737,7 +739,7 @@ function user_profile() {
 
                                     $('.status').append(`
                                         <tr><td colspan=2></td><td>Action</td>
-                                            <td>       
+                                            <td>
                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration</a>
                                             <td>
                                         </td>
@@ -1064,4 +1066,3 @@ $('#changePwd').submit(function (e) {
         });
     }
 })
-
