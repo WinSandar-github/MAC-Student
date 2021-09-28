@@ -44,6 +44,7 @@ function user_profile() {
             } else if (data.school) {
                 $('.title').text('School Information')
                 $('.school').show();
+                $('.cpff_other').hide();
                 let school = data.school;
                 localStorage.setItem("school_id", school.id);
                 $('#sch_name_mm').text(school.name_mm);
@@ -147,6 +148,7 @@ function user_profile() {
             } else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
+                $('.cpaff_other').hide();
                 let mentor = data.mentor;
                 $('#sch_name_mm').text(mentor.name_mm);
                 $('#sch_name_eng').text(mentor.name_eng);
@@ -162,6 +164,7 @@ function user_profile() {
                     $('.status_history').append('Mentor Registration is Rejected.');
                 }
             } else {
+                $('.cpaff_other').hide();
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
                 let exam_register = data.exam_registers;
