@@ -7,7 +7,8 @@ $().ready(function (){
             is_full_module : "Please select one",
         },
         submitHandler: function(form) {
-            $('#privateModal').modal('show');
+            // $('#privateModal').modal('show');
+            createPrivateSchool();
         }
     });
     $("#da_mac_form").validate({
@@ -18,7 +19,8 @@ $().ready(function (){
             is_full_module : "Please select one",
         },
         submitHandler: function(form) {
-            $('#macModal').modal('show');
+            // $('#macModal').modal('show');
+            createMac();
         }
     });
     
@@ -33,7 +35,8 @@ $().ready(function (){
             is_full_module : "Please select one.",
         },
         submitHandler: function(form) {
-            $('#selfModal').modal('show');
+            // $('#selfModal').modal('show');
+            createSelfStudy();
         }
     });
 });

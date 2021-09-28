@@ -389,7 +389,7 @@
                                         <div id="rec_letter_private" style="display:none" >
                                             <div class="row mb-3 "  >
                                                 <label class="col-md-4 col-form-label label">
-                                                    <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    <span class="pull-left" style="padding-left:85px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                 </label>
                                                 <div class="col-md-2 text-center"  id="degree_edu" >
                                                     <span class="recommend_letter"></span>
@@ -495,7 +495,7 @@
                                             <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_pp').prop('disabled', !this.checked)">
                                             <span class="form-check-sign"></span>
                                             <p class="fw-bolder">
-                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                 * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                             </p>
                                         </label>
@@ -780,7 +780,7 @@
                                         <div id="rec_letter_self" style="display:none" >
                                             <div class="row mb-3 "  >
                                                 <label class="col-md-4 col-form-label label">
-                                                    <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                    <span class="pull-left" style="padding-left:85px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                 </label>
                                                 <div class="col-md-2 text-center"  id="degree_edu" >
                                                     <span class="recommend_letter"></span>
@@ -1040,7 +1040,7 @@
                                                     <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_ss').prop('disabled', !this.checked)">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                         * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                     </p>
                                                 </label>
@@ -1288,7 +1288,7 @@
                                             <div id="rec_letter_mac" style="display:none" >
                                                 <div class="row mb-3 "  >
                                                     <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                        <span class="pull-left" style="padding-left:85px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                     </label>
                                                     <div class="col-md-2 text-center"  id="degree_edu" >
                                                         <span class="recommend_letter"></span>
@@ -1306,22 +1306,10 @@
                                                 </div>
                                             </div>--}}
 
-                                            <div class="row mb-3" id="direct_access_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" id="entry_success_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
-                                                </div>
-                                            </div>
+                                            
                                             
                                             <div class="row mb-3">
-                                                <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၇။') }}</span>စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရန်အဆိုပြုချက် - </label>
+                                                <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၆။') }}</span>စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရန်အဆိုပြုချက် - </label>
                                                 
                                             </div>
 
@@ -1424,7 +1412,7 @@
                                             </div>--}}
 
                                             <div class="row mb-3">
-                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၈။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၇။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
@@ -1447,13 +1435,27 @@
                                                 </div>
                                             </div>
 
+                                            <div class="row mb-3" id="direct_access_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" id="entry_success_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
                                             <div class="row mb-3 mt-3">
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="checkbox" onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
                                                         <span class="form-check-sign"></span>
                                                         <p class="fw-bolder">
-                                                            * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                            * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                             * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                         </p>
                                                     </label>
@@ -1659,6 +1661,13 @@
                     
 
                 var info = data.data;
+                // console.log('info',info);
+                // if(!info.exam_registers[0]){
+                //     console.log("Hello")
+                // }else{
+                //     console.log("Not")
+                // }
+                
 
                 var job_history = data.data.student_job;
                 var education_history = data.data.student_education_histroy;
@@ -1773,7 +1782,7 @@
                     $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                   }
 
-                if(info.acca_cima==1 || info.acca_cima==2){
+                if(info.acca_cima){
                     // document.getElementById(direct_access_no_self_div).style.display='block';
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
@@ -1781,13 +1790,20 @@
                     $("#entry_success_no_private_div").hide();
                     $("#direct_access_no_mac_div").show();
                     $("#entry_success_no_mac_div").hide();
-                }else{
+                }else if(!info.acca_cima && !info.da_pass_roll_number){
                     $("#direct_access_no_self_div").hide();
                     $("#entry_success_no_self_div").show();
                     $("#direct_access_no_private_div").hide();
                     $("#entry_success_no_private_div").show();
                     $("#direct_access_no_mac_div").hide();
                     $("#entry_success_no_mac_div").show();
+                }else{
+                    $("#direct_access_no_self_div").hide();
+                    $("#entry_success_no_self_div").hide();
+                    $("#direct_access_no_private_div").hide();
+                    $("#entry_success_no_private_div").hide();
+                    $("#direct_access_no_mac_div").hide();
+                    $("#entry_success_no_mac_div").hide();
                 }
 
                 // if(education_history){
