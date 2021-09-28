@@ -374,8 +374,7 @@ function user_profile() {
                                         <td>Cpa One Entry Exam Registration Form</td>
                                         <td>${formatDate(last_exam[0].created_at)}</td>
                                         <td>${formatDate(last_exam[0].updated_at)}</td>
-    
-                                        <td>Passed</td>
+                                        <td><span class="badge bg-success">Passed</span></td>
                                     </tr>
                                     
                                     <tr><td colspan=2></td><td>Action</td><td>
@@ -390,8 +389,7 @@ function user_profile() {
                                         <td>Cpa One Entry Exam Registration Form</td>
                                         <td>${formatDate(last_exam[0].created_at)}</td>
                                         <td>${formatDate(last_exam[0].updated_at)}</td>
-    
-                                        <td>Approved</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
                                     </tr>
                                     `);
 
@@ -405,8 +403,7 @@ function user_profile() {
                                     <td>Cpa One Entry Exam Registration Form</td>
                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                     <td>${formatDate(last_exam[0].updated_at)}</td>
-
-                                    <td>Reject</td>
+                                    <td><span class="badge bg-danger">Reject</span></td>
                                 </tr>
                                 `);
 
@@ -422,7 +419,7 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td>Checking</td>
+                                    <td><span class="badge bg-info">Checking</span></td>
                                 </tr>
                                 `);
                                 // $('.status').append(`
@@ -442,7 +439,7 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                    <td>Approve</td>
+                                    <td><span class="badge bg-success">Approved</span></td>
                                 </tr>
                                 `);
 
@@ -479,7 +476,7 @@ function user_profile() {
                                             <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
                                             <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                             <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
-                                            <td>Approve</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
                                         </tr>
                                         `);
 
@@ -513,7 +510,7 @@ function user_profile() {
                                                             <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                                             <td>${formatDate(last_exam[0].created_at)}</td>
                                                             <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td>Pass</td>
+                                                            <td><span class="badge bg-success">Approved</span></td>
                                                         </tr>
                                                         `);
 
@@ -621,7 +618,7 @@ function user_profile() {
                                                         <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                                         <td>${formatDate(last_exam[0].created_at)}</td>
                                                         <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                        <td>Approve</td>
+                                                        <td><span class="badge bg-success">Approved</span></td>
                                                     </tr>
                                                     `);
 
@@ -634,7 +631,7 @@ function user_profile() {
                                                     <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
                                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                                     <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                    <td>Reject</td>
+                                                    <td><span class="badge bg-danger">Reject</span></td>
                                                 </tr>
                                                 `);
 
@@ -700,7 +697,7 @@ function user_profile() {
                                             <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                             <td>${formatDate(latest_stu_reg[0].created_at)}</td>
                                             <td>${formatDate(latest_stu_reg[0].updated_at)}</td>
-                                            <td>Reject</td>
+                                            <td><span class="badge bg-danger">Reject</span></td>
                                         </tr>
                                         `);
                                     }
@@ -751,7 +748,7 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name}</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                    <td>Reject</td>
+                                    <td><span class="badge bg-danger">Reject</span></td>
                                 </tr>
                                 `);
                                 // $('.status').append('Your Application Form is Reject')
@@ -824,7 +821,7 @@ function user_profile() {
                                                 <td>${current_class.batch.course.name} Exam Form</td>
                                                 <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>${formatDate(data.exam_registers[i].updated_at)}</td>
-                                                <td>Pass</td>
+                                                <td><span class="badge bg-success">Approved</span></td>
                                             </tr>
                                             `);
                                             } else {
