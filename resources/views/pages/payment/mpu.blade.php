@@ -35,7 +35,7 @@
         <label for="email">name_eng</label>{{ $name_eng }}<br>
         <label for="email">phone</label>{{ $phone }}<br>
         <label for="email">invoice no.</label>{{ $invoice_no }}<br>
-        <label for="email">description</label>elrgjnoiewjroiwjoiewjie<br>
+        <label for="email">description</label>&nbsp;elrgjnoiewjroiwjoiewjie<br>
         <label for="email">form_fee</label>1000<br>
 	</div>
 </div>
