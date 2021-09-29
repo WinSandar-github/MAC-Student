@@ -18070,9 +18070,9 @@ img {
 
 .slider-images {
   position: absolute;
-  bottom: 0;
+  bottom: -43px;
   right: 0;
-  width: 56%;
+  width: 100%;
   height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -20190,7 +20190,8 @@ img {
 /*  4.9 - Page Banner CSS
 /*----------------------------------------*/
 .page-banner {
-  height: 550px;
+  margin-top:258px;
+  height: 400px;
   background-color: #e7f8ee;
   display: -webkit-box;
   display: -webkit-flex;
@@ -20306,6 +20307,7 @@ img {
 
 .page-banner-content {
   max-width: 570px;
+  margin-bottom: 100px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -21999,6 +22001,7 @@ img {
   padding-top: 20px;
   border: 1px solid rgba(48, 146, 85, 0.2);
   border-radius: 10px;
+  margin-top: 230px;
 }
 
 @media only screen and (max-width: 575px) {
@@ -22063,8 +22066,7 @@ img {
 }
 
 .register-login-form {
-  max-width: 400px;
-  margin-left: auto;
+  max-width: 500px;
   margin-top: 45px;
 }
 
