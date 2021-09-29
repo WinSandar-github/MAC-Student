@@ -169,6 +169,8 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 // Route::get('da_verify_email', 'PaymentController@verifyEmail');
 Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
+Route::post('payment_method/{id}', 'PaymentController@postPayment');
 Route::get('/mpu', 'PaymentController@mpu');
+Route::get('/payment_status', 'PaymentController@paymentStatus');
 
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
