@@ -40,7 +40,7 @@ class PaymentController extends Controller
     {
         setPayType($request->get('payment_type'));
         if ('MPU' == $request->get('payment_type')) {
-            return redirect(url('mpu'));
+            return redirect(url('/'));
         }else if('CBPAY' == $request->get('payment_type')) {
             return redirect(url('cbpay'));
         }
