@@ -8,10 +8,12 @@
    //var_dump($_POST);
 
    $merchant_ID="204104001306141";
-       
-
-   $mpu_data=array("merchantID"=>$merchant_ID,"invoiceNo"=>$invoiceNo,"productDesc"=>$product_Desc,"amount"=>$amount,"currencyCode"=>"104","userDefined1"=>$userDefined1,"userDefined2"=>$userDefined1,"userDefined3"=>$userDefined3);
-
+    $amount="000000010000";
+    $invoice_no="12312312323";
+    
+    $product_Desc="Test";
+   $mpu_data=array("merchantID"=>$merchant_ID,"invoiceNo"=> $invoice_no,"productDesc"=>$product_Desc,"amount"=>$amount,"currencyCode"=>"104","userDefined1"=>$name_eng ,"userDefined2"=>$email,"userDefined3"=>$phone);
+    var_dump($mpu_data);
 
    $secret_Key = "GQVVS3MOUU06XDCFRJDIVHI3WXWYH04P";
    $pgw_test_Url = "https://www.mpuecomuat.com:60145/UAT/Payment/Payment/pay";
@@ -21,8 +23,7 @@
    function create_signature_string($input_fields_array)
     {
 
-      
-        sort($input_fields_array, SORT_STRING);
+         sort($input_fields_array);
         
         $signature_string = "";
         foreach($input_fields_array as $value)
@@ -87,28 +88,12 @@
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="container" style="overflow: hidden; margin-bottom:10% ;">
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="name_eng" readonly="">
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="lastName">Email</label>
-                <input type="text" class="form-control" id="email" readonly="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="firstName">Phone Number</label>
-                <input type="text" class="form-control" id="phone" readonly="">
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="lastName">Invoice No.</label>
-                <input type="text" class="form-control" id="invoice_no" readonly="">
-            </div>
-        </div>
-        <strong><span id="total"></span> MMK</strong>
-        <p>Product : Description => Diploma in Accountancy(Part 1)</p>
+        <label for="email">Email</label>{{ $email }}<br>
+        <label for="email">name_eng</label>{{ $name_eng }}<br>
+        <label for="email">phone</label>{{ $phone }}<br>
+        <label for="email">invoice no.</label>{{ $invoice_no }}<br>
+        <label for="email">description</label>&nbsp;elrgjnoiewjroiwjoiewjie<br>
+        <label for="email">form_fee</label>1000<br>
 	</div>
 </div>
 
@@ -132,7 +117,11 @@
                     <br />
                 <?php endif; ?>
             <?php endforeach; ?>
-            <input type="text" name="hashValue" value="<?php echo generate_hash_value(); ?>" />
+            <input type="text" name="hashValue" value="<?php 
+            
+            echo generate_hash_value(); 
+            
+            ?>" />
             <br />
         </div>
     </form>
