@@ -117,77 +117,94 @@
                     <div class="card-body">
                         <div class="col-md-12">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4 order-md-2 mb-4">
-                                        <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                            <span class="text-muted">Fees</span>
-                                        </h4>
-                                        <ul class="list-group mb-3 sticky-top">
-                                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                <div>
-                                                    <h6 class="my-0">Application Form Fee</h6>
-                                                    <small class="text-muted">Diploma in Accountancy(Part 1)</small>
+                                <form method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-4 order-md-2 mb-4">
+                                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                                <span class="text-muted">Fees</span>
+                                            </h4>
+                                            <ul class="list-group mb-3 sticky-top">
+                                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                                    <div>
+                                                        <h6 class="my-0">Application Form Fee</h6>
+                                                        <small class="text-muted">Diploma in Accountancy(Part 1)</small>
+                                                    </div>
+                                                    <span class="text-muted" name="form_fee" id="form_fee"></span>&nbsp;<span> MMK</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <span>Total (MMK)</span>
+                                                    <strong><span id="total"></span> MMK</strong>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-8 order-md-1">
+                                            <h4 class="mb-3">User Information</h4>
+                                            
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="firstName">Name</label>
+                                                        <input type="text" class="form-control" name="name_eng" id="name_eng" readonly="">
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="lastName">Email</label>
+                                                        <input type="text" class="form-control" name="email" id="email" readonly="">
+                                                    </div>
                                                 </div>
-                                                <span class="text-muted">1500 MMK</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between">
-                                                <span>Total (MMK)</span>
-                                                <strong>1500 MMK</strong>
-                                            </li>
-                                        </ul>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="firstName">Phone Number</label>
+                                                        <input type="text" class="form-control" name="phone" id="phone" readonly="">
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="lastName">Invoice No.</label>
+                                                        <input type="text" class="form-control" name="invoice_no" value="123456" readonly="">
+                                                    </div>
+                                                </div>
+                                                {{--<div class="mb-3">
+                                                    <label for="email">Email <span class="text-muted"></span></label>
+                                                    <input type="email" class="form-control" id="email" readonly="">
+                                                </div>--}}
+                                                <br>
+                                                <h4 class="mb-3">Choose Payment Method</h4>
+                                                <div class="d-block my-3">
+                                                    <div class="row justify-content-center mb-4 radio-group">
+                                                        <div class="col-sm-3 col-5">
+                                                            <div class='radio mx-auto'> <img class="fit-image"
+                                                                    src="{{ asset('img/payment/mpu.png') }}" width="100px" height="60px"
+                                                                    data-value="MPU" id="channel"> </div>
+                                                        </div>
+                                                        <div class="col-sm-3 col-5">
+                                                            <div class='radio mx-auto'> <img class="fit-image"
+                                                                    src="{{ asset('img/payment/cbpay.png') }}" width="100px"
+                                                                    height="60px" data-value="CBPAY" id="channel" payment_method="cbpay"> </div>
+                                                        </div>
+                                                        <div class="col-sm-3 col-5">
+                                                            <div class='radio mx-auto'> <img class="fit-image"
+                                                                    src="{{ asset('img/payment/visa.png') }}" width="100px" height="60px"
+                                                                    data-value="VISA" id="channel"> </div>
+                                                        </div>
+                                                        <div class="col-sm-3 col-5">
+                                                            <div class='radio mx-auto'> <img class="fit-image"
+                                                                    src="{{ asset('img/payment/master.png') }}" width="100px" height="60px"
+                                                                    data-value="MASTER" id="channel"> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-25">Submit</button>
+                                                {{--<div class="cc-selector">
+                                                    <input id="mpu" type="radio" name="credit-card" value="mpu" />
+                                                    <label class="drinkcard-cc mpu" for="mpu"></label>
+                                                    <input id="cbpay" type="radio" name="credit-card" value="cbpay" />
+                                                    <label class="drinkcard-cc cbpay" for="cbpay"></label>
+                                                    <input id="visa" type="radio" name="credit-card" value="visa" />
+                                                    <label class="drinkcard-cc visa" for="visa"></label>
+                                                    <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+                                                    <label class="drinkcard-cc mastercard" for="mastercard"></label>
+                                                </div>--}}
+                                        </div>
                                     </div>
-                                    <div class="col-md-8 order-md-1">
-                                        <h4 class="mb-3">User Information</h4>
-                                        <form class="needs-validation" novalidate="">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="firstName">Name(mm)</label>
-                                                    <input type="text" class="form-control" id="">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="lastName">Name(eng)</label>
-                                                    <input type="text" class="form-control" id="">
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="email">Email <span class="text-muted"></span></label>
-                                                <input type="email" class="form-control" id="">
-                                            </div>
-                                            <br>
-                                            <h4 class="mb-3">Choose Payment Method</h4>
-                                            <div class="d-block my-3">
-                                                <div class="row justify-content-center mb-4 radio-group">
-                                                    <div class="col-sm-3 col-5">
-                                                        <div class='radio mx-auto'> <img class="fit-image"
-                                                                src="{{ asset('img/mpu.png') }}" width="70px" height="60px"
-                                                                data-value="MPU" id="channel"> </div>
-                                                    </div>
-                                                    <div class="col-sm-3 col-5">
-                                                        <div class='radio mx-auto'> <img class="fit-image"
-                                                                src="{{ asset('img/cbpay.png') }}" width="70px"
-                                                                height="60px" data-value="CBPAY" id="channel"> </div>
-                                                    </div>
-                                                    <div class="col-sm-3 col-5">
-                                                        <div class='radio mx-auto'> <img class="fit-image"
-                                                                src="{{ asset('img/visa.png') }}" width="70px" height="60px"
-                                                                data-value="VISA" id="channel"> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="cc-selector">
-                                                <input id="mpu" type="radio" name="credit-card" value="mpu" />
-                                                <label class="drinkcard-cc mpu" for="mpu"></label>
-                                                <input id="cbpay" type="radio" name="credit-card" value="cbpay" />
-                                                <label class="drinkcard-cc cbpay" for="cbpay"></label>
-                                                <input id="visa" type="radio" name="credit-card" value="visa" />
-                                                <label class="drinkcard-cc visa" for="visa"></label>
-                                                <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
-                                                <label class="drinkcard-cc mastercard" for="mastercard"></label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -197,5 +214,9 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/payment.js') }}"></script>
+    <script src="{{ asset('assets/js/payment.js') }}"></script>
+    <script type="text/javascript">
+        loadStdData();
+        loadFees();
+    </script>
 @endpush
