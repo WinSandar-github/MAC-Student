@@ -13,4 +13,12 @@ class ArticleController extends Controller
     public function articleFirm(){
         return view('pages.article.article_firm_registration');
     }
+
+    public function articleRenewFirm(){
+        return view('pages.article.article_renew_firm_registration');
+    }
+
+    public function articleQTFirm(){
+        return view('pages.article.article_qt_firm_registration');
+    }
 }
