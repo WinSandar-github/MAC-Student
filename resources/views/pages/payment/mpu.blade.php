@@ -1,5 +1,61 @@
 @extends('layouts.app')
 @section('content')
+
+
+<?php
+
+
+   var_dump($_POST);
+
+   $merchant_ID="204104001306141";
+       
+
+   $mpu_data=array("merchantID"=>$merchant_ID,"invoiceNo"=>$invoiceNo,"productDesc"=>$product_Desc,"amount"=>$amount,"currencyCode"=>"104","userDefined1"=>$userDefined1,"userDefined2"=>$userDefined1,"userDefined3"=>$userDefined3);
+
+
+   $secret_Key = "GQVVS3MOUU06XDCFRJDIVHI3WXWYH04P";
+   $pgw_test_Url = "https://www.mpuecomuat.com:60145/UAT/Payment/Payment/pay";
+   $pgw_live_Url = "https://www.mpuecomuat.com:60145/UAT/Payment/Payment/pay";
+
+
+   function create_signature_string($input_fields_array)
+    {
+
+      
+        sort($input_fields_array, SORT_STRING);
+        
+        $signature_string = "";
+        foreach($input_fields_array as $value)
+        {
+            if ($value != "")
+            {
+                $signature_string .= $value;    
+            }
+        }
+        
+        return $signature_string;
+    }
+    
+    function generate_hash_value()
+    {
+      
+        global $mpu_data;
+
+     
+        $input_fields_array=$mpu_data; 
+                            
+        $signature_string = create_signature_string($input_fields_array);
+        global $secret_Key;
+        
+        $hash_value = hash_hmac('sha1', $signature_string, $secret_Key, false);
+        $hash_value = strtoupper($hash_value);
+
+      
+        
+        return $hash_value;
+    }
+
+?>
 <div class="main-wrapper">
     <div class="overlay"></div>
     <div class="section page-banner">
@@ -55,11 +111,52 @@
         <p>Product : Description => Diploma in Accountancy(Part 1)</p>
 	</div>
 </div>
+
+
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Redirecting to MPU Payment Gateway ...</h1>
+
+    <form id="hidden_form" name="hidden_form" method="post" action="<?php echo $pgw_test_Url; ?>"> 
+        <input type="submit" value="Click here if it is taking too long to redirect!" />
+        <div style="visibility: initial;">
+            <?php foreach($mpu_data as $key => $value): ?>
+                <?php if ($value != ""): ?>
+                    <label><?php echo htmlspecialchars($key); ?></label>
+                    <input type="text" name="<?php echo htmlspecialchars($key); ?>" 
+                        value="<?php echo htmlspecialchars($value); ?>" />
+                    <br />
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <input type="text" name="hashValue" value="<?php echo generate_hash_value(); ?>" />
+            <br />
+        </div>
+    </form>
 @endsection
 @push('scripts')
     <script src="{{ asset('assets/js/payment.js') }}"></script>
     <script type="text/javascript">
         loadStdData();
         loadFees();
+    </script>
+
+    <script>
+        function submitForm()
+        {
+          // document.forms["hidden_form"].submit();
+        }
+        
+        if(window.attachEvent)
+        {
+            window.attachEvent("onload", submitForm);
+        }
+        else
+        {
+            window.addEventListener("load", submitForm, false);
+        }
     </script>
 @endpush
