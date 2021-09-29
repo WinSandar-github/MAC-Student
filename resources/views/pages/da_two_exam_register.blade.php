@@ -389,7 +389,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            <input disabled type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -397,7 +397,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            <input disabled type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -405,7 +405,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            <input  disabled type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
                                                             All Modules
                                                         </div>
                                                     </div>
