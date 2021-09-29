@@ -9,7 +9,7 @@
 @extends('layouts.app')
 <style>
     .article_btn{
-        width : 130px;
+        width : 180px;
     }
 </style>
 
@@ -139,7 +139,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <div id="firm_article_row">
+                    {{--<div id="firm_article_row">
                         <p class="text-start " >စာရင်းကိုင်အလုပ်သင်လျှောက်ထားလိုသည့် ကာလ ကိုရွေးပါ။</p>
                         <div class="row mb-4">
                             <div class="col-md-4" align="right">
@@ -162,6 +162,37 @@
                     <div id="gov_article_row" style="display:none;">
                         <!-- <a href="{{url('article_gov_registration')}}" class="btn btn-md btn-success article_btn" id="articel_gov_btn">Government</a> -->
                         <button class="btn btn-success btn-hover-dark article_btn" id="articel_gov_btn">Government</button>
+                    </div>--}}
+
+                    <div id="firm_article_row">
+                        <h5 >Firm Article</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_3yr_btn">CII pass 3 yr</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-hover-dark article_btn" id="c12_btn">CPA I,II</button><br>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_1yr_btn">CII pass 1 yr</button><br>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-hover-dark article_btn" id="qt_pass_3yr_btn">QT pass 3 yr</button><br>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_renew_btn">CII pass Renew</button><br>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-success btn-hover-dark article_btn" id="c12_renew_btn">CI,CII Renew</button>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <hr>
+                        <h5 >Government</h5>
+                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Government Article</button>
                     </div>
                     
                 </div>
@@ -204,10 +235,10 @@
                     let student_reg = data.data.student_register
                     let article = data.data.article;
                     let lastest_row = student_reg.length - 1;
-                    let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-                    let exam_result = student_reg[lastest_row].status;  // pass/fail
-                    let module = student_reg[lastest_row].module;  // module 1/2/all
-                    let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+                    let course = student_reg[lastest_row]?.course?.code;  // cpa1/cpa2
+                    let exam_result = student_reg[lastest_row]?.status;  // pass/fail
+                    let module = student_reg[lastest_row]?.module;  // module 1/2/all
+                    let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
                     var get_year = 0;
 
                     for(var i=0; i<article.length; i++){
@@ -254,6 +285,25 @@
             } else {
                 location.href = FRONTEND_URL + '/article_firm_registration?data=' + 3;
             }
+        });
+
+        $('#c2_pass_3yr_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 1;
+        });
+        $('#c12_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 2;
+        });
+        $('#c2_pass_1yr_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 3;
+        });
+        $('#qt_pass_3yr_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_qt_firm_registration';
+        });
+        $('#c2_pass_renew_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 1;
+        });
+        $('#c12_renew_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 2;
         });
 
         $('#articel_gov_btn').click(function () {

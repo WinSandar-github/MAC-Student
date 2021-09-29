@@ -150,6 +150,8 @@ Route::get('mentor_information', 'MentorInfoController@info');
 // Article Register Form
 Route::get('article_gov_registration', 'ArticleController@articleGov');
 Route::get('article_firm_registration', 'ArticleController@articleFirm');
+Route::get('article_renew_firm_registration', 'ArticleController@articleRenewFirm');
+Route::get('article_qt_firm_registration', 'ArticleController@articleQTFirm');
 
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');
