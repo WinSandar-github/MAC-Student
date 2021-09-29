@@ -277,7 +277,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</label>                                                        
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control" readonly
@@ -285,7 +285,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control sr_no" name="student_regno"readonly>
@@ -293,7 +293,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၇။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -313,10 +313,17 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>                                            
                                                 </div>
+                                                <div class="row mb-4">
+                                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" name="personal_no_self" class="form-control personal_no_self"
+                                                                placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self">
 
+                                                        </div>
+                                                    </div>        
                                                 <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label_align_right">
-                                                        <span class="pull-left">၁၈။</span>မှတ်ပုံတင်ရသည့်အကြောင်းရင်း- </label>
+                                                        <span class="pull-left">၁၆။</span>မှတ်ပုံတင်ရသည့်အကြောင်းရင်း- </label>
 
                                                     <div class="row col-md-8 py-2">
 
@@ -443,7 +450,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>--}}
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-3" style="display:none;">
                                                         <label class="col-md-1 col-form-label label">
                                                             <span class="pull-left">၁၉။</span>
                                                         </label>
@@ -457,7 +464,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-3" style="display:none;">
                                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>သင်တန်းအမှတ်စဥ်</label>
                                                         <div class="col-md-8">
                                                             <input type="text" name="student_regno" class="form-control batch_no"
@@ -466,17 +473,17 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-4">
+                                                    {{--<div class="row mb-4" style="display:none;">
                                                         <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ကိုယ်ပိုင်အမှတ်</label>
                                                         <div class="col-md-8">
                                                             <input type="text" name="personal_no_self" class="form-control personal_no_self"
                                                                 placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_self">
 
                                                         </div>
-                                                    </div>                                                   
+                                                    </div>--}}                                                 
 
 <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၂၀။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -780,7 +787,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control" readonly
@@ -788,7 +795,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control sr_no" name="student_regno" readonly>
@@ -796,7 +803,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၇။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -816,32 +823,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>                                            
                                                 </div>
-
-                                                <div class="row mb-3">
-                                                <label class="col-md-1 col-form-label label">
-                                                    <span class="pull-left">၁၈။</span>
-                                                </label>
-                                                <label class="col-md-3 col-form-label label">
-                                                    <span class="pull-center" style="padding-right: 35px;">(က)</span>တက်ရောက်မည့်သင်တန်း
-                                                </label>
-                                                    <div class="col-md-8">
-                                                        <input type="text" name="student_regno" class="form-control course_name"
-                                                            placeholder="အပိုင်း" id="part_no_self" readonly>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-left" style="padding-left:85px">(ခ)</span>သင်တန်းအမှတ်စဥ်
-                                                    </label>
-
-                                                    <div class="col-md-8">
-                                                        <input type="text" name="student_regno" class="form-control batch_no"
-                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" value="{{ $batch['id'] }}" readonly>
-                                                    </div>
-                                                </div>
-
                                                 <div class="row mb-4">
                                                     <label class="col-md-4 col-form-label label">
                                                         <span class="pull-left" style="padding-left:85px">(ဂ)</span>ကိုယ်ပိုင်အမှတ်
@@ -852,8 +833,44 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private">
                                                     </div>
                                                 </div>
+
+                                                <div class="row mb-3"  style="display:none">
+                                                <label class="col-md-1 col-form-label label">
+                                                    <span class="pull-left">၁၈။</span>
+                                                </label>
+                                                <label class="col-md-3 col-form-label label">
+                                                    <span class="pull-center" style="padding-right: 35px;">(က)</span>တက်ရောက်မည့်သင်တန်း
+                                                </label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="student_regno" class="form-control course_name"
+                                                            placeholder="အပိုင်း" id="part_no_private" readonly>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3" style="display:none">
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-left" style="padding-left:85px">(ခ)</span>သင်တန်းအမှတ်စဥ်
+                                                    </label>
+
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="student_regno" class="form-control batch_no"
+                                                            placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" value="{{ $batch['id'] }}" readonly>
+                                                    </div>
+                                                </div>
+
+                                                {{--<div class="row mb-4" style="display:none">
+                                                    <label class="col-md-4 col-form-label label">
+                                                        <span class="pull-left" style="padding-left:85px">(ဂ)</span>ကိုယ်ပိုင်အမှတ်
+                                                    </label>
+
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="personal_no_private" class="form-control personal_no_private"
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_private">
+                                                    </div>
+                                                </div>--}}
                                                 <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၉။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -1131,7 +1148,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
                                                     
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control" readonly
@@ -1139,7 +1156,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>တက်ရောက်ခွင့်ရရှိခဲ့သည့်အမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control sr_no" name="student_regno"
@@ -1148,7 +1165,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၇။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -1168,8 +1185,14 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>                                            
                                                 </div>
-
-                                                <div class="row mb-3">
+                                                <div class="row mb-4">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="personal_no_mac" class="form-control personal_no_mac"
+                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-1 col-form-label label">
                                                         <span class="pull-left">၁၈။</span> 
                                                     </label>
@@ -1183,7 +1206,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>သင်တန်းအမှတ်စဥ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="student_regno" class="form-control batch_no"
@@ -1191,15 +1214,15 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-4">
+                                                {{--<div class="row mb-4" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="personal_no_mac" class="form-control personal_no_mac"
                                                             placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac">
                                                     </div>
-                                                </div>
+                                                </div>--}}
                                                 <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၉။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
