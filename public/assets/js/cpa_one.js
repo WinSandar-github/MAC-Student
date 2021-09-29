@@ -43,7 +43,6 @@ function ConfirmSubmit() {
     }
 }
 
-<<<<<<< HEAD
 var count = 1;
 function AddCPAEdu() {
     $("#edu").append(
@@ -55,25 +54,9 @@ function AddCPAEdu() {
         '</div>' +
         '<div class="col-md-1 text-left mt-1"  id="edu' + count + '_remove">' +
         '<button class="btn btn-sm btn-danger" id="myLink" onclick="remove(edu' + count + ')">' +
-        '<i class="fa fa-trash "></i>' +
+        '<i class="fa fa-trash " style="padding-right: 5px;"></i>' +
         '</button>' +
         '</div>' +
-=======
-var count=1;
-function AddCPAEdu(){
-    $("#edu").append(        
-
-        '<div class="row mb-4" id="edu'+count+'">'+
-            '<div class="col-md-4"></div>'+            
-            '<div class="col-md-7">'+
-                '<input type="file"  class="form-control"  id="certificate'+count+'"  name="certificate[]">'+
-            '</div>'+
-            '<div class="col-md-1 text-left mt-1"  id="edu'+count+'_remove">'+
-                '<button class="btn btn-sm btn-danger" id="myLink" onclick="remove(edu'+count+')">'+
-                    '<i class="fa fa-trash " style="padding-right: 5px;"></i>'+
-                '</button>'+
-            '</div>'+
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
         '</div>');
 
     count++;
@@ -111,12 +94,8 @@ function Private_School_Submit() {
         data: data,
         contentType: false,
         processData: false,
-<<<<<<< HEAD
         success: function (result) {
-=======
-        success: function(result){  
             // console.log('result',result);
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
             EasyLoading.hide();
             if (result.message == undefined) {
                 successMessage(result);
@@ -258,21 +237,15 @@ $('#cpa_register').submit(function (e) {
     if ($('#entry_type').val() === 'da_pass') {
         var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
         send_data.append('da_pass_certificate', da_pass_certificate);
-<<<<<<< HEAD
-
-
-
-    } else {
-=======
         send_data.append('da_pass_date', $("input[name=da_pass_date]").val());
         send_data.append('da_pass_roll_number', $("input[name=da_pass_roll_number]").val());
-    }else{
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
+    } else {
         var deg_certi_img = $("input[name=deg_certi_img]")[0].files[0];
         send_data.append('deg_certi_img', deg_certi_img);
         send_data.append('acca_cima', $("input[name=acca_cima]").val())
 
     }
+
 
 
 
@@ -489,17 +462,10 @@ function check_entry_pass() {
 
 function direct_or_da() {
     let student = JSON.parse(localStorage.getItem("studentinfo"));
-<<<<<<< HEAD
-    console.log('student', student);
+
     if (student) {
-        console.log('student', student);
-        let batch_id = url.substring(url.lastIndexOf('/') + 1);
-=======
-    // console.log('student',student);
-    if(student){
         // console.log('student',student);
-        let batch_id = url.substring(url.lastIndexOf('/')+1);
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
+        let batch_id = url.substring(url.lastIndexOf('/') + 1);
         $.ajax({
             type: "get",
             url: BACKEND_URL + "/batch/" + batch_id,
@@ -858,7 +824,6 @@ $('#cpa_entry_register').submit(function (e) {
     send_data.append('batch_id', batch_id)
     //show_loader(); 
 
-<<<<<<< HEAD
     $.ajax({
         type: "POST",
         url: BACKEND_URL + "/cpa_entry_exam",
@@ -866,7 +831,7 @@ $('#cpa_entry_register').submit(function (e) {
         processData: false,
         data: send_data,
         success: function (data) {
-            console.log('data', data)
+            // console.log('data',data)
             //EasyLoading.hide();
             successMessage("You have successfully registerd!");
 
@@ -877,39 +842,15 @@ $('#cpa_entry_register').submit(function (e) {
             } else {
                 // location.reload();
                 location.href = FRONTEND_URL + "/";
-=======
-        $.ajax({
-            type: "POST",
-            url: BACKEND_URL+"/cpa_entry_exam",
-            contentType: false,
-            processData: false,
-            data: send_data,
-            success: function (data) {
-                // console.log('data',data)
-                //EasyLoading.hide();
-                successMessage("You have successfully registerd!");
-
-                if(data.name_mm != null){
-                    localStorage.setItem('studentinfo', JSON.stringify(data));
-                    localStorage.setItem('approve_reject', data.approve_reject_status);
-                    location.href = FRONTEND_URL + "/";
-                }else{
-                    // location.reload();
-                    location.href = FRONTEND_URL + "/";
-                }
-            },
-            error:function (message){
-                //EasyLoading.hide();
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
             }
         },
         error: function (message) {
             //EasyLoading.hide();
         }
+
     })
 
 })
-
 
 $("#cpa_one_entry_app_submit").click(function () {
 

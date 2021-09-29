@@ -426,20 +426,6 @@
             });
 
             var boo = localStorage.getItem("isPrivateSchool");
-<<<<<<< HEAD
-            // if (boo == "true") {
-            //     if (document.getElementById('is_private_school')) {
-            //         document.getElementById('is_private_school').style.display = 'block';
-            //         document.getElementById('cpa2_label1').innerHTML = "၉။";
-            //         document.getElementById('cpa2_label2').innerHTML = "၁၀။";
-            //     }
-            // } else {
-            //     if (document.getElementById('is_private_school')) {
-            //         document.getElementById('is_private_school').style.display = 'none';
-            //         document.getElementById('cpa2_label2').innerHTML = "၉။";
-            //     }
-            // }
-=======
             if (boo == "true") {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'block';
@@ -452,7 +438,6 @@
                     document.getElementById('cpa2_label2').innerHTML = "၁၀။";
                 }
             }
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
         });
 
         get_student_info(student_id).then(data => {
@@ -550,15 +535,12 @@
                 }else if(data.data.student_register[0].type == 2 && student_course_regs[0].mac_type==1){
                     $("input[name='class_address']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)");
                 }else{
-<<<<<<< HEAD
 
-                    var mac_name = current_stu_reg[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
+                    // var mac_name = current_stu_reg[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
 
 
-                    $("input[name='class_address']").val(mac_name);
-=======
+                    // $("input[name='class_address']").val(mac_name);
                     $("input[name='class_address']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)");
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
                 }
 
             }

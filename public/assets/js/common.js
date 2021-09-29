@@ -1,14 +1,10 @@
-// var FRONTEND_URL = "http://localhost:8001";
-<<<<<<< HEAD
-// var BASE_URL = "http://localhost:8000";
-=======
-// var BASE_URL = "http://localhost:8000";     
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
-// var BACKEND_URL = "http://localhost:8000/api";
+var FRONTEND_URL = "http://localhost:8001";
+var BASE_URL = "http://localhost:8000";
+var BACKEND_URL = "http://localhost:8000/api";
 
-var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+// var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -109,10 +105,7 @@ function addRowSubject(tbody) {
         $(".certificate").hide();
     }
 }
-<<<<<<< HEAD
 // function addRowDipSubject(tbody) {
-=======
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
 
 
 function addRowDipSubject(tbody) {
@@ -179,32 +172,32 @@ function addRowBranch(tbody) {
     //cols += '<td><button class="btn btn-primary btn-sm" type="button" onclick=addInputTele("'+tbody+'")><i class="fa fa-plus"></i></button></td>';
     cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off"  /></td>';
-    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowBranch("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
 }
 
 function addRowPartner(tbody) {
+
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
     cols += '<td>' + (row) + '</td>';
-    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
+    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no' + row + '" onchange="checkPAPPExist(this.value,this.id)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
-    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="1" required > <label class="form-check-label" style="display:flex;">Yes</label></td>';
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
     // cols += '<input type="radio" class="form-check-input" id="report_yes" value="1" name="foa_authority_to_sign" required>';
     // cols += '<label class="form-check-label" for="">Yes</label>';
     // cols += '</div>';
     // cols += '</td>'
-    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_no" value="2" > <label class="form-check-label" >No</label></td>';
-    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowPartner("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="2" required> <label class="form-check-label" style="display:flex;">No</label></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
-
 }
 
 function delRowPartner(tbody) {
@@ -229,7 +222,7 @@ function addRowDirector(tbody) {
     cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" /> </td>';
     cols += '<td><input type="text" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
-    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowDirector("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -252,10 +245,9 @@ function addRowPartnerByNonAudit(tbody) {
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
     cols += '<td>' + (row) + '</td>';
-    cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" ></td>';
-    cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" ></td>';
-    //cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
-    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowPartnerByNonAudit("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -287,12 +279,11 @@ function addRowDirectorByNonAudit(tbody) {
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
     cols += '<td>' + (row) + '</td>';
-    cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" ></td>';
-    cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" ></td>';
-    cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" ></td>';
+    cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required></td>';
     // cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>';
-    //cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
-    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowDirectorByNonAudit("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -321,7 +312,7 @@ function addRowDirectorCPA(tbody) {
     cols += '<td><input type="text" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"/> </td>';
     cols += '<td><input type="text" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"/> </td>';
     cols += '<td><input type="text" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"/> </td>';
-    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger" onclick=delRowDirectorCPA("'+tbody+'")><li class="fa fa-times"></li></button></td>';
+    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorCPA("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;

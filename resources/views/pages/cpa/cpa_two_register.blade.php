@@ -1109,7 +1109,6 @@
                                 </div>
 
                                 <div class="row mb-3">
-<<<<<<< HEAD
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-8">
                                                     <div class="row">
@@ -1131,24 +1130,6 @@
                                                         <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
                                                     </div>
                                                 </div>
-=======
-                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
-                                    <div class="col-md-8  mt-2">
-                                        <div class="row mx-2">
-                                            <div class="col-md-4 form-check">
-                                                <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
-                                                <label class="form-check-label">{{ __('Module-1') }}</label>
-                                            </div>
-                                            <div class="col-md-4 form-check">
-                                                <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
-                                                <label class="form-check-label">{{ __('Module-2') }}</label>
-
-                                            </div>
-                                            <div class="col-md-4 form-check">
-                                                <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
-                                                <label class="form-check-label">{{ __('All Module') }}</label>
-                                            </div>
->>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
                                         </div>
                                         <div class="form-check-radio px-0">
                                             <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
