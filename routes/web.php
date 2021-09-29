@@ -113,7 +113,7 @@ Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
 Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
 //Da Two application form
-// Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
 //Eamil Validation
@@ -162,8 +162,10 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 
 
 //Payment Page
-Route::get('payment', 'PaymentController@payment');
-Route::get('cash', 'PaymentController@cash');
-Route::get('da_verify_email', 'PaymentController@verifyEmail');
+// Route::get('payment', 'PaymentController@payment');
+// Route::get('cash', 'PaymentController@cash');
+// Route::get('da_verify_email', 'PaymentController@verifyEmail');
+Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
+Route::get('/setPayment', 'PaymentController@setPayment');
 
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');

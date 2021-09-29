@@ -419,16 +419,16 @@
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <input class="form-check-input module_two" type="radio" name="module" value="2" id="module2" >
                                                             <label class="form-check-label">{{ __('Module-2') }}</label>
 
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <input class="form-check-input module_full" type="radio" name="module" value="3" id="allmodule" >
                                                             <label class="form-check-label">{{ __('All Module') }}</label>
                                                         </div>
                                                     </div>
@@ -755,16 +755,16 @@
                                                 <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <input class="form-check-input module_two" type="radio" name="module" value="2" id="module2" >
                                                             <label class="form-check-label">{{ __('Module-2') }}</label>
 
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <input class="form-check-input module_full" type="radio" name="module" value="3" id="allmodule" >
                                                             <label class="form-check-label">{{ __('All Module') }}</label>
                                                         </div>
                                                     </div>
@@ -1101,16 +1101,16 @@
                                                 <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <input class="form-check-input module_two" type="radio" name="module" value="2" id="module2" >
                                                             <label class="form-check-label">{{ __('Module-2') }}</label>
 
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <input class="form-check-input module_full" type="radio" name="module" value="3" id="allmodule" >
                                                             <label class="form-check-label">{{ __('All Module') }}</label>
                                                         </div>
                                                     </div>
@@ -1391,11 +1391,60 @@ $('document').ready(function(){
                 $('.education').val(student_info.student_education_histroy.degree_name);
 
 
+                
+
+
 
                 // $('.sr_no');.val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                 $('.course_name').val(current_stu_course[0].batch.course.name);
                 $('.batch_no').val(current_stu_course[0].batch.number);
                 $('.previewImg').attr('src',BASE_URL+student_info.image);
+
+                if(exam_registers[0].grade == 1){
+                        let batch_id = localStorage.getItem('batch_id');
+                        $.ajax({
+                        type: "get",
+                        url: BACKEND_URL+"/batch/"+batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                          
+ 
+                            
+                            $('.batch_no').val(res.data.number);
+                            $('.personal_no').val(data.data.personal_no);
+ 
+
+                            if(exam_registers[0].is_full_module == "1"){
+                                
+                                $(".module_two").prop("checked", true);
+                              
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(exam_registers[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+ 
+                            }
+                            else if(exam_registers[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                                $(':radio:not(:checked)').attr('disabled', true);
+                                 
+                            }
+
+                            
+                           
+
+                            }
+                        })   
+                        
+                        
+                    }else{
+                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    }
 
             }
 

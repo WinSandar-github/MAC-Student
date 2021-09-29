@@ -116,7 +116,9 @@
                         </div>
                     </div> --}}
 
-                <div class="comment-form study" style="display:none;">               
+                <div class="comment-form study" style="display:none;">     
+                        <input type="hidden" name="remain_module" id="remain_module">
+
 
                         <div class="row" id="private_school_container">
                             <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
@@ -471,16 +473,16 @@
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <input class="form-check-input module_two" type="radio" name="module" value="2" id="module2" >
                                                             <label class="form-check-label">{{ __('Module-2') }}</label>
 
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <input class="form-check-input module_full" type="radio" name="module" value="3" id="allmodule" >
                                                             <label class="form-check-label">{{ __('All Module') }}</label>
                                                         </div>
                                                     </div>
@@ -873,7 +875,7 @@
                                                         <div class="row col-md-12 py-2">
                                                             <div class="col-md-4 form-check-radio">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="radio" 
+                                                                    <input class="form-check-input module_one" type="radio" 
                                                                             name="module" value="1" id="module1"  >
                                                                     <span class="form-check-sign"></span>
                                                                     Module 1
@@ -881,7 +883,7 @@
                                                             </div>
                                                             <div class="col-md-4 form-check-radio">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="radio"
+                                                                    <input class="form-check-input module_two" type="radio"
                                                                             name="module" value="2" id="module2" >
                                                                     <span class="form-check-sign"></span>
                                                                     Module 2
@@ -889,7 +891,7 @@
                                                             </div>
                                                             <div class="col-md-4 form-check-radio">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="radio"
+                                                                    <input class="form-check-input module_full" type="radio"
                                                                             name="module" value="3" id="allmodule" >
                                                                     <span class="form-check-sign"></span>
                                                                     All Modules
@@ -990,15 +992,15 @@
                                             <div class="col-md-5">
                                                 <div class="row">
                                                     <div class="col-md-4 form-check">
-                                                        <input type="radio" class="form-check-input" name="module" value="1" id="module1" >
+                                                        <input type="radio" class="form-check-input module_one" name="module" value="1" id="module1" >
                                                         <label class="form-check-label">{{ __('Module-1') }}</label>
                                                     </div>
                                                     <div class="col-md-4 form-check">
-                                                        <input type="radio" class="form-check-input" name="module" value="2" id="module2" >
+                                                        <input type="radio" class="form-check-input module_two" name="module" value="2" id="module2" >
                                                         <label class="form-check-label">{{ __('Module-2') }}</label>
                                                     </div>
                                                     <div class="col-md-4 form-check">
-                                                        <input type="radio" class="form-check-input" name="module" value="3" id="allmodule" >
+                                                        <input type="radio" class="form-check-input module_full" name="module" value="3" id="allmodule" >
                                                         <label class="form-check-label">{{ __('All Module') }}</label>
                                                                                                         <div class="invalid-feedback mt-3">ဖြေဆိုမည့် Module ရွေးချယ်ပါ</div>
                                                     </div>
@@ -1428,16 +1430,16 @@
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                            <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                            <input class="form-check-input module_two" type="radio" name="module" value="2" id="module2" >
                                                             <label class="form-check-label">{{ __('Module-2') }}</label>
 
                                                         </div>
                                                         <div class="col-md-4 form-check">
-                                                            <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                            <input class="form-check-input module_full" type="radio" name="module" value="3" id="allmodule" >
                                                             <label class="form-check-label">{{ __('All Module') }}</label>
                                                         </div>
                                                     </div>
@@ -1646,16 +1648,66 @@
 
         const queryString = location.search;
         const urlParams = new URLSearchParams(queryString);
+      
         selectedRegistration(urlParams.get("study_type"))
 
         get_student_info(student_id).then(data => {
             if(data){
 
                 let current_stu_course = data.data.student_course_regs.slice(-1);
+                let last_exam = data.data.exam_registers.slice(-1);
+              
+
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    $('.batch_no').val(current_stu_course[0].batch.number);
+                    if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
+                        let batch_id = localStorage.getItem('batch_id');
+                        alert(batch_id)
+                        $.ajax({
+                        type: "get",
+                        url: BACKEND_URL+"/batch/"+batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                            console.log(res)
+                            
+                            $('.batch_no').val(res.data.number);
+                            
+                            // $('.personal_no').val(data.data.cpersonal_no);
+                            $('#remain_module').val(last_exam[0].is_full_module)
+
+                            if(last_exam[0].is_full_module == "1"){
+                                 
+                                $(".module_two").prop("checked", true);
+                              
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+ 
+                            }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                                $(':radio:not(:checked)').attr('disabled', true);
+                                 
+                            }
+
+                            
+                           
+
+                            }
+                        })   
+                        
+                        
+                    }else{
+                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    }
+                    // $('.batch_no').val(current_stu_course[0].batch.number);
                     
 
                 var info = data.data;
@@ -1708,7 +1760,7 @@
                   $("#self_study_container").find("input[name=phone]").val(info.phone);
                   $("#self_study_container").find("input[name=address]").val(info.address);
                   $("#self_study_container").find("input[name=current_address]").val(info.current_address);
-                  $("#self_study_container").find("input[id=personal_no_self]").val(info.personal_no);
+                  $("#self_study_container").find("input[id=personal_no_self]").val(info.cpersonal_no);
 
                   $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
 
@@ -1738,7 +1790,7 @@
                   $("#private_school_container").find("input[name=phone]").val(info.phone);
                   $("#private_school_container").find("input[name=address]").val(info.address);
                   $("#private_school_container").find("input[name=current_address]").val(info.current_address);
-                  $("#private_school_container").find("input[id=personal_no_private]").val(info.personal_no);
+                  $("#private_school_container").find("input[id=personal_no_private]").val(info.cpersonal_no);
 
                   $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
 
