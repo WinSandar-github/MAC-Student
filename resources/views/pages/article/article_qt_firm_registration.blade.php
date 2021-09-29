@@ -50,7 +50,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Firm Article Registration  <span>Form</span></h2>
+                    <h2 class="title">QT Firm Article Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
+                            <form method="post" id="article_register_form"  action="javascript:javascript:void(0);"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 
@@ -133,25 +133,9 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-                                        <div id="all_first_row">
-                                            <div class="row mb-3">
-                                                <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၁။')}}</span></label>
-                                                <div class="col-md-11">
-                                                    <ul>
-                                                        <li>
-                                                            <input type="radio" class="form-check-input" value="1" id="male2" name="gender2" >
-                                                            <label class="form-check-label " for="">ကျွန်တော်</label>
-                                                            <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
-                                                            <label class="form-check-label " for="">ကျွန်မ</label>
-                                                        </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name"></span> ) သင်တန်းအမှတ်စဥ် ( <span id="module_name"></span> ) ကို မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="type_name"></span>  <span id="result_name"></span> သူတစ်ဦးဖြစ်ပါသည်။</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
                                         
-                                        <div id="renew_first_row" style="display:none;">
+
+                                        <div id="qt_row">
                                             <div class="row mb-3">
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၁။')}}</span></label>
                                                 <div class="col-md-11">
@@ -162,7 +146,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">ပထမပိုင်း/ဒုတိယပိုင်း</span> ) စာမေးပွဲကို <br> <span id=""> -----</span>ခုနှစ် <span id="">-----</span>လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ကျင်းပသည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် အရည်အချင်းစစ်စာမေးပွဲ အောင်မြင်ပြီးသူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -176,47 +160,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-
-                                        <div id="cpa2_pass_1year_row" style="display:none">
-                                            <div class="row mb-3">
-                                                <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
-                                                <div class="col-md-11">
-                                                    အများပြည်သူသို့စာရင်းဝန်‌ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် မှတ်ပုံတင်ခဲ့ဖူးခြင်းမရှိပါ။
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-5">
-                                                <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၃။')}}</span></label>
-                                                <div class="col-md-11">
-                                                    လက်တွေ့အလုပ်သင်ကြားခြင်း (၂) နှစ်ပြည့်မြောက်ပြီး၍ ထပ်မံလိုအပ်သောအလုပ်သင် (၁) နှစ်ကို လက်တွေ့အလုပ်သင်ကြားရန် ဆန္ဒရှိပါသဖြင့် အောက်ဖော်ပြပါအချက်အလက်များကို ဖြည့်သွင်း လျှောက်ထားအပ်ပါသည်။
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="row">
 
                                             <div class="col-md-8">
-                                                {{--<div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အီးမေးလ်</label>
-                                                    <div class="col-md-8">
-                                                        <input type="email" placeholder="အီးမေးလ်လိပ်စာထည့်ပါ" name="email" class="form-control" id="email">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>လျို့ဝှက်နံပါတ်</label>
-                                                    <div class="col-md-8">
-                                                        <input type="password" placeholder="လျို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း</label>
-                                                    <div class="col-md-8">
-                                                        <input type="password" placeholder="လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
-                                                    </div>
-                                                </div>--}}
 
                                                 <div class="row mb-5">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
@@ -529,32 +476,6 @@
                                             </div>
                                         </div>
 
-                                        <div id="previous_papp_name_row" style="display:none;">
-                                            <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-
-                                        <div id="previous_papp_date_row" style="display:none;">
-                                            <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ယခင်အလုပ်သင်ဆင်းခဲ့သည့် ကာလ</label>
-                                                <div class="col-md-9">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <input type="text" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" name="previous_papp_start_date" id="previous_papp_start_date" class="form-control" >
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input type="text" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" name="previous_papp_end_date" id="previous_papp_end_date" class="form-control" >
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
@@ -562,9 +483,9 @@
                                             </div>
                                         </div>
 
-                                        <div id="previous_exam_pass_row" style="display:none;">
+                                        <div id="previous_exam_pass_row">
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၆။') }}</span>စာမေးပွဲကျင်းပသည့် ခုနှစ်၊လ ၊ အောင်မြင်သည့်အမှတ်စဥ် </label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၅။') }}</span>စာမေးပွဲကျင်းပသည့် ခုနှစ်၊လ ၊ အောင်မြင်သည့်အမှတ်စဥ် </label>
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -648,11 +569,6 @@
 <script src="{{ asset("js/form_validation/article_firm_validation.js") }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
-        var result = window.location.href;
-        var url = new URL(result);
-        var get_year = url.searchParams.get("data");
-
-        $("#article_form_type").val(get_year);
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
@@ -664,80 +580,6 @@
             let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
 
             $("#student_info_id").val(student_reg[lastest_row].student_info_id);
-
-            if(course == "cpa_1"){
-                $("#course_name").text("ပထမပိုင်း");
-            }else{
-                $("#course_name").text("ဒုတိယပိုင်း");
-            }
-
-            if(module == 1){
-                $("#module_name").text("1");
-            }else if(module == 2){
-                $("#module_name").text("2");
-            }else{
-                $("#module_name").text("အားလုံး");
-            }
-            
-            if(type == 0){
-                $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
-            }else if(type == 1){
-                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-            }else{
-                $("#type_name").text("သင်တန်းကျောင်း");
-            }
-
-            if(exam_result == 0){
-                $("#result_name").text("တက်ရောက်နေ");
-            }else if(exam_result == 1){
-                $("#result_name").text("အောင်မြင်");
-            }else{
-                $("#result_name").text("ကျရုံး");
-                $("#renew_row").show();
-                document.getElementById('request_label').innerHTML="၃။";
-            }
-            
-            // if(get_year == 1 && exam_result == 1 && course == "cpa_2"){
-            //     $("#request_row").css('display','none');
-            //     $("#cpa2_pass_1year_row").css('display','block');
-            //     $("#experience_row").css('display','none');
-            //     document.getElementById('current_job_label').innerHTML="၈။";
-            //     document.getElementById('address_label').innerHTML="၉။";
-            //     document.getElementById('current_address_label').innerHTML="၁၀။";
-            //     document.getElementById('phone_label').innerHTML="၁၁။";
-            //     document.getElementById('m_email_label').innerHTML="၁၂။";
-            //     $("#previous_papp_name_row").css('display','block');
-            //     $("#previous_papp_date_row").css('display','block');
-            //     document.getElementById('papp_name_label').innerHTML="၁၅။";
-            //     $("#previous_exam_pass_row").css('display','block');
-            // }else if(get_year == 3 && exam_result == 1 && course == "cpa_2"){
-            //     $("#previous_exam_pass_row").css('display','block');
-            //     document.getElementById('exam_pass_date_label').innerHTML="၁၅။";
-            // }
-
-            if(get_year == 1){
-                $("#course_name").text("ဒုတိယပိုင်း");
-                $("#module_name").text("အားလုံး");
-                $("#previous_exam_pass_row").css('display','block');
-                document.getElementById('exam_pass_date_label').innerHTML="၁၅။";
-            }else if(get_year == 2){
-                
-            }else if(get_year == 3){
-                $("#all_first_row").css('display','none');
-                $("#renew_first_row").css('display','block');
-                $("#request_row").css('display','none');
-                $("#experience_row").css('display','none');
-                document.getElementById('current_job_label').innerHTML="၈။";
-                document.getElementById('address_label').innerHTML="၉။";
-                document.getElementById('current_address_label').innerHTML="၁၀။";
-                document.getElementById('phone_label').innerHTML="၁၁။";
-                document.getElementById('m_email_label').innerHTML="၁၂။";
-                $("#cpa2_pass_1year_row").css('display','block');
-                $("#previous_papp_name_row").css('display','block');
-                $("#previous_papp_date_row").css('display','block');
-                document.getElementById('papp_name_label').innerHTML="၁၅။";
-                $("#previous_exam_pass_row").css('display','block');
-            }
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);

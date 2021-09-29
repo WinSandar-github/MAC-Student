@@ -128,11 +128,11 @@
                                                     <h6 class="my-0">Application Form Fee</h6>
                                                     <small class="text-muted">Diploma in Accountancy(Part 1)</small>
                                                 </div>
-                                                <span class="text-muted">1500 MMK</span>
+                                                <span class="text-muted" id="form_fee"></span>&nbsp;<span> MMK</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between">
                                                 <span>Total (MMK)</span>
-                                                <strong>1500 MMK</strong>
+                                                <strong><span id="total"></span> MMK</strong>
                                             </li>
                                         </ul>
                                     </div>
@@ -141,41 +141,56 @@
                                         <form class="needs-validation" novalidate="">
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">
-                                                    <label for="firstName">Name(mm)</label>
-                                                    <input type="text" class="form-control" id="">
+                                                    <label for="firstName">Name</label>
+                                                    <input type="text" class="form-control" id="name_eng" readonly="">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
-                                                    <label for="lastName">Name(eng)</label>
-                                                    <input type="text" class="form-control" id="">
+                                                    <label for="lastName">Email</label>
+                                                    <input type="text" class="form-control" id="email" readonly="">
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="email">Email <span class="text-muted"></span></label>
-                                                <input type="email" class="form-control" id="">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="firstName">Phone Number</label>
+                                                    <input type="text" class="form-control" id="phone" readonly="">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="lastName">Invoice No.</label>
+                                                    <input type="text" class="form-control" id="invoice_no" readonly="">
+                                                </div>
                                             </div>
+                                            {{--<div class="mb-3">
+                                                <label for="email">Email <span class="text-muted"></span></label>
+                                                <input type="email" class="form-control" id="email" readonly="">
+                                            </div>--}}
                                             <br>
                                             <h4 class="mb-3">Choose Payment Method</h4>
                                             <div class="d-block my-3">
                                                 <div class="row justify-content-center mb-4 radio-group">
                                                     <div class="col-sm-3 col-5">
                                                         <div class='radio mx-auto'> <img class="fit-image"
-                                                                src="{{ asset('img/mpu.png') }}" width="70px" height="60px"
+                                                                src="{{ asset('img/payment/mpu.png') }}" width="100px" height="60px"
                                                                 data-value="MPU" id="channel"> </div>
                                                     </div>
                                                     <div class="col-sm-3 col-5">
                                                         <div class='radio mx-auto'> <img class="fit-image"
-                                                                src="{{ asset('img/cbpay.png') }}" width="70px"
+                                                                src="{{ asset('img/payment/cbpay.png') }}" width="100px"
                                                                 height="60px" data-value="CBPAY" id="channel"> </div>
                                                     </div>
                                                     <div class="col-sm-3 col-5">
                                                         <div class='radio mx-auto'> <img class="fit-image"
-                                                                src="{{ asset('img/visa.png') }}" width="70px" height="60px"
+                                                                src="{{ asset('img/payment/visa.png') }}" width="100px" height="60px"
                                                                 data-value="VISA" id="channel"> </div>
+                                                    </div>
+                                                    <div class="col-sm-3 col-5">
+                                                        <div class='radio mx-auto'> <img class="fit-image"
+                                                                src="{{ asset('img/payment/master.png') }}" width="100px" height="60px"
+                                                                data-value="MASTER" id="channel"> </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="cc-selector">
+                                            {{--<div class="cc-selector">
                                                 <input id="mpu" type="radio" name="credit-card" value="mpu" />
                                                 <label class="drinkcard-cc mpu" for="mpu"></label>
                                                 <input id="cbpay" type="radio" name="credit-card" value="cbpay" />
@@ -184,7 +199,7 @@
                                                 <label class="drinkcard-cc visa" for="visa"></label>
                                                 <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
                                                 <label class="drinkcard-cc mastercard" for="mastercard"></label>
-                                            </div>
+                                            </div>--}}
                                         </form>
                                     </div>
                                 </div>
@@ -197,5 +212,9 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/payment.js') }}"></script>
+    <script src="{{ asset('assets/js/payment.js') }}"></script>
+    <script type="text/javascript">
+        loadStdData();
+        loadFees();
+    </script>
 @endpush
