@@ -29,11 +29,16 @@ class PaymentController extends Controller
 
         // $client = new \GuzzleHttp\Client();
         // $student_info = json_decode($client->request('GET', Helper::$domain .'/user_profile/' . $id)->getBody(),true);
-
+        // dd($student_info);
         // $data = array();
-        // $data['name'] = $student_info->data
+        // $data['name'] = $student_info->data;
 
         return view('pages.payment.payment_method');
+    }
+
+    public function mpu()
+    {
+        return view('pages.payment.mpu');
     }
 
     public function setPayment(Request $request)
@@ -43,9 +48,11 @@ class PaymentController extends Controller
             return redirect(url('mpu'));
         }else if('CBPAY' == $request->get('payment_type')) {
             return redirect(url('cbpay'));
+        }else if('VISA' == $request->get('payment_type')) {
+            return redirect(url('visa'));
         }
         else{
-            return redirect(url('visa'));
+            return redirect(url('master'));
         }
     }
 }

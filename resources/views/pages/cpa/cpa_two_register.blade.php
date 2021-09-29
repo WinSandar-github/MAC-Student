@@ -163,7 +163,7 @@
                                     <fieldset id="fieldset" >
                                         <div class="col-md-12">
                                             <div class="row mb-3">
-                                                <div class="col-md-9">
+                                                <div class="col-md-8">
                                                     <div class="row mb-3 mt-3">
                                                         <div  class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</div>
                                                         <div class="col-md-6">
@@ -227,7 +227,7 @@
                                                     </div>
                                                 </div>
                                                 {{--User Photo--}}
-                                                <div class="col-md-3" align="center">
+                                                <div class="col-md-4" align="center">
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                         <div class="fileinput-new thumbnail img-circle shadow">
                                                         <img class="col-md-3 profile-style previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
@@ -317,7 +317,7 @@
                                                 <div id="rec_letter_private" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                            <span class="pull-left" style="padding-left:105px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -444,18 +444,17 @@
                                                     <input class="form-check-input" type="checkbox" id="submit_confirm_private" onchange="$('#cpa2_private').prop('disabled', !this.checked)">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                         * မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်းကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                     </p>
                                                 </label>
                                             </div>
                                         </div>
-                                       <div class="row">
-                                            <div class="col-md-2 offset-md-5">
+                                       <div class="row justify-content-center mb-3">
                                                 {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
-                                                <button type="submit" id="cpa2_private" value="submit" class="btn btn-success btn-hover-dark w-100" disabled>Submit
+                                                <button type="submit" id="cpa2_private" value="submit" class="btn btn-success btn-hover-dark w-25" disabled>Submit
                                                 </button>
-                                            </div>
+                                            
                                         </div>
                                     </fieldset>
                                 </form>
@@ -469,7 +468,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-8">
                                                 <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
@@ -477,8 +476,21 @@
                                                 (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
                                             </div>
                                             <div class="col-md-2"></div>
+                                        </div> -->
+
+                                        <div class="row mb-5">
+                                            <h5 class="card-title text-center fw-bolder">
+                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type"></span><br>
+                                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ<br/>
+                                            (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
+                                            <div class="d-flex justify-content-between">
+                                                <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    
                                 </div>
 
                                 {{--<form  method="post" action="javascript:CPA2_Self_Study_Submit();" enctype="multipart/form-data">--}}
@@ -490,7 +502,7 @@
 
                                     <div class="col-md-12">
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-8">
                                                 <div class="row mb-3 mt-3">
                                                     <div class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</div>
                                                     <div class="col-md-6">
@@ -553,7 +565,7 @@
                                                 </div>
                                             </div>
                                             {{--User Photo--}}
-                                            <div class="col-md-3" align="center">
+                                            <div class="col-md-4" align="center">
                                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-new thumbnail img-circle shadow">
                                                         <img class="col-md-3 profile-style previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
@@ -642,7 +654,7 @@
                                                 <div id="rec_letter_self" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                            <span class="pull-left" style="padding-left:93px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -752,8 +764,8 @@
 
                                         <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
-                                                <div class="col-md-8">
-                                                    <div class="row">
+                                                <div class="col-md-8 mt-2">
+                                                    <div class="row mx-2">
                                                         <div class="col-md-4 form-check">
                                                             <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
@@ -780,7 +792,7 @@
                                                     <input class="form-check-input" type="checkbox" id="submit_confirm_self" onchange="$('#cpa2_self').prop('disabled', !this.checked)">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                        * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                         * မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်းကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                                     </p>
                                                 </label>
@@ -810,7 +822,7 @@
                                             <div class="col-md-2"></div>
                                             <div class="col-md-8">
                                                 <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
-                                                လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
+                                                လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း)မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>
 
                                             </div>
                                             <div class="col-md-2"></div>
@@ -825,7 +837,7 @@
 
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
                                             <div class="row mb-3 mt-3">
                                                 <div class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>တက်ရောက်မည့် သင်တန်းအမှတ်စဥ်</div>
                                                 <div class="col-md-6">
@@ -891,7 +903,7 @@
                                             </div>
                                         </div>
                                         {{--User Photo--}}
-                                        <div class="col-md-3" align="center">
+                                        <div class="col-md-4" align="center">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail img-circle shadow">
                                                 <img class="col-md-3 profile-style previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
@@ -981,7 +993,7 @@
                                                 <div id="rec_letter_mac" style="display:none" >
                                                     <div class="row mb-3 "  >
                                                         <label class="col-md-4 col-form-label label">
-                                                            <span class="pull-center" style="padding-right:8px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
+                                                            <span class="pull-left" style="padding-left:93px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
                                                         </label>
                                                         <div class="col-md-2 text-center"  id="degree_edu" >
                                                             <span class="recommend_letter"></span>
@@ -1097,6 +1109,7 @@
                                 </div>
 
                                 <div class="row mb-3">
+<<<<<<< HEAD
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-8">
                                                     <div class="row">
@@ -1118,7 +1131,30 @@
                                                         <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
                                                     </div>
                                                 </div>
+=======
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                    <div class="col-md-8  mt-2">
+                                        <div class="row mx-2">
+                                            <div class="col-md-4 form-check">
+                                                <input class="form-check-input" type="radio"  name="module" value="1" id="module1" >
+                                                <label class="form-check-label">{{ __('Module-1') }}</label>
+                                            </div>
+                                            <div class="col-md-4 form-check">
+                                                <input class="form-check-input" type="radio" name="module" value="2" id="module2" >
+                                                <label class="form-check-label">{{ __('Module-2') }}</label>
+
+                                            </div>
+                                            <div class="col-md-4 form-check">
+                                                <input class="form-check-input" type="radio" name="module" value="3" id="allmodule" >
+                                                <label class="form-check-label">{{ __('All Module') }}</label>
+                                            </div>
+>>>>>>> 423a4da571a5214ed85e95da24aa6a58f015f3d4
                                         </div>
+                                        <div class="form-check-radio px-0">
+                                            <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="row mb-3">
                                     <div class="form-check">
@@ -1126,18 +1162,17 @@
                                             <input class="form-check-input" type="checkbox" id="submit_confirm_mac" onchange="$('#cpa2_mac').prop('disabled', !this.checked)">
                                             <span class="form-check-sign"></span>
                                             <p class="fw-bolder">
-                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။<br>
                                                 * မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေနှင့်နည်းဥပဒေများအတိုင်းကျင့်ကြံလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
                                             </p>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-2 offset-md-5">
+                                <div class="row mb-3 justify-content-center">
                                         {{--<button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>--}}
-                                        <button type="submit" id="cpa2_mac" value="submit" class="btn btn-success btn-hover-dark w-100" disabled>Submit
+                                        <button type="submit" id="cpa2_mac" value="submit" class="btn btn-success btn-hover-dark w-25" disabled>Submit
                                         </button>
-                                    </div>
+                                    
                                 </div>
                                     </fieldset>
                                 </form>
@@ -1328,6 +1363,7 @@ $('document').ready(function(){
 
 
     reg_feedback();
+    get_cpa_course();
     var exam_date=localStorage.getItem("exam_date");
 
     const queryString = location.search;
@@ -1342,6 +1378,8 @@ $('document').ready(function(){
                 let current_stu_course = student_info.student_course_regs.slice(-1);
                 let exam_registers = student_info.exam_registers.slice(-1);
 
+                // console.log('student_info',student_info);
+
                 $('.name_mm').val(student_info.name_mm);
                 $('.name_eng').val(student_info.name_eng);
                 $('.nrc_state_region').val(student_info.nrc_state_region);
@@ -1349,9 +1387,9 @@ $('document').ready(function(){
                 $('.nrc_citizen').val(student_info.nrc_citizen);
                 $('.nrc_number').val(student_info.nrc_number);
 
-                $('.personal_no_private').val(student_info.personal_no);
-                $('.personal_no_self').val(student_info.personal_no);
-                $('.personal_no_mac').val(student_info.personal_no);
+                $('.personal_no_private').val(student_info.cpersonal_no);
+                $('.personal_no_self').val(student_info.cpersonal_no);
+                $('.personal_no_mac').val(student_info.cpersonal_no);
 
                 $('.cpa_one_pass_date_private').val(formatDate(exam_registers[0].updated_at));
                 $('.cpa_one_pass_date_mac').val(formatDate(exam_registers[0].updated_at));
@@ -1396,8 +1434,8 @@ $('document').ready(function(){
 
 
                 // $('.sr_no');.val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                $('.course_name').val(current_stu_course[0].batch.course.name);
-                $('.batch_no').val(current_stu_course[0].batch.number);
+                // $('.course_name').val(current_stu_course[0].batch.course.name);
+                // $('.batch_no').val(current_stu_course[0].batch.number);
                 $('.previewImg').attr('src',BASE_URL+student_info.image);
 
                 if(exam_registers[0].grade == 1){

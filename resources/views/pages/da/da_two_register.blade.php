@@ -1272,7 +1272,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     </div> -->
 
             <!-- MAC -->
-            <form method="post" class="needs-validation" action="javascript:createDaTwoMac();" enctype="multipart/form-data"
+            {{--<form method="post" class="needs-validation" action="javascript:createDaTwoMac();" enctype="multipart/form-data"
                   novalidate>
                 @csrf
                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1318,10 +1318,10 @@ $nrc_characters = config('myanmarnrc.characters');
                         </div>
                     </div>
                 </div>
-            </form>
+            </form>--}}
 
             <!-- PRIVATE -->
-            <form method="post" class="needs-validation" action="javascript:createDaTwoPrivateSchool();" enctype="multipart/form-data"
+            {{--<form method="post" class="needs-validation" action="javascript:createDaTwoPrivateSchool();" enctype="multipart/form-data"
                   novalidate>
                 @csrf
                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1367,11 +1367,11 @@ $nrc_characters = config('myanmarnrc.characters');
                         </div>
                     </div>
                 </div>
-            </form>
+            </form>--}}
 
 
             <!-- SELF -->
-            <form method="post" class="needs-validation" action="javascript:createDaTwoSelfStudy();" enctype="multipart/form-data"
+        {{--<form method="post" class="needs-validation" action="javascript:createDaTwoSelfStudy();" enctype="multipart/form-data"
                   novalidate>
                 @csrf
                 <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1417,7 +1417,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         </div>
                     </div>
                 </div>
-            </form>
+            </form>--}}
 
 
         </div><br /></br />
@@ -1592,64 +1592,64 @@ $nrc_characters = config('myanmarnrc.characters');
 
 
         //MAC
-        $('#mac_btn').click(function () {
-            setTimeout(function () {
-                $('#exampleModal1').modal('hide');
-            }, 1000);
-        });
+        // $('#mac_btn').click(function () {
+        //     setTimeout(function () {
+        //         $('#exampleModal1').modal('hide');
+        //     }, 1000);
+        // });
 
-        $('#cash_img_mac').click(function() {
-            $('#mac_btn').prop('disabled', false);
-        });
+        // $('#cash_img_mac').click(function() {
+        //     $('#mac_btn').prop('disabled', false);
+        // });
 
-        $('#cb_img').click(function() {
-            $('#mac_btn').prop('disabled', true);
-        });
+        // $('#cb_img').click(function() {
+        //     $('#mac_btn').prop('disabled', true);
+        // });
 
-        $('#mpu_img').click(function() {
-            $('#mac_btn').prop('disabled', true);
-        });
-        $('#mac_btn').prop('disabled', true);
+        // $('#mpu_img').click(function() {
+        //     $('#mac_btn').prop('disabled', true);
+        // });
+        // $('#mac_btn').prop('disabled', true);
 
-        //Self Study
-        $('#self_btn').click(function () {
-            setTimeout(function () {
-                $('#exampleModal3').modal('hide');
-            }, 1000);
-        });
+        // //Self Study
+        // $('#self_btn').click(function () {
+        //     setTimeout(function () {
+        //         $('#exampleModal3').modal('hide');
+        //     }, 1000);
+        // });
 
-        $('#cash_img_self').click(function() {
-            $('#self_btn').prop('disabled', false);
-        });
+        // $('#cash_img_self').click(function() {
+        //     $('#self_btn').prop('disabled', false);
+        // });
 
-        $('#cb_img').click(function() {
-            $('#self_btn').prop('disabled', true);
-        });
+        // $('#cb_img').click(function() {
+        //     $('#self_btn').prop('disabled', true);
+        // });
 
-        $('#mpu_img').click(function() {
-            $('#self_btn').prop('disabled', true);
-        });
-        $('#self_btn').prop('disabled', true);
+        // $('#mpu_img').click(function() {
+        //     $('#self_btn').prop('disabled', true);
+        // });
+        // $('#self_btn').prop('disabled', true);
 
-        //Private School
-        $('#private_btn').click(function () {
-            setTimeout(function () {
-                $('#exampleModal2').modal('hide');
-            }, 1000);
-        });
+        // //Private School
+        // $('#private_btn').click(function () {
+        //     setTimeout(function () {
+        //         $('#exampleModal2').modal('hide');
+        //     }, 1000);
+        // });
 
-        $('#cash_img_private').click(function() {
-            $('#private_btn').prop('disabled', false);
-        });
+        // $('#cash_img_private').click(function() {
+        //     $('#private_btn').prop('disabled', false);
+        // });
 
-        $('#cb_img').click(function() {
-            $('#private_btn').prop('disabled', true);
-        });
+        // $('#cb_img').click(function() {
+        //     $('#private_btn').prop('disabled', true);
+        // });
 
-        $('#mpu_img').click(function() {
-            $('#private_btn').prop('disabled', true);
-        });
-        $('#private_btn').prop('disabled', true);  
+        // $('#mpu_img').click(function() {
+        //     $('#private_btn').prop('disabled', true);
+        // });
+        // $('#private_btn').prop('disabled', true);  
            
     </script>
     <script>

@@ -927,7 +927,7 @@
                                     <h5 class="card-title text-center fw-bolder">
                                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
                                         ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</br>
-                                        (ကိုယ်တိုင်လေ့လာသင်ယူမယ်သူများ)
+                                        (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)
                                     </h5>
 
                                     <div class="d-flex justify-content-between">
@@ -1487,7 +1487,7 @@
 
 
     <!-- MAC -->
-    <form method="post" class="needs-validation" action="javascript:createMac();" enctype="multipart/form-data"
+    {{--<form method="post" class="needs-validation" action="javascript:createMac();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="macModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1536,10 +1536,10 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>--}}
 
     <!-- PRIVATE -->
-    <form method="post" class="needs-validation" action="javascript:createPrivateSchool();"
+    {{--<form method="post" class="needs-validation" action="javascript:createPrivateSchool();"
           enctype="multipart/form-data"
           novalidate>
         @csrf
@@ -1589,10 +1589,10 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>--}}
 
     <!-- SELF -->
-    <form method="post" class="needs-validation" action="javascript:createSelfStudy();" enctype="multipart/form-data"
+    {{--<form method="post" class="needs-validation" action="javascript:createSelfStudy();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="selfModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1640,7 +1640,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>--}}
 
     <style>
         .profile-style {
@@ -1816,64 +1816,64 @@
         // }
 
         //MAC
-        $('#mac_btn').click(function () {
-            setTimeout(function () {
-                $('#macModal').modal('hide');
-            }, 1000);
-        });
+        // $('#mac_btn').click(function () {
+        //     setTimeout(function () {
+        //         $('#macModal').modal('hide');
+        //     }, 1000);
+        // });
 
-        $('#cash_img_mac').click(function () {
-            $('#mac_btn').prop('disabled', false);
-        });
+        // $('#cash_img_mac').click(function () {
+        //     $('#mac_btn').prop('disabled', false);
+        // });
 
-        $('#cb_img').click(function () {
-            $('#mac_btn').prop('disabled', true);
-        });
+        // $('#cb_img').click(function () {
+        //     $('#mac_btn').prop('disabled', true);
+        // });
 
-        $('#mpu_img').click(function () {
-            $('#mac_btn').prop('disabled', true);
-        });
-        $('#mac_btn').prop('disabled', true);
+        // $('#mpu_img').click(function () {
+        //     $('#mac_btn').prop('disabled', true);
+        // });
+        // $('#mac_btn').prop('disabled', true);
 
-        //Private School
-        $('#private_btn').click(function () {
-            setTimeout(function () {
-                $('#privateModal').modal('hide');
-            }, 1000);
-        });
+        // //Private School
+        // $('#private_btn').click(function () {
+        //     setTimeout(function () {
+        //         $('#privateModal').modal('hide');
+        //     }, 1000);
+        // });
 
-        $('#cash_img_private').click(function () {
-            $('#private_btn').prop('disabled', false);
-        });
+        // $('#cash_img_private').click(function () {
+        //     $('#private_btn').prop('disabled', false);
+        // });
 
-        $('#cb_img').click(function () {
-            $('#private_btn').prop('disabled', true);
-        });
+        // $('#cb_img').click(function () {
+        //     $('#private_btn').prop('disabled', true);
+        // });
 
-        $('#mpu_img').click(function () {
-            $('#private_btn').prop('disabled', true);
-        });
-        $('#private_btn').prop('disabled', true);
+        // $('#mpu_img').click(function () {
+        //     $('#private_btn').prop('disabled', true);
+        // });
+        // $('#private_btn').prop('disabled', true);
 
         //Self Study
-        $('#self_btn').click(function () {
-            setTimeout(function () {
-                $('#selfModal').modal('hide');
-            }, 1000);
-        });
+        // $('#self_btn').click(function () {
+        //     setTimeout(function () {
+        //         $('#selfModal').modal('hide');
+        //     }, 1000);
+        // });
 
-        $('#cash_img_self').click(function () {
-            $('#self_btn').prop('disabled', false);
-        });
+        // $('#cash_img_self').click(function () {
+        //     $('#self_btn').prop('disabled', false);
+        // });
 
-        $('#cb_img').click(function () {
-            $('#self_btn').prop('disabled', true);
-        });
+        // $('#cb_img').click(function () {
+        //     $('#self_btn').prop('disabled', true);
+        // });
 
-        $('#mpu_img').click(function () {
-            $('#self_btn').prop('disabled', true);
-        });
-        $('#self_btn').prop('disabled', true);
+        // $('#mpu_img').click(function () {
+        //     $('#self_btn').prop('disabled', true);
+        // });
+        // $('#self_btn').prop('disabled', true);
     </script>
 
 @endpush

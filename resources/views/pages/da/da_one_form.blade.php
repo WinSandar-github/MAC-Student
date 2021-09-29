@@ -706,7 +706,7 @@
     </form>
 
     <!-- Modal 2 -->
-    <form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data"
+    {{--<form method="post" class="needs-validation" action="javascript:createDARegister();" enctype="multipart/form-data"
           novalidate>
         @csrf
         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -754,7 +754,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>--}}
     <!-- JavaScript Section -->
     <script>
         var mmnrc_regions = {!! json_encode($nrc_regions) !!};

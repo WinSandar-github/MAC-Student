@@ -150,6 +150,8 @@ Route::get('mentor_information', 'MentorInfoController@info');
 // Article Register Form
 Route::get('article_gov_registration', 'ArticleController@articleGov');
 Route::get('article_firm_registration', 'ArticleController@articleFirm');
+Route::get('article_renew_firm_registration', 'ArticleController@articleRenewFirm');
+Route::get('article_qt_firm_registration', 'ArticleController@articleQTFirm');
 
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');
@@ -167,5 +169,6 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 // Route::get('da_verify_email', 'PaymentController@verifyEmail');
 Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
+Route::get('/mpu', 'PaymentController@mpu');
 
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');

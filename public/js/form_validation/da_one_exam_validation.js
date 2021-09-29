@@ -8,7 +8,8 @@ $().ready(function (){
             exam_department:"Please select one.",
         },
         submitHandler: function(form) {
-            $('#da1examModal').modal('show');
+            // $('#da1examModal').modal('show');
+            createDAExamRegister();
         }
     });
 });

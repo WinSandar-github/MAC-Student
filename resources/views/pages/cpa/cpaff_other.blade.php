@@ -390,25 +390,33 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ် (အရှေ့)</div>
+                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
                                     <div class="col-md-4">
                                                 <input type="file"  class="form-control" name="cpa_certificate" >
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                {{--<div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ် (အနောက်)</div>
                                     <div class="col-md-4">
                                                 <input type="file"  class="form-control" name="cpa_certificate_back" >
                                     </div>
-                                </div>
+                                </div>--}}
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card"  >
+                                                <input type="file"  class="form-control" name="mpa_mem_card" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
+                                    <div class="col-md-4">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_back"  accept="image/*">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -499,18 +507,18 @@
                                         <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                {{--<div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
                                     <div class="col-md-6 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4">င
                                         <input type="file"  class="form-control" name="passport_image"  >
                                     </div>
-                                </div>
+                                </div>--}}
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
                                     <div class="col-md-6 col-form-label">စာရင်းကိုင်အလုပ်သင်လုပ်သက်(၃)နှစ်ပြည့်ကြောင်းရုံးအမိန့်</div>
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="three_years_full"  >
@@ -518,7 +526,7 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဆ)') }}</label>
+                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
 
                                     <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
                                     <div class="col-md-4">
@@ -619,7 +627,7 @@
 
     $("input[name='cpa2_pass_date']").flatpickr({
             enableTime: false,
-            dateFormat: "M-Y",
+            dateFormat: "Y",
             allowInput: true,
     });
     $(document).on('keydown', '#father_name_mm', function () {
