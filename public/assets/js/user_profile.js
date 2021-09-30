@@ -190,8 +190,7 @@ function user_profile() {
                 let latest_course_reg = data.student_course_regs.slice(-1)
                 let latest_stu_reg = data.student_register.slice(-1);
                 let last_exam = data.exam_registers.slice(-1);
-
-                document.getElementById('image').src = BASE_URL + data.image;
+                // document.getElementById('image').src = BASE_URL + data.image;
                 var course_html;
 
 

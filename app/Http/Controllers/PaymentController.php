@@ -41,9 +41,10 @@ class PaymentController extends Controller
         return view('pages.payment.mpu',compact('payment_type','name_eng','email','phone','invoice_no'));
     }
 
-    public function paymentStatus()
+    public function paymentStatus(Request $req)
     {
-        return view('pages.payment.payment_status');
+	return $req ;
+	return view('pages.payment.payment_status');
     }
 
     // public function setPayment(Request $request)
