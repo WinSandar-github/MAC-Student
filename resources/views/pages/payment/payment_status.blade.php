@@ -31,12 +31,7 @@
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="container" style="overflow: hidden; margin-bottom:10% ;">
-        <label for="email">Email</label>{{ $email }}<br>
-        <label for="email">name_eng</label>{{ $name_eng }}<br>
-        <label for="email">phone</label>{{ $phone }}<br>
-        <label for="email">invoice no.</label>{{ $invoice_no }}<br>
-        <label for="email">description</label>&nbsp;elrgjnoiewjroiwjoiewjie<br>
-        <label for="email">form_fee</label>1000<br>
+        <h3>Hello</h3>
 	</div>
 </div>
 @endsection
