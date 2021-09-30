@@ -262,22 +262,28 @@ function teacher_reg_feedback(){
            
           var form_data = data;
           form_data.forEach(function(element){
-            
+                var teacher_data=element.teacher;
                 if(element.approve_reject_status == 0){
                     
                     $('#teacher_pending').css('display','block');
                     $('#teacher_approve').css('display','none');
                     $('.register-btn').css('display','none');
                     $('.payment-btn').css('display','none');
+                    $('.update-btn').css('display','none');
                 }else if(element.approve_reject_status == 1){
                     $('#teacher_approve').css('display','block');
                     $('.payment-btn').css('display','block');
                     $('#teacher_pending').css('display','none');
                     $('.register-btn').css({'display':'none'});
                     $('.register-btn').removeClass('mt-4');
+                    $('.update-btn').css('display','none');
                 }
                 else{
-                    //
+                    $('.status-reject').css('display','block');
+                    $('.reject-reason').append(teacher_data.reason);
+                    $('.register-btn').css('display','none');
+                    $('.payment-btn').css('display','none');
+                    $('.update-btn').css('display','block');
                 }
           })
         }
@@ -360,16 +366,17 @@ function loadRenewTeacher(){
                               $('#regno').val(teacher.id);
                                 var period_date=teacher.renew_date.split('-');
                                 var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
-                                $('#register_date').val(period+" to 31-12-"+now.getFullYear());
+                                //$('#register_date').val(period+" to 31-12-"+now.getFullYear());
+                                $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
                               if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                                   $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
                                   $('.renew_submit').prop('disabled', true);
                                   $('#submit_confirm').prop('disabled', false);
               
                               }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
-                                  $("#message").val("Your registeration will start in "+now.getFullYear()+" year!");
+                                  $("#message").val("Your renew form  can submit!");
                                   $('.renew_submit').prop('disabled', true);
-                                  $('#submit_confirm').prop('disabled', true);
+                                  $('#submit_confirm').prop('disabled', false);
                               }else{
                                   $('#message').val("You are verified!");
                                   $('.renew_submit').prop('disabled', true);
@@ -385,10 +392,10 @@ function loadRenewTeacher(){
                                 $('.private_type').css('display','none');
                                 $('input[name=school_name]').val(teacher.school_name);
                               }
-                      }else{
+                    }else{
                         $('#teacher_initial').css('display','block');
                         $('#teacher_renew').css('display','none');
-                      }
+                    }
                 })
                 
         
@@ -419,6 +426,7 @@ function renewTeacher(){
   var id=$('#teacher_id').val();
   send_data.append('student_info_id', $('#student_info_id').val());
   send_data.append('school_name', $('#hschool_name').val());
+  
   send_data.append('_method', 'PATCH');
   show_loader();
     $.ajax({
@@ -429,7 +437,7 @@ function renewTeacher(){
         processData: false,
         success: function (data) {
             EasyLoading.hide();
-            successMessage(data.message);
+            successMessage("Successfully");
             location.href=FRONTEND_URL+'/';
 
         },
@@ -440,12 +448,20 @@ function renewTeacher(){
 function selectStaff(value){
     if(value==1){
         $('#rec_letter').css('display','block');
+        $('#update_rec_letter').css('display','block');
     }else{
         $('#rec_letter').css('display','none');
+        $('#update_rec_letter').css('display','none');
     }
 }
 function ConfirmSubmitTeacher(){
     var checkbox = document.getElementById("submit_confirm");
+    if (checkbox.checked == true) {
+        $('.submit_reg_btn').prop("disabled",false);
+    } else {
+        $('.submit_reg_btn').prop("disabled",true);
+    }
+    var checkbox = document.getElementById("submit_update");
     if (checkbox.checked == true) {
         $('.submit_btn').prop("disabled",false);
     } else {
@@ -461,7 +477,7 @@ function selectSchoolType(value){
         $('.private_type').css('display','none');
     }
 }
-function loadEductaionHistory(student_info_id){
+function loadEductaionHistory(student_info_id,tbody){
     $.ajax({
       type : 'GET',
       url : BACKEND_URL+"/getEducationHistory/"+student_info_id,
@@ -474,7 +490,7 @@ function loadEductaionHistory(student_info_id){
               tr += `<td><a href='${BASE_URL+value.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a></td>`;
               tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
               tr += "</tr>";
-              $(".tbl_degree_body").append(tr);
+              $(tbody).append(tr);
           });
       }
     });
@@ -488,7 +504,8 @@ function loadCertificates(name,select){
             data: 'subject_id='+id,
             type: 'post',
             success: function (result) {
-                $.each(result.data, function( index, value ){
+               
+                $.each(result.group_data, function( index, value ){
                     $.each(value, function(key, val){
                         var $newOption = $("<option selected='selected'></option>").val(val.subject_id).text(val.subject_name);
                         $("#"+select).append($newOption).trigger('change');
@@ -513,7 +530,9 @@ function loadSubject(course_id,select){
         type: 'post',
         success: function (result) {
             $.each(result.data, function( index, value ){
-                var group = $(`<optgroup label="${index.toUpperCase().replace("_", " ")}"/>`);
+                var newcode=index.split('_');
+                var course_code=convert(newcode[1]);
+                var group = $(`<optgroup label="${newcode[0].toUpperCase()+' '+course_code}"/>`);
                 
                 $.each(value, function(key, val){
                     
@@ -527,4 +546,96 @@ function loadSubject(course_id,select){
         },
     });
     
+}
+function updateTeacher(){
+    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    
+    if(student!=null){
+        $.ajax({
+            url: BACKEND_URL+"/getTeacherStatus/"+student.id,
+            type: 'GET',
+            success: function(data){
+               
+              var form_data = data;
+              form_data.forEach(function(element){
+                    var teacher=element.teacher;
+                    if(element.approve_reject_status == 2){
+                        $('#teacher_form').css('display','none');
+                        $('#teacher_update').css('display','block');
+                        $('input[name=email]').val(teacher.email);
+                        $('input[name=name_mm]').val(teacher.name_mm);
+                        $('input[name=name_eng]').val(teacher.name_eng);
+                        $('input[name=father_name_mm]').val(teacher.father_name_mm);
+                        $('input[name=father_name_eng]').val(teacher.father_name_eng);
+                        $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
+                        $('input[name=nrc_township]').val(teacher.nrc_township);
+                        $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
+                        $('input[name=nrc_number]').val(teacher.nrc_number);
+                        $('input[name=phone_number]').val(teacher.phone);
+                        $('textarea[name=exp_desc]').val(teacher.exp_desc);
+                        $('#teacher_id').val(teacher.id);
+                        $('#student_info_id').val(student.id);
+                        $('#hidden_profile').val(teacher.image);
+                              $('#hidden_nrc_front').val(teacher.nrc_front);
+                              $('#hidden_nrc_back').val(teacher.nrc_back);
+                              $('#hschool_name').val(teacher.school_name);
+                              $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
+                              $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                              loadEductaionHistory(student.id,'.tbl_degree_update_body');
+                                if(teacher.certificates.search(/[\'"[\]']+/g)==0){
+                                    loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
+                                    loadSubject(2,"selected_cpa_subject_up");
+                                
+                                }else{
+                                    loadCertificates(teacher.certificates,"selected_cpa_subject_up");
+                                    
+                                    loadSubject(2,"selected_cpa_subject_up");
+                                   
+                                }
+                                if(teacher.diplomas.search(/[\'"[\]']+/g)==0){
+                                    loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject_up");
+                                    loadSubject(1,"selected_da_subject_up")
+                                }else{
+                                    loadCertificates(teacher.diplomas,"selected_da_subject_up");
+                                    loadSubject(1,"selected_da_subject_up")
+                                }
+                            
+                            $("input[name=race]").val(teacher.race);
+                            $("input[name=religion]").val(teacher.religion);
+                            $("input[name=date_of_birth]").val(teacher.date_of_birth);
+                            $("input[name=address]").val(teacher.address);
+                            $("input[name=current_address]").val(teacher.current_address);
+                            $("input[name=position]").val(teacher.position);
+                            $("input[name=department]").val(teacher.department);
+                            $("input[name=organization]").val(teacher.organization);
+                              if(teacher.gov_employee == 1){
+                                $('input:radio[id=gov_employee1]').attr('checked',true);
+                                $('#rec_letter').css('display','block');
+                                if(teacher.recommend_letter!=""){
+                                    $(".recommend_letter").append(`<a href='${BASE_URL+teacher.recommend_letter}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+                                }
+                                $('#hrecommend_letter').val(teacher.recommend_letter);
+                            }
+                            else{
+                                $('input:radio[id=gov_employee2]').attr('checked',true);
+                                $('#rec_letter').css('display','none');
+                            }
+                            if(teacher.school_id!=null){
+                                $('input:radio[id=school_staff1]').attr('checked',true);
+                                $('.private_type').css('display','block');
+                                $('.individual_type').css('display','none');
+                              }else{
+                                $('input:radio[id=school_staff2]').attr('checked',true);
+                                $('.individual_type').css('display','block');
+                                $('.private_type').css('display','none');
+                                $('input[name=school_name]').val(teacher.school_name);
+                              }
+                              
+                    }
+              })
+            }
+        });
+    }else{
+
+    }
 }

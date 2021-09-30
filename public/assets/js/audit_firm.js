@@ -143,6 +143,13 @@ function createAuditFirm(){
   // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
+
+  // var t_s_p_id_val = [];
+  //       $('input[name=t_s_p_id]:checked').each(function(i){
+  //         t_s_p_id_val[i] = $(this).val();
+  //       });
+  // send_data.append('t_s_p_id',t_s_p_id_val);
+
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
 
@@ -150,7 +157,6 @@ function createAuditFirm(){
   send_data.append('password',$("input[name=password]").val());
   // send_data.append('form_fee',$("input[name=form_fee]").val());
   // send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
-
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});
@@ -276,12 +282,12 @@ function createAuditFirm(){
                 contentType: false,
                 processData: false,
                 success: function(result){
-                  EasyLoading.hide();
+                  //EasyLoading.hide();
 
-                  successMessage("Insert Successfully");
+                  //successMessage("Insert Successfully");
                   // location.reload();
                   // location.href = "/";
-                  location.href = FRONTEND_URL+'/';
+                  //location.href = FRONTEND_URL+'/';
               }
             });
 }

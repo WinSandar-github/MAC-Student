@@ -48,9 +48,10 @@
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
                 <div class="status-reject" style="display:none">
-                    <div class="card text-white bg-dark mb-3">
+                    <div class="card text-danger bg-warning mb-3">
 
                         <div class="card-body">
+                            <p class='reject-reason'></p>
                             <p class="card-text reject">Your Registration Form need to prepare.Please update your form
                              </p>
                         </div>
@@ -254,6 +255,20 @@
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
                                                                                         <a href="{{url('teacher_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                        <div class="row update-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        <a href="{{url('teacher_register')}}" class="btn btn-success btn-hover-dark" >Update</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -725,7 +740,7 @@
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
-        // console.log('course_type',course_type[2]);
+        
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
         localStorage.setItem('course_type',course_type[2])
