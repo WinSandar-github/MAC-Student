@@ -24,7 +24,7 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
 
@@ -41,7 +41,7 @@
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
 
@@ -53,12 +53,12 @@
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
 
@@ -488,9 +488,7 @@
                                         <!-- ‌Acca Cima -->
                                         <div class="row mb-3">                                            
                                             <label class="col-md-4 col-form-label mr-2"><span class="pull-left" style="padding-right: 30px;">{{ __('၂၂။') }}
-                                            </span>ACCA/CIMA တက်ရောက်နေသူ<span style="color:red">*</span> -</label>
-
-                                   
+                                            </span>ACCA/CIMA တက်ရောက်နေသူ -</label>
                                                             
                                                 <div class="col-md-2 form-check mt-2 mx-4  ">
                                                     <input class="form-check-input" type="radio" id="acca" name="acca_cima" value='1'    >
@@ -507,12 +505,12 @@
                                                         CIMA
                                                     </label>
                                                 </div>
-                                                <label  class="error attend_place_error" name="attend_place_error" style="display:none; padding-left:353px" for="acca_cima">Please select One.</label>
+                                                {{--<label  class="error attend_place_error" name="attend_place_error" style="display:none; padding-left:353px" for="acca_cima">Please select One.</label>--}}
                                                          
                                                 </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည်အဆင့်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည်အဆင့်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
@@ -521,7 +519,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုနှစ်/လ<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုနှစ်/လ</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >
@@ -530,7 +528,7 @@
                                         </div>
                                         
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>မှတ်ပုံတင်အမှတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>မှတ်ပုံတင်အမှတ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
@@ -539,7 +537,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>Attched Certificate<span style="color:red">*</span></label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>Attched Certificate</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="file" class="form-control" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"   >

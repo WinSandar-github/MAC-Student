@@ -143,6 +143,13 @@ function createAuditFirm(){
   // send_data.append('local_foreign_id',$("input[name=local_foreign_id]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
+
+  // var t_s_p_id_val = [];
+  //       $('input[name=t_s_p_id]:checked').each(function(i){
+  //         t_s_p_id_val[i] = $(this).val();
+  //       });
+  // send_data.append('t_s_p_id',t_s_p_id_val);
+
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
 
@@ -150,7 +157,6 @@ function createAuditFirm(){
   send_data.append('password',$("input[name=password]").val());
   // send_data.append('form_fee',$("input[name=form_fee]").val());
   // send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
-
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});
@@ -276,12 +282,12 @@ function createAuditFirm(){
                 contentType: false,
                 processData: false,
                 success: function(result){
-                  EasyLoading.hide();
+                  //EasyLoading.hide();
 
-                  successMessage("Insert Successfully");
+                  //successMessage("Insert Successfully");
                   // location.reload();
                   // location.href = "/";
-                  location.href = FRONTEND_URL+'/';
+                  //location.href = FRONTEND_URL+'/';
               }
             });
 }
@@ -686,11 +692,11 @@ function loadAuditTotalStaffReg(){
               var tr = "<tr>";
               tr += "<td class='font-weight-bold'>" + element.name + "</td>";
 
-              tr += "<td><input type='number' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
-              tr += "<td><input type='number' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required  onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
+              tr += "<td><input type='number' min='0' value='0' name='ats_audit_staff[]' class='form-control' id=audit_staff"+element.id+" required onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
+              tr += "<td><input type='number' min='0' value='0' name='ats_non_audit_staff[]' class='form-control' id=nonaudit_staff"+element.id+" required  onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
 
               tr += "<td><input type='hidden' value="+element.id+" name='ats_audit_total_staff_type_id[]'>"+
-              "<input type='number' value='0' name='ats_total[]' class='form-control' id=total_staff"+element.id+" required onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
+              "<input type='number' value='0' name='ats_total[]' readonly class='form-control' id=total_staff"+element.id+" required onmouseup=getTotal("+element.id+") onkeyup=getTotal("+element.id+")></td>";
               tr += "</tr>";
 
 
@@ -777,10 +783,10 @@ function loadAuditStaffReg(){
           var tr = "<tr>";
           tr += "<td class='font-weight-bold'>" + element.name + "</td>";
 
-          tr += "<td><input type='number' value='0' name='as_full_time[]' class='form-control' id=full_time"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
-          tr += "<td><input type='number' value='0' name='as_part_time[]' class='form-control' id=part_time"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+          tr += "<td><input type='number' min='0' value='0' name='as_full_time[]' class='form-control' id=full_time"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+          tr += "<td><input type='number' min='0' value='0' name='as_part_time[]' class='form-control' id=part_time"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
           tr += "<td><input type='hidden' value="+element.id+" name='as_audit_staff_type_id[]'>"+
-                      "<input type='number' value='0' name='as_total[]' class='form-control' id=audit_total"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
+                      "<input type='number' readonly value='0' name='as_total[]' class='form-control' id=audit_total"+element.id+" required onmouseup=getTotalAudit("+element.id+") onkeyup=getTotalAudit("+element.id+")></td>";
           tr += "</tr>";
           $("#tbl_audit_staff_body").append(tr);
 
@@ -889,30 +895,48 @@ function deleteAuditInfo(accName,accId){
     }
 }
 
-function checkPAPPExist(value,id){
-  $.ajax({
-    type: "get",
-    url: BACKEND_URL + '/papp/'+value,
-    success: function (data) {
-       // var a=localStorage.getItem('isPAPPExist');
-        if(data.data.length==0){
-          alert("PAPP Registration No. does not exist!");
-          document.getElementById('btn_submit_audit_firm').disabled=true;
-          document.getElementById(id).style.borderColor="red";
-          //localStorage.setItem('isPAPPExist',false);
-        }
-        else{
-          document.getElementById('btn_submit_audit_firm').disabled=false;
-          document.getElementById(id).style.borderColor="#ced4da";
-        }
+function checkPAPPExist(value,id,element){
+   if($(element).val() != ''){
+       $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+       $.ajax({
+         type: "get",
+         url: BACKEND_URL + '/papp/'+value,
+         success: function (data) {
+            // var a=localStorage.getItem('isPAPPExist');
+             if(data.data.length==0){
+               alert("PAPP Registration No. does not exist!");
+               document.getElementById('btn_submit_audit_firm').disabled=true;
+               document.getElementById(id).style.borderColor="red";
+               $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+               //localStorage.setItem('isPAPPExist',false);
+             }
+             else{
+                 document.getElementById('btn_submit_audit_firm').disabled=false;
+                 document.getElementById(id).style.borderColor="#ced4da";
+                 // set name who is exist PAPP
+                 data.data.forEach(function(item){
+                   var student_info = item.student_info;
+                   $(element).parent().siblings().find("input[name='foa_name[]']").val(student_info.name_eng);
+                 });
 
-    },
-    error: function (message) {
-        errorMessage(message);
-    }
-});
+             }
+
+         },
+         error: function (message) {
+             errorMessage(message);
+         }
+     });
+   }
+   else {
+     document.getElementById('btn_submit_audit_firm').disabled=true;
+     document.getElementById(id).style.borderColor="2px solid red";
+     $(element).parent().siblings().find("input[name='foa_name[]']").val('');
+   }
 }
 
+// $("input[name='foa_pub_pri_reg_no[]']").change(function(){
+//   alert("keyup");
+// });
 
 
 function checkPaymentAudit(){

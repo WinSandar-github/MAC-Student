@@ -24,7 +24,7 @@ $nrc_characters = config('myanmarnrc.characters');
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png') }}" alt="Shape">
 
@@ -41,7 +41,7 @@ $nrc_characters = config('myanmarnrc.characters');
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
 
@@ -53,12 +53,12 @@ $nrc_characters = config('myanmarnrc.characters');
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">--}}
 
         </div>
 
@@ -72,7 +72,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                         @csrf
                         <div class="row">
-                            <div class="card border-success mb-3">
+                            <div class="card border-success mb-3"  style="padding:3% 5% 3% 5%;">
                                 <!-- <form> -->
                                 <div class="card-body ">
                                     <div class="col-md-12">
@@ -83,7 +83,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <input type="hidden" name="is_private" id="is_private" class="form-control">
                                                 <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေဆိုခွင့်လျှောက်လွှာ</h5><br/>
-
+                                                <div class="d-flex justify-content-between mb-3">
+                                                    <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                    <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-8 mt-3">
 
@@ -317,12 +320,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                   <div class="row mt-2">
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 1" > Module 1
+                                                              <input type="checkbox" name="last_ans_module[]" id="lst_m1"  value="Module 1" > Module 1
                                                           </label>
                                                       </div>
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 2" > Module 2
+                                                              <input type="checkbox" name="last_ans_module[]" id="lst_m2"  value="Module 2" > Module 2
                                                           </label>
                                                       </div>
                                                       <label  class="error attend_place_error" name="attend_place_error" style="display:none;" for="last_ans_module[]">Please select Module.</label>
@@ -389,7 +392,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            <input type="radio" id="0" class="form-check-input module_one" name="is_full_module" value="1" required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -397,7 +400,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            <input type="radio" id="1" class="form-check-input module_two" name="is_full_module" value="2" required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -405,7 +408,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            <input type="radio" id="2" class="form-check-input module_full"  name="is_full_module" value="3" required>
                                                             All Modules
                                                         </div>
                                                     </div>
@@ -448,7 +451,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             </p>
                                                         </label>
                                                     </div>
-                                                    <h6 class="">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                    {{--<h6 class="">ရက်စွဲ - {{ date('d-M-Y') }}</h6>--}}
                                                 </div>
                                             </div> 
 
@@ -543,18 +546,21 @@ $nrc_characters = config('myanmarnrc.characters');
               console.log("data >>>>",data);
                 let student_info = data.data
                 let student_reg = data.data.student_register
+                let current_stu_course = data.data.student_course_regs.slice(-1);
+                let current_stu_reg=data.data.student_register.slice(-1);
+                $("#batch_number").append(current_stu_course[0].batch.number);
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
-                    console.log(data.data,"student_reg");
-                    if(student_reg[1].module=="1"){
-                         $("#0").prop("checked", true);
-                    }
-                    else if(student_reg[1].module=="2"){
-                        $("#1").prop("checked", true);
-                    }
-                    else if(student_reg[1].module=="3"){
-                        $("#2").prop("checked", true);
-                    }
+                    // console.log(data.data,"student_reg");
+                    // if(current_stu_reg[0].module=="1"){
+                    //      $("#0").prop("checked", true);
+                    // }
+                    // else if(current_stu_reg[0].module=="2"){
+                    //     $("#1").prop("checked", true);
+                    // }
+                    // else if(current_stu_reg[0].module=="3"){
+                    //     $("#2").prop("checked", true);
+                    // }
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
                     // console.log('current_stu_course',current_stu_course)
 
@@ -580,6 +586,44 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     $("input[name='personal_no']").val(student_info.personal_no);
+                    let batch_id = localStorage.getItem('batch_id');
+                    let last_exam = data.data.exam_registers.slice(-1);
+                    if(last_exam.length!=0)
+                    {
+                        if(last_exam[0].course.code == 'da_2') {
+                            $("input[name='date']").val(formatDate(last_exam[0].created_at));
+
+                            if(last_exam[0].is_full_module == "1")
+                            {
+                                
+                                $(".module_two").prop("checked", true);
+                                
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                            $(':radio:not(:checked)').attr('disabled', true);
+                                
+                            }
+
+                            if(last_exam[0].is_full_module == "1"){
+                                
+                                $("#lst_m1").prop("checked", true);
+                                $("#lst_m2").attr("disabled", "disabled");  
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $("#lst_m2").prop("checked", true);
+                                $("#lst_m1").attr("disabled", "disabled"); 
+                            }
+                        }
+                    }
 
                     let education = student_info.student_education_histroy;
                     $("input[name='degree_name']").val(education.degree_name);
