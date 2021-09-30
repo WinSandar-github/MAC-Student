@@ -13,6 +13,8 @@ function user_profile() {
                 $('.acc_firm').show();
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
+                let firm_ownerships_audits = data.firm_ownerships_audits;
+                console.log("firm_ownerships_audits >>>>",firm_ownerships_audits);
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                 $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
@@ -21,8 +23,16 @@ function user_profile() {
                 $('.phone').text(acc_firm.telephones);
 
                 if (acc_firm.audit_firm_type_id == 1) {
+                  // if audit firm type
+                    if(firm_ownerships_audits != ''){
+                      // show name and public practice reg no who selected Yes
+                      if(firm_ownerships_audits.authority_to_sign == 1){
+                        $("#info_for_audit").css("display","block");
+                        $('.name').text(firm_ownerships_audits.name);
+                        $('.public_practice_reg_no').text(firm_ownerships_audits.public_private_reg_no);
+                      }
+                    }
 
-                    // if audit firm type
                     if (acc_firm.status == 0) {
                         $('.status_history').append('Your Audit Firm Form is checking.');
                     } else if (acc_firm.status == 1) {
@@ -30,8 +40,12 @@ function user_profile() {
                     } else {
                         $('.status_history').append('Your Audit Firm Form is Rejected.');
                     }
-                } else {
-
+                }
+                else
+                {
+                    $("#info_for_non_audit").css("display","block");
+                    $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
+                    $('.passport_csc_no').text(acc_firm.dir_passport_csc);
                     //if non-audit firm type
                     if (acc_firm.status == 0) {
                         $('.status_history').append('Your Non-Audit Firm Form is checking.');
@@ -362,7 +376,7 @@ function user_profile() {
                                     <td>-</td>
                                     <td>Checking</td>
                                 </tr>
-                               
+
                                 `);
 
 
@@ -418,7 +432,7 @@ function user_profile() {
 
                         } else {
                             let status_course;
-                            let std_id = latest_course_reg[0].student_info_id;
+                            // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
                             localStorage.setItem("courseId", latest_course_reg[0].batch.course_id);
                             $('.course').html(course_html)
@@ -430,11 +444,9 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}' class="btn btn-sm btn-success" > Payment</a></td>
-                                    </tr>
-                                    
-                                    `);
-                                // <td>Checking</td>
+                                    <td>Checking</td>
+                                </tr>
+                                `);
                                 // $('.status').append(`
                                 // <tr>
                                 //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -447,16 +459,23 @@ function user_profile() {
                                 // `);
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
+                                let std_id = latest_course_reg[0].student_info_id;
+                                // $('.status').append(`
+                                // <tr>
+                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                //     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                //     <td><span class="badge bg-success">Approved</span></td>
+                                // </tr>
+                                // `);
                                 $('.status').append(`
                                 <tr>
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}' class="btn btn-sm btn btn-info" > Payment</a></td>
                                 </tr>
                                 `);
-
-
                                 // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                                 //show data depend on Student Register status
 
@@ -624,16 +643,16 @@ function user_profile() {
                                                                                 $('.status').append(`
                                                                                     <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                         <td>
-            
-            
-                                                                                        
+
+
+
                                                                                             <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
-                                                                                        
-                                                                                        
+
+
                                                                                         <td>
                                                                                     </td>
                                                                                 </tr>
-            
+
                                                                             `);
                                                                             } else {
 
@@ -709,7 +728,7 @@ function user_profile() {
 
                                                                     $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
-                                                                            <td>       
+                                                                            <td>
                                                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
                                                                             <td>
                                                                         </td>
@@ -718,7 +737,7 @@ function user_profile() {
                                                                 } else {
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
-                                                                        <td>       
+                                                                        <td>
                                                                             <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
                                                                         <td>
                                                                     </td>
@@ -879,16 +898,16 @@ function user_profile() {
                                                                                 $('.status').append(`
                                                                                     <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                         <td>
-            
-            
-                                                                                        
+
+
+
                                                                                             <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
-                                                                                        
-                                                                                        
+
+
                                                                                         <td>
                                                                                     </td>
                                                                                 </tr>
-            
+
                                                                             `);
                                                                             } else {
 
@@ -964,7 +983,7 @@ function user_profile() {
 
                                                                     $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
-                                                                            <td>       
+                                                                            <td>
                                                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
                                                                             <td>
                                                                         </td>
@@ -973,7 +992,7 @@ function user_profile() {
                                                                 } else {
                                                                     $('.status').append(`
                                                                     <tr><td colspan=2></td><td>Action</td>
-                                                                        <td>       
+                                                                        <td>
                                                                             <a href="javascript:void(0)" class="btn-sm btn btn-success">Coming Soon</a>
                                                                         <td>
                                                                     </td>
@@ -1075,7 +1094,7 @@ function user_profile() {
 
                                                 } else {
                                                     $('.status').append(`
-                                                    <tr> 
+                                                    <tr>
                                                     <td colspan=2 ></td ><td>Action</td>
                                                         <td>
                                                         <p>The exam schedule will be announced soon</p>
@@ -1141,7 +1160,7 @@ function user_profile() {
 
                                             } else {
                                                 $('.status').append(`
-                                                <tr> 
+                                                <tr>
                                                 <td colspan=2 ></td ><td>Action</td>
                                                     <td>
                                                     <p>The exam schedule will be announced soon</p>
@@ -1195,11 +1214,11 @@ function user_profile() {
                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
 
                                     $('.status').append(`
-                                        <tr> 
+                                        <tr>
                                             <td colspan=2 ></td ><td>Action</td>
-                                            <td>       
+                                            <td>
                                                 <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration</a>
-                                           
+
                                             </td>
                                         </tr>
                                                                 `);
@@ -1219,8 +1238,8 @@ function user_profile() {
                                 <td>မှတ်ချက် - </td>
                                 <td colspan=2>${latest_course_reg[0].remark}</td><td>
                                 <a href="${update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
- 
-                            
+
+
                              </td></tr>
                                                                     `);
                                 // $('.status').append('Your Application Form is Reject')

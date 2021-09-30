@@ -130,7 +130,7 @@
                                                         <h6 class="my-0">Application Form Fee</h6>
                                                         <small class="text-muted">Diploma in Accountancy(Part 1)</small>
                                                     </div>
-                                                    <span class="text-muted" name="form_fee" id="form_fee"></span>&nbsp;<span> MMK</span>
+                                                    <span class="text-muted" name="fee" id="fee"></span>&nbsp;<span> MMK</span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between">
                                                     <span>Total (MMK)</span>
@@ -161,6 +161,7 @@
                                                         <input type="text" class="form-control" name="invoice_no" value="123456" readonly="">
                                                     </div>
                                                 </div>
+                                                <input type="hidden"  name="form_fee" id="form_fee">
                                                 {{--<div class="mb-3">
                                                     <label for="email">Email <span class="text-muted"></span></label>
                                                     <input type="email" class="form-control" id="email" readonly="">
@@ -168,30 +169,49 @@
                                                 <br>
                                                 <h4 class="mb-3">Choose Payment Method</h4>
                                                 <div class="d-block my-3">
+                                                    <div class="custom-control custom-radio">
+                                                        <input value="mpu" name="payment_method" type="radio" class="custom-control-input" checked="" required="">
+                                                        <label class="custom-control-label" for="credit">MPU</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input value="cbpay" name="payment_method" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="debit">CBPAY</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input value="visa" name="payment_method" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="paypal">VISA</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input value="master" name="payment_method" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="paypal">MASTER</label>
+                                                    </div>
+                                                </div>
+                                                {{--<h4 class="mb-3">Choose Payment Method</h4>
+                                                <div class="d-block my-3">
                                                     <div class="row justify-content-center mb-4 radio-group">
                                                         <div class="col-sm-3 col-5">
                                                             <div class='radio mx-auto'> <img class="fit-image"
                                                                     src="{{ asset('img/payment/mpu.png') }}" width="100px" height="60px"
-                                                                    data-value="MPU" id="channel"> </div>
+                                                                    value="MPU" name="payment_method"> </div>
                                                         </div>
                                                         <div class="col-sm-3 col-5">
                                                             <div class='radio mx-auto'> <img class="fit-image"
                                                                     src="{{ asset('img/payment/cbpay.png') }}" width="100px"
-                                                                    height="60px" data-value="CBPAY" id="channel" payment_method="cbpay"> </div>
+                                                                    height="60px" value="CBPAY" name="payment_method"> </div>
                                                         </div>
                                                         <div class="col-sm-3 col-5">
                                                             <div class='radio mx-auto'> <img class="fit-image"
                                                                     src="{{ asset('img/payment/visa.png') }}" width="100px" height="60px"
-                                                                    data-value="VISA" id="channel"> </div>
+                                                                    value="VISA" name="payment_method"> </div>
                                                         </div>
                                                         <div class="col-sm-3 col-5">
                                                             <div class='radio mx-auto'> <img class="fit-image"
                                                                     src="{{ asset('img/payment/master.png') }}" width="100px" height="60px"
-                                                                    data-value="MASTER" id="channel"> </div>
+                                                                    value="MASTER" name="payment_method"> </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-25">Submit</button>
+                                                </div>--}}
+                                                <button class="btn btn-success btn-block" type="submit">Continue to checkout</button>
                                                 {{--<div class="cc-selector">
                                                     <input id="mpu" type="radio" name="credit-card" value="mpu" />
                                                     <label class="drinkcard-cc mpu" for="mpu"></label>
@@ -213,10 +233,3 @@
         </div>
     </div>
 @endsection
-@push('scripts')
-    <script src="{{ asset('assets/js/payment.js') }}"></script>
-    <script type="text/javascript">
-        loadStdData();
-        loadFees();
-    </script>
-@endpush

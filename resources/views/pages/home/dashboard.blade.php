@@ -162,7 +162,7 @@
                                             <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <span id="exam_date"></span> 
+                                            <span id="exam_date"></span>
                                         </div>
                                     </div> --}}
                                 <div class="row m-2 mt-3 border-bottom">
@@ -371,7 +371,42 @@
                                         <span class="text-start phone"></span>
                                     </div>
                                 </div>
-
+                                <div id="info_for_audit" style="display:none;">
+                                  <div class="row mt-3 border-bottom">
+                                      <div class="col-md-6">
+                                          <p class="ml-2" style="font-weight:bold">Name</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <span class="text-start name"></span>
+                                      </div>
+                                  </div>
+                                  <div class="row mt-3 border-bottom">
+                                      <div class="col-md-6">
+                                          <p class="ml-2" style="font-weight:bold">Public Practice Reg No.</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <span class="text-start public_practice_reg_no"></span>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div id="info_for_non_audit" style="display:none;">
+                                  <div class="row mt-3 border-bottom">
+                                      <div class="col-md-6">
+                                          <p class="ml-2" style="font-weight:bold">Managing Director Name</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <span class="text-start managing_dir_name"></span>
+                                      </div>
+                                  </div>
+                                  <div class="row mt-3 border-bottom">
+                                      <div class="col-md-6">
+                                          <p class="ml-2" style="font-weight:bold">Passport/CSC No.</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <span class="text-start passport_csc_no"></span>
+                                      </div>
+                                  </div>
+                                </div>
 
                             </div>
 
@@ -657,13 +692,13 @@
                             <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
                                     class="form-control" ="" id="name_mm">
                         </div>
-                         
+
                     </div>
                     <br>
                     <div class="row">
-                        
+
                         <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
-                         
+
                         <div class="col-md-8">
                             <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng"
                                     class="form-control" ="">
