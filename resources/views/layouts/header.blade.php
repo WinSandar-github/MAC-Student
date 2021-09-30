@@ -29,16 +29,20 @@
 
 </style>
 <div class="header-section">
+    <div class="header-banner">
+        <img src="{{ asset('assets') }}/images/mac_images/macbanner.png" alt="MAC Banner">
+    </div>
     <!-- Header Main Start -->
     <div class="header-main">
+       
         <div class="header-container">
             <!-- Header Main Start -->
             <div class="header-main-wrapper">
                 <!-- Header Logo Start -->
-                <div class="header-logo">
+                {{--<div class="header-logo">
                     <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img
                                 src="{{ asset('assets') }}/images/maclogo1.png" alt="Logo"> <label for="" class="" style="font-weight:bold;font-size:20px;">MAC</label></a>
-                </div>
+                </div>--}}
                 <!-- Header Logo End -->
 
                 <!-- Header Menu Start -->
@@ -97,7 +101,7 @@
 
                 </div>
 
-                <div class="header-sign-in-up d-none d-lg-block after_signin">
+                <div class="header-sign-in-up d-none d-lg-block after_signin" style="padding-right:50px">
                     <ul>
                         <li><a class="sign-in" href="{{url('login')}}">Sign In</a></li>
 

@@ -1,14 +1,19 @@
 
 <div class="non_login  ">
+    
     <div class="section slider-section">
-
-        <!-- Slider Shape Start -->
-            <div class="slider-shape">
-                <img class="shape-1 animation-round" src="assets/images/shape/shape-8.png" alt="Shape">
+    <div class="slider-images">
+            <div class="images">
+                <img src="assets/images/mac_images/macschoolimg.png" alt="Slider">
             </div>
+        </div>
+        <!-- Slider Shape Start -->
+            {{--<div class="slider-shape">
+                <img class="shape-1 animation-round" src="assets/images/shape/shape-8.png" alt="Shape">
+            </div>--}}
         <!-- Slider Shape End -->
 
-            <div class="container">
+            {{--<div class="container">
 
                 <!-- Slider Content Start -->
                 <div class="slider-content">
@@ -19,10 +24,10 @@
                 </div>
                 <!-- Slider Content End -->
 
-            </div>
+            </div>--}}
 
         <!-- Slider Courses Box Start -->
-        <div class="slider-courses-box">
+        {{--<div class="slider-courses-box">
 
             <img class="shape-1 animation-left" src="assets/images/shape/shape-5.png" alt="Shape">
 
@@ -36,11 +41,11 @@
 
             <img class="shape-2" src="assets/images/shape/shape-6.png" alt="Shape">
 
-        </div>
+        </div>--}}
         <!-- Slider Courses Box End -->
 
         <!-- Slider Rating Box Start -->
-        <div class="slider-rating-box">
+        {{--<div class="slider-rating-box">
 
             <div class="box-rating">
                 <div class="box-wrapper">
@@ -51,15 +56,15 @@
 
             <img class="shape animation-up" src="assets/images/shape/shape-7.png" alt="Shape">
 
-        </div>
+        </div>--}}
         <!-- Slider Rating Box End -->
 
         <!-- Slider Images Start -->
-        <div class="slider-images">
+        {{--<div class="slider-images">
             <div class="images">
-                <img src="assets/images/slider/slider-1.png" alt="Slider">
+                <img src="assets/images/mac_images/macschoolimg.png" alt="Slider">
             </div>
-        </div>
+        </div>--}}
         <!-- Slider Images End -->
 
         <!-- Slider Video Start -->

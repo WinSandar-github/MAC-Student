@@ -24,7 +24,7 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
 
@@ -41,7 +41,7 @@
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
 
@@ -53,12 +53,12 @@
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
         <div class="section section-padding">
@@ -141,7 +141,7 @@
                         </div>
                     </div> -->
                     <div class="row" id="private_school_container">
-                        <div class="card border-success mb-3">
+                        <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -153,6 +153,10 @@
                                                 (ကိုယ်ပိုင်သင်တန်းကျောင်း)</h5></br>
                                             </div>
                                             <div class="col-md-2"></div>
+                                            <div class="d-flex justify-content-between mt-2 mb-2">
+                                                <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -464,7 +468,7 @@
 
                     </div>
                     <div class="row" id="self_study_container">
-                        <div class="card border-success mb-3">
+                        <div class="card border-success mb-3"  style="padding:3% 5% 3% 5%;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -483,9 +487,9 @@
                                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type"></span><br>
                                             လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ဒုတိယပိုင်း) မှတ်ပုံတင်ခွင့်လျှောက်လွှာ<br/>
                                             (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)</h5>
-                                            <div class="d-flex justify-content-between">
+                                            <div class="d-flex justify-content-between mt-2 mb-2">
                                                 <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                                <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
+                                                <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -814,7 +818,7 @@
                     </div>
 
                     <div class="row" id="mac_container">
-                        <div class="card border-success mb-3">
+                        <div class="card border-success mb-3"  style="padding:3% 5% 3% 5%;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -826,6 +830,10 @@
 
                                             </div>
                                             <div class="col-md-2"></div>
+                                            <div class="d-flex justify-content-between mt-2 mb-2">
+                                                <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1359,8 +1367,7 @@ $('document').ready(function(){
                 let current_stu_course = student_info.student_course_regs.slice(-1);
                 let exam_registers = student_info.exam_registers.slice(-1);
 
-                // console.log('student_info',student_info);
-
+                 console.log('student_info',current_stu_course);
                 $('.name_mm').val(student_info.name_mm);
                 $('.name_eng').val(student_info.name_eng);
                 $('.nrc_state_region').val(student_info.nrc_state_region);

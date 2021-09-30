@@ -8,8 +8,29 @@ $(document).ready(function(){
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
-      // $("#email_num").text("13");
-      // $("#password_num").text("14");
+      $("#permit_section_27").css("display","none");
+      ///
+      $("#financial_label_1").css("display","none");
+      $("#financial_label_2").css("display","block");
+      //
+      $("#commercial_label_1").css("display","none");
+      $("#commercial_label_2").css("display","block");
+      //
+      $("#letterhead_label_1").css("display","none");
+      $("#letterhead_label_2").css("display","block");
+      //
+      $("#education_label_1").css("display","none");
+      $("#education_label_2").css("display","block");
+      //
+      $("#work_exp_label_1").css("display","none");
+      $("#work_exp_label_2").css("display","block");
+      //
+      $("#shareholder_label_1").css("display","none");
+      $("#shareholder_label_2").css("display","block");
+      //
+      $("#tax_label_1").css("display","none");
+      $("#tax_label_2").css("display","block");
+
     }
     else if($(this).val() == "2"){
       //foreign
@@ -22,8 +43,28 @@ $(document).ready(function(){
 
       $("#label3").css("display","block");
       $("#label2").css("display","none");
-      // $("#email_num").text("14");
-      // $("#password_num").text("15");
+      $("#permit_section_27").css("display","block");
+      ///
+      $("#financial_label_1").css("display","block");
+      $("#financial_label_2").css("display","none");
+      //
+      $("#commercial_label_1").css("display","block");
+      $("#commercial_label_2").css("display","none");
+      //
+      $("#letterhead_label_1").css("display","block");
+      $("#letterhead_label_2").css("display","none");
+      //
+      $("#education_label_1").css("display","block");
+      $("#education_label_2").css("display","none");
+      //
+      $("#work_exp_label_1").css("display","block");
+      $("#work_exp_label_2").css("display","none");
+      //
+      $("#shareholder_label_1").css("display","block");
+      $("#shareholder_label_2").css("display","none");
+      //
+      $("#tax_label_1").css("display","block");
+      $("#tax_label_2").css("display","none");
     }
     else{
       //local
@@ -31,8 +72,8 @@ $(document).ready(function(){
       $("#foreign_header").css("display","none");
       $("#director_staffmembers").css("display","none");
       $("input[name=local_foreign_type]").val("1");
-      // $("#email_num").text("13");
-      // $("#password_num").text("14");
+      ///
+
     }
   });
 });
@@ -80,7 +121,7 @@ function loadNonAuditStaff(){
           var tr = "<tr>";
           tr += "<td>" + element.name + "</td>";
           tr += "<td><input type='hidden' value="+element.id+" name='nats_type_id[]'>"+
-                "<input type='number' value='0' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+" required onmouseup=getNonAuditTotalNum("+element.id+") onkeyup=getNonAuditTotalNum("+element.id+")></td>";
+                "<input type='number' min='0' value='0' name='nats_total[]' class='form-control' id=non_audit_number"+element.id+" required onmouseup=getNonAuditTotalNum("+element.id+") onkeyup=getNonAuditTotalNum("+element.id+")></td>";
           tr += "</tr>";
           $("#tbl_non_audit_number_body").append(tr);
 
@@ -177,6 +218,7 @@ function createNonAuditFirm(){
   }
   //send_data.append('other',$('input[name=other]').val());
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
+  send_data.append('dir_passport_csc',$("input[name=dir_passport_csc]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
   send_data.append('email',$("input[name=email]").val());
   send_data.append('password',$("input[name=password]").val());

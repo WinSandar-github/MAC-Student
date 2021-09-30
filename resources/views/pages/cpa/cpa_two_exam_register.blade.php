@@ -16,7 +16,7 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png') }}" alt="Shape">
 
@@ -33,7 +33,7 @@
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
 
@@ -45,12 +45,12 @@
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">--}}
 
         </div>
 
@@ -70,9 +70,9 @@
                                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
                                             လက်မှတ်ရပြည်သူစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ<br>
                                         </h5>
-                                        <div class="d-flex justify-content-between">
+                                        <div class="d-flex justify-content-between mt-3">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <!-- <h6>အမှတ်စဥ် - {{ __("____") }}</h6> -->
+                                            <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
 
@@ -444,9 +444,10 @@
             if(data){
                 let student_info = data.data;
                 console.log('student_info',student_info)
-
+                let current_course_reg=student_info.student_course_regs.slice(-1);
                 let current_stu_reg=student_info.student_register.slice(-1);
                 console.log('current_stu_reg',current_stu_reg);
+                $('.batch_number').append(current_course_reg[0].batch.number)
                     if(current_stu_reg[0].module=="1"){
                          $("#module1").prop("checked", true);
                     }
