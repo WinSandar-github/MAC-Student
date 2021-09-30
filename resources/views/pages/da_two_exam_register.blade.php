@@ -548,6 +548,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 let student_reg = data.data.student_register
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let current_stu_reg=data.data.student_register.slice(-1);
+                let last_exam = data.data.exam_registers.slice(-1);
                 $("#batch_number").append(current_stu_course[0].batch.number);
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
@@ -588,8 +589,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='personal_no']").val(student_info.personal_no);
                     let batch_id = localStorage.getItem('batch_id');
 
-                    if(last_exam[0].course.code == 'da_2') {
-                        
+                    if(last_exam[0].course.code == 'da_2') {                       
                       
 
                         $("input[name='date']").val(formatDate(last_exam[0].created_at));

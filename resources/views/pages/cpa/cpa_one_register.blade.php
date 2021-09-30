@@ -1836,6 +1836,7 @@
                   }
 
                 if(info.acca_cima){
+                    console.log('aa');
                     // document.getElementById(direct_access_no_self_div).style.display='block';
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
@@ -1844,6 +1845,7 @@
                     $("#direct_access_no_mac_div").show();
                     $("#entry_success_no_mac_div").hide();
                 }else if(!info.acca_cima && !info.da_pass_roll_number){
+                    console.log('bb');
                     $("#direct_access_no_self_div").hide();
                     $("#entry_success_no_self_div").show();
                     $("#direct_access_no_private_div").hide();
@@ -1851,6 +1853,7 @@
                     $("#direct_access_no_mac_div").hide();
                     $("#entry_success_no_mac_div").show();
                 }else{
+                    console.log('cc');
                     $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
                     $("#direct_access_no_private_div").show();
