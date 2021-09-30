@@ -1655,62 +1655,63 @@
 
         get_student_info(student_id).then(data => {
             if(data){
-
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);
-              
 
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
-                        let batch_id = localStorage.getItem('batch_id');
-                        alert(batch_id)
-                        $.ajax({
-                        type: "get",
-                        url: BACKEND_URL+"/batch/"+batch_id,
-                        contentType: false,
-                        processData: false,
-                        async:false,
-                        success: function (res) {
-                            console.log(res)
+                    if(last_exam.length!=0)
+                    {
+                        if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
+                            let batch_id = localStorage.getItem('batch_id');
+                            alert(batch_id)
+                            $.ajax({
+                            type: "get",
+                            url: BACKEND_URL+"/batch/"+batch_id,
+                            contentType: false,
+                            processData: false,
+                            async:false,
+                            success: function (res) {
+                                console.log(res)
+                                
+                                $('.batch_no').val(res.data.number);
+                                
+                                // $('.personal_no').val(data.data.cpersonal_no);
+                                $('#remain_module').val(last_exam[0].is_full_module)
+
+                                if(last_exam[0].is_full_module == "1"){
+                                    
+                                    $(".module_two").prop("checked", true);
+                                
+                                    $(':radio:not(:checked)').attr('disabled', true);
+
+                                }
+                                else if(last_exam[0].is_full_module=="2"){
+                                    $(".module_one").prop("checked", true);
+                                    $(':radio:not(:checked)').attr('disabled', true);
+    
+                                }
+                                else if(last_exam[0].is_full_module=="3"){
+                                    $(".module_full").prop("checked", true);
+
+                                    $(':radio:not(:checked)').attr('disabled', true);
+                                    
+                                }
+
+                                
                             
-                            $('.batch_no').val(res.data.number);
+
+                                }
+                            })   
                             
-                            // $('.personal_no').val(data.data.cpersonal_no);
-                            $('#remain_module').val(last_exam[0].is_full_module)
-
-                            if(last_exam[0].is_full_module == "1"){
-                                 
-                                $(".module_two").prop("checked", true);
-                              
-                                $(':radio:not(:checked)').attr('disabled', true);
-
-                            }
-                            else if(last_exam[0].is_full_module=="2"){
-                                $(".module_one").prop("checked", true);
-                                $(':radio:not(:checked)').attr('disabled', true);
- 
-                            }
-                            else if(last_exam[0].is_full_module=="3"){
-                                $(".module_full").prop("checked", true);
-
-                                $(':radio:not(:checked)').attr('disabled', true);
-                                 
-                            }
-
                             
-                           
+                        }else{
+                            $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                        $(".batch_number").append(current_stu_course[0].batch.number);
 
-                            }
-                        })   
-                        
-                        
-                    }else{
-                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                    $(".batch_number").append(current_stu_course[0].batch.number);
-
-                    }
+                        }
+                }
                     // $('.batch_no').val(current_stu_course[0].batch.number);
                     
 
@@ -1852,11 +1853,11 @@
                     $("#direct_access_no_mac_div").hide();
                     $("#entry_success_no_mac_div").show();
                 }else{
-                    $("#direct_access_no_self_div").hide();
+                    $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
-                    $("#direct_access_no_private_div").hide();
+                    $("#direct_access_no_private_div").show();
                     $("#entry_success_no_private_div").hide();
-                    $("#direct_access_no_mac_div").hide();
+                    $("#direct_access_no_mac_div").show();
                     $("#entry_success_no_mac_div").hide();
                 }
 

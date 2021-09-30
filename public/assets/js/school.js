@@ -582,7 +582,7 @@ function loadFile(file,divname){
     $("."+divname).append(file);
     
 }
-function loadDescription(membership_name){
+function loadDescription(membership_name,divname){
   $('.application-fee').html("");
   $('.registration-fee').html("");
   $('.description-info').html("");
@@ -611,24 +611,25 @@ function loadDescription(membership_name){
       $.each(data, function( index, value ){
           $('.description-info').append(value.description);
           $('.requirement-info').append(value.requirement);
-
+          $('.'+divname).append(value.description);
           application_fee +=value.form_fee;
           registration_fee +=value.registration_fee;
           yearly_fee +=value.yearly_fee;
           renew_fee +=value.renew_fee;
           delay_fee +=value.late_fee;
-          cpa_subject_fee +=value.cpa_subject_fee;
-          da_subject_fee +=value.da_subject_fee;
+          //cpa_subject_fee +=value.cpa_subject_fee;
+          //da_subject_fee +=value.da_subject_fee;
+          reconnected_fee +=value.reconnected_fee;
       })
-      $('.application-fee').append(application_fee+" MMK");
-      $('.registration-fee').append(registration_fee+" MMK");
-      $('.yearly-fee').append(yearly_fee+" MMK");
-      $('.renew-fee').append(renew_fee+" MMK");
-      $('.delay-fee').append(delay_fee+" MMK");
-      $('.cpa-subject-fee').append(cpa_subject_fee+" MMK");
-      $('.da-subject-fee').append(da_subject_fee+" MMK");
-      $('.renew-yearly-fee').append(renew_yearly_fee+" MMK");
-      $('.reconnected-fee').append(reconnected_fee+" MMK");
+      $('.application-fee').append(thousands_separators(application_fee)+" MMK");
+      $('.registration-fee').append(thousands_separators(registration_fee)+" MMK");
+      $('.yearly-fee').append(thousands_separators(yearly_fee)+" MMK");
+      $('.renew-fee').append(thousands_separators(renew_fee)+" MMK");
+      $('.delay-fee').append(thousands_separators(delay_fee)+" MMK");
+      $('.cpa-subject-fee').append(thousands_separators(cpa_subject_fee)+" MMK");
+      $('.da-subject-fee').append(thousands_separators(da_subject_fee)+" MMK");
+      $('.renew-yearly-fee').append(thousands_separators(renew_yearly_fee)+" MMK");
+      $('.reconnected-fee').append(thousands_separators(reconnected_fee)+" MMK");
     }
   })
 }
