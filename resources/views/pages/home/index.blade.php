@@ -1,4 +1,4 @@
-
+@section('content')
 <div class="non_login  ">
     
     <div class="section slider-section">
@@ -238,17 +238,13 @@
                                 <h4 class="d-inline-block">School </h4> 
                                 <a href="{{ url('school_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
-
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="school-description"></div>
+                                        </div>
+                                </div>
                                 
-                                    <ul style="line-height:180%">  
-                                        <li> 	လျှောက်လွှာကြေး ကျပ်၁,၀၀၀ ပေးသွင်းပြီး လျှောက်လွှာ(ကျောင်းပုံစံ-၁)မှ(ကျောင်းပုံစံ-၅) ထိဖြင့် လျှောက်ထားရမည်။ (ပူးတွဲတင်ပြရမည့်အထောက်အထားများအပါအဝင်)</li>
-                                        <li> 	လျှောက်လွှာပါအချက်များ ပြည့်စုံပါက လျှောက်လွှာလက်ခံယူထားကြောင်း အထောက် အထားစာကို ထုတ်ပေးရသည်။</li>
-                                        <li> 	ကော်မတီသို့တင်ပြ၍ သဘောတူခွင့်ပြုပါက မှတ်ပုံတင်ကြေး ကျပ် ၅ သိန်း နှင့် နှစ်စဉ်ကြေး ကျပ် ၃ သိန်းကို အကြောင်းကြားစာရရှိသည့်နေ့မှ (၁၀)ရက်အတွင်း ပေးသွင်းရန် အကြောင်းကြားပါ သည်။</li>
-                                        <li> 	သတ်မှတ်ကြေးများပေးသွင်းသည့်နေ့မှ ၃၀ ရက် အတွင်း မှတ်ပုံတင်လက်မှတ်ထုတ်ပေး ပါသည်။</li>
-                                        <li> 	မှတ်ပုံတင်သက်တမ်းကာလမှာ ပထမဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်နေ့၏ ပြက္ခဒိန်လ အပါအဝင် ၃၆ လ (၃ နှစ်တာကာလ) ဖြစ်ပါသည်။ </li>
-                                        <li> . . .</li>
-
-                                    </ul>
+                                    
 
                                 
                             </div>
@@ -265,16 +261,13 @@
                                 <h4 class="d-inline-block">Teacher </h4> 
                                 <a href="{{ url('teacher_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
-
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="teacher-description"></div>
+                                        </div>
+                                </div>
                                 
-                                    <ul style="line-height:180%">
-                                        <li>လျှောက်လွှာကြေး ၁၀၀၀ ကျပ်ပေးသွင်းပြီး လျှောက်လွှာ (ဆရာပုံစံ-၁) ဖြင့် လျှောက်ထား ရမည်။ (ပူးတွဲ တင်ပြရမည့်အထောက်အထားများအပါအဝင်)</li>
-                                        <li>လျှောက်လွှာပါအချက်များ ပြည့်စုံပါက လျှောက်လွှာလက်ခံယူထားကြောင်း အထောက် အထားစာကို ထုတ်ပေးရသည်။</li>
-                                        <li>ကော်မတီသို့တင်ပြ၍ သဘောတူခွင့်ပြုပါက မှတ်ပုံတင်ကြေး ကျပ် ၅ သောင်း နှင့် နှစ်စဉ်ကြေး ( CPA ၁ ဘာသာ) ကျပ် ၃ သောင်း၊ ( DA ၁ ဘာသာ) ကျပ် ၂ သောင်း  ပေးသွင်းရန် အကြောင်းကြားပါသည်။</li>
-                                        <li>သတ်မှတ်ကြေးများပေးသွင်းသည့်နေ့မှ ၃၀ ရက် အတွင်း မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပါ သည်။</li>
-                                        <li>မှတ်ပုံတင်သက်တမ်းကာလမှာ ပထမဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်နေ့၏ ပြက္ခဒိန်လ အပါအဝင် ၁၂ လ (၁ နှစ်တာကာလ) ဖြစ်ပါသည်။</li>
-                                        <li>. . .</li>
-                                    </ul>
+                                   
                             </div>
                             <!-- Single Courses End -->
                         </div>
@@ -338,3 +331,10 @@
 </div>
     
         
+@endsection
+@push('scripts')
+<script type="text/javascript">
+    loadDescription('School','school-description');
+    loadDescription('Teacher','teacher-description');
+</script>
+@endpush
