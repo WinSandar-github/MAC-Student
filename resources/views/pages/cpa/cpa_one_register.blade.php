@@ -1655,7 +1655,6 @@
 
         get_student_info(student_id).then(data => {
             if(data){
-
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);
               
@@ -1852,11 +1851,11 @@
                     $("#direct_access_no_mac_div").hide();
                     $("#entry_success_no_mac_div").show();
                 }else{
-                    $("#direct_access_no_self_div").hide();
+                    $("#direct_access_no_self_div").show();
                     $("#entry_success_no_self_div").hide();
-                    $("#direct_access_no_private_div").hide();
+                    $("#direct_access_no_private_div").show();
                     $("#entry_success_no_private_div").hide();
-                    $("#direct_access_no_mac_div").hide();
+                    $("#direct_access_no_mac_div").show();
                     $("#entry_success_no_mac_div").hide();
                 }
 
