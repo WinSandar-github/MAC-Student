@@ -19,9 +19,9 @@
     <!-- Page Banner Start -->
     <div class="section page-banner h-auto">
 
-        <!-- <img class="shape-1 animation-round" src="{{ asset('assets') }}/images/shape/shape-8.png" alt="Shape"> -->
+        {{-- <img class="shape-1 animation-round" src="{{ asset('assets') }}/images/shape/shape-8.png" alt="Shape"> --}}
 
-        <!-- <img class="shape-2" src="{{ asset('assets') }}/images/shape/shape-23.png" alt="Shape"> -->
+        <img class="shape-2" src="{{ asset('assets') }}/images/shape/shape-23.png" alt="Shape">
 
         {{--<div class="container">
             <!-- Page Banner Start -->
@@ -60,12 +60,12 @@
 
 <!-- Register & Login Start -->
     <div class="section">
-        <div class="container mb-5">
+        <div class="container mb-5" style="margin-top: -250px; padding-left: 150px; padding-right: 150px;">
 
             <!-- Register & Login Wrapper Start -->
-            <div class="register-login-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
+            <div class="register-login-wrapper" >
+                <div class="row justify-content-center">
+                    {{--<div class="col-lg-6">
 
                         <!-- Register & Login Images Start -->
                         <div class="register-login-images mt-0">
@@ -80,11 +80,11 @@
                         </div>
                         <!-- Register & Login Images End -->
 
-                    </div>
-                    <div class="col-lg-6">
+                    </div>--}}
+                    <div class="col-md-9" align="center">
 
                         <!-- Register & Login Form Start -->
-                        <div class="register-login-form mt-0">
+                        <div class="register-login-form mt-2">
                             <h3 class="title">Login <span>Now</span></h3>
 
                             <div class="form-wrapper">

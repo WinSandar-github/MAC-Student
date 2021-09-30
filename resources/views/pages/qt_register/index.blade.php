@@ -22,7 +22,7 @@
     <div class="main-wrapper">
         <div class="overlay"></div>
         <div class="section page-banner">
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
             <div class="container">
                 <!-- Page Banner Start -->
@@ -36,7 +36,7 @@
                 <!-- Page Banner End -->
             </div>
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}"
                      alt="Shape">
                 <div class="box-content">
@@ -45,10 +45,10 @@
                     </div>
                 </div>
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
         </div>
         <div class="container" style="overflow: hidden;">
             <div class="status-reject" style="display:none">
@@ -91,7 +91,7 @@
                     <div class="">
                         <!-- QT Register -->
                         <div class="row" style="margin-bottom:2%;">
-                            <form method="post" action="javascript:void(0);" id="" enctype="multipart/form-data">
+                            <form method="post" action="javascript:void(0);" onsubmit="return false" id="qt_form" enctype="multipart/form-data">
                                 <div class="card border-success mb-5 p-5">
 
                                     <div class="row mb-5">
@@ -222,7 +222,7 @@
                                                 </div>
 
                                                 <div class="col-md-5 col-7 pl-1">
-                                                    <input type="text" name="nrc_number" placeholder="၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
+                                                    <input type="text" name="nrc_number" placeholder="eg : ၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
                                                 </div>
                                             </div>
                                         </div>
@@ -320,10 +320,10 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၆။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အဘအမည်(မြန်မာ)" name="father_name_mm" class="form-control" required="">
+                                            <input type="text" placeholder="အဘအမည်(မြန်မာ)" name="father_name_mm" id="father_name_mm" class="form-control" required="">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" required="">
+                                            <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" id="father_name_eng" class="form-control" required="">
                                         </div>
                                     </div>
 
@@ -332,7 +332,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">လူမျိုး</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>လူမျိုး</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="လူမျိုး" name="race" class="form-control" value="{{ old('race') }}" required="">
+                                            <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control" value="{{ old('race') }}" required="">
                                         </div>
                                     </div>
 
@@ -341,7 +341,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ကိုးကွယ်သည့်ဘာသာ</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" name="religion" class="form-control" value="{{ old('religion') }}" required="">
+                                            <input type="text" placeholder="ကိုးကွယ်သည့်ဘာသာ" name="religion" id="relogion" class="form-control" value="{{ old('religion') }}" required="">
                                         </div>
                                     </div>
 
@@ -350,7 +350,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">မွေးသက္ကရာဇ်</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>မွေးသက္ကရာဇ်</label>
                                         <div class="col-md-9">
-                                            <input type="text" name="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" required>
+                                            <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" required>
                                         </div>
                                     </div>
 
@@ -359,7 +359,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">ဖုန်းနံပါတ်</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>ဖုန်းနံပါတ်</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" class="form-control" value="{{ old('phone') }}" required="">
+                                            <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" required="">
                                         </div>
                                     </div>
 
@@ -368,7 +368,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">နေရပ်လိပ်စာ</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဆက်သွယ်ရမည့်လိပ်စာ</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="current_address" class="form-control" value="{{ old('address') }}" required="">
+                                            <input type="text" placeholder="ဆက်သွယ်ရမည့်လိပ်စာ" name="current_address" id="current_address" class="form-control" value="{{ old('address') }}" required="">
                                         </div>
                                     </div>
 
@@ -377,7 +377,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>--}}
                                         <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                         <div class="col-md-9">
-                                            <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address" class="form-control" value="{{ old('current_address') }}" required="">
+                                            <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address" id="address" class="form-control" value="{{ old('current_address') }}" required="">
                                         </div>
                                     </div>
 
@@ -386,7 +386,7 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right"><span
                                                     class="pull-left">{{ __('၁၃။') }}</span>လက်ရှိအလုပ်အကိုင်</label>
                                         <div class="col-md-9">
-                                            <input type="text" name="current_job" class="form-control">
+                                            <input type="text" name="current_job" id="current_job" class="form-control">
                                         </div>
                                     </div>
 
@@ -395,33 +395,36 @@
                                         <label for="" class="col-md-3 col-form-label label_align_right"><span
                                                     class="pull-left">{{ __('၁၄။') }}</span>ရုံးလိပ်စာ</label>
                                         <div class="col-md-9">
-                                            <input type="text" name="office_address" class="form-control"
+                                            <input type="text" name="office_address" id="office_address" class="form-control"
                                             >
                                         </div>
                                     </div>
 
                                     {{--ပညာအရည်အချင်း(local)--}}
-                                    <div class="row mb-5">
+                                    {{-- <div class="row mb-5">
                                         <label for="" class="col-md-3 col-form-label label_align_right"><span
                                                     class="pull-left">{{ __('၁၅။') }}</span>ပြည်တွင်းမှရရှိသည့်ပညာအရည်အချင်း</label>
-                                        <div class="col-md-9">
-                                            <input type="text" name="edu_status_local" class="form-control">
-                                        </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{--ပညာအရည်အချင်း(local) လက်မှတ်မိတ္တူအမှန်--}}
                                     <div class="row mb-5">
-                                        <label for="" class="col-md-3 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ပညာအရည်အချင်း လက်မှတ်မိတ္တူအမှန် ပူးတွဲတင်ပြရန်</label>
+                                        <label for="" class="col-md-3 col-form-label label_align_right"><span class="pull-left">၁၅။</span>ပြည်တွင်းမှရရှိသည့်ပညာအရည်အချင်း</label>
                                         <div class="col-md-9 pt-3" id="edu">
-                                            <div class="row mb-5" id="edu0">
+                                            <div class="row mb-3" id="edu0">
                                                 <div class="col-md-11" id="degree_edu">
-                                                    <input type="file" class="form-control" id="certificate0"
-                                                           name="certificate[]" autocomplete="off">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <input type="text" name="edu_status_local[]" id="edu_status_local" class="form-control">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-1 text-center" id="add_div">
                                                     <button type="button" class="btn btn-primary" id="add_btn"
-                                                            onclick="AddDAEdu()">
-                                                        <i class="fa fa-plus"></i>
+                                                            onclick="AddQTEdu()">
+                                                        <i class="fa fa-plus" style="margin-left: 0px"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -432,7 +435,7 @@
                                     <div class="row mb-3">
 
                                         <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">၁၇။</span>နိုင်ငံခြားတိုင်းပြည်မှပေးအပ်သည့်
+                                                    class="pull-left">၁၆။</span>နိုင်ငံခြားတိုင်းပြည်မှပေးအပ်သည့်
                                             ပညာအရည်အချင်း</label>
 
                                         <div class="col-md-3 pt-3">
@@ -445,7 +448,7 @@
 
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input"
-                                                       name="edu_status_foreign" value="0">
+                                                       name="edu_status_foreign" value="2">
                                                 <label class="form-check-label">CIMA</label>
                                             </div>
 
@@ -462,31 +465,31 @@
                                             <div class="row mb-2">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>ပေးအပ်သည့်အဖွဲ့အစည် အမည်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="edu_status_local" class="form-control">
+                                                    <input type="text" name="organization_name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <label class="col-md-4 col-form-label label">ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="edu_status_local" class="form-control">
+                                                    <input type="text" name="organization_address" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <label class="col-md-4 col-form-label label">အီးမေလ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="edu_status_local" class="form-control">
+                                                    <input type="text" name="organization_email" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">(ခ)</span>စာမေးပွဲကျင်းပသည့်နှစ်၊ လ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="edu_status_local" class="form-control">
+                                                    <input type="date" name="exam_date" placeholder="နှစ်၊လ" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">(ဂ)</span>မှတ်ပုံတင်အမှတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="edu_status_local" class="form-control">
+                                                    <input type="text" name="exam_register_no" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -494,14 +497,14 @@
 
                                     <div class="row mb-3">
                                         <p class="fw-bold">
-                                           ၁၈။&emsp;လျှောက်ထားသူကျွန်တော်/ကျွန်မ <input class="p-input" type="text"> သည်မြန်မာနိုင်ငံစာရင်းကောင်စီက
+                                           ၁၇။မြန်မာနိုင်ငံစာရင်းကောင်စီက
                                             <input class="p-input" type="text"> ခုနှစ်၊ <input class="p-input" type="text"> လ တွင်ကျင်းပမည့်အရည်အချင်းစစ်စာမေးပွဲကိုဝင်ရောက်ဖြေဆိုရန် လျှောက်ထားခြင်းဖြစ်ပါသည်။
                                         </p>
                                     </div>
 
                                     <div class="row mb-3">
                                         <p class="fw-bold">
-                                            ၁၉။&emsp;ကျွန်တော်/ကျွန်မ <input class="p-input" type="text"> သည် ပြည်ထောင်စုမြန်မာနိုင်ငံသားဖြစ်ကြောင်းနှင့် အခြားနိုင်ငံသားအဖြစ်ခံယူထားခြင်းမရှိကြောင်း ဝန်ခံကတိပြုပါသည်။
+                                            ၁၈။ပြည်ထောင်စုမြန်မာနိုင်ငံသားဖြစ်ကြောင်းနှင့် အခြားနိုင်ငံသားအဖြစ်ခံယူထားခြင်းမရှိကြောင်း ဝန်ခံကတိပြုပါသည်။
                                         </p>
                                     </div>
 
@@ -510,7 +513,9 @@
                                         <div class="form-check">
                                             <label class="form-check-label">
                                                 <input class="form-check-input" type="checkbox"
+                                                        name="submit_confirm_ss"
                                                        id="submit_confirm_ss"
+                                                       value = "1"
                                                        onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
                                                 <span class="form-check-sign"></span>
                                                 <p class="fw-bolder">
@@ -522,7 +527,7 @@
 
                                     <div class="row justify-content-center">
                                         <button type="submit" class="btn btn-success btn-hover-dark w-25"
-                                                id="submit_btn_mac" disabled onclick="alert('Data will be submit to database. backend part is still in develpoment')">
+                                                id="submit_btn_mac" disabled>
                                             {{ __('Submit') }}
                                         </button>
                                     </div>
@@ -557,6 +562,11 @@
 
     <!-- JavaScript Section -->
     <script>
+        // function getname(name_mm) {
+        //     console.log("aa");
+        //     var name_mm_display = document.getElementById('name_mm_display');
+        //     name_mm_display.value = name_mm.value;
+        //   }
         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
         // get NRC Townships data from myanmarnrc.php config file
         var mmnrc_townships = {!! json_encode($nrc_townships) !!};
@@ -564,9 +574,31 @@
         var mmnrc_characters = {!! json_encode($nrc_characters) !!};
         // get language data from myanmarnrc.php config file
         var mmnrc_language = "{{ $nrc_language }}";
+        // Get value on change
     </script>
 @endsection
 
 @push('scripts')
-    <script src="{{ asset("js/form_validation/da_one_reg_validation.js") }}"></script>
+    <script src="{{ asset('assets/js/QualifiedTest/qualifiedtest.js') }}"></script>
+    <script src="{{ asset("js/form_validation/qt_validation.js") }}"></script>
+    <script>
+        $(document).ready(function(){
+            $("input[name='exam_date']").flatpickr({
+                enableTime: false,
+                allowInput: true,
+                altInput: true,
+                altFormat: "Y , F",
+                dateFormat: "d-m-Y",
+            });
+        });
+        $(document).ready(function(){
+            $("input[name='date_of_birth']").flatpickr({
+                enableTime: false,
+                allowInput: true,
+                altInput: true,
+                altFormat: "j F , Y",
+                dateFormat: "d-m-Y",
+            });
+        });
+    </script>
 @endpush

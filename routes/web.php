@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
+use PhpParser\Node\Name\FullyQualified;
 
 /*e
 |--------------------------------------------------------------------------
@@ -113,7 +114,7 @@ Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
 Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
 //Da Two application form
-// Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
 //Eamil Validation
@@ -150,6 +151,8 @@ Route::get('mentor_information', 'MentorInfoController@info');
 // Article Register Form
 Route::get('article_gov_registration', 'ArticleController@articleGov');
 Route::get('article_firm_registration', 'ArticleController@articleFirm');
+Route::get('article_renew_firm_registration', 'ArticleController@articleRenewFirm');
+Route::get('article_qt_firm_registration', 'ArticleController@articleQTFirm');
 
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');
@@ -167,5 +170,9 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 // Route::get('da_verify_email', 'PaymentController@verifyEmail');
 Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
+Route::post('payment_method/{id}', 'PaymentController@postPayment');
+Route::get('/mpu', 'PaymentController@mpu');
+Route::get('/payment_status', 'PaymentController@paymentStatus');
 
+// Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');

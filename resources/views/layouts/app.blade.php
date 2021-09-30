@@ -50,7 +50,6 @@
     <link rel="stylesheet" href="{{ asset('EasyLoading/jquery-ui.min.css')}} ">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     <link rel="stylesheet" href="{{ asset('EasyLoading/css/easy-loading.css')}}">
-
     <!-- dataTables -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dataTables/dataTables.bootstrap5.min.css') }}">
@@ -113,7 +112,9 @@
             border-radius: 12px;
             padding: 6px;
         }
-
+        .valid{
+            color: green;
+        }
     </style>
 
 </head>

@@ -22,7 +22,11 @@ $().ready(function (){
             //t_s_p_id : "required",
             declaration : "required",
             foa_authority_to_sign : "required",
-            head_office_address : "required"
+            head_office_address : "required",
+            choose_firm_type : {
+              required: true
+            },
+            dir_passport_csc : "required"
         },
         messages:{
             //choose_firm_type : "dddd"
@@ -46,7 +50,9 @@ $().ready(function (){
             //t_s_p_id : "Please select Type of Service Provided",
             declaration : "Please enter declaration",
             foa_authority_to_sign : "Please select one",
-            head_office_address : "Please enter head office address"
+            head_office_address : "Please enter head office address",
+            choose_firm_type : "Please select firm type",
+            dir_passport_csc : "Please enter Passport/CSC No."
         },
         submitHandler: function(form) {
             // $('#cpaffModal').modal('show');
