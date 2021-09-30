@@ -16,7 +16,7 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
 
@@ -33,7 +33,7 @@
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
 
@@ -45,12 +45,12 @@
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
 
@@ -71,7 +71,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                            <!-- <h6>အမှတ်စဥ် - {{ __("____") }}</h6> -->
+                                            <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
                                     {{--<form method="post" id="cpa_exam_register" enctype="multipart/form-data">--}}
@@ -325,8 +325,12 @@
                                                     <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၉။') }}</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="attend_place" id="attend_place" class="form-control" readonly>
+
+
                                                     </div>
                                                 </div>
+
+                                               
 
                                                 <div class="row">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" >{{ __('၂၀။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
@@ -443,14 +447,14 @@
                                                         <div class="row col-md-8">
                                                             <div class="col-md-4 form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox"  name="last_ans_module[]"  value="Module 1">
+                                                                    <input class="form-check-input" type="checkbox" id="lst_m1"  name="last_ans_module[]"  value="Module 1">
                                                                     <span class="form-check-sign"></span>
                                                                     Module 1
                                                                 </label>
                                                             </div>
                                                             <div class="col-md-4 form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox"  name="last_ans_module[]"  value="Module 2">
+                                                                    <input class="form-check-input" type="checkbox" id="lst_m2"  name="last_ans_module[]"  value="Module 2">
                                                                     <span class="form-check-sign"></span>
                                                                     Module 2
                                                                 </label>
@@ -627,7 +631,8 @@
         get_student_info(student_id).then(data => {
            var student_info = data.data ;
         //    console.log('student_info',student_info);
-
+            let current_stu_course = data.data.student_course_regs.slice(-1);
+            $(".batch_number").append(current_stu_course[0].batch.number);
            if(student_info.acca_cima){
                $('#last_exam_data').hide();
 
@@ -637,6 +642,15 @@
 
             let current_stu_reg=student_info.student_register.slice(-1);
 
+                    // if(current_stu_reg[0].module=="1"){
+                    //      $("#module1").prop("checked", true);
+                    // }
+                    // else if(current_stu_reg[0].module=="2"){
+                    //     $("#module2").prop("checked", true);
+                    // }
+                    // else if(current_stu_reg[0].module=="3"){
+                    //     $("#allmodule").prop("checked", true);
+                    // }
             if(current_stu_reg[0].module=="1"){
                     $("#module1").prop("checked", true);
             }
@@ -657,12 +671,16 @@
                 }
             }
 
-            if(student_info.student_register[0].type == 0){
+            if(current_stu_reg[0].type == 0){
                 $("input[name='attend_place']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
-            }else if(student_info.student_register[0].type == 1){
+            }else if(current_stu_reg[0].type == 1){
                 $("input[name='attend_place']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
             }else if(student_info.student_register[0].type == 2 && student_info.student_course_regs[0].mac_type == 1){
 
+                // var mac_name =   current_stu_course[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                // $("input[name='attend_place']").val(mac_name);
                 $("input[name='attend_place']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)");
             }else {
                 $("input[name='attend_place']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)");
@@ -671,8 +689,7 @@
             let exam_registers = student_info.exam_registers.slice(-1);
 
             if(data){
-                // console.log('data',data);
-                document.getElementById('previewImg').src = BASE_URL + data.data.image;
+                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
                 $("input[name='nrc_state_region']").val(data.data.nrc_state_region);
@@ -704,6 +721,46 @@
 
                 $("#last_ans_exam_no").val(exam_registers[0].batch.number);
                 $("#date").val(formatDate(exam_registers[0].updated_at));
+
+                if(exam_registers)
+                {
+
+                    if(exam_registers[0].is_full_module == "1")
+                    {
+                            
+                        $("#module2").prop("checked", true);
+                        
+                        $(':radio:not(:checked)').attr('disabled', true);
+
+                    }
+                    else if(exam_registers[0].is_full_module=="2")
+                    {
+                            $("#module1").prop("checked", true);
+                            $(':radio:not(:checked)').attr('disabled', true);
+
+                    }
+                    else if(exam_registers[0].is_full_module=="3")
+                    {
+                            $("#allmodule").prop("checked", true);
+
+                        $(':radio:not(:checked)').attr('disabled', true);
+                        
+                    }
+
+                    if(exam_registers[0].is_full_module == "1")
+                    {
+                        
+                        $("#lst_m1").prop("checked", true);
+                        $("#lst_m2").attr("disabled", "disabled"); 
+                        
+                    }
+                    else if(exam_registers[0].is_full_module=="2"){
+                        $("#lst_m2").prop("checked", true);
+                        $("#lst_m1").attr("disabled", "disabled"); 
+
+
+                    }
+                }
 
                 
 
