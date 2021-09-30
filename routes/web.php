@@ -114,7 +114,7 @@ Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
 Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
 //Da Two application form
-// Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
 //Eamil Validation

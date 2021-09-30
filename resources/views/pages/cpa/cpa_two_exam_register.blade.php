@@ -229,10 +229,10 @@
                                                     <div class="col-md-4"></div>
                                                     <div class="col-md-6 mx-2 ">
                                                         <label class="checkbox-inline">
-                                                            <input type="checkbox" name="last_ans_module" value="1">&nbsp;Module 1
+                                                            <input type="checkbox" name="last_ans_module" id="lst_m1" value="1">&nbsp;Module 1
                                                         </label>
                                                         <label class="checkbox-inline" style="margin-left:3%">
-                                                            <input type="checkbox" name="last_ans_module" value="2">&nbsp;Module 2
+                                                            <input type="checkbox" name="last_ans_module" id="lst_m2" value="2">&nbsp;Module 2
                                                         </label>
                                                     </div>
                                                 </div>--}}
@@ -245,14 +245,14 @@
                                                     <div class="row col-md-8 mx-5">
                                                         <div class="col-md-4 form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" value="1">
+                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" id="lst_m1" value="1">
                                                                 <span class="form-check-sign"></span>
                                                                 Module 1
                                                             </label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" value="2">
+                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" id="lst_m2" value="2">
                                                                 <span class="form-check-sign"></span>
                                                                 Module 2
                                                             </label>
@@ -474,6 +474,50 @@
                 $("input[name='date_of_birth']").val(data.data.date_of_birth);
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
+                
+                if(exam_registers )
+                {
+
+                    if(exam_registers[0].is_full_module == "1")
+                    {
+                            
+                        $("#module2").prop("checked", true);
+                        
+                        $(':radio:not(:checked)').attr('disabled', true);
+
+                    }
+                    else if(exam_registers[0].is_full_module=="2")
+                    {
+                            $("#module1").prop("checked", true);
+                            $(':radio:not(:checked)').attr('disabled', true);
+
+                    }
+                    else if(exam_registers[0].is_full_module=="3")
+                    {
+                            $("#allmodule").prop("checked", true);
+
+                        $(':radio:not(:checked)').attr('disabled', true);
+                        
+                    }
+
+                    if(exam_registers[0].is_full_module == "1")
+                    {
+                       
+                        $("#lst_m1").prop("checked", true);
+                        $("#lst_m2").attr("disabled", "disabled"); 
+                        
+                    }
+                    else if(exam_registers[0].is_full_module=="2"){
+                        
+
+                        $("#lst_m2").prop("checked", true);
+                        $("#lst_m1").attr("disabled", "disabled"); 
+
+
+                    }
+                }
+
+                
 
                 if(data.data.course_type_id==1){
                     $("input[name='personal_no']").val(data.data.personal_no);
@@ -487,13 +531,18 @@
                 $("#last_ans_exam_no").val(exam_registers[0].batch.number);
                 $("#date").val(formatDate(exam_registers[0].updated_at));
 
-                if(data.data.student_register[0].type == 0){
+                if(current_stu_reg[0].type == 0){
                     $("input[name='class_address']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
-                }else if(data.data.student_register[0].type == 1){
+                }else if(current_stu_reg[0].type == 1){
                     $("input[name='class_address']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
                 }else if(data.data.student_register[0].type == 2 && student_course_regs[0].mac_type==1){
                     $("input[name='class_address']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)");
                 }else{
+
+                    // var mac_name = current_stu_reg[0].mac_type == 2 ?   "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)" : "ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(ရန်ကုန်သင်တန်းကျောင်း)";
+
+
+                    // $("input[name='class_address']").val(mac_name);
                     $("input[name='class_address']").val("ပြည်ထောင်စုစာရင်းစစ်ချုပ်ရုံး(နေပြည်တော်သင်တန်းကျောင်း)");
                 }
 
