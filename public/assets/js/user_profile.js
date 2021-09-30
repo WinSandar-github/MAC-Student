@@ -1,4 +1,5 @@
 function user_profile() {
+    console.log(BACKEND_URL)
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/user_profile/" + student_id,
