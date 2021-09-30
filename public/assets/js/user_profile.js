@@ -12,6 +12,7 @@ function user_profile() {
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
+                $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
@@ -416,7 +417,9 @@ function user_profile() {
 
                         } else {
                             let status_course;
-
+                            let std_id = latest_course_reg[0].student_info_id;
+                            // let course_id = latest_course_reg[0].batch.course_id;
+                            localStorage.setItem("courseId",latest_course_reg[0].batch.course_id);
                             $('.course').html(course_html)
                             if (latest_course_reg[0].approve_reject_status == 0) {
                                 $('.status').append(`
@@ -424,7 +427,7 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td><span class="badge bg-info">Checking</span></td>
+                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}' class="btn btn-sm btn-success" > Payment</a></td>
                                 </tr>
                                 `);
                                 // $('.status').append(`
