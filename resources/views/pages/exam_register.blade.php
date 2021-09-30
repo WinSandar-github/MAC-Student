@@ -250,12 +250,12 @@
                                             <div class="row mt-2">
                                                 <div class="col-md-3">
                                                     <label class="checkbox-inline">
-                                                        <input type="checkbox" name="last_ans_module[]"  value="Module 1"> Module 1
+                                                        <input type="checkbox" name="last_ans_module[]" id="lst_m1"  value="Module 1"> Module 1
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label class="checkbox-inline">
-                                                        <input type="checkbox" name="last_ans_module[]"  value="Module 2"> Module 2
+                                                        <input type="checkbox" name="last_ans_module[]" id="lst_m2" value="Module 2"> Module 2
                                                     </label>
                                                 </div>
                                             </div>
@@ -501,9 +501,12 @@
         get_student_info(student_id).then(data => {
             if(data){
                 let current_stu_course = data.data.student_course_regs.slice(-1);
+                let last_exam = data.data.exam_registers.slice(-1);
+                
 
                 let current_stu_reg=data.data.student_register.slice(-1);
-
+                
+           
                     if(current_stu_reg[0].module=="1"){
                          $("#0").prop("checked", true);
                     }
@@ -513,7 +516,29 @@
                     else if(current_stu_reg[0].module=="3"){
                         $("#2").prop("checked", true);
                     }
-                    console.log(current_stu_course[0].batch.number);
+
+                    if(last_exam[0]){
+                        $("input[name='date']").val(formatDate(last_exam[0].created_at));
+
+                        if(last_exam[0].is_full_module == "1"){
+                            
+                            $("#lst_m1").prop("checked", true);
+                            $("#lst_m2").attr("disabled", "disabled"); 
+                            
+                         
+
+                        }
+                        else if(last_exam[0].is_full_module=="2"){
+                            $("#lst_m2").prop("checked", true);
+                            $("#lst_m1").attr("disabled", "disabled"); 
+ 
+
+                        }
+                    }
+                    
+
+
+                    
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("#da_batch_no").append(current_stu_course[0].batch.number);
                 $("input[name='name_mm']").val(data.data.name_mm);
