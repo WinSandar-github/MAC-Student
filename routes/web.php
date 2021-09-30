@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
+use PhpParser\Node\Name\FullyQualified;
 
 /*e
 |--------------------------------------------------------------------------
@@ -113,7 +114,7 @@ Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
 Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
 //Da Two application form
-// Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
+Route::get('da_two_form/{id}','DAController@daTwoAppForm')->name('da_two_form');
 Route::get('cpa_two_form/{id}','CPATwoRegisterController@cpaTwoAppForm')->name('cpa_two_form');
 
 //Eamil Validation
@@ -173,4 +174,5 @@ Route::post('payment_method/{id}', 'PaymentController@postPayment');
 Route::get('/mpu', 'PaymentController@mpu');
 Route::get('/payment_status', 'PaymentController@paymentStatus');
 
+// Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');

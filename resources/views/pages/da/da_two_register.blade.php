@@ -11,7 +11,7 @@ $nrc_characters = config('myanmarnrc.characters');
     <div class="main-wrapper">
         <div class="overlay"></div>
         <div class="section page-banner">
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">--}}
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png') }}" alt="Shape">
             <div class="container">
                 <!-- Page Banner Start -->
@@ -25,7 +25,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 <!-- Page Banner End -->
             </div>
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
                 <div class="box-content">
                     <div class="box-wrapper">
@@ -33,10 +33,10 @@ $nrc_characters = config('myanmarnrc.characters');
                     </div>
                 </div>
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">--}}
         </div>
         <div class="section">
             <div class="container">
@@ -490,7 +490,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
@@ -498,13 +498,13 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio module_full">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="radio"
                                                                    name="is_full_module" value='3' required>
@@ -880,7 +880,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
@@ -888,7 +888,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
@@ -896,7 +896,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -1235,15 +1235,15 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
@@ -1251,7 +1251,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -1491,6 +1491,8 @@ $nrc_characters = config('myanmarnrc.characters');
                 
                 if(data){
                     let current_stu_course = data.data.student_course_regs.slice(-1);
+                    let last_exam = data.data.exam_registers.slice(-1);
+
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
 
@@ -1518,6 +1520,51 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='race']").val(student_info.race);
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
+                    let batch_id = localStorage.getItem('batch_id');
+                
+                    if(last_exam[0].grade == 1 && ( last_exam[0].batch_id == current_stu_course[0].batch_id )){
+                        
+                        $.ajax({
+                        type: "get",
+                        url: BACKEND_URL+"/batch/"+batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                            $('#batch_name').text(res.data.name);
+                            
+                            $('.batch_no').val(res.data.number);
+                            $('.personal_no').val(data.data.personal_no);
+                            $('#remain_module').val(last_exam[0].is_full_module)
+
+                            if(last_exam[0].is_full_module == "1"){
+                                 $(".module_two").prop("checked", true);
+                              
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+ 
+                            }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                                $(':radio:not(:checked)').attr('disabled', true);
+                                 
+                            }
+
+                            
+                           
+
+                            }
+                        })   
+                        
+                        
+                    }else{
+                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    }
 
                     let education = student_info.student_education_histroy;
                     $("input[name='degree_name']").val(education.degree_name);

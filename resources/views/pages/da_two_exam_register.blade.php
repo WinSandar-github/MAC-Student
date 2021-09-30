@@ -24,7 +24,7 @@ $nrc_characters = config('myanmarnrc.characters');
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png') }}" alt="Shape">
 
@@ -41,7 +41,7 @@ $nrc_characters = config('myanmarnrc.characters');
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
 
@@ -53,12 +53,12 @@ $nrc_characters = config('myanmarnrc.characters');
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">--}}
 
         </div>
 
@@ -320,12 +320,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                                   <div class="row mt-2">
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 1" > Module 1
+                                                              <input type="checkbox" name="last_ans_module[]" id="lst_m1"  value="Module 1" > Module 1
                                                           </label>
                                                       </div>
                                                       <div class="col-md-3">
                                                           <label class="checkbox-inline">
-                                                              <input type="checkbox" name="last_ans_module[]"  value="Module 2" > Module 2
+                                                              <input type="checkbox" name="last_ans_module[]" id="lst_m2"  value="Module 2" > Module 2
                                                           </label>
                                                       </div>
                                                       <label  class="error attend_place_error" name="attend_place_error" style="display:none;" for="last_ans_module[]">Please select Module.</label>
@@ -392,7 +392,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            <input type="radio" id="0" class="form-check-input module_one" name="is_full_module" value="1" required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -400,7 +400,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            <input type="radio" id="1" class="form-check-input module_two" name="is_full_module" value="2" required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -408,7 +408,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            <input type="radio" id="2" class="form-check-input module_full"  name="is_full_module" value="3" required>
                                                             All Modules
                                                         </div>
                                                     </div>
@@ -551,16 +551,16 @@ $nrc_characters = config('myanmarnrc.characters');
                 $("#batch_number").append(current_stu_course[0].batch.number);
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
-                    console.log(data.data,"student_reg");
-                    if(current_stu_reg[0].module=="1"){
-                         $("#0").prop("checked", true);
-                    }
-                    else if(current_stu_reg[0].module=="2"){
-                        $("#1").prop("checked", true);
-                    }
-                    else if(current_stu_reg[0].module=="3"){
-                        $("#2").prop("checked", true);
-                    }
+                    // console.log(data.data,"student_reg");
+                    // if(current_stu_reg[0].module=="1"){
+                    //      $("#0").prop("checked", true);
+                    // }
+                    // else if(current_stu_reg[0].module=="2"){
+                    //     $("#1").prop("checked", true);
+                    // }
+                    // else if(current_stu_reg[0].module=="3"){
+                    //     $("#2").prop("checked", true);
+                    // }
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
                     // console.log('current_stu_course',current_stu_course)
 
@@ -586,6 +586,49 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     $("input[name='personal_no']").val(student_info.personal_no);
+                    let batch_id = localStorage.getItem('batch_id');
+
+                    if(last_exam[0].course.code == 'da_2') {
+                        
+                      
+
+                        $("input[name='date']").val(formatDate(last_exam[0].created_at));
+
+                        if(last_exam[0].is_full_module == "1")
+                        {
+                               
+                            $(".module_two").prop("checked", true);
+                            
+                            $(':radio:not(:checked)').attr('disabled', true);
+
+                        }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                        }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                            $(':radio:not(:checked)').attr('disabled', true);
+                            
+                        }
+
+                        if(last_exam[0].is_full_module == "1"){
+                            
+                            $("#lst_m1").prop("checked", true);
+                            $("#lst_m2").attr("disabled", "disabled"); 
+                            
+                         
+
+                        }
+                        else if(last_exam[0].is_full_module=="2"){
+                            $("#lst_m2").prop("checked", true);
+                            $("#lst_m1").attr("disabled", "disabled"); 
+ 
+
+                        }
+                    }
 
                     let education = student_info.student_education_histroy;
                     $("input[name='degree_name']").val(education.degree_name);
