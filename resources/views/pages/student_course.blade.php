@@ -352,7 +352,7 @@
                                                     @else
                                                         @if($course[0]['course_type']['course_name'] == 'CPA (Qualified Test)')
                                                             <div class="col-md-12">
-                                                                <a class="btn btn-success btn-lg d-flex justify-content-center mb-4 text-dark h6" href="{{ route('qt_register') }}">
+                                                                <a class="btn btn-success d-flex justify-content-center mb-4 text-white shadow-lg h6" href="{{ route('qt_register') }}">
                                                                 Register Now</a>
                                                             </div>
                                                         @else
