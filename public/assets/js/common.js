@@ -184,9 +184,15 @@ function addRowPartner(tbody) {
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
     cols += '<td>' + (row) + '</td>';
+<<<<<<< HEAD
+    cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off" /></td>';
+    cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no' + row + '" onchange="checkPAPPExist(this.value,this.id)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="1" required > <label class="form-check-label" style="display:flex;">Yes</label></td>';
+=======
     cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no' + row + '" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
     cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
     cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
+>>>>>>> 677cc421683419c16e730486d2d8c179ed895a44
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
     // cols += '<input type="radio" class="form-check-input" id="report_yes" value="1" name="foa_authority_to_sign" required>';
