@@ -72,23 +72,26 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
 
-                                                <div class="row mt-2">
-                                                    
-                                                    <label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
+                                                <div class="row mt-0">
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                    </div>
+                                                    {{--<label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                        {{--<input type="text" name="mac_semester" id="self_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >--}}
+                                                        <input type="text" name="mac_semester" id="self_academic_year" class="form-control" placeholder="ခုနှစ်(YYYY)" autocomplete="off" >
                                                         <select class="form-control form-select"  name="mac_semester" id="self_academic_year"  placeholder="ခုနှစ်(YYYY)" required>                                
                                                             <option value="" selected disabled>ပညာသင်နှစ်</option>    
-                                                        {{--<option value="0" selected>Student Application</option>
+                                                        <option value="0" selected>Student Application</option>
                                                             <option value="1">Student Registration</option>
-                                                            <option value="2">Exam Registration</option>--}}
+                                                            <option value="2">Exam Registration</option>
                                                         </select>
-                                                    </div>
+                                                    </div>--}}
                                                 </div>
 
-                                                <div class="row mt-5">
+                                                <div class="row mt-3">
                                                     <div class="col-md-8">
                                                         <div class="row mb-3">
                                                             <label class="col-md-6 col-form-label label"><span class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
@@ -564,18 +567,21 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
-                                                    
-                                                    <label class="col-md-3 col-form-label"></label>
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                    </div>
+                                                    {{--<label class="col-md-3 col-form-label"></label>
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
-                                                    {{--<input type="text" placeholder="ခုနှစ်(YYYY)" id="academic_year" name="academic_year" class="form-control" >--}}
+                                                    <input type="text" placeholder="ခုနှစ်(YYYY)" id="academic_year" name="academic_year" class="form-control" >
                                                     <select class="form-control form-select"  id="academic_year" name="academic_year" placeholder="ခုနှစ်(YYYY)"  required>                                
                                                             <option value="" selected disabled>ပညာသင်နှစ်</option>
-                                                            {{--<option value="1">Student Registration</option>
-                                                            <option value="2">Exam Registration</option>--}}
+                                                            <option value="1">Student Registration</option>
+                                                            <option value="2">Exam Registration</option>
                                                         </select>
-                                                    </div>
+                                                    </div>--}}
                                                 </div>
                                                   <div class="row mt-2">
                                                         <div class="col-md-8">
@@ -941,9 +947,12 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
                                             <div class="col-md-12">
-                                                <div class="row mt-5">
-                                                    
-                                                    <label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
+                                                <div class="row mt-3">
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                        <h6>အမှတ်စဥ် - {{ $batch['id'] }}</h6>
+                                                    </div>
+                                                    {{--<label class="col-md-3 col-form-label">အမှတ်စဥ် - ({{ $batch['id'] }})</label>
                                                     
                                                     <label class="col-md-7 col-form-label label">ပညာသင်နှစ်</label>
                                                     <div class="col-md-2">
@@ -951,14 +960,14 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         
                                                         <select class="form-control form-select" name="mac_semester" id="mac_academic_year" required>                                
                                                             <option value="" selected disabled>ပညာသင်နှစ်</option>    
-                                                        {{--<option value="0" selected>Student Application</option>
+                                                            <option value="0" selected>Student Application</option>
                                                             <option value="1">Student Registration</option>
-                                                            <option value="2">Exam Registration</option>--}}
+                                                            <option value="2">Exam Registration</option>
                                                         </select>
-                                                    </div>
+                                                    </div>--}}
                                                 </div>
 
-                                                <div class="row mt-5">
+                                                <div class="row mt-3">
                                                     <div class="col-md-8">
                                                         <div class="row mb-3">
                                                             <label class="col-md-6 col-form-label label"><span class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
