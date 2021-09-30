@@ -31,6 +31,22 @@ function AddExp() {
     exp_count++;
 }
 
+var labor_count = 1;
+function AddLabor() {
+    $("#labor").append(
+        '<div class="row mb-3" id="labor' + labor_count + '">' +
+        '<div class="col-md-11">' +
+        '<input type="file"  class="form-control"  id="labor_registration_attach' + labor_count + '"  name="labor_registration_attach[]" required="">' +
+        '</div>' +
+        '<div class="col-md-1 text-center"  id="labor' + labor_count + '_remove">' +
+        '<button class="btn btn-danger" id="myLink" onclick="remove(labor' + labor_count + ')">' +
+        '<i class="fa fa-trash "></i>' +
+        '</button>' +
+        '</div>' +
+        '</div>');
+    labor_count++;
+}
+
 function createArticleFirmRegister() {
     var send_data = new FormData();
 
@@ -118,7 +134,7 @@ function createArticleGovRegister() {
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
-    var labor_registration_attach = $("input[name=labor_registration_attach]")[0].files[0];
+    //var labor_registration_attach = $("input[name=labor_registration_attach]")[0].files[0];
     var recommend_attach = $("input[name=recommend_attach]")[0].files[0];
     var police_attach = $("input[name=police_attach]")[0].files[0];
 
@@ -157,7 +173,13 @@ function createArticleGovRegister() {
     send_data.append('permanent_address', $("input[name=permanent_address]").val());
     // send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
-    send_data.append('labor_registration_attach', labor_registration_attach);
+    //send_data.append('labor_registration_attach', labor_registration_attach);
+    
+    $('input[name="labor_registration_attach[]"]').map(function () {
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            send_data.append('labor_registration_attach[]', $(this).get(0).files[i]);
+        }
+    });
     send_data.append('recommend_attach', recommend_attach);
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
     send_data.append('police_attach', police_attach);
@@ -166,6 +188,46 @@ function createArticleGovRegister() {
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/article_gov_register",
+        type: 'post',
+        data: send_data,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            EasyLoading.hide();
+            successMessage("You have successfully registered.");
+            setInterval(() => {
+                location.href = FRONTEND_URL + '/';
+            }, 3000);
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
+}
+
+function createArticleResignRegister() {
+    var send_data = new FormData();
+
+    var image = $("input[name=profile_photo]")[0].files[0];
+    var nrc_front = $("input[name=nrc_front]")[0].files[0];
+    var nrc_back = $("input[name=nrc_back]")[0].files[0];
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+    var resign_approve_attach = $("input[name=resign_approve_attach]")[0].files[0];
+
+    send_data.append('student_info_id', $("input[name=student_info_id]").val());
+    send_data.append('m_email', $("input[name=m_email]").val());
+    send_data.append('resign_date', $("input[name=resign_date]").val());
+    send_data.append('resign_reason', $("textarea[name=resign_reason]").val());
+    send_data.append('recent_org', $("input[name=recent_org]").val());
+    send_data.append('resign_approve_attach', resign_approve_attach);
+    send_data.append('know_policy', 1);
+
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/article_resign_register",
         type: 'post',
         data: send_data,
         contentType: false,

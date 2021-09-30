@@ -145,7 +145,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">ပထမပိုင်း/ဒုတိယပိုင်း</span> ) သင်တန်းအမှတ်စဥ် ( <span id="module_name">-----</span> ) ကို မြန်မာနိုင်ငံစာရင်းကောင်စီ (<span id="type_name">-----</span>) <span id="result_name">-----</span> သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">-----</span> ) သင်တန်းအမှတ်စဥ် ( <span id="module_name">-----</span> ) ကို မြန်မာနိုင်ငံစာရင်းကောင်စီ (<span id="type_name">-----</span>) <span id="result_name">-----</span> သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -162,7 +162,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">ပထမပိုင်း/ဒုတိယပိုင်း</span> ) စာမေးပွဲကို <br> <span id=""> -----</span>ခုနှစ် <span id="">-----</span>လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">-----</span> ) စာမေးပွဲကို <br> <span id=""> -----</span>ခုနှစ် <span id="">-----</span>လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -329,7 +329,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း">
+                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
                                             </div>
                                         </div>
 
@@ -401,7 +401,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၈။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၈။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div class="form-check">
                                                     <div class="row">
@@ -505,7 +505,7 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၄၂) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>

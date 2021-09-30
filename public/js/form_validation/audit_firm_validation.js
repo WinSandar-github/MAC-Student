@@ -72,11 +72,11 @@ $().ready(function (){
                 var audit_staff_validate_flag = validateAuditStaff();
                 var total_staff_validate_flag = validateTotalStaff();
 
-                // console.log(branch_off_validate_flag);
-                // console.log(partners_validate_flag);
-                // console.log(directors_validate_flag);
-                // console.log(audit_staff_validate_flag);
-                // console.log(total_staff_validate_flag);
+                console.log(branch_off_validate_flag);
+                console.log(partners_validate_flag);
+                console.log(directors_validate_flag);
+                console.log(audit_staff_validate_flag);
+                console.log(total_staff_validate_flag);
 
                 if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && audit_staff_validate_flag == true && total_staff_validate_flag == true){
                   $('#auditFirmModal').modal('show');

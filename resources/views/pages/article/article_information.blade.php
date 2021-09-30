@@ -17,7 +17,7 @@
      <div class="main-wrapper">
         <!-- Page Banner Start -->
         <div class="section page-banner">
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
             <div class="container">
                 <!-- Page Banner Start -->
@@ -32,7 +32,7 @@
 
             </div>
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
                 <div class="box-content">
                     <div class="box-wrapper">
@@ -40,10 +40,10 @@
                     </div>
                 </div>
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
         </div>
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
@@ -190,10 +190,15 @@
                             </div>
                             <div class="col-md-3"></div>
                         </div>
-                        <hr>
+                    <div>
+                    <hr id="article_hr">
+                    <div id="gov_article_row">
                         <h5 >Government</h5>
-                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Government Article</button>
+                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Article Government</button>
                     </div>
+                    <hr>
+                    <h5 >Resign</h5>
+                        <button class="btn btn-success btn-hover-dark " id="articel_resign_btn">Aticle Resign</button>
                     
                 </div>
                 <div class="modal-footer">
@@ -245,6 +250,19 @@
                         get_year += article[i].article_form_type;
                     }
 
+                    student_reg.forEach(function(element){
+                        if(element.form_type == 3){
+                            if(element.internship == "အစိုးရ ဌာနတွင်"){
+                                console.log("reach1");
+                            }else if(element.internship == "ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"){
+                                console.log("reach2");
+                            }else if(element.internship == "ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းတွင်"){
+                                console.log("reach3");
+                            }
+                        }
+                        $('#articleModal').modal('toggle');
+                    });
+
                     if(get_year == 1){
                         $("#article_year3").prop('disabled', true);
                     }else if(get_year == 2){
@@ -259,19 +277,19 @@
 
                     }
 
-                    if(course == "cpa_1" || course == "cpa_2"){
-                        if(type == 0 || type == 1){
-                            $("#gov_article_row").hide();
-                            $("#article_hr").hide();
-                        }else{
-                            $("#gov_article_row").show();
-                            $("#article_hr").show();
-                        }
-                        $('#articleModal').modal('toggle');
-                    }else{
-                        alert("You aren't cpa student.");
-                        $("#register_btn").prop('disabled', true);
-                    }
+                    // if(course == "cpa_1" || course == "cpa_2"){
+                    //     if(type == 0 || type == 1){
+                    //         $("#gov_article_row").hide();
+                    //         $("#article_hr").hide();
+                    //     }else{
+                    //         $("#gov_article_row").show();
+                    //         $("#article_hr").show();
+                    //     }
+                    //     $('#articleModal').modal('toggle');
+                    // }else{
+                    //     alert("You aren't cpa student.");
+                    //     $("#register_btn").prop('disabled', true);
+                    // }
                 });
             }
         });
@@ -308,6 +326,10 @@
 
         $('#articel_gov_btn').click(function () {
             location.href = FRONTEND_URL + '/article_gov_registration';
+        });
+
+        $('#articel_resign_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_resign_registration';
         });
 
     })
