@@ -288,7 +288,7 @@
                                                                     </div>
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(a) Copy of Public Practice Accountant Certificate</label>
+                                                                            <label class="form-label">(a) Copy of valid Public Practice Accountant Certificate</label>
 
                                                                         </div>
                                                                     </div>
@@ -300,8 +300,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls1","entry1")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button type="button" class="btn btn-success btn-add btn-sm custom-btn" onclick='addInputFile("controls1","entry1")'>
+                                                                                      <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -320,8 +320,8 @@
                                                                                     <input type="file" class="form-control" name="letterheads[]">
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls2","entry2")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls2","entry2")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -340,8 +340,8 @@
                                                                                     <input type="file" class="form-control" name="tax_clearances[]">
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls3","entry3")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls3","entry3")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -360,8 +360,8 @@
                                                                                     <input type="file" class="form-control" name="representatives[]">
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls4","entry4")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls4","entry4")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -387,7 +387,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(a) Copy of Public Practice Accountant Certificate all partners</label>
+                                                                            <label class="form-label">(a) Copy of valid Public Practice Accountant Certificate of all partners</label>
 
                                                                         </div>
                                                                     </div>
@@ -399,8 +399,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls9","entry9")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls9","entry9")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -421,8 +421,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls10","entry10")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls10","entry10")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -443,8 +443,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls11","entry11")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls11","entry11")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -465,8 +465,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls12","entry12")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls12","entry12")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -487,8 +487,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls13","entry13")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls13","entry13")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -535,7 +535,7 @@
 
                                                                     <div class="row mb-3">
                                                                         <div class="form-group">
-                                                                            <label class="form-label">(a) Copy of Public Practice Accountant Certificate all shareholders</label>
+                                                                            <label class="form-label">(a) Copy of valid Public Practice Accountant Certificate of all shareholders</label>
 
                                                                         </div>
                                                                     </div>
@@ -547,8 +547,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls19","entry19")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls19","entry19")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -570,8 +570,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls20","entry20")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls20","entry20")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -592,8 +592,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls21","entry21")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls21","entry21")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -614,8 +614,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls22","entry22")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls22","entry22")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -636,8 +636,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls23","entry23")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls23","entry23")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -658,8 +658,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls24","entry24")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls24","entry24")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -680,8 +680,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls25","entry25")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls25","entry25")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -702,8 +702,8 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>
-                                                                                        <i class="fa fa-plus"></i>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>
+                                                                                        <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
@@ -760,8 +760,8 @@
                                                       <thead>
                                                           <tr>
                                                               <th class="less-font-weight" rowspan="2">Sr</th>
-                                                              <th class="less-font-weight" rowspan="2">Name</th>
                                                               <th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
+                                                              <th class="less-font-weight" rowspan="2">Name</th>
                                                               <th class="less-font-weight" colspan="2">
                                                                 Have authority to sign Auditors' report?
                                                                 <!-- <label class="col-form-label error attend_place_error" for="" style="color:#ef815;">Please select one</label> -->
@@ -777,9 +777,9 @@
                                                       <tbody>
                                                           <tr>
                                                               <td>1</td>
+                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="" class="form-control" autocomplete="off" ></td>
+                                                              {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
-                                                               {{-- checkPAPPExist(this.value,this.id) --}}
-                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id)" class="form-control" autocomplete="off" ></td>
                                                               <td>
                                                                   <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" >
                                                                   <label class="form-check-label" >Yes</label>
@@ -801,7 +801,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">9.</label>
-                                                <label for="" class="col-md-4 col-form-label">Director(s)/Officer(s)</label>
+                                                <label for="" class="col-md-4 col-form-label">Director(s)/Officer(s)/Sole Proprietor</label>
                                                 <label for="" class="col-md-4 director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
                                             </div>
                                             <div class="row">
@@ -846,6 +846,12 @@
                                                 </div>
                                             </div>
 
+                                            <div class="row">
+                                                <label for="" class="col-md-1 col-form-label"></label>
+                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                  Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
+                                                </label>
+                                            </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-1 col-form-label">10.</label>
                                                 <label for="" class="col-md-4 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
@@ -853,6 +859,7 @@
                                                     <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" >
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label">11.</label>
                                                 <label for="" class="col-md-2 col-form-label">Total Staff</label>
@@ -867,7 +874,6 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th class="less-font-weight" ></th>
-
                                                                         <th class="less-font-weight">Audit Staff</th>
                                                                         <th class="less-font-weight">Non-Audit Staff</th>
                                                                         <th class="less-font-weight">Total</th>
@@ -880,7 +886,7 @@
                                                                 </tbody>
                                                                 <tfoot id="tbl_audit_total_staff_foot">
                                                                     <tr>
-                                                                        <td>Total</td>
+                                                                        <td>Total Staff</td>
                                                                         <td><input  type='number' disabled value='0' name='total_staff[]' class='form-control' id="total_audit"  ></td>
                                                                         <td><input  type='number' disabled value='0' name='total_audit_staff[]' class='form-control' id="total_non_audit"></td>
                                                                         <td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_staff"></td>
@@ -1017,7 +1023,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
                                                     <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
                                                 </div>
                                             </div>
