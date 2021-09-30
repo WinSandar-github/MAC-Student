@@ -777,7 +777,7 @@
                                                       <tbody>
                                                           <tr>
                                                               <td>1</td>
-                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="" class="form-control" autocomplete="off" ></td>
+                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control" autocomplete="off" ></td>
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td>
@@ -887,9 +887,9 @@
                                                                 <tfoot id="tbl_audit_total_staff_foot">
                                                                     <tr>
                                                                         <td>Total Staff</td>
-                                                                        <td><input  type='number' disabled value='0' name='total_staff[]' class='form-control' id="total_audit"  ></td>
-                                                                        <td><input  type='number' disabled value='0' name='total_audit_staff[]' class='form-control' id="total_non_audit"></td>
-                                                                        <td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_staff"></td>
+                                                                        <td><input  type='number' readonly value='0' name='total_staff[]' class='form-control' id="total_audit"  ></td>
+                                                                        <td><input  type='number' readonly value='0' name='total_audit_staff[]' class='form-control' id="total_non_audit"></td>
+                                                                        <td><input  type='number' readonly value='0' name='total_non_audit_staff[]' class='form-control' id="total_staff"></td>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>
@@ -1023,7 +1023,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
                                                     <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
                                                 </div>
                                             </div>
