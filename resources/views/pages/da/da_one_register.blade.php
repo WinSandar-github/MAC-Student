@@ -10,7 +10,7 @@
     <div class="main-wrapper">
         <div class="overlay"></div>
         <div class="section page-banner">
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
             <div class="container">
                 <!-- Page Banner Start -->
@@ -24,7 +24,7 @@
                 <!-- Page Banner End -->
             </div>
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}"
                      alt="Shape">
                 <div class="box-content">
@@ -33,10 +33,10 @@
                     </div>
                 </div>
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
         </div>
         <div class="container approve_request" style="overflow: hidden;">
             <div class="status-reject" style="display:none">
@@ -113,8 +113,8 @@
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                         </h5>
                                         <div class="d-flex justify-content-between">
-                                            <h6>အမှတ်စဥ် - {{ __('Batch One') }}</h6>
-                                            <h6>ပညာသင်နှစ် - {{ date('Y') }}</h6>
+                                            <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                            <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -406,7 +406,7 @@
                                                 </div>
                                             </div>--}}
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right"><span
                                                             class="pull-left">၁၆။</span>(က)
                                                 </label>
@@ -420,7 +420,7 @@
 
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right"><span
                                                             class="pull-left"></span>(ခ)
                                                 </label>
@@ -434,7 +434,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right"><span
                                                             class="pull-left"></span>(ဂ)
                                                 </label>
@@ -445,7 +445,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -531,13 +531,14 @@
                                         (ကိုယ်ပိုင်သင်တန်းကျောင်းတွင်တက်ရောက်မည့်အသစ်တက်ခွင့်ရသူများ)
                                     </h5>
 
-                                    <div class="d-flex justify-content-end">
-                                        <h6>အမှတ်စဥ် - <span name="da_batch_no" id="da_batch_no"></span></h6>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                     </div>
 
                                     <div class="card-body">
                                         <div class="col-md-12">
-
+                                        
                                             <div class="row mb-3">
                                                 <div class="col-md-9">
 
@@ -801,21 +802,21 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none">
                                                 <label class="col-md-1 col-form-label">၁၆။</label>
                                                 <label class="col-md-1 col-form-label">(က)</label>
 
                                                 <label class="col-md-2 col-form-label label_align_right">တက်ရောက်မည့်သင်တန်း</label>
 
                                                 <div class="col-md-8">
-                                                    <input type="text" name="part_no_mac" id="part_no_mac"
+                                                    <input type="text" name="part_no_private" id="part_no_private"
                                                            class="form-control course_name" disabled
                                                            placeholder="အပိုင်း" id="" required>
 
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3"  style="display:none">
                                                 <label class="col-md-1 col-form-label"></label>
                                                 <label class="col-md-1 col-form-label">(ခ)</label>
                                                 <label class="col-md-2 col-form-label label_align_right">သင်တန်းအမှတ်စဥ်</label>
@@ -828,7 +829,7 @@
                                             </div>
 
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3"  style="display:none">
                                                 <label class="col-md-1 col-form-label"></label>
                                                 <label class="col-md-1 col-form-label">(ဂ)</label>
                                                 <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
@@ -840,7 +841,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -927,9 +928,9 @@
                                         (ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ)
                                     </h5>
 
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between mb-3">
                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                        <h6>ပညာသင်နှစ် - {{ date('Y') - 1 . " / " . date("Y") }}</h6>
+                                        <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                     </div>
 
                                     <div class="card-body">
@@ -1374,7 +1375,7 @@
                                                     <label class="col-md-8 col-form-label">အပိုဒ် ၁ ပါ(ခ)/(ဂ)/(ဃ)/(င) အတွက်</label>
                                                 </div> -->
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3"  style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right">
                                                     <span class="pull-left">၁၈။</span>(က)
                                                 </label>
@@ -1387,7 +1388,7 @@
 
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right">
                                                     <span class="pull-left"></span>(ခ)
                                                 </label>
@@ -1397,7 +1398,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right">
                                                     <span class="pull-left"></span>(ဂ)
                                                 </label>
@@ -1407,9 +1408,9 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-4 col-form-label label_align_right">
-                                                    <span class="pull-left">၁၉။</span>
+                                                    <span class="pull-left">၁၈။</span>
                                                     နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့်ခုနှစ်/လ
                                                 </label>
                                                 <div class="col-md-8">
@@ -1671,7 +1672,7 @@
                     let current_stu_course = data.data.student_course_regs.slice(-1);
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
-
+                    $(".batch_number").append(current_stu_course[0].batch.number);
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
                     $('.batch_no').val(current_stu_course[0]?.batch?.number);

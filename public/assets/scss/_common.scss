@@ -131,6 +131,7 @@ img{
 .main-wrapper {
     float: left;
     width: 100%;
+    margin-top:80px;
 }
 .main-wrapper-02{
     @media #{$tablet-device, $large-mobile}{
