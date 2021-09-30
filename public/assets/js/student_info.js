@@ -727,7 +727,9 @@ function createMac() {
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('remain_module', $("input[name='remain_module']").val())
-    send_data.append('batch_id', batch_id)
+    send_data.append('batch_id', batch_id);
+    send_data.append('mac_type', $("input[name='mac_type']").val());
+
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
