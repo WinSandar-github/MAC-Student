@@ -7,7 +7,6 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
-            console.log(data.accountancy_firm_info_id)
 
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
@@ -99,8 +98,6 @@ function user_profile() {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 let cpaff = data.cpa_ff;
-                console.log(cpaff)
-                localStorage.setItem("cpff_id", cpaff.id);
                 $('#cpaff_name_mm').text(cpaff.name_mm);
                 $('#cpaff_name_eng').text(cpaff.name_eng);
                 $("#cpaff_nrc").text(cpaff.nrc_state_region + "/" + cpaff.nrc_township + "(" + cpaff.nrc_citizen + ")" + cpaff.nrc_number);
@@ -122,7 +119,6 @@ function user_profile() {
                     $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
                 }
                 if (data.papp && data.student_course_regs == '') {
-                    console.log(data.papp.status)
                     if (data.papp.status == 0) {
                         $('.status_history').append('PAPP Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
@@ -180,7 +176,7 @@ function user_profile() {
                 let latest_course_reg = data.student_course_regs.slice(-1)
                 let latest_stu_reg = data.student_register.slice(-1);
                 let last_exam = data.exam_registers.slice(-1);
-                console.log(last_exam, "Last Exam")
+
                 document.getElementById('image').src = BASE_URL + data.image;
                 var course_html;
 
@@ -503,11 +499,6 @@ function user_profile() {
                                             }
                                         })
                                         var data_exam = {};
-                                        // console.log((isEmpty(last_exam[0]) === false), typeof last_exam[0].grade === '0')
-                                        // console.log(module)
-                                        // console.log(last_exam[0].batch_id, latest_course_reg[0].batch.id)
-                                        // console.log((last_exam[0].batch_id === latest_course_reg[0].batch.id))
-                                        // console.log((JSON.stringify([1]) === JSON.stringify(module) || JSON.stringify([2]) === JSON.stringify(module)))
 
                                         if (last_exam[0]) {
                                             if (
@@ -557,12 +548,11 @@ function user_profile() {
                                                         let course_code;
                                                         let form_url;
                                                         let show_text;
-                                                        console.log(containsAll([1, 2], module))
 
                                                         //Check moudule for next course
                                                         if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
 
-                                                            console.log("start module 2")
+
 
                                                             switch (last_exam[0].course.code) {
                                                                 case 'da_1':
@@ -815,12 +805,10 @@ function user_profile() {
                                                         let course_code;
                                                         let form_url;
                                                         let show_text;
-                                                        console.log("module>>>", module)
                                                         //Check moudule for next course
                                                         if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
 
 
-                                                            console.log("next course")
 
                                                             switch (last_exam[0].course.code) {
                                                                 case 'da_1':
@@ -917,12 +905,10 @@ function user_profile() {
                                                                 }
                                                             })
                                                         } else {
-                                                            console.log(latest_course_reg[0].batch.course.code)
                                                             get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
 
-                                                                console.log("Next", next_batch)
                                                                 if (next_batch !== null) {
 
                                                                     $('#course_name').text(next_batch[0].course.name)
