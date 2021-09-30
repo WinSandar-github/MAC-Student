@@ -72,7 +72,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                         @csrf
                         <div class="row">
-                            <div class="card border-success mb-3">
+                            <div class="card border-success mb-3"  style="padding:3% 5% 3% 5%;">
                                 <!-- <form> -->
                                 <div class="card-body ">
                                     <div class="col-md-12">
@@ -83,7 +83,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                             <input type="hidden" name="is_private" id="is_private" class="form-control">
                                                 <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ<br/>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေဆိုခွင့်လျှောက်လွှာ</h5><br/>
-
+                                                <div class="d-flex justify-content-between mb-3">
+                                                    <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                    <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-8 mt-3">
 
@@ -448,7 +451,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             </p>
                                                         </label>
                                                     </div>
-                                                    <h6 class="">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                    {{--<h6 class="">ရက်စွဲ - {{ date('d-M-Y') }}</h6>--}}
                                                 </div>
                                             </div> 
 
@@ -543,16 +546,19 @@ $nrc_characters = config('myanmarnrc.characters');
               console.log("data >>>>",data);
                 let student_info = data.data
                 let student_reg = data.data.student_register
+                let current_stu_course = data.data.student_course_regs.slice(-1);
+                let current_stu_reg=data.data.student_register.slice(-1);
+                $("#batch_number").append(current_stu_course[0].batch.number);
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
                     console.log(data.data,"student_reg");
-                    if(student_reg[1].module=="1"){
+                    if(current_stu_reg[0].module=="1"){
                          $("#0").prop("checked", true);
                     }
-                    else if(student_reg[1].module=="2"){
+                    else if(current_stu_reg[0].module=="2"){
                         $("#1").prop("checked", true);
                     }
-                    else if(student_reg[1].module=="3"){
+                    else if(current_stu_reg[0].module=="3"){
                         $("#2").prop("checked", true);
                     }
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
