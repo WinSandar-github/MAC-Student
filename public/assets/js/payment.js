@@ -40,7 +40,8 @@ function loadFees()
         success: function (data) {
             var fees = data.data;
             // console.log(fees[0].exam_fee)
-            $('#form_fee').append(fees[0].form_fee);
+            $('#form_fee').val(fees[0].form_fee);
+            $('#fee').append(fees[0].form_fee);
             $('#total').append(fees[0].form_fee);
             $('#exam_fee').append(fees[0].exam_fee);
         }
