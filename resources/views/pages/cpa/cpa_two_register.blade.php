@@ -1146,6 +1146,35 @@
                                            
                                         </div>
                                         <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                                <div class="row  col-md-8 checkbox-radios   py-2">
+                                                    
+                                                
+
+                                                    <div class="col-md-5 form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac">
+                                                        <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                            
+                                                    <div class="col-md-6  form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac2">
+                                                        <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                            <span class="form-check-sign"></span>
+                                                            နေပြည်တော်သင်တန်းကျောင်း
+                                                        </label>
+                                                    </div>
+                                                
+        
+                                               
+                                                        <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
+                                                   
+                                                </div>
+                                            </div>
+                                        <div class="row mb-3">
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                    <input class="form-check-input" type="checkbox" id="submit_confirm_mac" onchange="$('#cpa2_mac').prop('disabled', !this.checked)">
@@ -1443,22 +1472,28 @@ $('document').ready(function(){
  
 
                             if(exam_registers[0].is_full_module == "1"){
-                                
-                                $(".module_two").prop("checked", true);
+                                 $(".module_two").prop("checked", true);
                               
-                                $(':radio:not(:checked)').attr('disabled', true);
+                                $('.module_one').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
 
                             }
                             else if(exam_registers[0].is_full_module=="2"){
                                 $(".module_one").prop("checked", true);
-                                $(':radio:not(:checked)').attr('disabled', true);
+                                $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
+
  
                             }
                             else if(exam_registers[0].is_full_module=="3"){
                                 $(".module_full").prop("checked", true);
+                                 $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+                                
 
-                                $(':radio:not(:checked)').attr('disabled', true);
-                                 
+                                  
                             }
 
                             
