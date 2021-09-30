@@ -7,24 +7,35 @@
 
    //var_dump($_POST);
 
-   $merchant_ID="204104001306141";
+    $mpu_merchant_ID = constant('mpu_merchant_ID');
+    $pgw_test_Url=constant('pgw_test_Url');
     $amount="000000010000";
-    $invoice_no="12312312323";
+    $invoice_no = $invoice_no.rand(10,1000);
+    //echo $invoice_no;
+    $product_Desc="Form Fee";
+    $mpu_data=array("merchantID"=>$mpu_merchant_ID,"invoiceNo"=> $invoice_no,"productDesc"=>$product_Desc,"amount"=>$amount,"currencyCode"=>"104","userDefined1"=>$name_eng ,"userDefined2"=>$email,"userDefined3"=>$phone);
+
     
-    $product_Desc="Test";
-   $mpu_data=array("merchantID"=>$merchant_ID,"invoiceNo"=> $invoice_no,"productDesc"=>$product_Desc,"amount"=>$amount,"currencyCode"=>"104","userDefined1"=>$name_eng ,"userDefined2"=>$email,"userDefined3"=>$phone);
-    var_dump($mpu_data);
+    function generate_hash_value($data)
+    {   
 
-   $secret_Key = "GQVVS3MOUU06XDCFRJDIVHI3WXWYH04P";
-   $pgw_test_Url = "https://www.mpuecomuat.com:60145/UAT/Payment/Payment/pay";
-   $pgw_live_Url = "https://www.mpuecomuat.com:60145/UAT/Payment/Payment/pay";
+                 
+        $input_fields_array=$data;                         
+        $signature_string = create_signature_string($input_fields_array);
+        $secret_Key=constant('secret_Key');
+    
+        $hash_value = hash_hmac('sha1', $signature_string, $secret_Key, false);
+        $hash_value = strtoupper($hash_value);
+    
+          
+        return $hash_value;
+    }
 
-
-   function create_signature_string($input_fields_array)
+    function create_signature_string($input_fields_array)
     {
 
-         sort($input_fields_array);
-        
+        sort($input_fields_array, SORT_STRING);
+      
         $signature_string = "";
         foreach($input_fields_array as $value)
         {
@@ -35,25 +46,6 @@
         }
         
         return $signature_string;
-    }
-    
-    function generate_hash_value()
-    {
-      
-        global $mpu_data;
-
-     
-        $input_fields_array=$mpu_data; 
-                            
-        $signature_string = create_signature_string($input_fields_array);
-        global $secret_Key;
-        
-        $hash_value = hash_hmac('sha1', $signature_string, $secret_Key, false);
-        $hash_value = strtoupper($hash_value);
-
-      
-        
-        return $hash_value;
     }
 
 ?>
@@ -106,7 +98,7 @@
 <body>
     <h1>Redirecting to MPU Payment Gateway ...</h1>
 
-    <form id="hidden_form" name="hidden_form" method="post" action="<?php echo $pgw_test_Url; ?>"> 
+    <form id="hidden_form" name="hidden_form" method="post" action="<?php  echo $pgw_test_Url; ?>"> 
         <input type="submit" value="Click here if it is taking too long to redirect!" />
         <div style="visibility: initial;">
             <?php foreach($mpu_data as $key => $value): ?>
@@ -117,11 +109,7 @@
                     <br />
                 <?php endif; ?>
             <?php endforeach; ?>
-            <input type="text" name="hashValue" value="<?php 
-            
-            echo generate_hash_value(); 
-            
-            ?>" />
+            <input type="text" name="hashValue" value="<?php echo generate_hash_value($mpu_data);  ?>" />
             <br />
         </div>
     </form>
@@ -136,7 +124,7 @@
     <script>
         function submitForm()
         {
-          // document.forms["hidden_form"].submit();
+           document.forms["hidden_form"].submit();
         }
         
         if(window.attachEvent)
