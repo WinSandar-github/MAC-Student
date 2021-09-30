@@ -209,14 +209,15 @@ $().ready(function (){
                               $('#student_info_id').val(0);
                               $('#schoolModal').modal('show');
                               send_email(); 
-                          }else{
-                            if(result==2){                    
-                              Swal.fire("Email has been used, please check again!");
-                            }else{
-                              $('#student_info_id').val(result[0].id);
-                              $('#schoolModal').modal('show');
-                              send_email();
-                            }
+                          }else if(result==1){                    
+                            Swal.fire("Email has been used, please check again!");
+                          }
+                          else{
+                              
+                            $('#student_info_id').val(result[0].id);
+                            $('#schoolModal').modal('show');
+                            send_email();
+                            
                           }
                         
                       }
