@@ -24,7 +24,7 @@ $nrc_characters = config('myanmarnrc.characters');
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            <img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">
+            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png') }}" alt="Shape">--}}
 
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png') }}" alt="Shape">
 
@@ -41,7 +41,7 @@ $nrc_characters = config('myanmarnrc.characters');
             </div>
 
             <!-- Shape Icon Box Start -->
-            <div class="shape-icon-box">
+            {{--<div class="shape-icon-box">
 
                 <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
 
@@ -53,12 +53,12 @@ $nrc_characters = config('myanmarnrc.characters');
 
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
 
-            </div>
+            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
 
-            <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">
+            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape">--}}
 
         </div>
 
@@ -392,7 +392,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
+                                                            <input disabled type="radio" id="0" class="form-check-input" name="is_full_module" value="1" required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -400,7 +400,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
+                                                            <input disabled type="radio" id="1" class="form-check-input" name="is_full_module" value="2" required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -408,7 +408,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
+                                                            <input  disabled type="radio" id="2" class="form-check-input"  name="is_full_module" value="3" required>
                                                             All Modules
                                                         </div>
                                                     </div>
