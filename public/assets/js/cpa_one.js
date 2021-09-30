@@ -411,11 +411,12 @@ function cpa_edit() {
 
 $('#cpa_update').submit(function (e) {
     e.preventDefault();
+
     var formData = new FormData(this);
     formData.append('_method', 'PUT');
     var student_id = $('#stu_id').val();
 
-
+    show_loader();
     $.ajax({
         type: "POST",
         url: BACKEND_URL + "/cpa_register/" + student_id,
@@ -424,6 +425,7 @@ $('#cpa_update').submit(function (e) {
         processData: false,
         data: formData,
         success: function (data) {
+            EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
             location.href = FRONTEND_URL + "/";
         },

@@ -1490,7 +1490,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     let batch_id = localStorage.getItem('batch_id');
                 
-                    if(last_exam[0].grade == 1 && ( last_exam[0].batch_id == batch_id)){
+                    if(last_exam[0].grade == 1 && ( last_exam[0].batch_id == current_stu_course[0].batch_id )){
                         
                         $.ajax({
                         type: "get",
@@ -1506,8 +1506,7 @@ $nrc_characters = config('myanmarnrc.characters');
                             $('#remain_module').val(last_exam[0].is_full_module)
 
                             if(last_exam[0].is_full_module == "1"){
-                                alert("full module")
-                                $(".module_two").prop("checked", true);
+                                 $(".module_two").prop("checked", true);
                               
                                 $(':radio:not(:checked)').attr('disabled', true);
 

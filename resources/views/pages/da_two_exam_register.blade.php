@@ -546,6 +546,8 @@ $nrc_characters = config('myanmarnrc.characters');
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
                     let last_exam = data.data.exam_registers.slice(-1);
+                    let current_stu_course = data.data.student_course_regs.slice(-1);
+
 
                   
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
@@ -575,7 +577,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='personal_no']").val(student_info.personal_no);
                     let batch_id = localStorage.getItem('batch_id');
 
-                    if(last_exam[0].batch_id == batch_id){
+                    if(last_exam[0].course.code == 'da_2') {
                         
                       
 

@@ -71,9 +71,9 @@
     <div class="form-wrapper">
         <div class="row">
             <div class="col-md-12">
-                <form class="needs-validation" action="javascript:void();" method="post" enctype="multipart/form-data" novalidate>
+                <form class="needs-validation" id="da_update" action="javascript:void();" method="post" enctype="multipart/form-data" novalidate>
                     @csrf
-
+                    <input type="hidden" name="stu_id" id="stu_id">
                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                         <div class="card-body">
 
@@ -84,7 +84,7 @@
                                 </h5>
                                 <div class="d-flex justify-content-between">
                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
-                                    <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
+                                    <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                 </div>
                                 
                             </div>
@@ -161,7 +161,8 @@
                                         <div class="fileinput-new thumbnail img-circle shadow" style="line-height: 160px;">
                                             <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
                                                 alt="Upload Photo" class="profile_image" id="da_to_cpa_preview_img">
-                                        </div>
+                                            <input type="hidden" name="old_image" id="old_image">
+                                            </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
                                         
                                     </div>
@@ -316,6 +317,9 @@
                                     </div>
                                     <div class="col-md-5"  id="degree_edu" >
                                         <input   type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                        <input type="hidden" name="old_rec_letter">
+
+
                                     </div>
                                 </div>
                             </div>
@@ -465,7 +469,7 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
-        da_edit();
+        // da_edit();
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
@@ -504,16 +508,19 @@
         });
 
         
-        if (localStorage.getItem("studentinfo") != null){
+        if (localStorage.getItem("studentinfo") != null)
+        {
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
                       console.log(info)
                       
-                      var exam_register = info.exam_registers.slice(-1);
+                      var student_course = info.student_course_regs.slice(-1);
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
+                    $('#stu_id').val(info.id);
+
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
                         $("input[name=nrc_state_region]").val(info.nrc_state_region);
@@ -533,6 +540,20 @@
                         document.getElementById('da_to_cpa_preview_img').src = BASE_URL + data.data.image;
                       }
 
+                      var batch_id = student_course[0].batch_id; 
+
+                      $('#batch_id').val(batch_id)
+                      $.ajax({
+                            type: "get",
+                            url: BACKEND_URL + "/batch/" + batch_id,
+                            contentType: false,
+                            processData: false,
+                            async:false,
+                            success: function (res) {
+                                 
+                                $('.batch_number').append(res.data.number);
+                            }
+                        })
                       if(job_history){
                         $("input[name=name]").val(job_history.company_name);
                         $("input[name=position]").val(job_history.position);
@@ -561,6 +582,31 @@
                       }
                       else{
                         $("input[name=gov_staff][value=0]").prop("checked",true);
+                      }
+
+                      if(student_course[0].type == 0){
+                        $("input[name=dtype][value=0]").prop("checked",true);
+
+                         
+                      }
+                      else if(student_course[0].type == 1){
+                        $("input[name=dtype][value=1]").prop("checked",true);
+                      }else{
+                        $("input[name=dtype][value=2]").prop("checked",true);
+                        selectdType();
+                        if(student_course[0].mac_type == 1){
+                            $("input[name=mac_dtype][value=1]").prop("checked",true);
+
+                            
+                        }else{
+                            $("input[name=mac_dtype][value=2]").prop("checked",true);
+                            
+
+
+                        }
+
+
+
                       }
                     }
 

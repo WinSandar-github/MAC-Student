@@ -505,7 +505,7 @@ function user_profile() {
                                         var data_exam = {};
                                         // console.log((isEmpty(last_exam[0]) === false), typeof last_exam[0].grade === '0')
                                         // console.log(module)
-                                        console.log(last_exam[0].batch_id, latest_course_reg[0].batch.id)
+                                        // console.log(last_exam[0].batch_id, latest_course_reg[0].batch.id)
                                         // console.log((last_exam[0].batch_id === latest_course_reg[0].batch.id))
                                         // console.log((JSON.stringify([1]) === JSON.stringify(module) || JSON.stringify([2]) === JSON.stringify(module)))
 
@@ -818,7 +818,7 @@ function user_profile() {
                                                         console.log("module>>>", module)
                                                         //Check moudule for next course
                                                         if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
-                                                            alert("hello next batch")
+
 
                                                             console.log("next course")
 
@@ -922,7 +922,7 @@ function user_profile() {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
 
-
+                                                                console.log("Next", next_batch)
                                                                 if (next_batch !== null) {
 
                                                                     $('#course_name').text(next_batch[0].course.name)
@@ -1220,6 +1220,8 @@ function user_profile() {
                                 }
 
                             } else {
+                                let update_app_url = latest_course_reg[0].batch.course.code == "da_1" ? '/da_edit' : '/cpa_edit';
+
                                 $('.status').append(`
                                 <tr>
                                     <td>${latest_course_reg[0].batch.course.name}</td>
@@ -1230,7 +1232,7 @@ function user_profile() {
                                 <tr>
                                 <td>မှတ်ချက် - </td>
                                 <td colspan=2>${latest_course_reg[0].remark}</td><td>
-                            <a href="/da_edit" class="btn btn-sm btn-success">Update Registration Form</a>
+                                <a href="${update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
  
                             
                              </td></tr>

@@ -324,45 +324,13 @@
                                                 <div class="row mb-3">
                                                     <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('၁၉။') }}</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                                     <div class="col-md-8">
-                                                            <input type="text" id="last_ans_exam_no" name="last_ans_exam_no" class="form-control" placeholder="နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲအမှတ်စဥ်"  >
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label">
-                                                        <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label>
-                                                    <div class="col-md-8">
-                                                            <input type="text" id="date" name="date" class="form-control" placeholder="လ ၊ နှစ် (MMM-YYYY)" >
-
-                                                    </div>
-
-                                                </div>
-                                                
-                                                <div class="row mb-3">
-                                                    <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 113px;">{{ __('(ဂ)') }}</span>အဆိုပါစာမေးပွဲအောင်မြင်ခဲ့သည့် Moduleရှိပါက ဆိုင်ရာအကွက်တွင်အမှတ်အသားပြုရန် - </label>
-                                                </div>
-
-                                                <div class="row mb-3" style="padding-left: 340px;">                                                    
-                                                    <div class="row col-md-8">
-                                                        <div class="col-md-4 form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" id="lst_m1" name="last_ans_module"  value="1">
-                                                                <span class="form-check-sign"></span>
-                                                                Module 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-4 form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" id="lst_m2" name="last_ans_module"  value="2">
-                                                                <span class="form-check-sign"></span>
-                                                                Module 2
-                                                            </label>
-                                                        </div>
-                                                        
                                                         <input type="text" name="attend_place" id="attend_place" class="form-control" readonly>
+
+
                                                     </div>
                                                 </div>
+
+                                               
 
                                                 <div class="row">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" >{{ __('၂၀။') }}</span>ယခုဖြေဆိုမည့် Module -</label>
@@ -479,14 +447,14 @@
                                                         <div class="row col-md-8">
                                                             <div class="col-md-4 form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox"  name="last_ans_module[]"  value="Module 1">
+                                                                    <input class="form-check-input" type="checkbox" id="lst_m1"  name="last_ans_module[]"  value="Module 1">
                                                                     <span class="form-check-sign"></span>
                                                                     Module 1
                                                                 </label>
                                                             </div>
                                                             <div class="col-md-4 form-check">
                                                                 <label class="form-check-label">
-                                                                    <input class="form-check-input" type="checkbox"  name="last_ans_module[]"  value="Module 2">
+                                                                    <input class="form-check-input" type="checkbox" id="lst_m2"  name="last_ans_module[]"  value="Module 2">
                                                                     <span class="form-check-sign"></span>
                                                                     Module 2
                                                                 </label>
@@ -720,8 +688,7 @@
             let exam_registers = student_info.exam_registers.slice(-1);
 
             if(data){
-                // console.log('data',data);
-                document.getElementById('previewImg').src = BASE_URL + data.data.image;
+                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);
                 $("input[name='nrc_state_region']").val(data.data.nrc_state_region);

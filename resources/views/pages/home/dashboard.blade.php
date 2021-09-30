@@ -288,38 +288,40 @@
                             </div>
 
                             <div class="row mt-3 ">
-                                <div class="col-md-4">
-                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold; background-color:#E7F8EE;">
-                                    Course History
-                                    </h5>
+                                    <div class="col-md-4">
+                                        <h5 class="text-center border-bottom pb-2" style="font-weight:bold; background-color:#E7F8EE;">
+                                        Course History
+                                        </h5>
+                                        <div class="row">
+                                            <table class="table table-border">
+                                                <thead>
+                                                    <th>Course Name</th>
+                                                    <th>Batch Name</th>
+                                                    <th>Success Year</th>
+                                                </thead>
+                                                <tbody class="course">
+                                                </tbody>
+                                            </table>
+                                        </div>   
+                                    </div>
+                                <div class="col-md-8">
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;"> Application Histroy</h5>
                                     <div class="row">
-                                        <table class="table table-border">
+                                        <table class="table table-border ">
                                             <thead>
-                                                <th>Course Name</th>
-                                                <th>Batch Name</th>
-                                                <th>Success Year</th>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Submit Date</th>
+                                                    <th>Status Date</th>
+                                                    <th>Status</th>
+                                                </tr>
                                             </thead>
-                                            <tbody class="course">
-
-                            </div>
-                            <div class="col-md-8 ml-1">
-                                <h5 class="text-center border-bottom pb-2"
-                                    style="font-weight:bold ;background-color:#E7F8EE;"> Application Histroy</h5>
-                                <div class="row ">
-                                    <table class="table table-border ">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Submit Date</th>
-                                                <th>Status Date</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="status_history">
-                                        </tbody>
-                                    </table>
+                                            <tbody class="status_history">
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
 

@@ -74,8 +74,8 @@
                 </div>
             --}}
             <div class="comment-form study">
-                <input type="text" name="form_type" id="form_type">
-                <input type="text" name="remain_module" id="remain_module">
+                <input type="hidden" name="form_type" id="form_type">
+                <input type="hidden" name="remain_module" id="remain_module">
 
                 <div class="form-wrapper">
                     <div class="">
@@ -174,21 +174,21 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                             </option>
-@endforeach
-                                                                        </select> -->
-                                                                </div>
-                                                                <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
-                                                                           class="form-control" readonly>
-                                                                <!-- <select class="form-control" name="nrc_township" id="nrc_township"
-                                                                                style="margin-top: 0px; margin-bottom: 0px;">
-                                                                            @foreach($nrc_townships as $township)
-                                                                    <option value="{{ $township['township_mm'] }}">
-                                                                                    {{ $township['township_mm'] }}
-                                                                            </option>
-@endforeach
-                                                                        </select>
-                                                                        </select> -->
+                                                                    @endforeach
+                                                                                                                                            </select> -->
+                                                                                                                                    </div>
+                                                                                                                                    <div class="col-md-3 col-7 px-1">
+                                                                                                                                        <input type="text" name="nrc_township"
+                                                                                                                                            class="form-control" readonly>
+                                                                                                                                    <!-- <select class="form-control" name="nrc_township" id="nrc_township"
+                                                                                                                                                    style="margin-top: 0px; margin-bottom: 0px;">
+                                                                                                                                                @foreach($nrc_townships as $township)
+                                                                                                                                        <option value="{{ $township['township_mm'] }}">
+                                                                                                                                                        {{ $township['township_mm'] }}
+                                                                                                                                                </option>
+                                                                    @endforeach
+                                                                                                                                            </select>
+                                                                                                                                            </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
@@ -199,7 +199,7 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                             </option>
-@endforeach
+                                                            @endforeach
                                                                         </select> -->
                                                                 </div>
 
@@ -597,20 +597,20 @@
                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                     {{ $township['township_mm'] }}
                                                                             </option>
-@endforeach
+                                                            @endforeach
                                                                         </select>
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
                                                                            class="form-control" readonly>
-                                                                <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
+                                                                            <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
                                                                             @foreach($nrc_citizens as $citizen)
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                             </option>
-@endforeach
+                                                                        @endforeach
                                                                         </select> -->
                                                                 </div>
 
@@ -1682,6 +1682,7 @@
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
+                    console.log(data.data.citizen)
                     if(last_exam[0]){
                     if(last_exam[0].grade == 1){
                          let batch_id = localStorage.getItem('batch_id');
@@ -1693,6 +1694,7 @@
                         async:false,
                         success: function (res) {
                             $('#batch_name').text(res.data.name);
+                            
                             
                             $('.batch_no').val(res.data.number);
                             $('.personal_no').val(data.data.personal_no);

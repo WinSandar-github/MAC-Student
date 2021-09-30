@@ -245,14 +245,14 @@
                                                     <div class="row col-md-8 mx-5">
                                                         <div class="col-md-4 form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" value="1">
+                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" id="lst_m1" value="1">
                                                                 <span class="form-check-sign"></span>
                                                                 Module 1
                                                             </label>
                                                         </div>
                                                         <div class="col-md-4 form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" value="2">
+                                                                <input class="form-check-input" type="checkbox"  name="last_ans_module" id="lst_m2" value="2">
                                                                 <span class="form-check-sign"></span>
                                                                 Module 2
                                                             </label>
@@ -474,7 +474,7 @@
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
                 
-                if(exam_registers)
+                if(exam_registers )
                 {
 
                     if(exam_registers[0].is_full_module == "1")
@@ -501,12 +501,14 @@
 
                     if(exam_registers[0].is_full_module == "1")
                     {
-                        
+                       
                         $("#lst_m1").prop("checked", true);
                         $("#lst_m2").attr("disabled", "disabled"); 
                         
                     }
                     else if(exam_registers[0].is_full_module=="2"){
+                        
+
                         $("#lst_m2").prop("checked", true);
                         $("#lst_m1").attr("disabled", "disabled"); 
 
