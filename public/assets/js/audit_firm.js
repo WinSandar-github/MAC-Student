@@ -151,7 +151,6 @@ function createAuditFirm(){
   // send_data.append('form_fee',$("input[name=form_fee]").val());
   // send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
 
-
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});
   $('input[name="bo_township[]"]').map(function(){send_data.append("bo_township[]",$(this).val());});

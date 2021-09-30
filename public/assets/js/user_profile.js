@@ -7,13 +7,14 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
-            console.log(data.accountancy_firm_info_id)
-
+            console.log("data >>>>",data);
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
+                let firm_ownerships_audits = data.firm_ownerships_audits;
+                console.log("firm_ownerships_audits >>>>",firm_ownerships_audits);
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                 $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
@@ -22,8 +23,16 @@ function user_profile() {
                 $('.phone').text(acc_firm.telephones);
 
                 if (acc_firm.audit_firm_type_id == 1) {
+                  // if audit firm type
+                    if(firm_ownerships_audits != ''){
+                      // show name and public practice reg no who selected Yes
+                      if(firm_ownerships_audits.authority_to_sign == 1){
+                        $("#info_for_audit").css("display","block");
+                        $('.name').text(firm_ownerships_audits.name);
+                        $('.public_practice_reg_no').text(firm_ownerships_audits.public_private_reg_no);
+                      }
+                    }
 
-                    // if audit firm type
                     if (acc_firm.status == 0) {
                         $('.status_history').append('Your Audit Firm Form is checking.');
                     } else if (acc_firm.status == 1) {
@@ -31,8 +40,12 @@ function user_profile() {
                     } else {
                         $('.status_history').append('Your Audit Firm Form is Rejected.');
                     }
-                } else {
-
+                }
+                else
+                {
+                    $("#info_for_non_audit").css("display","block");
+                    $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
+                    $('.passport_csc_no').text(acc_firm.dir_passport_csc);
                     //if non-audit firm type
                     if (acc_firm.status == 0) {
                         $('.status_history').append('Your Non-Audit Firm Form is checking.');
@@ -99,7 +112,6 @@ function user_profile() {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 let cpaff = data.cpa_ff;
-                console.log(cpaff)
                 localStorage.setItem("cpff_id", cpaff.id);
                 $('#cpaff_name_mm').text(cpaff.name_mm);
                 $('#cpaff_name_eng').text(cpaff.name_eng);
@@ -123,7 +135,7 @@ function user_profile() {
                 }
                 if(data.papp && data.student_course_regs == '')
                 {
-                    console.log(data.papp.status)
+
                     if (data.papp.status == 0) {
                         $('.status_history').append('PAPP Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
@@ -181,7 +193,7 @@ function user_profile() {
                 let latest_course_reg = data.student_course_regs.slice(-1)
                 let latest_stu_reg = data.student_register.slice(-1);
                 let last_exam = data.exam_registers.slice(-1);
-                console.log(last_exam, "Last Exam")
+
                 document.getElementById('image').src = BASE_URL + data.image;
                 var course_html;
 
@@ -454,7 +466,7 @@ function user_profile() {
 
                                 // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                                 //show data depend on Student Register status
-                                console.log(latest_stu_reg[0])
+
 
                                 if (latest_stu_reg[0] && latest_course_reg[0].batch.course.code == latest_stu_reg[0].course.code) {
                                     $('.regi_fee_txt').text('Exam Registration Date')
