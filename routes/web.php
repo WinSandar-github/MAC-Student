@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
+use PhpParser\Node\Name\FullyQualified;
 
 /*e
 |--------------------------------------------------------------------------
@@ -168,4 +169,5 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
 
+// Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
