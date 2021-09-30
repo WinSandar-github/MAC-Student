@@ -217,7 +217,7 @@ $('#da_update').submit(function (e) {
         data: formData,
         success: function (data) {
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = FRONTEND_URL + "/student_course/1";
+            location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
         }
@@ -235,10 +235,10 @@ $('#store_da_two_form').submit(function (e) {
     formData.append('type', $("input[name='dtype']:checked").val());
     formData.append('mac_type', $("input[name='mac_dtype']:checked").val())
     // if($('#entry_type').val() === 'da_pass'){
-        // var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
-        // send_data.append('da_pass_certificate', da_pass_certificate);
-        formData.append('da_pass_date', $("input[name=da_pass_date]").val());
-        formData.append('da_pass_roll_number', $("input[name=da_pass_roll_number]").val());
+    // var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
+    // send_data.append('da_pass_certificate', da_pass_certificate);
+    formData.append('da_pass_date', $("input[name=da_pass_date]").val());
+    formData.append('da_pass_roll_number', $("input[name=da_pass_roll_number]").val());
     // }
 
 
@@ -279,8 +279,7 @@ $('#store_da_two_form').submit(function (e) {
 //     }
 // });
 
-function createDaTwoSelfStudy()
-{
+function createDaTwoSelfStudy() {
 
     localStorage.setItem("isPrivateSchool", false);
     var send_data = new FormData();
@@ -320,19 +319,18 @@ function createDaTwoSelfStudy()
 
 $("#da_two_private_submit").click(function () {
 
-    if($("#selected_school_id").val() != "" && 
-        $("#academic_year").val() != "" && 
+    if ($("#selected_school_id").val() != "" &&
+        $("#academic_year").val() != "" &&
         $("input[name=da_one_pass_level_private]").val() != "" &&
-        $(".personal_no_private").val() != ""){
-            $('#exampleModal2').modal('show');
-    }else{
+        $(".personal_no_private").val() != "") {
+        $('#exampleModal2').modal('show');
+    } else {
         $('#exampleModal2').modal('hide');
     }
 });
 
-function createDaTwoPrivateSchool()
-{
-    localStorage.setItem("isPrivateSchool",true);
+function createDaTwoPrivateSchool() {
+    localStorage.setItem("isPrivateSchool", true);
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -372,17 +370,16 @@ $("#submit_btn_mac").click(function () {
     // console.log('mac_semester',$("#mac_academic_year").val());
     // console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
     // console.log('mac_semester',$(".personal_no_mac").val());
-    if($("#mac_academic_year").val()!="" && $("input[name=da_one_pass_level_mac]").val()!="" && $(".personal_no_mac").val()!=""){
+    if ($("#mac_academic_year").val() != "" && $("input[name=da_one_pass_level_mac]").val() != "" && $(".personal_no_mac").val() != "") {
         // alert("ShowHello") 
         $('#exampleModal1').modal('show');
-    }else{
+    } else {
         // alert("Hide Hello") 
         $('#exampleModal1').modal('hide');
     }
 });
 
-function createDaTwoMac()
-{
+function createDaTwoMac() {
     localStorage.setItem("isPrivateSchool", false);
     var send_data = new FormData();
     send_data.append('student_id', student_id);
@@ -761,15 +758,10 @@ function selectType() {
 
     if (radioValue == 2) {
         $('#blk_mac').css('display', 'inline-block');
-        // $('#entry_pass').css('display','none');
-        // $("#direct").find('input').prop('required',true);
     } else {
 
         $('#blk_mac').css('display', 'none');
 
-        // $('#entry_pass').css('display','block');
-        // $('#direct').css('display','none');
-        // $("#direct").find('input').prop('required',false);
     }
 }
 
@@ -777,7 +769,7 @@ function selectType() {
 function selectdType() {
 
     var radioValue = $("input[name='dtype']:checked").val();
-    // alert(radioValue)
+
 
     if (radioValue == 2) {
         $('#blk_dmac').css('display', 'inline-block');

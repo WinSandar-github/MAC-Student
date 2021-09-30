@@ -39,41 +39,44 @@
             {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
         </div>
         <div class="container approve_request" style="overflow: hidden;">
-            <div class="status-reject" style="display:none">
-                <div class="card text-white bg-dark my-3">
+            {{--
+                <div class="status-reject" style="display:none">
+                    <div class="card text-white bg-dark my-3">
 
-                    <div class="card-body">
-                        <!-- status == 2 => reject -->
-                        <p class="card-text reject">
-                            Your DA 1 Registration Form need to prepare.Please update your form
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="check_registration" style="display:none; margin-top: 5%;">
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body">
-                        <p class="card-text">Your DA 1 Registration Form is checking</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="approve" style="display:none;">
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body">
-                        <p class="card-text">You have the opportunity to attend the training </p>
+                        <div class="card-body">
+                            <!-- status == 2 => reject -->
+                            <p class="card-text reject">
+                                Your DA 1 Registration Form need to prepare.Please update your form
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body add_exam">
+                <div class="check_registration" style="display:none; margin-top: 5%;">
+                    <div class="card text-white bg-primary my-3">
+                        <div class="card-body">
+                            <p class="card-text">Your DA 1 Registration Form is checking</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <div class="approve" style="display:none;">
+                    <div class="card text-white bg-primary my-3">
+                        <div class="card-body">
+                            <p class="card-text">You have the opportunity to attend the training </p>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-primary my-3">
+                        <div class="card-body add_exam">
+                        </div>
+                    </div>
+                </div>
+            --}}
             <div class="comment-form study">
                 <input type="hidden" name="form_type" id="form_type">
+                <input type="hidden" name="remain_module" id="remain_module">
+
                 <div class="form-wrapper">
                     <div class="">
                         <!-- <div class="row">
@@ -171,21 +174,21 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                             </option>
-@endforeach
-                                                                        </select> -->
-                                                                </div>
-                                                                <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
-                                                                           class="form-control" readonly>
-                                                                <!-- <select class="form-control" name="nrc_township" id="nrc_township"
-                                                                                style="margin-top: 0px; margin-bottom: 0px;">
-                                                                            @foreach($nrc_townships as $township)
-                                                                    <option value="{{ $township['township_mm'] }}">
-                                                                                    {{ $township['township_mm'] }}
-                                                                            </option>
-@endforeach
-                                                                        </select>
-                                                                        </select> -->
+                                                                    @endforeach
+                                                                                                                                            </select> -->
+                                                                                                                                    </div>
+                                                                                                                                    <div class="col-md-3 col-7 px-1">
+                                                                                                                                        <input type="text" name="nrc_township"
+                                                                                                                                            class="form-control" readonly>
+                                                                                                                                    <!-- <select class="form-control" name="nrc_township" id="nrc_township"
+                                                                                                                                                    style="margin-top: 0px; margin-bottom: 0px;">
+                                                                                                                                                @foreach($nrc_townships as $township)
+                                                                                                                                        <option value="{{ $township['township_mm'] }}">
+                                                                                                                                                        {{ $township['township_mm'] }}
+                                                                                                                                                </option>
+                                                                    @endforeach
+                                                                                                                                            </select>
+                                                                                                                                            </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
@@ -196,7 +199,7 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                             </option>
-@endforeach
+                                                            @endforeach
                                                                         </select> -->
                                                                 </div>
 
@@ -441,7 +444,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="personal_no_mac" id="personal_no_mac"
-                                                           class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
+                                                           class="form-control personal_no" placeholder="ကိုယ်ပိုင်အမှတ်"> {{-- ကိုယ်ပိုင်နံပါတ် not sure to get in this state --}}
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -449,23 +452,23 @@
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -595,20 +598,20 @@
                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                     {{ $township['township_mm'] }}
                                                                             </option>
-@endforeach
+                                                            @endforeach
                                                                         </select>
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
                                                                            class="form-control" readonly>
-                                                                <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
+                                                                            <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
                                                                             @foreach($nrc_citizens as $citizen)
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                             </option>
-@endforeach
+                                                                        @endforeach
                                                                         </select> -->
                                                                 </div>
 
@@ -835,7 +838,7 @@
                                                 <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
 
                                                 <div class="col-md-8">
-                                                    <input type="text" name="personal_no_private" class="form-control"
+                                                    <input type="text" name="personal_no_private" class="form-control personal_no"
                                                            placeholder="ကိုယ်ပိုင်အမှတ်" id="">
 
                                                 </div>
@@ -845,15 +848,15 @@
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
-                                                                   name="is_full_module" value="1" required>
+                                                            <input class="form-check-input module_one" type="radio" id="0"
+                                                                   name="is_full_module" value="1" required >
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
@@ -861,7 +864,7 @@
                                                     </div>
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -1344,23 +1347,23 @@
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" id="0"
+                                                            <input class="form-check-input module_one" type="radio" id="0"
                                                                    name="is_full_module" value="1" required>
                                                             <span class="form-check-sign"></span>
                                                             Module 1
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_two" type="radio"
                                                                    name="is_full_module" value='2' required>
                                                             <span class="form-check-sign"></span>
                                                             Module 2
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-4 form-check-radio">
+                                                    <div class="col-md-4 form-check-radio ">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio"
+                                                            <input class="form-check-input module_full" type="radio"
                                                                    name="is_full_module" value='3' required>
                                                             <span class="form-check-sign"></span>
                                                             All Modules
@@ -1404,7 +1407,7 @@
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">ကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="personal_no_self" class="form-control" placeholder="ကိုယ်ပိုင်အမှတ်">
+                                                    <input type="text" name="personal_no_self" class="form-control _no" placeholder="ကိုယ်ပိုင်အမှတ်">
                                                 </div>
                                             </div>
 
@@ -1664,18 +1667,72 @@
         $('document').ready(function () {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
+            $('#form_type').val(localStorage.getItem("course_id"));
 
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
                 if (data) {
-                    let current_stu_course = data.data.student_course_regs.slice(-1);
+                     let current_stu_course = data.data.student_course_regs.slice(-1);
+                    let last_exam = data.data.exam_registers.slice(-1);
+                     
+
+                    
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type').text(mac_name)
                     $(".batch_number").append(current_stu_course[0].batch.number);
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    console.log(data.data.citizen)
+                    if(last_exam[0]){
+                    if(last_exam[0].grade == 1){
+                         let batch_id = localStorage.getItem('batch_id');
+                        $.ajax({
+                        type: "get",
+                        url: BACKEND_URL+"/batch/"+batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                            $('#batch_name').text(res.data.name);
+                            
+                            
+                            $('.batch_no').val(res.data.number);
+                            $('.personal_no').val(data.data.personal_no);
+                            $('#remain_module').val(last_exam[0].is_full_module)
+
+                            if(last_exam[0].is_full_module == "1"){
+                                
+                                $(".module_two").prop("checked", true);
+                              
+                                $(':radio:not(:checked)').attr('disabled', true);
+
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $(':radio:not(:checked)').attr('disabled', true);
+ 
+                            }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+
+                                $(':radio:not(:checked)').attr('disabled', true);
+                                 
+                            }
+
+                            
+                           
+
+                            }
+                        })   
+                        
+                        
+                    }
+                     }else{
+                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    }
+                    
+                    // $('.batch_no').val(current_stu_course[0]?.batch?.number);
                     $("#da_batch_no").append(current_stu_course[0].batch.number);
                     document.getElementById('previewImgSelf').src = BASE_URL + data.data.image;
                     document.getElementById('previewImgPrivate').src = BASE_URL + data.data.image;
@@ -1717,14 +1774,15 @@
                 }
             });
         });
-
+ 
         loadCourse();
-
-        loadExam();
-
-        reg_feedback();
+         
+        // loadExam();
+         reg_feedback();
+ 
 
         loadSchoolList();
+ 
 
         $("input[name='date']").flatpickr({
             enableTime: false,
