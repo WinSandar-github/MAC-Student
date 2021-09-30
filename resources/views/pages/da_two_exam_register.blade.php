@@ -589,46 +589,41 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     $("input[name='personal_no']").val(student_info.personal_no);
                     let batch_id = localStorage.getItem('batch_id');
+                    let last_exam = data.data.exam_registers.slice(-1);
+                    if(last_exam.length!=0)
+                    {
+                        if(last_exam[0].course.code == 'da_2') {
+                            $("input[name='date']").val(formatDate(last_exam[0].created_at));
 
-                    if(last_exam[0].course.code == 'da_2') {
-                        
-                      
+                            if(last_exam[0].is_full_module == "1")
+                            {
+                                
+                                $(".module_two").prop("checked", true);
+                                
+                                $(':radio:not(:checked)').attr('disabled', true);
 
-                        $("input[name='date']").val(formatDate(last_exam[0].created_at));
-
-                        if(last_exam[0].is_full_module == "1")
-                        {
-                               
-                            $(".module_two").prop("checked", true);
-                            
-                            $(':radio:not(:checked)').attr('disabled', true);
-
-                        }
+                            }
                             else if(last_exam[0].is_full_module=="2"){
                                 $(".module_one").prop("checked", true);
                                 $(':radio:not(:checked)').attr('disabled', true);
 
-                        }
+                            }
                             else if(last_exam[0].is_full_module=="3"){
                                 $(".module_full").prop("checked", true);
 
                             $(':radio:not(:checked)').attr('disabled', true);
-                            
-                        }
+                                
+                            }
 
-                        if(last_exam[0].is_full_module == "1"){
-                            
-                            $("#lst_m1").prop("checked", true);
-                            $("#lst_m2").attr("disabled", "disabled"); 
-                            
-                         
-
-                        }
-                        else if(last_exam[0].is_full_module=="2"){
-                            $("#lst_m2").prop("checked", true);
-                            $("#lst_m1").attr("disabled", "disabled"); 
- 
-
+                            if(last_exam[0].is_full_module == "1"){
+                                
+                                $("#lst_m1").prop("checked", true);
+                                $("#lst_m2").attr("disabled", "disabled");  
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $("#lst_m2").prop("checked", true);
+                                $("#lst_m1").attr("disabled", "disabled"); 
+                            }
                         }
                     }else{
                          if(current_stu_reg[0].module=="1"){

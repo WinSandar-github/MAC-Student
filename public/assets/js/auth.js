@@ -3,6 +3,7 @@ if (typeof (localStorage) != "undefined") {
     if (localStorage.getItem("studentinfo") == null) {
         $('.non_login').show();
     } else {
+
         $('.login').show();
         localStorage.removeItem('course_type');
         var student = JSON.parse(localStorage.getItem("studentinfo"));
@@ -13,6 +14,7 @@ if (typeof (localStorage) != "undefined") {
         var student_id = student.id;
         var student_regno = student.registration_no;
         var course_type_id = student.course_type_id;
+
     }
 } else {
     alert('Your browser does not support local storage');

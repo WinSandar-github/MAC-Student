@@ -1,10 +1,10 @@
-var FRONTEND_URL = "http://localhost:8001";
-var BASE_URL = "http://localhost:8000";
-var BACKEND_URL = "http://localhost:8000/api";
+// var FRONTEND_URL = "http://localhost:8001";
+// var BASE_URL = "http://localhost:8000";
+// var BACKEND_URL = "http://localhost:8000/api";
 
-// var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -525,4 +525,21 @@ function numberRows() {
     $('table tbody tr').each(function (idx) {
         $(this).children(":eq(0)").html(idx + 1);
     });
+}
+function thousands_separators(num) {
+    var num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num_parts.join(".");
+}
+function convert(num) {
+
+    var numeralCodes = [["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],         // Ones
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
+    ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]];
+    var numeral = "";
+    var digits = num.toString().split('').reverse();
+    for (var i = 0; i < digits.length; i++) {
+        numeral = numeralCodes[i][parseInt(digits[i])] + numeral;
+    }
+    return numeral;
 }

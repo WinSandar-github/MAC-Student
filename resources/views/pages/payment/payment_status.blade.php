@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+
+
+
+<?php
+
+var_dump($_POST);
+
+
+
+?>
 <div class="main-wrapper">
     <div class="overlay"></div>
     <div class="section page-banner">
