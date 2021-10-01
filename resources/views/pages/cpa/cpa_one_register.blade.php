@@ -1067,7 +1067,7 @@
 
                                             <div class="row mb-5">
                                                 <h5 class="card-title text-center fw-bolder">
-                                                    မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type"></span><br>
+                                                    မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type_name"></span><br>
                                                     လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                                 </h5>
                                                 <div class="d-flex justify-content-between">
@@ -1437,19 +1437,50 @@
                                                 </div>
                                             </div>
 
+                                              <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                                <div class="row  col-md-8 checkbox-radios   py-2">
+                                                    
+                                                
+
+                                                    <div class="col-md-5 form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac">
+                                                        <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                            
+                                                    <div class="col-md-6  form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac2">
+                                                        <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                            <span class="form-check-sign"></span>
+                                                            နေပြည်တော်သင်တန်းကျောင်း
+                                                        </label>
+                                                    </div>
+                                                
+        
+                                               
+                                                        <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
+                                                   
+                                                </div>
+                                            </div>
+
                                             <div class="row mb-3" id="direct_access_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3" id="entry_success_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                 <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
+                                            
 
                                             <div class="row mb-3 mt-3">
                                                 <div class="form-check">
@@ -1661,45 +1692,50 @@
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    if(last_exam.length!=0)
-                    {
-                        if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
-                            let batch_id = localStorage.getItem('batch_id');
-                            alert(batch_id)
-                            $.ajax({
-                            type: "get",
-                            url: BACKEND_URL+"/batch/"+batch_id,
-                            contentType: false,
-                            processData: false,
-                            async:false,
-                            success: function (res) {
-                                console.log(res)
-                                
-                                $('.batch_no').val(res.data.number);
-                                
-                                // $('.personal_no').val(data.data.cpersonal_no);
-                                $('#remain_module').val(last_exam[0].is_full_module)
+                    if(last_exam.length!=0){
+                    if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
+                        let batch_id = localStorage.getItem('batch_id');
+                        alert(batch_id)
+                        $.ajax({
+                        type: "get",
+                        url: BACKEND_URL+"/batch/"+batch_id,
+                        contentType: false,
+                        processData: false,
+                        async:false,
+                        success: function (res) {
+                            console.log(res)
+                            
+                            $('.batch_no').val(res.data.number);
+                            
+                            // $('.personal_no').val(data.data.cpersonal_no);
+                            $('#remain_module').val(last_exam[0].is_full_module)
 
-                                if(last_exam[0].is_full_module == "1"){
-                                    
-                                    $(".module_two").prop("checked", true);
+                            if(last_exam[0].is_full_module == "1"){
+                                 $(".module_two").prop("checked", true);
+                              
+                                $('.module_one').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
+
+                            }
+                            else if(last_exam[0].is_full_module=="2"){
+                                $(".module_one").prop("checked", true);
+                                $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
+
+ 
+                            }
+                            else if(last_exam[0].is_full_module=="3"){
+                                $(".module_full").prop("checked", true);
+                                 $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
                                 
-                                    $(':radio:not(:checked)').attr('disabled', true);
 
-                                }
-                                else if(last_exam[0].is_full_module=="2"){
-                                    $(".module_one").prop("checked", true);
-                                    $(':radio:not(:checked)').attr('disabled', true);
-    
-                                }
-                                else if(last_exam[0].is_full_module=="3"){
-                                    $(".module_full").prop("checked", true);
+                                  
+                            }
 
-                                    $(':radio:not(:checked)').attr('disabled', true);
-                                    
-                                }
 
-                                
                             
 
                                 }
@@ -1711,8 +1747,8 @@
                         $(".batch_number").append(current_stu_course[0].batch.number);
 
                         }
-                }
-                    // $('.batch_no').val(current_stu_course[0].batch.number);
+                    }
+                    }// $('.batch_no').val(current_stu_course[0].batch.number);
                     
 
                 var info = data.data;

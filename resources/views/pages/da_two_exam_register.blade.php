@@ -543,10 +543,12 @@ $nrc_characters = config('myanmarnrc.characters');
         $(document).ready(function(e) {
 
             get_student_info(student_id).then(data => {
-              console.log("data >>>>",data);
+            
                 let student_info = data.data
                 let student_reg = data.data.student_register
                 let current_stu_course = data.data.student_course_regs.slice(-1);
+                let last_exam = data.data.exam_registers.slice(-1);
+
                 let current_stu_reg=data.data.student_register.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);
                 $("#batch_number").append(current_stu_course[0].batch.number);
@@ -623,6 +625,22 @@ $nrc_characters = config('myanmarnrc.characters');
                                 $("#lst_m2").prop("checked", true);
                                 $("#lst_m1").attr("disabled", "disabled"); 
                             }
+                        }
+                    }else{
+                         if(current_stu_reg[0].module=="1"){
+                            $(".module_one").prop("checked", true);
+                            $(':radio:not(:checked)').attr('disabled', true);
+
+                        }
+                        else if(current_stu_reg[0].module=="2"){
+                            $(".module_two").prop("checked", true);
+                        $(':radio:not(:checked)').attr('disabled', true);
+
+                        }
+                        else if(current_stu_reg[0].module=="3"){
+                            $(".module_full").prop("checked", true);
+                            $(':radio:not(:checked)').attr('disabled', true);
+
                         }
                     }
 
