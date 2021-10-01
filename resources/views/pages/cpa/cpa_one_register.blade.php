@@ -1671,44 +1671,50 @@
 <script type="text/javascript">
 
 
- $('document').ready(function(){
+        $('document').ready(function(){
 
-    $("input[name='academic_year_self']").flatpickr({
-                enableTime: false,
-                dateFormat: "Y",
-                allowInput: true,
-        });
+                $("input[name='academic_year_self']").flatpickr({
+                        enableTime: false,
+                        dateFormat: "Y",
+                        allowInput: true,
+                });
 
-        const queryString = location.search;
-        const urlParams = new URLSearchParams(queryString);
-      
-        selectedRegistration(urlParams.get("study_type"))
+                const queryString = location.search;
+                const urlParams = new URLSearchParams(queryString);
+            
+                selectedRegistration(urlParams.get("study_type"))
 
-        get_student_info(student_id).then(data => {
-            if(data){
-                let current_stu_course = data.data.student_course_regs.slice(-1);
-                let last_exam = data.data.exam_registers.slice(-1);
+                get_student_info(student_id).then(data => {
+                    if(data){
+                        let current_stu_course = data.data.student_course_regs.slice(-1);
+                        let last_exam = data.data.exam_registers.slice(-1);
 
 
-                    $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                    $('.course_name').val(current_stu_course[0].batch.course.name);
-                    if(last_exam.length!=0){
-                        if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
-                            let batch_id = localStorage.getItem('batch_id');
-                            alert(batch_id)
-                            $.ajax({
-                            type: "get",
-                            url: BACKEND_URL+"/batch/"+batch_id,
-                            contentType: false,
-                            processData: false,
-                            async:false,
-                            success: function (res) {
-                                console.log(res)
+                            $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $('.course_name').val(current_stu_course[0].batch.course.name);
+                            if(last_exam.length!=0){
+                                if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
+                                    let batch_id = localStorage.getItem('batch_id');
                                 
-                                $('.batch_no').val(res.data.number);
-                                
-                                // $('.personal_no').val(data.data.cpersonal_no);
-                                $('#remain_module').val(last_exam[0].is_full_module)
+                                    $.ajax({
+                                    type: "get",
+                                    url: BACKEND_URL+"/batch/"+batch_id,
+                                    contentType: false,
+                                    processData: false,
+                                    async:false,
+                                    success: function (res) {
+                                        
+                                        
+                                            $('.batch_no').val(res.data.number);
+                                            
+                                            // $('.personal_no').val(data.data.cpersonal_no);
+                                            $('#remain_module').val(last_exam[0].is_full_module)
+
+                                            if(last_exam[0].is_full_module == "1"){
+                                                $(".module_two").prop("checked", true);
+                                            
+                                                $('.module_one').attr('disabled', true);
+                                                $('.module_full').attr('disabled', true);
 
                                 if(last_exam[0].is_full_module == "1"){
                                     $(".module_two").prop("checked", true);
@@ -1716,6 +1722,11 @@
                                     $('.module_one').attr('disabled', true);
                                     $('.module_full').attr('disabled', true);
 
+                                            }
+                                            else if(last_exam[0].is_full_module=="2"){
+                                                $(".module_one").prop("checked", true);
+                                                $('.module_two').attr('disabled', true);
+                                                $('.module_full').attr('disabled', true);
 
                                 }
                                 else if(last_exam[0].is_full_module=="2"){
@@ -1723,247 +1734,248 @@
                                     $('.module_two').attr('disabled', true);
                                     $('.module_full').attr('disabled', true);
 
+                
+                                            }
+                                            else{
+                                                $(".module_full").prop("checked", true);
+                                                $('.module_two').attr('disabled', true);
+                                                $('.module_full').attr('disabled', true);
+                                                
 
-    
-                                }
-                                else if(last_exam[0].is_full_module=="3"){
-                                    $(".module_full").prop("checked", true);
-                                    $('.module_two').attr('disabled', true);
-                                    $('.module_full').attr('disabled', true);
+                                                
+                                            }
+
                                     
-
-                                    
                                 }
 
+                                        
 
-                                
-
-                                    }
-                                })   
-                                
-                                
+                                        }
+                                    })   
+                                        
+                                        
+                                }
                             }else{
-                                $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                                    $('.batch_no').val(current_stu_course[0]?.batch?.number);
                                 $(".batch_number").append(current_stu_course[0].batch.number);
 
-                            }
+                                }                    // $('.batch_no').val(current_stu_course[0].batch.number);
+                            
+
+                        var info = data.data;
+                        // console.log('info',info);
+                        // if(!info.exam_registers[0]){
+                        //     console.log("Hello")
+                        // }else{
+                        //     console.log("Not")
+                        // }
+                        
+
+                        var job_history = data.data.student_job;
+                        var education_history = data.data.student_education_histroy;
+                        // var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
+                        //     $('#mac_type').text(mac_name)
+                        if(info){
+                        $("#mac_container").find("input[name=name_mm]").val(info.name_mm);
+                        $("#mac_container").find("input[name=name_eng]").val(info.name_eng);
+                        $("#mac_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
+                        $("#mac_container").find("input[name=nrc_township]").val(info.nrc_township);
+                        $("#mac_container").find("input[name=nrc_citizen]").val(info.nrc_citizen);
+                        $("#mac_container").find("input[name=nrc_number]").val(info.nrc_number);
+                        $("#mac_container").find("input[name=father_name_mm]").val(info.father_name_mm);
+                        $("#mac_container").find("input[name=father_name_eng]").val(info.father_name_eng);
+                        $("#mac_container").find("input[name=race]").val(info.race);
+                        $("#mac_container").find("input[name=religion]").val(info.religion);
+                        $("#mac_container").find("input[name=date_of_birth]").val(info.date_of_birth);
+                        $("#mac_container").find("input[name=phone]").val(info.phone);
+                        $("#mac_container").find("input[name=address]").val(info.address);
+                        $("#mac_container").find("input[name=current_address]").val(info.current_address);
+
+                        $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
+
+                        $("#mac_container").find("input[name=name]").val(job_history.company_name);
+                        $("#mac_container").find("input[name=position]").val(job_history.position);
+                        $("#mac_container").find("input[name=department]").val(job_history.department);
+                        $("#mac_container").find("input[name=organization]").val(job_history.organization);
+                        //$("#mac_container").find("input[name=address]").val(job_history.address);
+                        //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
+                        $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
+                        $("#mac_container").find("input[name=salary]").val(job_history.salary);
+                        $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
+                        document.getElementById('mac_preview_img').src = BASE_URL + data.data.image;
+                        //$("#mac_container").find("previewImg").attr('src',BASE_URL + data.data.image);
+                        
+                        $("#self_study_container").find("input[name=name_mm]").val(info.name_mm);
+                        $("#self_study_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
+                        $("#self_study_container").find("input[name=name_eng]").val(info.name_eng);
+                        $("#self_study_container").find("input[name=nrc_township]").val(info.nrc_township);
+                        $("#self_study_container").find("input[name=nrc_citizen]").val(info.nrc_citizen);
+                        $("#self_study_container").find("input[name=nrc_number]").val(info.nrc_number);
+                        $("#self_study_container").find("input[name=father_name_mm]").val(info.father_name_mm);
+                        $("#self_study_container").find("input[name=father_name_eng]").val(info.father_name_eng);
+                        $("#self_study_container").find("input[name=race]").val(info.race);
+                        $("#self_study_container").find("input[name=religion]").val(info.religion);
+                        $("#self_study_container").find("input[name=date_of_birth]").val(info.date_of_birth);
+                        $("#self_study_container").find("input[name=phone]").val(info.phone);
+                        $("#self_study_container").find("input[name=address]").val(info.address);
+                        $("#self_study_container").find("input[name=current_address]").val(info.current_address);
+                        $("#self_study_container").find("input[id=personal_no_self]").val(info.cpersonal_no);
+
+                        $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
+
+                        $("#self_study_container").find("input[name=name]").val(job_history.company_name);
+                        $("#self_study_container").find("input[name=position]").val(job_history.position);
+                        $("#self_study_container").find("input[name=department]").val(job_history.department);
+                        $("#self_study_container").find("input[name=organization]").val(job_history.organization);
+                        //$("#mac_container").find("input[name=address]").val(job_history.address);
+                        //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
+                        $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
+                        $("#self_study_container").find("input[name=salary]").val(job_history.salary);
+                        $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
+                        
+                        document.getElementById('self_study_preview_img').src = BASE_URL + data.data.image;
+
+                        $("#private_school_container").find("input[name=name_mm]").val(info.name_mm);
+                        $("#private_school_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
+                        $("#private_school_container").find("input[name=name_eng]").val(info.name_eng);
+                        $("#private_school_container").find("input[name=nrc_township]").val(info.nrc_township);
+                        $("#private_school_container").find("input[name=nrc_citizen]").val(info.nrc_citizen);
+                        $("#private_school_container").find("input[name=nrc_number]").val(info.nrc_number);
+                        $("#private_school_container").find("input[name=father_name_mm]").val(info.father_name_mm);
+                        $("#private_school_container").find("input[name=father_name_eng]").val(info.father_name_eng);
+                        $("#private_school_container").find("input[name=race]").val(info.race);
+                        $("#private_school_container").find("input[name=religion]").val(info.religion);
+                        $("#private_school_container").find("input[name=date_of_birth]").val(info.date_of_birth);
+                        $("#private_school_container").find("input[name=phone]").val(info.phone);
+                        $("#private_school_container").find("input[name=address]").val(info.address);
+                        $("#private_school_container").find("input[name=current_address]").val(info.current_address);
+                        $("#private_school_container").find("input[id=personal_no_private]").val(info.cpersonal_no);
+
+                        $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
+
+                        $("#private_school_container").find("input[name=name]").val(job_history.company_name);
+                        $("#private_school_container").find("input[name=position]").val(job_history.position);
+                        $("#private_school_container").find("input[name=department]").val(job_history.department);
+                        $("#private_school_container").find("input[name=organization]").val(job_history.organization);
+                        //$("#mac_container").find("input[name=address]").val(job_history.address);
+                        //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
+                        $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
+                        $("#private_school_container").find("input[name=salary]").val(job_history.salary);
+                        $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
+                        document.getElementById('private_preview_img').src = BASE_URL + data.data.image;                  
                         }
-                    }// $('.batch_no').val(current_stu_course[0].batch.number);
-                    
 
-                var info = data.data;
-                // console.log('info',info);
-                // if(!info.exam_registers[0]){
-                //     console.log("Hello")
-                // }else{
-                //     console.log("Not")
-                // }
-                
+                        // government staff OR not 
 
-                var job_history = data.data.student_job;
-                var education_history = data.data.student_education_histroy;
-                // var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                //     $('#mac_type').text(mac_name)
-                if(info){
-                  $("#mac_container").find("input[name=name_mm]").val(info.name_mm);
-                  $("#mac_container").find("input[name=name_eng]").val(info.name_eng);
-                  $("#mac_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
-                  $("#mac_container").find("input[name=nrc_township]").val(info.nrc_township);
-                  $("#mac_container").find("input[name=nrc_citizen]").val(info.nrc_citizen);
-                  $("#mac_container").find("input[name=nrc_number]").val(info.nrc_number);
-                  $("#mac_container").find("input[name=father_name_mm]").val(info.father_name_mm);
-                  $("#mac_container").find("input[name=father_name_eng]").val(info.father_name_eng);
-                  $("#mac_container").find("input[name=race]").val(info.race);
-                  $("#mac_container").find("input[name=religion]").val(info.religion);
-                  $("#mac_container").find("input[name=date_of_birth]").val(info.date_of_birth);
-                  $("#mac_container").find("input[name=phone]").val(info.phone);
-                  $("#mac_container").find("input[name=address]").val(info.address);
-                  $("#mac_container").find("input[name=current_address]").val(info.current_address);
-
-                  $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
-
-                  $("#mac_container").find("input[name=name]").val(job_history.company_name);
-                  $("#mac_container").find("input[name=position]").val(job_history.position);
-                  $("#mac_container").find("input[name=department]").val(job_history.department);
-                  $("#mac_container").find("input[name=organization]").val(job_history.organization);
-                  //$("#mac_container").find("input[name=address]").val(job_history.address);
-                  //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                  $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
-                  $("#mac_container").find("input[name=salary]").val(job_history.salary);
-                  $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
-                  document.getElementById('mac_preview_img').src = BASE_URL + data.data.image;
-                  //$("#mac_container").find("previewImg").attr('src',BASE_URL + data.data.image);
-                  
-                  $("#self_study_container").find("input[name=name_mm]").val(info.name_mm);
-                  $("#self_study_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
-                  $("#self_study_container").find("input[name=name_eng]").val(info.name_eng);
-                  $("#self_study_container").find("input[name=nrc_township]").val(info.nrc_township);
-                  $("#self_study_container").find("input[name=nrc_citizen]").val(info.nrc_citizen);
-                  $("#self_study_container").find("input[name=nrc_number]").val(info.nrc_number);
-                  $("#self_study_container").find("input[name=father_name_mm]").val(info.father_name_mm);
-                  $("#self_study_container").find("input[name=father_name_eng]").val(info.father_name_eng);
-                  $("#self_study_container").find("input[name=race]").val(info.race);
-                  $("#self_study_container").find("input[name=religion]").val(info.religion);
-                  $("#self_study_container").find("input[name=date_of_birth]").val(info.date_of_birth);
-                  $("#self_study_container").find("input[name=phone]").val(info.phone);
-                  $("#self_study_container").find("input[name=address]").val(info.address);
-                  $("#self_study_container").find("input[name=current_address]").val(info.current_address);
-                  $("#self_study_container").find("input[id=personal_no_self]").val(info.cpersonal_no);
-
-                  $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
-
-                  $("#self_study_container").find("input[name=name]").val(job_history.company_name);
-                  $("#self_study_container").find("input[name=position]").val(job_history.position);
-                  $("#self_study_container").find("input[name=department]").val(job_history.department);
-                  $("#self_study_container").find("input[name=organization]").val(job_history.organization);
-                  //$("#mac_container").find("input[name=address]").val(job_history.address);
-                  //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                  $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
-                  $("#self_study_container").find("input[name=salary]").val(job_history.salary);
-                  $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
-                  
-                  document.getElementById('self_study_preview_img').src = BASE_URL + data.data.image;
-
-                  $("#private_school_container").find("input[name=name_mm]").val(info.name_mm);
-                  $("#private_school_container").find("input[name=nrc_state_region]").val(info.nrc_state_region);
-                  $("#private_school_container").find("input[name=name_eng]").val(info.name_eng);
-                  $("#private_school_container").find("input[name=nrc_township]").val(info.nrc_township);
-                  $("#private_school_container").find("input[name=nrc_citizen]").val(info.nrc_citizen);
-                  $("#private_school_container").find("input[name=nrc_number]").val(info.nrc_number);
-                  $("#private_school_container").find("input[name=father_name_mm]").val(info.father_name_mm);
-                  $("#private_school_container").find("input[name=father_name_eng]").val(info.father_name_eng);
-                  $("#private_school_container").find("input[name=race]").val(info.race);
-                  $("#private_school_container").find("input[name=religion]").val(info.religion);
-                  $("#private_school_container").find("input[name=date_of_birth]").val(info.date_of_birth);
-                  $("#private_school_container").find("input[name=phone]").val(info.phone);
-                  $("#private_school_container").find("input[name=address]").val(info.address);
-                  $("#private_school_container").find("input[name=current_address]").val(info.current_address);
-                  $("#private_school_container").find("input[id=personal_no_private]").val(info.cpersonal_no);
-
-                  $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
-
-                  $("#private_school_container").find("input[name=name]").val(job_history.company_name);
-                  $("#private_school_container").find("input[name=position]").val(job_history.position);
-                  $("#private_school_container").find("input[name=department]").val(job_history.department);
-                  $("#private_school_container").find("input[name=organization]").val(job_history.organization);
-                  //$("#mac_container").find("input[name=address]").val(job_history.address);
-                  //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                  $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
-                  $("#private_school_container").find("input[name=salary]").val(job_history.salary);
-                  $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
-                  document.getElementById('private_preview_img').src = BASE_URL + data.data.image;                  
-                }
-
-                // government staff OR not 
-
-                if(info.gov_staff == 1){
-                    $("#mac_container").find("input[name=gov_staff][value=1]").prop("checked",true);
-                    $("#self_study_container").find("input[name=gov_staff][value=1]").prop("checked",true);
-                    $("#private_school_container").find("input[name=gov_staff][value=1]").prop("checked",true);
-                    $("#rec_letter_mac").css("display",'block');
-                    $("#rec_letter_private").css("display",'block');
-                    $("#rec_letter_self").css("display",'block');
-                    if(info.recommend_letter!=null){
-                            $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                        if(info.gov_staff == 1){
+                            $("#mac_container").find("input[name=gov_staff][value=1]").prop("checked",true);
+                            $("#self_study_container").find("input[name=gov_staff][value=1]").prop("checked",true);
+                            $("#private_school_container").find("input[name=gov_staff][value=1]").prop("checked",true);
+                            $("#rec_letter_mac").css("display",'block');
+                            $("#rec_letter_private").css("display",'block');
+                            $("#rec_letter_self").css("display",'block');
+                            if(info.recommend_letter!=null){
+                                    $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
+                                }
                         }
-                  }
-                  else{
-                    $("#mac_container").find("input[name=gov_staff][value=0]").prop("checked",true);
-                    $("#self_study_container").find("input[name=gov_staff][value=0]").prop("checked",true);
-                    $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
-                  }
+                        else{
+                            $("#mac_container").find("input[name=gov_staff][value=0]").prop("checked",true);
+                            $("#self_study_container").find("input[name=gov_staff][value=0]").prop("checked",true);
+                            $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
+                        }
 
-                if(info.acca_cima){
-                    // document.getElementById(direct_access_no_self_div).style.display='block';
-                    $("#direct_access_no_self_div").show();
-                    $("#entry_success_no_self_div").hide();
-                    $("#direct_access_no_private_div").show();
-                    $("#entry_success_no_private_div").hide();
-                    $("#direct_access_no_mac_div").show();
-                    $("#entry_success_no_mac_div").hide();
-                }else if(!info.acca_cima && !info.da_pass_roll_number){
-                    $("#direct_access_no_self_div").hide();
-                    $("#entry_success_no_self_div").show();
-                    $("#direct_access_no_private_div").hide();
-                    $("#entry_success_no_private_div").show();
-                    $("#direct_access_no_mac_div").hide();
-                    $("#entry_success_no_mac_div").show();
-                }else{
-                    $("#direct_access_no_self_div").show();
-                    $("#entry_success_no_self_div").hide();
-                    $("#direct_access_no_private_div").show();
-                    $("#entry_success_no_private_div").hide();
-                    $("#direct_access_no_mac_div").show();
-                    $("#entry_success_no_mac_div").hide();
-                }
+                        if(info.acca_cima){
+                            // document.getElementById(direct_access_no_self_div).style.display='block';
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }else if(!info.acca_cima && !info.da_pass_roll_number){
+                            $("#direct_access_no_self_div").hide();
+                            $("#entry_success_no_self_div").show();
+                            $("#direct_access_no_private_div").hide();
+                            $("#entry_success_no_private_div").show();
+                            $("#direct_access_no_mac_div").hide();
+                            $("#entry_success_no_mac_div").show();
+                        }else{
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }
 
-                // if(education_history){
-                //     console.log("education_history",education_history);
-                //   $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
-                //   $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
-                //   $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
-                // }
+                        // if(education_history){
+                        //     console.log("education_history",education_history);
+                        //   $("#self_study_container").find("input[name=degree_name]").val(education_history.degree_name);
+                        //   $("#mac_container").find("input[name=degree_name]").val(education_history.degree_name);
+                        //   $("#private_school_container").find("input[name=degree_name]").val(education_history.degree_name);
+                        // }
 
-                // if(job_history){
-                //   $("#mac_container").find("input[name=name]").val(job_history.company_name);
-                //   $("#mac_container").find("input[name=position]").val(job_history.position);
-                //   $("#mac_container").find("input[name=department]").val(job_history.department);
-                //   $("#mac_container").find("input[name=organization]").val(job_history.organization);
-                //   //$("#mac_container").find("input[name=address]").val(job_history.address);
-                //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                //   $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
-                //   $("#mac_container").find("input[name=salary]").val(job_history.salary);
-                //   $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
+                        // if(job_history){
+                        //   $("#mac_container").find("input[name=name]").val(job_history.company_name);
+                        //   $("#mac_container").find("input[name=position]").val(job_history.position);
+                        //   $("#mac_container").find("input[name=department]").val(job_history.department);
+                        //   $("#mac_container").find("input[name=organization]").val(job_history.organization);
+                        //   //$("#mac_container").find("input[name=address]").val(job_history.address);
+                        //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
+                        //   $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
+                        //   $("#mac_container").find("input[name=salary]").val(job_history.salary);
+                        //   $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
 
-                //   $("#self_study_container").find("input[name=name]").val(job_history.company_name);
-                //   $("#self_study_container").find("input[name=position]").val(job_history.position);
-                //   $("#self_study_container").find("input[name=department]").val(job_history.department);
-                //   $("#self_study_container").find("input[name=organization]").val(job_history.organization);
-                //   //$("#mac_container").find("input[name=address]").val(job_history.address);
-                //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                //   $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
-                //   $("#self_study_container").find("input[name=salary]").val(job_history.salary);
-                //   $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
+                        //   $("#self_study_container").find("input[name=name]").val(job_history.company_name);
+                        //   $("#self_study_container").find("input[name=position]").val(job_history.position);
+                        //   $("#self_study_container").find("input[name=department]").val(job_history.department);
+                        //   $("#self_study_container").find("input[name=organization]").val(job_history.organization);
+                        //   //$("#mac_container").find("input[name=address]").val(job_history.address);
+                        //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
+                        //   $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
+                        //   $("#self_study_container").find("input[name=salary]").val(job_history.salary);
+                        //   $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
 
-                //   $("#private_school_container").find("input[name=name]").val(job_history.company_name);
-                //   $("#private_school_container").find("input[name=position]").val(job_history.position);
-                //   $("#private_school_container").find("input[name=department]").val(job_history.department);
-                //   $("#private_school_container").find("input[name=organization]").val(job_history.organization);
-                //   //$("#mac_container").find("input[name=address]").val(job_history.address);
-                //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
-                //   $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
-                //   $("#private_school_container").find("input[name=salary]").val(job_history.salary);
-                //   $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
-                // }
+                        //   $("#private_school_container").find("input[name=name]").val(job_history.company_name);
+                        //   $("#private_school_container").find("input[name=position]").val(job_history.position);
+                        //   $("#private_school_container").find("input[name=department]").val(job_history.department);
+                        //   $("#private_school_container").find("input[name=organization]").val(job_history.organization);
+                        //   //$("#mac_container").find("input[name=address]").val(job_history.address);
+                        //   //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
+                        //   $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
+                        //   $("#private_school_container").find("input[name=salary]").val(job_history.salary);
+                        //   $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
+                    //  }
 
+                         
+                    }
 
-        })
+                })
 
-        $("#cpa_one_self_study_form").submit(function( event ) {
-            var fields = $("input[name='reg_reason[]']").serializeArray();
-        if (fields.length === 0)
-        {
-            //alert('nothing selected');
-                    $("input[name='reg_reason[]']").siblings("label").css('color','red');
-            return false;
-        }
-        else
-        {
-                $("input[name='reg_reason[]']").siblings("label").css('color','#212529');
-            //alert(fields.length + " items selected");
-        }
+                $("#cpa_one_self_study_form").submit(function( event ) {
+                    var fields = $("input[name='reg_reason[]']").serializeArray();
+                    if (fields.length === 0)
+                    {
+                        //alert('nothing selected');
+                                $("input[name='reg_reason[]']").siblings("label").css('color','red');
+                        return false;
+                    }
+                    else
+                    {
+                            $("input[name='reg_reason[]']").siblings("label").css('color','#212529');
+                        //alert(fields.length + " items selected");
+                    }
 
-        });
+                });
 
-        $("input[name='reg_reason[]']").change(function(){
-            $("input[name='reg_reason[]']").siblings("label").css('color','#212529');
-        });
-    });
+                $("input[name='reg_reason[]']").change(function(){
+                    $("input[name='reg_reason[]']").siblings("label").css('color','#212529');
+                });
+            });
 
 
 reg_feedback();
 var exam_date=localStorage.getItem("exam_date");
-
 loadSchoolList();
 </script>
 <script>

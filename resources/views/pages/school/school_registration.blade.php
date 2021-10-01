@@ -523,8 +523,25 @@
                                                 <label for="" class="col-md-3 col-form-labe mt-1 label_align_right"> သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</label>
 
                                                 <div class="col-md-8">
-                                                    <input type="file"  class="form-control" id="own_type_letter"  name="own_type_letter">
+                                                    
+                                                    
 
+                                                        <div class="controls3">
+                                                            <div class="entry3">
+                                                                <div class="row mb-3">
+                                                                    <div class="col-md-11 col-auto">
+                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" >
+
+                                                                    </div>
+                                                                    <div class="col-md-1 col-auto">
+                                                                        <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls3","entry3")'>
+                                                                            <li class="fa fa-plus"></li>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                     
                                                 </div>
                                             </div>
                             </div>
@@ -539,14 +556,14 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                        <table class="table tbl_branch_school table-bordered input-table">
+                                        <table class="table tbl_branch_school table-bordered input-table" id="tbl_branch_school">
                                             <thead>
                                                 <tr>
                                                     <th class="less-font-weight text-center"  >စဉ်</th>
                                                     <th class="less-font-weight text-center"  width="30%">ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
                                                     <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
                                                     <th class="less-font-weight text-center"  >ပိုင်ဆိုင်မှုပုံစံ</th>
-                                                    <th class="less-font-weight text-center"  >သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</th>
+                                                    <th class="less-font-weight text-center"  width="40%">သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</th>
                                                     <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranchSchool("tbl_branch_school")'><li class="fa fa-plus"></li></button></th>
                                                 </tr>
                                             </thead>
@@ -994,7 +1011,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-2 offset-md-5">
                                     <button type="submit" id="school_submit"
-                                            class="btn btn-success btn-hover-dark w-100 submit_btn" disabled>{{ __('Submit') }}</button>
+                                            class="btn btn-success btn-hover-dark w-100 submit_reg_btn" disabled>{{ __('Submit') }}</button>
                                 </div>
                             </div>
                         </form>

@@ -26,10 +26,18 @@
         margin-left: auto;
         max-width: 1245px;
     }
-
+    .header-banner{
+        background-image: linear-gradient(to bottom, #E5DCCD, #E3DFDC);
+    }
+    .container{
+        margin-top: 120px;
+    }
+    .sticky{
+        background-color: #eefbf3
+    }
 </style>
 <div class="header-section">
-    <div class="header-banner">
+    <div class="header-banner text-center">
         <img src="{{ asset('assets') }}/images/mac_images/macbanner.png" alt="MAC Banner">
     </div>
     <!-- Header Main Start -->
@@ -37,7 +45,7 @@
        
         <div class="header-container">
             <!-- Header Main Start -->
-            <div class="header-main-wrapper">
+            <div class="header-main-wrapper" style="background-color: #EEFBF3">
                 <!-- Header Logo Start -->
                 {{--<div class="header-logo">
                     <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img
