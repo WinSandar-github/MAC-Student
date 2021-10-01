@@ -397,7 +397,7 @@
                                                     <span class="recommend_letter"></span>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    <input type="file"  class="form-control" id="recommend_letter_private"  name="recommend_letter_private">
                                                 </div>
                                             </div>
                                         </div>
@@ -788,7 +788,7 @@
                                                     <span class="recommend_letter"></span>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    <input type="file"  class="form-control" id="recommend_letter_self"  name="recommend_letter_self">
                                                 </div>
                                             </div>
                                         </div>
@@ -1296,7 +1296,7 @@
                                                         <span class="recommend_letter"></span>
                                                     </div>
                                                     <div class="col-md-6"  id="degree_edu" >
-                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        <input type="file"  class="form-control" id="recommend_letter_mac"  name="recommend_letter_mac">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1693,61 +1693,61 @@
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
                     if(last_exam.length!=0){
-                    if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
-                        let batch_id = localStorage.getItem('batch_id');
-                        alert(batch_id)
-                        $.ajax({
-                        type: "get",
-                        url: BACKEND_URL+"/batch/"+batch_id,
-                        contentType: false,
-                        processData: false,
-                        async:false,
-                        success: function (res) {
-                            console.log(res)
-                            
-                            $('.batch_no').val(res.data.number);
-                            
-                            // $('.personal_no').val(data.data.cpersonal_no);
-                            $('#remain_module').val(last_exam[0].is_full_module)
-
-                            if(last_exam[0].is_full_module == "1"){
-                                 $(".module_two").prop("checked", true);
-                              
-                                $('.module_one').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-
-
-                            }
-                            else if(last_exam[0].is_full_module=="2"){
-                                $(".module_one").prop("checked", true);
-                                $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-
-
- 
-                            }
-                            else if(last_exam[0].is_full_module=="3"){
-                                $(".module_full").prop("checked", true);
-                                 $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
+                        if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
+                            let batch_id = localStorage.getItem('batch_id');
+                            alert(batch_id)
+                            $.ajax({
+                            type: "get",
+                            url: BACKEND_URL+"/batch/"+batch_id,
+                            contentType: false,
+                            processData: false,
+                            async:false,
+                            success: function (res) {
+                                console.log(res)
                                 
+                                $('.batch_no').val(res.data.number);
+                                
+                                // $('.personal_no').val(data.data.cpersonal_no);
+                                $('#remain_module').val(last_exam[0].is_full_module)
 
-                                  
-                            }
+                                if(last_exam[0].is_full_module == "1"){
+                                    $(".module_two").prop("checked", true);
+                                
+                                    $('.module_one').attr('disabled', true);
+                                    $('.module_full').attr('disabled', true);
 
-
-                            
 
                                 }
-                            })   
-                            
-                            
-                        }else{
-                            $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                        $(".batch_number").append(current_stu_course[0].batch.number);
+                                else if(last_exam[0].is_full_module=="2"){
+                                    $(".module_one").prop("checked", true);
+                                    $('.module_two').attr('disabled', true);
+                                    $('.module_full').attr('disabled', true);
 
+
+    
+                                }
+                                else if(last_exam[0].is_full_module=="3"){
+                                    $(".module_full").prop("checked", true);
+                                    $('.module_two').attr('disabled', true);
+                                    $('.module_full').attr('disabled', true);
+                                    
+
+                                    
+                                }
+
+
+                                
+
+                                    }
+                                })   
+                                
+                                
+                            }else{
+                                $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                                $(".batch_number").append(current_stu_course[0].batch.number);
+
+                            }
                         }
-                    }
                     }// $('.batch_no').val(current_stu_course[0].batch.number);
                     
 
@@ -1936,7 +1936,6 @@
                 //   $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
                 // }
 
-              }
 
         })
 
