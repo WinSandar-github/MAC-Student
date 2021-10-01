@@ -197,7 +197,10 @@
                                                         </div>
                                                     </div><br />
                                                 </div>
-                                        
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4 col-form-label" id="">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်
+                                                    </div>
+                                                </div>
                                                 <div class="row mb-3">
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
                                                     <!-- <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label> -->
