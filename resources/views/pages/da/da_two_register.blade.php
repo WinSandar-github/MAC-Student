@@ -296,7 +296,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                                    <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -809,7 +809,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                                    <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -941,7 +941,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                     <div class="card border-success mb-3 " style="padding:3% 5% 3% 5%;">
                                         <div class="card-body">
                                             <div class="row mb-5">
-                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type"></span> <br>
+                                                <h5 class="card-title text-center fw-bolder"> မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="mac_type_name"></span> <br>
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ</h5>                                                
                                             
                                             </div>
@@ -1174,7 +1174,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                                    <label class="col-md-8 col-form-label"><span class="pull-left" style="padding-right: 30px;">၁၅။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
                                                 </div>
 
                                                 <div class="row mb-3">
@@ -1258,6 +1258,36 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </label>
                                                     </div>
                                                     <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                                <div class="row  col-md-8 checkbox-radios   py-2">
+                                                    
+                                                
+
+                                                    <div class="col-md-5 form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac">
+                                                        <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                            
+                                                    <div class="col-md-6  form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac2">
+                                                        <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                            <span class="form-check-sign"></span>
+                                                            နေပြည်တော်သင်တန်းကျောင်း
+                                                        </label>
+                                                    </div>
+                                                
+        
+                                               
+                                                        <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
+                                                   
                                                 </div>
                                             </div>
                                                 
@@ -1494,7 +1524,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     let last_exam = data.data.exam_registers.slice(-1);
 
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type').text(mac_name)
+                    $('#mac_type_name').text(mac_name)
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
@@ -1521,9 +1551,11 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     let batch_id = localStorage.getItem('batch_id');
+
+                    
                 
-                    if(last_exam[0].grade == 1 && ( last_exam[0].batch_id == current_stu_course[0].batch_id )){
-                        
+                    if( last_exam[0] && ( last_exam[0].batch_id == current_stu_course[0].batch_id ) && last_exam[0].is_full_module !== 3){
+                       
                         $.ajax({
                         type: "get",
                         url: BACKEND_URL+"/batch/"+batch_id,
@@ -1540,19 +1572,26 @@ $nrc_characters = config('myanmarnrc.characters');
                             if(last_exam[0].is_full_module == "1"){
                                  $(".module_two").prop("checked", true);
                               
-                                $(':radio:not(:checked)').attr('disabled', true);
+                                $('.module_one').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
 
                             }
                             else if(last_exam[0].is_full_module=="2"){
                                 $(".module_one").prop("checked", true);
-                                $(':radio:not(:checked)').attr('disabled', true);
+                                $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
+
  
                             }
                             else if(last_exam[0].is_full_module=="3"){
                                 $(".module_full").prop("checked", true);
+                                 $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+                                
 
-                                $(':radio:not(:checked)').attr('disabled', true);
-                                 
+                                  
                             }
 
                             
@@ -1689,33 +1728,33 @@ $nrc_characters = config('myanmarnrc.characters');
     var year_mac=2010;
     var current_year_mac=new Date().getFullYear();
     var year_diff_mac=current_year_mac-year_mac;
-    for (let index = 0; index <= year_diff_mac; index++) {
-        var option_mac = document.createElement('option');
-        option_mac.text = year_mac+index;
-        option_mac.value = year_mac+index;   
-        select_mac.add(option_mac, 0);
-    }   
+    // for (let index = 0; index <= year_diff_mac; index++) {
+    //     var option_mac = document.createElement('option');
+    //     option_mac.text = year_mac+index;
+    //     option_mac.value = year_mac+index;   
+    //     select_mac.add(option_mac, 0);
+    // }   
     
     var select_self = document.getElementById("self_academic_year");
     var year_self=2010;
     var current_year_self=new Date().getFullYear();
     var year_diff_self=current_year_self-year_self;
-    for (let index = 0; index <= year_diff_self; index++) {
-        var option_self = document.createElement('option');
-        option_self.text = year_self+index;
-        option_self.value = year_self+index;    
-        select_self.add(option_self, 0);
-    }   
+    // for (let index = 0; index <= year_diff_self; index++) {
+    //     var option_self = document.createElement('option');
+    //     option_self.text = year_self+index;
+    //     option_self.value = year_self+index;    
+    //     select_self.add(option_self, 0);
+    // }   
 
     var select_private = document.getElementById("academic_year");
     var year_private=2010;
     var current_year_private=new Date().getFullYear();
     var year_diff_private=current_year_private-year_private;
-    for (let index = 0; index <= year_diff_private; index++) {
-        var option_private = document.createElement('option');
-        option_private.text = year_private+index;
-        option_private.value = year_private+index;    
-        select_private.add(option_private, 0);
-    }   
+    // for (let index = 0; index <= year_diff_private; index++) {
+    //     var option_private = document.createElement('option');
+    //     option_private.text = year_private+index;
+    //     option_private.value = year_private+index;    
+    //     select_private.add(option_private, 0);
+    // }   
     </script>
 @endpush

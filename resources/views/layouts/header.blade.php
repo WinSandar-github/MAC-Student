@@ -54,13 +54,13 @@
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu" id="navbar">
 
-                        {{--                        <script type="text/x-template" id="nav-template">--}}
+                        {{--                        <script type="text/x-template" id="nav-template"> --}}
 
-                        {{--                            <% if(student){ %>--}}
-                        {{--                                <li><a href="<%= FRONTEND_URL %>">Dashboard</a></li>--}}
-                        {{--                            <% }else{ %>--}}
+                        {{--                            <% if(student){ %> --}}
+                        {{--                                <li><a href="<%= FRONTEND_URL %>">Dashboard</a></li> --}}
+                        {{--                            <% }else{ %> --}}
                         {{--                                <li><a href="<%= FRONTEND_URL %>">Home</a></li>--}}
-                        {{--                            <% } %>--}}
+                        {{--                            <% } %> --}}
 
                         {{--                            <li>--}}
                         {{--                                <a href="#">Courses</a>--}}
@@ -79,14 +79,14 @@
                         {{--                                <ul class="sub-menu">--}}
                         {{--                                    <li><a href="<%= FRONTEND_URL %>/cpa_ff_information">CPA Full Fledged</a></li>--}}
                         {{--                                    <li><a href="<%= FRONTEND_URL %>/student_papp_information">PAPP</a></li>--}}
-                        {{--                                </ul>--}}
-                        {{--                            </li>--}}
-                        {{--                            <li><a href="<%= FRONTEND_URL %>/school_information">School</a></li>--}}
-                        {{--                            <li><a href="<%= FRONTEND_URL %>/teacher_information">Teacher</a></li>--}}
-                        {{--                            <li><a href="<%= FRONTEND_URL %>/mentor_information">Mentor</a></li>--}}
-                        {{--                            <li><a href="<%= FRONTEND_URL %>/contact">Contact</a></li>`--}}
+                        {{--                                </ul> --}}
+                        {{--                            </li> --}}
+                        {{--                            <li><a href="<%= FRONTEND_URL %>/school_information">School</a></li> --}}
+                        {{--                            <li><a href="<%= FRONTEND_URL %>/teacher_information">Teacher</a></li> --}}
+                        {{--                            <li><a href="<%= FRONTEND_URL %>/mentor_information">Mentor</a></li> --}}
+                        {{--                            <li><a href="<%= FRONTEND_URL %>/contact">Contact</a></li> --}}
 
-                        {{--                        </script>--}}
+                        {{--                        </script> --}}
                     </ul>
                 </div>
 
