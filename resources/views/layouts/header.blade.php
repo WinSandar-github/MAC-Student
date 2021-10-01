@@ -42,7 +42,7 @@
        
         <div class="header-container">
             <!-- Header Main Start -->
-            <div class="header-main-wrapper">
+            <div class="header-main-wrapper shadow-lg" style="background-color: #EEFBF3">
                 <!-- Header Logo Start -->
                 {{--<div class="header-logo">
                     <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img
