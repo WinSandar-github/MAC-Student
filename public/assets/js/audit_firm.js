@@ -144,11 +144,12 @@ function createAuditFirm(){
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
   //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
 
-  var t_s_p_id_val = [];
+  var t_s_p_id_val = new Array();
         $('input[name=t_s_p_id]:checked').each(function(i){
-          t_s_p_id_val[i] = $(this).val();
+          t_s_p_id_val.push(this.value);
+
         });
-  send_data.append('t_s_p_id',t_s_p_id_val);
+  send_data.append('t_s_p_id[]',t_s_p_id_val);
 
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
@@ -285,8 +286,10 @@ function createAuditFirm(){
                   EasyLoading.hide();
 
                   successMessage("Insert Successfully");
+
                   // location.reload();
                   // location.href = "/";
+
                   location.href = FRONTEND_URL+'/';
               }
             });
