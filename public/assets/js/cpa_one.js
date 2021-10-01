@@ -186,6 +186,8 @@ function Mac_Submit() {
     data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     data.append('remain_module', $("input[name='remain_module']").val());
     data.append('batch_id', batch_id);
+    data.append('mac_type', $("input[name='mac_type']").val());
+
 
 
     show_loader();
