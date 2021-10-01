@@ -1,3 +1,4 @@
+
 <div class="login main-wrapper">
     <!-- Page Banner Start -->
     <div class="section page-banner">
@@ -16,15 +17,17 @@
 
         </div>
         <!-- Shape Icon Box Start -->
-        {{--<div class="shape-icon-box">
-            <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
-            <div class="box-content">
-                <div class="box-wrapper">
-                    <i class="flaticon-badge"></i>
+        {{--
+            <div class="shape-icon-box">
+                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png') }}" alt="Shape">
+                <div class="box-content">
+                    <div class="box-wrapper">
+                        <i class="flaticon-badge"></i>
+                    </div>
                 </div>
+                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
             </div>
-            <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png') }}" alt="Shape">
-        </div>--}}
+        --}}
         <!-- Shape Icon Box End -->
         <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png') }}" alt="Shape">
         <!-- <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg') }}" alt="Shape"> -->
@@ -157,14 +160,16 @@
                                 </div>
 
 
-                                {{-- <div class="row m-2 mt-3 border-bottom">
+                                {{-- 
+                                    <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
                                         </div>
                                         <div class="col-md-6">
                                             <span id="exam_date"></span>
                                         </div>
-                                    </div> --}}
+                                    </div> 
+                                --}}
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Next Action </p>
@@ -655,6 +660,7 @@
     </div>
 </div>
 
+
 <!-- update profile -->
 <div class="modal fade" id="profileModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -685,26 +691,28 @@
                                 </div>
                                 <br>
 
-                                {{-- <div class="row">
-                        <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                        <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
-                        <div class="col-md-8">
-                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
-                                    class="form-control" ="" id="name_mm">
-                        </div>
+                                {{-- 
+                                    <div class="row">
+                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                            <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                                        class="form-control" ="" id="name_mm">
+                                            </div>
 
-                    </div>
-                    <br>
-                    <div class="row">
+                                        </div>
+                                        <br>
+                                        <div class="row">
 
-                        <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
+                                            <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
 
-                        <div class="col-md-8">
-                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng"
-                                    class="form-control" ="">
-                        </div>
-                    </div>
-                    <br> --}}
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng"
+                                                        class="form-control" ="">
+                                            </div>
+                                        </div>
+                                    <br> 
+                                --}}
                                 <div class="row">
 
                                     <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>

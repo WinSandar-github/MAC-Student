@@ -391,6 +391,8 @@ function createDaTwoMac() {
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('academic_year', $("#mac_academic_year").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    send_data.append('mac_type', $("input[type='radio'][name='mac_type']:checked").val());
+
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
