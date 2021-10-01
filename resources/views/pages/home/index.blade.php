@@ -4,7 +4,7 @@
     <div class="section slider-section">
         <div class="slider-images">
             <div class="images text-center" style="width : 100%">
-                <img src="assets/images/mac_images/macschoolimg.png" alt="Slider">
+                <img src="assets/images/mac_images/macschoolimg.png" style="width: 30000px" alt="Slider">
             </div>
         </div>
         <!-- Slider Shape Start -->
@@ -79,10 +79,10 @@
 
         <!-- Slider Video Start -->
         <div class="slider-video">
-            <img class="shape-1" src="assets/images/shape/shape-9.png" alt="Shape">
+            {{-- <img class="shape-1" src="assets/images/shape/shape-9.png" alt="Shape"> --}}
 
             <div class="video-play">
-                <img src="assets/images/shape/shape-10.png" alt="Shape">
+                {{-- <img src="assets/images/shape/shape-10.png" alt="Shape"> --}}
                 <a href="https://www.youtube.com/watch?v=BRvyWfuxGuU" class="play video-popup"><i class="flaticon-play"></i></a>
             </div>
         </div>

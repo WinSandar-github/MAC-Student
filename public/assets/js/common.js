@@ -43,7 +43,7 @@ $('document').ready(function () {
         type: 'GET',
         async: false,
         success: function (response) {
-            console.log(response)
+            console.log("Response", response)
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
