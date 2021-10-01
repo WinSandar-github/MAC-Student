@@ -87,12 +87,16 @@ function createSchoolRegister(){
         alert("Your password and confirm password do not match!");
         return;
     }
-
+    var file=[];
     var send_data = new FormData($( "#school_register_form" )[0]);
     send_data.append('student_info_id',$('#student_info_id').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
-    
-    show_loader();
+    // var rows = document.getElementById('tbl_branch_school').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length
+    // for(var i=0;i<rows;i++){
+    //   file.push($("input[id=branch_sch_letter"+i+"]"));
+    // }
+    // send_data.append('branch_sch_letter[]',file);
+    //show_loader();
     $.ajax({
         type: "POST",
         data: send_data,
@@ -103,9 +107,9 @@ function createSchoolRegister(){
         processData: false,
         success: function (data) {
             
-            EasyLoading.hide();
-            successMessage(data.message);
-            location.href=FRONTEND_URL+'/';
+            // EasyLoading.hide();
+            // successMessage(data.message);
+            // location.href=FRONTEND_URL+'/';
           //   resetForm("#school_register_form");
         },
         error: function (result) {
@@ -155,7 +159,9 @@ function getCourses(){
       success:function(response){
            var opt;
           $.each(response.data,function(i,v){
-              opt += `<option value=${v.id}  >${v.code.toUpperCase().replace("_", " ")}</option>`;
+              var newcode=(v.code).split('_');
+              var course_code=convert(newcode[1]);
+              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
           $(".multiple-attend-course").append(opt);
           //$(".attend_course").siblings(".nice-select").css('display','none');
@@ -664,6 +670,23 @@ function addRowBranchSchool(tbody){
                                         '</div>'+
                                     '</div>'+
   '</td>';
+  // cols += '<td>'+
+  //           '<div class="controls4' + row + '">'+
+  //             '<div class="entry4' + row + '">'+
+  //                 '<div class="row mb-3">'+
+  //                     '<div class="col-md-10">'+
+  //                         '<input type="file" class="form-control" name="branch_sch_letter[]" id="branch_sch_letter' + row + '" accept="image/*" multiple required>'+
+
+  //                     '</div>'+
+  //                     '<div class="col-md-1">'+
+  //                         '<button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick=addInputFile("controls4' + row + '","entry4' + row + '")>'+
+  //                             '<li class="fa fa-plus"></li>'+
+  //                         '</button>'+
+  //                     '</div>'+
+  //                 '</div>'+
+  //             '</div>'+
+  //           '</div>'+
+  // '</td>';
   cols += '<td><input type="file" class="form-control" name="branch_sch_letter[]"  accept="image/*" id="branch_sch_letter' + row + '" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowBranchSchool("'+tbody+'")><li class="fa fa-times"></li></button></td>';
   newRow.append(cols);
