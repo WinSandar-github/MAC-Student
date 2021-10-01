@@ -1,4 +1,5 @@
 function user_profile() {
+
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/user_profile/" + student_id,
@@ -14,7 +15,7 @@ function user_profile() {
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
                 let firm_ownerships_audits = data.firm_ownerships_audits;
-                console.log("firm_ownerships_audits >>>>",firm_ownerships_audits);
+                console.log("firm_ownerships_audits >>>>", firm_ownerships_audits);
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                 $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
@@ -23,14 +24,14 @@ function user_profile() {
                 $('.phone').text(acc_firm.telephones);
 
                 if (acc_firm.audit_firm_type_id == 1) {
-                  // if audit firm type
-                    if(firm_ownerships_audits != ''){
-                      // show name and public practice reg no who selected Yes
-                      if(firm_ownerships_audits.authority_to_sign == 1){
-                        $("#info_for_audit").css("display","block");
-                        $('.name').text(firm_ownerships_audits.name);
-                        $('.public_practice_reg_no').text(firm_ownerships_audits.public_private_reg_no);
-                      }
+                    // if audit firm type
+                    if (firm_ownerships_audits != '') {
+                        // show name and public practice reg no who selected Yes
+                        if (firm_ownerships_audits.authority_to_sign == 1) {
+                            $("#info_for_audit").css("display", "block");
+                            $('.name').text(firm_ownerships_audits.name);
+                            $('.public_practice_reg_no').text(firm_ownerships_audits.public_private_reg_no);
+                        }
                     }
 
                     if (acc_firm.status == 0) {
@@ -41,9 +42,8 @@ function user_profile() {
                         $('.status_history').append('Your Audit Firm Form is Rejected.');
                     }
                 }
-                else
-                {
-                    $("#info_for_non_audit").css("display","block");
+                else {
+                    $("#info_for_non_audit").css("display", "block");
                     $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
                     $('.passport_csc_no').text(acc_firm.dir_passport_csc);
                     //if non-audit firm type
@@ -432,7 +432,7 @@ function user_profile() {
 
                         } else {
                             let status_course;
-                            let std_id = latest_course_reg[0].student_info_id;
+                            // let std_id = latest_course_reg[0].student_info_id;
                             // let course_id = latest_course_reg[0].batch.course_id;
                             localStorage.setItem("courseId", latest_course_reg[0].batch.course_id);
                             $('.course').html(course_html)
@@ -444,11 +444,9 @@ function user_profile() {
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>-</td>
-                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}' class="btn btn-sm btn-success" > Payment</a></td>
-                                    </tr>
-
-                                    `);
-                                // <td>Checking</td>
+                                    <td>Checking</td>
+                                </tr>
+                                `);
                                 // $('.status').append(`
                                 // <tr>
                                 //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -461,16 +459,23 @@ function user_profile() {
                                 // `);
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
+                                let std_id = latest_course_reg[0].student_info_id;
+                                // $('.status').append(`
+                                // <tr>
+                                //     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
+                                //     <td>${formatDate(latest_course_reg[0].created_at)}</td>
+                                //     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
+                                //     <td><span class="badge bg-success">Approved</span></td>
+                                // </tr>
+                                // `);
                                 $('.status').append(`
                                 <tr>
                                     <td>${latest_course_reg[0].batch.course.name} Application Form</td>
                                     <td>${formatDate(latest_course_reg[0].created_at)}</td>
                                     <td>${formatDate(latest_course_reg[0].updated_at)}</td>
-                                    <td><span class="badge bg-success">Approved</span></td>
+                                    <td> <a href='${FRONTEND_URL}/payment_method/${std_id}' class="btn btn-sm btn btn-info" > Payment</a></td>
                                 </tr>
                                 `);
-
-
                                 // $('.status').append(`<p >Your ${latest_course_reg[0].batch.course.name}  Your Application Form is approved  on the   .</p>`)
                                 //show data depend on Student Register status
 
@@ -520,7 +525,6 @@ function user_profile() {
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true))
                                             ) {
 
-
                                                 if (last_exam[0].status == 0) {
 
                                                     $('.status').append(`
@@ -538,7 +542,7 @@ function user_profile() {
                                                         <td>${latest_course_reg[0].batch.course.name} Exam Form</td>
                                                         <td>${formatDate(last_exam[0].created_at)}</td>
                                                         <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                        <td>Approve</td>
+                                                        <td><span class="badge bg-success">Approved</span></td>
                                                     </tr>
                                                     `);
                                                     if (last_exam[0].grade == 1) {
@@ -555,7 +559,7 @@ function user_profile() {
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                                 <td>${formatDate(last_exam[0].created_at)}</td>
                                                                 <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                                <td>Pass</td>
+                                                                <td><span class="badge bg-success">Passed</span></td>
                                                             </tr>
                                                             `);
 
@@ -565,7 +569,6 @@ function user_profile() {
 
                                                         //Check moudule for next course
                                                         if (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true) {
-
 
 
                                                             switch (last_exam[0].course.code) {
@@ -638,13 +641,16 @@ function user_profile() {
                                                                                 $('.status').append(`
                                                                                     <tr> <td colspan=2 ></td ><td>Action</td>
                                                                                         <td>
-
-
-
-                                                                                            <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=${study_type}" class="btn btn-sm btn-success">${study_name} Registration</a>
-
-
-                                                                                        <td>
+                                                                                        <span class="nav-item dropdown ">
+                                                                                            <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${batch.course.name}</a>
+                                                                                            <div class="dropdown-menu">
+                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                                <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                            </div>
+                                                                                        </span>   
+                                                                                        
+                                                                                        </td>
                                                                                     </td>
                                                                                 </tr>
 
@@ -711,7 +717,7 @@ function user_profile() {
 
 
                                                                     }
-                                                                    alert(next_batch[0].id)
+
                                                                     localStorage.setItem('course_id', next_batch[0].course.id);
                                                                     localStorage.setItem('batch_id', next_batch[0].id);
 
@@ -749,7 +755,7 @@ function user_profile() {
                                                             <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                             <td>${formatDate(last_exam[0].created_at)}</td>
                                                             <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td>Fail</td>
+                                                            <td><span class="badge bg-warning">Failed</span></td>
                                                         </tr >
                                                     `);
 
@@ -812,7 +818,7 @@ function user_profile() {
                                                                 <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                                 <td>${formatDate(last_exam[0].created_at)}</td>
                                                                 <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                                <td>Pass</td>
+                                                                <td><span class="badge bg-success">Passed</span></td>
                                                             </tr>
                                                             `);
 
@@ -975,11 +981,19 @@ function user_profile() {
                                                                     let study_type = latest_course_reg[0].type === 0 ? 1 : latest_course_reg[0].type === 1 ? 2 : 3;
 
                                                                     let study_name = latest_course_reg[0].type === 0 ? "Selfstudy" : latest_course_reg[0].type === 1 ? "Private School" : "Mac";
+                                                                    // <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
 
                                                                     $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
-                                                                            <td>
-                                                                                <a href="${FRONTEND_URL + register_url}?study_type=${study_type}" class="btn-sm btn btn-success">${study_name} Registration for ${next_batch[0].course.name} </a>
+                                                                            <td>   
+                                                                                <span class="nav-item dropdown ">
+                                                                                    <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${next_batch[0].course.name}</a>
+                                                                                    <div class="dropdown-menu">
+                                                                                        <a href="${FRONTEND_URL + register_url}?study_type=3" class="dropdown-item">Mac</a>
+                                                                                        <a href="${FRONTEND_URL + register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
+                                                                                        <a href="${FRONTEND_URL + register_url}?study_type=2" class="dropdown-item">Private School</a>
+                                                                                    </div>
+                                                                                </span>    
                                                                             <td>
                                                                         </td>
                                                                         </tr>
@@ -1004,7 +1018,7 @@ function user_profile() {
                                                             <td>${latest_course_reg[0].batch.course.name} Exam Result</td>
                                                             <td>${formatDate(last_exam[0].created_at)}</td>
                                                             <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                            <td>Fail</td>
+                                                            <td><span class="badge bg-warning">Approved</span></td>
                                                         </tr >
                                                     `);
 
@@ -1026,7 +1040,7 @@ function user_profile() {
                                                         <td>${latest_course_reg[0].batch.course.name} Registration Form</td>
                                                         <td>${formatDate(last_exam[0].created_at)}</td>
                                                         <td>${formatDate(last_exam[0].updated_at)}</td>
-                                                        <td>Reject</td>
+                                                        <td><span class="badge bg-danger">Reject</span></td>
                                                     </tr >
                                                                         `);
 
@@ -1186,14 +1200,14 @@ function user_profile() {
                                             register_url = '/da_one_register';
                                             break;
                                         case 'da_2':
-                                            register_url = '/da_two_register';
+                                            register_url = `/da_two_register/${latest_stu_reg[0].batch.course.id}`;
                                             break;
                                         case 'cpa_1':
                                             register_url = '/cpa_one_register';
                                             break;
                                         case 'cpa_2':
-                                            register_url = '/cpa_two_register';
-                                            break;
+                                            register_url = `/cpa_two_register/${latest_stu_reg[0].batch.course.id}`;
+                                            break
                                         default:
                                             register_url = '/da_one_register';
                                             break;
@@ -1216,7 +1230,7 @@ function user_profile() {
 
                                             </td>
                                         </tr>
-                                                                `);
+                                    `);
                                 }
 
                             } else {
@@ -1266,7 +1280,7 @@ function user_profile() {
                                 <td>${current_class.batch.course.name} Application Form</td>
                                 <td>${formatDate(current_class.created_at)}</td>
                                 <td>${formatDate(current_class.updated_at)}</td>
-                                <td><span class="badge bg-success">Approve</span></td>
+                                <td><span class="badge bg-success">Approved</span></td>
                             </tr>
                             `);
                             //show data depend on Student Register status
@@ -1286,7 +1300,7 @@ function user_profile() {
                                         <td>${current_class.batch.course.name} Registration Form</td>
                                         <td>${formatDate(data.student_register[i].created_at)}</td>
                                         <td>${formatDate(data.student_register[i].updated_at)}</td>
-                                        <td><span class="badge bg-success">Approve</span></td>
+                                        <td><span class="badge bg-success">Approved</span></td>
                                     </tr>
                                     `);
                                     if (data.exam_registers[i]) {
@@ -1315,7 +1329,7 @@ function user_profile() {
                                                 <td>${current_class.batch.course.name} Exam Form</td>
                                                 <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>${formatDate(data.exam_registers[i].updated_at)}</td>
-                                                <td><span class="badge bg-success">Approve</span></td>
+                                                <td><span class="badge bg-success">Approved</span></td>
                                             </tr>
                                             `);
                                             }
@@ -1325,7 +1339,7 @@ function user_profile() {
                                                 <td>${current_class.batch.course.name} Exam Form</td>
                                                 <td>${formatDate(data.exam_registers[i].created_at)}</td>
                                                 <td>-</td>
-                                                <td><span class="badge bg-success">Approve</span></td>
+                                                <td><span class="badge bg-success">Approved</span></td>
                                             </tr>
                                             `);
                                         }
@@ -1382,7 +1396,7 @@ function user_profile() {
                                         <td>${current_class.batch.course.name} Registration Form</td>
                                         <td>${formatDate(current_class.created_at)}</td>
                                         <td>${formatDate(current_class.updated_at)}</td>
-                                        <td><span class="badge bg-success">Approve</span></td>
+                                        <td><span class="badge bg-success">Approved</span></td>
                                     </tr>
                                     `);
                                 }
