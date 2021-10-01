@@ -2,8 +2,8 @@
 <div class="non_login">
     
     <div class="section slider-section">
-    <div class="slider-images">
-            <div class="images">
+        <div class="slider-images">
+            <div class="images text-center" style="width : 100%">
                 <img src="assets/images/mac_images/macschoolimg.png" alt="Slider">
             </div>
         </div>
