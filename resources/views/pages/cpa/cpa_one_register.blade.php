@@ -1742,12 +1742,12 @@
                                     })   
                                         
                                         
-                                }else{
+                                }
+                            }else{
                                     $('.batch_no').val(current_stu_course[0]?.batch?.number);
                                 $(".batch_number").append(current_stu_course[0].batch.number);
 
-                                }
-                            }                    // $('.batch_no').val(current_stu_course[0].batch.number);
+                                }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
                         var info = data.data;
