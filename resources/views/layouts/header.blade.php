@@ -26,10 +26,15 @@
         margin-left: auto;
         max-width: 1245px;
     }
-
+    .header-banner{
+        background-image: linear-gradient(to bottom, #E5DCCD, #E3DFDC);
+    }
+    .container{
+        margin-top: 120px;
+    }
 </style>
 <div class="header-section">
-    <div class="header-banner">
+    <div class="header-banner text-center">
         <img src="{{ asset('assets') }}/images/mac_images/macbanner.png" alt="MAC Banner">
     </div>
     <!-- Header Main Start -->
