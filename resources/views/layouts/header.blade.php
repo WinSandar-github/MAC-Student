@@ -32,6 +32,9 @@
     .container{
         margin-top: 120px;
     }
+    .sticky{
+        background-color: #eefbf3
+    }
 </style>
 <div class="header-section">
     <div class="header-banner text-center">
@@ -42,7 +45,7 @@
        
         <div class="header-container">
             <!-- Header Main Start -->
-            <div class="header-main-wrapper shadow-lg" style="background-color: #EEFBF3">
+            <div class="header-main-wrapper" style="background-color: #EEFBF3">
                 <!-- Header Logo Start -->
                 {{--<div class="header-logo">
                     <a href="{{ route('home') }}" class="text-decoration-none text-dark"><img
