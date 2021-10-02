@@ -352,6 +352,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" id="hinitial_status">
                                 <div class="row">
                                     <div id="rec_letter" style="display:none" >
                                             <div class="row mb-3">
