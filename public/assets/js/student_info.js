@@ -643,10 +643,12 @@ function selectedRegistration(radioValue) {
 function createSelfStudy() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
+    var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
 
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 0);
+    data.append('recommendation_letter',recommend_letter_self);
     send_data.append('batch_no_self', $("input[name='batch_no_self']").val());
     send_data.append('part_no_self', $("input[name='part_no_self']").val());
     send_data.append('personal_no_self', $("input[name='personal_no_self']").val());
@@ -679,10 +681,12 @@ function createSelfStudy() {
 function createPrivateSchool() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
+    var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
 
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 1);
+    data.append('recommendation_letter',recommend_letter_private);
     send_data.append('batch_no_private', $("input[name='batch_no_private']").val());
     send_data.append('part_no_private', $("input[name='part_no_private']").val());
     send_data.append('personal_no_private', $("input[name='personal_no_private']").val());
@@ -717,10 +721,12 @@ function createPrivateSchool() {
 function createMac() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
+    var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
 
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 2);
+    data.append('recommendation_letter',recommend_letter_mac);
     send_data.append('batch_no_mac', $("input[name='batch_no_mac']").val());
     send_data.append('part_no_mac', $("input[name='part_no_mac']").val());
     send_data.append('personal_no_mac', $("input[name='personal_no_mac']").val());

@@ -327,7 +327,7 @@
                                                             <span class="recommend_letter"></span>
                                                         </div>
                                                         <div class="col-md-6"  id="degree_edu" >
-                                                            <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                            <input type="file"  class="form-control" id="recommend_letter_private"  name="recommend_letter_private">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -664,7 +664,7 @@
                                                             <span class="recommend_letter"></span>
                                                         </div>
                                                         <div class="col-md-6"  id="degree_edu" >
-                                                            <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                            <input type="file"  class="form-control" id="recommend_letter_self"  name="recommend_letter_self">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1007,7 +1007,7 @@
                                                                     <span class="recommend_letter"></span>
                                                                 </div>
                                                                 <div class="col-md-6"  id="degree_edu" >
-                                                                    <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                                    <input type="file"  class="form-control" id="recommend_letter_mac"  name="recommend_letter_mac">
                                                                 </div>
                                                             </div>
                                                         </div>
