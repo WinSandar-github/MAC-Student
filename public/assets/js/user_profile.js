@@ -227,7 +227,7 @@ function user_profile() {
                             <td><span class="badge bg-info text-dark">Checking</span></td>
                         </tr>
                         `);
-                        $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
+                        // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     } else if (cpaff.status == 1) {
                         $('.status').append(`
                         <tr>
@@ -240,17 +240,36 @@ function user_profile() {
                         // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         var accept = new Date(cpaff.renew_accepted_date);
                         var month = accept.getMonth();
+                        var current_month = new Date();
+                        // var check_month = current_month.getMonth();
+                        var check_month = 10;
                         var year = accept.getFullYear();
                         var y = year + 1;
+                        var now = new Date();
 
-                        if (month > 8) {
-                            $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
-                        } else {
-                            $(".status").append(`<tr><td colspan=3>Your information will be expired at  <b> 31 December ${year}</b>
-                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
-                            `);
+                        // if (month > 8) {
+                        //     $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
+                        // } else {
+                        //     $(".status").append(`<tr><td colspan=3>Your information will be expired at  <b> 31 December ${year}</b>
+                        //         </td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
+                        //     `);
+                        //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
+                        // }
+                        if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year){
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></td></tr>`);
                             $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
-                        }
+                                                }
+                        // if (check_month < 12) {
+                        //     $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
+                        // } 
+                        else if(check_month == 10) {
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></td></tr>`);
+                            // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
+                        } 
+                        // else if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year){
+                        //     $('.status').append(`<tr><td colspan=2></td><td>Action</td></tr>`);
+                        //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
+                        // }
                     } else {
                         $('.status').append(`
                         <tr>
@@ -267,7 +286,7 @@ function user_profile() {
                             $('.status').append(`
                             <tr>
                                 <td>PAPP  </td>
-                                <td>${formatDate(cpaff.created_at)}</td>
+                                <td>${formatDate(data.papp.created_at)}</td>
                                 <td>-</td>
                                 <td><span class="badge bg-info text-dark">Checking</span></td>
                             </tr>
@@ -277,31 +296,48 @@ function user_profile() {
                             $('.status').append(`
                             <tr>
                                 <td>PAPP</td>
-                                <td>${formatDate(cpaff.created_at)}</td>
-                                <td>${formatDate(cpaff.updated_at)}</td>
+                                <td>${formatDate(data.papp.created_at)}</td>
+                                <td>${formatDate(data.papp.updated_at)}</td>
                                 <td><span class="badge bg-success">Approved</span></td>
                             </tr>
                             `);
                             $('.papp_btn').css('display', 'none');
-                            var accept = new Date(cpaff.renew_accepted_date);
+                            // var accept = new Date(cpaff.renew_accepted_date);
+                            // var month = accept.getMonth();
+                            // var year = accept.getFullYear();
+                            // var y = year + 1;
+                            // var now = new Date(Date.now());
+
+                            // if (now.getFullYear() == y && now.getMonth() == month) {
+                            //     $(".status").append(`<tr>
+                            //         <td colspan=3>Your registeration is expired! You need to submit new registeration form again.</td>
+                            //         <td> <a href='${FRONTEND_URL}/student_papp' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>
+                            //     `);
+                            // } else if (month == '10' || month == '11' || month == '12') {
+                            //     $(".status").append(`<tr><td colspan=4>Your registeration will start in ${y} year!</td></tr>`);
+                            // } else {
+                            //     // $(".status").append(`<tr><td colspan=4>You are verified!</td></tr>`);
+                            //     $(".status").append(`<tr>
+                            //         <td colspan=3>Your information will be expired at <b> 31 December ${year} </b></td>
+                            //         <td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>
+                            //     `);
+                            // }
+
+                            //new flow
+                            var accept = new Date(data.papp.renew_accepted_date);
                             var month = accept.getMonth();
+                            var current_month = new Date();
+
+                            // var check_month = current_month.getMonth();
+                            var check_month = 10;
                             var year = accept.getFullYear();
                             var y = year + 1;
-                            var now = new Date(Date.now());
+                            var now = new Date();
 
-                            if (now.getFullYear() == y && now.getMonth() == month) {
-                                $(".status").append(`<tr>
-                                    <td colspan=3>Your registeration is expired! You need to submit new registeration form again.</td>
-                                    <td> <a href='${FRONTEND_URL}/student_papp' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>
-                                `);
-                            } else if (month == '10' || month == '11' || month == '12') {
-                                $(".status").append(`<tr><td colspan=4>Your registeration will start in ${y} year!</td></tr>`);
-                            } else {
-                                // $(".status").append(`<tr><td colspan=4>You are verified!</td></tr>`);
-                                $(".status").append(`<tr>
-                                    <td colspan=3>Your information will be expired at <b> 31 December ${year} </b></td>
-                                    <td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Fledged Renew Form</a></tr>
-                                `);
+                            if (check_month != 10){
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
+                            }else if(check_month == 10) {
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             }
                         } else {
                             $('.status').append(`
