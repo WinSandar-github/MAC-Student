@@ -265,7 +265,7 @@
                                                                         </div>
                                                                         <div class="row update-btn" style="display:none;">
                                                                             <div class="col-md-6"></div>
-                                                                            <div class="col-md-6">
+                                                                            <div class="">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn text-dark h6">
                                                                                         <a href="{{url('teacher_register')}}" class="btn btn-success btn-hover-dark" >Update</a>
@@ -534,73 +534,22 @@
 
                                                     </div>
                                                     
-                                                <div class="row mb-3" style="clear:both;">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
-                                                    <label class="col-md-3 col-form-label label">{{ __('နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်') }}</label>
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <div class="form-check mt-2 form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee1" value="1" onclick="selectStaff(1)">ဟုတ်
-                                                                
-                                                            </div>
-                                                            <div class="form-check mt-2 form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="gov_employee" id="gov_employee2" value="0" onclick="selectStaff(0)">မဟုတ်
-                                                           
-
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div id="rec_letter" style="display:none" >
-                                                                <div class="row">
-                                                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                        <label for="" class="col-md-3 col-form-labe mt-1 label_align_right">သက်ဆိုင်ရာ ဌာနအကြီးအကဲ၏ ခွင့်ပြုမိန့်</label>
-
-                                                                        <div class="col-md-8">
-                                                                            <input type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
-                                                                            
-                                                                        </div>
-                                                                        <label for="" class="col-md-4"></label>
-                                                                        <div class="col-md-8 recommend_letter">
-                                                                
-                                                                        </div>
-                                                                </div>
-                                                                <div class="row mb-3">
-                                                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                        <label for="" class="col-md-3 col-form-label label_align_right">ရာထူး</label>
-                                                                        <div class="col-md-8">
-                                                                            <input type="text" name="position" class="form-control" autocomplete="off">
-                                                                        </div>
-                                                                </div>
-
-                                                                <div class="row mb-3">
-                                                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                        <label for="" class="col-md-3 col-form-label label_align_right">ဌာန</label>
-                                                                        <div class="col-md-8">
-                                                                            <input type="text" name="department" class="form-control" autocomplete="off">
-                                                                        </div>
-                                                                </div>
-                                                                <div class="row mb-3">
-                                                                        <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                                        <label for="" class="col-md-3 col-form-label label_align_right">ရုံးစိုက်ရာဒေသ</label>
-                                                                        <div class="col-md-8">
-                                                                            <input type="text" name="organization" class="form-control" autocomplete="off">
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                    </div>
+                                               
                                                     <div class="row mb-5">
                                                             <input type="hidden" id="hrecommend_letter">
                                                             <input type="hidden" id="student_info_id">
                                                             <input type="hidden" id="teacher_id">
                                                             <input type="hidden" id="hschool_name">
-                                                            
+                                                            <input type="hidden" id="hinitial_status">
+                                                            <input type="hidden" id="gov_employee">
+                                                            <input type="hidden" id="exp_desc">
+                                                            <input type="hidden" id="position">
+                                                            <input type="hidden" id="department">
+                                                            <input type="hidden" id="organization">
                                                     </div>
                                                     
                                                     <div class="row mb-3">
-                                                        <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
                                                         <label class="col-md-3 col-form-label label">သင်ကြားမည့်သင်တန်းကျောင်းအမည်</label>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
@@ -634,7 +583,7 @@
                                                         </div>
                                                     </div>
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
                                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>
                                                     
 
@@ -665,16 +614,9 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <div class="row mb-3">
-                                                        <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
-                                                        <label class="col-md-3 col-form-label label">{{ __('သင်ကြားမည့်ဘာသာရပ်အတွက် သင်ကြားမှုနှင့် အခြားအတွေ့အကြုံများ') }}</label>
-                                                        <div class="col-md-8">
-                                                            <textarea class="form-control " name="exp_desc" rows="3" ></textarea>
-                                                            
-                                                        </div>
-                                                    </div>
+                                                    
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
                                                         <div class="col-md-8">
                                                             <input type="text" class="form-control" id="regno" disabled>
@@ -682,7 +624,7 @@
                                                         </div>
                                                 </div>
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်</label>
                                                         <div class="col-md-8">
                                                             <input type="file" class="form-control" accept="image/*" required>
@@ -690,7 +632,7 @@
                                                         </div>
                                                 </div>   
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
                                                     <label class="col-md-3 col-form-label label">This certificate is valid for the period</label>
                                                         <div class="col-md-8">
                                                             <input type="text" class="form-control" id="register_date" disabled>
@@ -698,7 +640,7 @@
                                                         </div>
                                                 </div>
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၉။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                                     <label class="col-md-3 col-form-label label">Status</label>
                                                     <div class="col-md-8">
                                                             <input type="text" class="form-control" id="message" disabled>
