@@ -126,7 +126,7 @@ function user_profile() {
                 } else if (cpaff.status == 1) {
                     $('.status_history').append('CPA Full-Fledged Registration Form is Approved.<br><br>');
                     $('.status_history').append('Action &nbsp;&nbsp;');
-                    $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA Full Fledged Renew Form </a><hr>`);
+                    $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
                     $('.status_papp').append('Action &nbsp;&nbsp;');
                     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
@@ -209,7 +209,7 @@ function user_profile() {
                         next_course = "CPA II"
                         break;
                     case 'cpa_2':
-                        next_course = "CPA Full Fledged"
+                        next_course = "CPA(Full-Fledged)"
                         break;
                     default:
                         next_course = "DA II"
@@ -221,7 +221,7 @@ function user_profile() {
                     if (cpaff.status == 0) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Fledged </td>
+                            <td>CPA(Full-Fledged) </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>-</td>
                             <td><span class="badge bg-info text-dark">Checking</span></td>
@@ -231,7 +231,7 @@ function user_profile() {
                     } else if (cpaff.status == 1) {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Fledged </td>
+                            <td>CPA(Full-Fledged) </td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span></td>
@@ -247,14 +247,14 @@ function user_profile() {
                             $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
                         } else {
                             $(".status").append(`<tr><td colspan=3>Your information will be expired at  <b> 31 December ${year}</b>
-                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA Full Fledged Renew Form</a></tr>
+                                </td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></tr>
                             `);
                             $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         }
                     } else {
                         $('.status').append(`
                         <tr>
-                            <td>CPA Full Fledged </td>
+                            <td>CPA(Full-Fledged)</td>
                             <td>${formatDate(cpaff.created_at)}</td>
                             <td>${formatDate(cpaff.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
@@ -614,7 +614,7 @@ function user_profile() {
                                                                 if (Object.keys(data.data).length === 0) {
 
 
-                                                                    $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr > `);
+                                                                    $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
 
 
                                                                     // $('.status').append(`< tr > <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr > `);
@@ -873,7 +873,7 @@ function user_profile() {
                                                                 if (Object.keys(data.data).length === 0) {
 
 
-                                                                    $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA Full Fledged Form</a></td></tr > `);
+                                                                    $('.status').append(`<tr> <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}${form_url}' class="btn btn-sm btn-success" > CPA(Full-Fledged) Form</a></td></tr > `);
 
 
                                                                     // $('.status').append(`< tr > <td colspan=2 ></td ><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr > `);

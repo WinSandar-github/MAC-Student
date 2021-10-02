@@ -17,9 +17,13 @@ function CheckPartTwo() {
         $("input[name=country]").prop('disabled', true);
         $("input[name=government]").prop('disabled', true);
         $("input[name=roll_no]").prop('disabled', true);
+        $("input[name=exam_year]").prop('disabled', true);
+        $("input[name=exam_month]").prop('disabled', true);
         $("input[name=country]").val('');
         $("input[name=government]").val('');
         $("input[name=roll_no]").val('');
+        $("input[name=exam_year]").val('');
+        $("input[name=exam_month]").val('');
     }
     else if (qt_pass.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
@@ -27,7 +31,9 @@ function CheckPartTwo() {
         $("input[name=country]").prop('disabled', false);
         $("input[name=government]").prop('disabled', false);
         $("input[name=roll_no]").prop('disabled', false);
-
+        $("input[name=roll_no]").prop('disabled', false);
+        $("input[name=exam_year]").prop('disabled', false);
+        $("input[name=exam_month]").prop('disabled', false);
         $("input[name=cpa2_pass_date]").val('');
         $("input[name=reg_no]").val('');
     }
@@ -426,7 +432,7 @@ function createCPAFFRegister() {
     send_data.append('mpa_mem_card', mpa_mem_card);
     send_data.append('mpa_mem_card_back', mpa_mem_card_back);
     send_data.append('cpd_record', cpd_record);
-    // send_data.append('passport_image', passport_image);
+    send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('three_years_full', three_years_full);
     send_data.append('letter', letter);
 
@@ -556,6 +562,10 @@ function form_feedback() {
                 }
             }
         });
+    }
+    else{
+        $('.register-btn').css('display', 'none');
+        $('.payment-btn').css('display', 'none');
     }
 }
 function loadCPAFF() {

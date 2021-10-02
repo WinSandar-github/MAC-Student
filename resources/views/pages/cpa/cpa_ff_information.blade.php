@@ -173,7 +173,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(FF) Registeration Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(Full Fledged) Registeration Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>
@@ -601,7 +601,7 @@ $('#file').change(function(e) {
 })
         
         form_feedback();
-        loadDescription('CPA (Full Fluged)');
+        loadDescription('CPA (Full-Fledged)');
         checkPaymentCpaff();
         loadCpaffData();
         loadCpaffInitialData();

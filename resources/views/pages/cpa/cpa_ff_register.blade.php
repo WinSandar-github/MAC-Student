@@ -320,7 +320,9 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီကကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
+                                    <input type="text" name="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" placeholder="MM" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
+                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
                                 <div class="qt_pass" style="display:none">
@@ -589,7 +591,16 @@
             dateFormat: "M-Y",
             allowInput: true,
     });
-
+    $("input[name='exam_year']").flatpickr({
+            enableTime: false,
+            dateFormat: "Y",
+            allowInput: true,
+    });
+    $("input[name='exam_month']").flatpickr({
+            enableTime: false,
+            dateFormat: "M",
+            allowInput: true,
+    });
     $("input[name='qt_pass_date']").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",

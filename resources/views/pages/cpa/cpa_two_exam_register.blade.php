@@ -213,13 +213,18 @@
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 58px;">{{ __('(ခ)') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 60px;">{{ __('(ခ)') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date" class="form-control date" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
                                                     </div>
                                                 </div>
-
-                                                {{--<div class="row mb-3" style="margin-left:30px;">
+                                                <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 60px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="personal_no" class="form-control personal_no" placeholder="ကိုယ်ပိုင်အမှတ်"  id="personal_no">
+                                                    </div>
+                                                </div>
+                                                {{--<div class="row mb-3" style="margin-left:33px;">
                                                     <div class="col-md-1">
                                                         <label class="col-form-label">(ခ)</label>
                                                     </div>
@@ -241,7 +246,7 @@
                                                 </div>--}}
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 58px;">{{ __('(ဂ)') }}</span>အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန် - </label>
+                                                    <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 60px;">{{ __('(ဃ)') }}</span>အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန် - </label>
                                                 </div>
 
                                                 <div class="row mb-3" style="padding-left: 363px;">                                                    
@@ -266,7 +271,7 @@
                                                 
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 42px;">{{ __('(ဃ)') }}</span>ဖြေဆိုမည့် Module</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဖြေဆိုမည့် Module</label>
                                                     <div class="col-md-8 mt-2">
                                                         <div class="row mx-2">
                                                             <div class="col-md-4 form-check">
@@ -475,6 +480,8 @@
                 $("input[name='father_name_mm']").val(data.data.father_name_mm);
                 $("input[name='father_name_eng']").val(data.data.father_name_eng);
                 $("input[name='date_of_birth']").val(data.data.date_of_birth);
+                // $("input[name='personal_no']").val(data.data.cpersonal_no);
+                // console.log(data.data.cpersonal_no)
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
                 
