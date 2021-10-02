@@ -9,27 +9,52 @@ function ConfirmSubmit() {
 }
 
 function CheckPartTwo() {
-    var radio = document.getElementById("cpa_part_2_check");
-    if (radio.checked == true) {
-        $('.pass_batch_two').css('display', 'block');
-        $('.qt_pass').css('display', 'none');
+    var cpa_part_2 = document.getElementById("cpa_part_2_check");//qt_pass_check
+    var qt_pass = document.getElementById("qt_pass_check");
+    if (cpa_part_2.checked == true) {
+        $("input[name=cpa2_pass_date]").prop('disabled', false);
+        $("input[name=reg_no]").prop('disabled', false);
+        $("input[name=country]").prop('disabled', true);
+        $("input[name=government]").prop('disabled', true);
+        $("input[name=roll_no]").prop('disabled', true);
+        $("input[name=country]").val('');
+        $("input[name=government]").val('');
+        $("input[name=roll_no]").val('');
     }
-    else {
-        $('.pass_batch_two').css('display', 'none');
-        $('.qt_pass').css('display', 'none');
+    else if (qt_pass.checked == true) {
+        $("input[name=cpa2_pass_date]").prop('disabled', true);
+        $("input[name=reg_no]").prop('disabled', true);
+        $("input[name=country]").prop('disabled', false);
+        $("input[name=government]").prop('disabled', false);
+        $("input[name=roll_no]").prop('disabled', false);
+
+        $("input[name=cpa2_pass_date]").val('');
+        $("input[name=reg_no]").val('');
+    }
+    else{
+        $("input[name=cpa2_pass_date]").prop('disabled', true);
+        $("input[name=reg_no]").prop('disabled', true);
+        $("input[name=country]").prop('disabled', true);
+        $("input[name=government]").prop('disabled', true);
+        $("input[name=roll_no]").prop('disabled', true);
+        $("input[name=cpa2_pass_date]").val('');
+        $("input[name=reg_no]").val('');
+        $("input[name=country]").val('');
+        $("input[name=government]").val('');
+        $("input[name=roll_no]").val('');
     }
 }
 
 function CheckQTPass() {
-    var radio = document.getElementById("qt_pass_check");
-    if (radio.checked == true) {
-        $('.pass_batch_two').css('display', 'none');
-        $('.qt_pass').css('display', 'block');
-    }
-    else {
-        $('.pass_batch_two').css('display', 'none');
-        $('.qt_pass').css('display', 'none');
-    }
+    // var radio = document.getElementById("qt_pass_check");
+    // if (radio.checked == true) {
+    //     $('.pass_batch_two').css('display', 'none');
+    //     $('.qt_pass').css('display', 'block');
+    // }
+    // else {
+    //     $('.pass_batch_two').css('display', 'none');
+    //     $('.qt_pass').css('display', 'none');
+    // }
 }
 
 function getCPAEducation() {
