@@ -1936,7 +1936,6 @@
                 //   $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
                 // }
 
-              }
 
         })
 

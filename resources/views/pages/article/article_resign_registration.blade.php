@@ -278,7 +278,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p class="ml-2" style="font-weight:bold" align="left">Certificate</p>
+                                                            <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
                                                         
@@ -359,6 +359,7 @@
                                         </div>
                                         
                                         <input type="hidden" id="student_info_id" name="student_info_id" >
+                                        <input type="hidden" id="article_form_type" name="article_form_type" >
 
                                         <div class="row mb-3">
                                             <div class="form-check">
@@ -441,6 +442,8 @@
 <script type="text/javascript">
     $('document').ready(function(){
 
+        $("#article_form_type").val("resign");
+
         get_student_info(student_id).then(data => {
             let student_info = data.data
             let student_reg = data.data.student_register
@@ -477,7 +480,7 @@
             let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);                    
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
                    
                 })
 

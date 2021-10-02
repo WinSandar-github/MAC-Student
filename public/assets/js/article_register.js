@@ -7,7 +7,7 @@ function AddDAEdu() {
         '<input type="file"  class="form-control"  id="certificate' + count + '"  name="certificate[]" required="">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
-        '<button class="btn btn-danger" id="myLink" onclick="remove(edu' + count + ')">' +
+        '<button class="btn btn-danger" id="myLink" style="padding-left:5px;"  onclick="remove(edu' + count + ')">' +
         '<i class="fa fa-trash "></i>' +
         '</button>' +
         '</div>' +
@@ -23,7 +23,7 @@ function AddExp() {
         '<input type="file"  class="form-control"  id="experience_file' + exp_count + '"  name="experience_file[]" required="">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="experience' + exp_count + '_remove">' +
-        '<button class="btn btn-danger" id="myLink" onclick="remove(experience' + exp_count + ')">' +
+        '<button class="btn btn-danger" id="myLink" style="padding-left:5px;" onclick="remove(experience' + exp_count + ')">' +
         '<i class="fa fa-trash "></i>' +
         '</button>' +
         '</div>' +
@@ -39,7 +39,7 @@ function AddLabor() {
         '<input type="file"  class="form-control"  id="labor_registration_attach' + labor_count + '"  name="labor_registration_attach[]" required="">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="labor' + labor_count + '_remove">' +
-        '<button class="btn btn-danger" id="myLink" onclick="remove(labor' + labor_count + ')">' +
+        '<button class="btn btn-danger" id="myLink" style="padding-left:5px;" onclick="remove(labor' + labor_count + ')">' +
         '<i class="fa fa-trash "></i>' +
         '</button>' +
         '</div>' +
@@ -56,6 +56,7 @@ function createArticleFirmRegister() {
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
+    var request_papp_attach = $("input[name=request_papp_attach]")[0].files[0];
 
     // send_data.append('image', image);
     // send_data.append('name_mm', $("input[name=name_mm]").val());
@@ -95,6 +96,7 @@ function createArticleFirmRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
+    send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('exam_pass_date', $("input[name=pass_date]").val());
     send_data.append('exam_pass_batch', $("input[name=pass_no]").val());
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
@@ -223,6 +225,7 @@ function createArticleResignRegister() {
     send_data.append('resign_reason', $("textarea[name=resign_reason]").val());
     send_data.append('recent_org', $("input[name=recent_org]").val());
     send_data.append('resign_approve_attach', resign_approve_attach);
+    send_data.append('article_form_type', $("input[name=article_form_type]").val());
     send_data.append('know_policy', 1);
 
     show_loader();

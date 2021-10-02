@@ -39,6 +39,7 @@ $().ready(function (){
             },
             confirm_142 : "required",
             mentor_declare : "required",
+            papp_attach : "required",
         },
         messages:{
             // name_mm : "Please enter your name",
@@ -72,6 +73,7 @@ $().ready(function (){
             experience : "Please select one",
             experience_file : "Please enter your attachment",
             confirm_142 : "Please check one",
+            papp_attach : "Please enter your attachment",
         },
         
     });

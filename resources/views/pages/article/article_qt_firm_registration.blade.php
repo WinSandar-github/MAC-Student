@@ -312,7 +312,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p class="ml-2" style="font-weight:bold" align="left">Certificate</p>
+                                                            <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
                                                         
@@ -508,7 +508,7 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၄၂)</a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
@@ -570,6 +570,8 @@
 <script type="text/javascript">
     $('document').ready(function(){
 
+        $("#article_form_type").val("qt_firm");
+
         get_student_info(student_id).then(data => {
             let student_info = data.data
             let student_reg = data.data.student_register
@@ -604,7 +606,7 @@
             let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);                    
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
                    
                 })
 

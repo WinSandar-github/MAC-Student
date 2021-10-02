@@ -189,7 +189,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p class="ml-2" style="font-weight:bold" align="left">Certificate</p>
+                                                            <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
                                                         
@@ -323,7 +323,7 @@
                                                         <input type="file" class="form-control" id="labor_registration_attach" name="labor_registration_attach[]" autocomplete="off">
                                                     </div>
                                                     <div class="col-md-1 text-center" id="add_div">
-                                                        <button type="button" class="btn btn-primary" id="add_btn" onclick="AddLabor()">
+                                                        <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddLabor()">
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </div>
@@ -565,7 +565,7 @@
             let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);                    
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
                    
                 })
 

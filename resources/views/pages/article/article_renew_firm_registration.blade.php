@@ -339,7 +339,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p class="ml-2" style="font-weight:bold" align="left">Certificate</p>
+                                                            <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
                                                         
@@ -583,13 +583,13 @@
 
             $("#student_info_id").val(student_reg[lastest_row].student_info_id);
 
-            if(get_data == 1){
+            if(get_data == "c2_pass_renew"){
                 $("#all_first_row").css('display','none');
                 $("#renew_first_row").css('display','block');
                 $("#previous_papp_name_row").css('display','block');
                 $("#previous_papp_date_row").css('display','block');
                 document.getElementById('papp_name_label').innerHTML="၁၅။";
-            }else if(get_data == 2){
+            }else if(get_data == "c12_renew"){
                 $("#all_first_row").css('display','block');
             }
 
@@ -616,7 +616,7 @@
             let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);                    
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
                    
                 })
 
