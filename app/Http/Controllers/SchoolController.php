@@ -9,4 +9,7 @@ class SchoolController extends Controller
     public function info(){
         return view('pages.school.school_registration');
     }
+    public function edit(){
+        return view('pages.school.school_edit');
+    }
 }
