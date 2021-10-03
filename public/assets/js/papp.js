@@ -316,12 +316,13 @@ function loadPappData()
         success: function(data){
             // console.log(data)
             var papp_data = data.data;
-            // console.log(papp_data)
+            // console.log('papp_data',papp_data)
+            // $('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
-            $('#reg_no').val(papp_data.reg_no);
+            $('#reg_no').val(papp_data.cpa_batch_no);
         }
     });
 }

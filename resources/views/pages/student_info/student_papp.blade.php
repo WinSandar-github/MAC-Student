@@ -598,7 +598,7 @@
 
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="reg_no"  placeholder="Enter CPA(FF) Registeraion No.">
+                                        <input type="text"  class="form-control" name="reg_no"  id="cpa_batch_no" placeholder="Enter CPA(FF) Registeraion No.">
                                     </div>
                                 </div><br/><br>
 
@@ -755,6 +755,7 @@
    loadCpaffData();
    isLoginPAPP();
    Papp_feedback();
+   loadCpaffInitialData();
 
    $(".degree_pass_year").flatpickr({
             enableTime: false,
