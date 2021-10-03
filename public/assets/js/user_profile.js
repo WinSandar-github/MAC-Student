@@ -8,12 +8,13 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
-
+            console.log("data >>>",data);
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
+                //console.log("acc_firm >>>",acc_firm);
                 let firm_ownerships_audits = data.firm_ownerships_audits;
                 console.log("firm_ownerships_audits >>>>", firm_ownerships_audits);
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
@@ -22,6 +23,11 @@ function user_profile() {
                     + " City, " + acc_firm.state_region + " State,");
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
+
+                if(acc_firm.remark != ''){
+                  $('#reject_remark_box').css("display","block");
+                  $('.reject_remark').text(acc_firm.remark);
+                }
 
                 if (acc_firm.audit_firm_type_id == 1) {
                     // if audit firm type
@@ -684,8 +690,8 @@ function user_profile() {
                                                                                                 <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=1" class="dropdown-item">Selfstudy</a>
                                                                                                 <a href="${FRONTEND_URL + form_url}${batch.id}?study_type=2" class="dropdown-item">Private School</a>
                                                                                             </div>
-                                                                                        </span>   
-                                                                                        
+                                                                                        </span>
+
                                                                                         </td>
                                                                                     </td>
                                                                                 </tr>
@@ -1021,7 +1027,7 @@ function user_profile() {
 
                                                                     $('.status').append(`
                                                                         <tr><td colspan=2></td><td>Action</td>
-                                                                            <td>   
+                                                                            <td>
                                                                                 <span class="nav-item dropdown ">
                                                                                     <a href="#" class="nav-link dropdown-toggle bg-success text-white" data-toggle="dropdown">Registration for<br> ${next_batch[0].course.name}</a>
                                                                                     <div class="dropdown-menu">
@@ -1029,7 +1035,7 @@ function user_profile() {
                                                                                         <a href="${FRONTEND_URL + register_url}?study_type=1" class="dropdown-item">Selfstudy</a>
                                                                                         <a href="${FRONTEND_URL + register_url}?study_type=2" class="dropdown-item">Private School</a>
                                                                                     </div>
-                                                                                </span>    
+                                                                                </span>
                                                                             <td>
                                                                         </td>
                                                                         </tr>
@@ -1492,7 +1498,7 @@ function user_profile() {
                         let article = data.article;
                         article.forEach(function(element){
                             article_form_type = element.article_form_type;
-                            
+
                             switch (article_form_type) {
                                 case 'c12':
                                     form_type = 'CPA I,II';
@@ -1542,7 +1548,7 @@ function user_profile() {
                         if(latest_article[0].contract_end_date != null){
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
-    
+
                             if(end_date.setHours(0,0,0,0) == today.setHours(0,0,0,0)  && latest_article[0].done_status == 0){
                                 if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form' disabled></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' disabled onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
@@ -1592,10 +1598,10 @@ function user_profile() {
                         });
 
                         if(latest_gov_article[0].contract_end_date != null){
-                            
+
                             var end_date = new Date(latest_gov_article[0].contract_end_date);
                             var today = new Date();
-    
+
                             if(end_date.setHours(0,0,0,0) == today.setHours(0,0,0,0) && latest_gov_article[0].done_status == 0){
                                 if(latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0){
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form' disabled></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' disabled onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
@@ -1756,13 +1762,13 @@ function isEmpty(obj) {
 
 function saveDoneForm(id){
     var done_form = $("input[name=done_form]")[0].files[0];
-    
+
     if(done_form != undefined){
 
         var data = new FormData();
         data.append('id', id);
         data.append('done_form', done_form);
-        
+
         show_loader();
         $.ajax({
             type: "POST",
@@ -1786,18 +1792,18 @@ function saveDoneForm(id){
         $("input[name=done_form]").css('border', '1px solid red');
         alert("Please Fill Attachment File");
     }
-    
+
 }
 
 function saveGovDoneForm(id){
     var done_form = $("input[name=gov_done_form]")[0].files[0];
-    
+
     if(done_form != undefined){
 
         var data = new FormData();
         data.append('id', id);
         data.append('done_form', done_form);
-        
+
         show_loader();
         $.ajax({
             type: "POST",
@@ -1821,5 +1827,5 @@ function saveGovDoneForm(id){
         $("input[name=gov_done_form]").css('border', '1px solid red');
         alert("Please Fill Attachment File");
     }
-    
+
 }
