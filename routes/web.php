@@ -136,6 +136,9 @@ Route::get('school_register', 'SchoolController@info');
 // School Information Page
 Route::get('school_information', 'SchoolInfoController@info');
 
+//School edit Form
+Route::get('school_edit', 'SchoolController@edit');
+
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
 
@@ -153,6 +156,7 @@ Route::get('article_gov_registration', 'ArticleController@articleGov');
 Route::get('article_firm_registration', 'ArticleController@articleFirm');
 Route::get('article_renew_firm_registration', 'ArticleController@articleRenewFirm');
 Route::get('article_qt_firm_registration', 'ArticleController@articleQTFirm');
+Route::get('article_resign_registration', 'ArticleController@articleResign');
 
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');
