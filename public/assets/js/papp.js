@@ -484,7 +484,8 @@ function loadPAPP(){
 
                         }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                             $("#message").val("Your registeration will start in "+y+" year!");
-                            $('.renew_submit').prop('disabled', true);
+                            // $('.renew_submit').prop('disabled', true);
+                            $('.renew_submit').prop('disabled', false);
                         }else{
                             $('#message').val("You are verified!");
                             $('.renew_submit').prop('disabled', true);
