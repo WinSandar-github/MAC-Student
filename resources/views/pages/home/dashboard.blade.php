@@ -160,7 +160,7 @@
                                 </div>
 
 
-                                {{-- 
+                                {{--
                                     <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
@@ -168,7 +168,7 @@
                                         <div class="col-md-6">
                                             <span id="exam_date"></span>
                                         </div>
-                                    </div> 
+                                    </div>
                                 --}}
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
@@ -331,7 +331,7 @@
                                                 <tbody class="course">
                                                 </tbody>
                                             </table>
-                                        </div>   
+                                        </div>
                                     </div>
                                 <div class="col-md-8">
                                     <h5 class="text-center border-bottom pb-2"
@@ -352,8 +352,8 @@
                                     </div>
                                 </div>
                         </div>
+                        </div>
                     </div>
-
                     <div class="acc_firm">
                         <div class="row">
 
@@ -400,6 +400,7 @@
                                         <span class="text-start phone"></span>
                                     </div>
                                 </div>
+
                                 <div id="info_for_audit" style="display:none;">
                                   <div class="row mt-3 border-bottom">
                                       <div class="col-md-6">
@@ -449,6 +450,15 @@
                             <div class="text-center status_history">
 
                             </div>
+                        </div>
+                        <div id="reject_remark_box" style="display:none;">
+                          <div class="row my-2">
+                            <h5 class="text-center border-bottom pb-2"
+                                style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
+                            <div class="text-center reject_remark">
+
+                            </div>
+                          </div>
                         </div>
 
                     </div>
@@ -596,23 +606,22 @@
                         </div>
 
                     </div>
+                      <div class="row renew-btn" style="display:none;">
+                          <div class="col-md-6"></div>
+                          <div class="">
+                                      <div class=" pull-right mt-4">
+                              <p class="info-btn text-dark h6">
 
-                    <div class="row renew-btn" style="display:none;">
-                        <div class="col-md-6"></div>
-                        <div class="">
-                                    <div class=" pull-right mt-4">
-                            <p class="info-btn text-dark h6">
+                                  <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                              </p>
 
-                                <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
-                            </p>
-
-                        </div>
+                          </div>
+                      </div>
+                      </div>
                     </div>
-                </div>
-            </div>
 
             <!-- cpaff other dashboard -->
-            <div class="cpaff_other">
+                  <div class="cpaff_other">
                 <div class="row">
 
                     <div class="col-md-8 offset-md-2">
@@ -680,11 +689,11 @@
 
             </div>
             <!-- end cpaff other dashboard -->
-        </div>
+              {{-- </div> --}}
+            </div>
+          </div>
+      </div>
     </div>
-</div>
-
-
 <!-- update profile -->
 <div class="modal fade" id="profileModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -715,7 +724,7 @@
                                 </div>
                                 <br>
 
-                                {{-- 
+                                {{--
                                     <div class="row">
                                             <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                             <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
@@ -735,7 +744,7 @@
                                                         class="form-control" ="">
                                             </div>
                                         </div>
-                                    <br> 
+                                    <br>
                                 --}}
                                 <div class="row">
 

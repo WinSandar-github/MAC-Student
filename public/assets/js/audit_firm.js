@@ -145,11 +145,9 @@ function createAuditFirm(){
   //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
 
   var t_s_p_id_val = new Array();
-        $('input[name=t_s_p_id]:checked').each(function(i){
-          t_s_p_id_val.push(this.value);
-
-        });
-  send_data.append('t_s_p_id[]',t_s_p_id_val);
+  $('input[name=t_s_p_id]:checked').each(function(i){
+    send_data.append('t_s_p_id[]',this.value);
+  });
 
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
@@ -172,7 +170,10 @@ function createAuditFirm(){
   $('input[name="foa_pub_pri_reg_no[]"]').map(function(){send_data.append("foa_pub_pri_reg_no[]",$(this).val());});
   $('input[name="fona_name[]"]').map(function(){send_data.append("fona_name[]",$(this).val());});
   $('input[name="fona_pass_csc_inco[]"]').map(function(){send_data.append("fona_pass_csc_inco[]",$(this).val());});
-  $("input[id=report_yes]").map(function(){send_data.append('foa_authority_to_sign[]',$(this).val());});
+  $("input[class=report_yes]:checked").map(function(){send_data.append('foa_authority_to_sign[]',$(this).val());});
+  //$('input[name="foa_authority_to_sign[]"]:checked').map(function(){send_data.append("foa_authority_to_sign[]",$(this).val());});
+  //send_data.append('foa_authority_to_sign',$('input[name="foa_authority_to_sign[]"]:checked').val());
+
   $('input[name="do_name[]"]').map(function(){send_data.append("do_name[]",$(this).val());});
   $('input[name="do_position[]"]').map(function(){send_data.append("do_position[]",$(this).val());});
   $('input[name="do_cpa_reg_no[]"]').map(function(){send_data.append("do_cpa_reg_no[]",$(this).val());});
