@@ -1139,12 +1139,8 @@
                                                         <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
                                                     </div>
                                                 </div>
-                                                </div>
-                                                <div class="form-check-radio px-0">
-                                                    <label  class="error attend_place_error" style="display:none;" for="module">Please select one</label>
-                                                </div>
-                                           
                                         </div>
+                                                
                                         <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">

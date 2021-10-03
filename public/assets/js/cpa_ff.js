@@ -279,7 +279,7 @@ function loadCpaffData() {
         success: function (data) {
             // console.log(data)
             var cpaff_data = data.data;
-            // console.log(cpaff_data)
+            console.log('cpaff_data',cpaff_data)
             $('#name_mm').val(cpaff_data.name_mm);
             $('#name_eng').val(cpaff_data.name_eng);
             $('#nrc_state_region').val(cpaff_data.nrc_state_region);

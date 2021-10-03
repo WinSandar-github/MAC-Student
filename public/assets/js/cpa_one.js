@@ -144,16 +144,16 @@ function Self_Study_Submit() {
         data: data,
         contentType: false,
         processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            if (result.message == undefined) {
-
+        success: function (result) {            
+            if (result.message == undefined) {    
+                EasyLoading.hide();            
+                location.href = FRONTEND_URL + '/';
                 successMessage(result);
-                location.href = FRONTEND_URL + '/';
             }
-            else {
-                successMessage(result.message);
+            else {      
+                EasyLoading.hide();          
                 location.href = FRONTEND_URL + '/';
+                successMessage(result.message);
             }
         },
         error: function (message) {

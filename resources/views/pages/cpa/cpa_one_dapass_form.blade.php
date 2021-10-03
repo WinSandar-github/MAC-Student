@@ -846,7 +846,7 @@
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-M-Y",
+                dateFormat: "M-Y",
                 allowInput:true,
         });
 
