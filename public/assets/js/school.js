@@ -60,7 +60,7 @@ function checkPaymentSchool(){
     
     if(student!=null){
       $.ajax({
-        url: BACKEND_URL+"/check_payment_school/"+student.id,
+        url: BACKEND_URL+"/check_payment_school/"+student.school_id,
         type: 'GET',
         success: function(data){
             // console.log(data);
@@ -845,7 +845,7 @@ function loadTeacherById(row){
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[2].children[0].readOnly = true;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].value=value.nrc_state_region+'/'+value.nrc_township+'/'+value.nrc_number;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].readOnly = true;
-          loadEductaionHistoryByTeacher(value.student_info.id,row);
+          loadEductaionHistoryByTeacher(value.id,row);
           
           if(value.certificates.search(/[\'"[\]']+/g)==0){
             loadCertificates(value.certificates.replace(/[\'"[\]']+/g, ''),row);
@@ -869,12 +869,13 @@ function loadTeacherById(row){
     }
   });
 }
-function loadEductaionHistoryByTeacher(student_info_id,row){
+function loadEductaionHistoryByTeacher(id,row){
   var education=[];
   
   $.ajax({
-    type : 'GET',
-    url : BACKEND_URL+"/getEducationHistory/"+student_info_id,
+    type : 'POST',
+    url : BACKEND_URL+"/getEducationHistory",
+    data: 'teacher_id='+id,
     success: function(result){
         $.each(result.data, function( index, value ) {
           
@@ -904,10 +905,11 @@ function loadCertificates(name,row){
         data: 'subject_id='+id,
         type: 'post',
         success: function (result) {
-            $.each(result.data, function( index, value ){
-                   
+            $.each(result.group_data, function( index, value ){
+                        var newcode=index.split('_');
+                        var course_code=convert(newcode[1]);
                         $.each(value, function(key, val){
-                          subject.push(index.toUpperCase().replace("_", " ")+":"+val.subject_name);
+                          subject.push(newcode[0].toUpperCase()+' '+course_code+":"+val.subject_name);
                           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].value=subject.join();
                           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].readOnly = true;
                         });
