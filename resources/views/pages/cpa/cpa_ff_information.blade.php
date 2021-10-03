@@ -120,7 +120,7 @@
 																<ul>
 																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
 																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='yearly-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
 																		<div class="row register-btn">
@@ -173,7 +173,7 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <center>
-                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(FF) Registeration Form Fee - ****** MMK</h4>
+                                <h4 style="margin-bottom:5%;">Certified Public Accountant(Full-fledged)-CPA(Full Fledged) Registeration Form Fee - ****** MMK</h4>
                             </center>
                             <div class="col-sm-3 col-5">
                                 <center>
@@ -601,7 +601,7 @@ $('#file').change(function(e) {
 })
         
         form_feedback();
-        loadDescription('CPA (Full Fluged)');
+        loadDescription('CPA (Full-Fledged)');
         checkPaymentCpaff();
         loadCpaffData();
         loadCpaffInitialData();

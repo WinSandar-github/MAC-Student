@@ -105,7 +105,7 @@
                                                 <ul>
                                                         <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='yearly-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
                                                         <div class="pull-right mt-4">
