@@ -299,7 +299,7 @@ function loadRenewTeacher(){
                               $('#hschool_name').val(teacher.school_name);
                               $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                               $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                              loadEductaionHistory(teacher.student_info.id,'.tbl_degree_body');
+                              loadEductaionHistory(teacher.id,'.tbl_degree_body');
                                 if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                     loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
                                     loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
@@ -472,22 +472,23 @@ function selectSchoolType(value){
         $('.private_type').css('display','none');
     }
 }
-function loadEductaionHistory(student_info_id,tbody){
+function loadEductaionHistory(id,tbody){
     $.ajax({
-      type : 'GET',
-      url : BACKEND_URL+"/getEducationHistory/"+student_info_id,
-      success: function(result){
-          $.each(result.data, function( index, value ) {
-            
-              var tr = "<tr>";
-              tr += `<td class="less-font-weight text-center"> ${ index += 1 } </td>`;
-              tr += `<td> ${ value.university_name } </td>`;
-              tr += `<td><a href='${BASE_URL+value.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a></td>`;
-              tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-              tr += "</tr>";
-              $(tbody).append(tr);
-          });
-      }
+        type : 'POST',
+        url : BACKEND_URL+"/getEducationHistory",
+        data: 'teacher_id='+id,
+        success: function(result){
+            $.each(result.data, function( index, value ) {
+                
+                var tr = "<tr>";
+                tr += `<td class="less-font-weight text-center"> ${ index += 1 } </td>`;
+                tr += `<td> ${ value.university_name } </td>`;
+                tr += `<td><a href='${BASE_URL+value.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a></td>`;
+                tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
+                tr += "</tr>";
+                $(tbody).append(tr);
+            });
+        }
     });
 }
 function loadCertificates(name,select){
@@ -576,7 +577,7 @@ function updateTeacher(){
                               $('#hschool_name').val(teacher.school_name);
                               $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                               $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                              loadEductaionHistory(student.id,'.tbl_degree_update_body');
+                              loadEductaionHistory(teacher.id,'.tbl_degree_update_body');
                                 if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                     loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
                                     loadSubject(2,"selected_cpa_subject_up");

@@ -1,5 +1,5 @@
 $().ready(function (){
-    $("#article_register_form").validate({
+    $("#article_resign_register_form").validate({
         rules:{
             // name_mm : "required",
             // name_eng : "required",
@@ -20,26 +20,12 @@ $().ready(function (){
             // date_of_birth : "required",
             // education : "required",
             // address : "required",
-            current_address : "required",
             phone_no : "required",
             m_email : "required",
-            papp_name : "required",
-            pass_date : "required",
-            pass_no : "required",
-            current_job : "required",
-            position : {
-                required : "#current_job_yes:checked"
-            },
-            job_started_date : {
-                required : "#current_job_yes:checked"
-            },
-            experience : "required",
-            experience_file : {
-                required : "#experience_yes:checked"
-            },
-            confirm_142 : "required",
-            mentor_declare : "required",
-            papp_attach : "required",
+            resign_date : "required",
+            resign_reason : "required",
+            resign_org : "required",
+            know_policy : "required",
         },
         messages:{
             // name_mm : "Please enter your name",
@@ -61,19 +47,12 @@ $().ready(function (){
             // date_of_birth : "Select your date of birth",
             // education : "Please enter your education",
             // address : "Please enter your address",
-            current_address : "Please enter your current address",
             phone_no : "Please enter your phone number",
             m_email : "Please enter your email",
-            papp_name : "Please enter your papp name",
-            current_job : "Please select one",
-            position : "Please enter your position",
-            job_started_date : "Please select your date",
-            pass_date : "Please select your pass exam date",
-            pass_no : "Please enter your pass exam number",
-            experience : "Please select one",
-            experience_file : "Please enter your attachment",
-            confirm_142 : "Please check one",
-            papp_attach : "Please enter your attachment",
+            resign_date : "Please enter your resign data",
+            resign_reason : "Please enter your reason",
+            resign_org : "Please enter your department or firm name",
+            know_policy : "Please check one",
         },
         
     });
