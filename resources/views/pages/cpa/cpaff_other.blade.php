@@ -301,7 +301,7 @@
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                    <label class="col-md-10 col-form-label">{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ)') }}</label>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label"></label>
