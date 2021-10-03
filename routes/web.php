@@ -153,6 +153,7 @@ Route::get('article_gov_registration', 'ArticleController@articleGov');
 Route::get('article_firm_registration', 'ArticleController@articleFirm');
 Route::get('article_renew_firm_registration', 'ArticleController@articleRenewFirm');
 Route::get('article_qt_firm_registration', 'ArticleController@articleQTFirm');
+Route::get('article_resign_registration', 'ArticleController@articleResign');
 
 // Article Information Page
 Route::get('article_information', 'ArticleInfoController@info');

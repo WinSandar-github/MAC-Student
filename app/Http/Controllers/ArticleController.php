@@ -21,4 +21,8 @@ class ArticleController extends Controller
     public function articleQTFirm(){
         return view('pages.article.article_qt_firm_registration');
     }
+
+    public function articleResign(){
+        return view('pages.article.article_resign_registration');
+    }
 }
