@@ -8,7 +8,7 @@ function user_profile() {
             EasyLoading.hide();
 
             let data = result.data;
-            console.log("data >>>",data);
+            
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
@@ -63,58 +63,15 @@ function user_profile() {
                 }
 
 
-            } else if (data.school) {
-                $('.title').text('School Information')
-                $('.school').show();
-                $('.cpff_other').hide();
-                let school = data.school;
-                localStorage.setItem("school_id", school.id);
-                $('#sch_name_mm').text(school.name_mm);
-                $('#sch_name_eng').text(school.name_eng);
-                $("#sch_nrc").text(school.nrc_state_region + "/" + school.nrc_township + "(" + school.nrc_citizen + ")" + school.nrc_number);
-                $("#sch_date_of_birth").text(school.date_of_birth);
-                $("#sch_email").text(school.email);
-                $('#sch_phone').text(school.phone);
-                if (school.approve_reject_status == 0) {
-                    $('.status_history').append('School Registration is checking.');
-                } else if (school.approve_reject_status == 1) {
-                    $('.status_history').append('School Registration is Approved.');
-                } else {
-                    $('.status_history').append('School Registration is Rejected.');
-                }
-            } else if (data.teacher) {
-                $('.title').text('Teacher Information')
-                $('.teacher').show();
-                $('.cpaff_other').hide();
-                let teacher = data.teacher;
-                localStorage.setItem("teacher_id", teacher.id);
-                $('#teacher_name_mm').text(teacher.name_mm);
-                $('#teacher_name_eng').text(teacher.name_eng);
-                $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-                // $("#sch_date_of_birth").text(teacher.date_of_birth);
-                // $("#sch_date_of_birth").hide();
-                $("#teacher_email").text(teacher.email);
-                $('#teacher_phone').text(teacher.phone);
-                if (teacher.approve_reject_status == 0) {
-                    $('.status_history').append('Teacher Registration is checking.');
-                } else if (teacher.approve_reject_status == 1) {
-                    $('.status_history').append('Teacher Registration is Approved.');
-                    $('.payment-btn').show();
-                } else {
-                    $('.status_history').append('Teacher Registration is Rejected.');
-                }
-                if (teacher.payment_method != null) {
-                    $('.period').show();
-                    var now = new Date();
-                    var period_date = teacher.renew_date.split('-');
-                    var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
-                    $('#period_time').text(period + " to 31-12-" + now.getFullYear());
-                    $('.renew-btn').show();
-                    $('.payment-btn').hide();
-                }
+            }else if (data.school && data.teacher.length==0) {
+                $('.dashboard_name').append('School ');
+                loadSchoolByDash(data.school);
+            } else if (data.teacher && data.school.length==0) {
+                $('.dashboard_name').append('Teacher ');
+                laodTeacherByDash(data.teacher);
 
-
-            } else if (data.cpa_ff && data.student_course_regs == '') {
+            } 
+            else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 let cpaff = data.cpa_ff;
@@ -181,7 +138,12 @@ function user_profile() {
                 } else {
                     $('.status_history').append('Mentor Registration is Rejected.');
                 }
-            } else {
+            }else if(data.school && data.teacher){
+                $('.dashboard_name').append('Teacher And School ');
+                laodTeacherByDash(data.teacher);
+                loadSchoolByDash(data.school);
+                
+            }else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
@@ -1828,4 +1790,80 @@ function saveGovDoneForm(id){
         alert("Please Fill Attachment File");
     }
 
+}
+function loadSchoolByDash(school){
+    
+    $('.school-title').text('School Information')
+    $('.school').show();
+    $('.cpaff_other').hide();
+    $('.da-card').hide();
+    localStorage.setItem("school_id", school.id);
+    $('#sch_name_mm').text(school.name_mm);
+    $('#sch_name_eng').text(school.name_eng);
+    $("#sch_nrc").text(school.nrc_state_region + "/" + school.nrc_township + "(" + school.nrc_citizen + ")" + school.nrc_number);
+    $("#sch_date_of_birth").text(school.date_of_birth);
+    $("#sch_email").text(school.email);
+    $('#sch_phone').text(school.phone);
+    if (school.approve_reject_status == 0) {
+        $('.sch_status_history').append('School Registration is checking.');
+    } else if (school.approve_reject_status == 1) {
+        $('.sch_status_history').append('School Registration is Approved.');
+        $('.sch_payment-btn').show();
+        $('.sch_payment-status').show();
+    } else {
+        $('.sch_status_history').append('School Registration is Rejected.');
+        $('.sch_reject-btn').show();
+        $('.sch_reject-reason').append(school.reason);
+    }
+    if (school.payment_method != null) {
+        $('.sch_period').show();
+        var now = new Date();
+        var period_date = school.renew_date.split('-');
+        var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
+        $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
+        $('.sch_renew-btn').show();
+        $('.sch_payment-status').show();
+        $('.sch_payment-btn').hide();
+        $(".sch_payment_status").text("Complete");
+    }else{
+        $(".sch_payment_status").text("Incomplete");
+    }
+}
+function laodTeacherByDash(teacher){
+    
+    $('.teacher-title').text('Teacher Information')
+    $('.teacher').show();
+    $('.cpaff_other').hide();
+    $('.da-card').hide();
+    localStorage.setItem("teacher_id", teacher.id);
+    $('#teacher_name_mm').text(teacher.name_mm);
+    $('#teacher_name_eng').text(teacher.name_eng);
+    $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
+    
+    $("#teacher_email").text(teacher.email);
+    $('#teacher_phone').text(teacher.phone);
+    if (teacher.approve_reject_status == 0) {
+        $('.teacher_status_history').append('Teacher Registration is checking.');
+    } else if (teacher.approve_reject_status == 1) {
+        $('.teacher_status_history').append('Teacher Registration is Approved.');
+        $('.teacher_payment-btn').show();
+        $('.teacher_payment-status').show();
+    } else {
+        $('.teacher_status_history').append('Teacher Registration is Rejected.');
+        $('.teacher_reject-btn').show();
+        $('.teacher_reject-reason').append(teacher.reason);
+    }
+    if (teacher.payment_method != null) {
+        $('.teacher_period').show();
+        var now = new Date();
+        var period_date = teacher.renew_date.split('-');
+        var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
+        $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+        $('.teacher_renew-btn').show();
+        $('.teacher_payment-status').show();
+        $('.teacher_payment-btn').hide();
+        $(".teacher_payment_status").text("Complete");
+    }else{
+        $(".teacher_payment_status").text("Incomplete");
+    }            
 }
