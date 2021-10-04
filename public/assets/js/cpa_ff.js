@@ -9,27 +9,58 @@ function ConfirmSubmit() {
 }
 
 function CheckPartTwo() {
-    var radio = document.getElementById("cpa_part_2_check");
-    if (radio.checked == true) {
-        $('.pass_batch_two').css('display', 'block');
-        $('.qt_pass').css('display', 'none');
+    var cpa_part_2 = document.getElementById("cpa_part_2_check");//qt_pass_check
+    var qt_pass = document.getElementById("qt_pass_check");
+    if (cpa_part_2.checked == true) {
+        $("input[name=cpa2_pass_date]").prop('disabled', false);
+        $("input[name=reg_no]").prop('disabled', false);
+        $("input[name=country]").prop('disabled', true);
+        $("input[name=government]").prop('disabled', true);
+        $("input[name=roll_no]").prop('disabled', true);
+        $("input[name=exam_year]").prop('disabled', true);
+        $("input[name=exam_month]").prop('disabled', true);
+        $("input[name=country]").val('');
+        $("input[name=government]").val('');
+        $("input[name=roll_no]").val('');
+        $("input[name=exam_year]").val('');
+        $("input[name=exam_month]").val('');
     }
-    else {
-        $('.pass_batch_two').css('display', 'none');
-        $('.qt_pass').css('display', 'none');
+    else if (qt_pass.checked == true) {
+        $("input[name=cpa2_pass_date]").prop('disabled', true);
+        $("input[name=reg_no]").prop('disabled', true);
+        $("input[name=country]").prop('disabled', false);
+        $("input[name=government]").prop('disabled', false);
+        $("input[name=roll_no]").prop('disabled', false);
+        $("input[name=roll_no]").prop('disabled', false);
+        $("input[name=exam_year]").prop('disabled', false);
+        $("input[name=exam_month]").prop('disabled', false);
+        $("input[name=cpa2_pass_date]").val('');
+        $("input[name=reg_no]").val('');
+    }
+    else{
+        $("input[name=cpa2_pass_date]").prop('disabled', true);
+        $("input[name=reg_no]").prop('disabled', true);
+        $("input[name=country]").prop('disabled', true);
+        $("input[name=government]").prop('disabled', true);
+        $("input[name=roll_no]").prop('disabled', true);
+        $("input[name=cpa2_pass_date]").val('');
+        $("input[name=reg_no]").val('');
+        $("input[name=country]").val('');
+        $("input[name=government]").val('');
+        $("input[name=roll_no]").val('');
     }
 }
 
 function CheckQTPass() {
-    var radio = document.getElementById("qt_pass_check");
-    if (radio.checked == true) {
-        $('.pass_batch_two').css('display', 'none');
-        $('.qt_pass').css('display', 'block');
-    }
-    else {
-        $('.pass_batch_two').css('display', 'none');
-        $('.qt_pass').css('display', 'none');
-    }
+    // var radio = document.getElementById("qt_pass_check");
+    // if (radio.checked == true) {
+    //     $('.pass_batch_two').css('display', 'none');
+    //     $('.qt_pass').css('display', 'block');
+    // }
+    // else {
+    //     $('.pass_batch_two').css('display', 'none');
+    //     $('.qt_pass').css('display', 'none');
+    // }
 }
 
 function getCPAEducation() {
@@ -74,33 +105,33 @@ function AddCPAFFDegree() {
     $("#edu").append(
         '<div class="row mb-2" id="degree' + count + '">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-4 col-auto">' +
+        '<div class="col-md-3 col-auto">' +
         '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>' +
         '</div>' +
-        '<div class="col-md-6 col-auto">' +
+        '<div class="col-md-7 col-auto">' +
         '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">' +
         '</div>' +
         '</div>' +
         '<div class="row mb-2" id="degree_year' + count + '">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-4 col-auto">' +
+        '<div class="col-md-3 col-auto">' +
         '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>' +
         '</div>' +
-        '<div class="col-md-6 col-auto">' +
+        '<div class="col-md-7 col-auto">' +
         '<input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">' +
         '</div>' +
         '</div>' +
 
         '<div class="row mb-4" id="edu' + count + '">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-4 col-auto">' +
+        '<div class="col-md-3 col-auto">' +
         '<label for="" class="col-form-labe"> Attached Certificate</label>' +
-        '</div>' +
-        '<div class="col-md-6">' +
+        '</div>' +'<div class="col-md-2 foreign_degree_file"></div>'+
+        '<div class="col-md-5">' +
         '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]" required="">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
-        '<button class="btn btn-danger" id="myLink" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
+        '<button class="btn btn-danger" id="myLink"  style="padding-left:5px;" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
         '<i class="fa fa-trash "></i>' +
         '</button>' +
         '</div>' +
@@ -277,9 +308,10 @@ function loadCpaffData() {
         type: 'get',
         data: "",
         success: function (data) {
+
             // console.log(data)
             var cpaff_data = data.data;
-            // console.log(cpaff_data)
+            // console.log('cpaff_data',cpaff_data)
             $('#name_mm').val(cpaff_data.name_mm);
             $('#name_eng').val(cpaff_data.name_eng);
             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
@@ -302,11 +334,47 @@ function loadCpaffInitialData() {
         success: function (data) {
             // console.log(data)
             var cpaff_data = data.data;
-            console.log(cpaff_data)
+            // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
+            console.log(cpaff_data.ra!=null || cpaff_data.ra!="null");
+            if(cpaff_data.ra!=null && cpaff_data.ra!="null"){
+                $('#ra_edu').attr('checked', true);
+                getCPAEducation();        
+                $(".ra_file").append("<a href='"+BASE_URL+cpaff_data.ra+"'  target='_blank'>View File</a><br/>");
+            }
+            else{
+                getCPAEducation();  
+                $(".ra_file").append("");
+            }
+            if(cpaff_data.cpa!=null && cpaff_data.cpa!="null"){
+                $('#cpa_edu').attr('checked', true);                
+                getCPAEducation();
+                $(".cpa_file").show();
+                $(".cpa_file").append("<a href='"+BASE_URL+cpaff_data.cpa+"'  target='_blank'>View File</a><br/>");
+            }
+            else{
+                getCPAEducation();  
+                $(".cpa_file").append("");
+            }
+            if(cpaff_data.foreign_degree!=null && cpaff_data.foreign_degree!="null"){
+                $('#education').attr('checked', true);
+                getCPAEducation();
+                let foreign_degree = JSON.parse(cpaff_data.foreign_degree);
+                let degree_name = JSON.parse(cpaff_data.degree_name);
+                let degree_pass_year = JSON.parse(cpaff_data.degree_pass_year);
+                for(let j=0;j<degree_name.length-1;j++){
+                    AddCPAFFDegree();
+                }
+                for(let i=0;i<degree_name.length;i++){
+                    $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+                    $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);  
+                    let a="<a href='"+BASE_URL+foreign_degree[i]+"'  target='_blank'>View File</a><br/>";
+                    $('.foreign_degree_file')[i].append(a);                   
+                }
+            }
         }
     });
 }
@@ -401,7 +469,7 @@ function createCPAFFRegister() {
     send_data.append('mpa_mem_card', mpa_mem_card);
     send_data.append('mpa_mem_card_back', mpa_mem_card_back);
     send_data.append('cpd_record', cpd_record);
-    // send_data.append('passport_image', passport_image);
+    send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('three_years_full', three_years_full);
     send_data.append('letter', letter);
 
@@ -448,7 +516,7 @@ function selectEntry() {
 
 function isLoginCPAFF() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    console.log(student)
+    // console.log(student)
     if (student == null) {
         // location.href = FRONTEND_URL + '/login';
         location.href = FRONTEND_URL + '/cpaff_other';
@@ -532,6 +600,10 @@ function form_feedback() {
             }
         });
     }
+    else{
+        $('.register-btn').css('display', 'none');
+        $('.payment-btn').css('display', 'none');
+    }
 }
 function loadCPAFF() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
@@ -598,7 +670,8 @@ function loadCPAFF() {
 
                         } else if ((now.getFullYear() == accept.getFullYear() && month == '10') || (now.getFullYear() == accept.getFullYear() && month == '11') || (now.getFullYear() == accept.getFullYear() && month == '12')) {
                             $("#message").val("Your registeration will start in " + now.getFullYear() + " year!");
-                            $('.renew_submit').prop('disabled', true);
+                            // $('.renew_submit').prop('disabled', true);
+                            $('.renew_submit').prop('disabled', false);
                         } else {
                             $('#message').val("You are verified!");
                             $('.renew_submit').prop('disabled', true);

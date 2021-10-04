@@ -397,7 +397,7 @@
                                                     <span class="recommend_letter"></span>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    <input type="file"  class="form-control" id="recommend_letter_private"  name="recommend_letter_private">
                                                 </div>
                                             </div>
                                         </div>
@@ -441,7 +441,7 @@
                                             </div>
                                         </div><br/>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" style="display: none;">
                                     <label class="col-md-4 col-form-label label">
                                         <span class="pull-left">{{ __('၁၈။') }}</span>
                                         <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
@@ -451,7 +451,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" style="display: none;">
                                     <label class="col-md-4 col-form-label label">
                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>အပိုင်း</label>
                                     <div class="col-md-8">
@@ -460,7 +460,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-4">
+                                <div class="row mb-4" style="display: none;">
                                     <label class="col-md-4 col-form-label label">
                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                     <div class="col-md-8">
@@ -469,9 +469,9 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-4 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၈။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
-                                                    <div class="row">
+                                                    <div class="row" style="padding-left:10px;">
                                                         <div class="col-md-4 form-check">
                                                             <input class="form-check-input module_one" type="radio"  name="module" value="1" id="module1" >
                                                             <label class="form-check-label">{{ __('Module-1') }}</label>
@@ -788,7 +788,7 @@
                                                     <span class="recommend_letter"></span>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                    <input type="file"  class="form-control" id="recommend_letter_self"  name="recommend_letter_self">
                                                 </div>
                                             </div>
                                         </div>
@@ -1008,7 +1008,7 @@
                                             </div>
                                         </div><br/>--}}
 
-                                        <div class="row mb-3">
+                                        <div class="row mb-3" style="display:none">
                                             <label class="col-md-4 col-form-label label">
                                                 <span class="pull-left">{{ __('၁၇။') }}</span>
                                                 <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
@@ -1018,7 +1018,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <div class="row mb-3" style="display:none">
                                             <label class="col-md-4 col-form-label label">
                                                 <span class="pull-left" style="padding-left: 113px;">{{ __('(ခ)') }}</span>အပိုင်း</label>
                                             <div class="col-md-8">
@@ -1027,7 +1027,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-4">
+                                        <div class="row mb-4" style="display:none">
                                             <label class="col-md-4 col-form-label label">
                                                         <span class="pull-left" style="padding-left: 113px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                             <div class="col-md-8">
@@ -1296,7 +1296,7 @@
                                                         <span class="recommend_letter"></span>
                                                     </div>
                                                     <div class="col-md-6"  id="degree_edu" >
-                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        <input type="file"  class="form-control" id="recommend_letter_mac"  name="recommend_letter_mac">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1317,7 +1317,7 @@
 
                                             
                                             <div class="row mb-3">
-                                                <label class="col-md-8 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>သင်တန်းကာလအတွင်း အောက်ပါအတိုင်း အလုပ်သင်ဆင်းလိုပါသည်-</label>
+                                                <label class="col-md-7 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>သင်တန်းကာလအတွင်း အောက်ပါအတိုင်း အလုပ်သင်ဆင်းလိုပါသည်-</label>
                                             </div>
 
                                             <div class="row mb-3">
@@ -1414,7 +1414,7 @@
                                             </div>--}}
 
                                             <div class="row mb-3">
-                                                <label class="col-md-5 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၇။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၇။') }}</span>ဖြေဆိုမည့် Module</label>
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-md-4 form-check">
@@ -1717,6 +1717,11 @@
                                                 $('.module_one').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
+                                if(last_exam[0].is_full_module == "1"){
+                                    $(".module_two").prop("checked", true);
+                                
+                                    $('.module_one').attr('disabled', true);
+                                    $('.module_full').attr('disabled', true);
 
                                             }
                                             else if(last_exam[0].is_full_module=="2"){
@@ -1724,6 +1729,11 @@
                                                 $('.module_two').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
+                                }
+                                else if(last_exam[0].is_full_module=="2"){
+                                    $(".module_one").prop("checked", true);
+                                    $('.module_two').attr('disabled', true);
+                                    $('.module_full').attr('disabled', true);
 
                 
                                             }
@@ -1736,6 +1746,8 @@
                                                 
                                             }
 
+                                    
+                                }
 
                                         
 

@@ -55,7 +55,7 @@ function get_cpa_course() {
 function CPA2_Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-
+    var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
@@ -66,6 +66,7 @@ function CPA2_Private_School_Submit() {
     data.append('part_no_private', $("input[id='part_no_private']").val());
     data.append('personal_no_private', $("input[id='personal_no_private']").val());
     data.append('module', $("input[type='radio'][name='module']:checked").val());
+    data.append('recommendation_letter',recommend_letter_private);
     data.append('type', 1);
     data.append('form_type', localStorage.getItem('course_id'));
     show_loader();
@@ -105,7 +106,7 @@ function CPA2_Private_School_Submit() {
 function CPA2_Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-
+    var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
@@ -117,7 +118,7 @@ function CPA2_Mac_Submit() {
     data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('mac_type', $("input[type='radio'][name='mac_type']:checked").val());
-
+    data.append('recommendation_letter',recommend_letter_mac);
     data.append('type', 2);
     data.append('form_type', localStorage.getItem('course_id'));
     show_loader();
@@ -156,7 +157,7 @@ function CPA2_Mac_Submit() {
 function CPA2_Self_Study_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-
+    var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
@@ -170,6 +171,7 @@ function CPA2_Self_Study_Submit() {
     data.append('personal_no_self', $("input[id='personal_no_self']").val());
     data.append('module', $("input[type='radio'][name='module']:checked").val());
     data.append('type', 0);
+    data.append('recommendation_letter',recommend_letter_self);
     data.append('form_type', localStorage.getItem('course_id'));
     show_loader();
     $.ajax({

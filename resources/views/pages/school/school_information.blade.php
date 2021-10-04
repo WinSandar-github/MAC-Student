@@ -43,9 +43,10 @@
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
                 <div class="status-reject" style="display:none">
-                    <div class="card text-white bg-dark mb-3">
+                    <div class="card text-danger bg-warning mb-3">
 
                         <div class="card-body">
+                            <p class='reject-reason'></p>
                             <p class="card-text reject">Your Registration Form need to prepare.Please update your form
                              </p>
                         </div>
@@ -112,13 +113,27 @@
                                                                         <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renew Yearly Fee</strong><span class='renew-yearly-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='reconnected-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='reconnected-fee'></li>
 																		<div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
                                                                                         <a href="{{url('school_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                        <div class="row update-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        <a href="{{url('school_edit')}}" class="btn btn-success btn-hover-dark" >Update</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -200,6 +215,7 @@
                 <div class="card border-success mb-3" id="school_renew_form" style="display:none;">
                     <div class="card-body p-4">
                             <div class="row mb-3">
+                                <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
                                 <h5 class="card-title text-center fw-bolder">ကျောင်းမှတ်ပုံတင်သက်တမ်းတိုးလျှောက်လွှာ</h5>
                             </div>
                             <div class="row mb-4">
@@ -213,44 +229,50 @@
 
                                     <div class="row mb-5">
                                         <label class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-                                        <label class="col-md-4 col-form-label label">{{ __('အီးမေးလ်') }}</label>
-                                        <div class="col-md-7">
-                                            <input type="email" name="email" class="form-control" disabled>
+                                        <label class="col-md-5 col-form-label label">{{ __('အီးမေးလ်') }}</label>
+                                        <div class="col-md-6">
+                                            <input type="email" name="email" class="form-control" readonly>
                                         </div>
                                     </div>
 
                                     <div class="row mb-5">
                                         <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                        <label class="col-md-4 col-form-label label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
-                                        <div class="col-md-7">
+                                        <label class="col-md-5 col-form-label label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' disabled>
+                                                    <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' readonly>
                                                 </div> 
                                                 <div class="col-md-6">
-                                                    <input type="text" name="name_eng" class="form-control"autocomplete='off' disabled>
+                                                    <input type="text" name="name_eng" class="form-control"autocomplete='off' readonly>
                                                                             
                                                 </div>
                                             </div>                  
                                         </div>
                                         
                                     </div>
-                                    <div class="row mb-5">
-                                        <label class="col-md-5 col-form-label text-end"><span
-                                                    class="pull-left">{{ __('၃။') }}</span>{{ __('အဘအမည်(မြန်မာ/အင်္ဂလိပ်)') }}
-                                        </label>
-                                        <div class="col-md-7">
+                                    <!-- Father Name -->
+                                    <div class="row mb-3">
+                                        <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                        <label class="col-md-5 col-form-label label">{{ __('အဘအမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" name="father_name_mm" id="father_name_mm"  class="form-control" autocomplete='off' disabled>
+                                                    <input type="text" name="father_name_mm" id="father_name_mm"
+                                                    readonly class="form-control"
+                                                            autocomplete='off'
+                                                            >
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="father_name_eng" class="form-control"  autocomplete='off' disabled>
-                                                   
+                                                    <input type="text" name="father_name_eng" class="form-control"
+                                                    readonly autocomplete='off' >
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Father Name -->
                                     
                                 </div>
                                 <div class="col-md-4 text-center">
@@ -259,7 +281,7 @@
                                             {{--User Photo--}}
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                         <div class="fileinput-new thumbnail img-circle shadow">
-                                                            <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewImg"
+                                                            <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" 
                                                                 alt="Upload Photo">
                                                         </div>
                                                         <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
@@ -281,13 +303,13 @@
                                 </div> 
                             </div>
                             <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">{{ __('၄။') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}
-                                            </label>
-                                            <div class="col-md-9">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၄။') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}
+                                </label>
+                                            <div class="col-md-8">
                                                 <div class="row">
                                                 <div class="col-md-2">
-                                                        <select class="form-control" name="nrc_state_region" id="nrc_state_region" disabled>
+                                                        <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
                                                         @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -296,7 +318,7 @@
                                                         </select>
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <select class="form-control" name="nrc_township" id="nrc_township" disabled>
+                                                        <select class="form-control" name="nrc_township" id="nrc_township" readonly>
                                                             @foreach($nrc_townships as $township)
                                                                 <option value="{{ $township['township_mm'] }}">
                                                                     {{ $township['township_mm'] }}
@@ -305,7 +327,7 @@
                                                         </select>
                                                 </div>
                                                 <div class="col-md-2 ">
-                                                    <select class="form-control" name="nrc_citizen" id="nrc_citizen"  disabled>
+                                                    <select class="form-control" name="nrc_citizen" id="nrc_citizen"  readonly>
                                                         @foreach($nrc_citizens as $citizen)
                                                             <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -314,16 +336,20 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-5 ">
-                                                    <input type="text" name="nrc_number" id="nrc_number"  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" disabled style="height: 38px" autocomplete='off'>
+                                                    <input type="text" name="nrc_number" id="nrc_number"  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" readonly style="height: 38px" autocomplete='off'>
                                                 </div>
                                                 </div>
                                             </div>
                             </div>
                             <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label">{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label">{{ __('') }}</label>
                                     <input type="hidden" id="hidden_nrc_front">
                                     <input type="hidden" id="hidden_nrc_back">
-                                    <div class="col-md-9">
+                                    <input type="hidden" id="school_id">
+                                    <input type="hidden" id="student_info_id">
+                                    <input type="hidden" id="branch_own_type_h">
+                                    <input type="hidden" id="hinitial_status" value="1">
+                                    <div class="col-md-8">
                                         
                                         <div class="row">
                                             <div class="col-md-6 ">
@@ -372,371 +398,447 @@
                                         </div>
                                     </div>
                             </div>
+                            
                             <div class="row mb-3">
                                     
-                                    <label class="col-md-3 col-form-label text-end"><span class="pull-left">{{ __('၅။') }}</span>{{ __('မွေးသက္ကရာဇ်') }}</label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-4 col-form-label text-end"><span class="pull-left">{{ __('၅။') }}</span>{{ __('မွေးသက္ကရာဇ်') }}</label>
+                                    <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="text" id="dob" name="dob"  class="form-control" autocomplete='off' disabled>
+                                            <input type="text" id="dob" name="dob"  class="form-control" autocomplete='off' readonly>
                                         </div>
                                     </div>
                             </div>
 
+                            
+                                      
                             <div class="row mb-3">
-                                    
-                                    <label class="col-md-3 col-form-label text-end"><span class="pull-left">{{ __('၆။') }}</span>{{ __('ပညာအရည်အချင်း') }}</label>
-                                    <div class="col-md-9">
-                                        <table class="table tbl_degree table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center" width="10%">စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="40%">တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ</th>
-                                                    <th class="less-font-weight text-center"  width="40%">Attached Certificate</th>
-                                                    <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_degree_body">
-
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                            </div>
-
-                            <div class="row mb-4">
-                                    <label class="col-md-3 col-form-label text-end">
-                                        <span class="pull-left">{{ __('၇။') }}</span>
-                                        {{ __('လုပ်ငန်းဖွဲ့စည်းမှုပုံစံကျောင်းကို အောက်ဖော်ပြပါလုပ်ငန်းဖွဲ့စည်းမှုပုံစံဖြင့်ဆောင်ရွက်ပါမည်(ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ရန်)') }}
-                                    </label>
-
-                                    <div class="col-sm-9 checkbox-radios">
-                                        <div class="form-check px-0">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                    value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' id='schoolတစ်ဦးတည်းပိုင်လုပ်ငန်း'>
-                                                <span class="form-check-sign"></span>
-                                                တစ်ဦးတည်းပိုင်လုပ်ငန်း
-                                            </label>
-                                        </div>
-                                        <div class="form-check px-0">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                    value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' id='schoolနိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း'>
-                                                <span class="form-check-sign"></span>
-                                                နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
-                                            </label>
-                                        </div>
-                                        <div class="form-check px-0">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                    value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်'  id='schoolတည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောလီမိတက်ကုမ္ပဏီ'>
-                                                <span class="form-check-sign"></span>
-                                                တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
-                                            </label>
-                                        </div>
-                                        <div class="form-check px-0">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" name="school_type[]"
-                                                    value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' id='schoolတည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း'>
-                                                <span class="form-check-sign"></span>
-                                                တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
-                                            </label>
-                                        </div>
-                                    </div>
-                            </div>
-                                           
-                            <div class="row mb-3">
-                                        <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">{{ __('၈။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                        <div class="col-md-8">
                                             <textarea type="text" name="address" style="resize:none;" class="form-control" autocomplete='off' ></textarea>
                                         
                                         </div>
                             </div>
 
                             <div class="row mb-3">
-                                        <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">{{ __('၉။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
-                                        <div class="col-md-9">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">{{ __('၇။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
+                                        <div class="col-md-8">
                                             <input type="text" name="phone" class="form-control"  autocomplete='off'>
                                         </div>
                                     
                             </div>
-                               
-                                <div class="row ">
-                                    <h5 class="p-4 fw-bolder">{{ __('သင်တန်းကျောင်းအချက်အလက်များ') }}</h5>
-                                </div>
-                                <div class="row mb-3">
-                                        <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">၁။</span>{{ __('ကျောင်းအမည်') }}</label>
-                                        <div class="col-md-9">
-                                        <div class="form-group">
-                                            <input type="text" name="school_name" class="form-control" autocomplete='off' >
-                                        </div>
+                            <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၈။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="regno" readonly>
+                                        
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                        <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">၂။</span>{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
-                                        <div class="col-md-9">
-                                            <select name="attend_course[]" id="attend_course"
-                                                    class="form-control multiple-attend-course" multiple="multiple" required
-                                                    style="width:100%">
-                                            </select>
-                                        </div>
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၉။</span>Applied Date</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="register_date" readonly>
+                                        
+                                    </div>
                                 </div>
                                 <div class="row mb-3">
-                                        <label class="col-md-3 col-form-label label"><span
-                                                    class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
-                                        <div class="col-md-9">
-                                        <textarea type="text" style="resize:none;" name="school_address" class="form-control" autocomplete='off' ></textarea>
-                                        </div>
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">၁၀။</span>Status</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="message" readonly>
+                                       
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-8 col-form-label label"><span
+                                                class="pull-left">၁၁။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+
                                     
                                 </div>
-                                <div class="row mb-3">
-
-                                    <label class="col-md-3 col-form-label label">ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</label>
-                                    <div class="col-md-9">
-                                        <div class="mb-3 col-auto">
-                                            <input type="file" id="" name="school_location_attach" class="form-control"
-                                                accept="image/*" >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
-
-                                    <div class="col-md-9">
-                                        
-                                        <div class="form-group">
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="own_type" id="private"
-                                                    value="private" onclick="ownTypeForm()"> ကိုယ်ပိုင်
-                                                
-                                            </div>
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="own_type" id="rent"
-                                                    value="rent" onclick="ownTypeForm()" > အငှား
-                                            </div>
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="own_type"
-                                                    id="use_sharing" value="use_sharing" onclick="ownTypeForm()" > တွဲဖက်သုံး
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div id="ownType_letter" style="display:none" >
-                                        <div class="row mb-3">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> ပိုင်ဆိုင်ကြောင်းထောက်ခံစာ</label>
-
-                                                <div class="col-md-9">
-                                                    <input type="file"  class="form-control" id="own_type_letter"  name="own_type_letter">
-                                                    
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                
-                                        <label class="col-md-4 col-form-label "><span
-                                                    class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
-                                    </div>
-                                    <div class="row mb-3">
-                                        
-                                        <div class="col-md-12">
-                                                <table class="table tbl_branch_school table-bordered input-table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="less-font-weight text-center"  >စဉ်</th>
-                                                            <th class="less-font-weight text-center"  width="60%">ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
-                                                            <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
-                                                            <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranchSchool("tbl_branch_school")'><li class="fa fa-plus"></li></button></td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="tbl_branch_school_body">
-
-                                                    </tboddy>
-                                                </table>
-                                        </div>
-                                    </div>
-                                
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">၆။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
-
-                                    <div class="col-md-9">
-                                        <div class="form-group">
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="branch_sch_own_type" id="private"
-                                                    value="private" onclick="branchSchForm()" required> ကိုယ်ပိုင်
-                                                
-                                            </div>
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="branch_sch_own_type" id="rent"
-                                                    value="rent" onclick="branchSchForm()" required> အငှား
-                                            </div>
-                                            <div class="form-check mt-2 form-check-inline">
-                                                <input class="form-check-input" type="radio" name="branch_sch_own_type"
-                                                    id="use_sharing" value="use_sharing" onclick="branchSchForm()" required> တွဲဖက်သုံး
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div id="branchSch_letter" style="display:none" >
-                                        <div class="row mb-3">
-                                                <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
-                                                <label for="" class="col-md-2 col-form-labe mt-1 label_align_right"> ပိုင်ဆိုင်ကြောင်းထောက်ခံစာ</label>
-
-                                                <div class="col-md-9">
-                                                    <input type="file"  class="form-control" id="branch_sch_letter"  name="branch_sch_letter" accept="image/*">
-                                                    
-                                                </div>
-                                        </div>
-                                    </div>
                                 <div class="row">
-                                    <h5 class="p-4 fw-bolder">{{ __('ပူးတွဲတင်ပြသည့်အထောက်အထားများ') }}</h5>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">(က)</span>{{ __('လုပ်ငန်းလိုင်စင်') }}</label>
-                                    <div class="col-md-9">
-                                    
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-8">
                                         
-                                            <div class="mb-1 col-auto">
-                                            
-                                                <input type="hidden" id="hidden_business_license">
-                                                <input type="file" id="business_license" name="business_license" class="form-control" accept="application/pdf"   />
-                                            
+                                        <div class="form-group">
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="form_type" value="form_type_one" onclick="formType(this)"> ကျောင်းပုံစံ-၁
+                                                
                                             </div>
-                                        
-                                        <div class="row">
-                                            <div class="mb-1 col-auto view_business_license"></div>
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="form_type" value="form_type_two" onclick="formType(this)" > ကျောင်းပုံစံ-၂
+                                            </div>
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="form_type" value="form_type_three" onclick="formType(this)" > ကျောင်းပုံစံ-၃
+                                            </div>
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="form_type" value="form_type_four" onclick="formType(this)" > ကျောင်းပုံစံ-၄
+                                            </div>
+                                            <div class="form-check mt-2 form-check-inline">
+                                                <input class="form-check-input" type="radio" name="form_type" value="form_type_five" onclick="formType(this)" > ကျောင်းပုံစံ-၅
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">(ခ)</span>{{ __('ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်') }}</label>
-                                    <div class="col-md-9">
+                                <div class="form_type_one" style="display:none;">
+                                    <div class="row mb-3">
                                         
-                                        
-                                            <div class="mb-1 col-auto">
-                                            <input type="hidden" id="hidden_company_reg">
-                                                <input type="file" id="" name="company_reg" class="form-control" accept="application/pdf"   />
-                                            </div>
-                                        
-                                        <div class="row">
-                                            <div class="mb-1 col-auto view_company_reg"></div>
+                                        <label class="col-md-4 col-form-label text-end"><span class="pull-left">{{ __('၁။') }}</span>{{ __('ပညာအရည်အချင်း') }}</label>
+                                        <div class="col-md-8">
+                                            <table class="table tbl_degree table-bordered input-table">
+                                                <thead>
+                                                    <tr >
+                                                        <th class="less-font-weight text-center" width="10%">စဉ်</th>
+                                                        <th class="less-font-weight text-center"  width="40%">တက္ကသိုလ်/ဘွဲ့/ဒီပလိုမာ</th>
+                                                        <th class="less-font-weight text-center"  width="40%">Attached Certificate</th>
+                                                        <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowEducation("tbl_degree")'><li class="fa fa-plus"></li></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="tbl_degree_body">
+
+                                                </tbody>
+                                            </table>
+
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">(ဂ)</span>{{ __('အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}
-                                    </label>
-                                    <div class="col-md-9">
-                                        
-                                        
-                                            <div class="mb-1 col-auto">
-                                            <input type="hidden" id="hidden_org_reg_origin_and_copy">
-                                                <input type="file" id="" name="org_reg_origin_and_copy" class="form-control" accept="application/pdf"   />
-                                            </div>
-                                        
-                                        <div class="row">
-                                            <div class="mb-1 col-auto view_org_reg_origin"></div>
-                                        </div>
-                                    </div>
                                 </div>
 
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">(ဃ)</span>{{ __('ကောင်စီရုံးကထုတ်ပေးထားသည့်သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ') }}
-                                    </label>
-                                    <div class="col-md-9">
-                                        
-                                        <div class="col-md-12">
-                                            <div class="mb-1 col-auto">
-                                            <input type="hidden" id="hidden_teacher_reg_copy">
-                                                <input type="file" id="" name="teacher_reg_copy" class="form-control" accept="application/pdf"   />
+                                <div class="row mb-4">
+                                        <label class="col-md-4 col-form-label text-end">
+                                            <span class="pull-left">{{ __('၂။') }}</span>
+                                            {{ __('လုပ်ငန်းဖွဲ့စည်းမှုပုံစံကျောင်းကို အောက်ဖော်ပြပါလုပ်ငန်းဖွဲ့စည်းမှုပုံစံဖြင့်ဆောင်ရွက်ပါမည်(ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ရန်)') }}
+                                        </label>
+
+                                        <input type="hidden" id="hidden_school_type">
+
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-check mt-2 form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="school_type" id="school_type1"
+                                                            value='PCS' onclick="origanzationCheck(this)"> တစ်ဦးတည်းပိုင်လုပ်ငန်း
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-check mt-2 form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="school_type" id="school_type2"
+                                                            value='PCP' onclick="origanzationCheck(this)"> နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-check mt-2 form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="school_type" id="school_type3"
+                                                            value='PCC' onclick="origanzationCheck(this)"> တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-check mt-2 form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="school_type" id="school_type4"
+                                                            value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
+                                                        
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3 col-auto view_teacher_reg"></div>
                                     </div>
                                 </div>
-                                
-                                <div class="row mb-5">
-                                    <label class="col-md-3 col-form-label"><span
-                                                class="pull-left">(င)</span>{{ __('ကျောင်းတည်ထောင်ခြင်းအတွက်ရွေးချယ်ထားသည့်လုပ်ငန်းဖွဲ့စည်းမှုပုံစံအရပူးတွဲတင်ပြရမည့်အထောက်အထားများ(အစုအစပ်သဘောတူညီချက်/သင်းဖွဲ့စည်းမျဉ်း/သင်းဖွဲ့မှတ်တမ်း၊ဉပဒေနှင့်အညီရေးဆွဲပြုစုထားသောအခြားစာချုပ်စာတမ်းများ)') }}
+                            
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span
+                                                class="pull-left">{{ __('၃။') }}</span>{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}
                                     </label>
-                                    <div class="col-md-9">
-                                        <div class="mb-3 col-auto">
+                                    <div class="col-md-8">
+
+                                        <div class="controls1">
+                                            <div class="entry1">
+                                                <div class="row mb-3">
+                                                    <div class="col-md-11 col-auto">
+                                                        <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" >
+
+                                                    </div>
+                                                    <div class="col-md-1 col-auto">
+                                                        <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls1","entry1")'>
+                                                            <li class="fa fa-plus"></li>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4"></div>
+                                    <input type="hidden" id="hidden_attachment">
+                                    <div class="col-md-8 view_attachment"></div>
+                                </div>
+                                    <div class="row ">
+                                        <h5 class="p-4 fw-bolder">{{ __('သင်တန်းကျောင်းအချက်အလက်များ') }}</h5>
+                                    </div>
+                                    <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span
+                                                        class="pull-left">၁။</span>{{ __('ကျောင်းအမည်') }}</label>
+                                            <div class="col-md-8">
+                                            <div class="form-group">
+                                                <input type="text" name="school_name" class="form-control" autocomplete='off' >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span
+                                                        class="pull-left">၂။</span>{{ __('သင်ကြားမည့်သင်တန်း') }}</label>
+                                            <div class="col-md-8">
+                                                <select name="attend_course[]" id="attend_course"
+                                                        class="form-control multiple-attend-course" multiple="multiple" 
+                                                        style="width:100%">
+                                                </select>
+                                            </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span
+                                                        class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
+                                            <div class="col-md-8">
+                                            <textarea type="text" style="resize:none;" name="school_address" class="form-control" autocomplete='off' ></textarea>
+                                            </div>
+                                        
+                                    </div>
+                                    <div class="row mb-3">
+
+                                        <label class="col-md-4 col-form-label label">ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</label>
+                                        <div class="col-md-8">
+                                            <div class="mb-3 col-auto">
+                                                <input type="file" id="" name="school_location_attach" class="form-control"
+                                                    accept="image/*" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4"></div>
+                                        <input type="hidden" id="hidden_school_location_attach">
+                                        <div class="col-md-8 view_school_location_attach">
+
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
+
+                                        <div class="col-md-8">
+                                            
+                                            <div class="form-group">
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="own_type" id="private"
+                                                        value="private" onclick="ownTypeForm()"> ကိုယ်ပိုင်
+                                                    
+                                                </div>
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="own_type" id="rent"
+                                                        value="rent" onclick="ownTypeForm()" > အငှား
+                                                </div>
+                                                <div class="form-check mt-2 form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="own_type"
+                                                        id="use_sharing" value="use_sharing" onclick="ownTypeForm()" > တွဲဖက်သုံး
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ownType_letter">
+                                            <div class="row mb-3">
+                                                    <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
+                                                    <label for="" class="col-md-3 col-form-labe mt-1 label_align_right"> သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</label>
+
+                                                    <div class="col-md-8">
+                                                        
+                                                        
+
+                                                            <div class="controls3">
+                                                                <div class="entry3">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" >
+
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls3","entry3")'>
+                                                                                <li class="fa fa-plus"></li>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                    </div>
+                                            </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                            <div class="col-md-4"></div>
+                                            <input type="hidden" id="hidden_own_type_letter">
+                                            <div class="col-md-8 view_ownType_letter">
+
+                                            </div>
+                                    </div>
+                                        
+                                        <div class="row mb-3">
+
+                                            <label class="col-md-4 col-form-label label"><span
+                                                        class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
+                                                    <table class="table tbl_branch_school table-bordered text-nowrap" id="tbl_branch_school">
+                                                        <thead class="text-nowrap">
+                                                            <tr>
+                                                                <th class="less-font-weight text-center"  >စဉ်</th>
+                                                                <th class="less-font-weight text-center" >ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
+                                                                <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
+                                                                <th class="less-font-weight text-center"  >ပိုင်ဆိုင်မှုပုံစံ</th>
+                                                                <th class="less-font-weight text-center" >သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</th>
+                                                                <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranchSchool("tbl_branch_school")'><li class="fa fa-plus"></li></button></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="tbl_branch_school_body">
+
+                                                        </tboddy>
+                                                    </table>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                        <h5 class="p-4 fw-bolder">{{ __('ပူးတွဲတင်ပြသည့်အထောက်အထားများ') }}</h5>
+                                    </div>
+                                    {{--လုပ်ငန်းလိုင်စင်--}}
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span
+                                                    class="pull-left">(က)</span>{{ __('လုပ်ငန်းလိုင်စင်/ကုမ္ပဏီမှတ်ပုံတင်လက်မှတ်/အဖွဲ့အစည်း၏မှတ်ပုံတင်လက်မှတ်မူရင်းနှင့်မိတ္တူ') }}</label>
+                                        <div class="col-md-8">
+
+                                            <div class="controls2">
+                                                <div class="entry2">
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-11 col-auto">
+                                                            <input type="file" class="form-control" id="business_license" name="business_license[]" accept="image/*" >
+
+                                                        </div>
+                                                        <div class="col-md-1 col-auto">
+                                                            <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls2","entry2")'>
+                                                                <li class="fa fa-plus"></li>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                            <div class="col-md-4"></div>
+                                            <input type="hidden" id="hidden_business_license">
+                                            <div class="col-md-8 view_business_license">
+
+                                            </div>
+                                    </div>
+                                    {{--လုပ်ငန်းလိုင်စင်--}}
+                                    <div class="row">
+                                        <label class="col-md-4 col-form-label"><span
+                                                    class="pull-left">(ခ)</span>{{ __('ကျောင်းတည်ထောင်ခြင်းအတွက်ရွေးချယ်ထားသည့်လုပ်ငန်းဖွဲ့စည်းမှုပုံစံအရပူးတွဲတင်ပြရမည့်အထောက်အထားများ(အစုအစပ်သဘောတူညီချက်/သင်းဖွဲ့စည်းမျဉ်း/သင်းဖွဲ့မှတ်တမ်း၊ဉပဒေနှင့်အညီရေးဆွဲပြုစုထားသောအခြားစာချုပ်စာတမ်းများ)') }}
+                                        </label>
+                                        <div class="col-md-8">
+
+                                            <div class="controls7">
+                                                <div class="entry7">
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-11 col-auto">
+                                                            <input type="file" class="form-control" id="sch_establish_notes_attach" name="sch_establish_notes_attach[]" accept="image/*" >
+
+                                                        </div>
+                                                        <div class="col-md-1 col-auto">
+                                                            <button class="btn btn-success btn-sm btn-plus btn-add" type="button" onclick='addInputFile("controls7","entry7")'>
+                                                                <li class="fa fa-plus"></li>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-md-4"></div>
                                         <input type="hidden" id="hidden_sch_establish_notes_attach">
-                                            <input type="file" id="" name="sch_establish_notes_attach" class="form-control" accept="application/pdf"   />
-                                        </div>
-                                        <div class="col-auto view_sch_establish_notes_attach"></div>
+                                        <div class="col-md-8 view_sch_establish_notes_attach"></div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-10"></div>
-                                    <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၂</label>
-                                                    
-                                </div>
+                                <div class="form_type_two" style="display:none;">
+                                    <div class="row">
+                                        <div class="col-md-10"></div>
+                                        <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၂</label>
+                                                        
+                                    </div>
 
-                                <div class="row">
-                                    <h5 class="p-4 fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)နှင့်ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်') }}</h5>
-                                </div>
-                                
-                                <div class="row mb-3">
-                                        <label class="col-form-label fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)') }}</label>
+                                    <div class="row">
+                                        <h5 class="p-4 fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)နှင့်ကျောင်းစီမံအုပ်ချုပ်သူများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်') }}</h5>
+                                    </div>
+                                    
+                                    <div class="row mb-3">
+                                            <label class="col-form-label fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)') }}</label>
+                                            <div class="tbl-responsive">
+                                                    <table class="table tbl_sch_established_persons table-bordered input-table">
+                                                        <thead>
+                                                            <tr >
+                                                                <th class="less-font-weight text-center"  >စဉ်</th>
+                                                                <th class="less-font-weight text-center"  >အမည်</th>
+                                                                <th class="less-font-weight text-center"  >နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
+                                                                <th class="less-font-weight text-center"  >CPA(P)/CPA(FF)/PAPP No.</th>
+                                                                <th class="less-font-weight text-center"  >ပညာအရည်အချင်း</th>
+                                                                <th class="less-font-weight text-center"  >ဆက်သွယ်ရန်လိပ်စာ</th>
+                                                                <th class="less-font-weight text-center"  >ဖုန်းနံပါတ်</th>
+                                                                <th class="less-font-weight text-center"  >အီးမေးလ်</th>
+                                                                <th class="text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSchEstablishPerson("tbl_sch_established_persons")'><li class="fa fa-plus"></li></button></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="tbl_sch_established_persons_body">
+
+                                                        </tbody>
+                                                    </table>
+                                                
+                                            </div>
+                                    </div>
+                                    
+                                    <div class="row mb-5">
+                                        <label class="col-form-label fw-bolder">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ') }}</label>
                                         <div class="tbl-responsive">
-                                                <table class="table tbl_sch_established_persons table-bordered input-table">
-                                                    <thead>
-                                                        <tr >
-                                                            <th class="less-font-weight text-center"  >စဉ်</th>
-                                                            <th class="less-font-weight text-center"  >အမည်</th>
-                                                            <th class="less-font-weight text-center"  >နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
-                                                            <th class="less-font-weight text-center"  >CPA(P)/CPA(FF)/PAPP No.</th>
-                                                            <th class="less-font-weight text-center"  >ပညာအရည်အချင်း</th>
-                                                            <th class="less-font-weight text-center"  >ဆက်သွယ်ရန်လိပ်စာ</th>
-                                                            <th class="less-font-weight text-center"  >ဖုန်းနံပါတ်</th>
-                                                            <th class="less-font-weight text-center"  >အီးမေးလ်</th>
-                                                            <th class="text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSchEstablishPerson("tbl_sch_established_persons")'><li class="fa fa-plus"></li></button></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="tbl_sch_established_persons_body">
+                                            <table class="table tbl_sch_governs table-bordered input-table">
+                                                <thead>
+                                                    <tr >
+                                                        <th class="less-font-weight text-center"  >စဉ်</th>
+                                                        <th class="less-font-weight text-center"  >အမည်</th>
+                                                        <th class="less-font-weight text-center"  >နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
+                                                        <th class="less-font-weight text-center"  >CPA(P)/CPA(FF)/PAPP No.</th>
+                                                        <th class="less-font-weight text-center"  >ပညာအရည်အချင်း</th>
+                                                        <th class="less-font-weight text-center"  >တာဝန်</th>
+                                                        <th class="less-font-weight text-center"  >ဖုန်းနံပါတ်</th>
+                                                        <th class="less-font-weight text-center"  >အီးမေးလ်</th>
+                                                        <th class="text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSchGoverns("tbl_sch_governs")'><li class="fa fa-plus"></li></button></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="tbl_sch_governs_body">
 
-                                                    </tbody>
-                                                </table>
-                                            
+                                                </tbody>
+                                            </table>
+                                        
                                         </div>
-                                </div>
-                                
-                                <div class="row mb-5">
-                                    <label class="col-form-label fw-bolder">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ') }}</label>
-                                    <div class="tbl-responsive">
-                                        <table class="table tbl_sch_governs table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center"  >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  >အမည်</th>
-                                                    <th class="less-font-weight text-center"  >နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
-                                                    <th class="less-font-weight text-center"  >CPA(P)/CPA(FF)/PAPP No.</th>
-                                                    <th class="less-font-weight text-center"  >ပညာအရည်အချင်း</th>
-                                                    <th class="less-font-weight text-center"  >တာဝန်</th>
-                                                    <th class="less-font-weight text-center"  >ဖုန်းနံပါတ်</th>
-                                                    <th class="less-font-weight text-center"  >အီးမေးလ်</th>
-                                                    <th class="text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowSchGoverns("tbl_sch_governs")'><li class="fa fa-plus"></li></button></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_sch_governs_body">
-
-                                            </tbody>
-                                        </table>
-                                     
                                     </div>
                                 </div>
-                                <div class="origanzation">
+                                <div class="form_type_three" style="display:none;">
                                     <div class="row">
                                             <div class="col-md-10"></div>
                                             <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၃</label>
@@ -777,167 +879,153 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div class="row">
-                                    <div class="col-md-10"></div>
-                                    <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၄</label>
-                                                    
-                            </div>
-                                
-                                <div class="row mb-5">
-                                    <label class="col-md-11 col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
+                                <div class="form_type_four" style="display:none;">
+                                    <div class="row">
+                                            <div class="col-md-10"></div>
+                                            <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၄</label>
+                                                            
+                                    </div>
                                     
-                                      <div class="tbl-responsive">
-                                        <table class="table tbl_teacher_list_biography table-bordered input-table">
-                                            <thead>
-                                                <tr >
-                                                    <th class="less-font-weight text-center"  >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  >အမည်</th>
-                                                    <th class="less-font-weight text-center"  >နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
-                                                    <th class="less-font-weight text-center"  >သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
-                                                    <th class="less-font-weight text-center"  >ပညာအရည်အချင်း</th>
-                                                    <th class="less-font-weight text-center"  >သင်ကြားမည့်ဘာသာရပ်(များ)</th>
-                                                    <th class="less-font-weight text-center"  >ဖုန်းနံပါတ်</th>
-                                                    <th class="less-font-weight text-center"  >အီးမေးလ်</th>
-                                                    <th class="text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowTeacherBio("tbl_teacher_list_biography")'><li class="fa fa-plus"></li></button></th>
+                                    <input type="hidden" id="student_info_id" >
+                                    <div class="row mb-1">
+                                        <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
+                                        <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
+                                            <table class="table tbl_teacher_list_biography table-bordered input-table">
+                                                <thead class="text-nowrap">
+                                                <tr>
+                                                    <th class="less-font-weight text-center">စဉ်</th>
+                                                    <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</th>
+                                                    <th class="less-font-weight text-center">အမည်</th>
+                                                    <th class="less-font-weight text-center">နိုင်ငံသားစိစစ်ရေးကတ်အမှတ်</th>
+                                                    <th class="less-font-weight text-center">ပညာအရည်အချင်း</th>
+                                                    <th class="less-font-weight text-center">သင်ကြားမည့်ဘာသာရပ်(များ)</th>
+                                                    <th class="less-font-weight text-center">ဖုန်းနံပါတ်</th>
+                                                    <th class="less-font-weight text-center">အီးမေးလ်</th>
+                                                    <th class="less-font-weight text-center">သင်တန်းဆရာမှတ်ပုံတင်မိတ္တူများ</th>
+                                                    <th class="text-center">
+                                                        <button type="button" class="btn btn-success btn-sm btn-plus"
+                                                                onclick='addRowTeacherBio("tbl_teacher_list_biography")'>
+                                                            <li class="fa fa-plus"></li>
+                                                        </button>
+                                                    </th>
                                                 </tr>
-                                            </thead>
-                                            <tbody class="tbl_teacher_list_biography_body">
-
-                                            </tbody>
-                                        </table>
-                                      </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-10"></div>
-                                    <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၅</label>
-                                                    
-                                </div>
-                                <div class="row">
-                                    <h5 class="p-4 fw-bolder">{{ __('ကျောင်းအဆောက်အဦး၊စာသင်ခန်း၊သန့်စင်ခန်း၊စီမံရုံးခန်း') }}</h5>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-3 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('ကျောင်းအဆောက်အဦး') }}</label>
-                                </div>
-                                <div class="row mb-3">
-                                    
-                                            <table class="table tbl_bulding_type table-bordered input-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="less-font-weight text-center" >စဉ်</th>
-                                                        <th class="less-font-weight text-center" >အဆောက်အဦအမျိုးအစား</th>
-                                                        <th class="less-font-weight text-center" >အတိုင်းအတာ</th>
-                                                        <th class="less-font-weight text-center"  >အထပ်အရေအတွက်</th>
-                                                        <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
-                                                        <th  class="less-font-weight text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBuldingType("tbl_bulding_type")'><li class="fa fa-plus"></li></button></td>
-                                                    </tr>
                                                 </thead>
-                                                <tbody class="tbl_bulding_type_body">
+                                                <tbody class="tbl_teacher_list_biography_body" id="tbl_teacher_list_biography_body">
 
-                                                </tboddy>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form_type_five" style="display:none">
+                                    <div class="row">
+                                        <div class="col-md-10"></div>
+                                        <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၅</label>
+                                                        
+                                    </div>
+                                    <div class="row">
+                                        <h5 class="p-4 fw-bolder">{{ __('ကျောင်းအဆောက်အဦး၊စာသင်ခန်း၊သန့်စင်ခန်း၊စီမံရုံးခန်း') }}</h5>
+                                    </div>
+                                    <div class="row">
+                                    <label class="col-md-12 col-form-label fw-bolder"><span
+                                            class="pull-left">၁။</span>{{ __('ကျောင်းအဆောက်အဦ(အဆောက်အဦအမျိုးအစား၊အတိုင်းအတာ၊အထပ်အရေအတွက် စသည်)') }}</label>
+                                    </div>
+                                    <div class="row mb-3">
+                                        
+                                                <table class="table tbl_bulding_type table-bordered input-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="less-font-weight text-center" >စဉ်</th>
+                                                            <th class="less-font-weight text-center" >အဆောက်အဦအမျိုးအစား</th>
+                                                            <th class="less-font-weight text-center" >အတိုင်းအတာ</th>
+                                                            <th class="less-font-weight text-center"  >အထပ်အရေအတွက်</th>
+                                                            <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
+                                                            <th  class="less-font-weight text-center" ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBuldingType("tbl_bulding_type")'><li class="fa fa-plus"></li></button></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_bulding_type_body">
+
+                                                    </tboddy>
+                                                </table>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-12 col-form-label fw-bolder"><span
+                                                    class="pull-left">၂။</span>{{ __('စာသင်ခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ၊ဝင်ဆံ့သင်တန်းသား၊လေအေးပေးစက်)') }}</label>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        
+                                                <table class="table tbl_classroom table-bordered input-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="less-font-weight text-center" >စဉ်</th>
+                                                            <th class="less-font-weight text-center"  >အခန်းအရေအတွက်</th>
+                                                            <th class="less-font-weight text-center"  >အတိုင်းအတာ</th>
+                                                            <th class="less-font-weight text-center"  >ဝင်ဆံ့သင်တန်းသား</th>
+                                                            <th class="less-font-weight text-center" >လေအေးပေးစက်</th>
+                                                            <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
+                                                            <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowClassroom("tbl_classroom")'><li class="fa fa-plus"></li></button></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_classroom_body">
+
+                                                    </tboddy>
+                                                </table>
+                                        
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <label class="col-md-12 col-form-label fw-bolder"><span
+                                                    class="pull-left">၃။</span>{{ __('သန့်စင်ခန်း(အမျိုးအစား၊အရေအတွက်)') }}</label>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                    
+                                    
+                                                <table class="table tbl_toilet_type table-bordered input-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="less-font-weight text-center"  >စဉ်</th>
+                                                            <th class="less-font-weight text-center"  >အမျိုးအစား</th>
+                                                            <th class="less-font-weight text-center"  >အရေအတွက်</th>
+                                                            <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
+                                                            <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowToiletType("tbl_toilet_type")'><li class="fa fa-plus"></li></button></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_toilet_type_body">
+
+                                                    </tboddy>
+                                                </table>
+                                    
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-12 col-form-label fw-bolder"><span
+                                                    class="pull-left">၄။</span>{{ __('စီမံရုံးခန်း(အခန်းအရေအတွက်၊အတိုင်းအတာ)') }}</label>
+                                    </div>
+                                    <div class="row mb-3">
+                                        
+                                            <table class="table tbl_manage_room_numbers table-bordered input-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="less-font-weight text-center" >စဉ်</th>
+                                                            <th class="less-font-weight text-center"  >အခန်းအရေအတွက်</th>
+                                                            <th class="less-font-weight text-center"  >အတိုင်းအတာ</th>
+                                                            <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
+                                                            <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowManageRoomNumber("tbl_manage_room_numbers")'><li class="fa fa-plus"></li></button></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="tbl_manage_room_numbers_body">
+
+                                                    </tboddy>
                                             </table>
                                     
-                                </div>
-
-                            <div class="row">
-                                <label class="col-md-3 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('စာသင်ခန်း') }}</label>
-                            </div>
-
-                            <div class="row mb-3">
-                                
-                                        <table class="table tbl_classroom table-bordered input-table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="less-font-weight text-center" >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  >အခန်းအရေအတွက်</th>
-                                                    <th class="less-font-weight text-center"  >အတိုင်းအတာ</th>
-                                                    <th class="less-font-weight text-center"  >ဝင်ဆံ့သင်တန်းသား</th>
-                                                    <th class="less-font-weight text-center" >လေအေးပေးစက်</th>
-                                                    <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
-                                                    <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowClassroom("tbl_classroom")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_classroom_body">
-
-                                            </tboddy>
-                                        </table>
-                                
-                            </div>
-                                
-                            <div class="row">
-                                <label class="col-md-3 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('သန့်စင်ခန်း') }}</label>
-                            </div> 
-
-                            <div class="row mb-3">
-                               
-                               
-                                        <table class="table tbl_toilet_type table-bordered input-table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="less-font-weight text-center"  >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  >အမျိုးအစား</th>
-                                                    <th class="less-font-weight text-center"  >အရေအတွက်</th>
-                                                    <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
-                                                    <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowToiletType("tbl_toilet_type")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_toilet_type_body">
-
-                                            </tboddy>
-                                        </table>
-                               
-                            </div>
-
-                            <div class="row">
-                                <label class="col-md-12 col-form-label fw-bolder"><span
-                                            class="pull-left"></span>{{ __('စီမံရုံးခန်း') }}</label>
-                            </div>
-                            <div class="row mb-3">
-                                
-                                    <table class="table tbl_manage_room_numbers table-bordered input-table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="less-font-weight text-center" >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  >အခန်းအရေအတွက်</th>
-                                                    <th class="less-font-weight text-center"  >အတိုင်းအတာ</th>
-                                                    <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
-                                                    <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowManageRoomNumber("tbl_manage_room_numbers")'><li class="fa fa-plus"></li></button></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="tbl_manage_room_numbers_body">
-
-                                            </tboddy>
-                                    </table>
-                               
-                            </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">၁။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="regno" disabled>
-                                        
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">၂။</span>Applied Date</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="register_date" disabled>
-                                        
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label label"><span
-                                                class="pull-left">၃။</span>Status</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="message" disabled>
-                                       
-                                    </div>
-                                </div>
+
+                                
                                 <div class="row mb-3">
                                     <label class="col-md-10 col-form-label fw-bolder">
                                         <input type="checkbox" id="submit_confirm" onclick="ConfirmSubmitTeacher()">
@@ -970,6 +1058,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('assets/js/school.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         $('.multiple-attend-course').select2({

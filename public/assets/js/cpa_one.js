@@ -68,7 +68,7 @@ function AddCPAEdu() {
 function Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
-
+    var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id', student.id)
@@ -85,7 +85,7 @@ function Private_School_Submit() {
     data.append('remain_module', $("input[name='remain_module']").val());
     data.append('batch_id', batch_id);
 
-
+    data.append('recommendation_letter',recommend_letter_private);
     show_loader();
 
     $.ajax({
@@ -118,6 +118,7 @@ function Self_Study_Submit() {
     let batch_id = localStorage.getItem('batch_id');
 
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('academic_year', $("#academic_year_self").val());
@@ -136,7 +137,7 @@ function Self_Study_Submit() {
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('remain_module', $("input[name='remain_module']").val())
     data.append('batch_id', batch_id);
-
+    data.append('recommendation_letter',recommend_letter_self);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -144,16 +145,16 @@ function Self_Study_Submit() {
         data: data,
         contentType: false,
         processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            if (result.message == undefined) {
-
+        success: function (result) {            
+            if (result.message == undefined) {    
+                EasyLoading.hide();            
+                location.href = FRONTEND_URL + '/';
                 successMessage(result);
-                location.href = FRONTEND_URL + '/';
             }
-            else {
-                successMessage(result.message);
+            else {      
+                EasyLoading.hide();          
                 location.href = FRONTEND_URL + '/';
+                successMessage(result.message);
             }
         },
         error: function (message) {
@@ -166,7 +167,7 @@ function Self_Study_Submit() {
 function Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
-
+    var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
@@ -187,9 +188,7 @@ function Mac_Submit() {
     data.append('remain_module', $("input[name='remain_module']").val());
     data.append('batch_id', batch_id);
     data.append('mac_type', $("input[name='mac_type']").val());
-
-
-
+    data.append('recommendation_letter',recommend_letter_mac);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",

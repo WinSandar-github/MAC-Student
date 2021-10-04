@@ -197,6 +197,8 @@ function Papp_Submit(){
     var work_in_mm_file=$('#work_in_mm_file')[0].files[0];
     var rule_conf_file=$('#rule_conf_file')[0].files[0];
     var cpd_record_file=$('#cpd_record_file')[0].files[0];
+    var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
+    var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
     var tax_free_file=$('#tax_free_file')[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
@@ -235,6 +237,9 @@ function Papp_Submit(){
     data.append('work_in_myanmar_confession', work_in_mm_file);
     data.append('rule_confession', rule_conf_file);
     data.append('cpd_record', cpd_record_file);
+    data.append('mpa_mem_card_front', mpa_mem_card_front);
+    data.append('mpa_mem_card_back', mpa_mem_card_back);
+    data.append('cpd_hours', $("#total_hours").val());
     data.append('tax_year', $("input[name=tax_year]").val());
     data.append('tax_free_recommendation', tax_free_file);
 
@@ -311,12 +316,13 @@ function loadPappData()
         success: function(data){
             // console.log(data)
             var papp_data = data.data;
-            // console.log(papp_data)
+            // console.log('papp_data',papp_data)
+            // $('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
-            $('#reg_no').val(papp_data.reg_no);
+            $('#reg_no').val(papp_data.cpa_batch_no);
         }
     });
 }
@@ -478,7 +484,8 @@ function loadPAPP(){
 
                         }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                             $("#message").val("Your registeration will start in "+y+" year!");
-                            $('.renew_submit').prop('disabled', true);
+                            // $('.renew_submit').prop('disabled', true);
+                            $('.renew_submit').prop('disabled', false);
                         }else{
                             $('#message').val("You are verified!");
                             $('.renew_submit').prop('disabled', true);

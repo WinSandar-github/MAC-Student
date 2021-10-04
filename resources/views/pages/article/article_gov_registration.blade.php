@@ -189,7 +189,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p class="ml-2" style="font-weight:bold" align="left">Certificate</p>
+                                                            <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
                                                         
@@ -316,6 +316,22 @@
                                         </div>
 
                                         <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span>အလုပ်သမားမှတ်ပုံတင်ကတ်ပြား</label>
+                                            <div class="col-md-9" id="labor">
+                                                <div class="row mb-3" id="labor0">
+                                                    <div class="col-md-11" id="labor_attach">
+                                                        <input type="file" class="form-control" id="labor_registration_attach" name="labor_registration_attach[]" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-1 text-center" id="add_div">
+                                                        <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddLabor()">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+
+                                        <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၇။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                             <div class="col-md-9">
                                                 <div class="row">
@@ -432,21 +448,14 @@
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>အလုပ်သမားမှတ်ပုံတင်ကတ်ပြား</label>
-                                            <div class="col-md-9">
-                                                <input type="file" name="labor_registration_attach" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်း ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံးမှထောက်ခံစာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က။)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်း ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံးမှထောက်ခံစာ</label>
                                             <div class="col-md-9">
                                                 <input type="file" name="recommend_attach" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်း ရဲစခန်းထောက်ခံစာ</label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ။)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်း ရဲစခန်းထောက်ခံစာ</label>
                                             <div class="col-md-9">
                                                 <input type="file" name="police_attach" class="form-control">
                                             </div>
@@ -460,7 +469,7 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၄၂) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
@@ -556,7 +565,7 @@
             let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);                    
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
                    
                 })
 

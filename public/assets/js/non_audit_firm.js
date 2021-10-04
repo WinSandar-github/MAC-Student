@@ -208,7 +208,13 @@ function createNonAuditFirm(){
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
-  send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
+  //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
+  var t_s_p_id_val = new Array();
+        $('input[name=t_s_p_id]:checked').each(function(i){
+          t_s_p_id_val.push(this.value);
+        });
+  send_data.append('t_s_p_id[]',t_s_p_id_val);
+
   var checked_other = $('#type_service8').prop('checked');
   if(checked_other == true){
     send_data.append('other',$('input[name=other]').val());

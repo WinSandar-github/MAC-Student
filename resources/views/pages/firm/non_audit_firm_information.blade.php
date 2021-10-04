@@ -134,7 +134,7 @@
 										</tr>
 									</table>
 																	<br>
-									
+
 									<div class="row" id="check_non_audit_renew" style="display:none;text-align: center; margin-top: 2%;">
 										<div class="form-group">
 											<center>
@@ -224,7 +224,7 @@
 
 				<div id="non_audit_initial">
 					<div class="row">
-						<div class="card col-md-7 m-2">
+						<div class="card col-md-6 m-2">
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-12 widget-information">
@@ -232,24 +232,24 @@
 										<hr>
 										<div class="info-list">
 											<div class="row mb-3">
-                                                <div class="col-md-12">
-                                                    <div class="description-info"></div>
-                                                </div>
-                                            </div>
+	                      <div class="col-md-12">
+	                          <div class="description-info"></div>
+	                      </div>
+                      </div>
 											<div class="row">
-                                                <div class="col-md-12">
-                                                    <h4 class="col-md-12 card-title text-success">Requirement</h4>
-                                                    <hr>
-                                                    <div class="requirement-info"></div>
-                                                </div>
-                                            </div>
+	                      <div class="col-md-12">
+	                          <h4 class="col-md-12 card-title text-success">Requirement</h4>
+	                          <hr>
+	                          <div class="requirement-info"></div>
+	                      </div>
+                      </div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- Fees -->
-						<div class="card col-md-4 m-2">
+						<div class="card col-md-5 m-2">
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-12 widget-information">
@@ -259,38 +259,99 @@
 											<div class="col-md-12">
 												<ul>
 														<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
-														<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+														{{--<li>
+															<i class="icofont-money"></i>
+															<strong>Registration Fee</strong>
+															<span class='registration-fee'>
+														</li>--}}
+														<li>
+															<i class="icofont-money"></i>
+															<strong>Registration Fee</strong>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
+																<div class="col-md-4 reg_fee_sole" align="right"></div>
+															</div>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Partnership and Company</div>
+																<div class="col-md-4 reg_fee_partner" align="right"></div>
+															</div>
+														</li>
 														<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-														
+														<li>
+															<i class="icofont-money"></i>
+															<strong>Renew Fee</strong>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
+																<div class="col-md-4 renew_fee_sole" align="right"></div>
+															</div>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Partnership and Company</div>
+																<div class="col-md-4 renew_fee_partner" align="right"></div>
+															</div>
+														</li>
+
+														<li>
+															<i class="icofont-money"></i>
+															<strong>Delay Fee(Within January)</strong>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
+																<div class="col-md-4 late_fee_within_jan_sole" align="right"></div>
+															</div>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Partnership and Company</div>
+																<div class="col-md-4 late_fee_within_jan_partner" align="right"></div>
+															</div>
+														</li>
+
+														<li>
+															<i class="icofont-money"></i>
+															<strong>Delay Fee(from February to April)</strong>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
+																<div class="col-md-4 late_fee_feb_to_apr_sole" align="right"></div>
+															</div>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Partnership and Company</div>
+																<div class="col-md-4 late_fee_feb_to_apr_partner" align="right"></div>
+															</div>
+														</li>
+
+														<li>
+															<i class="icofont-money"></i>
+															<strong>Reconnect Fees(per year)</strong>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
+																<div class="col-md-4 reconnect_fee_sole" align="right"></div>
+															</div>
+															<div class="row">
+																<div class="col-md-7 offset-md-1">Partnership and Company</div>
+																<div class="col-md-4 reconnect_fee_partner" align="right"></div>
+															</div>
+														</li>
+
 														<div class="row register-btn">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('non_audit_firm_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
-                                                                                        
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <div class="row payment-btn" style="display:none;">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn text-dark h6">
-                                                                                        
+	                            <div class="col-md-6"></div>
+	                            <div class="col-md-6">
+	                                <div class="pull-right mt-4">
+	                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
+	                                        <a href="{{url('non_audit_firm_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+
+	                                    </p>
+
+	                                </div>
+	                            </div>
+                          	</div>
+                            <div class="row payment-btn" style="display:none;">
+                                <div class="col-md-6"></div>
+                                <div class="">
+                                    <div class="pull-right mt-4">
+                                        <p class="info-btn text-dark h6">
 																						<button id="non_audit_payment_btn" value="" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
 												</ul>
 											</div>
 										</div>
@@ -299,7 +360,7 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 				<!-- Payment Modal -->
 	<form method="post" class="needs-validation" action="javascript:nonAuditPaymentSubmit();" enctype="multipart/form-data"
 				novalidate>
