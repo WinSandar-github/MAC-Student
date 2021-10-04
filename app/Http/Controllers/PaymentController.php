@@ -79,26 +79,26 @@ class PaymentController extends Controller
     public function paymentStatus(Request $request)
     {
         try {
-
-            $client = new \GuzzleHttp\Client();
+		
+	$client = new \GuzzleHttp\Client();
             
             $resp = $client->request('POST', Helper::$domain .'/save_transation', [
                 'form_params' => [
-                    'student_info_id' => Session::get('data')['student_info_id'],
+			"payment_type" => 'mpu',
                     "merchantID" => $request->merchantID,
                     "respCode" => $request->respCode,
                     "pan" => $request->pan,
                     "amount" => $request->amount,
                     "invoiceNo" => $request->invoiceNo,
                     "tranRef" => $request->tranRef,
-                    "approvalCode" => $request->approalCode,
+                    "approvalCode" => $request->approvalCode ?? "N/A",
                     "dateTime" => $request->dateTime,
                     "status" => $request->status,
                     "failReason" => $request->failReason,
                     "userDefined1" => $request->userDefined1,
                     "userDefined2" => $request->userDefined2,
                     "userDefined3" => $request->userDefined3,
-                    "categoryCode" => $request->categoryCode,
+                    "categoryCode" => $request->categoryCode ?? "N/A",
                     "hashValue" => $request->hashValue,
                 ]
             ]);
