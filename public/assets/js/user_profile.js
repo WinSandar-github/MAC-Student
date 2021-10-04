@@ -67,14 +67,15 @@ function user_profile() {
                 }
 
 
-            }else if (data.school && data.teacher.length==0) {
+            }else if (data.school && data.teacher==null) {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school);
-            } else if (data.teacher && data.school.length==0) {
+                
+            } else if (data.teacher && data.school==null) {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
-
-            }
+                
+            } 
             else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
@@ -1941,7 +1942,7 @@ function loadSchoolByDash(school){
     if (school.payment_method != null) {
         $('.sch_period').show();
         var now = new Date();
-        var period_date = school.renew_date.split('-');
+        var period_date = school.payment_date.split('-');
         var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
         $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
         $('.sch_renew-btn').show();
@@ -1979,7 +1980,7 @@ function laodTeacherByDash(teacher){
     if (teacher.payment_method != null) {
         $('.teacher_period').show();
         var now = new Date();
-        var period_date = teacher.renew_date.split('-');
+        var period_date = teacher.payment_date.split('-');
         var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
         $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
         $('.teacher_renew-btn').show();
