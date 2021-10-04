@@ -7,7 +7,7 @@ function user_profile() {
         success: function (result) {
             EasyLoading.hide();
             let data = result.data;
-            
+
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
@@ -22,7 +22,7 @@ function user_profile() {
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
 
-                if(acc_firm.remark != ''){
+                if(acc_firm.status == 2){
                   $('#reject_remark_box').css("display","block");
                   $('.reject_remark').text(acc_firm.remark);
                 }
