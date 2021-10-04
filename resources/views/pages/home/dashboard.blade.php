@@ -774,7 +774,7 @@
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
-                                                    <a href="/teacher_registration" class="btn btn-success btn-hover-dark"> Update</a>
+                                                    <a href="/teacher_register" class="btn btn-success btn-hover-dark"> Update</a>
                                                 </p>
                                             </div>
                                     </div>
