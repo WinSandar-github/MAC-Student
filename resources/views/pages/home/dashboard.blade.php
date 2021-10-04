@@ -11,7 +11,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">User Profile</li>
                     </ul> -->
-                <h2 class="title-hearder">User <span>Dashboard</span></h2>
+                <h2 class="title-hearder"><span class="dashboard_name"></span><span>Dashboard</span></h2>
             </div>
             <!-- Page Banner End -->
 
@@ -35,10 +35,12 @@
 
     <div class=" section section-padding mt-n10">
         <div class="container">
-            <div class="card ">
+            <div class="card da-card"><!-- when school and teacher dashboard use da-card hide  -->
                 <div class="card-header title text-center text-dark h5" style="background-color:#E7F8EE;">
                 </div>
+                
                 <div class="card-body">
+                    
                     <!-- Student  da cpa-->
                     <div class="da_cpa">
                         <div class="row">
@@ -160,16 +162,16 @@
                                 </div>
 
 
-                                {{--
-                                    <div class="row m-2 mt-3 border-bottom">
+                                
+                                    <!-- <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
                                         </div>
                                         <div class="col-md-6">
                                             <span id="exam_date"></span>
                                         </div>
-                                    </div>
-                                --}}
+                                    </div>  -->
+                               
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Next Action </p>
@@ -351,8 +353,9 @@
                                         </table>
                                     </div>
                                 </div>
+                            </div>
                         </div>
-                        </div>
+                        
                     </div>
                     <div class="acc_firm">
                         <div class="row">
@@ -463,162 +466,10 @@
 
                     </div>
 
-                    <div class="school">
-                        <div class="row">
 
-                            <div class="col-md-8 offset-md-2">
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="sch_name_eng"></span> / <span id="sch_name_mm"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">NRC</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="sch_nrc"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Date of Birth</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="sch_date_of_birth"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Email</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="sch_email"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Phone</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="sch_phone"></span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="row my-2">
-
-
-                            <h5 class="text-center border-bottom pb-2"
-                                style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
-
-                            <div class="text-center status_history">
-
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="teacher">
-                        <div class="row">
-                            <div class="col-md-8 offset-md-2">
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="teacher_name_eng"></span> / <span id="teacher_name_mm"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">NRC</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="teacher_nrc"></span>
-                                    </div>
-                                </div>
-
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Email</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="teacher_email"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Phone</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="teacher_phone"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom period" style="display:none;">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="ml-2" style="font-weight:bold">This certificate is
-                                                valid for the period</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span id="period_time"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row my-2">
-
-
-                            <h5 class="text-center border-bottom pb-2"
-                                style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
-
-                            <div class="text-center status_history">
-
-                            </div>
-
-                        </div>
-                        <div class="row payment-btn" style="display:none;">
-                            <div class="col-md-6"></div>
-                            <div class="">
-                                    <div class=" pull-right mt-4">
-                                <p class="info-btn text-dark h6">
-
-                                    <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Go to
-                                        payment</a>
-                                </p>
-
-                            </div>
-                        </div>
-
-                    </div>
-                      <div class="row renew-btn" style="display:none;">
-                          <div class="col-md-6"></div>
-                          <div class="">
-                                      <div class=" pull-right mt-4">
-                              <p class="info-btn text-dark h6">
-
-                                  <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
-                              </p>
-
-                          </div>
-                      </div>
-                      </div>
-                    </div>
+                    
+                </div>
+            </div>
 
             <!-- cpaff other dashboard -->
                   <div class="cpaff_other">
@@ -689,10 +540,274 @@
 
             </div>
             <!-- end cpaff other dashboard -->
-              {{-- </div> --}}
+            <!-- school dashboard-->
+            <div class="school" style="display:none;">
+                        <div class="card">
+                            <div class="card-header school-title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-md-8 offset-md-2">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_name_eng"></span> / <span id="sch_name_mm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_nrc"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Date of Birth</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_date_of_birth"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="sch_phone"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom sch_period" style="display:none;">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p class="ml-2" style="font-weight:bold">This certificate is
+                                                        valid for the period</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span id="sch_period_time"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row my-2">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+
+                                    <div class="text-center sch_status_history">
+
+                                    </div>
+
+                                </div>
+                                <div class="row my-2 sch_reject-btn" style="display:none;">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;">Reject Reason</h5>
+
+
+                                    <div class="text-center sch_reject-reason">
+
+                                    </div>
+                                </div>
+                                <div class="row my-2 sch_payment-status" style="display:none;">
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;">Payment Status</h5>
+
+                                    <div class="text-center sch_payment_status">
+
+                                    </div>
+
+                                </div>
+                                <div class="row sch_reject-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div>
+                                        
+                                            <div class=" pull-right mt-4">
+                                                <p class="info-btn text-dark h6">
+
+                                                    <a href="/school_edit" class="btn btn-success btn-hover-dark"> Update</a>
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row sch_payment-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div>
+                                        
+                                            <div class=" pull-right mt-4">
+                                                <p class="info-btn text-dark h6">
+
+                                                    <a href="/school_information" class="btn btn-success btn-hover-dark"> Go to
+                                                        payment</a>
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row sch_renew-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div class="">
+                                                <div class=" pull-right mt-4">
+                                                    <p class="info-btn text-dark h6">
+
+                                                        <a href="/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                    </p>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
             </div>
-          </div>
-      </div>
+            <!--end school dashboard-->
+            <!-- teacher dashboard-->
+            <div class="teacher" style="display:none;">
+                        <div class="card">
+                            <div class="card-header teacher-title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_name_eng"></span> / <span id="teacher_name_mm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_nrc"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="teacher_phone"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom teacher_period" style="display:none;">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p class="ml-2" style="font-weight:bold">This certificate is
+                                                        valid for the period</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span id="teacher_period_time"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row my-2">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
+
+                                    <div class="text-center teacher_status_history">
+
+                                    </div>
+
+                                </div>
+                                <div class="row my-2 teacher_reject-btn" style="display:none;">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;">Reject Reason</h5>
+
+                                    
+                                    <div class="text-center teacher_reject-reason">
+
+                                    </div>
+                                </div>
+                                <div class="row my-2 teacher_payment-status" style="display:none;">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;">Payment Status</h5>
+
+                                    <div class="text-center teacher_payment_status">
+
+                                    </div>
+
+                                </div>
+                                <div class="row teacher_reject-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div>
+                                        
+                                            <div class=" pull-right mt-4">
+                                                <p class="info-btn text-dark h6">
+
+                                                    <a href="/teacher_registration" class="btn btn-success btn-hover-dark"> Update</a>
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row teacher_payment-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div>
+                                        
+                                            <div class=" pull-right mt-4">
+                                                <p class="info-btn text-dark h6">
+
+                                                    <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Go to
+                                                        payment</a>
+                                                </p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row teacher_renew-btn" style="display:none;">
+                                    <div class="col-md-6"></div>
+                                    <div class="">
+                                                <div class=" pull-right mt-4">
+                                                    <p class="info-btn text-dark h6">
+
+                                                        <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                    </p>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <!--end teacher dashboard-->
+        </div>
     </div>
 <!-- update profile -->
 <div class="modal fade" id="profileModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

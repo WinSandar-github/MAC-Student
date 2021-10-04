@@ -348,7 +348,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-check mt-2 form-check-inline">
                                                     <input class="form-check-input" type="radio" name="school_type" 
-                                                        value='တစ်ဦးတည်းပိုင်လုပ်ငန်း' onclick="origanzationCheck(this)"> တစ်ဦးတည်းပိုင်လုပ်ငန်း
+                                                        value='PCS' onclick="origanzationCheck(this)"> တစ်ဦးတည်းပိုင်လုပ်ငန်း
                                                     
                                                 </div>
                                             </div>
@@ -357,7 +357,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-check mt-2 form-check-inline">
                                                     <input class="form-check-input" type="radio" name="school_type" 
-                                                        value='နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း' onclick="origanzationCheck(this)"> နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
+                                                        value='PCP' onclick="origanzationCheck(this)"> နိုင်ငံသားများပိုင်အစုစပ်လုပ်ငန်း
                                                     
                                                 </div>
                                             </div>
@@ -366,7 +366,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-check mt-2 form-check-inline">
                                                     <input class="form-check-input" type="radio" name="school_type" 
-                                                        value='တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်' onclick="origanzationCheck(this)"> တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
+                                                        value='PCC' onclick="origanzationCheck(this)"> တည်ဆဲကုမ္ပဏီများအက်ဥပဒေအရတည်ထောင်ထားသောကုမ္ပဏီလီမိတက်
                                                     
                                                 </div>
                                             </div>
