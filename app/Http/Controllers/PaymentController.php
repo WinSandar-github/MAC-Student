@@ -20,20 +20,48 @@ class PaymentController extends Controller
         // pay form type => application / register form / exam form / ...
         // id
 
-        // $client = new \GuzzleHttp\Client();
-        // $student_info = json_decode($client->request('GET', Helper::$domain .'/user_profile/' . $id)->getBody(),true);
-        // dd($student_info);
+        $client = new \GuzzleHttp\Client();
+        $resp = $client->request('GET', Helper::$domain .'/get_invoice/' . $id);
+        if($resp->getStatusCode() == 200){
+
+            $invoice = json_decode($resp->getBody()->getContents(), true);
+
+            Session::put('data', $invoice);
+
+            return view('pages.payment.payment_method', compact('invoice'));
+            
+        }else{
+            return response()->json(['message' => 'Error While Connect to Backend!'], 500);
+        }
+
         // $data = array();
         // $data['name'] = $student_info->data;
 
-        return view('pages.payment.payment_method');
+        // return view('pages.payment.payment_method');
     }
 
-    public function postPayment(Request $request)
+    public function postPayment(Request $request, $type)
     {
-        $data = $request->all();
-        Session::put('data', $data);
-        return redirect(url('mpu'));
+        try{
+            // return $request;
+            // $data = $request->all();
+            // Session::put('data', $data);
+            // $payment_type = Session::get('payment_type');
+            // $name_eng = Session::get('data')['name_eng'];
+            // $email = Session::get('data')['email'];
+            // $phone = Session::get('data')['phone'];
+            // $invoice_no = Session::get('data')['invoiceNo'];
+            // $form_fee = Session::get('data')['form_fee'];
+            
+            $data = Session::get('data');
+
+            // return view('pages.payment.mpu',compact('payment_type','name_eng','email','phone','invoice_no'));
+            
+            return view('pages.payment.mpu',compact('data'));
+
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
     }
 
     public function mpu()
@@ -48,10 +76,45 @@ class PaymentController extends Controller
         return view('pages.payment.mpu',compact('payment_type','name_eng','email','phone','invoice_no'));
     }
 
-    public function paymentStatus(Request $request)
+    public function paymentStatus(Request $request, $type)
     {
-        return $request;
-        // return view('pages.payment.payment_status');
+        try {
+            
+            return $request ;
+
+
+
+            $client = new \GuzzleHttp\Client();
+            
+            $resp = $client->request('POST', Helper::$domain .'/save_transation', [
+                'form_params' => [
+                    'student_info_id' => Session::get('data')['student_info_id'],
+                    "merchantID" => $request->merchantID,
+                    "respCode" => $request->respCode,
+                    "pan" => $request->pan,
+                    "amount" => $request->amount,
+                    "invoiceNo" => $request->invoiceNo,
+                    "tranRef" => $request->tranRef,
+                    "approvalCode" => $request->approalCode,
+                    "dateTime" => $request->dateTime,
+                    "status" => $request->status,
+                    "failReason" => $request->failReason,
+                    "userDefined1" => $request->userDefined1,
+                    "userDefined2" => $request->userDefined2,
+                    "userDefined3" => $request->userDefined3,
+                    "categoryCode" => $request->categoryCode,
+                    "hashValue" => $request->hashValue,
+                ]
+            ]);
+
+            if($resp->getStatusCode() == 200){
+    
+                return view('pages.payment.payment_status');
+            }
+
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 

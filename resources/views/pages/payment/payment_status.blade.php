@@ -41,7 +41,8 @@ var_dump($_POST);
         <img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">
     </div>
     <div class="container" style="overflow: hidden; margin-bottom:10% ;">
-        <h3>Hello</h3>
+        <h3>You Payment is Successfull!</h3>
+        <a href="{{ route('home') }}" class="btn btn-success" >Back to Dashboard</a>
 	</div>
 </div>
 @endsection

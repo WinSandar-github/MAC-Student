@@ -40,7 +40,6 @@
                 </div>
                 
                 <div class="card-body">
-                    
                     <!-- Student  da cpa-->
                     <div class="da_cpa">
                         <div class="row">

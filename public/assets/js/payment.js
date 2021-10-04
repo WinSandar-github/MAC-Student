@@ -10,8 +10,7 @@
 //     })
 // });
 
-function loadStdData()
-{
+function loadStdData() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
         url: BACKEND_URL + "/user_profile/" + student.id,
@@ -26,11 +25,10 @@ function loadStdData()
             $('#email').val(std_data.email);
             $('#invoice_no').val(std_data);
         }
-    }); 
+    });
 }
 
-function loadFees()
-{
+function loadFees() {
     var course_id = JSON.parse(localStorage.getItem('courseId'));
     // console.log(course_id)
     $.ajax({
@@ -47,3 +45,28 @@ function loadFees()
         }
     });
 }
+
+
+$('#payment_form').submit(function (e) {
+    e.preventDefault();
+
+    $pay_method = $('input[type=radio][name=payment_method]:checked').val();
+
+    switch ($pay_method) {
+        case 'mpu':
+            $('#payment_form').attr('action', '/post_payment/mpu');
+            break;
+        case 'cbpay':
+            $('#payment_form').attr('aciton', '/post_payment/cbpay');
+            break;
+        case 'master':
+            $('#payment_form').attr('action', '/post_payment/master');
+            break;
+        case 'visa':
+            $('#payment_form').attr('action', '/post_payment/visa');
+            break;
+    }
+
+    $(this).unbind('submit').submit();
+});
+
