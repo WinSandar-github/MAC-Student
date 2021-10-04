@@ -6,17 +6,15 @@ function user_profile() {
         type: 'get',
         success: function (result) {
             EasyLoading.hide();
-
             let data = result.data;
-            
+
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
-                //console.log("acc_firm >>>",acc_firm);
                 let firm_ownerships_audits = data.firm_ownerships_audits;
-                console.log("firm_ownerships_audits >>>>", firm_ownerships_audits);
+
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                 $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
@@ -24,7 +22,7 @@ function user_profile() {
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
 
-                if(acc_firm.remark != ''){
+                if(acc_firm.status == 2){
                   $('#reject_remark_box').css("display","block");
                   $('.reject_remark').text(acc_firm.remark);
                 }
@@ -32,12 +30,18 @@ function user_profile() {
                 if (acc_firm.audit_firm_type_id == 1) {
                     // if audit firm type
                     if (firm_ownerships_audits != '') {
+
                         // show name and public practice reg no who selected Yes
-                        if (firm_ownerships_audits.authority_to_sign == 1) {
-                            $("#info_for_audit").css("display", "block");
-                            $('.name').text(firm_ownerships_audits.name);
-                            $('.public_practice_reg_no').text(firm_ownerships_audits.public_private_reg_no);
-                        }
+                        firm_ownerships_audits.forEach(function(item){
+                          if(item.authority_to_sign == 1){
+                            $("#info_for_audit").css("display","block");
+                            var tr = "<tr>";
+                            tr += "<td>"+item.name+"</td>";
+                            tr += "<td >"+item.public_private_reg_no+"</td>" ;
+                            tr += "</tr>";
+                            $(".pub_pra_reg_no_and_name_tbody").append(tr);
+                          }
+                        });
                     }
 
                     if (acc_firm.status == 0) {
@@ -143,7 +147,7 @@ function user_profile() {
                 $('.dashboard_name').append('Teacher And School ');
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
-                
+
             }else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
@@ -230,11 +234,11 @@ function user_profile() {
                                                 }
                         // if (check_month < 12) {
                         //     $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
-                        // } 
+                        // }
                         else if(check_month == 10) {
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                             // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
-                        } 
+                        }
                         // else if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year){
                         //     $('.status').append(`<tr><td colspan=2></td><td>Action</td></tr>`);
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
@@ -1447,7 +1451,7 @@ function user_profile() {
                 // }
 
                 // Show Article Status
-                if(latest_stu_reg[0].form_type==3 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2"){
+                if(latest_stu_reg[0].form_type==3 && latest_stu_reg[0].status==1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2"){
                     let latest_article = data.article.slice(-1);
                     let latest_gov_article = data.gov_article.slice(-1);
 
@@ -1490,13 +1494,23 @@ function user_profile() {
                                 </tr>
                                 `);
                             }else if(element.status == 1){
-                                $('.article_status').append(`<tr>
-                                    <td>${form_type} Form</td>
-                                    <td>${contract_start_date}</td>
-                                    <td>${contract_end_date}</td>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                </tr>
-                                `);
+                                if(element.done_status == 1){
+                                    $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                }else{
+                                    $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                }
                             }else if(element.status == 2){
                                 $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
@@ -1512,9 +1526,12 @@ function user_profile() {
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
 
-                            if(end_date.setHours(0,0,0,0) == today.setHours(0,0,0,0)  && latest_article[0].done_status == 0){
+                            var end_time = end_date.getTime();
+                            var today_time = today.getTime();
+    
+                            if(end_time <= today_time  && latest_article[0].done_status == 0){
                                 if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form' disabled></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' disabled onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
                                 }else{
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                 }
@@ -1522,13 +1539,16 @@ function user_profile() {
                                 resign_article_url = '/article_resign_registration';
                                 $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
                             }else if(latest_article[0].done_status == 1){
-                                article_url = '/article_information';
-                                $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                if(latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4){
+                                    article_url = '/article_information';
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                }
                             }
                         }
 
                     }else{
                         let gov_article = data.gov_article;
+                        let article = data.article;
                         gov_article.forEach(function(element){
                             let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
                             let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
@@ -1542,13 +1562,23 @@ function user_profile() {
                                 </tr>
                                 `);
                             }else if(element.status == 1){
-                                $('.article_status').append(`<tr>
-                                    <td>${form_type} Form</td>
-                                    <td>${contract_start_date}</td>
-                                    <td>${contract_end_date}</td>
-                                    <td><span class="badge bg-success">Approved</span></td>
-                                </tr>
-                                `);
+                                if(element.done_status == 1){
+                                    $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                }else{
+                                    $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                }
                             }else if(element.status == 2){
                                 $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
@@ -1559,29 +1589,122 @@ function user_profile() {
                                 `);
                             }
                         });
-
-                        if(latest_gov_article[0].contract_end_date != null){
-
-                            var end_date = new Date(latest_gov_article[0].contract_end_date);
-                            var today = new Date();
-
-                            if(end_date.setHours(0,0,0,0) == today.setHours(0,0,0,0) && latest_gov_article[0].done_status == 0){
-                                if(latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0){
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form' disabled></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' disabled onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
-                                }else{
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
+                        if(article.length != 0){
+                            article.forEach(function(element){
+                                article_form_type = element.article_form_type;
+                            
+                                switch (article_form_type) {
+                                    case 'c12':
+                                        form_type = 'CPA I,II';
+                                        break;
+                                    case 'c2_pass_3yr':
+                                        form_type = 'CPA II pass 3 yr';
+                                        break;
+                                    case 'c2_pass_1yr':
+                                        form_type = 'CPA II pass 1 yr';
+                                        break;
+                                    case 'qt_firm':
+                                        form_type = 'QT pass';
+                                        break;
+                                    default:
+                                        form_type = 'Resign';
+                                        break;
                                 }
-                            }else if(latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0){
-                                resign_article_url = '/article_resign_registration';
-                                $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
-                            }else if(latest_gov_article[0].done_status == 1){
-                                article_url = '/article_information';
-                                $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
-                            }
+                                let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
+                                let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
+
+                                if(element.status == 0){
+                                    $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Checking</span></td>
+                                    </tr>
+                                    `);
+                                }else if(element.status == 1){
+                                    if(element.done_status == 1){
+                                        $('.article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Done</span></td>
+                                        </tr>
+                                        `);
+                                    }else{
+                                        $('.article_status').append(`<tr>
+                                            <td>${form_type} Form</td>
+                                            <td>${contract_start_date}</td>
+                                            <td>${contract_end_date}</td>
+                                            <td><span class="badge bg-success">Approved</span></td>
+                                        </tr>
+                                        `);
+                                    }
+                                }else if(element.status == 2){
+                                    $('.article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Reject</span></td>
+                                    </tr>
+                                    `);
+                                }
+                            });
                         }
 
+                        if(article.length != 0){
+                            if(latest_article[0].contract_end_date != null){
+                                var end_date = new Date(latest_article[0].contract_end_date);
+                                var today = new Date();
+    
+                                var end_time = end_date.getTime();
+                                var today_time = today.getTime();
+        
+                                if(end_time <= today_time  && latest_article[0].done_status == 0){
+                                    if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
+                                    }else{
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                    }
+                                }else if(latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1  && latest_article[0].done_status == 0){
+                                    resign_article_url = '/article_resign_registration';
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                                }else if(latest_article[0].done_status == 1){
+                                    if(latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4){
+                                        article_url = '/article_information';
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                    }
+                                }
+                            }
+                        }else{
+                            if(latest_gov_article[0].contract_end_date != null){
+                            
+                                var end_date = new Date(latest_gov_article[0].contract_end_date);
+                                var today = new Date();
+    
+                                var end_time = end_date.getTime();
+                                var today_time = today.getTime();
+        
+                                if(end_time <= today_time && latest_gov_article[0].done_status == 0){
+                                    if(latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0){
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
+                                    }else{
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                    }
+                                }else if(latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0){
+                                    resign_article_url = '/article_resign_registration';
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                                }else if(latest_gov_article[0].done_status == 1){
+                                    if(latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4){
+                                        article_url = '/article_information';
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                    }
+                                }
+                            }
+                        }
                     }
 
+                }else{
+                    $("#article_row").hide();
                 }
             }
             //end show data depend on user role
@@ -1793,7 +1916,7 @@ function saveGovDoneForm(id){
 
 }
 function loadSchoolByDash(school){
-    
+
     $('.school-title').text('School Information')
     $('.school').show();
     $('.cpaff_other').hide();
@@ -1831,7 +1954,7 @@ function loadSchoolByDash(school){
     }
 }
 function laodTeacherByDash(teacher){
-    
+
     $('.teacher-title').text('Teacher Information')
     $('.teacher').show();
     $('.cpaff_other').hide();
@@ -1840,7 +1963,7 @@ function laodTeacherByDash(teacher){
     $('#teacher_name_mm').text(teacher.name_mm);
     $('#teacher_name_eng').text(teacher.name_eng);
     $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-    
+
     $("#teacher_email").text(teacher.email);
     $('#teacher_phone').text(teacher.phone);
     if (teacher.approve_reject_status == 0) {
@@ -1866,5 +1989,5 @@ function laodTeacherByDash(teacher){
         $(".teacher_payment_status").text("Complete");
     }else{
         $(".teacher_payment_status").text("Incomplete");
-    }            
+    }
 }

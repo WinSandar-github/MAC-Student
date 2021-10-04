@@ -550,6 +550,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 let last_exam = data.data.exam_registers.slice(-1);
 
                 let current_stu_reg=data.data.student_register.slice(-1);
+                // let last_exam = data.data.exam_registers.slice(-1);
                 $("#batch_number").append(current_stu_course[0].batch.number);
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
@@ -589,7 +590,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     $("input[name='personal_no']").val(student_info.personal_no);
                     let batch_id = localStorage.getItem('batch_id');
-                    let last_exam = data.data.exam_registers.slice(-1);
+                    // let last_exam = data.data.exam_registers.slice(-1);
                     if(last_exam.length!=0)
                     {
                         if(last_exam[0].course.code == 'da_2') {
