@@ -6,7 +6,6 @@ function user_profile() {
         type: 'get',
         success: function (result) {
             EasyLoading.hide();
-
             let data = result.data;
             
             if (data.accountancy_firm_info_id) {
@@ -14,9 +13,8 @@ function user_profile() {
                 $('.acc_firm').show();
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm;
-                //console.log("acc_firm >>>",acc_firm);
                 let firm_ownerships_audits = data.firm_ownerships_audits;
-                console.log("firm_ownerships_audits >>>>", firm_ownerships_audits);
+
                 $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                 $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                 $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
@@ -32,12 +30,18 @@ function user_profile() {
                 if (acc_firm.audit_firm_type_id == 1) {
                     // if audit firm type
                     if (firm_ownerships_audits != '') {
+
                         // show name and public practice reg no who selected Yes
-                        if (firm_ownerships_audits.authority_to_sign == 1) {
-                            $("#info_for_audit").css("display", "block");
-                            $('.name').text(firm_ownerships_audits.name);
-                            $('.public_practice_reg_no').text(firm_ownerships_audits.public_private_reg_no);
-                        }
+                        firm_ownerships_audits.forEach(function(item){
+                          if(item.authority_to_sign == 1){
+                            $("#info_for_audit").css("display","block");
+                            var tr = "<tr>";
+                            tr += "<td>"+item.name+"</td>";
+                            tr += "<td >"+item.public_private_reg_no+"</td>" ;
+                            tr += "</tr>";
+                            $(".pub_pra_reg_no_and_name_tbody").append(tr);
+                          }
+                        });
                     }
 
                     if (acc_firm.status == 0) {
@@ -70,7 +74,7 @@ function user_profile() {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
 
-            } 
+            }
             else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
@@ -142,7 +146,7 @@ function user_profile() {
                 $('.dashboard_name').append('Teacher And School ');
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
-                
+
             }else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
@@ -229,11 +233,11 @@ function user_profile() {
                                                 }
                         // if (check_month < 12) {
                         //     $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
-                        // } 
+                        // }
                         else if(check_month == 10) {
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                             // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
-                        } 
+                        }
                         // else if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year){
                         //     $('.status').append(`<tr><td colspan=2></td><td>Action</td></tr>`);
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
@@ -1792,7 +1796,7 @@ function saveGovDoneForm(id){
 
 }
 function loadSchoolByDash(school){
-    
+
     $('.school-title').text('School Information')
     $('.school').show();
     $('.cpaff_other').hide();
@@ -1830,7 +1834,7 @@ function loadSchoolByDash(school){
     }
 }
 function laodTeacherByDash(teacher){
-    
+
     $('.teacher-title').text('Teacher Information')
     $('.teacher').show();
     $('.cpaff_other').hide();
@@ -1839,7 +1843,7 @@ function laodTeacherByDash(teacher){
     $('#teacher_name_mm').text(teacher.name_mm);
     $('#teacher_name_eng').text(teacher.name_eng);
     $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-    
+
     $("#teacher_email").text(teacher.email);
     $('#teacher_phone').text(teacher.phone);
     if (teacher.approve_reject_status == 0) {
@@ -1865,5 +1869,5 @@ function laodTeacherByDash(teacher){
         $(".teacher_payment_status").text("Complete");
     }else{
         $(".teacher_payment_status").text("Incomplete");
-    }            
+    }
 }
