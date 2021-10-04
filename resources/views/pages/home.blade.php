@@ -14,6 +14,7 @@
 @push('scripts')
     <script type="text/javascript">
         $('document').ready(function() {
+         
 
             if (student_id != null) {
                 user_profile();

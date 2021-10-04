@@ -105,7 +105,7 @@
                                                 <ul>
                                                         <li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='yearly-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
                                                         <div class="pull-right mt-4">
@@ -139,61 +139,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    {{--<div id="firm_article_row">
-                        <p class="text-start " >စာရင်းကိုင်အလုပ်သင်လျှောက်ထားလိုသည့် ကာလ ကိုရွေးပါ။</p>
-                        <div class="row mb-4">
-                            <div class="col-md-4" align="right">
-                                <input type="radio" class="form-check-input mr-3" value="1" id="article_year1" name="article_year">
-                                <label class="form-check-label " for="">One</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="radio" class="form-check-input mr-3" value="2" id="article_year2" name="article_year" >
-                                <label class="form-check-label " for="">Two</label>
-                            </div>
-                            <div class="col-md-4" align="left">
-                                <input type="radio" class="form-check-input mr-3" value="3" id="article_year3" name="article_year">
-                                <label class="form-check-label " for="">Three</label><br>
-                            </div>
-                        </div>
-                        <!-- <a href="{{url('article_firm_registration')}}" class="btn btn-md btn-success article_btn mt-3">Firm</a> -->
-                        <button class="btn btn-success btn-hover-dark article_btn" id="articel_firm_btn">Firm</button>
-                    </div>
-                    <hr id="article_hr" style="display:none;">
-                    <div id="gov_article_row" style="display:none;">
-                        <!-- <a href="{{url('article_gov_registration')}}" class="btn btn-md btn-success article_btn" id="articel_gov_btn">Government</a> -->
-                        <button class="btn btn-success btn-hover-dark article_btn" id="articel_gov_btn">Government</button>
-                    </div>--}}
-
                     <div id="firm_article_row">
                         <h5 >Firm Article</h5>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_3yr_btn">CII pass 3 yr</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-success btn-hover-dark article_btn" id="c12_btn">CPA I,II</button><br>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_1yr_btn">CII pass 1 yr</button><br>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-success btn-hover-dark article_btn" id="qt_pass_3yr_btn">QT pass 3 yr</button><br>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-3">
-                                <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_renew_btn">CII pass Renew</button><br>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-success btn-hover-dark article_btn" id="c12_renew_btn">CI,CII Renew</button>
-                            </div>
-                            <div class="col-md-3"></div>
-                        </div>
-                        <hr>
-                        <h5 >Government</h5>
-                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Government Article</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_3yr_btn">CII pass 3 yr</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c12_btn">CPA I,II</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_1yr_btn">CII pass 1 yr</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="qt_pass_3yr_btn">QT pass 3 yr</button>
                     </div>
+                    <div id="firm_article_renew_row">
+                        <h5 >Renew Article</h5>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_renew_btn">CII pass Renew</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c12_renew_btn">CI,CII Renew</button>
+                    </div>
+                    <hr id="article_hr">
+                    <div id="gov_article_row">
+                        <h5 >Government Article</h5>
+                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Article Government</button>
+                    </div>
+                    <!-- <h5 >Resign</h5>
+                        <button class="btn btn-success btn-hover-dark " id="articel_resign_btn">Aticle Resign</button> -->
                     
                 </div>
                 <div class="modal-footer">
@@ -233,81 +197,116 @@
                 get_student_info(student_id).then(data => {
                     let student_info = data.data
                     let student_reg = data.data.student_register
-                    let article = data.data.article;
+                    let latest_article = data.data.article.slice(-1);
+                    let latest_gov_article = data.data.gov_article.slice(-1);
                     let lastest_row = student_reg.length - 1;
                     let course = student_reg[lastest_row]?.course?.code;  // cpa1/cpa2
-                    let exam_result = student_reg[lastest_row]?.status;  // pass/fail
+                    // let exam_result = student_reg[lastest_row]?.status;  // pass/fail
                     let module = student_reg[lastest_row]?.module;  // module 1/2/all
                     let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
-                    var get_year = 0;
+                    let form_type = student_reg[lastest_row]?.form_type;
+                    let internship = student_reg[lastest_row]?.internship;
+                    let exam_result = student_info.exam_results.length;
+                    //var get_year = 0;
 
-                    for(var i=0; i<article.length; i++){
-                        get_year += article[i].article_form_type;
-                    }
-
-                    if(get_year == 1){
-                        $("#article_year3").prop('disabled', true);
-                    }else if(get_year == 2){
-                        $("#article_year2").prop('disabled', true);
-                        $("#article_year3").prop('disabled', true);
-                    }else if(get_year == 3){
-                        $("#article_year1").prop('disabled', true);
-                        $("#article_year2").prop('disabled', true);
-                        $("#article_year3").prop('disabled', true);
-                        $('#articel_firm_btn').prop('disabled', true);
-                        $('#articel_gov_btn').prop('disabled', true);
-
-                    }
-
-                    if(course == "cpa_1" || course == "cpa_2"){
-                        if(type == 0 || type == 1){
-                            $("#gov_article_row").hide();
-                            $("#article_hr").hide();
+                    if(latest_article[0]?.done_status == 1 && latest_article[0]?.article_form_type == 'c12' ){
+                        $("#c12_btn").hide();
+                        $("#c2_pass_3yr_btn").hide();
+                        $("#qt_pass_3yr_btn").hide();
+                        $("#firm_article_renew_row").hide();
+                        $("#article_hr").hide();
+                        $("#gov_article_row").hide();
+                        if(exam_result == 4){
+                            $("#c2_pass_1yr_btn").prop('disabled', false);
                         }else{
-                            $("#gov_article_row").show();
-                            $("#article_hr").show();
+                            $("#c2_pass_1yr_btn").prop('disabled', true);
+                        }
+                        $('#articleModal').modal('toggle');
+                    }else if(latest_gov_article[0]?.done_status == 1){
+                        $("#c12_btn").hide();
+                        $("#c2_pass_3yr_btn").hide();
+                        $("#qt_pass_3yr_btn").hide();
+                        $("#firm_article_renew_row").hide();
+                        $("#article_hr").hide();
+                        $("#gov_article_row").hide();
+                        if(exam_result == 4){
+                            $("#c2_pass_1yr_btn").prop('disabled', false);
+                        }else{
+                            $("#c2_pass_1yr_btn").prop('disabled', true);
                         }
                         $('#articleModal').modal('toggle');
                     }else{
-                        alert("You aren't cpa student.");
-                        $("#register_btn").prop('disabled', true);
+                        if((form_type == 3 && course == "cpa_1") || (form_type == 3 && course == "cpa_2")){
+                            if(internship == "အစိုးရ ဌာနတွင်"){
+                                $("#firm_article_row").hide();
+                                $("#firm_article_renew_row").hide();
+                                $("#article_hr").hide();
+                            }else if(internship == "ဒုတိယပိုင်းသင်တန်းအောင်မြင်ပြီးမှ အလုပ်သင်ဆင်းလိုပါသည်"){
+                                $("#c12_btn").hide();
+                                $("#c2_pass_1yr_btn").hide();
+                                $("#qt_pass_3yr_btn").hide();
+                                $("#firm_article_renew_row").hide();
+                                $("#article_hr").hide();
+                                $("#gov_article_row").hide();
+                                $("#c2_pass_3yr_btn").prop('disabled', true);
+                            }else if(internship == "ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းတွင်"){
+                                $("#c2_pass_3yr_btn").hide();
+                                $("#c2_pass_1yr_btn").hide();
+                                $("#qt_pass_3yr_btn").hide();
+                                $("#firm_article_renew_row").hide();
+                                $("#article_hr").hide();
+                                $("#gov_article_row").hide();
+                            }else{
+                                $("#firm_article_renew_row").hide();
+                            }
+                            $('#articleModal').modal('toggle');
+                        }else if(form_type == 4 && course == "cpa_2"){
+                            $("#c12_btn").hide();
+                            $("#c2_pass_1yr_btn").hide();
+                            $("#qt_pass_3yr_btn").hide();
+                            $("#firm_article_renew_row").hide();
+                            $("#article_hr").hide();
+                            $("#gov_article_row").hide();
+                            if(exam_result == 4){
+                                $("#c2_pass_3yr_btn").prop('disabled', false);
+                            }else{
+                                $("#c2_pass_3yr_btn").prop('disabled', true);
+                            }
+                            $('#articleModal').modal('toggle');
+                        }else{
+                            alert("You aren't cpa student.");
+                            $("#register_btn").prop('disabled', true);
+                        }
                     }
                 });
             }
         });
 
-        $('#articel_firm_btn').click(function () {
-            var radioValue = $("input[name='article_year']:checked").val();
-            if (radioValue == 1) {
-                location.href = FRONTEND_URL + '/article_firm_registration?data=' + 1;
-            } else if (radioValue == 2) {
-                location.href = FRONTEND_URL + '/article_firm_registration?data=' + 2;
-            } else {
-                location.href = FRONTEND_URL + '/article_firm_registration?data=' + 3;
-            }
-        });
-
         $('#c2_pass_3yr_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 1;
+            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 'c2_pass_3yr';
         });
         $('#c12_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 2;
+            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 'c12';
         });
         $('#c2_pass_1yr_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 3;
+            location.href = FRONTEND_URL + '/article_firm_registration?data=' + 'c2_pass_1yr';
         });
         $('#qt_pass_3yr_btn').click(function () {
             location.href = FRONTEND_URL + '/article_qt_firm_registration';
         });
         $('#c2_pass_renew_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 1;
+            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c2_pass_renew';
         });
         $('#c12_renew_btn').click(function () {
-            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 2;
+            location.href = FRONTEND_URL + '/article_renew_firm_registration?data=' + 'c12_renew';
         });
 
         $('#articel_gov_btn').click(function () {
             location.href = FRONTEND_URL + '/article_gov_registration';
+        });
+
+        $('#articel_resign_btn').click(function () {
+            location.href = FRONTEND_URL + '/article_resign_registration';
         });
 
     })

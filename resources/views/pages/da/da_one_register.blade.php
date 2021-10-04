@@ -111,7 +111,7 @@
                                 <div class="card border-success mb-3 p-5">
                                     <div class="row">
                                         <h5 class="card-title text-center fw-bolder">
-                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type"></span>
+                                            မြန်မာနိုင်ငံစာရင်းကောင်စီ<span id="mac_type_name"></span>
                                             <br/>
                                             ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်နှင့်မှတ်ပုံတင်ခွင့်လျှောက်လွှာ
                                         </h5>
@@ -352,7 +352,7 @@
                                                         <span class="recommend_letter"></span>
                                                     </div>
                                                     <div class="col-md-6"  id="degree_edu" >
-                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        <input type="file"  class="form-control" id="recommend_letter_mac"  name="recommend_letter_mac">
                                                     </div>
                                                 </div>
                                             </div>
@@ -475,6 +475,35 @@
                                                         </label>
                                                     </div>
                                                     <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                                <div class="row  col-md-8 checkbox-radios   py-2">
+                                                    
+                                                
+
+                                                    <div class="col-md-5 form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac">
+                                                        <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
+                                                            <span class="form-check-sign"></span>
+                                                            ရန်ကုန်သင်တန်းကျောင်း
+                                                        </label>
+
+                                                    </div>
+                                            
+                                                    <div class="col-md-6  form-check-radio">
+                                                        <label class="form-check-label" for="sub_mac2">
+                                                        <input class="form-check-input" type="radio" id="sub_mac2" name="mac_type" value='2'    >
+                                                            <span class="form-check-sign"></span>
+                                                            နေပြည်တော်သင်တန်းကျောင်း
+                                                        </label>
+                                                    </div>
+                                                
+        
+                                               
+                                                        <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
+                                                   
                                                 </div>
                                             </div>
                                             {{--<div class="row">
@@ -766,7 +795,7 @@
                                                         <span class="recommend_letter"></span>
                                                     </div>
                                                     <div class="col-md-6"  id="degree_edu" >
-                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        <input type="file"  class="form-control" id="recommend_letter_private"  name="recommend_letter_private">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1182,7 +1211,7 @@
                                                         <span class="recommend_letter"></span>
                                                     </div>
                                                     <div class="col-md-6"  id="degree_edu" >
-                                                        <input  disabled type="file"  class="form-control" id="recommend_letter"  name="recommend_letter">
+                                                        <input type="file"  class="form-control" id="recommend_letter_self"  name="recommend_letter_self">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1679,7 +1708,7 @@
 
                     
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type').text(mac_name)
+                    $('#mac_type_name').text(mac_name)
                     $(".batch_number").append(current_stu_course[0].batch.number);
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
@@ -1702,22 +1731,28 @@
                             $('#remain_module').val(last_exam[0].is_full_module)
 
                             if(last_exam[0].is_full_module == "1"){
-                                
-                                $(".module_two").prop("checked", true);
+                                 $(".module_two").prop("checked", true);
                               
-                                $(':radio:not(:checked)').attr('disabled', true);
+                                $('.module_one').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
 
                             }
                             else if(last_exam[0].is_full_module=="2"){
                                 $(".module_one").prop("checked", true);
-                                $(':radio:not(:checked)').attr('disabled', true);
+                                $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+
+
  
                             }
                             else if(last_exam[0].is_full_module=="3"){
                                 $(".module_full").prop("checked", true);
+                                 $('.module_two').attr('disabled', true);
+                                $('.module_full').attr('disabled', true);
+                                
 
-                                $(':radio:not(:checked)').attr('disabled', true);
-                                 
+                                  
                             }
 
                             

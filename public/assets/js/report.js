@@ -130,7 +130,11 @@ function showExamResultList(course_code) {
         },
         columns: [
 
-            { data: "sr_no", name: 'No' },
+            {
+                data: null, render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
             { data: 'student_info.name_mm', name: 'student_info.name_mm' },
             { data: 'nrc', name: 'nrc' },
             { data: 'student_info.personal_no', name: 'personal_no' },

@@ -145,7 +145,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name"></span> ) သင်တန်းအမှတ်စဥ် ( <span id="module_name"></span> ) ကို မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="type_name"></span>  <span id="result_name"></span> သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">-----</span> ) သင်တန်းအမှတ်စဥ် ( <span id="module_name">-----</span> ) ကို မြန်မာနိုင်ငံစာရင်းကောင်စီ <span id="type_name">-----</span>  <span id="result_name">-----</span> သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -162,7 +162,7 @@
                                                             <input type="radio" class="form-check-input" value="0" id="female2" name="gender2" >
                                                             <label class="form-check-label " for="">ကျွန်မ</label>
                                                         </li>
-                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">ပထမပိုင်း/ဒုတိယပိုင်း</span> ) စာမေးပွဲကို <br> <span id=""> -----</span>ခုနှစ် <span id="">-----</span>လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
+                                                        <li>သည် မြန်မာနိုင်ငံစာရင်းကောင်စီက ဖွင့်လှစ်သည့် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် ( <span id="course_name">-----</span> ) စာမေးပွဲကို <br> <span id=""> -----</span>ခုနှစ် <span id="">-----</span>လ တွင်ကျင်းပခဲ့သော CPA II <span id="">-----</span> တွင်အောင်မြင်သူတစ်ဦးဖြစ်ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -355,7 +355,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း">
+                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
                                             </div>
                                         </div>
 
@@ -365,7 +365,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p class="ml-2" style="font-weight:bold" align="left">Certificate</p>
+                                                            <p class="ml-2" style="font-weight:bold" align="left">ပညာအရည်အချင်းမိတ္တူ</p>
                                                         </div>
                                                         <div class="col-md-3 stu_certificate">
                                                         
@@ -467,7 +467,7 @@
                                         
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၉။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၉။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div class="form-check">
                                                     <div class="row">
@@ -562,6 +562,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="request_papp_attach" class="form-control">
+                                            </div>
+                                        </div>
+
                                         <div id="previous_exam_pass_row" style="display:none;">
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label label"><span class="pull-left" id="exam_pass_date_label">{{ __('၁၆။') }}</span>စာမေးပွဲကျင်းပသည့် ခုနှစ်၊လ ၊ အောင်မြင်သည့်အမှတ်စဥ် </label>
@@ -650,9 +657,9 @@
     $('document').ready(function(){
         var result = window.location.href;
         var url = new URL(result);
-        var get_year = url.searchParams.get("data");
+        var get_data = url.searchParams.get("data");
 
-        $("#article_form_type").val(get_year);
+        $("#article_form_type").val(get_data);
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
@@ -696,33 +703,15 @@
                 $("#renew_row").show();
                 document.getElementById('request_label').innerHTML="၃။";
             }
-            
-            // if(get_year == 1 && exam_result == 1 && course == "cpa_2"){
-            //     $("#request_row").css('display','none');
-            //     $("#cpa2_pass_1year_row").css('display','block');
-            //     $("#experience_row").css('display','none');
-            //     document.getElementById('current_job_label').innerHTML="၈။";
-            //     document.getElementById('address_label').innerHTML="၉။";
-            //     document.getElementById('current_address_label').innerHTML="၁၀။";
-            //     document.getElementById('phone_label').innerHTML="၁၁။";
-            //     document.getElementById('m_email_label').innerHTML="၁၂။";
-            //     $("#previous_papp_name_row").css('display','block');
-            //     $("#previous_papp_date_row").css('display','block');
-            //     document.getElementById('papp_name_label').innerHTML="၁၅။";
-            //     $("#previous_exam_pass_row").css('display','block');
-            // }else if(get_year == 3 && exam_result == 1 && course == "cpa_2"){
-            //     $("#previous_exam_pass_row").css('display','block');
-            //     document.getElementById('exam_pass_date_label').innerHTML="၁၅။";
-            // }
 
-            if(get_year == 1){
+            if(get_data == "c2_pass_3yr"){
                 $("#course_name").text("ဒုတိယပိုင်း");
                 $("#module_name").text("အားလုံး");
                 $("#previous_exam_pass_row").css('display','block');
                 document.getElementById('exam_pass_date_label').innerHTML="၁၅။";
-            }else if(get_year == 2){
+            }else if(get_data == "c12"){
                 
-            }else if(get_year == 3){
+            }else if(get_data == "c2_pass_1yr"){
                 $("#all_first_row").css('display','none');
                 $("#renew_first_row").css('display','block');
                 $("#request_row").css('display','none');
@@ -762,7 +751,7 @@
             let certificate = JSON.parse(student_info.student_education_histroy.certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);                    
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
                    
                 })
 

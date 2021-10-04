@@ -352,6 +352,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" id="hinitial_status">
                                 <div class="row">
                                     <div id="rec_letter" style="display:none" >
                                             <div class="row mb-3">
@@ -789,7 +790,7 @@
                                                             <input type="hidden" id="student_info_id">
                                                             <input type="hidden" id="teacher_id">
                                                             <input type="hidden" id="hschool_name">
-                                                            
+                                                            <input type="hidden" id="payment_date">
                                                     </div>
                                                     
                                                     <div class="row mb-3">

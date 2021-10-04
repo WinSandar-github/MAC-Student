@@ -191,7 +191,7 @@
 																<ul>
 																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='yearly-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
 																		
@@ -458,12 +458,12 @@
                                         <input type="email"  class="form-control" name="contact_mail" id="contact_mail">
                                     </div>
                                 </div>
-                                <div class="row mb-3" style="padding-left: 15px;">
+                                {{--<div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('CPA(FF) Registeraion No.') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="reg_no" id="reg_no" required="">
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
 							<!-- <div class="row">
 									<label class="col-md-1 col-form-label"></label>
@@ -563,8 +563,12 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_date" class="form-control">ခုနှစ်အတွက်ရက်စွဲပါမှတ်ပုံတင်အမှတ် <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။</label>
+                                            <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" class="form-control">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+                                            </label>
                                         </div>
 
 
@@ -693,6 +697,30 @@
                                     </div>
                                 </div><br>
 
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 fw-bolder">*</div>
+                                    <div class="col-md-10">
+                                        <p>နှစ်အတွင်း လက်ခံ/ရရှိ Statutory Audit Work လုပ်ငန်းအားလုံးကိုထည့်သွင်းရန်ဖြစ်ပါသည်။</p>
+                                        <p>လုပ်ငန်းအပ်နှံသည့် ပုဂ္ဂိုလ်/ကုမ္ပဏီ/စီးပွားရေးအဖွဲ့အစည်း/လူမှုရေးအဖွဲ့အစည်း၏ မှတ်ပုံတင်အမှတ်ကိုပါ ဖော်ပြရန်လိုအပ်ပါသည်။ နှစ်အတွင်းလုပ်ငန်းမရှိလျှင် မရှိကြောင်းဖော်ပြရန်ဖြစ်သည်။</p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 fw-bolder">**</div>
+                                    <div class="col-md-10">
+                                        <p>ဆောင်ရွက်ပေးသည့်လုပ်ငန်း၏ စာရင်းကာလဖော်ပြရန်ဖြစ်ပါသည်။</p>                                        
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 fw-bolder">***</div>
+                                    <div class="col-md-10">
+                                        <p>ထို Statutory Audit Work ကို ဦးဆောင်တာဝန်ယူဆောင်ရွက်သူ (Team Leader) PPA အမည်ကိုဖော်ပြရန်ဖြစ်ပါသည်။</p>                                        
+                                    </div>
+                                </div>
+
                                 <div class="row mb-2">
                                     <div class="col-md-1">
                                         <div class="single-form">
@@ -711,14 +739,14 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(က)</div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-10">
                                             <label >နှစ်အတွင်းလက်ခံဆောင်ရွက်ခဲ့သည့်လုပ်ငန်းများစာရင်းကို အပြည့်အစုံမှန်ကန်စွာ ဖော်ပြထားသည်။</label>
                                     </div>
                                 </div><br/>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ခ)</div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-10">
                                             <label >လက်ခံဆောင်ရွက်ပေးသည့် လုပ်ငန်းအားလုံးအတွက် နှစ်အလိုက် Register ဖြင့်မှတ်တမ်းတင်ထားရှိပါသည်။MAC မှလိုအပ်၍ တောင်းခံလျှင် တင်ပြနိုင်ပါသည်။</label>
                                     </div>
                                 </div><br/>
@@ -859,7 +887,7 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဆ) </div>
-                                    <div class="col-md-8 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ <input type="text" style="display:inline; width: 70px;" name="tax_year" class="form-control" > ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
+                                    <div class="col-md-10 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ <input type="text" placeholder="နှစ်(YYYY)" style="display:inline; width: 100px;" name="tax_year" class="form-control tax_year" > ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
                                 </div>
                                 <div class="row">
                                     <label class="col-md-8" ></label>
@@ -876,11 +904,20 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဇ)') }}</label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
                                                 <input type="file"  class="form-control" name="mpa_mem_card" required="" >
                                     </div>
                                 </div><br/><br>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
+                                    <div class="col-md-4">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_back" required="" >
+                                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
@@ -899,7 +936,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ည)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeration No./PAPP Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="reg_no"  placeholder="" required="">
+                                        <input type="text"  class="form-control" name="reg_no"  id="reg_no" placeholder="" required="">
                                     </div>
                                 </div><br/><br>
 
@@ -940,7 +977,7 @@
 																	</div>
 															</div>--}}
                                                         <div class="row">
-                                                            <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                                            <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                                             <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onclick="ConfirmSubmitSS()"></div>
                                                             <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                                         </div><br/>
@@ -995,6 +1032,24 @@
     })
     //app_form_feedback();
     $(".papp_date").flatpickr({
+            enableTime: false,
+            dateFormat: "Y",
+            allowInput: true,
+    });
+
+    $(".papp_renew_year").flatpickr({
+            enableTime: false,
+            dateFormat: "Y",
+            allowInput: true,
+    });
+
+    $(".papp_reg_date").flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
+    });
+
+    $(".tax_year").flatpickr({
             enableTime: false,
             dateFormat: "Y",
             allowInput: true,

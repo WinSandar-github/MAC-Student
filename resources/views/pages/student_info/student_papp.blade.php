@@ -569,11 +569,20 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဇ)') }}</label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား </div>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card" >
+                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front">
                                     </div>
                                 </div><br/><br>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
+                                    <div class="col-md-4">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back">
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဈ)') }}</label>
@@ -589,7 +598,7 @@
 
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="reg_no"  placeholder="Enter CPA(FF) Registeraion No.">
+                                        <input type="text"  class="form-control" name="reg_no"  id="cpa_batch_no" placeholder="Enter CPA(FF) Registeraion No.">
                                     </div>
                                 </div><br/><br>
 
@@ -746,6 +755,7 @@
    loadCpaffData();
    isLoginPAPP();
    Papp_feedback();
+   loadCpaffInitialData();
 
    $(".degree_pass_year").flatpickr({
             enableTime: false,

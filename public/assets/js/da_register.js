@@ -282,6 +282,7 @@ $('#store_da_two_form').submit(function (e) {
 function createDaTwoSelfStudy() {
 
     localStorage.setItem("isPrivateSchool", false);
+    var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -290,6 +291,7 @@ function createDaTwoSelfStudy() {
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
     send_data.append('academic_year', $("#self_academic_year").val());
     send_data.append('type', 0);
+    send_data.append('recommendation_letter',recommend_letter_self);
     $('input[name="reg_reason[]"]:checked').map(function (key, val) {
         send_data.append('reg_reason[]', val.value);
     });
@@ -331,6 +333,7 @@ $("#da_two_private_submit").click(function () {
 
 function createDaTwoPrivateSchool() {
     localStorage.setItem("isPrivateSchool", true);
+    var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -341,6 +344,7 @@ function createDaTwoPrivateSchool() {
     send_data.append('private_school_name', $("#selected_school_id").val());
     send_data.append('academic_year', $("#academic_year").val());
     send_data.append('type', 1);
+    send_data.append('recommendation_letter',recommend_letter_private);
     send_data.append('form_type', $("input[name='form_type']").val());
     if ($("input[name='form_type']").val() == "da two") {
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
@@ -380,7 +384,8 @@ $("#submit_btn_mac").click(function () {
 });
 
 function createDaTwoMac() {
-    localStorage.setItem("isPrivateSchool", false);
+    localStorage.setItem("isPrivateSchool", false);    
+    var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -388,9 +393,12 @@ function createDaTwoMac() {
     send_data.append('part_no_mac', $("input[id='part_no_mac']").val());
     send_data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
+    send_data.append('recommendation_letter',recommend_letter_mac);
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('academic_year', $("#mac_academic_year").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    send_data.append('mac_type', $("input[type='radio'][name='mac_type']:checked").val());
+
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",

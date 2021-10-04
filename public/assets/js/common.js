@@ -43,7 +43,7 @@ $('document').ready(function () {
         type: 'GET',
         async: false,
         success: function (response) {
-            console.log(response)
+            console.log("Response", response)
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
@@ -172,32 +172,35 @@ function addRowBranch(tbody) {
     //cols += '<td><button class="btn btn-primary btn-sm" type="button" onclick=addInputTele("'+tbody+'")><i class="fa fa-plus"></i></button></td>';
     cols += '<td><input type="text" name="bo_email[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="bo_website[]" class="form-control" autocomplete="off"  /></td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    //cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("' + tbody + '")><i class="fa fa-times"></i></button></td>';
+    cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowBranch("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
 }
 
+var num = 0;
 function addRowPartner(tbody) {
-
+    num ++;
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
     cols += '<td>' + (row) + '</td>';
     cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no' + row + '" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
     cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + num + '" class="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
     // cols += '<input type="radio" class="form-check-input" id="report_yes" value="1" name="foa_authority_to_sign" required>';
     // cols += '<label class="form-check-label" for="">Yes</label>';
     // cols += '</div>';
     // cols += '</td>'
-    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" id="report_yes" value="2" required> <label class="form-check-label" style="display:flex;">No</label></td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + num + '" class="report_yes" value="2" > <label class="form-check-label">No</label></td>';
+    cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
+    //num = num;
 }
 
 function delRowPartner(tbody) {
@@ -222,7 +225,8 @@ function addRowDirector(tbody) {
     cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" /> </td>';
     cols += '<td><input type="text" name="do_pub_pri_reg_no[]" class="form-control" autocomplete="off" /></td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    //cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("' + tbody + '")><i class="fa fa-times"></i></button></td>';
+    cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirector("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -247,7 +251,8 @@ function addRowPartnerByNonAudit(tbody) {
     cols += '<td>' + (row) + '</td>';
     cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" required></td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    //cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><i class="fa fa-times"></i></button></td>';
+    cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -283,7 +288,8 @@ function addRowDirectorByNonAudit(tbody) {
     cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" required></td>';
     cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required></td>';
     // cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    //cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -312,7 +318,8 @@ function addRowDirectorCPA(tbody) {
     cols += '<td><input type="text" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"/> </td>';
     cols += '<td><input type="text" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"/> </td>';
     cols += '<td><input type="text" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"/> </td>';
-    cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorCPA("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    //cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorCPA("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
+    cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorCPA("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
@@ -532,14 +539,14 @@ function thousands_separators(num) {
     return num_parts.join(".");
 }
 function convert(num) {
-    
-    var numeralCodes = [["","I","II","III","IV","V","VI","VII","VIII","IX"],         // Ones
-                    ["","X","XX","XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
-                    ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"]]; 
+
+    var numeralCodes = [["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],         // Ones
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
+    ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]];
     var numeral = "";
     var digits = num.toString().split('').reverse();
-    for (var i=0; i < digits.length; i++){
-      numeral = numeralCodes[i][parseInt(digits[i])] + numeral;
+    for (var i = 0; i < digits.length; i++) {
+        numeral = numeralCodes[i][parseInt(digits[i])] + numeral;
     }
-    return numeral;  
+    return numeral;
 }
