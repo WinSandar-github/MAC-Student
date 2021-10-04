@@ -128,7 +128,7 @@ function AddCPAFFDegree() {
         '<label for="" class="col-form-labe"> Attached Certificate</label>' +
         '</div>' +'<div class="col-md-2 foreign_degree_file"></div>'+
         '<div class="col-md-5">' +
-        '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]" required="">' +
+        '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
         '<button class="btn btn-danger" id="myLink"  style="padding-left:5px;" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
