@@ -76,13 +76,9 @@ class PaymentController extends Controller
         return view('pages.payment.mpu',compact('payment_type','name_eng','email','phone','invoice_no'));
     }
 
-    public function paymentStatus(Request $request, $type)
+    public function paymentStatus(Request $request)
     {
         try {
-            
-            return $request ;
-
-
 
             $client = new \GuzzleHttp\Client();
             

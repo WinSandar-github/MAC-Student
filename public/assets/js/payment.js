@@ -54,16 +54,16 @@ $('#payment_form').submit(function (e) {
 
     switch ($pay_method) {
         case 'mpu':
-            $('#payment_form').attr('action', '/post_payment/mpu');
+            $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/mpu');
             break;
         case 'cbpay':
-            $('#payment_form').attr('aciton', '/post_payment/cbpay');
+            $('#payment_form').attr('aciton', FRONTEND_URL + '/post_payment/cbpay');
             break;
         case 'master':
-            $('#payment_form').attr('action', '/post_payment/master');
+            $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/master');
             break;
         case 'visa':
-            $('#payment_form').attr('action', '/post_payment/visa');
+            $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/visa');
             break;
     }
 

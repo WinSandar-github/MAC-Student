@@ -15,7 +15,7 @@
     $invoice_no = $data['invoiceNo'];
     $product_desc = $data['productDesc'];
     // $amount = str_pad($data['amount'], 20, "0", STR_PAD_LEFT);
-    $amount = str_pad($data['amount'] * 5000, 12, '0', STR_PAD_LEFT);
+    $amount = str_pad($data['amount'] * 100, 12, '0', STR_PAD_LEFT);
     $currencyCode = '104';
     $name = $data['name_eng'];
     $email = $data['email'];
