@@ -712,7 +712,7 @@ function createPrivateSchool() {
             EasyLoading.hide();
             successMessage(result);
             setInterval(() => {
-                // location.href = FRONTEND_URL + "/";
+                location.href = FRONTEND_URL + "/";
             }, 3000);
         }
     });
