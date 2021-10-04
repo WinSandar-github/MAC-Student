@@ -371,7 +371,8 @@ function loadCpaffInitialData() {
                 for(let i=0;i<degree_name.length;i++){
                     $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
                     $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);  
-                    $('.foreign_degree_file').append("<a href='"+BASE_URL+foreign_degree[i]+"'  target='_blank'>View File</a><br/>");                   
+                    let a="<a href='"+BASE_URL+foreign_degree[i]+"'  target='_blank'>View File</a><br/>";
+                    $('.foreign_degree_file')[i].append(a);                   
                 }
             }
         }
