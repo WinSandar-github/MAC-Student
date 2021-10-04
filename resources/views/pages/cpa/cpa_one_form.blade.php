@@ -925,9 +925,9 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုံအမှတ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                             <div class="col-md-8">                                                    
-                                                    <input type="text" readonly value=""  placeholder="ခုံအမှတ်" id="da_pass_roll_number" name="da_pass_roll_number" class="form-control  ">                                                
+                                                    <input type="text" readonly value=""  placeholder="ကိုယ်ပိုင်အမှတ်" id="da_pass_roll_number" name="da_pass_roll_number" class="form-control  ">                                                
                                             </div>                                            
                                         </div>
 

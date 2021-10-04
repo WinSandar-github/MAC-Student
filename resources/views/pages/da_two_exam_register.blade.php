@@ -550,6 +550,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 let last_exam = data.data.exam_registers.slice(-1);
 
                 let current_stu_reg=data.data.student_register.slice(-1);
+                let last_exam = data.data.exam_registers.slice(-1);
                 $("#batch_number").append(current_stu_course[0].batch.number);
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
