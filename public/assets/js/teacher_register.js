@@ -167,7 +167,7 @@ function checkPaymentTeacher(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     if(student!=null){
         $.ajax({
-            url: BACKEND_URL+"/check_payment_teacher/"+student.id,
+            url: BACKEND_URL+"/check_payment_teacher/"+student.teacher_id,
             type: 'GET',
             success: function(data){
                 // console.log(data);
@@ -299,7 +299,7 @@ function loadRenewTeacher(){
                               $('#hschool_name').val(teacher.school_name);
                               $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                               $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                              loadEductaionHistory(teacher.student_info.id,'.tbl_degree_body');
+                              loadEductaionHistory(teacher.id,'tbl_degree');
                                 if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                     loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
                                     loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
@@ -349,7 +349,7 @@ function loadRenewTeacher(){
                                   $('.renew_submit').prop('disabled', true);
                                   $('#submit_confirm').prop('disabled', false);
               
-                              }else if((now.getFullYear()==accept.getFullYear() && month=='10') || (now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                              }else if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                                   $("#message").val("Your renew form  can submit!");
                                   $('.renew_submit').prop('disabled', true);
                                   $('#submit_confirm').prop('disabled', false);
@@ -472,22 +472,22 @@ function selectSchoolType(value){
         $('.private_type').css('display','none');
     }
 }
-function loadEductaionHistory(student_info_id,tbody){
+function loadEductaionHistory(id,table){
     $.ajax({
-      type : 'GET',
-      url : BACKEND_URL+"/getEducationHistory/"+student_info_id,
-      success: function(result){
-          $.each(result.data, function( index, value ) {
-            
-              var tr = "<tr>";
-              tr += `<td class="less-font-weight text-center"> ${ index += 1 } </td>`;
-              tr += `<td> ${ value.university_name } </td>`;
-              tr += `<td><a href='${BASE_URL+value.certificate}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a></td>`;
-              tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("tbl_degree_body")><li class="fa fa-times"></li></button></td>`;
-              tr += "</tr>";
-              $(tbody).append(tr);
-          });
-      }
+        type : 'POST',
+        url : BACKEND_URL+"/getEducationHistory",
+        data: 'teacher_id='+id,
+        success: function(result){
+            $.each(result.data, function( index, value ){
+                var tr="<tr>";
+                tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+                tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.university_name+'"/></td>';
+                tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><input type="file" name="old_degrees_certificates[]" class="form-control"><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
+                tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+                tr += "</tr>";
+                $("table."+table).append(tr);
+            });
+        }
     });
 }
 function loadCertificates(name,select){
@@ -576,7 +576,7 @@ function updateTeacher(){
                               $('#hschool_name').val(teacher.school_name);
                               $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                               $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                              loadEductaionHistory(student.id,'.tbl_degree_update_body');
+                              loadEductaionHistory(teacher.id,'tbl_degree');
                                 if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                     loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
                                     loadSubject(2,"selected_cpa_subject_up");
