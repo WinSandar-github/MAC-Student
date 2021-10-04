@@ -300,7 +300,7 @@
 
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
                                                 <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
@@ -310,7 +310,8 @@
                                         <div id="cpa">
                                             <div class="row">
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-2 cpa_file"></div>
+                                                <div class="col-md-8">
                                                     <input type="file"  class="form-control" name="cpa" >
                                                 </div>
                                             </div><br/>
@@ -325,7 +326,8 @@
                                         <div id="ra">
                                             <div class="row">
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-2 ra_file" id="ra_file"></div>
+                                                <div class="col-md-8">
                                                     <!-- <div class="single-form"> -->
                                                         <input type="file"  class="form-control" name="ra" >
                                                     <!-- </div> -->
@@ -342,33 +344,35 @@
                                         <div  id="edu" style="display:none;">
                                             <div class="row mb-1" id="degree0">
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-4 col-auto">
-                                                    <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
+                                                <div class="col-md-3 col-auto">
+                                                    <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
                                                 </div>
-                                                <div class="col-md-6 col-auto">
+                                                <div class="col-md-7 col-auto">
                                                     <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-4 col-auto">
-                                                    <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
+                                                <div class="col-md-3 col-auto">
+                                                    <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
-                                                <div class="col-md-6 col-auto">
+                                                <div class="col-md-7 col-auto">
                                                     <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-4" id="edu0" >
                                                 <div class="col-md-1"></div>
-                                                <div class="col-md-4 col-auto">
-                                                    <label for="" class="col-form-labe"> Attached Certificate</label>
+                                                <div class="col-md-3 col-auto">
+                                                    <label for="" class="col-form-label"> Attached Certificate</label>
                                                 </div>
-                                                <div class="col-md-6"  id="degree_edu" >
+                                                <div class="col-md-2 foreign_degree_file">
+                                                </div>
+                                                <div class="col-md-5"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddCPAFFDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>

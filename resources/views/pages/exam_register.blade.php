@@ -235,16 +235,16 @@
                                         </div>
                                     </div>--}}
 
-                                    <div class="row mb-3">
+                                    <div class="row mb-3" style="display:none">
                                         <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၁။</span>စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန် </label>
                                     </div>
-                                    <div class="row mb-3">
+                                    <div class="row mb-3" style="display:none">
                                         <label class="col-md-5 offset-md-1 col-form-label label_align_right"><span class="pull-left">(က)</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
                                         <div class="col-md-6">
                                             <input type="text" name="date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" autocomplete="off" >
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
+                                    <div class="row mb-3" style="display:none">
                                         <label class="col-md-5 offset-md-1 col-form-label label_align_right"><span class="pull-left">(ခ)</span>အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(√ )အမှတ်အသားပြုရန်</label>
                                         <div class="col-md-6">
                                             <div class="row mt-2">
