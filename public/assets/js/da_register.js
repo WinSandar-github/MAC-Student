@@ -291,7 +291,7 @@ function createDaTwoSelfStudy() {
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
     send_data.append('academic_year', $("#self_academic_year").val());
     send_data.append('type', 0);
-    data.append('recommendation_letter',recommend_letter_self);
+    send_data.append('recommendation_letter',recommend_letter_self);
     $('input[name="reg_reason[]"]:checked').map(function (key, val) {
         send_data.append('reg_reason[]', val.value);
     });
@@ -344,7 +344,7 @@ function createDaTwoPrivateSchool() {
     send_data.append('private_school_name', $("#selected_school_id").val());
     send_data.append('academic_year', $("#academic_year").val());
     send_data.append('type', 1);
-    data.append('recommendation_letter',recommend_letter_private);
+    send_data.append('recommendation_letter',recommend_letter_private);
     send_data.append('form_type', $("input[name='form_type']").val());
     if ($("input[name='form_type']").val() == "da two") {
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
@@ -393,7 +393,7 @@ function createDaTwoMac() {
     send_data.append('part_no_mac', $("input[id='part_no_mac']").val());
     send_data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
-    data.append('recommendation_letter',recommend_letter_mac);
+    send_data.append('recommendation_letter',recommend_letter_mac);
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('academic_year', $("#mac_academic_year").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
