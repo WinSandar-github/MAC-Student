@@ -481,7 +481,7 @@ function createCPAFFRegister() {
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     // send_data.append('form_type', 1);
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
-
+    show_loader();
     $.ajax({
         url: BACKEND_URL + "/cpa_ff",
         type: 'post',
@@ -489,6 +489,7 @@ function createCPAFFRegister() {
         contentType: false,
         processData: false,
         success: function (result) {
+            EasyLoading.hide();
             successMessage("You have successfully registerd!");
             // location.reload();
             location.href = FRONTEND_URL + "/";

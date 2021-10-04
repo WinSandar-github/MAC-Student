@@ -316,13 +316,14 @@ function loadPappData()
         success: function(data){
             // console.log(data)
             var papp_data = data.data;
-            // console.log('papp_data',papp_data)
+            console.log('papp_data',papp_data)
             // $('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
             $('#reg_no').val(papp_data.cpa_batch_no);
+            $('#total_hours').val(papp_data.cpd_hours);
         }
     });
 }
@@ -413,6 +414,7 @@ function loadPAPP(){
             processData: false,
             success: function(cData){
                 var data=cData.data;
+                console.log('cData',data);
                 if(data!=null){
                     if(data.status==1 || data.renew_status==1)
                     {
