@@ -105,33 +105,33 @@ function AddCPAFFDegree() {
     $("#edu").append(
         '<div class="row mb-2" id="degree' + count + '">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-4 col-auto">' +
+        '<div class="col-md-3 col-auto">' +
         '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>' +
         '</div>' +
-        '<div class="col-md-6 col-auto">' +
+        '<div class="col-md-7 col-auto">' +
         '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">' +
         '</div>' +
         '</div>' +
         '<div class="row mb-2" id="degree_year' + count + '">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-4 col-auto">' +
+        '<div class="col-md-3 col-auto">' +
         '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>' +
         '</div>' +
-        '<div class="col-md-6 col-auto">' +
+        '<div class="col-md-7 col-auto">' +
         '<input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">' +
         '</div>' +
         '</div>' +
 
         '<div class="row mb-4" id="edu' + count + '">' +
         '<div class="col-md-1"></div>' +
-        '<div class="col-md-4 col-auto">' +
+        '<div class="col-md-3 col-auto">' +
         '<label for="" class="col-form-labe"> Attached Certificate</label>' +
-        '</div>' +
-        '<div class="col-md-6">' +
+        '</div>' +'<div class="col-md-2 foreign_degree_file"></div>'+
+        '<div class="col-md-5">' +
         '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]" required="">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
-        '<button class="btn btn-danger" id="myLink" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
+        '<button class="btn btn-danger" id="myLink"  style="padding-left:5px;" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
         '<i class="fa fa-trash "></i>' +
         '</button>' +
         '</div>' +
@@ -338,6 +338,41 @@ function loadCpaffInitialData() {
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
+            console.log(cpaff_data.ra!=null || cpaff_data.ra!="null");
+            if(cpaff_data.ra!=null && cpaff_data.ra!="null"){
+                $('#ra_edu').attr('checked', true);
+                getCPAEducation();        
+                $(".ra_file").append("<a href='"+BASE_URL+cpaff_data.ra+"'  target='_blank'>View File</a><br/>");
+            }
+            else{
+                getCPAEducation();  
+                $(".ra_file").append("");
+            }
+            if(cpaff_data.cpa!=null && cpaff_data.cpa!="null"){
+                $('#cpa_edu').attr('checked', true);                
+                getCPAEducation();
+                $(".cpa_file").show();
+                $(".cpa_file").append("<a href='"+BASE_URL+cpaff_data.cpa+"'  target='_blank'>View File</a><br/>");
+            }
+            else{
+                getCPAEducation();  
+                $(".cpa_file").append("");
+            }
+            if(cpaff_data.foreign_degree!=null && cpaff_data.foreign_degree!="null"){
+                $('#education').attr('checked', true);
+                getCPAEducation();
+                let foreign_degree = JSON.parse(cpaff_data.foreign_degree);
+                let degree_name = JSON.parse(cpaff_data.degree_name);
+                let degree_pass_year = JSON.parse(cpaff_data.degree_pass_year);
+                for(let j=0;j<degree_name.length-1;j++){
+                    AddCPAFFDegree();
+                }
+                for(let i=0;i<degree_name.length;i++){
+                    $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+                    $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);  
+                    $('.foreign_degree_file').append("<a href='"+BASE_URL+foreign_degree[i]+"'  target='_blank'>View File</a><br/>");                   
+                }
+            }
         }
     });
 }
