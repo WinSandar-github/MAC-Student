@@ -128,7 +128,7 @@ function AddCPAFFDegree() {
         '<label for="" class="col-form-labe"> Attached Certificate</label>' +
         '</div>' +'<div class="col-md-2 foreign_degree_file"></div>'+
         '<div class="col-md-5">' +
-        '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]" required="">' +
+        '<input type="file"  class="form-control"  id="degree_file' + count + '"  name="degree_file[]">' +
         '</div>' +
         '<div class="col-md-1 text-center"  id="edu' + count + '_remove">' +
         '<button class="btn btn-danger" id="myLink"  style="padding-left:5px;" onclick="remove(degree' + count + ',degree_year' + count + ',edu' + count + ')">' +
@@ -371,7 +371,7 @@ function loadCpaffInitialData() {
                 for(let i=0;i<degree_name.length;i++){
                     $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
                     $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);  
-                    $('.foreign_degree_file').append("<a href='"+BASE_URL+foreign_degree[i]+"'  target='_blank'>View File</a><br/>");                   
+                    $($(".foreign_degree_file")[i]).append(jQuery("<a href='"+BASE_URL+foreign_degree[i]+"'  target='_blank'>View File</a><br/>"));                   
                 }
             }
         }
@@ -480,7 +480,7 @@ function createCPAFFRegister() {
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     // send_data.append('form_type', 1);
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
-
+    show_loader();
     $.ajax({
         url: BACKEND_URL + "/cpa_ff",
         type: 'post',
@@ -488,6 +488,7 @@ function createCPAFFRegister() {
         contentType: false,
         processData: false,
         success: function (result) {
+            EasyLoading.hide();
             successMessage("You have successfully registerd!");
             // location.reload();
             location.href = FRONTEND_URL + "/";

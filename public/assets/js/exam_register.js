@@ -38,10 +38,10 @@ function createDAExamRegister()
         processData: false,
         success: function(result){
             EasyLoading.hide();
-
+            successMessage(result);
             location.href = FRONTEND_URL + "/";
             localStorage.setItem('exam_status',0)
-            successMessage(result);
+            
 
       }
     });
