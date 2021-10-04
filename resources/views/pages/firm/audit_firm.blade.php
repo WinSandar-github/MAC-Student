@@ -767,7 +767,7 @@
                                                                 <!-- <label class="col-form-label error attend_place_error" for="" style="color:#ef815;">Please select one</label> -->
 
                                                               </th>
-                                                              <th  class="less-font-weight text-center"  >
+                                                              <th  class="less-font-weight text-center">
                                                                 <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartner("partner_list")'>
                                                                   <li class="fa fa-plus"></li>
                                                                 </button>
@@ -781,11 +781,11 @@
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td>
-                                                                  <input type="radio" value="1" name="foa_authority_to_sign" id="report_yes" >
+                                                                  <input type="radio" value="1" name="foa_authority_to_sign[]" class="report_yes" >
                                                                   <label class="form-check-label" >Yes</label>
                                                               </td>
                                                               <td>
-                                                                  <input type="radio" value="2" name="foa_authority_to_sign" id="report_no" >
+                                                                  <input type="radio" value="2" name="foa_authority_to_sign[]" class="report_yes" >
                                                                   <label class="form-check-label" >No</label>
                                                               </td>
                                                               <td class="text-center">

@@ -308,9 +308,10 @@ function loadCpaffData() {
         type: 'get',
         data: "",
         success: function (data) {
+
             // console.log(data)
             var cpaff_data = data.data;
-            // console.log(cpaff_data)
+            // console.log('cpaff_data',cpaff_data)
             $('#name_mm').val(cpaff_data.name_mm);
             $('#name_eng').val(cpaff_data.name_eng);
             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
@@ -333,7 +334,7 @@ function loadCpaffInitialData() {
         success: function (data) {
             // console.log(data)
             var cpaff_data = data.data;
-            console.log(cpaff_data)
+            // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
@@ -514,7 +515,7 @@ function selectEntry() {
 
 function isLoginCPAFF() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    console.log(student)
+    // console.log(student)
     if (student == null) {
         // location.href = FRONTEND_URL + '/login';
         location.href = FRONTEND_URL + '/cpaff_other';
@@ -668,7 +669,8 @@ function loadCPAFF() {
 
                         } else if ((now.getFullYear() == accept.getFullYear() && month == '10') || (now.getFullYear() == accept.getFullYear() && month == '11') || (now.getFullYear() == accept.getFullYear() && month == '12')) {
                             $("#message").val("Your registeration will start in " + now.getFullYear() + " year!");
-                            $('.renew_submit').prop('disabled', true);
+                            // $('.renew_submit').prop('disabled', true);
+                            $('.renew_submit').prop('disabled', false);
                         } else {
                             $('#message').val("You are verified!");
                             $('.renew_submit').prop('disabled', true);

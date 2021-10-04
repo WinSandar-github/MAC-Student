@@ -630,7 +630,7 @@
 // console.log("study_type",selectedRegistration(urlParams.get("study_type")));
         get_student_info(student_id).then(data => {
            var student_info = data.data ;
-        //    console.log('student_info',student_info);
+           console.log('student_info',student_info);
             let current_stu_course = data.data.student_course_regs.slice(-1);
             $(".batch_number").append(current_stu_course[0].batch.number);
            if(student_info.acca_cima){
@@ -665,7 +665,7 @@
                 $("#no").prop("checked", true);
             }else{
                 $("#yes").prop("checked", true);
-                $("#rec_letter").css("display",'block');
+                $("#rec_letter").show();
                 if(student_info.recommend_letter!=null){
                     $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
                 }
