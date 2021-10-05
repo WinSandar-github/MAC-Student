@@ -1937,9 +1937,19 @@ function loadSchoolByDash(school){
         $('.sch_payment-btn').show();
         $('.sch_payment-status').show();
     } else {
-        $('.sch_status_history').append('School Registration is Rejected.');
-        $('.sch_reject-btn').show();
-        $('.sch_reject-reason').append(school.reason);
+        
+        if(school.initial_status==2){
+            $('.sch_reject-btn').hide();
+            $('.sch_renew-btn').hide();
+            $('.sch_cessation-btn').show();
+            $('.sch_cessation-reason').append(school.cessation_reason);
+            $('.sch_status').hide();
+        }else{
+            $('.sch_reject-btn').show();
+            $('.sch_status_history').append('School Registration is Rejected.');
+        
+            $('.sch_reject-reason').append(school.reason);
+        }
     }
     if (school.payment_method != null) {
         $('.sch_period').show();
@@ -1947,7 +1957,11 @@ function loadSchoolByDash(school){
         var period_date = school.payment_date.split('-');
         var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
         $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
-        $('.sch_renew-btn').show();
+        if(school.initial_status==2){
+            $('.sch_renew-btn').hide();
+        }else{
+            $('.sch_renew-btn').show();
+        }
         $('.sch_payment-status').show();
         $('.sch_payment-btn').hide();
         $(".sch_payment_status").text("Complete");
