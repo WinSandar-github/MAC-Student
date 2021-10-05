@@ -175,8 +175,7 @@ Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
 Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
 Route::post('payment_method/{id}', 'PaymentController@postPayment');
-Route::get('/mpu', 'PaymentController@mpu');
-Route::post('/payment_status', 'PaymentController@paymentStatus');
-
+Route::post('post_payment/{type}', 'PaymentController@postPayment');
+Route::post('/payment_status', 'PaymentController@paymentStatus'); // response route
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
