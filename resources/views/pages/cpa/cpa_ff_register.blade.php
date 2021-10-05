@@ -78,6 +78,13 @@
                     <br/>
                     <br/>
                 </div>
+                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="remark" id="remark">
+                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -101,6 +108,7 @@
                     <form method="post" id="cpaff_form" action="javascript:void();" enctype="multipart/form-data">
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
+                        <input type="hidden" name="form_type" value="0">
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
@@ -321,7 +329,7 @@
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
                                     </div>
                                     <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
-                                    <input type="text" name="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" placeholder="MM" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
+                                    <input type="text" name="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
                                     ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
