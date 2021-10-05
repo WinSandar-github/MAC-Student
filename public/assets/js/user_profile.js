@@ -1254,7 +1254,7 @@ function user_profile() {
                                 <tr>
                                 <td>မှတ်ချက် - </td>
                                 <td colspan=2>${latest_course_reg[0].remark}</td><td>
-                                <a href="${update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
+                                <a href="${ FRONTEND_URL + update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
 
 
                              </td></tr>
