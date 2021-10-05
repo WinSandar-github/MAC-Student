@@ -1524,7 +1524,7 @@ function user_profile() {
                             }
                         });
 
-                        if(latest_article[0].contract_end_date != null){
+                        if(latest_article[0] != null && latest_article[0].contract_end_date != null){
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
 
