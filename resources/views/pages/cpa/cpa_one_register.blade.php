@@ -116,7 +116,7 @@
                         </div>
                     </div> --}}
 
-                <div class="comment-form study" style="display:none;">     
+                <div class="comment-form study">     
                         <input type="hidden" name="remain_module" id="remain_module">
 
 

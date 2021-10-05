@@ -86,6 +86,7 @@ function user_profile() {
                 $("#cpaff_email").text(cpaff.email);
                 $('#cpaff_phone').text(cpaff.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
+                var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
                 var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
                 if (cpaff.status == 0) {
                     $('.status_history').append('CPA Full-Fledged Registration Form is checking.<br><br>');
@@ -99,6 +100,7 @@ function user_profile() {
                     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
+                    $('.status_history').append(`<a href="${cpaff_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 if (data.papp && data.student_course_regs == '') {
                     if (data.papp.status == 0) {
@@ -1255,7 +1257,7 @@ function user_profile() {
                                 <tr>
                                 <td>မှတ်ချက် - </td>
                                 <td colspan=2>${latest_course_reg[0].remark}</td><td>
-                                <a href="${update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
+                                <a href="${ FRONTEND_URL + update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
 
 
                              </td></tr>
@@ -1522,7 +1524,7 @@ function user_profile() {
                             }
                         });
 
-                        if(latest_article[0].contract_end_date != null){
+                        if(latest_article[0] != null && latest_article[0].contract_end_date != null){
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
 
@@ -1935,9 +1937,19 @@ function loadSchoolByDash(school){
         $('.sch_payment-btn').show();
         $('.sch_payment-status').show();
     } else {
-        $('.sch_status_history').append('School Registration is Rejected.');
-        $('.sch_reject-btn').show();
-        $('.sch_reject-reason').append(school.reason);
+        
+        if(school.initial_status==2){
+            $('.sch_reject-btn').hide();
+            $('.sch_renew-btn').hide();
+            $('.sch_cessation-btn').show();
+            $('.sch_cessation-reason').append(school.cessation_reason);
+            $('.sch_status').hide();
+        }else{
+            $('.sch_reject-btn').show();
+            $('.sch_status_history').append('School Registration is Rejected.');
+        
+            $('.sch_reject-reason').append(school.reason);
+        }
     }
     if (school.payment_method != null) {
         $('.sch_period').show();
@@ -1945,7 +1957,11 @@ function loadSchoolByDash(school){
         var period_date = school.payment_date.split('-');
         var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
         $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
-        $('.sch_renew-btn').show();
+        if(school.initial_status==2){
+            $('.sch_renew-btn').hide();
+        }else{
+            $('.sch_renew-btn').show();
+        }
         $('.sch_payment-status').show();
         $('.sch_payment-btn').hide();
         $(".sch_payment_status").text("Complete");

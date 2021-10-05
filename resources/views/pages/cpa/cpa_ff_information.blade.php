@@ -125,7 +125,7 @@
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
 																		<div class="row register-btn">
                                                                             <div class="col-md-6"></div>
-                                                                            <div class="col-md-6">
+                                                                            <div class="col-md-6 pull-right">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
                                                                                         <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
