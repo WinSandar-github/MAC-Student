@@ -44,7 +44,7 @@ function check_email_school()
 function schoolPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
-    url: BACKEND_URL + "/approve_school/" + student.id,
+    url: BACKEND_URL + "/approve_school/" + student.school_id,
     type: 'patch',
     success: function (data) {
             successMessage("Your payment is successfully");
@@ -63,10 +63,10 @@ function checkPaymentSchool(){
         url: BACKEND_URL+"/check_payment_school/"+student.school_id,
         type: 'GET',
         success: function(data){
-            // console.log(data);
+          
           var form_data = data;
           form_data.forEach(function(element){
-            console.log(element.payment_method)
+           
             if(element.payment_method != null){
                 $('#school_modal').prop('disabled', true);
                 loadRenewSchool();
@@ -868,12 +868,12 @@ function delInputFile(diventry){
   $('.btn-remove').parents('.'+diventry+':first').remove();
 }
 function loadTeacherById(row){
-  var id=$('#teacher_registration_no'+row).val();
+  var invoice_no=$('#teacher_registration_no'+row).val();
   $.ajax({
     type : 'GET',
-    url : BACKEND_URL+"/teacher/"+id,
+    url : BACKEND_URL+"/getTeacher/"+invoice_no,
     success: function(result){
-      console.log(result)
+      
       var subject=[];
 
         $.each(result.data, function( index, value ) {

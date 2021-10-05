@@ -116,7 +116,7 @@
                         </div>
                     </div> --}}
 
-                <div class="comment-form study" style="display:none;">     
+                <div class="comment-form study">     
                         <input type="hidden" name="remain_module" id="remain_module">
 
 
@@ -1693,6 +1693,7 @@
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
                             if(last_exam.length!=0){
+                                // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
                                 
