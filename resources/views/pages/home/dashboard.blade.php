@@ -602,7 +602,7 @@
 
                                 </div>
 
-                                <div class="row my-2">
+                                <div class="row my-2 sch_status">
 
 
                                     <h5 class="text-center border-bottom pb-2"
@@ -624,6 +624,17 @@
 
                                     </div>
                                 </div>
+                                <div class="row my-2 sch_cessation-btn" style="display:none;">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;">Cessation Reason</h5>
+
+
+                                    <div class="text-center sch_cessation-reason">
+
+                                    </div>
+                                </div>
                                 <div class="row my-2 sch_payment-status" style="display:none;">
                                     <h5 class="text-center border-bottom pb-2"
                                         style="font-weight:bold ;background-color:#E7F8EE;">Payment Status</h5>
@@ -640,7 +651,7 @@
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
-                                                    <a href="/school_edit" class="btn btn-success btn-hover-dark"> Update</a>
+                                                    <a href="/MAC_Student/public/index.php/school_edit" class="btn btn-success btn-hover-dark"> Update</a>
                                                 </p>
                                             </div>
                                     </div>
@@ -652,7 +663,7 @@
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
-                                                    <a href="/school_information" class="btn btn-success btn-hover-dark"> Go to
+                                                    <a href="/MAC_Student/public/index.php/school_information" class="btn btn-success btn-hover-dark"> Go to
                                                         payment</a>
                                                 </p>
                                             </div>
@@ -664,7 +675,7 @@
                                                 <div class=" pull-right mt-4">
                                                     <p class="info-btn text-dark h6">
 
-                                                        <a href="/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                        <a href="/MAC_Student/public/index.php/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
                                                     </p>
                                                 </div>
                                     </div>
@@ -753,6 +764,17 @@
 
                                     </div>
                                 </div>
+                                <div class="row my-2 teacher_cessation-btn" style="display:none;">
+
+
+                                    <h5 class="text-center border-bottom pb-2"
+                                        style="font-weight:bold ;background-color:#E7F8EE;">Cessation Reason</h5>
+
+
+                                    <div class="text-center teacher_cessation-reason">
+
+                                    </div>
+                                </div>
                                 <div class="row my-2 teacher_payment-status" style="display:none;">
 
 
@@ -771,7 +793,7 @@
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
-                                                    <a href="/teacher_register" class="btn btn-success btn-hover-dark"> Update</a>
+                                                    <a href="/MAC_Student/public/index.php/teacher_register" class="btn btn-success btn-hover-dark"> Update</a>
                                                 </p>
                                             </div>
                                     </div>
@@ -783,7 +805,7 @@
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
-                                                    <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Go to
+                                                    <a href="/MAC_Student/public/index.php/teacher_information" class="btn btn-success btn-hover-dark"> Go to
                                                         payment</a>
                                                 </p>
                                             </div>
@@ -795,7 +817,7 @@
                                                 <div class=" pull-right mt-4">
                                                     <p class="info-btn text-dark h6">
 
-                                                        <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                        <a href="/MAC_Student/public/index.php/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
                                                     </p>
                                                 </div>
                                     </div>
