@@ -478,6 +478,7 @@ function createCPAFFRegister() {
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
+    send_data.append('is_renew', 0);
     // send_data.append('form_type', 1);
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
     show_loader();
@@ -752,88 +753,96 @@ function loadCPAFF() {
 //     });
 // });
 
-function RenewCPAFF() {
-    var student = JSON.parse(localStorage.getItem('studentinfo'));
+// function RenewCPAFF() {
+//     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
-    show_loader()
+//     show_loader()
 
-    $.ajax({
-        url: BACKEND_URL + "/cpaff_by_stuId/" + student.id,
-        type: 'get',
-        data: "",
-        success: function (result) {
-            if (result.data != null) {
-                var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
-                if ($("input[name=nrc_front]")[0].files[0]) {
-                    send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
-                } else {
-                    send_data.append('nrc_front', $('#hidden_nrc_front').val());
-                }
-                if ($("input[name=nrc_back]")[0].files[0]) {
-                    send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
-                } else {
-                    send_data.append('nrc_back', $('#hidden_nrc_back').val());
-                }
-                //if(!$("input[name=cpa_certificate]")[0].files[0]){
-                // send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
-                send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
-                // }
-                //if(!$("input[name=mpa_mem_card]")[0].files[0]){
-                // send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
-                send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
-                send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
-                //}
-                //if(!$("input[name=cpd_record]")[0].files[0]){
-                // send_data.append('cpd_record', $('#hidden_cpd_record').val());
-                send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
-                //}
-                //if(!$("input[name=passport_image]")[0].files[0]){
-                // send_data.append('passport_image', $('#hidden_passport_image').val());
-                // send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
-                //}
+//     $.ajax({
+//         url: BACKEND_URL + "/cpaff_by_stuId/" + student.id,
+//         type: 'get',
+//         data: "",
+//         success: function (result) {
+//             if (result.data != null) {
+//                 var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
+//                 if ($("input[name=nrc_front]")[0].files[0]) {
+//                     send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+//                 } else {
+//                     send_data.append('nrc_front', $('#hidden_nrc_front').val());
+//                 }
+//                 if ($("input[name=nrc_back]")[0].files[0]) {
+//                     send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+//                 } else {
+//                     send_data.append('nrc_back', $('#hidden_nrc_back').val());
+//                 }
+//                 //if(!$("input[name=cpa_certificate]")[0].files[0]){
+//                 // send_data.append('cpa_certificate', $('#hidden_cpa_certificate').val());
+//                 send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
+//                 // }
+//                 //if(!$("input[name=mpa_mem_card]")[0].files[0]){
+//                 // send_data.append('mpa_mem_card', $('#hidden_mpa_mem_card').val());
+//                 send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
+//                 send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
+//                 //}
+//                 //if(!$("input[name=cpd_record]")[0].files[0]){
+//                 // send_data.append('cpd_record', $('#hidden_cpd_record').val());
+//                 send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
+//                 //}
+//                 //if(!$("input[name=passport_image]")[0].files[0]){
+//                 // send_data.append('passport_image', $('#hidden_passport_image').val());
+//                 // send_data.append('passport_image', $("input[name=passport_image]")[0].files[0]);
+//                 //}
 
-                // var cpa_part_2      = document.getElementById("cpa_part_2_check");
-                // var qt_pass         = document.getElementById("qt_pass_check");
-                // if(cpa_part_2.checked==true){
-                //   send_data.append('cpa_part_2',1);
-                //   send_data.append('qt_pass',0);
-                //   }
-                //   else if(qt_pass.checked==true){
-                //       send_data.append('cpa_part_2',0);
-                //       send_data.append('qt_pass',1);
-                //   }else{
-                //       send_data.append('cpa_part_2',0);
-                //       send_data.append('qt_pass',0);
-                //   }
+//                 // var cpa_part_2      = document.getElementById("cpa_part_2_check");
+//                 // var qt_pass         = document.getElementById("qt_pass_check");
+//                 // if(cpa_part_2.checked==true){
+//                 //   send_data.append('cpa_part_2',1);
+//                 //   send_data.append('qt_pass',0);
+//                 //   }
+//                 //   else if(qt_pass.checked==true){
+//                 //       send_data.append('cpa_part_2',0);
+//                 //       send_data.append('qt_pass',1);
+//                 //   }else{
+//                 //       send_data.append('cpa_part_2',0);
+//                 //       send_data.append('qt_pass',0);
+//                 //   }
+//                 if ($("#cpa_edu").prop("checked")) {
+//                     send_data.append('cpa', $("input[name=cpa]")[0].files[0]);
+//                 }
+//                 else if($("#ra_edu").prop("checked")){
+//                     send_data.append('ra', $("input[name=ra]")[0].files[0]);
+//                 }
+//                 else if($("#education").prop("checked")){
 
-                send_data.append('_method', 'PUT');
-                $.ajax({
-                    url: BACKEND_URL + "/cpa_ff/" + result.data.id,
-                    type: 'post',
-                    data: send_data,
-                    contentType: false,
-                    processData: false,
-                    success: function (result) {
-                        EasyLoading.hide();
-                        successMessage(result.message);
-                        // location.reload();
-                        location.href = FRONTEND_URL + "/";
-                        document.getElementById('approved').style.display = 'none';
-                        document.getElementById('rejected').style.display = 'none';
-                        document.getElementById('pending').style.display = 'none';
-                        document.getElementById('cpaff_form').style.display = 'none';
-                        document.getElementById('cpaff_renew_form').style.display = 'none';
-                        document.getElementById('expiry_card').style.display = 'none';
-                    },
-                    error: function (message) {
-                    }
-                });
-            }
-        },
-        error: function (message) {
-        }
-    });
-}
+//                 }
+//                 send_data.append('_method', 'PUT');
+//                 $.ajax({
+//                     url: BACKEND_URL + "/cpa_ff/" + result.data.id,
+//                     type: 'post',
+//                     data: send_data,
+//                     contentType: false,
+//                     processData: false,
+//                     success: function (result) {
+//                         EasyLoading.hide();
+//                         successMessage(result.message);
+//                         // location.reload();
+//                         location.href = FRONTEND_URL + "/";
+//                         document.getElementById('approved').style.display = 'none';
+//                         document.getElementById('rejected').style.display = 'none';
+//                         document.getElementById('pending').style.display = 'none';
+//                         document.getElementById('cpaff_form').style.display = 'none';
+//                         document.getElementById('cpaff_renew_form').style.display = 'none';
+//                         document.getElementById('expiry_card').style.display = 'none';
+//                     },
+//                     error: function (message) {
+//                     }
+//                 });
+//             }
+//         },
+//         error: function (message) {
+//         }
+//     });
+// }
 
 
 function selectStaff() {
@@ -846,4 +855,76 @@ function selectStaff() {
         $('#rec_letter').css('display', 'none');
 
     }
+}
+
+function RenewCPAFF() {
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var cpa = $("input[name=cpa]")[0].files[0];
+    var ra = $("input[name=ra]")[0].files[0];
+    show_loader();
+    var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
+    send_data.append('student_info_id', student.id);
+    if ($("input[name=nrc_front]")[0].files[0]) {
+        send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+    } else {
+        send_data.append('nrc_front', $('#hidden_nrc_front').val());
+    }
+    if ($("input[name=nrc_back]")[0].files[0]) {
+        send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+    } else {
+        send_data.append('nrc_back', $('#hidden_nrc_back').val());
+    }
+    send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
+    send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
+    send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
+    send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
+    if ($("#cpa_edu").prop("checked")) {
+        send_data.append('cpa', cpa);
+    }
+    else if($("#ra_edu").prop("checked")){
+        send_data.append('ra', ra);
+    }
+    else if($("#education").prop("checked")){
+        $('input[name="degree_name[]"]').map(function () {
+            send_data.append('degree_name[]', $(this).val());
+        });
+        $('input[name="degree_pass_year[]"]').map(function () {
+            send_data.append('degree_pass_year[]', $(this).val());
+        });
+        $('input[name="degree_file[]"]').map(function () {
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                send_data.append('degree_file[]', $(this).get(0).files[i]);
+            }
+        });
+    }
+    send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
+    send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
+    send_data.append('old_card_no', $("input[name=reg_no]").val());
+    send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
+    send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
+    send_data.append('is_convicted', $("input[name=fine_person]").val());
+    send_data.append('is_renew', 1);
+    $.ajax({
+        url: BACKEND_URL + "/renew_cpaff",
+        type: 'post',
+        data: send_data,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            EasyLoading.hide();
+            console.log(result);
+            successMessage(result.message);
+            // location.reload();
+            location.href = FRONTEND_URL + "/";
+            document.getElementById('approved').style.display = 'none';
+            document.getElementById('rejected').style.display = 'none';
+            document.getElementById('pending').style.display = 'none';
+            document.getElementById('cpaff_form').style.display = 'none';
+            document.getElementById('cpaff_renew_form').style.display = 'none';
+            document.getElementById('expiry_card').style.display = 'none';
+        },
+        error: function (message) {
+            EasyLoading.hide();
+        }
+    });
 }
