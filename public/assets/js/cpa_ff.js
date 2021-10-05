@@ -309,6 +309,31 @@ function loadCpaffData() {
         data: "",
         success: function (data) {
             var cpaff_data = data.data;
+            
+            console.log(cpaff_data);
+            if(cpaff_data==null){
+                $.ajax({
+                    url: BACKEND_URL + "/get_cpaff/" + student.id,
+                    type: 'get',
+                    data: "",
+                    success: function (data) {
+
+                        console.log(data,"ddata")
+                        var cpaff_data = data.data;
+                        // console.log('cpaff_data',cpaff_data)
+                        $('#name_mm').val(cpaff_data.name_mm);
+                        $('#name_eng').val(cpaff_data.name_eng);
+                        $('#nrc_state_region').val(cpaff_data.nrc_state_region);
+                        $('#nrc_township').val(cpaff_data.nrc_township);
+                        $('#nrc_citizen').val(cpaff_data.nrc_citizen);
+                        $('#nrc_number').val(cpaff_data.nrc_number);
+                        $('#nrc_state_region').val(cpaff_data.nrc_state_region);
+                        $('#father_name_mm').val(cpaff_data.father_name_mm);
+                        $('#father_name_eng').val(cpaff_data.father_name_eng);
+                    }
+                });
+            }
+            else{
             if(cpaff_data.status == 2){
                 $.ajax({
                     url: BACKEND_URL + "/get_cpaff/" + student.id,
@@ -355,7 +380,7 @@ function loadCpaffData() {
                         $('#father_name_eng').val(cpaff_data.father_name_eng);
                     }
                 });
-            }
+            }}
         }
     });
 }
