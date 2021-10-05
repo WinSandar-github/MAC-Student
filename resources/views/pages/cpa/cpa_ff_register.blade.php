@@ -78,6 +78,13 @@
                     <br/>
                     <br/>
                 </div>
+                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="remark" id="remark">
+                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -101,6 +108,7 @@
                     <form method="post" id="cpaff_form" action="javascript:void();" enctype="multipart/form-data">
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
+                        <input type="hidden" name="form_type" value="0">
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
