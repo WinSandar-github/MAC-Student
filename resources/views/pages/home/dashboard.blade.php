@@ -38,9 +38,9 @@
             <div class="card da-card"><!-- when school and teacher dashboard use da-card hide  -->
                 <div class="card-header title text-center text-dark h5" style="background-color:#E7F8EE;">
                 </div>
-                
+
                 <div class="card-body">
-                    
+
                     <!-- Student  da cpa-->
                     <div class="da_cpa">
                         <div class="row">
@@ -162,7 +162,7 @@
                                 </div>
 
 
-                                
+
                                     <!-- <div class="row m-2 mt-3 border-bottom">
                                         <div class="col-md-6">
                                             <p class="ml-2 text-bold" style="font-weight:bold">Exam Registration Date</p>
@@ -171,7 +171,7 @@
                                             <span id="exam_date"></span>
                                         </div>
                                     </div>  -->
-                               
+
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Next Action </p>
@@ -293,29 +293,30 @@
                                 </div>
 
                             </div>
+                            
+                            <div id="article_row">
+                                <div class="col-md-12 ">
+                                    <h5 class="text-center border-bottom py-2 my-2"
+                                        style="font-weight:bold;background-color:#E7F8EE;">Article Status</h5>
+                                    <div class="row m-2 mt-3 ">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="article_status">
 
-                            <div class="col-md-12 ">
-                                <h5 class="text-center border-bottom py-2 my-2"
-                                    style="font-weight:bold;background-color:#E7F8EE;">Article Status</h5>
-                                <div class="row m-2 mt-3 ">
-                                    <table class="table ">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="article_status">
+                                            </tbody>
+                                            <tfoot class="article_btn">
 
-                                        </tbody>
-                                        <tfoot class="article_btn">
-
-                                        </tfoot>
-                                    </table>
+                                            </tfoot>
+                                        </table>
+                                    </div>
                                 </div>
-
                             </div>
 
                             <div class="row mt-3 ">
@@ -355,7 +356,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="acc_firm">
                         <div class="row">
@@ -405,23 +406,20 @@
                                 </div>
 
                                 <div id="info_for_audit" style="display:none;">
-                                  <div class="row mt-3 border-bottom">
-                                      <div class="col-md-6">
-                                          <p class="ml-2" style="font-weight:bold">Name</p>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <span class="text-start name"></span>
-                                      </div>
-                                  </div>
-                                  <div class="row mt-3 border-bottom">
-                                      <div class="col-md-6">
-                                          <p class="ml-2" style="font-weight:bold">Public Practice Reg No.</p>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <span class="text-start public_practice_reg_no"></span>
-                                      </div>
+                                  <div class="row">
+                                      <table class="table table-border pub_pra_reg_no_and_name_tbl">
+                                          <thead>
+                                              <th>Name</th>
+                                              <th>Public Practice Reg No.</th>
+                                          </thead>
+                                          <tbody class="pub_pra_reg_no_and_name_tbody">
+
+                                          </tbody>
+                                      </table>
                                   </div>
                                 </div>
+
+
                                 <div id="info_for_non_audit" style="display:none;">
                                   <div class="row mt-3 border-bottom">
                                       <div class="col-md-6">
@@ -467,7 +465,7 @@
                     </div>
 
 
-                    
+
                 </div>
             </div>
 
@@ -639,7 +637,7 @@
                                 <div class="row sch_reject-btn" style="display:none;">
                                     <div class="col-md-6"></div>
                                     <div>
-                                        
+
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
@@ -651,7 +649,7 @@
                                 <div class="row sch_payment-btn" style="display:none;">
                                     <div class="col-md-6"></div>
                                     <div>
-                                        
+
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
@@ -674,7 +672,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
             </div>
             <!--end school dashboard-->
             <!-- teacher dashboard-->
@@ -751,7 +749,7 @@
                                     <h5 class="text-center border-bottom pb-2"
                                         style="font-weight:bold ;background-color:#E7F8EE;">Reject Reason</h5>
 
-                                    
+
                                     <div class="text-center teacher_reject-reason">
 
                                     </div>
@@ -770,11 +768,11 @@
                                 <div class="row teacher_reject-btn" style="display:none;">
                                     <div class="col-md-6"></div>
                                     <div>
-                                        
+
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 
-                                                    <a href="/teacher_registration" class="btn btn-success btn-hover-dark"> Update</a>
+                                                    <a href="/teacher_register" class="btn btn-success btn-hover-dark"> Update</a>
                                                 </p>
                                             </div>
                                     </div>
@@ -782,7 +780,7 @@
                                 <div class="row teacher_payment-btn" style="display:none;">
                                     <div class="col-md-6"></div>
                                     <div>
-                                        
+
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6">
 

@@ -546,6 +546,7 @@
                                                             <input type="hidden" id="position">
                                                             <input type="hidden" id="department">
                                                             <input type="hidden" id="organization">
+                                                            <input type="hidden" id="payment_date">
                                                     </div>
                                                     
                                                     <div class="row mb-3">

@@ -605,7 +605,7 @@ $('#file').change(function(e) {
 })
         
         form_feedback();
-        loadDescription('CPA (Full-Fledged)');
+        loadDescription('CPA (Full Fluged)');
         checkPaymentCpaff();
         loadCpaffData();
         loadCpaffInitialData();

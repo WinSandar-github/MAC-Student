@@ -318,7 +318,7 @@
 
 														<li>
 															<i class="icofont-money"></i>
-															<strong>Reconnect Fees(per year)</strong>
+															<strong>Reconnect Fee(per year)</strong>
 															<div class="row">
 																<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
 																<div class="col-md-4 reconnect_fee_sole" align="right"></div>
