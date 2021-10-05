@@ -154,7 +154,7 @@
                     <hr id="article_hr">
                     <div id="gov_article_row">
                         <h5 >Government Article</h5>
-                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Article Government</button>
+                            <button class="btn btn-success btn-hover-dark " id="articel_gov_btn">Government Article</button>
                     </div>
                     <!-- <h5 >Resign</h5>
                         <button class="btn btn-success btn-hover-dark " id="articel_resign_btn">Aticle Resign</button> -->
