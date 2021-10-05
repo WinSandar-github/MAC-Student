@@ -201,11 +201,20 @@
 
 																				 </div>
 																			 </div>
-
-
 																		</li>
-                                    <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                    <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                    {{--<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>--}}
+
+																		<li>
+																			<div class="row">
+																				<div class="col-md-7">
+																					<i class="icofont-money"></i>
+																					<strong>Renew Fee(per PAPP who will sign the audit report)</strong>
+																				</div>
+																				<div class="col-md-5 renew-fee" align="right">
+
+																				</div>
+																			</div>
+																		<li>
                                     {{--<li>
 																			<i class="icofont-money"></i>
 																			<strong>Delay Fee</strong>
