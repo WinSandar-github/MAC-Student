@@ -84,7 +84,6 @@ class PaymentController extends Controller
             
             $resp = $client->request('POST', Helper::$domain .'/save_transation', [
                 'form_params' => [
-                    'student_info_id' => Session::get('data')['student_info_id'],
                     "merchantID" => $request->merchantID,
                     "respCode" => $request->respCode,
                     "pan" => $request->pan,
