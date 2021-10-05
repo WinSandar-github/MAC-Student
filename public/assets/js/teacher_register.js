@@ -148,17 +148,71 @@ function check_email_teacher()
 
 function teacherPaymentSubmit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    if(student!=null){
-        $.ajax({
-            url: BACKEND_URL + "/approve_teacher/" + student.id,
-            type: 'patch',
-            success: function (data) {
-                    successMessage("Your payment is successfully");
-                    location.href = FRONTEND_URL + "/";
-                },
-                error:function (message){
-                }
+    
+    var current_date;
+    var invoice_no;
+    $.ajax({
+        url: BACKEND_URL+"/teacher",
+        type: 'GET',
+        success: function(result){
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            current_date=date+' '+time;
+            $.each(result.count_invoice_no, function( key, val ){
+                var count_invoice=val.count_invoice_no+1;
+                    if(val.count_invoice_no==0){
+                        var str = "" + count_invoice;
+                        var pad = "000"
+                        var ans = pad.substring(0, pad.length - str.length) + str
+                        invoice_no='T-'+ans;
+                    }else{
+                        
+                        $.each(result.data, function( index, value ){
+
+                            if(value.renew_date==null){
+                                
+                                    if(current_date > value.payment_date){
+                                        var str = "" + count_invoice;
+                                        var pad = "000"
+                                        var ans = pad.substring(0, pad.length - str.length) + str
+                                        invoice_no='T-'+ans;
+                                        
+                                    }
+                            }else{
+                                invoice_no=value.invoice_no;
+                            }
+                            
+                        })
+                    }
+                
+                
             })
+            
+            $.ajax({
+                url: BACKEND_URL + "/approve_teacher" ,
+                type: 'patch',
+                data: 'id='+student.teacher_id+"&invoice_no="+invoice_no+"&current_date="+current_date,
+                success: function (data) {
+                        successMessage("Your payment is successfully");
+                        location.href = FRONTEND_URL + "/";
+                    },
+                    error:function (message){
+                    }
+            })
+        }
+    })
+    if(student!=null){
+        // $.ajax({
+        //     url: BACKEND_URL + "/approve_teacher/" + student.teacher_id,
+        //     type: 'patch',
+        //     success: function (data) {
+        //             successMessage("Your payment is successfully");
+        //             location.href = FRONTEND_URL + "/";
+        //         },
+        //         error:function (message){
+        //         }
+        // })
     }
     
 }
@@ -250,11 +304,14 @@ function teacher_reg_feedback(){
                     $('.update-btn').css('display','none');
                 }
                 else{
-                    $('.status-reject').css('display','block');
-                    $('.reject-reason').append(teacher_data.reason);
-                    $('.register-btn').css('display','none');
-                    $('.payment-btn').css('display','none');
-                    $('.update-btn').css('display','block');
+                    if(teacher_data.initial_status!=2){
+                        $('.status-reject').css('display','block');
+                        $('.reject-reason').append(teacher_data.reason);
+                        $('.register-btn').css('display','none');
+                        $('.payment-btn').css('display','none');
+                        $('.update-btn').css('display','block');
+                    }
+                    
                 }
           })
         }
@@ -332,24 +389,26 @@ function loadRenewTeacher(){
                                 $('#rec_letter').css('display','none');
                             }
                             $('#hinitial_status').val(1);
+                            $('#payment_date').val(teacher.payment_date);
                               $('#regno').val(teacher.id);
-                                var accept=new Date(teacher.renew_date);
+                                var accept=new Date(teacher.payment_date);
                                 var month=accept.getMonth()+1;
                                 var year=accept.getFullYear();
                                 var y=year+1;
                                 var now=new Date();
                                var current_date=(now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
                                
-                                var period_date=teacher.renew_date.split('-');
+                                var period_date=teacher.payment_date.split('-');
                                 var period=period_date[2]+'-'+period_date[1]+'-'+period_date[0];
                                 //$('#register_date').val(period+" to 31-12-"+now.getFullYear());
-                                $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
-                              if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
-                                  $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
-                                  $('.renew_submit').prop('disabled', true);
-                                  $('#submit_confirm').prop('disabled', false);
+                                $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+now.getFullYear());
+                            //   if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
+                            //       $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
+                            //       $('.renew_submit').prop('disabled', true);
+                            //       $('#submit_confirm').prop('disabled', false);
               
-                              }else if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
+                            //   }else
+                               if((now.getFullYear()==accept.getFullYear() && month=='11') || (now.getFullYear()==accept.getFullYear() && month=='12')){
                                   $("#message").val("Your renew form  can submit!");
                                   $('.renew_submit').prop('disabled', true);
                                   $('#submit_confirm').prop('disabled', false);
@@ -403,6 +462,11 @@ function renewTeacher(){
   send_data.append('student_info_id', $('#student_info_id').val());
   send_data.append('school_name', $('#hschool_name').val());
   send_data.append('initial_status', $('#hinitial_status').val());
+  if($('#payment_date').val()){
+    send_data.append('payment_date', $('#payment_date').val());
+  }else{
+    send_data.append('payment_date', $('#payment_date').val());
+  }
   
 if($('#gov_employee').val()){
     
@@ -576,7 +640,7 @@ function updateTeacher(){
                               $('#hschool_name').val(teacher.school_name);
                               $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
                               $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                              loadEductaionHistory(teacher.id,'tbl_degree');
+                              loadEductaionHistory(teacher.id,'tbl_degree_update');
                                 if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                     loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
                                     loadSubject(2,"selected_cpa_subject_up");
@@ -595,6 +659,7 @@ function updateTeacher(){
                                     loadSubject(1,"selected_da_subject_up")
                                 }
                                 $('#hinitial_status').val(teacher.initial_status);
+                                $('#payment_date').val(teacher.payment_date);
                             $("input[name=race]").val(teacher.race);
                             $("input[name=religion]").val(teacher.religion);
                             $("input[name=date_of_birth]").val(teacher.date_of_birth);
@@ -633,4 +698,8 @@ function updateTeacher(){
     }else{
 
     }
+}
+
+function loadInvoiceByTeacher(){
+    
 }
