@@ -78,6 +78,13 @@
                     <br/>
                     <br/>
                 </div>
+                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="remark" id="remark">
+                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
