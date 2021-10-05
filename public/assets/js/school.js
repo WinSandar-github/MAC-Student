@@ -868,12 +868,12 @@ function delInputFile(diventry){
   $('.btn-remove').parents('.'+diventry+':first').remove();
 }
 function loadTeacherById(row){
-  var id=$('#teacher_registration_no'+row).val();
+  var invoice_no=$('#teacher_registration_no'+row).val();
   $.ajax({
     type : 'GET',
-    url : BACKEND_URL+"/teacher/"+id,
+    url : BACKEND_URL+"/getTeacher/"+invoice_no,
     success: function(result){
-      console.log(result)
+      
       var subject=[];
 
         $.each(result.data, function( index, value ) {
