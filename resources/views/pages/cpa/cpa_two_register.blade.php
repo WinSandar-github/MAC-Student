@@ -394,6 +394,14 @@
                                                 <input type="text" class="form-control cpa_one_success_no_private" id="cpa_one_success_no" name="cpa_one_success_no" placeholder="အဆင့်" value="" required>
                                             </div>
                                         </div>
+                                        <div class="row mb-3">
+                                            <label class="col-md-1 col-form-label">{{ __('') }}</label>
+                                            <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
+                                            <label class="col-md-2 label_align_right col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
+                                            <div class="col-md-8">
+                                                <input type="text" name="batch_personal_no_private" class="form-control personal_no_private" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required="">
+                                            </div>
+                                        </div>
                                         <div class="row mb-3" style="display:none;">
                                             <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
                                             <label class="col-md-3 label_align_right  col-form-label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('တက်ရောက်မည့်သင်တန်း') }}</label>
@@ -409,14 +417,14 @@
                                                 <input readonly type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" required="">
                                             </div>
                                         </div>
-                                        <div class="row mb-3" style="display:none;">
+                                        {{--<div class="row mb-3" style="display:none;">
                                             <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                             <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                             <label class="col-md-2 label_align_right col-form-label">{{ __('ကိုယ်ပိုင်အမှတ်') }}</label>
                                             <div class="col-md-8">
                                                 <input type="text" name="batch_personal_no_private" class="form-control personal_no_private" placeholder="ကိုယ်ပိုင်အမှတ်" id="personal_no_mac" required="">
                                             </div>
-                                        </div>
+                                        </div>--}}
 
                                         <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label "><span class="pull-left" style="padding-right: 30px;">{{ __('၁၈။') }}</span>ဖြေဆိုမည့် Module</label>
