@@ -304,23 +304,58 @@ function checkPaymentCpaff() {
 function loadCpaffData() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     $.ajax({
-        url: BACKEND_URL + "/get_cpaff/" + student.id,
+        url: BACKEND_URL + "/cpaff_by_stuId/" + student.id,
         type: 'get',
         data: "",
         success: function (data) {
-
-            // console.log(data)
             var cpaff_data = data.data;
-            // console.log('cpaff_data',cpaff_data)
-            $('#name_mm').val(cpaff_data.name_mm);
-            $('#name_eng').val(cpaff_data.name_eng);
-            $('#nrc_state_region').val(cpaff_data.nrc_state_region);
-            $('#nrc_township').val(cpaff_data.nrc_township);
-            $('#nrc_citizen').val(cpaff_data.nrc_citizen);
-            $('#nrc_number').val(cpaff_data.nrc_number);
-            $('#nrc_state_region').val(cpaff_data.nrc_state_region);
-            $('#father_name_mm').val(cpaff_data.father_name_mm);
-            $('#father_name_eng').val(cpaff_data.father_name_eng);
+            if(cpaff_data.status == 2){
+                $.ajax({
+                    url: BACKEND_URL + "/get_cpaff/" + student.id,
+                    type: 'get',
+                    data: "",
+                    success: function (data) {
+                        var student = data.data;
+                        console.log(cpaff_data);
+                        $('#name_mm').val(student.name_mm);
+                        $('#name_eng').val(student.name_eng);
+                        $('#nrc_state_region').val(student.nrc_state_region);
+                        $('#nrc_township').val(student.nrc_township);
+                        $('#nrc_citizen').val(student.nrc_citizen);
+                        $('#nrc_number').val(student.nrc_number);
+                        $('#nrc_state_region').val(student.nrc_state_region);
+                        $('#father_name_mm').val(student.father_name_mm);
+                        $('#father_name_eng').val(student.father_name_eng);
+                        $('#remark').css('display','block');
+                        $('#remark_description').text(cpaff_data.reject_description);
+                        $('#cpaff_submit').html('Update');
+                        $("#cpaff_submit").addClass("update-profile");
+
+                    }
+                });
+            }
+            else{
+                $.ajax({
+                    url: BACKEND_URL + "/get_cpaff/" + student.id,
+                    type: 'get',
+                    data: "",
+                    success: function (data) {
+
+                        console.log(data,"ddata")
+                        var cpaff_data = data.data;
+                        // console.log('cpaff_data',cpaff_data)
+                        $('#name_mm').val(cpaff_data.name_mm);
+                        $('#name_eng').val(cpaff_data.name_eng);
+                        $('#nrc_state_region').val(cpaff_data.nrc_state_region);
+                        $('#nrc_township').val(cpaff_data.nrc_township);
+                        $('#nrc_citizen').val(cpaff_data.nrc_citizen);
+                        $('#nrc_number').val(cpaff_data.nrc_number);
+                        $('#nrc_state_region').val(cpaff_data.nrc_state_region);
+                        $('#father_name_mm').val(cpaff_data.father_name_mm);
+                        $('#father_name_eng').val(cpaff_data.father_name_eng);
+                    }
+                });
+            }
         }
     });
 }
