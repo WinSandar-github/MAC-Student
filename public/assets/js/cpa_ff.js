@@ -479,7 +479,7 @@ function createCPAFFRegister() {
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('is_renew', 0);
-    // send_data.append('form_type', 1);
+    send_data.append('form_type',$("input[name=form_type]").val());
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
     show_loader();
     $.ajax({
@@ -601,9 +601,9 @@ function form_feedback() {
             }
         });
     }
-    else{
-        $('.register-btn').css('display', 'none');
+    else{        
         $('.payment-btn').css('display', 'none');
+        $('.register-btn').css('display', 'block');
     }
 }
 function loadCPAFF() {

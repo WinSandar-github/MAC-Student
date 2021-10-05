@@ -164,7 +164,7 @@ function createCpaffOtherRegister(){
     var send_data = new FormData();
     // send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
-
+    send_data.append('total_hours', $("input[name=total_hours]").val());
     if(cpa_edu.checked==true){
         send_data.append('cpa', cpa);
     }
@@ -246,7 +246,7 @@ function createCpaffOtherRegister(){
     send_data.append('nrc_number', $("input[name=nrc_number]").val());
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
-
+    send_data.append('is_renew', 0);
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
