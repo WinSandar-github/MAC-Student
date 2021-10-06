@@ -88,7 +88,7 @@
                         <!-- <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data"  novalidate> -->
                             @csrf
                             <input type="hidden" name="stu_id" id="stu_id">
-                            <input type="text" name="batch_id" id="batch_id" />
+                            <input type="hidden" name="batch_id" id="batch_id" />
 
 
                             <div class="col-md-12">
@@ -106,7 +106,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၅။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
                                         <div class="col-md-6">
                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                 <div class="col-md-2">
@@ -129,7 +129,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-md-2 ">
+                                                <div class="col-md-3">
                                                     <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
@@ -160,13 +160,20 @@
                                 <div class="col-md-4 text-center">
                                     {{--User Photo--}}
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail img-circle shadow" style="line-height: 160px;">
+                                        <div class="fileinput-new thumbnail img-circle shadow">
                                             <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-                                                alt="Upload Photo" class="profile_image" id="da_to_cpa_preview_img">
+                                                    alt="Upload Photo" id="da_to_cpa_preview_img">
                                         </div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
-                                        <input type="hidden" name="old_image" id="old_image">
-                                        
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                        <div class="d-flex justify-content-center">
+                                            <span class="btn btn-round btn-secondary btn-file">
+                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
+                                            <input type="hidden" name="old_image" id="old_image">
+                                            <br>
+                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
                                     </div>
                                     {{--User Photo--}}
                                 </div>
@@ -558,10 +565,10 @@
 
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
-                        $("input[name=nrc_state_region]").val(info.nrc_state_region);
-                        $("input[name=nrc_township]").val(info.nrc_township);
-                        $("input[name=nrc_citizen]").val(info.nrc_citizen);
-                        $("input[name=nrc_number]").val(info.nrc_number);
+                        $("#nrc_state_region").val(info.nrc_state_region);
+                        $("#nrc_township").val(info.nrc_township);
+                        $("#nrc_citizen").val(info.nrc_citizen);
+                        $("#nrc_number").val(info.nrc_number);
                         $("input[name=father_name_mm]").val(info.father_name_mm);
                         $("input[name=father_name_eng]").val(info.father_name_eng);
                         $("input[name=race]").val(info.race);

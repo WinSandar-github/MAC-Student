@@ -116,7 +116,7 @@
                         </div>
                     </div> --}}
 
-                <div class="comment-form study" style="display:none;">     
+                <div class="comment-form study" >     
                         <input type="hidden" name="remain_module" id="remain_module">
 
 
@@ -1681,7 +1681,7 @@
 
                 const queryString = location.search;
                 const urlParams = new URLSearchParams(queryString);
-            
+                
                 selectedRegistration(urlParams.get("study_type"))
 
                 get_student_info(student_id).then(data => {

@@ -7,7 +7,7 @@ function user_profile() {
         success: function (result) {
             EasyLoading.hide();
             let data = result.data;
-            
+
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
@@ -22,9 +22,9 @@ function user_profile() {
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
 
-                if(acc_firm.remark != ''){
-                  $('#reject_remark_box').css("display","block");
-                  $('.reject_remark').text(acc_firm.remark);
+                if (acc_firm.remark != '') {
+                    $('#reject_remark_box').css("display", "block");
+                    $('.reject_remark').text(acc_firm.remark);
                 }
 
                 if (acc_firm.audit_firm_type_id == 1) {
@@ -32,15 +32,15 @@ function user_profile() {
                     if (firm_ownerships_audits != '') {
 
                         // show name and public practice reg no who selected Yes
-                        firm_ownerships_audits.forEach(function(item){
-                          if(item.authority_to_sign == 1){
-                            $("#info_for_audit").css("display","block");
-                            var tr = "<tr>";
-                            tr += "<td>"+item.name+"</td>";
-                            tr += "<td >"+item.public_private_reg_no+"</td>" ;
-                            tr += "</tr>";
-                            $(".pub_pra_reg_no_and_name_tbody").append(tr);
-                          }
+                        firm_ownerships_audits.forEach(function (item) {
+                            if (item.authority_to_sign == 1) {
+                                $("#info_for_audit").css("display", "block");
+                                var tr = "<tr>";
+                                tr += "<td>" + item.name + "</td>";
+                                tr += "<td >" + item.public_private_reg_no + "</td>";
+                                tr += "</tr>";
+                                $(".pub_pra_reg_no_and_name_tbody").append(tr);
+                            }
                         });
                     }
 
@@ -67,10 +67,10 @@ function user_profile() {
                 }
 
 
-            }else if (data.school && data.teacher.length==0) {
+            } else if (data.school && data.teacher.length == 0) {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school);
-            } else if (data.teacher && data.school.length==0) {
+            } else if (data.teacher && data.school.length == 0) {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
 
@@ -142,12 +142,12 @@ function user_profile() {
                 } else {
                     $('.status_history').append('Mentor Registration is Rejected.');
                 }
-            }else if(data.school && data.teacher){
+            } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
 
-            }else {
+            } else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
                 $('.title').text("Student Information")
@@ -227,14 +227,14 @@ function user_profile() {
                         //     `);
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         // }
-                        if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year){
+                        if ((now.getFullYear() == y && (now.getMonth() + 1) == month) || now.getFullYear() > year) {
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                             $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
-                                                }
+                        }
                         // if (check_month < 12) {
                         //     $(".status").append(`<tr><td colspan=4>Your information will be expired at  <b> 31 December ${y}</b></td></tr>`);
                         // }
-                        else if(check_month == 10) {
+                        else if (check_month == 10) {
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/cpa_ff_information' class="btn btn-sm btn-success" > CPA(Full-Fledged) Renew Form</a></td></tr>`);
                             // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         }
@@ -306,9 +306,9 @@ function user_profile() {
                             var y = year + 1;
                             var now = new Date();
 
-                            if (check_month != 10){
+                            if (check_month != 10) {
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
-                            }else if(check_month == 10) {
+                            } else if (check_month == 10) {
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             }
                         } else {
@@ -520,14 +520,18 @@ function user_profile() {
                                         </tr>
                                         `);
                                         var module = [];
+
+
                                         exam_register.filter(exam => {
-                                            if (exam.course.id == latest_course_reg[0].batch.course.id) {
+                                            if (exam.course.id == latest_course_reg[0].batch.course.id && exam.exam_type_id != 3) {
                                                 module.push(exam.is_full_module)
                                             }
                                         })
+
                                         var data_exam = {};
 
-                                        if (last_exam[0]) {
+                                        if (last_exam[0] && module.length !== 0) {
+
                                             if (
                                                 (last_exam[0].course.code == latest_course_reg[0].batch.course.code) &&
                                                 (last_exam[0].exam_type_id !== 3 && (last_exam[0].is_full_module == 3 || containsAll([1, 2], module) == true))
@@ -1254,7 +1258,7 @@ function user_profile() {
                                 <tr>
                                 <td>မှတ်ချက် - </td>
                                 <td colspan=2>${latest_course_reg[0].remark}</td><td>
-                                <a href="${update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
+                                <a href="${FRONTEND_URL + update_app_url}" class="btn btn-sm btn-success">Update Application Form</a>
 
 
                              </td></tr>
@@ -1450,19 +1454,19 @@ function user_profile() {
                 // }
 
                 // Show Article Status
-                if(latest_stu_reg[0].form_type==3 && latest_stu_reg[0].status==1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2"){
+                if (latest_stu_reg[0].form_type == 3 && latest_stu_reg[0].status == 1 && latest_stu_reg[0].course.code == "cpa_1" || latest_stu_reg[0].course.code == "cpa_2") {
                     let latest_article = data.article.slice(-1);
                     let latest_gov_article = data.gov_article.slice(-1);
 
                     //doens't have article list
-                    if(data.article.length == 0 && data.gov_article.length == 0){
+                    if (data.article.length == 0 && data.gov_article.length == 0) {
                         article_url = '/article_information';
                         $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                     }
 
-                    if(data.gov_article.length == 0){
+                    if (data.gov_article.length == 0) {
                         let article = data.article;
-                        article.forEach(function(element){
+                        article.forEach(function (element) {
                             article_form_type = element.article_form_type;
 
                             switch (article_form_type) {
@@ -1484,7 +1488,7 @@ function user_profile() {
                             }
                             let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
                             let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
-                            if(element.status == 0){
+                            if (element.status == 0) {
                                 $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
                                     <td>${contract_start_date}</td>
@@ -1492,8 +1496,8 @@ function user_profile() {
                                     <td><span class="badge bg-success">Checking</span></td>
                                 </tr>
                                 `);
-                            }else if(element.status == 1){
-                                if(element.done_status == 1){
+                            } else if (element.status == 1) {
+                                if (element.done_status == 1) {
                                     $('.article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
@@ -1501,7 +1505,7 @@ function user_profile() {
                                         <td><span class="badge bg-success">Done</span></td>
                                     </tr>
                                     `);
-                                }else{
+                                } else {
                                     $('.article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
@@ -1510,7 +1514,7 @@ function user_profile() {
                                     </tr>
                                     `);
                                 }
-                            }else if(element.status == 2){
+                            } else if (element.status == 2) {
                                 $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
                                     <td>${contract_start_date}</td>
@@ -1521,38 +1525,38 @@ function user_profile() {
                             }
                         });
 
-                        if(latest_article[0].contract_end_date != null){
+                        if (latest_article[0] && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
 
                             var end_time = end_date.getTime();
                             var today_time = today.getTime();
-    
-                            if(end_time <= today_time  && latest_article[0].done_status == 0){
-                                if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
+
+                            if (end_time <= today_time && latest_article[0].done_status == 0) {
+                                if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                }else{
+                                } else {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                 }
-                            }else if(latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1  && latest_article[0].done_status == 0){
+                            } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                 resign_article_url = '/article_resign_registration';
                                 $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
-                            }else if(latest_article[0].done_status == 1){
-                                if(latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4){
+                            } else if (latest_article[0].done_status == 1) {
+                                if (latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4) {
                                     article_url = '/article_information';
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                 }
                             }
                         }
 
-                    }else{
+                    } else {
                         let gov_article = data.gov_article;
                         let article = data.article;
-                        gov_article.forEach(function(element){
+                        gov_article.forEach(function (element) {
                             let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
                             let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
                             form_type = "Government Article";
-                            if(element.status == 0){
+                            if (element.status == 0) {
                                 $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
                                     <td>${contract_start_date}</td>
@@ -1560,8 +1564,8 @@ function user_profile() {
                                     <td><span class="badge bg-success">Checking</span></td>
                                 </tr>
                                 `);
-                            }else if(element.status == 1){
-                                if(element.done_status == 1){
+                            } else if (element.status == 1) {
+                                if (element.done_status == 1) {
                                     $('.article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
@@ -1569,7 +1573,7 @@ function user_profile() {
                                         <td><span class="badge bg-success">Done</span></td>
                                     </tr>
                                     `);
-                                }else{
+                                } else {
                                     $('.article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
@@ -1578,7 +1582,7 @@ function user_profile() {
                                     </tr>
                                     `);
                                 }
-                            }else if(element.status == 2){
+                            } else if (element.status == 2) {
                                 $('.article_status').append(`<tr>
                                     <td>${form_type} Form</td>
                                     <td>${contract_start_date}</td>
@@ -1588,10 +1592,10 @@ function user_profile() {
                                 `);
                             }
                         });
-                        if(article.length != 0){
-                            article.forEach(function(element){
+                        if (article.length != 0) {
+                            article.forEach(function (element) {
                                 article_form_type = element.article_form_type;
-                            
+
                                 switch (article_form_type) {
                                     case 'c12':
                                         form_type = 'CPA I,II';
@@ -1612,7 +1616,7 @@ function user_profile() {
                                 let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
                                 let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
 
-                                if(element.status == 0){
+                                if (element.status == 0) {
                                     $('.article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
@@ -1620,8 +1624,8 @@ function user_profile() {
                                         <td><span class="badge bg-success">Checking</span></td>
                                     </tr>
                                     `);
-                                }else if(element.status == 1){
-                                    if(element.done_status == 1){
+                                } else if (element.status == 1) {
+                                    if (element.done_status == 1) {
                                         $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
@@ -1629,7 +1633,7 @@ function user_profile() {
                                             <td><span class="badge bg-success">Done</span></td>
                                         </tr>
                                         `);
-                                    }else{
+                                    } else {
                                         $('.article_status').append(`<tr>
                                             <td>${form_type} Form</td>
                                             <td>${contract_start_date}</td>
@@ -1638,7 +1642,7 @@ function user_profile() {
                                         </tr>
                                         `);
                                     }
-                                }else if(element.status == 2){
+                                } else if (element.status == 2) {
                                     $('.article_status').append(`<tr>
                                         <td>${form_type} Form</td>
                                         <td>${contract_start_date}</td>
@@ -1650,50 +1654,50 @@ function user_profile() {
                             });
                         }
 
-                        if(article.length != 0){
-                            if(latest_article[0].contract_end_date != null){
+                        if (article.length != 0) {
+                            if (latest_article[0].contract_end_date != null) {
                                 var end_date = new Date(latest_article[0].contract_end_date);
                                 var today = new Date();
-    
+
                                 var end_time = end_date.getTime();
                                 var today_time = today.getTime();
-        
-                                if(end_time <= today_time  && latest_article[0].done_status == 0){
-                                    if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
+
+                                if (end_time <= today_time && latest_article[0].done_status == 0) {
+                                    if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                    }else{
+                                    } else {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
                                     }
-                                }else if(latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1  && latest_article[0].done_status == 0){
+                                } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                     resign_article_url = '/article_resign_registration';
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
-                                }else if(latest_article[0].done_status == 1){
-                                    if(latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4){
+                                } else if (latest_article[0].done_status == 1) {
+                                    if (latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4) {
                                         article_url = '/article_information';
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                     }
                                 }
                             }
-                        }else{
-                            if(latest_gov_article[0].contract_end_date != null){
-                            
+                        } else {
+                            if (latest_gov_article[0].contract_end_date != null) {
+
                                 var end_date = new Date(latest_gov_article[0].contract_end_date);
                                 var today = new Date();
-    
+
                                 var end_time = end_date.getTime();
                                 var today_time = today.getTime();
-        
-                                if(end_time <= today_time && latest_gov_article[0].done_status == 0){
-                                    if(latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0){
+
+                                if (end_time <= today_time && latest_gov_article[0].done_status == 0) {
+                                    if (latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0) {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
-                                    }else{
+                                    } else {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='gov_done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='gov_done_form_btn' onclick='saveGovDoneForm(${latest_gov_article[0].id})'>Submit</button></div></div></td></tr>`);
                                     }
-                                }else if(latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0){
+                                } else if (latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0) {
                                     resign_article_url = '/article_resign_registration';
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
-                                }else if(latest_gov_article[0].done_status == 1){
-                                    if(latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4){
+                                } else if (latest_gov_article[0].done_status == 1) {
+                                    if (latest_stu_reg[0].course.code == "cpa_2" && data.exam_results.length == 4) {
                                         article_url = '/article_information';
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
                                     }
@@ -1702,7 +1706,7 @@ function user_profile() {
                         }
                     }
 
-                }else{
+                } else {
                     $("#article_row").hide();
                 }
             }
@@ -1845,10 +1849,10 @@ function isEmpty(obj) {
     }
 }
 
-function saveDoneForm(id){
+function saveDoneForm(id) {
     var done_form = $("input[name=done_form]")[0].files[0];
 
-    if(done_form != undefined){
+    if (done_form != undefined) {
 
         var data = new FormData();
         data.append('id', id);
@@ -1873,17 +1877,17 @@ function saveDoneForm(id){
                 errorMessage(message);
             }
         });
-    }else{
+    } else {
         $("input[name=done_form]").css('border', '1px solid red');
         alert("Please Fill Attachment File");
     }
 
 }
 
-function saveGovDoneForm(id){
+function saveGovDoneForm(id) {
     var done_form = $("input[name=gov_done_form]")[0].files[0];
 
-    if(done_form != undefined){
+    if (done_form != undefined) {
 
         var data = new FormData();
         data.append('id', id);
@@ -1908,13 +1912,13 @@ function saveGovDoneForm(id){
                 errorMessage(message);
             }
         });
-    }else{
+    } else {
         $("input[name=gov_done_form]").css('border', '1px solid red');
         alert("Please Fill Attachment File");
     }
 
 }
-function loadSchoolByDash(school){
+function loadSchoolByDash(school) {
 
     $('.school-title').text('School Information')
     $('.school').show();
@@ -1948,11 +1952,11 @@ function loadSchoolByDash(school){
         $('.sch_payment-status').show();
         $('.sch_payment-btn').hide();
         $(".sch_payment_status").text("Complete");
-    }else{
+    } else {
         $(".sch_payment_status").text("Incomplete");
     }
 }
-function laodTeacherByDash(teacher){
+function laodTeacherByDash(teacher) {
 
     $('.teacher-title').text('Teacher Information')
     $('.teacher').show();
@@ -1986,7 +1990,7 @@ function laodTeacherByDash(teacher){
         $('.teacher_payment-status').show();
         $('.teacher_payment-btn').hide();
         $(".teacher_payment_status").text("Complete");
-    }else{
+    } else {
         $(".teacher_payment_status").text("Incomplete");
     }
 }

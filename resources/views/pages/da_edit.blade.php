@@ -104,7 +104,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၅။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
                                         <div class="col-md-6">
                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                 <div class="col-md-2">
@@ -127,7 +127,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-md-2 ">
+                                                <div class="col-md-3 ">
                                                     <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
@@ -156,17 +156,24 @@
                                 </div>
 
                                 <div class="col-md-4 text-center">
-                                    {{--User Photo--}}
-                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail img-circle shadow" style="line-height: 160px;">
-                                            <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-                                                alt="Upload Photo" class="profile_image" id="da_to_cpa_preview_img">
-                                            <input type="hidden" name="old_image" id="old_image">
-                                            </div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
-                                        
+                                {{--User Photo--}}
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail img-circle shadow">
+                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                                alt="Upload Photo" id="da_to_cpa_preview_img">
                                     </div>
-                                    {{--User Photo--}}
+                                    <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                    <div class="d-flex justify-content-center">
+                                        <span class="btn btn-round btn-secondary btn-file">
+                                        <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
+                                        <input type="hidden" name="old_image" id="old_image">
+                                        <br>
+                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                                {{--User Photo--}}
                                 </div>
                             </div>                                      
 
@@ -427,8 +434,8 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" onchange="$('#da_two_pass_to_cpa').prop('', !this.checked)">
-                                            <span class="form-check-sign"></span>
+                                            <input class="form-check-input" type="checkbox" name="da_one_declare" onchange="$('#da_two_pass_to_cpa').prop('', !this.checked)">
+                                             <span class="form-check-sign"></span>
                                             <p class="fw-bolder">
                                                 * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
                                                 * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
@@ -440,7 +447,7 @@
                             </div>                                         
                             
                             <div class="row justify-content-center">
-                                    <button type="submit" class="btn btn-success btn-hover-dark w-25"  id="da_two_pass_to_cpa"  data-bs-toggle="modal" data-bs-target="#paymentModal">{{ __('Submit') }}</button>
+                                    <button type="submit" class="btn btn-success btn-hover-dark w-25"  id="da_two_pass_to_cpa"  >{{ __('Submit') }}</button>
                                 
                             </div>
                         </div>
@@ -520,13 +527,14 @@
                       var education_history = data.data.student_education_histroy;
                       if(info){
                     $('#stu_id').val(info.id);
+                    console.log(info)
 
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
-                        $("input[name=nrc_state_region]").val(info.nrc_state_region);
-                        $("input[name=nrc_township]").val(info.nrc_township);
-                        $("input[name=nrc_citizen]").val(info.nrc_citizen);
-                        $("input[name=nrc_number]").val(info.nrc_number);
+                        $("#nrc_state_region").val(info.nrc_state_region);
+                        $("#nrc_township").val(info.nrc_township);
+                        $("#nrc_citizen").val(info.nrc_citizen);
+                        $("#nrc_number").val(info.nrc_number);
                         $("input[name=father_name_mm]").val(info.father_name_mm);
                         $("input[name=father_name_eng]").val(info.father_name_eng);
                         $("input[name=race]").val(info.race);
@@ -537,7 +545,11 @@
                         $("input[name=current_address]").val(info.current_address);
  
  
-                        document.getElementById('da_to_cpa_preview_img').src = BASE_URL + data.data.image;
+                        document.getElementById('da_to_cpa_preview_img').src = BASE_URL + info.image;
+                        $("input[name=old_image]").val(info.image);
+
+
+
                       }
 
                       var batch_id = student_course[0].batch_id; 
