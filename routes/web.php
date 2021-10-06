@@ -90,7 +90,7 @@ Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
-//Cpa 
+//Cpa
 Route::get('cpa_one_form/{id}', 'CPAOneRegisterController@cpaOneForm');
 Route::get('cpa_one_entry_form/{id}', 'CPAOneRegisterController@cpaOneEntryForm');
 Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassForm');
@@ -125,6 +125,9 @@ Route::get('audit_firm', 'AuditFirmController@auditFirm');
 
 // Audit Firm Information
 Route::get('audit_firm_information', 'AuditFirmInfoController@info');
+
+// Audit Firm Reject Register
+Route::get('audit_firm_reject_register', 'AuditFirmInfoController@updateRejectedRegister');
 
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');

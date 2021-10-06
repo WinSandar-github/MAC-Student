@@ -8,9 +8,7 @@ function audit_reg_feedback(){
         success: function(data){
           var form_data = data;
           form_data.forEach(function(element){
-
                 if(element.approve_reject_status == 0){
-
                     $('#audit_form_pending').css('display','block');
                     $('#audit_approve').css('display','none');
                     $('.register-btn').css('display','none');
@@ -22,6 +20,11 @@ function audit_reg_feedback(){
                     $('.register-btn').css({'display':'none'});
                     $('.register-btn').removeClass('mt-4');
 
+                }
+                else{
+                  $('.payment-btn').css('display','none');
+                  $('.register-btn').css({'display':'none'});
+                  $('.status-reject').css({'display':'block'});
                 }
           })
         }

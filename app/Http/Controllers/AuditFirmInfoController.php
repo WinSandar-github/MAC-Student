@@ -14,4 +14,8 @@ class AuditFirmInfoController extends Controller
 
     return view('pages.firm.audit_firm_information',['requirements' => $requirements]);
   }
+
+  public function updateRejectedRegister(){
+    return view('pages.firm.audit_firm_reject_register');
+  }
 }

@@ -45,11 +45,12 @@ function user_profile() {
                     }
 
                     if (acc_firm.status == 0) {
-                        $('.status_history').append('Your Audit Firm Form is checking.');
+                        $('.status_history').append('<span class="text-warning">Your Audit Firm Form is checking.</span>');
                     } else if (acc_firm.status == 1) {
-                        $('.status_history').append('Your Audit Firm Form is Approved.');
+                        $('.status_history').append('<span class="text-success">Your Audit Firm Form is Approved.</span>');
                     } else {
-                        $('.status_history').append('Your Audit Firm Form is Rejected.');
+                        $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
+                        $('#reject_register_btn').css("display","block");
                     }
                 }
                 else {
@@ -70,12 +71,12 @@ function user_profile() {
             }else if (data.school && data.teacher==null) {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school);
-                
+
             } else if (data.teacher && data.school==null) {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
-                
-            } 
+
+            }
             else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
@@ -1530,7 +1531,7 @@ function user_profile() {
 
                             var end_time = end_date.getTime();
                             var today_time = today.getTime();
-    
+
                             if(end_time <= today_time  && latest_article[0].done_status == 0){
                                 if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
@@ -1594,7 +1595,7 @@ function user_profile() {
                         if(article.length != 0){
                             article.forEach(function(element){
                                 article_form_type = element.article_form_type;
-                            
+
                                 switch (article_form_type) {
                                     case 'c12':
                                         form_type = 'CPA I,II';
@@ -1657,10 +1658,10 @@ function user_profile() {
                             if(latest_article[0].contract_end_date != null){
                                 var end_date = new Date(latest_article[0].contract_end_date);
                                 var today = new Date();
-    
+
                                 var end_time = end_date.getTime();
                                 var today_time = today.getTime();
-        
+
                                 if(end_time <= today_time  && latest_article[0].done_status == 0){
                                     if(latest_article[0].done_form_attach && latest_article[0].done_status == 0){
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
@@ -1679,13 +1680,13 @@ function user_profile() {
                             }
                         }else{
                             if(latest_gov_article[0].contract_end_date != null){
-                            
+
                                 var end_date = new Date(latest_gov_article[0].contract_end_date);
                                 var today = new Date();
-    
+
                                 var end_time = end_date.getTime();
                                 var today_time = today.getTime();
-        
+
                                 if(end_time <= today_time && latest_gov_article[0].done_status == 0){
                                     if(latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0){
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
@@ -1937,7 +1938,7 @@ function loadSchoolByDash(school){
         $('.sch_payment-btn').show();
         $('.sch_payment-status').show();
     } else {
-        
+
         if(school.initial_status==2){
             $('.sch_reject-btn').hide();
             $('.sch_renew-btn').hide();
@@ -1947,7 +1948,7 @@ function loadSchoolByDash(school){
         }else{
             $('.sch_reject-btn').show();
             $('.sch_status_history').append('School Registration is Rejected.');
-        
+
             $('.sch_reject-reason').append(school.reason);
         }
     }
