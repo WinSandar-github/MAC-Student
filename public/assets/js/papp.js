@@ -49,7 +49,7 @@ function Add(){
                 '<label for="" class="col-form-labe"> ဘွဲ့အမည်</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="text"  class="form-control" name="degree_name'+count+'" placeholder="ဘွဲ့အမည်">'+
+                '<input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">'+
             '</div>'+
         '</div>'+
         '<div class="row mb-2" id="degree_year'+count+'">'+
@@ -58,7 +58,7 @@ function Add(){
                 '<label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>'+
             '</div>'+
             '<div class="col-md-6 col-auto">'+
-                '<input type="type"  class="form-control" name="degree_pass_year'+count+'" placeholder="DD-MMM-YYYY">'+
+                '<input type="type"  class="form-control" name="degree_pass_year[]" placeholder="နှစ်။လ(MMM-YYYY)">'+
             '</div>'+
         '</div>'+
 
@@ -68,7 +68,7 @@ function Add(){
                 '<label for="" class="col-form-labe"> Attached Certificate</label>'+
             '</div>'+
             '<div class="col-md-6">'+
-                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="degree_file'+count+'" required="">'+
+                '<input type="file"  class="form-control"  id="degree_file'+count+'"  name="foreign_degree[]" required="">'+
             '</div>'+
             '<div class="col-md-1 text-center"  id="edu'+count+'_remove">'+
                 '<button class="btn btn-danger" id="myLink" onclick="remove(degree'+count+',degree_year'+count+',edu'+count+')">'+
@@ -77,9 +77,9 @@ function Add(){
             '</div>'+
         '</div>');
 
-        $('input[name="degree_pass_year'+count+'"]').flatpickr({
+        $('input[name="degree_pass_year[]"]').flatpickr({
             enableTime: false,
-            dateFormat: "d-M-Y",
+            dateFormat: "M-Y",
             allowInput: true,
     });
     count++;
@@ -200,14 +200,24 @@ function Papp_Submit(){
     var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
     var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
     var tax_free_file=$('#tax_free_file')[0].files[0];
+    var letter=$('#letter')[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('profile_photo', profile_photo);
     data.append('cpa', cpa_file);
     data.append('ra', ra_file);
-        for (var i = 0; i < count; i++) {
-        data.append('foreign_degree[]',$('#degree_file'+i)[0].files[0]);
+
+    $('input[name="degree_name[]"]').map(function () {
+        data.append('degree_name[]', $(this).val());
+    });
+    $('input[name="degree_pass_year[]"]').map(function () {
+        data.append('degree_pass_year[]', $(this).val());
+    });
+    $('input[name="foreign_degree[]"]').map(function () {
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            data.append('foreign_degree[]', $(this).get(0).files[i]);
         }
+    });
     data.append('papp_date', $("input[name=papp_date]").val());
     if(firm_check.checked==true){
     data.append('use_firm',0);
@@ -242,6 +252,7 @@ function Papp_Submit(){
     data.append('cpd_hours', $("#total_hours").val());
     data.append('tax_year', $("input[name=tax_year]").val());
     data.append('tax_free_recommendation', tax_free_file);
+    data.append('letter', letter);
 
     //save to papp
     data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
@@ -249,7 +260,8 @@ function Papp_Submit(){
     data.append('phone', $("input[name=phone]").val());
     data.append('contact_mail', $("input[name=contact_mail]").val());
     data.append('reg_no', $("input[name=reg_no]").val());
-
+    data.append('type',0);
+    show_loader(); 
     $.ajax({
     url: BACKEND_URL+"/papp",
     type: 'post',
@@ -257,6 +269,7 @@ function Papp_Submit(){
     contentType: false,
     processData: false,
     success: function(result){
+        EasyLoading.hide();
         successMessage("You have successfully registerd!");
             // location.reload();
             location.href = FRONTEND_URL+'/';
@@ -317,13 +330,13 @@ function loadPappData()
             // console.log(data)
             var papp_data = data.data;
             console.log('papp_data',papp_data)
-            // $('#reg_no').val(papp_data.cpa_batch_no);
+            $('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
-            $('#reg_no').val(papp_data.cpa_batch_no);
-            $('#total_hours').val(papp_data.cpd_hours);
+            $('#cpaff_reg_no').val(papp_data.cpa_batch_no);
+            // $('#total_hours').val(papp_data.cpd_hours);
         }
     });
 }
@@ -438,10 +451,11 @@ function loadPAPP(){
                         $('#hidden_cpd_record_file').val(data.cpd_record);
                         $('#hidden_tax_free_file').val(data.tax_free_recommendation);
                         $('input[name=papp_date]').val(data.papp_date);
+                        $('input[name=papp_reg_date]').val(formatDate(data.accepted_date));
                         $('input[name=tax_year]').val(data.tax_year);
                         $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
                         $('input[name=degree_name0]').val(data.degree_name0);
-                        $('input[name=total_hours]').val(data.total_hours);
+                        $('input[name=total_hours]').val(data.cpd_hours);
                         loadFile(data.degree_file0,"view_degree_file0");
                         loadFile(data.cpa_ff_recommendation,"view_cpa_ff_file");
                         loadFile(data.recommendation_183,"view_file_183");
@@ -518,43 +532,120 @@ function RenewPAPP(){
         success: function(result){
 
             if(result.data!=null){
-                var send_data = new FormData($("#papp_renew_form_submit")[0]);
-                send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
-                send_data.append('file_183', $('#hidden_file_183').val());
-                send_data.append('not_fulltime_file', $('#hidden_not_fulltime_file').val());
-                send_data.append('work_in_mm_file', $('#hidden_work_in_mm_file').val());
-                send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
-                send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
-                send_data.append('tax_free_file', $('#hidden_tax_free_file').val());
+                // var send_data = new FormData($("#papp_renew_form_submit")[0]);
 
-                    var firm_check = document.getElementById("firm_check");
-                    var used_firm_check = document.getElementById("used_firm_check");
-                    var staff_firm_check = document.getElementById("staff_firm_check");
-                    if(firm_check.checked==true){
-                        send_data.append('use_firm',1);
+                var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
+                // var cpa_check = document.getElementById("cpa_check");
+                // var ra_check = document.getElementById("ra_check");
+                // var degree_check = document.getElementById("degree_check");
+                var firm_check = document.getElementById("firm_check");
+                var used_firm_check = document.getElementById("used_firm_check");
+                var staff_firm_check = document.getElementById("staff_firm_check");
+
+                var cpa_file = $('#cpa_file')[0].files[0];
+                var ra_file = $('#ra_file')[0].files[0];
+                var papp_file=$('#papp_file')[0].files[0];
+                var file_183=$('#file_183')[0].files[0];
+                var not_fulltime_file=$('#not_fulltime_file')[0].files[0];
+                var work_in_mm_file=$('#work_in_mm_file')[0].files[0];
+                var rule_conf_file=$('#rule_conf_file')[0].files[0];
+                var cpd_record_file=$('#cpd_record_file')[0].files[0];
+                var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
+                var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
+                var tax_free_file=$('#tax_free_file')[0].files[0];
+                var letter=$('#letter')[0].files[0];
+
+                var send_data = new FormData();
+
+                send_data.append('student_id', student.id);
+                send_data.append('profile_photo', profile_photo);
+                send_data.append('cpa', cpa_file);
+                send_data.append('ra', ra_file);
+
+                $('input[name="degree_name[]"]').map(function () {
+                    send_data.append('degree_name[]', $(this).val());
+                });
+                $('input[name="degree_pass_year[]"]').map(function () {
+                    send_data.append('degree_pass_year[]', $(this).val());
+                });                
+                
+                $('input[name="foreign_degree[]"]').map(function () {
+                    for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                        send_data.append('foreign_degree[]', $(this).get(0).files[i]);
                     }
-                    else{
-                        send_data.append('use_firm',0);
-                    }
-                    if(used_firm_check.checked==true){
-                        send_data.append('firm_name', $("input[name=used_firm_name]").val());
-                        send_data.append('firm_type', $("input[name=used_firm_type]").val());
-                        send_data.append('firm_step', $("input[name=used_firm_level]").val());
-                    }
-                    else{
-                        send_data.append('firm_name', "");
-                        send_data.append('firm_type', "");
-                        send_data.append('firm_step', "");
-                    }
-                    if(staff_firm_check.checked==true){
-                        send_data.append('staff_firm_name', $("input[name=staff_firm_name]").val());
-                    }
-                    else{
-                        send_data.append('staff_firm_name', "");
-                    }
-                  send_data.append('_method', 'PUT');
+                });
+
+                $('input[name="company[]"]').map(function () {
+                    send_data.append('company[]', $(this).val());
+                });
+                $('input[name="period[]"]').map(function () {
+                    send_data.append('period[]', $(this).val());
+                });
+                $('input[name="manager[]"]').map(function () {
+                    send_data.append('manager[]', $(this).val());
+                });
+                // for (var i = 0; i < count; i++) {
+                //     send_data.append('foreign_degree[]',$('#degree_file'+i)[0].files[0]);
+                // }
+                // send_data.append('cpa_ff_file', $('#hidden_cpa_ff_file').val());
+                // send_data.append('file_183', $('#hidden_file_183').val());
+                // send_data.append('not_fulltime_file', $('#hidden_not_fulltime_file').val());
+                // send_data.append('work_in_mm_file', $('#hidden_work_in_mm_file').val());
+                // send_data.append('rule_conf_file', $('#hidden_rule_conf_file').val());
+                // send_data.append('cpd_record_file', $('#hidden_cpd_record_file').val());
+                // send_data.append('tax_free_file', $('#hidden_tax_free_file').val());                
+
+                var firm_check = document.getElementById("firm_check");
+                var used_firm_check = document.getElementById("used_firm_check");
+                var staff_firm_check = document.getElementById("staff_firm_check");
+                if(firm_check.checked==true){
+                    send_data.append('use_firm',1);
+                }
+                else{
+                    send_data.append('use_firm',0);
+                }
+
+                if(used_firm_check.checked==true){
+                    send_data.append('firm_name', $("input[name=used_firm_name]").val());
+                    send_data.append('firm_type', $("input[name=used_firm_type]").val());
+                    send_data.append('firm_step', $("input[name=used_firm_level]").val());
+                }
+                else{
+                    send_data.append('firm_name', "");
+                    send_data.append('firm_type', "");
+                    send_data.append('firm_step', "");
+                }
+
+                if(staff_firm_check.checked==true){
+                    send_data.append('staff_firm_name', $("input[name=staff_firm_name]").val());
+                }
+                else{
+                    send_data.append('staff_firm_name', "");
+                }
+                send_data.append('papp_date', $("input[name=papp_renew_year]").val());
+
+                send_data.append('cpa_ff_recommendation', papp_file);
+                send_data.append('recommendation_183', file_183);
+                send_data.append('not_fulltime_recommendation', not_fulltime_file);
+                send_data.append('work_in_myanmar_confession', work_in_mm_file);
+                send_data.append('rule_confession', rule_conf_file);
+                send_data.append('cpd_record', cpd_record_file);
+                send_data.append('mpa_mem_card_front', mpa_mem_card_front);
+                send_data.append('mpa_mem_card_back', mpa_mem_card_back);
+                send_data.append('cpd_hours', $("#total_hours").val());
+                send_data.append('tax_year', $("input[name=tax_year]").val());
+                send_data.append('tax_free_recommendation', tax_free_file);
+                send_data.append('letter', letter);
+                send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+                send_data.append('address', $("input[name=address]").val());
+                send_data.append('phone', $("input[name=phone]").val());
+                send_data.append('contact_mail', $("input[name=contact_mail]").val());
+                send_data.append('reg_no', $("input[name=reg_no]").val());
+                send_data.append('type',1);
+                send_data.append('_method', 'POST');
+                show_loader();
                 $.ajax({
-                    url: BACKEND_URL+"/papp/"+result.data.id,
+                    url: BACKEND_URL+"/papp_renew",
                     type: 'post',
                     data:send_data,
                     contentType: false,

@@ -276,7 +276,7 @@
 																<div class="col-md-4 reg_fee_partner" align="right"></div>
 															</div>
 														</li>
-														<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+														{{--<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>--}}
 														<li>
 															<i class="icofont-money"></i>
 															<strong>Renew Fee</strong>
