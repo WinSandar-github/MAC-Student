@@ -146,7 +146,7 @@
 
                                             <div class="row mb-3">
                                                 <div class="col-md-9">
-                                                    <div class="row mb-4">
+                                                    <div class="row mb-4 mt-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -239,6 +239,15 @@
                                                                  id="previewImgMac"
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_mac" name="profile_photo_mac" accept="image/*" ></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -587,7 +596,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -600,7 +609,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
@@ -659,7 +668,7 @@
 
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၃။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -680,6 +689,15 @@
                                                                  id="previewImgPrivate"
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_private" name="profile_photo-private" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1004,7 +1022,7 @@
                                             <div class="row">
                                                 <div class="col-md-9">
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4 mt-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -1017,7 +1035,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
@@ -1076,7 +1094,7 @@
 
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၃။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -1098,7 +1116,16 @@
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
                                                         </div>
-                                                    </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_self" name="profile_photo_self" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
+                                                    </div>                                                    
                                                 </div>
                                                 {{--User Photo--}}
                                             </div>
@@ -1701,6 +1728,7 @@
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
+                console.log(data,'data');
                 if (data) {
                      let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
@@ -1805,6 +1833,30 @@
                         if(data.data.recommend_letter!=null){
                             $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
                         }
+                    }
+                    if(data.data.exam_registers.length!=0){
+                        $("input[name='office_address']").prop('readonly', false);
+                        $("input[name='current_address']").prop('readonly', false);
+                        $("input[name='address']").prop('readonly', false);
+                        $("input[name='phone']").prop('readonly', false);
+                        $("input[name='profile_photo_mac']").show();
+                        $("input[name='profile_photo_self']").show();
+                        $("input[name='profile_photo_private']").show();
+                        $("input[name='recommend_letter_mac']").prop('disabled', false);
+                        $("input[name='recommend_letter_self']").prop('disabled', false);
+                        $("input[name='recommend_letter_private']").prop('disabled', false);
+                    }
+                    else{
+                        $("input[name='office_address']").prop('readonly', true);
+                        $("input[name='current_address']").prop('readonly', true);
+                        $("input[name='address']").prop('readonly', true);
+                        $("input[name='phone']").prop('readonly', true);
+                        $("input[name='profile_photo_mac']").hide();
+                        $("input[name='profile_photo_self']").hide();
+                        $("input[name='profile_photo_private']").hide();
+                        $("input[name='recommend_letter_mac']").prop('disabled', true);
+                        $("input[name='recommend_letter_self']").prop('disabled', true);
+                        $("input[name='recommend_letter_private']").prop('disabled', true);
                     }
                 }
             });
