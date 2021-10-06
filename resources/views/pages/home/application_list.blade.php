@@ -65,6 +65,7 @@
                                                     <tr>
                                                         <th class="bold-font-weight" >No</th>
                                                         <th class="bold-font-weight" >အမည်</th>
+                                                        <th class="bold-font-weight" >အဖအမည်</th>
                                                         <th class="bold-font-weight" >မှတ်ပုံတင်နံပါတ်</th>
                                                         
                                                         <th class="bold-font-weight" >ကိုယ်ပိုင်နံပါတ်</th>

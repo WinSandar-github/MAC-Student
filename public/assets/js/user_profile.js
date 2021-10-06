@@ -150,7 +150,65 @@ function user_profile() {
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
 
-            } else {
+            } else if (data.qualified_test) {
+                let qt = data.qualified_test;
+
+                $('.title').text('Student Information')
+                $('.qualified_test').show();
+                $('.cpaff_other').hide();
+                $('.da-card').show();
+                $('#qt_name_mm').text(data.name_mm);
+                $('#qt_name_eng').text(data.name_eng);
+                $("#qt_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
+                $("#qt_email").text(data.email);
+                $('#qt_phone').text(data.phone);
+                document.getElementById('qt_image').src = BASE_URL + data.image;
+
+                var papp_url = FRONTEND_URL + "/student_papp_information";
+                var cpaff_url = FRONTEND_URL + "/cpa_ff_register"
+                    ;
+                var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
+                if (qt.approve_reject_status == 0) {
+                    $('.status_history').append('CPA Full-Fledged Registration Form is checking.<br><br>');
+
+                } else if (qt.approve_reject_status == 1) {
+                    $('.status_history').append('Qualified Test Form is Approved.<br><br>');
+
+                } else {
+                    $('.status_history').append('Qualified Test Form is Rejected.');
+
+                }
+                // if (cpaff.status == 0) {
+                //     $('.status_history').append('CPA Full-Fledged Registration Form is checking.<br><br>');
+                //     $('.status_papp').append('Action &nbsp;&nbsp;');
+                //     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                // } else if (cpaff.status == 1) {
+                //     $('.status_history').append('CPA Full-Fledged Registration Form is Approved.<br><br>');
+                //     $('.status_history').append('Action &nbsp;&nbsp;');
+                //     $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
+                //     $('.status_papp').append('Action &nbsp;&nbsp;');
+                //     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                // } else {
+                //     $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
+                //     $('.status_history').append(`<a href="${cpaff_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                // }
+                // if (data.papp && data.student_course_regs == '') {
+                //     if (data.papp.status == 0) {
+                //         $('.status_history').append('PAPP Registration Form is checking.<br><br>');
+                //         $('.status_papp').css('display', 'none');
+                //     } else if (data.papp.status == 1) {
+                //         $('.status_papp').css('display', 'none');
+                //         var papp_renew_url = FRONTEND_URL + "/student_papp_information";
+                //         $('.status_history').append('PAPP Registration Form is Approved.<br><br>');
+                //         $('.status_history').append('Action &nbsp;&nbsp;');
+                //         $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                //     } else {
+                //         $('.status_history').append('PAPP Registration Form is Rejected.');
+                //     }
+                // }
+
+            }
+            else {
                 $('.cpaff_other').hide();
                 $('.da_cpa').show();
                 $('.title').text("Student Information")

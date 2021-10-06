@@ -58,4 +58,16 @@ class ReportController extends Controller
         $course = $res['data'];
         return view('pages.home.exam_result_list',compact('course'));
     }
+
+    public function entryExamList()
+    {  
+        return view('pages.home.entry_exam_list');
+    }
+
+    public function qualifiedTestList()
+    {  
+        return view('pages.home.qualified_test_list');
+    }
+
+    
 }
