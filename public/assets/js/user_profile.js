@@ -367,10 +367,20 @@ function user_profile() {
                             if (last_exam[0].exam_type_id !== 3) {
 
                                 let exam = exam_register.filter(exam => exam.grade == 1 && exam.exam_type_id !== 3)
+                                console.log('exam',exam)
                                 exam.map(e => {
+                                    var module;
+                                    if(e.is_full_module==1){
+                                        module="Module-1";
+                                    }else if(e.is_full_module==2){
+                                        module="Module-2";
+                                    }else{
+                                        module="Full Module";
+                                    }
                                     course_html += `<tr>
                                                     <td>${e.course.name}</td>
                                                     <td>${e.batch.name}</td>
+                                                    <td>${module}</td>
                                                     <td>${formatDate(e.updated_at)}</td>
                                                 </tr>`
                                 });
