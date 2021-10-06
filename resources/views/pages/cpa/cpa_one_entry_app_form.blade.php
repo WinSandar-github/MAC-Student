@@ -310,7 +310,7 @@
                                                         <input disabled type="radio" id="yes" class="form-check-input" value="1" name="gov_staff" onclick="selectStaff(1)" required style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="">ဟုတ်</label>
+                                                        <label class="form-check-label" for="yes">ဟုတ်</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -321,7 +321,7 @@
                                                         <input disabled type="radio" id="no" class="form-check-input" value="0" name="gov_staff" onclick="selectStaff(0)" required style="margin-left: 3%;">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <label class="form-check-label" for="">မဟုတ်</label>
+                                                        <label class="form-check-label" for="no">မဟုတ်</label>
                                                         <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ် ရွေးချယ်ပါ</div>
                                                     </div>
                                                 </div>
