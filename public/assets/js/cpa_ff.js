@@ -395,10 +395,11 @@ function loadCpaffInitialData() {
             // console.log(data)
             var cpaff_data = data.data;
             // console.log('cpaff_data11',cpaff_data)
-            $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
+            $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);            
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
+            $('#cpaff_reg_no').val(cpaff_data.cpa_batch_no)
             console.log(cpaff_data.ra!=null || cpaff_data.ra!="null");
             if(cpaff_data.ra!=null && cpaff_data.ra!="null"){
                 $('#ra_edu').attr('checked', true);
