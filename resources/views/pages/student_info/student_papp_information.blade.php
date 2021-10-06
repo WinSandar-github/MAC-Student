@@ -404,7 +404,7 @@
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -413,7 +413,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="နှစ်၊လ(MMM-YYYY)">
                                                 </div>
                                             </div>
 
@@ -423,7 +423,7 @@
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="foreign_degree[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary" id="add_btn" onclick="Add()" >
@@ -565,8 +565,8 @@
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" class="form-control">ခုနှစ်အတွက်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" readonly style="display:inline; width:120px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="initial_reg_no" style="display: inline;width: 140px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
@@ -774,7 +774,7 @@
                                             <label >PAPP မှတ်ပုံတင်ကတ်ပြား၊</label>
                                     </div>
 									<div class="col-md-4">
-                                        <input type="file" class="form-control"  id="cpa_ff_file"  name="cpa_ff_file" required="">
+                                        <input type="file" class="form-control"  id="papp_file"  name="papp_file" required="">
                                     </div>
                                     {{--<div class="col-md-4 view_cpa_ff_file">
 										<input type="hidden" id="hidden_cpa_ff_file">
@@ -906,7 +906,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဇ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card" required="" >
+                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" >
                                     </div>
                                 </div><br/><br>
 
@@ -915,7 +915,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back" required="" >
+                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" required="" >
                                     </div>
                                 </div>
 
@@ -926,7 +926,7 @@
                                     <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
                                     <div class="col-md-4">
 
-                                                <input type="file"  class="form-control" name="letter" required="" >
+                                                <input type="file"  class="form-control" name="letter" id="letter" required="" >
 
                                     </div>
                                 </div><br/><br>
@@ -1031,6 +1031,13 @@
         loadPappData();
     })
     //app_form_feedback();
+
+    $('input[name="degree_pass_year[]"]').flatpickr({
+            enableTime: false,
+            dateFormat: "M-Y",
+            allowInput: true,
+    });
+
     $(".papp_date").flatpickr({
             enableTime: false,
             dateFormat: "Y",

@@ -54,10 +54,23 @@ class PaymentController extends Controller
             // $form_fee = Session::get('data')['form_fee'];
             
             $data = Session::get('data');
+            $type = $request->payment_method;
+            // return $type;
+            switch ($type) {
+                case 'mpu':
+                    return view('pages.payment.mpu',compact('data'));
+                    break;
+                case 'cbpay':
+                    return view('pages.payment.cbpay',compact('data'));
+                    break;
+                default:
+                    return view('pages.payment.visa_master',compact('data'));
+                    break;
+            }
 
             // return view('pages.payment.mpu',compact('payment_type','name_eng','email','phone','invoice_no'));
             
-            return view('pages.payment.mpu',compact('data'));
+            // return view('pages.payment.mpu',compact('data'));
 
         }catch(\Exception $e){
             return $e->getMessage();
