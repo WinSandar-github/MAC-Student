@@ -181,7 +181,7 @@ function addRowBranch(tbody) {
 
 var num = 0;
 function addRowPartner(tbody) {
-    num ++;
+    num++;
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;

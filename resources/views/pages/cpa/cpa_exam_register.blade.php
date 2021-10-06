@@ -719,12 +719,12 @@
 
                 // $("input[name='private_school_name']").val(data.data.student_register[0].private_school_name);
 
-                $("#last_ans_exam_no").val(exam_registers[0].batch.number);
-                $("#date").val(formatDate(exam_registers[0].updated_at));
+              
+                console.log(exam_registers)
 
-                if(exam_registers)
+                if(exam_registers && exam_registers[0].exam_type_id !== 3)
                 {
-
+                     
                     if(exam_registers[0].is_full_module == "1")
                     {
                             
@@ -760,6 +760,8 @@
 
 
                     }
+                    $("#last_ans_exam_no").val(exam_registers[0].batch.number);
+                    $("#date").val(formatDate(exam_registers[0].updated_at));
                 }
 
                 
