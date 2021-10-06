@@ -1,4 +1,4 @@
-// var FRONTEND_URL = "http://localhost:8081";
+// var FRONTEND_URL = "http://localhost:8001";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL = "http://localhost:8000/api";
 
@@ -179,28 +179,26 @@ function addRowBranch(tbody) {
     counter++;
 }
 
-var num = 0;
 function addRowPartner(tbody) {
-    num++;
+
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
     cols += '<td>' + (row) + '</td>';
     cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no' + row + '" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
     cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
-    cols += '<td><input type="radio" name="foa_authority_to_sign' + num + '" class="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" class="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
     // cols += '<td>';
     // cols += '<div class="form-check pt-2">';
     // cols += '<input type="radio" class="form-check-input" id="report_yes" value="1" name="foa_authority_to_sign" required>';
     // cols += '<label class="form-check-label" for="">Yes</label>';
     // cols += '</div>';
     // cols += '</td>'
-    cols += '<td><input type="radio" name="foa_authority_to_sign' + num + '" class="report_yes" value="2" > <label class="form-check-label">No</label></td>';
+    cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" class="report_yes" value="2" > <label class="form-check-label">No</label></td>';
     cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
-    //num = num;
 }
 
 function delRowPartner(tbody) {
