@@ -309,18 +309,13 @@ function loadCpaffData() {
         data: "",
         success: function (data) {
             var cpaff_data = data.data;
-            
-            // console.log(cpaff_data);
             if(cpaff_data==null){
                 $.ajax({
                     url: BACKEND_URL + "/get_cpaff/" + student.id,
                     type: 'get',
                     data: "",
                     success: function (data) {
-
-                        // console.log(data,"ddata")
                         var cpaff_data = data.data;
-                        // console.log('cpaff_data',cpaff_data)
                         $('#name_mm').val(cpaff_data.name_mm);
                         $('#name_eng').val(cpaff_data.name_eng);
                         $('#nrc_state_region').val(cpaff_data.nrc_state_region);
