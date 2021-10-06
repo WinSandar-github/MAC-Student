@@ -42,13 +42,13 @@
                                 </center>
                                 
                                 <div class="col-12" >
-                                    <h3 class="heading text-center">VISA/MASTER</h3>
+                                    <h3 class="heading text-center">CBPay</h3>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12">
                                     <p>
-                                        Visa is a mobile wallet platform powered by CB Bank,
+                                        CBPay is a mobile wallet platform powered by CB Bank,
                                         one of the most trusted banks in Myanmar. Now available for download across the country, it’s the safer, simpler and more convenient way to transact money. With just a few taps on your phone, whether you wish to pay, transfer, cash in or cash out – it’s easy with CBPay!
                                     </p>
                                 </div>
