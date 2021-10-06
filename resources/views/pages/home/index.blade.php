@@ -132,7 +132,19 @@
                                 {{-- <button class="course_list" data-bs-toggle="tab" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button> --}}
                                 <button class="course_list" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button>
                             </li>
+
                             
+                            
+                        </ul>
+
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                       
+                            <li>
+                                  <button value="exam" onclick=" window.open('/entry_exam_list','_blank')">CPA One ဝင်ခွင့်စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                            </li>
+                            <li>
+                                 <button class="course_list" onclick=" window.open('/qualified_test_list','_blank')">အရည်အချင်းစစ် စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                            </li>
                         </ul>
                         
                     </div>
