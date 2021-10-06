@@ -201,11 +201,20 @@
 
 																				 </div>
 																			 </div>
-
-
 																		</li>
-                                    <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                    <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                    {{--<li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>--}}
+
+																		<li>
+																			<div class="row">
+																				<div class="col-md-7">
+																					<i class="icofont-money"></i>
+																					<strong>Renew Fee(per PAPP who will sign the audit report)</strong>
+																				</div>
+																				<div class="col-md-5 renew-fee" align="right">
+
+																				</div>
+																			</div>
+																		<li>
                                     {{--<li>
 																			<i class="icofont-money"></i>
 																			<strong>Delay Fee</strong>
@@ -239,7 +248,7 @@
 
 																		<li>
 																			<i class="icofont-money"></i>
-																			<strong>Reconnect Fees(per year)</strong>
+																			<strong>Reconnect Fee(per year)</strong>
 																			<div class="row">
 																				<div class="col-md-7 offset-md-1">Sole Proprietorship</div>
 																				<div class="col-md-4 reconnect_fee_sole" align="right"></div>

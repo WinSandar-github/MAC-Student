@@ -117,7 +117,7 @@
                     <div class="card-body">
                         <div class="col-md-12">
                             <div class="container">
-                                <form method="post" enctype="multipart/form-data">
+                                <form method="post" enctype="multipart/form-data" id="payment_form">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-4 order-md-2 mb-4">
@@ -127,14 +127,19 @@
                                             <ul class="list-group mb-3 sticky-top">
                                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                                                     <div>
-                                                        <h6 class="my-0">Application Form Fee</h6>
-                                                        <small class="text-muted">Diploma in Accountancy(Part 1)</small>
+                                                        @php
+                                                            list($form_type, $course_type) = explode(',', $invoice['productDesc']);
+                                                            echo '<h6 class="my-0">' . $form_type . '</h6>' . "\n";
+                                                            echo '<small class="text-muted">' . $course_type . '(Part 1)</small>';
+                                                        @endphp
+                                                        {{-- <h6 class="my-0">Application Form Fee</h6>
+                                                        <small class="text-muted">Diploma in Accountancy(Part 1)</small> --}}
                                                     </div>
-                                                    <span class="text-muted" name="fee" id="fee"></span>&nbsp;<span> MMK</span>
+                                                    <span class="text-muted" name="fee" id="fee">{{ $invoice['amount'] }}</span>&nbsp;<span> MMK</span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between">
                                                     <span>Total (MMK)</span>
-                                                    <strong><span id="total"></span> MMK</strong>
+                                                    <strong><span id="total">{{ $invoice['amount'] }}</span> MMK</strong>
                                                 </li>
                                             </ul>
                                         </div>
@@ -144,21 +149,21 @@
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="firstName">Name</label>
-                                                        <input type="text" class="form-control" name="name_eng" id="name_eng" readonly="">
+                                                        <input type="text" class="form-control" name="name_eng" id="name_eng" value="{{ $invoice["name_eng"] }}" readonly>
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="lastName">Email</label>
-                                                        <input type="text" class="form-control" name="email" id="email" readonly="">
+                                                        <input type="text" class="form-control" name="email" id="email" value="{{ $invoice['email'] }}" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="firstName">Phone Number</label>
-                                                        <input type="text" class="form-control" name="phone" id="phone" readonly="">
+                                                        <input type="text" class="form-control" name="phone" id="phone" value="{{ $invoice['phone'] }}" readonly>
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="lastName">Invoice No.</label>
-                                                        <input type="text" class="form-control" name="invoice_no" value="123456" readonly="">
+                                                        <input type="text" class="form-control" name="invoice_no" value="{{ $invoice['invoiceNo'] }}" readonly>
                                                     </div>
                                                 </div>
                                                 <input type="hidden"  name="form_fee" id="form_fee">
@@ -170,7 +175,7 @@
                                                 <h4 class="mb-3">Choose Payment Method</h4>
                                                 <div class="d-block my-3">
                                                     <div class="custom-control custom-radio">
-                                                        <input value="mpu" name="payment_method" type="radio" class="custom-control-input" checked="" required="">
+                                                        <input value="mpu" name="payment_method" type="radio" class="custom-control-input" required="">
                                                         <label class="custom-control-label" for="credit">MPU</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
@@ -178,12 +183,8 @@
                                                         <label class="custom-control-label" for="debit">CBPAY</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input value="visa" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">VISA</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input value="master" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">MASTER</label>
+                                                        <input value="visa_master" name="payment_method" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="paypal">VISA/MASTER/JCB/UPI</label>
                                                     </div>
                                                 </div>
                                                 {{--<h4 class="mb-3">Choose Payment Method</h4>
@@ -233,3 +234,8 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+
+<script src="{{ asset('assets/js/payment.js') }}"></script>
+    
+@endpush

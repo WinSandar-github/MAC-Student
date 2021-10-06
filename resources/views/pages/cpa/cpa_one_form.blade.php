@@ -1003,7 +1003,7 @@
                                                         </p>
                                                     </label>
                                                 </div>
-                                                <h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                {{--<h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>--}}
                                             </div>
                                         </div>                                         
                                         

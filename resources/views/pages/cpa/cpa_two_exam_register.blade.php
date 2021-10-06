@@ -197,11 +197,11 @@
                                                         </div>
                                                     </div><br />
                                                 </div>
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <div class="col-md-4 col-form-label" id="">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်
                                                     </div>
                                                 </div>
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <!-- စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ -->
                                                     <!-- <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label> -->
                                                     <label class="col-md-4 col-form-label label">
@@ -212,13 +212,13 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 60px;">{{ __('(ခ)') }}</span>ကျင်းပသည့် ခုနှစ်/လ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date" class="form-control date" placeholder="လ၊နှစ်(MMM-YYYY)"  id="date">
                                                     </div>
                                                 </div>
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 60px;">{{ __('(ဂ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="personal_no" class="form-control personal_no" placeholder="ကိုယ်ပိုင်အမှတ်"  id="personal_no">
@@ -245,11 +245,11 @@
                                                     </div>
                                                 </div>--}}
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3" style="display:none">
                                                     <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 60px;">{{ __('(ဃ)') }}</span>အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန် - </label>
                                                 </div>
 
-                                                <div class="row mb-3" style="padding-left: 363px;">                                                    
+                                                <div class="row mb-3" style="padding-left: 363px;" style="display:none">                                                    
                                                     <div class="row col-md-8 mx-5">
                                                         <div class="col-md-4 form-check">
                                                             <label class="form-check-label">
@@ -271,7 +271,7 @@
                                                 
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>ဖြေဆိုမည့် Module</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>ဖြေဆိုမည့် Module</label>
                                                     <div class="col-md-8 mt-2">
                                                         <div class="row mx-2">
                                                             <div class="col-md-4 form-check">
