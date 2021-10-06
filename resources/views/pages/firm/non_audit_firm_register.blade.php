@@ -1187,7 +1187,7 @@
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
 										<label class="col-md-1 col-form-label" id="label1">13.</label>
-										<label class="col-md-6 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
+										<label class="col-md-6 col-form-label">{{ __('Particulars Of Directors/ Staff Members who is a Myanmar CPA') }}</label>
 										<label class="col-md-5 director_staffmembers_validate col-form-label" id="" style="display: none;color:#ef815;">Please Fill Particulars Of Directors/ Staff Members Who Is A Myanmar CPA</label>
 									</div>
 									<div class="row">
