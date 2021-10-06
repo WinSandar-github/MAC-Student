@@ -250,6 +250,15 @@
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            CPA(FF)နောက်ကျကြေး</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>50000</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">PAPP လျှောက်လွှာကြေး</p>
                                     </div>
                                     <div class="col-md-6">
@@ -264,6 +273,15 @@
                                     </div>
                                     <div class="col-md-6">
                                         <span>10000</span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">
+                                            PAPP နောက်ကျကြေး</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>50000</span>
                                     </div>
                                 </div>
                             </div>

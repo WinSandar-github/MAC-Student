@@ -745,7 +745,13 @@ $('#cpa_entry_register').submit(function (e) {
         return;
     }
     e.preventDefault();
-
+    var is_gov_staff;
+    if(document.getElementById('yes').checked){
+        is_gov_staff=1;
+    }
+    else{
+        is_gov_staff=0;
+    }
     var certificate = $('input[name="certificate[]"]');
 
     let batch_id = url.substring(url.lastIndexOf('/') + 1);
@@ -784,7 +790,7 @@ $('#cpa_entry_register').submit(function (e) {
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    send_data.append('gov_staff', $("input[name=gov_staff]").val());
+    send_data.append('gov_staff', is_gov_staff);
     // $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());

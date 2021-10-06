@@ -1,4 +1,4 @@
-// var FRONTEND_URL = "http://localhost:8001";
+// var FRONTEND_URL = "http://localhost:8081";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL = "http://localhost:8000/api";
 
@@ -181,7 +181,7 @@ function addRowBranch(tbody) {
 
 var num = 0;
 function addRowPartner(tbody) {
-    num ++;
+    num++;
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
