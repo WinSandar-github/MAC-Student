@@ -50,20 +50,18 @@ function loadFees() {
 $('#payment_form').submit(function (e) {
     e.preventDefault();
 
-    $pay_method = $('input[type=radio][name=payment_method]:checked').val();
+    var pay_method = $('input[type=radio][name=payment_method]:checked').val();
+    // console.log(pay_method);
 
-    switch ($pay_method) {
+    switch (pay_method) {
         case 'mpu':
             $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/mpu');
             break;
         case 'cbpay':
             $('#payment_form').attr('aciton', FRONTEND_URL + '/post_payment/cbpay');
             break;
-        case 'master':
-            $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/master');
-            break;
-        case 'visa':
-            $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/visa');
+        default:
+            $('#payment_form').attr('action', FRONTEND_URL + '/post_payment/visa_master');
             break;
     }
 

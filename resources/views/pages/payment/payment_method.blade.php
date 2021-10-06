@@ -183,12 +183,8 @@
                                                         <label class="custom-control-label" for="debit">CBPAY</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input value="visa" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">VISA</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input value="master" name="payment_method" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">MASTER</label>
+                                                        <input value="visa_master" name="payment_method" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="paypal">VISA/MASTER/JCB/UPI</label>
                                                     </div>
                                                 </div>
                                                 {{--<h4 class="mb-3">Choose Payment Method</h4>
