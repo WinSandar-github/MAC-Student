@@ -1473,6 +1473,7 @@ $('document').ready(function(){
 
                 if(exam_registers[0].grade == 1 && exam_registers[0].course.code == 'cpa_2'){
                         let batch_id = localStorage.getItem('batch_id');
+                        $('.batch_id').val(batch_id);
                         $.ajax({
                         type: "get",
                         url: BACKEND_URL+"/batch/"+batch_id,
