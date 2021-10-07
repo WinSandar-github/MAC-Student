@@ -1,4 +1,3 @@
-
 function createDAExamRegister()
 {
     var school_id;

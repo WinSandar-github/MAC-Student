@@ -114,7 +114,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                         <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" style="padding: 6px;" readonly >
                                                                     </div>
 
                                                                     <div class="col-md-4">
@@ -330,45 +330,45 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                     <div class="row col-md-8 py-2">
 
-                                                        <div class="form-check">
+                                                        <div class="form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"
+                                                                <input class="form-check-input" type="radio"
                                                                     name="reg_reason[]" required="" value="ယခုနှစ်တက်ရောက်ခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (က) ယခုနှစ်တက်ရောက်ခြင်း
                                                             </label>
                                                         </div>
 
-                                                        <div class="form-check">
+                                                        <div class="form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"
+                                                                <input class="form-check-input" type="radio"
                                                                     name="reg_reason[]" required="" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                             </label>
                                                         </div>
 
-                                                        <div class="form-check">
+                                                        <div class="form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"
+                                                                <input class="form-check-input" type="radio"
                                                                     name="reg_reason[]" required="" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                             </label>
                                                         </div>
 
-                                                        <div class="form-check">
+                                                        <div class="form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"
+                                                                <input class="form-check-input" type="radio"
                                                                     name="reg_reason[]" required="" value="စာမေးပွဲကျရှုံးခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                             </label>
                                                         </div>
 
-                                                        <div class="form-check">
+                                                        <div class="form-check-radio">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox"
+                                                                <input class="form-check-input" type="radio"
                                                                     name="reg_reason[]" required="" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
                                                                 <span class="form-check-sign"></span>
                                                                 (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
@@ -623,10 +623,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                             <input type="text" class="form-control nrc_state_region" name="nrc_state_region" style="padding: 6px;" readonly>
                                                                         </div>
                                                                         <div class="col-md-3">
-                                                                            <input type="text" class="form-control nrc_township" name="nrc_township" readonly>
+                                                                            <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                         </div>
                                                                         <div class="col-md-3">
-                                                                            <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                            <input type="text" class="form-control nrc_citizen" name="nrc_citizen" style="padding: 6px;" readonly>
                                                                         </div>
 
                                                                         <div class="col-md-4">
@@ -990,7 +990,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                         <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" style="padding: 6px;" readonly>
                                                                     </div>
 
                                                                     <div class="col-md-4">
@@ -1579,8 +1579,8 @@ $nrc_characters = config('myanmarnrc.characters');
                             }
                             else if(last_exam[0].is_full_module=="2"){
                                 $(".module_one").prop("checked", true);
-                                $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
+                                $('.module_two').attr('disabled', false);
+                                $('.module_full').attr('disabled', false);
 
 
  
