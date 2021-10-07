@@ -79,8 +79,7 @@
 
     <div class="main-wrapper">
 
-        <!-- <h5 class="text-center m-3"> {{$course['name']}} တက်ရောက်ခွင့်ရသူများစာရင်း</h5> -->
-        <div class="section"> <!-- section-padding mt-n10 -->
+         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> <!-- container-fluid p-4 -->
                 @yield('content')
             </div>
