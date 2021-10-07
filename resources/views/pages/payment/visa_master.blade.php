@@ -1,5 +1,82 @@
 @extends('layouts.app')
 @section('content')
+
+
+
+<?php
+    
+    $merchantID="CB0000000391";
+    $pwd="8d9aadc462af9407f1445e488775f5cf";
+    $version=50;
+    $base_url="https://cbbank.gateway.mastercard.com";
+    $api_url=$base_url."/api/rest/version/".$version."/merchant/".$merchantID;
+    $sessionjs_url=$base_url."/form/version/".$version."/merchant/".$merchantID."/session.js";
+    $hostedcheckout_url=$base_url."/checkout/version/".$version."/checkout.js";
+    $credential="merchant.".$merchantID.":".$pwd;
+    $encoded_credential=base64_encode($credential);
+    $postUrl="https://demo.aggademo.me/MAC_Student/public/index.php/post_payment/visa_master";
+    $orderid="3231";
+    $amount="500";
+    $return_url="https://demo.aggademo.me/MAC_Student/public/index.php/payment_status";
+    $currency="USD";
+
+    $datatopost="apiOperation=CREATE_CHECKOUT_SESSION&apiPassword=$pwd&interaction.returnUrl=$return_url&apiUsername=merchant.$merchantID&merchant=$merchantID&interaction.operation=AUTHORIZE&
+    order.id=$orderid&order.amount=$amount&order.currency=$currency";
+    
+    
+        $ch = curl_init();          
+        curl_setopt($ch, CURLOPT_URL, $api_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+        //cutl_setopt($ch, CURLOPT_POST,true); 
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$datatopost);
+
+        $header = array('Content-Type: application/json', 'Authorization: Basic '.$encoded_credential);
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_REFERER, $postUrl);                                                         
+        //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+                                                                
+            
+        curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);										 
+        $result = curl_exec($ch);
+
+        var_dump($result);
+
+        
+    
+?>
+
+
+
+<script type="text/javascript">
+
+
+    var session_id = '';
+			
+    function errorCallback(error) {
+       console.log(JSON.stringify(error));
+    }
+    
+    function cancelCallback() {				
+        console.log('Payment cancelled');
+    }
+
+    function completeCallback()
+    {
+        console.log('success');
+    }
+ 
+
+
+
+
+
+</script>
+
+
+
+
 <div class="main-wrapper">
     <div class="overlay"></div>
     <div class="section page-banner">
