@@ -292,7 +292,7 @@
                                             <div class="col-md-4"><input  type="radio"
                                                                         class="form-check-input mr-3" id="yes_self"
                                                                         name="gov_staff" value="1"
-                                                                        style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                        style="margin-left: 3%;"  onclick="selectStaff(1)">
                                             </div>
                                             <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
                                             </div>
@@ -316,7 +316,7 @@
                                 </div>
                             </div>
 
-                            <div id="rec_letter_da_to_cpa" style="display:none" >
+                            <div id="rec_letter" style="display:none" >
                                 <div class="row mb-3 "  >
                                     <label class="col-md-5 col-form-label label">
                                         <span class="pull-center" style="padding-right:35px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
@@ -462,7 +462,7 @@
                                     </div>                                            
                                 </div>
                                 
-                                <div class="row mb-3">
+                                <div class="row mb-3" id="da_certi">
                                     <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>Attched Certificate</label>
                                     <div class="col-md-8">
                                         
@@ -594,17 +594,25 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                      console.log(info.acca_cima)
+                      var exam_register = info.exam_registers.slice(-1);
                       if(info.da_pass_date){
                         $('#da_pass_date').val(info.da_pass_date);
                         $('#da_pass_roll_number').val(info.da_pass_roll_number);
-                        $("input[name=old_da_certi]").val(info.da_pass_certificate);
+                        if(exam_register){
+                            $('#da_certi').hide();
+                            $("input[name=old_da_certi]").val();
+                            
+                        }else{
+                            $("input[name=old_da_certi]").val(info.da_pass_certificate);
 
-                        if(info.da_pass_certificate !=null){
-                        
-                            $(".dapass_deg").append("<a class='m-2' href='"+BASE_URL+info.da_pass_certificate+"'  target='_blank'>View File</a><br/>")
+                            if(info.da_pass_certificate !=null){
+
+                                $(".dapass_deg").append("<a class='m-2' href='"+BASE_URL+info.da_pass_certificate+"'  target='_blank'>View File</a><br/>")
+                            }
+                            
                         }
 
+                      
 
 
                          $('.da_pass').show();
@@ -697,9 +705,12 @@
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){
-                        $("input[name=gov_staff][value=1]").prop("checked",true);
-                        $("#rec_letter_da_to_cpa").css("display",'block');
-                        if(info.recommend_letter!=null){
+                          $("input[name=gov_staff][value=1]").prop("checked",true);
+                          $("#rec_letter").css("display",'block');
+                          console.log(info.recommend_letter)
+                          if(info.recommend_letter!= null){
+                           
+
                                 $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
                             }
                       }
@@ -800,6 +811,15 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
+
+        
+    function selectgovStaff(value) {
+        if (value == 1) {
+            $('#rec_letter').css('display', 'block');
+        } else {
+            $('#rec_letter').css('display', 'none');
+        }
+    }
 
 
         
