@@ -27,6 +27,7 @@ $("#photo").change(function () {
 });
 
 function selectStaff(value) {
+
     if (value == 1) {
         $('#rec_letter').css('display', 'block');
     } else {
@@ -428,7 +429,7 @@ $('#cpa_update').submit(function (e) {
         success: function (data) {
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = FRONTEND_URL + "/";
+            // location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
         }
