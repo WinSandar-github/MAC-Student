@@ -1,4 +1,4 @@
-// var FRONTEND_URL = "http://localhost:8001";
+// var FRONTEND_URL = "http://localhost:8081";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL = "http://localhost:8000/api";
 
@@ -55,6 +55,21 @@ $('document').ready(function () {
 function formatDate(date) {
     var income_date = date.split('-');
     var date = income_date[2] + '-' + income_date[1] + '-' + income_date[0];
+    return date;
+}
+
+function formatDateMY(date) {
+
+    var income_date = date.split('-');
+    var day = income_date[2];
+    var month = income_date[1];
+    var year = income_date[0];
+
+    var options = { month: 'short'};
+    var month_short= new Date(month);
+    var exam_month = new Intl.DateTimeFormat('en-US', options).format(month_short);
+    // console.log('exam_month',exam_month);
+    var date =   exam_month + '-' + year;
     return date;
 }
 

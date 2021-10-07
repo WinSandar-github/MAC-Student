@@ -346,7 +346,9 @@
                                                 <thead>
                                                     <th>Course Name</th>
                                                     <th>Batch Name</th>
+                                                    <th>Module</th>
                                                     <th>Success Year</th>
+                                                    
                                                 </thead>
                                                 <tbody class="course">
                                                 </tbody>
