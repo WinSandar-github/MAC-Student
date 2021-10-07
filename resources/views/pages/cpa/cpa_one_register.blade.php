@@ -143,7 +143,7 @@
                                     </div>
 
                                     <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="row mb-3">
@@ -534,7 +534,7 @@
                                     </div>
 
                                     <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
                                                 <div class="row mb-3">
@@ -1080,7 +1080,7 @@
                                     <div>
                                     <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                            
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="row mb-3">
@@ -1711,14 +1711,14 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            $(".batch_number").append(current_stu_course[0].batch.id);
-                            $(".batch_no").val(current_stu_course[0].batch.id);
+                            $(".batch_number").append(current_stu_course[0].batch.number);
+                            $(".batch_no").val(current_stu_course[0].batch.number);
                             if(last_exam.length!=0){
                                 // $('.batch_number').append(last_exam[0].batch.id);
                                 // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
-                                
+                                    $('.batch_id').val(batch_id);
                                     $.ajax({
                                     type: "get",
                                     url: BACKEND_URL+"/batch/"+batch_id,
