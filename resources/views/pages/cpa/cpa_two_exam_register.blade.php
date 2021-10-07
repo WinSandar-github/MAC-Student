@@ -72,6 +72,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between mt-3">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                            <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                             <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
@@ -455,7 +456,8 @@
                 let current_course_reg=student_info.student_course_regs.slice(-1);
                 let current_stu_reg=student_info.student_register.slice(-1);
                 console.log('current_stu_reg',current_stu_reg);
-                $('.batch_number').append(current_course_reg[0].batch.number)
+                $('.batch_number').append(current_course_reg[0].batch.number);
+                $('#exam_date').append(formatDateMY(current_course_reg[0].batch.exam_start_date))
                     if(current_stu_reg[0].module=="1"){
                          $("#module1").prop("checked", true);
                     }

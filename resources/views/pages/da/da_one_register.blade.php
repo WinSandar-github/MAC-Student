@@ -146,7 +146,7 @@
 
                                             <div class="row mb-3">
                                                 <div class="col-md-9">
-                                                    <div class="row mb-4">
+                                                    <div class="row mb-4 mt-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -165,7 +165,7 @@
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -178,7 +178,7 @@
                                                                                                                                             </select> -->
                                                                                                                                     </div>
                                                                                                                                     <div class="col-md-3 col-7 px-1">
-                                                                                                                                        <input type="text" name="nrc_township"
+                                                                                                                                        <input type="text" name="nrc_township" style="padding:6px"
                                                                                                                                             class="form-control" readonly>
                                                                                                                                     <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                                                                                     style="margin-top: 0px; margin-bottom: 0px;">
@@ -192,7 +192,7 @@
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
-                                                                           class="form-control" readonly>
+                                                                           class="form-control" readonly style="padding:6px">
                                                                 <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
                                                                             @foreach($nrc_citizens as $citizen)
@@ -239,6 +239,15 @@
                                                                  id="previewImgMac"
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_mac" name="profile_photo_mac" accept="image/*" ></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -587,7 +596,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -600,13 +609,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -619,7 +628,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
+                                                                    <input type="text" name="nrc_township" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -632,7 +641,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
-                                                                    <input type="text" name="nrc_citizen"
+                                                                    <input type="text" name="nrc_citizen" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                             <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -659,7 +668,7 @@
 
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၃။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -680,6 +689,15 @@
                                                                  id="previewImgPrivate"
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_private" name="profile_photo-private" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1004,7 +1022,7 @@
                                             <div class="row">
                                                 <div class="col-md-9">
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4 mt-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -1017,13 +1035,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -1036,7 +1054,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
+                                                                    <input type="text" name="nrc_township" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1049,7 +1067,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
-                                                                    <input type="text" name="nrc_citizen"
+                                                                    <input type="text" name="nrc_citizen" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1076,7 +1094,7 @@
 
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၃။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -1098,7 +1116,16 @@
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
                                                         </div>
-                                                    </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_self" name="profile_photo_self" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
+                                                    </div>                                                    
                                                 </div>
                                                 {{--User Photo--}}
                                             </div>
@@ -1254,45 +1281,45 @@
                                                     - </label>
                                                 <div class="row col-md-8 py-2">
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label" required>
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input mt-1" type="radio"
                                                                    name="reg_reason[]" required value="ယခုနှစ်တက်ရောက်ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (က) ယခုနှစ်တက်ရောက်ခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="စာမေးပွဲကျရှုံးခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
@@ -1701,6 +1728,7 @@
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
+                // console.log(data,'data');
                 if (data) {
                      let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
@@ -1712,7 +1740,7 @@
                     $(".batch_number").append(current_stu_course[0].batch.number);
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    console.log(data.data.citizen)
+                    // console.log(data.data.citizen)
                     if(last_exam[0]){
                     if(last_exam[0].grade == 1){
                          let batch_id = localStorage.getItem('batch_id');
@@ -1723,8 +1751,9 @@
                         processData: false,
                         async:false,
                         success: function (res) {
+                             console.log('res',res)
                             $('#batch_name').text(res.data.name);
-                            
+                            $('.batch_number').text(res.data.id);
                             
                             $('.batch_no').val(res.data.number);
                             $('.personal_no').val(data.data.personal_no);
@@ -1805,6 +1834,30 @@
                         if(data.data.recommend_letter!=null){
                             $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
                         }
+                    }
+                    if(data.data.exam_registers.length!=0){
+                        $("input[name='office_address']").prop('readonly', false);
+                        $("input[name='current_address']").prop('readonly', false);
+                        $("input[name='address']").prop('readonly', false);
+                        $("input[name='phone']").prop('readonly', false);
+                        $("input[name='profile_photo_mac']").show();
+                        $("input[name='profile_photo_self']").show();
+                        $("input[name='profile_photo_private']").show();
+                        $("input[name='recommend_letter_mac']").prop('disabled', false);
+                        $("input[name='recommend_letter_self']").prop('disabled', false);
+                        $("input[name='recommend_letter_private']").prop('disabled', false);
+                    }
+                    else{
+                        $("input[name='office_address']").prop('readonly', true);
+                        $("input[name='current_address']").prop('readonly', true);
+                        $("input[name='address']").prop('readonly', true);
+                        $("input[name='phone']").prop('readonly', true);
+                        $("input[name='profile_photo_mac']").hide();
+                        $("input[name='profile_photo_self']").hide();
+                        $("input[name='profile_photo_private']").hide();
+                        $("input[name='recommend_letter_mac']").prop('disabled', true);
+                        $("input[name='recommend_letter_self']").prop('disabled', true);
+                        $("input[name='recommend_letter_private']").prop('disabled', true);
                     }
                 }
             });

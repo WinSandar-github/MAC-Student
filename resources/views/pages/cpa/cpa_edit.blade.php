@@ -88,7 +88,7 @@
                         <!-- <form method="Post" action="javascript:void();" id="cpa_one_form" enctype="multipart/form-data"  novalidate> -->
                             @csrf
                             <input type="hidden" name="stu_id" id="stu_id">
-                            <input type="text" name="batch_id" id="batch_id" />
+                            <input type="hidden" name="batch_id" id="batch_id" />
 
 
                             <div class="col-md-12">
@@ -106,7 +106,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၅။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
                                         <div class="col-md-6">
                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                 <div class="col-md-2">
@@ -129,7 +129,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-md-2 ">
+                                                <div class="col-md-3">
                                                     <select class="form-control form-select" name="nrc_citizen" id="nrc_citizen">
                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                         @foreach($nrc_citizens as $citizen)
@@ -160,13 +160,20 @@
                                 <div class="col-md-4 text-center">
                                     {{--User Photo--}}
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail img-circle shadow" style="line-height: 160px;">
+                                        <div class="fileinput-new thumbnail img-circle shadow">
                                             <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-                                                alt="Upload Photo" class="profile_image" id="da_to_cpa_preview_img">
+                                                    alt="Upload Photo" id="da_to_cpa_preview_img">
                                         </div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
-                                        <input type="hidden" name="old_image" id="old_image">
-                                        
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                        <div class="d-flex justify-content-center">
+                                            <span class="btn btn-round btn-secondary btn-file">
+                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
+                                            <input type="hidden" name="old_image" id="old_image">
+                                            <br>
+                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
                                     </div>
                                     {{--User Photo--}}
                                 </div>
@@ -285,7 +292,7 @@
                                             <div class="col-md-4"><input  type="radio"
                                                                         class="form-check-input mr-3" id="yes_self"
                                                                         name="gov_staff" value="1"
-                                                                        style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                        style="margin-left: 3%;"  onclick="selectStaff(1)">
                                             </div>
                                             <div class="col-md-8"><label class="form-check-label " for="yes">ဟုတ်</label>
                                             </div>
@@ -309,7 +316,7 @@
                                 </div>
                             </div>
 
-                            <div id="rec_letter_da_to_cpa" style="display:none" >
+                            <div id="rec_letter" style="display:none" >
                                 <div class="row mb-3 "  >
                                     <label class="col-md-5 col-form-label label">
                                         <span class="pull-center" style="padding-right:35px">{{ __('(က)') }}</span>သက်ဆိုင်ရာဌာနအကြီးအကဲ၏ထောက်ခံစာ
@@ -363,74 +370,113 @@
 
                             
                                        
+                        
+                            <!-- ‌Acca Cima -->
+                            <div class="acca_cima" style="display:none;">
 
-                                        <!-- ‌Acca Cima -->
-                                        <div class="row mb-3">                                            
-                                            <label class="col-md-4 col-form-label mr-2"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}
-                                            </span>ACCA/CIMA တက်ရောက်နေသူ<span style="color:red">*</span> -</label>
-
-                                   
-                                                            
-                                                <div class="col-md-2 form-check mt-2 mx-4  ">
-                                                    <input class="form-check-input" type="radio" id="acca" name="acca_cima" value='1'    >
-                                                    <label class="form-check-label" for="acca">
-                                                        <!-- <span class="form-check-sign"></span> -->
-                                                    ACCA
-                                                    </label>
+                                <div class="row mb-3">                                            
+                                    <label class="col-md-4 col-form-label mr-2"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}
+                                    </span>ACCA/CIMA တက်ရောက်နေသူ<span style="color:red">*</span> -</label>
+    
+                            
                                                     
-                                                </div> 
-                                                <div class="col-md-2  form-check mt-2 ">
-                                                    <input class="form-check-input" type="radio" id="cima" name="acca_cima" value='2'    >
-                                                    <label class="form-check-label" for="cima">
-                                                        <!-- <span class="form-check-sign"></span> -->
-                                                        CIMA
-                                                    </label>
-                                                </div>
-                                                <label  class="error attend_place_error" name="attend_place_error" style="display:none; padding-left:353px" for="acca_cima">Please select One.</label>
-                                                         
-                                                </div>
-
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည်အဆင့်<span style="color:red">*</span></label>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
-                                                </div>
+                                        <div class="col-md-2 form-check mt-2 mx-4  ">
+                                            <input class="form-check-input" type="radio" id="acca" name="acca_cima" value='1'    >
+                                            <label class="form-check-label" for="acca">
+                                                <!-- <span class="form-check-sign"></span> -->
+                                            ACCA
+                                            </label>
+                                            
+                                        </div> 
+                                        <div class="col-md-2  form-check mt-2 ">
+                                            <input class="form-check-input" type="radio" id="cima" name="acca_cima" value='2'    >
+                                            <label class="form-check-label" for="cima">
+                                                <!-- <span class="form-check-sign"></span> -->
+                                                CIMA
+                                            </label>
+                                        </div>
+                                                     
+                                        </div>
+    
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည်အဆင့်<span style="color:red">*</span></label>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုနှစ်/လ<span style="color:red">*</span></label>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>မှတ်ပုံတင်အမှတ်<span style="color:red">*</span></label>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>Attched Certificate<span style="color:red">*</span></label>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <input type="file" class="form-control" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"   >
+                                            <input type="hidden" name="old_deg_certi">
+                                            <div class="col-md-2">
+                                                <span class="pre_deg_certi"></span>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>   
+                            </div>
+                            <!-- end acca cpma -->
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုနှစ်/လ<span style="color:red">*</span></label>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >
-                                                </div>
-                                            </div>
+                            <!-- da_pass -->
+                            <div class="da_pass" style="display:none;">
+                                <div class="row mb-3">
+                                    <label class="col-md-6 col-form-label"><span class="pull-left" style="padding-right: 30px;">{{ __('၁၉။') }}</span>ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)စာမေးပွဲအောင်မြင်ခဲ့သည့်</label>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ခုနှစ်/လ</label>                                            
+                                    <div class="col-md-8">
+                                        <div class="">
+                                            <input type="text" placeholder="ခုနှစ်" id="da_pass_date" name="da_pass_date" class="form-control year"  required="">
                                         </div>
+                                    </div>                                            
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ကိုယ်ပိုင်အမှတ်</label>                                                
+                                    <div class="col-md-8">                                                    
+                                            <input type="text" placeholder="ကိုယ်ပိုင်အမှတ်" id="da_pass_roll_number" name="da_pass_roll_number" class="form-control  ">                                                
+                                    </div>                                            
+                                </div>
+                                
+                                <div class="row mb-3" id="da_certi">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>Attched Certificate</label>
+                                    <div class="col-md-8">
                                         
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဂ)') }}</span>မှတ်ပုံတင်အမှတ်<span style="color:red">*</span></label>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="text" placeholder="မှတ်ပုံတင်အမှတ်" id="degree_rank" name="degree_rank" class="form-control" value="{{ old('roll_number') }}" >
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <input type="hidden" name="old_da_certi">
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ဃ)') }}</span>Attched Certificate<span style="color:red">*</span></label>
-                                            <div class="col-md-8">
-                                                <div>
-                                                    <input type="file" class="form-control" placeholder="upload photo" name="deg_certi_img"  value="{{ old('document') }}"   >
-                                                    <input type="hidden" name="old_deg_certi">
-                                                    <div class="col-md-2">
-                                                        <span class="pre_deg_certi"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>   
-                                        <!-- end acca cpma                                      -->
-                                          
+                                        <input type="file" class="form-control" placeholder="upload photo" name="da_pass_certificate"   value="{{ old('da_pass_certificate') }}"  >
+                                        <div class="col-md-2">
+                                            <span class="dapass_deg"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                           
+                            </div>                                         
+                            <!-- end da_pass -->
                                         <div class="row mb-3" >
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>သင်တန်းတက်ရောက်လိုသည့်နေရာ <span style="color:red">*</span>-</label>
 
@@ -548,7 +594,51 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                      console.log(info)
+                      var exam_register = info.exam_registers.slice(-1);
+                      if(info.da_pass_date){
+                        $('#da_pass_date').val(info.da_pass_date);
+                        $('#da_pass_roll_number').val(info.da_pass_roll_number);
+                        if(exam_register){
+                            $('#da_certi').hide();
+                            $("input[name=old_da_certi]").val();
+                            
+                        }else{
+                            $("input[name=old_da_certi]").val(info.da_pass_certificate);
+
+                            if(info.da_pass_certificate !=null){
+
+                                $(".dapass_deg").append("<a class='m-2' href='"+BASE_URL+info.da_pass_certificate+"'  target='_blank'>View File</a><br/>")
+                            }
+                            
+                        }
+
+                      
+
+
+                         $('.da_pass').show();
+                      }else if(info.acca_cima == 1){
+                        $("input[name=direct_degree]").val(info.direct_degree);
+                        $("input[name=degree_rank]").val(info.degree_rank);
+                        $("input[name=degree_date]").val(info.degree_date);
+                        $("input[name=old_deg_certi]").val(info.degree_certificate_image);
+                        if(info.acca_cima == 1){
+                        $("input[name=acca_cima][value=1]").prop("checked",true);
+                       
+                        
+                      }
+                      else{
+                        $("input[name=acca_cima][value=2]").prop("checked",true);
+                      }
+
+
+
+                        if(info.degree_certificate_image !=null){
+
+                        $(".pre_deg_certi").append("<a class='m-2' href='"+BASE_URL+info.degree_certificate_image+"'  target='_blank'>View File</a><br/>")
+                        }
+                        $('.acca_cima').show();
+
+                      }
                       
                       var student_course = info.student_course_regs.slice(-1);
                       var job_history = data.data.student_job;
@@ -558,10 +648,10 @@
 
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
-                        $("input[name=nrc_state_region]").val(info.nrc_state_region);
-                        $("input[name=nrc_township]").val(info.nrc_township);
-                        $("input[name=nrc_citizen]").val(info.nrc_citizen);
-                        $("input[name=nrc_number]").val(info.nrc_number);
+                        $("#nrc_state_region").val(info.nrc_state_region);
+                        $("#nrc_township").val(info.nrc_township);
+                        $("#nrc_citizen").val(info.nrc_citizen);
+                        $("#nrc_number").val(info.nrc_number);
                         $("input[name=father_name_mm]").val(info.father_name_mm);
                         $("input[name=father_name_eng]").val(info.father_name_eng);
                         $("input[name=race]").val(info.race);
@@ -570,20 +660,11 @@
                         $("input[name=phone]").val(info.phone);
                         $("input[name=address]").val(info.address);
                         $("input[name=current_address]").val(info.current_address);
-                        $("input[name=direct_degree]").val(info.direct_degree);
-                        $("input[name=degree_rank]").val(info.degree_rank);
-                        $("input[name=degree_date]").val(info.degree_date);
+                      
                         
                         $("input[name=old_rec_letter]").val(info.recommend_letter);
                         $("input[name=old_image]").val(info.image);
-                        $("input[name=old_deg_certi]").val(info.degree_certificate_image);
-
-
-
-                        if(info.degree_certificate_image !=null){
-                        
-                        $(".pre_deg_certi").append("<a href='"+BASE_URL+info.degree_certificate_image+"'  target='_blank'>View File</a><br/>")
-                        }
+                       
 
                         
  
@@ -624,9 +705,12 @@
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){
-                        $("input[name=gov_staff][value=1]").prop("checked",true);
-                        $("#rec_letter_da_to_cpa").css("display",'block');
-                        if(info.recommend_letter!=null){
+                          $("input[name=gov_staff][value=1]").prop("checked",true);
+                          $("#rec_letter").css("display",'block');
+                          console.log(info.recommend_letter)
+                          if(info.recommend_letter!= null){
+                           
+
                                 $(".recommend_letter").append("<a href='"+BASE_URL+info.recommend_letter+"'  target='_blank'>View File</a><br/>")
                             }
                       }
@@ -634,14 +718,7 @@
                         $("input[name=gov_staff][value=0]").prop("checked",true);
                       }
 
-                      if(info.acca_cima == 1){
-                        $("input[name=acca_cima][value=1]").prop("checked",true);
-                       
-                        
-                      }
-                      else{
-                        $("input[name=acca_cima][value=2]").prop("checked",true);
-                      }
+                    
 
                       if(student_course[0].type == 0){
                         $("input[name=attend_place][value=0]").prop("checked",true);
@@ -734,6 +811,15 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
+
+        
+    function selectgovStaff(value) {
+        if (value == 1) {
+            $('#rec_letter').css('display', 'block');
+        } else {
+            $('#rec_letter').css('display', 'none');
+        }
+    }
 
 
         

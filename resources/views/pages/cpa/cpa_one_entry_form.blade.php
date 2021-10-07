@@ -78,6 +78,7 @@
                                     </h5>
                                     <div class="d-flex justify-content-between">
                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                         <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
                                     </div>
                                 </div>

@@ -203,7 +203,7 @@
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -212,7 +212,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="နှစ်။လ(MMM-YYYY)">
                                                 </div>
                                             </div>
 
@@ -222,7 +222,7 @@
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="foreign_degree[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary" id="add_btn" onclick="Add()" >
@@ -385,7 +385,7 @@
                                                     <label for="" class="col-form-labe"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name0" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -394,7 +394,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year0" placeholder="DD-MMM-YYYY">
+                                                    <input type="type"  class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="DD-MMM-YYYY">
                                                 </div>
                                             </div>
 
@@ -404,7 +404,7 @@
                                                     <label for="" class="col-form-labe"> Attached Certificate</label>
                                                 </div>
                                                 <div class="col-md-6"  id="degree_edu" >
-                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file0" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary" id="add_btn" onclick="Add()" >
@@ -668,7 +668,7 @@
 
                                     <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
                                     <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="letter" >
+                                        <input type="file"  class="form-control" name="letter" id="letter" >
                                     </div>
                                 </div><br/><br>
                                 <div class="row">
@@ -677,7 +677,7 @@
 
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="reg_no"  id="cpa_batch_no" placeholder="Enter CPA(FF) Registeraion No.">
+                                        <input type="text"  class="form-control" name="reg_no"  id="cpaff_reg_no" placeholder="Enter CPA(FF) Registeraion No.">
                                     </div>
                                 </div><br/><br>
 
@@ -836,9 +836,9 @@
    Papp_feedback();
    loadCpaffInitialData();
 
-   $(".degree_pass_year").flatpickr({
+   $('input[name="degree_pass_year[]"]').flatpickr({
             enableTime: false,
-            dateFormat: "d-M-Y",
+            dateFormat: "M-Y",
             allowInput: true,
     });
     // $(".tax_year").flatpickr({

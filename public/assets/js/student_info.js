@@ -610,6 +610,8 @@ function loadCourse() {
 }
 
 function selectedRegistration(radioValue) {
+
+    
     if (radioValue == 3) {
 
         $('#mac_container').css('display', 'block');
