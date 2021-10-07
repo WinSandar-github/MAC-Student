@@ -166,6 +166,10 @@ Route::get('application_list/{course_id}','ReportController@app_list');
 
 Route::get('exam_registration_list/{course_id}','ReportController@exam_list');
 Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
+Route::get('entry_exam_list','ReportController@entryExamList');
+Route::get('qualified_test_list','ReportController@qualifiedTestList');
+
+
 
 
 //Payment Page

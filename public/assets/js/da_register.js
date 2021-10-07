@@ -341,7 +341,7 @@ function createDaTwoPrivateSchool() {
     send_data.append('part_no_private', $("input[id='part_no_private']").val());
     send_data.append('personal_no_private', $("input[id='personal_no_private']").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
-    send_data.append('private_school_name', $("#selected_school_id").val());
+    send_data.append('private_school_name', $("#selected_school_id option:selected").text());
     send_data.append('academic_year', $("#academic_year").val());
     send_data.append('type', 1);
     send_data.append('recommendation_letter',recommend_letter_private);
