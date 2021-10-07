@@ -165,7 +165,7 @@
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -178,7 +178,7 @@
                                                                                                                                             </select> -->
                                                                                                                                     </div>
                                                                                                                                     <div class="col-md-3 col-7 px-1">
-                                                                                                                                        <input type="text" name="nrc_township"
+                                                                                                                                        <input type="text" name="nrc_township" style="padding:6px"
                                                                                                                                             class="form-control" readonly>
                                                                                                                                     <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                                                                                     style="margin-top: 0px; margin-bottom: 0px;">
@@ -192,7 +192,7 @@
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
-                                                                           class="form-control" readonly>
+                                                                           class="form-control" readonly style="padding:6px">
                                                                 <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
                                                                             @foreach($nrc_citizens as $citizen)
@@ -615,7 +615,7 @@
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -628,7 +628,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
+                                                                    <input type="text" name="nrc_township" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -641,7 +641,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
-                                                                    <input type="text" name="nrc_citizen"
+                                                                    <input type="text" name="nrc_citizen" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                             <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1041,7 +1041,7 @@
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -1054,7 +1054,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
+                                                                    <input type="text" name="nrc_township" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1067,7 +1067,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
-                                                                    <input type="text" name="nrc_citizen"
+                                                                    <input type="text" name="nrc_citizen" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1728,7 +1728,7 @@
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
-                console.log(data,'data');
+                // console.log(data,'data');
                 if (data) {
                      let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
@@ -1740,7 +1740,7 @@
                     $(".batch_number").append(current_stu_course[0].batch.number);
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    console.log(data.data.citizen)
+                    // console.log(data.data.citizen)
                     if(last_exam[0]){
                     if(last_exam[0].grade == 1){
                          let batch_id = localStorage.getItem('batch_id');
@@ -1751,8 +1751,9 @@
                         processData: false,
                         async:false,
                         success: function (res) {
+                             console.log('res',res)
                             $('#batch_name').text(res.data.name);
-                            
+                            $('.batch_number').text(res.data.id);
                             
                             $('.batch_no').val(res.data.number);
                             $('.personal_no').val(data.data.personal_no);

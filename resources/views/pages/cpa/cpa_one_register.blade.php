@@ -446,7 +446,7 @@
                                         <span class="pull-left">{{ __('၁၈။') }}</span>
                                         <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                     <div class="col-md-8">
-                                            <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" readonly>
+                                            <input type="text" name="batch_no" class="form-control batch_no"  placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" readonly>
 
                                     </div>
                                 </div>
@@ -1013,7 +1013,7 @@
                                                 <span class="pull-left">{{ __('၁၇။') }}</span>
                                                 <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                             <div class="col-md-8">
-                                                    <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
+                                                    <input type="text" name="batch_no" class="form-control batch_no"  placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                             </div>
                                         </div>
@@ -1392,7 +1392,7 @@
                                                     <span class="pull-left" style="padding-right: 61px;">{{ __('၂၁။') }}</span>
                                                     <span class="pull-left">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                                 <div class="col-md-8">
-                                                        <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac"  readonly>
+                                                        <input type="text" name="batch_no" class="form-control batch_no"  placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac"  readonly>
 
                                                 </div>
                                             </div>
@@ -1689,7 +1689,7 @@
                         console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('last_exam',last_exam);
+                        console.log('current_stu_course',current_stu_course);
 
                         //show or hide direct_access_no and entry_success
                         if(last_exam[0].is_full_module==null){                            
@@ -1711,8 +1711,10 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
+                            $(".batch_number").append(current_stu_course[0].batch.id);
+                            $(".batch_no").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
-                                $('.batch_number').append(last_exam[0].batch.id);
+                                // $('.batch_number').append(last_exam[0].batch.id);
                                 // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
