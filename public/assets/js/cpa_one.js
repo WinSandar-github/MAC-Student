@@ -478,7 +478,7 @@ function direct_or_da() {
             success: function (res) {
                 console.log('res1',res);
                 $('.batch_id').append(res.data.number);
-                $('#batch_id').val(res.data.id);
+                $('#batch_id').val(res.data.number);
                 $('#batch_name').text(res.data.name);
             }
         })
@@ -494,7 +494,7 @@ function direct_or_da() {
                 console.log('res2',res);
                 $('#exam_date').append(formatDateMY(res.data.exam_start_date));
                 $('.batch_id').append(res.data.number);
-                $('#batch_number').append(res.data.id);
+                $('#batch_number').append(res.data.number);
             }
         })
         $('.dir_cpa_app_form').show();
