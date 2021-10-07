@@ -364,7 +364,7 @@
                                  
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
-                                    <div class="col-md-8">
+                                    {{--<div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-4 col-form-label">
                                                 <input type="checkbox" value="" id="cpa_check" onclick="CPA_Check()" >
@@ -432,6 +432,86 @@
                                                 </div>
                                             </div>
                                         </div>
+                                </div>--}}
+
+                                <div class="col-md-8">
+                                    <div class="row mb-2">
+                                        <div class="col-md-7">
+                                            <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
+                                            <label class="col-form-label" style="padding-left:5%;">CPA</label>
+                                        </div>
+                                    </div>
+                                    <div id="cpa">
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-2 cpa_file"></div>
+                                            <div class="col-md-8">
+                                                <input type="file"  class="form-control" name="cpa" style="display:none">
+                                            </div>
+                                        </div><br/>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-md-7">
+                                            <input type="radio" name="education" id="ra_edu" value="2" onclick="getCPAEducation()">
+                                            <label class="col-form-label" style="padding-left:5%;">RA</label>
+                                        </div>
+                                    </div>
+                                    <div id="ra">
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-2 ra_file" id="ra_file"></div>
+                                            <div class="col-md-8">
+                                                <!-- <div class="single-form"> -->
+                                                    <input type="file"  class="form-control" name="ra" style="display:none">
+                                                <!-- </div> -->
+                                            </div>
+                                        </div><br/>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-md-7">
+                                            <input type="radio" name="education" id="education" value="3" onclick="getCPAEducation()">
+                                            <label class="col-md-5 col-form-label label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
+                                        </div>
+                                    </div>
+                                    <div  id="edu" style="display:none;">
+                                        <div class="row mb-1" id="degree0">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-3 col-auto">
+                                                <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
+                                            </div>
+                                            <div class="col-md-7 col-auto">
+                                                <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2" id="degree_year0">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-3 col-auto">
+                                                <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
+                                            </div>
+                                            <div class="col-md-7 col-auto">
+                                                <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-4" id="edu0" >
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-3 col-auto">
+                                                <label for="" class="col-form-label"> Attached Certificate</label>
+                                            </div>
+                                            <div class="col-md-2 foreign_degree_file">
+                                            </div>
+                                            <div class="col-md-5"  id="degree_edu" >
+                                                <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
+                                            </div>
+                                            <div class="col-md-1" id="add_div" >
+                                                <button type="button" class="btn btn-primary"  style="padding-left:5px; display: none;" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -564,10 +644,10 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_date" class="form-control">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
                                                 <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
-                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
 
@@ -592,7 +672,7 @@
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1"><input type="radio" id="firm_check" name="work_name" ></div>
+                                    <div class="col-md-1"><input type="radio" id="firm_check" name="work_name" onclick="getPappFirm()"></div>
                                     <div class="col-md-10">
 
                                         <label style="font-size:15px;"> လုပ်ငန်းအမည် Firm Name အသုံးမပြုပါ။</label>
@@ -600,7 +680,7 @@
                                 </div><br/>
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1"><input type="radio" name="work_name" id="used_firm_check" value=""></div>
+                                    <div class="col-md-1"><input type="radio" name="work_name" id="used_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-10">
                                         <label style="font-size:15px;"> အသုံးပြုမည့်လုပ်ငန်းအမည် Firm Name, လုပ်ငန်းအမျိုးစားနှင့် မိမိ၏ အဆင့်မှာ အောက်ပါအတိုင်းဖြစ်ပါသည်-</label>
                                     </div>
@@ -647,7 +727,7 @@
 
                                 <div class="row mb-2">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value=""></div>
+                                    <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-4">
                                         <label style="font-size:15px;"> ဝန်ထမ်းအနေဖြင့် ဆောင်ရွက်နေသည့် လုပ်ငန်းအမည်</label>
                                     </div>
@@ -887,7 +967,7 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဆ) </div>
-                                    <div class="col-md-10 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ <input type="text" placeholder="နှစ်(YYYY)" style="display:inline; width: 100px;" name="tax_year" class="form-control tax_year" > ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
+                                    <div class="col-md-10 col-form-label ">ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ <input type="text" placeholder="နှစ်(YYYY)" style="display:inline; width: 100px;" name="tax_year" id="tax_year" class="form-control tax_year" > ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု အထောက်အထား (ရှိလျှင်) (သို့မဟုတ်) အခွန်ကင်းရှင်းကြောင်း ထောက်ခံချက်</div>
                                 </div>
                                 <div class="row">
                                     <label class="col-md-8" ></label>
@@ -1029,19 +1109,31 @@
         checkPaymentPapp();
         loadCpaffData();
         loadPappData();
+        loadCpaffInitialData();
     })
     //app_form_feedback();
-    $(".papp_date").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    // $(".papp_date").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });s
+    $("#papp_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
-
-    $(".papp_renew_year").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    $("#papp_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
+    // $(".papp_renew_year").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
 
     $(".papp_reg_date").flatpickr({
             enableTime: false,
@@ -1049,10 +1141,16 @@
             allowInput: true,
     });
 
-    $(".tax_year").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    // $(".tax_year").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
+    $("#tax_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
 </script>
 @endpush

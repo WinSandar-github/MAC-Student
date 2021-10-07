@@ -1,11 +1,11 @@
-$("input[name='tax_year']").flatpickr({
-    enableTime: false,
-    dateFormat: "d-m-Y",
-});
-$("input[name='papp_date']").flatpickr({
-    enableTime: false,
-    dateFormat: "d-m-Y",
-});
+// $("input[name='tax_year']").flatpickr({
+//     enableTime: false,
+//     dateFormat: "d-m-Y",
+// });
+// $("input[name='papp_date']").flatpickr({
+//     enableTime: false,
+//     dateFormat: "d-m-Y",
+// });
 
 function CPA_Check(){
     var checkBox = document.getElementById("cpa_check");
@@ -37,6 +37,38 @@ function Degree_Check(){
     else{
     document.getElementById("edu").style.display="none";
     document.getElementById("add_div").style.display="none";
+    }
+}
+
+function getPappFirm() {
+    var firm_check = document.getElementById("firm_check");//qt_pass_check
+    var used_firm_check = document.getElementById("used_firm_check");
+    var staff_firm_check = document.getElementById("staff_firm_check");
+    if (firm_check.checked == true) {
+        $("input[name=used_firm_name]").prop('disabled', true);
+        $("input[name=used_firm_type]").prop('disabled', true);
+        $("input[name=used_firm_level]").prop('disabled', true);
+        $("input[name=staff_firm_name]").prop('disabled', true);
+        $("input[name=used_firm_name]").val('');
+        $("input[name=used_firm_type]").val('');
+        $("input[name=used_firm_level]").val('');
+        $("input[name=staff_firm_name]").val('');
+    }
+    else if (used_firm_check.checked == true) {
+        $("input[name=used_firm_name]").prop('disabled', false);
+        $("input[name=used_firm_type]").prop('disabled', false);
+        $("input[name=used_firm_level]").prop('disabled', false);
+        $("input[name=staff_firm_name]").prop('disabled', true);
+        $("input[name=staff_firm_name]").val('');
+    }
+    else if (staff_firm_check.checked == true){
+        $("input[name=staff_firm_name]").prop('disabled', false);
+        $("input[name=used_firm_name]").prop('disabled', true);
+        $("input[name=used_firm_type]").prop('disabled', true);
+        $("input[name=used_firm_level]").prop('disabled', true);
+        $("input[name=used_firm_name]").val('');
+        $("input[name=used_firm_type]").val('');
+        $("input[name=used_firm_level]").val('');
     }
 }
 
@@ -180,7 +212,7 @@ function pappPaymentSubmit(){
 
 function Papp_Submit(){
     var student = JSON.parse(localStorage.getItem('studentinfo'));
-    var profile_photo       =   $("input[name=profile_photo]")[0].files[0];
+    var profile_photo  =   $("input[name=profile_photo]")[0].files[0];
     var cpa_check = document.getElementById("cpa_check");
     var ra_check = document.getElementById("ra_check");
     var degree_check = document.getElementById("degree_check");
@@ -188,9 +220,12 @@ function Papp_Submit(){
     var used_firm_check = document.getElementById("used_firm_check");
     var staff_firm_check = document.getElementById("staff_firm_check");
 
-    var cpa_file = $('#cpa_file')[0].files[0];
-    var ra_file = $('#ra_file')[0].files[0];
-    var degree_file = $('#degree_file0')[0].files[0];
+    // var cpa_file = $('#cpa_file')[0].files[0];
+    // var ra_file = $('#ra_file')[0].files[0];
+    // var degree_file = $('#degree_file0')[0].files[0];
+    var cpa = $("input[name=cpa]")[0].files[0];
+    var ra = $("input[name=ra]")[0].files[0];
+
     var cpa_ff_file=$('#cpa_ff_file')[0].files[0];
     var file_183=$('#file_183')[0].files[0];
     var not_fulltime_file=$('#not_fulltime_file')[0].files[0];
@@ -203,11 +238,31 @@ function Papp_Submit(){
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('profile_photo', profile_photo);
-    data.append('cpa', cpa_file);
-    data.append('ra', ra_file);
-        for (var i = 0; i < count; i++) {
-        data.append('foreign_degree[]',$('#degree_file'+i)[0].files[0]);
-        }
+
+    if ($("#cpa_edu").prop("checked")) {
+        data.append('cpa', cpa);
+    }
+    else if($("#ra_edu").prop("checked")){
+        data.append('ra', ra);
+    }
+    else if($("#education").prop("checked")){
+        $('input[name="degree_name[]"]').map(function () {
+            data.append('degree_name[]', $(this).val());
+        });
+        $('input[name="degree_pass_year[]"]').map(function () {
+            data.append('degree_pass_year[]', $(this).val());
+        });
+        $('input[name="degree_file[]"]').map(function () {
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                data.append('degree_file[]', $(this).get(0).files[i]);
+            }
+        });
+    }
+    // data.append('cpa', cpa_file);
+    // data.append('ra', ra_file);
+    //     for (var i = 0; i < count; i++) {
+    //     data.append('foreign_degree[]',$('#degree_file'+i)[0].files[0]);
+    //     }
     data.append('papp_date', $("input[name=papp_date]").val());
     if(firm_check.checked==true){
     data.append('use_firm',0);
@@ -437,8 +492,8 @@ function loadPAPP(){
                         $('#hidden_rule_conf_file').val(data.rule_confession);
                         $('#hidden_cpd_record_file').val(data.cpd_record);
                         $('#hidden_tax_free_file').val(data.tax_free_recommendation);
-                        $('input[name=papp_date]').val(data.papp_date);
-                        $('input[name=tax_year]').val(data.tax_year);
+                        // $('input[name=papp_date]').val(data.papp_date);
+                        // $('input[name=tax_year]').val(data.tax_year);
                         $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
                         $('input[name=degree_name0]').val(data.degree_name0);
                         $('input[name=total_hours]').val(data.total_hours);
@@ -450,20 +505,20 @@ function loadPAPP(){
                         loadFile(data.rule_confession,"view_rule_conf_file");
                         loadFile(data.cpd_record,"view_cpd_record_file");
                         loadFile(data.tax_free_recommendation,"view_tax_free_file");
-                        if(data.use_firm==0){
-                            $('#firm_check').prop("checked", true);
-                        }
-                        if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
-                            $('#used_firm_check').prop("checked", true);
-                            $('input[name=used_firm_name]').val(data.firm_name);
-                            $('input[name=used_firm_type]').val(data.firm_type);
-                            $('input[name=used_firm_level]').val(data.firm_step);
-                        }
-                        if(data.staff_firm_name!=null ){
-                            $('#staff_firm_check').prop("checked", true);
-                            $('input[name=staff_firm_name]').val(data.staff_firm_name);
+                        // if(data.use_firm==0){
+                        //     $('#firm_check').prop("checked", true);
+                        // }
+                        // if(data.firm_name!=null || data.firm_type!=null || data.firm_step!=null){
+                        //     $('#used_firm_check').prop("checked", true);
+                        //     $('input[name=used_firm_name]').val(data.firm_name);
+                        //     $('input[name=used_firm_type]').val(data.firm_type);
+                        //     $('input[name=used_firm_level]').val(data.firm_step);
+                        // }
+                        // if(data.staff_firm_name!=null ){
+                        //     $('#staff_firm_check').prop("checked", true);
+                        //     $('input[name=staff_firm_name]').val(data.staff_firm_name);
 
-                        }
+                        // }
 
                         // if(data.cpa!=""){
                         //     $('#cpa_check').prop("checked", true);
