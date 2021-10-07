@@ -163,7 +163,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block">Diploment in Accountancy (DA)</h4> 
+                                <h4 class="d-inline-block">Diploma in Accountancy (DA)</h4> 
                                 <a href="{{ url('student_course/1') }}" class="btn btn-success" style="float:right !important">Course Details</a>
                                 <hr>
                                 <ul style="line-height:180%">
@@ -184,7 +184,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block">Certificated Public Accountant (CPA)</h4> 
+                                <h4 class="d-inline-block">Certified Public Accountant (CPA)</h4> 
                                 <a href="{{ url('student_course/2') }}" class="btn btn-success" style="float:right !important">Course Details</a>
                                 <hr>
 

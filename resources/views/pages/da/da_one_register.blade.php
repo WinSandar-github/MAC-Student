@@ -1754,7 +1754,7 @@
                         success: function (res) {
                              console.log('res',res)
                             $('#batch_name').text(res.data.name);
-                            $('.batch_number').text(res.data.id);
+                            $('.batch_number').text(res.data.number);
                             
                             $('.batch_no').val(res.data.number);
                             $('.personal_no').val(data.data.personal_no);
