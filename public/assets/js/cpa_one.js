@@ -476,9 +476,9 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                console.log('res1',res);
+                // console.log('res1',res);
                 $('.batch_id').append(res.data.number);
-                $('#batch_id').val(res.data.id);
+                $('#batch_id').val(res.data.number);
                 $('#batch_name').text(res.data.name);
             }
         })
@@ -491,10 +491,12 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                console.log('res2',res);
-                $('#exam_date').append(formatDateMY(res.data.exam_start_date));
+                // console.log('res2',res);
+                let entry_exam = res.data.exams.slice(-1);
+                // console.log('entry_exam',entry_exam);
+                $('#exam_date').append(formatMY(entry_exam[0].exam_start_date));
                 $('.batch_id').append(res.data.number);
-                $('#batch_number').append(res.data.id);
+                $('#batch_number').append(res.data.number);
             }
         })
         $('.dir_cpa_app_form').show();

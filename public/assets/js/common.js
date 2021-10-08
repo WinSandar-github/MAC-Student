@@ -43,7 +43,6 @@ $('document').ready(function () {
         type: 'GET',
         async: false,
         success: function (response) {
-            console.log("Response", response)
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
@@ -58,6 +57,12 @@ function formatDate(date) {
     return date;
 }
 
+function formatMY(date) {
+    var income_date = date.split('-');
+    var date =income_date[1] + '-' + income_date[2];
+    return date;
+}
+
 function formatDateMY(date) {
 
     var income_date = date.split('-');
@@ -68,7 +73,6 @@ function formatDateMY(date) {
     var options = { month: 'short'};
     var month_short= new Date(month);
     var exam_month = new Intl.DateTimeFormat('en-US', options).format(month_short);
-    // console.log('exam_month',exam_month);
     var date =   exam_month + '-' + year;
     return date;
 }
