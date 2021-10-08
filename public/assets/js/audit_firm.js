@@ -58,7 +58,7 @@ function auditData(){
                 }else if(element.status ==1){
                     // $('#name_mm').val(mentor_data.name_mm);
                     $("#accountancy_firm_name").val(element.accountancy_firm_name);
-                    $("#register_date").val(element.register_date);
+                    $("#reg_no").val(element.accountancy_firm_reg_no);
                     // $("#message").val("Approve");
                     // showAuditList();
                     //$('#audit_container').css('display','block');
@@ -348,7 +348,7 @@ function getAuditData(){
       type: "GET",
       url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
       success: function (data){
-        console.log("data >>",data);
+        console.log("get >>",data);
           var audit_data = data;
           audit_data.forEach(function(element){
             $('input[name=email]').val(student.email);
@@ -405,41 +405,39 @@ function getAuditData(){
 
             }
 
-
             // Audit Firm file
-            var audit_file=element.audit_firm_file;
-            audit_file.forEach(function(item){
-              if(item.ppa_certificate!="null"){
-                removeBracketedAudit(item.ppa_certificate,"ppa_certis");
-
-              }else $(".ppa_certis").append("<span class='text-primary'>no file</span>");
-
-              if(item.letterhead!="null"){
-                removeBracketedAudit(item.letterhead,"letterheads");
-              }else $(".letterheads").append("<span class='text-primary'>no file</span>");
-
-              if(item.tax_clearance!="null"){
-                removeBracketedAudit(item.tax_clearance,"tax_clearances");
-              }else $(".tax_clearances").append("<span class='text-primary'>no file</span>");
-
-              if(item.tax_reg_certificate!="null"){
-                removeBracketedAudit(item.tax_reg_certificate,"tax_reg_certificate");
-              }else $(".tax_reg_certificate").append("<span class='text-primary'>no file</span>");
-
-              if(item.certi_or_reg!="null"){
-                removeBracketedAudit(item.certi_or_reg,"certi_or_regs");
-              }else $(".certi_or_regs").append("<span class='text-primary'>no file</span>");
-
-              if(item.deeds_memo!="null"){
-                removeBracketedAudit(item.deeds_memo,"deeds_memos");
-              }else $(".deeds_memos").append("<span class='text-primary'>no file</span>");
-
-              if(item.certificate_incor!="null"){
-                removeBracketedAudit(item.certificate_incor,"certificate_incors");
-              }else $(".certificate_incors").append("<span class='text-primary'>no file</span>");
-
-            });
-
+            // var audit_file=element.audit_firm_file;
+            // audit_file.forEach(function(item){
+            //   if(item.ppa_certificate!="null"){
+            //     removeBracketedAudit(item.ppa_certificate,"ppa_certis");
+            //
+            //   }else $(".ppa_certis").append("<span class='text-primary'>no file</span>");
+            //
+            //   if(item.letterhead!="null"){
+            //     removeBracketedAudit(item.letterhead,"letterheads");
+            //   }else $(".letterheads").append("<span class='text-primary'>no file</span>");
+            //
+            //   if(item.tax_clearance!="null"){
+            //     removeBracketedAudit(item.tax_clearance,"tax_clearances");
+            //   }else $(".tax_clearances").append("<span class='text-primary'>no file</span>");
+            //
+            //   if(item.tax_reg_certificate!="null"){
+            //     removeBracketedAudit(item.tax_reg_certificate,"tax_reg_certificate");
+            //   }else $(".tax_reg_certificate").append("<span class='text-primary'>no file</span>");
+            //
+            //   if(item.certi_or_reg!="null"){
+            //     removeBracketedAudit(item.certi_or_reg,"certi_or_regs");
+            //   }else $(".certi_or_regs").append("<span class='text-primary'>no file</span>");
+            //
+            //   if(item.deeds_memo!="null"){
+            //     removeBracketedAudit(item.deeds_memo,"deeds_memos");
+            //   }else $(".deeds_memos").append("<span class='text-primary'>no file</span>");
+            //
+            //   if(item.certificate_incor!="null"){
+            //     removeBracketedAudit(item.certificate_incor,"certificate_incors");
+            //   }else $(".certificate_incors").append("<span class='text-primary'>no file</span>");
+            //
+            // });
 
             // Sole Proprietor/Partners/Shareholders
             var firm_owner_audit=element.firm_owner_audits;
@@ -448,28 +446,27 @@ function getAuditData(){
 
               firm_owner_audit.forEach(function(item){
                 var tr = "<tr>";
-                tr += "<td>" + count+ "</td>";
-                tr += "<td ><input disabled type='text' value="+ item.name+" name='foa_name[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ><input disabled type='text' value="+ item.public_private_reg_no+" name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td align='center' class='align-middle'>" + count+ "</td>";
+                tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
                 if(item.authority_to_sign==1){
-                  tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }else{
-                  tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' id='report_yes'>"+
                         " <label class='form-check-label'>Yes</label></td>";
-                  tr += "<td ><input disabled type='radio' value="+item.authority_to_sign+" name=foa_authority_to_sign"+item.id+" checked id='report_yes'>"+
+                  tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" class='report_yes' checked id='report_yes'>"+
                         " <label class='form-check-label'>No</label></td>";
                 }
 
-                tr += "<td ></td>" ;
+                tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartner("partner_list")><li class="fa fa-times"></li></button></td>' ;
                 tr += "</tr>";
                 $("#tbl_partner_body").append(tr);
                 count++;
               });
             }
-
 
             // Director(s)/Officer(s)
             var director_officer_audit=element.director_officer_audits;
@@ -478,10 +475,10 @@ function getAuditData(){
               director_officer_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td>" +count + "</td>";
-                tr += "<td ><input disabled type='text' value="+item.name+" name='do_name[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ><input disabled type='text' value="+item.position+" name='do_position[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ><input disabled type='text' value="+item.cpa_reg_no+" name='do_cpa_reg_no[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ><input disabled type='text' value="+item.public_private_reg_no+" name='do_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value="+item.name+" name='do_name[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value="+item.position+" name='do_position[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value="+item.cpa_reg_no+" name='do_cpa_reg_no[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value="+item.public_private_reg_no+" name='do_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ></td>" ;
                 tr += "</tr>";
                 $("#tbl_director_body").append(tr);
@@ -498,15 +495,8 @@ function getAuditData(){
                 $("input[id=audit_staff"+item.audit_total_staff_type_id +"]").val(item.audit_staff);
                 $("input[id=nonaudit_staff"+item.audit_total_staff_type_id +"]").val(item.non_audit_staff);
 
-                $("input[id=total_staff"+item.audit_total_staff_type_id +"]").prop('disabled',true);
-                $("input[id=audit_staff"+item.audit_total_staff_type_id +"]").prop('disabled',true);
-                $("input[id=nonaudit_staff"+item.audit_total_staff_type_id +"]").prop('disabled',true);
-
-
               });
             }
-
-
 
             // Audit Staff
             if(element.audit_staffs.length!=0){
@@ -516,15 +506,14 @@ function getAuditData(){
                 $("input[id=full_time"+item.audit_staff_type_id+"]").val(item.full_time);
                 $("input[id=part_time"+item.audit_staff_type_id+"]").val(item.part_time);
 
-                $("input[id=audit_total"+item.audit_staff_type_id+"]").prop('disabled',true);
-                $("input[id=full_time"+item.audit_staff_type_id+"]").prop('disabled',true);
-                $("input[id=part_time"+item.audit_staff_type_id+"]").prop('disabled',true);
               })
             }
 
             // Types Of Service Provided
-            $('#type_service'+element.type_of_service_provided_id).prop("checked", true);
-            $('.type_service_provided').find('input[type=checkbox]').prop('disabled',true);
+            var t_s_p_arr = JSON.parse(element.type_of_service_provided_id);
+            t_s_p_arr.forEach(function(item){
+              $('input[name=t_s_p_id][value='+item+']').attr("checked", true);
+            });
 
           });
       }
@@ -537,7 +526,7 @@ function getAuditDataForRejectUpdate(){
       type: "GET",
       url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
       success: function (data){
-        console.log("rejected >>",data);
+        //console.log("rejected >>",data);
           var audit_data = data;
           audit_data.forEach(function(element){
             $('input[name=email]').val(student.email);
@@ -626,20 +615,6 @@ function getAuditDataForRejectUpdate(){
 
             });
 
-            // audit_file.forEach(function(item){
-            //   // if(item.ppa_certificate != "null"){
-            //   //   removeBracketedAudit(item.ppa_certificate,"ppa_certis");
-            //   // }
-            //   //console.log(">>>>>",item.ppa_certificate);
-            //   if(item.ppa_certificate!="null"){
-            //     var ppa_certificate_file = removeBracketedAudit(item.ppa_certificate,"ppa_certificate");
-            //     console.log("****",ppa_certificate_file);
-            //     for(var i=0;i<ppa_certificate_file.length;i++){
-            //       $(".ppa_certificate").append(`<a href='${BASE_URL+ppa_certificate_file[i]}' style='display:block; font-size:16px;text-decoration: none;' target='_blank' align="center">View File</a>`);
-            //     }
-            //   }else $(".ppa_certificate").append("<span class='text-warning pl-4'>No file</span>");
-            // });
-
             // Sole Proprietor/Partners/Shareholders
             var firm_owner_audit=element.firm_owner_audits;
             if(firm_owner_audit.length!=0){
@@ -647,7 +622,7 @@ function getAuditDataForRejectUpdate(){
               firm_owner_audit.forEach(function(item){
                 var tr = "<tr>";
                 tr += "<td align='center' class='align-middle'>" + count+ "</td>";
-                tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)'' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
+                tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' onchange='checkPAPPExist(this.value,this.id,this)' name='foa_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ><input  type='text' value='"+item.name+"' name='foa_name[]' class='form-control' autocomplete='off'></td>";
                 if(item.authority_to_sign==1){
                   tr += "<td ><input  type='radio' value='"+item.authority_to_sign+"' name=foa_authority_to_sign"+item.id+" checked class='report_yes' id='report_yes'>"+
