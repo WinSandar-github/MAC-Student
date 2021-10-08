@@ -321,13 +321,13 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <input type="radio" class="form-check-input mr-3"
-                                                                       id="yes_mac" name="gov_staff"
+                                                                       id="yes_mac" name="gov_staff"  value="1"
                                                                        style="margin-left: 3%;" onclick="$('#rec_letter_mac').show()">
                                                                 <label class="form-check-label " for="yes">ဟုတ်</label>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <input type="radio" class="form-check-input mr-3"
-                                                                       id="no_mac" name="gov_staff"
+                                                                       id="no_mac" name="gov_staff"  value="0"
                                                                        style="margin-left: 3%;" onclick="$('#rec_letter_mac').hide()">
                                                                 <label class="form-check-label " for="no">မဟုတ်</label>
                                                             </div>
@@ -772,7 +772,7 @@
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
                                                                                          id="yes_private"
-                                                                                         name="gov_staff"
+                                                                                         name="gov_staff" value="1"
                                                                                          style="margin-left: 3%;" onclick="$('#rec_letter_private').show()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
@@ -788,7 +788,7 @@
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
                                                                                          id="no_private"
-                                                                                         name="gov_staff"
+                                                                                         name="gov_staff" value="0"
                                                                                          style="margin-left: 3%;" onclick="$('#rec_letter_private').hide()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
@@ -1198,7 +1198,7 @@
                                                         <div class="row">
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
-                                                                                         id="yes_self" name="gov_staff"
+                                                                                         id="yes_self" name="gov_staff" value="1"
                                                                                          style="margin-left: 3%;" onclick="$('#rec_letter_self').show()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
@@ -1213,7 +1213,7 @@
                                                         <div class="row">
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
-                                                                                         id="no_self" name="gov_staff"
+                                                                                         id="no_self" name="gov_staff" value="0"
                                                                                          style="margin-left: 3%;" onclick="$('#rec_letter_self').hide()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
@@ -1795,6 +1795,7 @@
                     }
                      }else{
                          $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                         $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     }
                     
                     // $('.batch_no').val(current_stu_course[0]?.batch?.number);
