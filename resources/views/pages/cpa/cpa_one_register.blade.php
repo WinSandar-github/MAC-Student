@@ -1733,8 +1733,8 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            $(".batch_number").append(current_stu_course[0].batch.id);
-                            $(".batch_no").val(current_stu_course[0].batch.id);
+                            $(".batch_number").append(current_stu_course[0].batch.number);
+                            $(".batch_no").val(current_stu_course[0].batch.number);
                             if(last_exam.length!=0){
                                 console.log(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1')
                                 // $('.batch_number').append(last_exam[0].batch.id);

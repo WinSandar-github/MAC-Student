@@ -93,8 +93,8 @@
                                                 <label for="" class="col-md-6 col-form-label label_align_right"><span class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                 <div class="col-md-6">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                                        <div class="col-md-2 col-5 pr-1">
-                                                            <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" readonly>
+                                                        <div class="col-md-2 col-5 pr-2">
+                                                            <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control"  readonly>
                                                         </div>
                                                         <div class="col-md-3 col-7 px-1">
                                                             <input type="text" name="nrc_township" id="nrc_township" class="form-control" readonly>
