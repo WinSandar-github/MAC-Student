@@ -534,7 +534,7 @@
                                                 </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည်အဆင့်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>အောင်မြင်ထားသည့်အဆင့်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="အောင်မြင်ထားသည်အဆင့်" id="direct_degree" name="direct_degree" class="form-control"  >
@@ -543,7 +543,7 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>ခုနှစ်/လ</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(ခ)') }}</span>လ/ခုနှစ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" placeholder="လ ၊ ခုနှစ်(MMM-YYYY)" id="degree_date" name="degree_date" class="form-control year"  >

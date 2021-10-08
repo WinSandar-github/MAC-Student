@@ -1783,24 +1783,7 @@
                         console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('current_stu_course',current_stu_course);
-
-                        //show or hide direct_access_no and entry_success
-                        if(last_exam[0].is_full_module==null){                            
-                            $("#direct_access_no_self_div").hide();
-                            $("#entry_success_no_self_div").show();
-                            $("#direct_access_no_private_div").hide();
-                            $("#entry_success_no_private_div").show();
-                            $("#direct_access_no_mac_div").hide();
-                            $("#entry_success_no_mac_div").show();
-                        }else{
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
-                        }
+                        console.log('current_stu_course',current_stu_course);                       
 
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
@@ -1816,23 +1799,17 @@
                                     console.log("natch-id",batch_id);
                                     $('.batch_id').val(batch_id);
                                     $.ajax({
-                                    type: "get",
-                                    url: BACKEND_URL+"/batch/"+batch_id,
-                                    contentType: false,
-                                    processData: false,
-                                    async:false,
-                                    success: function (res) {
-                                        console.log('res',res)
-                                        $('.batch_no').val(res.data.number);                                            
-                                        
-                                        // $('.personal_no').val(data.data.cpersonal_no);
-                                        $('#remain_module').val(last_exam[0].is_full_module)
-
-                                        if(last_exam[0].is_full_module == "1"){
-                                            $(".module_two").prop("checked", true);
-                                        
-                                            $('.module_one').attr('disabled', true);
-                                            $('.module_full').attr('disabled', true);
+                                        type: "get",
+                                        url: BACKEND_URL+"/batch/"+batch_id,
+                                        contentType: false,
+                                        processData: false,
+                                        async:false,
+                                        success: function (res) {
+                                            console.log('res',res)
+                                            $('.batch_no').val(res.data.number);                                            
+                                            
+                                            // $('.personal_no').val(data.data.cpersonal_no);
+                                            $('#remain_module').val(last_exam[0].is_full_module)
 
                                             if(last_exam[0].is_full_module == "1"){
                                                 $(".module_two").prop("checked", true);
@@ -1840,45 +1817,73 @@
                                                 $('.module_one').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
-                                            }
-                                            else if(last_exam[0].is_full_module=="2"){
-                                                $(".module_one").prop("checked", true);
-                                                $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);
+                                                if(last_exam[0].is_full_module == "1"){
+                                                    $(".module_two").prop("checked", true);
+                                                
+                                                    $('.module_one').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);
 
-                                            }
-                                            else if(last_exam[0].is_full_module=="2"){
-                                                $(".module_one").prop("checked", true);
-                                                $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);
-                                            }
-                                            else{
-                                                $(".module_full").prop("checked", true);
-                                                $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);                                                    
-                                            }                                    
-                                        }   
-                                    }
-                                })   
+                                                }
+                                                else if(last_exam[0].is_full_module=="2"){
+                                                    $(".module_one").prop("checked", true);
+                                                    $('.module_two').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);
+
+                                                }
+                                                else if(last_exam[0].is_full_module=="2"){
+                                                    $(".module_one").prop("checked", true);
+                                                    $('.module_two').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);
+                                                }
+                                                else{
+                                                    $(".module_full").prop("checked", true);
+                                                    $('.module_two').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);                                                    
+                                                }                                    
+                                            }   
+                                        }
+                                    })   
+                                }
+                                else{
+                                    $('.batch_id').val(current_stu_course[0].batch.id);
+                                } 
                             }
                             else{
+                                $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                                $(".batch_number").append(current_stu_course[0].batch.number);
                                 $('.batch_id').val(current_stu_course[0].batch.id);
-                            } 
-                        }
-                        else{
-                            $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                            $(".batch_number").append(current_stu_course[0].batch.number);
-                            $('.batch_id').val(current_stu_course[0].batch.id);
-                        }                    // $('.batch_no').val(current_stu_course[0].batch.number);
+                            }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
                         var info = data.data;
                         console.log('info',info);
-                        // if(!info.exam_registers[0]){
-                        //     console.log("Hello")
-                        // }else{
-                        //     console.log("Not")
-                        // }
+
+                        //show or hide direct_access_no and entry_success
+                        if(last_exam.length==0){
+                            console.log("for direct");
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }else if(last_exam[0].exam_type_id == 3){   
+                            console.log("for entry");                        
+                            $("#direct_access_no_self_div").hide();
+                            $("#entry_success_no_self_div").show();
+                            $("#direct_access_no_private_div").hide();
+                            $("#entry_success_no_private_div").show();
+                            $("#direct_access_no_mac_div").hide();
+                            $("#entry_success_no_mac_div").show();
+                        }else{
+                            console.log("for datocpa da2pass");
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }
                         
 
                         var job_history = data.data.student_job;

@@ -275,9 +275,6 @@ $('#cpa_register').submit(function (e) {
     }
 
 
-
-
-
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -519,9 +516,14 @@ function direct_or_da() {
             processData: false,
             success: function (res) {
                 // console.log('res2',res);
-                // let entry_exam = res.data.exams.slice(-1);
-                // console.log('entry_exam',entry_exam);
-                // $('#exam_date').append(formatMY(entry_exam[0].exam_start_date));
+                let entry_exam = res.data.exams.slice(-1);
+                console.log('entry_exam',entry_exam);
+                if(entry_exam.length != 0){
+                    $('#exam_date').append(formatDateMY(entry_exam[0].exam_start_date));
+                }else{
+                    $('#exam_date').append("-------");
+                }
+                
                 $('.batch_id').append(res.data.number);
                 $('#batch_number').append(res.data.number);
             }

@@ -234,7 +234,8 @@ $('#store_da_two_form').submit(function (e) {
     formData.append('student_id', student_id);
     formData.append('batch_id', $("input[name=batch_id]").val());
     formData.append('type', $("input[name='dtype']:checked").val());
-    formData.append('mac_type', $("input[name='mac_dtype']:checked").val())
+    formData.append('mac_type', $("input[name='mac_dtype']:checked").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     // if($('#entry_type').val() === 'da_pass'){
     // var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
     // send_data.append('da_pass_certificate', da_pass_certificate);
