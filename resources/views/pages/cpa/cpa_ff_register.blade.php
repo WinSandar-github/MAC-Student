@@ -257,7 +257,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="" >
+                                        <input type="text"  class="form-control" name="cpersonal_no" id="cpersonal_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -506,7 +506,7 @@
                                         <input type="file"  class="form-control" name="three_years_full"  >
                                     </div>
                                 </div>
-                                <div class="row mb-4">
+                                {{--<div class="row mb-4">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
 
@@ -514,7 +514,7 @@
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="letter"  >
                                     </div>
-                                </div>
+                                </div>--}}
                                 {{--<div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
@@ -593,6 +593,7 @@
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
+    getCpersonalNo();
     // check_email_cpaff();
     $(".degree_pass_year").flatpickr({
             enableTime: false,
