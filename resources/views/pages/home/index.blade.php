@@ -207,7 +207,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block"> CPA (Full-Fledged) </h4> 
+                                <h4 class="d-inline-block"> Certificate of Certified Public Accountant (Full-Fledged) </h4> 
                                 <a href="{{ url('cpa_ff_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
 
@@ -218,8 +218,6 @@
                                     <li>  သတ်မှတ်အလုပ်သင်လုပ်သက်ပြည့်မြောက်ပြီးသူ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ
                                     <li>  MICPA အသင်းဝင် </li>
-                                    <li> မှတ်ပုံံတင်စာရင်းကိုင် (R.A) လက်မှတ်ရရှိထားသူများ၏ PAPP မှတ်ပုံတင်လျှောက်ထားမှုကို 
-                                        ခွင့်ပြုပါက ယင်းတို့ကို CPA(Full-Fledged) နှင့် PAPP အဖြစ် တစ်ပြိုင်နက်တည်း မှတ်ပုံတင်ခွင့်ပြုပါသည်။</li>
                                     <li> . . .</li>
                                 </ul>
 
@@ -236,7 +234,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block"> PAPP  </h4> 
+                                <h4 class="d-inline-block"> Certificate of Professional Accountant in Public Practice (PAPP) </h4> 
                                 <a href="{{ url('student_papp_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
 
@@ -244,8 +242,7 @@
                                 <ul style="line-height:180%">   
                                     <li> CPA(FF) မှတ်ပုံတင်သက်တမ်း ၁ နှစ် ပြည့်မြောက်သူများ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ</li>
-                                    <li> မှတ်ပုံံတင်စာရင်းကိုင် (R.A) လက်မှတ်ရရှိထားသူများ၏ PAPP မှတ်ပုံတင်လျှောက်ထားမှုကို ခွင့်ပြုပါက ယင်းတို့ကို CPA(Full-Fledged) နှင့် PAPP အဖြစ် တစ်ပြိုင်နက်တည်း မှတ်ပုံတင်ခွင့်ပြုပါသည်။</li>
-                                    <br> . . .
+                                    <li> . . .</li>
                             </ul>
 
 
