@@ -207,7 +207,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block"> CPA (Full-Fledged) </h4> 
+                                <h4 class="d-inline-block"> Certificate of Certified Public Accountant (Full-Fledged) </h4> 
                                 <a href="{{ url('cpa_ff_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
 
@@ -236,7 +236,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block"> PAPP  </h4> 
+                                <h4 class="d-inline-block"> Certificate of Professional Accountant in Public Practice (PAPP) </h4> 
                                 <a href="{{ url('student_papp_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
 
