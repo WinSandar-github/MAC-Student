@@ -53,6 +53,7 @@ function createDARegister() {
     send_data.append('nrc_back', nrc_back);
     send_data.append('name_mm', $("input[name=name_mm]").val());
     send_data.append('name_eng', $("input[name=name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
     send_data.append('race', $("input[name=race]").val());

@@ -269,6 +269,7 @@ $('#cpa_register').submit(function (e) {
 
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('race', $("input[name=race]").val());
     send_data.append('religion', $("input[name=religion]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
@@ -492,9 +493,9 @@ function direct_or_da() {
             processData: false,
             success: function (res) {
                 // console.log('res2',res);
-                let entry_exam = res.data.exams.slice(-1);
+                // let entry_exam = res.data.exams.slice(-1);
                 // console.log('entry_exam',entry_exam);
-                $('#exam_date').append(formatMY(entry_exam[0].exam_start_date));
+                // $('#exam_date').append(formatMY(entry_exam[0].exam_start_date));
                 $('.batch_id').append(res.data.number);
                 $('#batch_number').append(res.data.number);
             }
@@ -790,6 +791,7 @@ $('#cpa_entry_register').submit(function (e) {
 
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('race', $("input[name=race]").val());
     send_data.append('religion', $("input[name=religion]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());

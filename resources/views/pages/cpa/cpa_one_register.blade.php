@@ -240,6 +240,30 @@
                                     </div>
 
                                         <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                            <div class="row col-md-8 py-2">
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id="male_private"
+                                                                name="gender" value="Male" required>
+                                                        <span class="form-check-sign"></span>
+                                                        ကျား
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id='female_private'
+                                                                name="gender" value='Female' required>
+                                                        <span class="form-check-sign"></span>
+                                                        မ
+                                                    </label>
+                                                </div>
+                                                
+                                                <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
@@ -629,6 +653,30 @@
                                                 </div>
                                                 {{--User Photo--}}
                                             </div> 
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                            <div class="row col-md-8 py-2">
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id="male_self"
+                                                                name="gender" value="Male" required>
+                                                        <span class="form-check-sign"></span>
+                                                        ကျား
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id='female_self'
+                                                                name="gender" value='Female' required>
+                                                        <span class="form-check-sign"></span>
+                                                        မ
+                                                    </label>
+                                                </div>
+                                                
+                                                <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                            </div>
                                         </div>
 
                                         <div class="row mb-3">
@@ -1138,6 +1186,30 @@
                                                         
                                                     </div>
                                                     {{--User Photo--}}
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_mac"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_mac'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
                                                 </div>
                                             </div>
 
@@ -1906,6 +1978,17 @@
                             $("#mac_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                             $("#self_study_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                             $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
+                        }
+
+                        //gender
+                        if (info.gender == "Male") {
+                            $("#male_self").prop("checked", true);
+                            $("#male_private").prop("checked", true);
+                            $("#male_mac").prop("checked", true);
+                        } else {
+                            $("#female_self").prop("checked", true);
+                            $("#female_private").prop("checked", true);
+                            $("#female_mac").prop("checked", true);
                         }
 
                         // if(info.acca_cima){
