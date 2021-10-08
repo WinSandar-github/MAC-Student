@@ -1,4 +1,4 @@
-// var FRONTEND_URL = "http://localhost:8001";
+// var FRONTEND_URL = "http://localhost:8081";
 // var BASE_URL = "http://localhost:8000";
 // var BACKEND_URL = "http://localhost:8000/api";
 
@@ -75,6 +75,14 @@ function formatDateMY(date) {
     var exam_month = new Intl.DateTimeFormat('en-US', options).format(month_short);
     var date =   exam_month + '-' + year;
     return date;
+}
+
+function mm2en(num) {
+    var nums = { 0: '၀', 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉' };
+    return num.replace(/([0-9])/g, function (s, key) {
+        console.log(nums[key] || s);
+        return nums[key] || s;
+    });
 }
 
 function ConfirmSubmit() {

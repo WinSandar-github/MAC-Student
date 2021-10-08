@@ -466,9 +466,9 @@
                                         <div class="col-md-10">
 
                                             <div class="row mb-2">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>ပေးအပ်သည့်အဖွဲ့အစည် အမည်</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">(က)</span>ပေးအပ်သည့်အဖွဲ့အစည်း အမည်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="organization_name" placeholder="ပေးအပ်သည့်အဖွဲ့အစည် အမည်" class="form-control">
+                                                    <input type="text" name="organization_name" placeholder="ပေးအပ်သည့်အဖွဲ့အစည်း အမည်" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -478,9 +478,9 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <label class="col-md-4 col-form-label label">အီးမေလ်</label>
+                                                <label class="col-md-4 col-form-label label">အီးမေးလ်</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" name="organization_email" placeholder="အီးမေလ်" class="form-control">
+                                                    <input type="text" name="organization_email" placeholder="အီးမေးလ်" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
