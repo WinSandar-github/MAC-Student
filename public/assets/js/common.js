@@ -43,7 +43,6 @@ $('document').ready(function () {
         type: 'GET',
         async: false,
         success: function (response) {
-            console.log("Response", response)
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
@@ -55,6 +54,26 @@ $('document').ready(function () {
 function formatDate(date) {
     var income_date = date.split('-');
     var date = income_date[2] + '-' + income_date[1] + '-' + income_date[0];
+    return date;
+}
+
+function formatMY(date) {
+    var income_date = date.split('-');
+    var date =income_date[1] + '-' + income_date[2];
+    return date;
+}
+
+function formatDateMY(date) {
+
+    var income_date = date.split('-');
+    var day = income_date[2];
+    var month = income_date[1];
+    var year = income_date[0];
+
+    var options = { month: 'short'};
+    var month_short= new Date(month);
+    var exam_month = new Intl.DateTimeFormat('en-US', options).format(month_short);
+    var date =   exam_month + '-' + year;
     return date;
 }
 
@@ -179,9 +198,8 @@ function addRowBranch(tbody) {
     counter++;
 }
 
-var num = 0;
 function addRowPartner(tbody) {
-    num++;
+
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
@@ -200,7 +218,6 @@ function addRowPartner(tbody) {
     newRow.append(cols);
     $("table." + tbody).append(newRow);
     counter++;
-    //num = num;
 }
 
 function delRowPartner(tbody) {

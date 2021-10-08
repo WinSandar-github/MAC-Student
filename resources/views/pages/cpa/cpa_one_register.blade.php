@@ -143,7 +143,7 @@
                                     </div>
 
                                     <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="row mb-3">
@@ -446,7 +446,7 @@
                                         <span class="pull-left">{{ __('၁၈။') }}</span>
                                         <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                     <div class="col-md-8">
-                                            <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" readonly>
+                                            <input type="text" name="batch_no" class="form-control batch_no"  placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" readonly>
 
                                     </div>
                                 </div>
@@ -534,7 +534,7 @@
                                     </div>
 
                                     <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
-
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
                                                 <div class="row mb-3">
@@ -805,9 +805,9 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၆။') }}</span>{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                             <div class="row col-md-8 py-2">
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input type="checkbox" class="form-check-input" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]" onclick="$('#current_year_attendance').show()" required>
+                                                            <input type="radio" class="form-check-input" value="ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း" id="cpa_check" name="reg_reason[]" onclick="$('#current_year_attendance').show()" required>
                                                             <span class="form-check-sign"></span>
                                                             (က) ယခုနှစ်တက်ရောက်ခွင့်ရရှိခြင်း
                                                         </label>
@@ -829,36 +829,36 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" id="enrol_no_exam" 
+                                                            <input class="form-check-input" type="radio" id="enrol_no_exam" 
                                                                     name="reg_reason[]" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း"  onclick="$('#current_year_attendance').hide()" required>
                                                             <span class="form-check-sign"></span>
                                                             (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" id="attendance" 
+                                                            <input class="form-check-input" type="radio" id="attendance" 
                                                                    name="reg_reason[]" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" onclick="$('#current_year_attendance').hide()" required>
                                                             <span class="form-check-sign"></span>
                                                             (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" id="fail_exam"
+                                                            <input class="form-check-input" type="radio" id="fail_exam"
                                                                    name="reg_reason[]" value="စာမေးပွဲကျရှုံးခြင်း" onclick="$('#current_year_attendance').hide()" required>
                                                             <span class="form-check-sign"></span>
                                                             (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" id="resigned" 
+                                                            <input class="form-check-input" type="radio" id="resigned" 
                                                                     name="reg_reason[]" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း" onclick="$('#current_year_attendance').hide()" required>
                                                             <span class="form-check-sign"></span>
                                                             (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
@@ -868,7 +868,7 @@
                                                     <label  class="error attend_place_error" name="attend_place_error" style="display:none;" for="reg_reason[]">Please select registration reason.</label>
 
                                                     <div class="row">
-                                                        <label class="col-md-12 col-form-label"><span class="pull-left" style="    padding-left: 47px;">{{ __('(စ)') }}</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                        <label class="col-md-12 col-form-label"><span class="pull-left" style="    padding-left: 30px;">{{ __('(စ)') }}</span>ယခုဖြေဆိုမည့် Module -</label>
                                                     </div>
                                                     <div class="row mb-3" style="padding-left: 120px;">
                                                         <!-- <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">{{ __('(စ)') }}</span>ယခုဖြေဆိုမည့် Module -</label> -->
@@ -1013,7 +1013,7 @@
                                                 <span class="pull-left">{{ __('၁၇။') }}</span>
                                                 <span class="pull-left" style="padding-left: 90px;">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                             <div class="col-md-8">
-                                                    <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
+                                                    <input type="text" name="batch_no" class="form-control batch_no"  placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" readonly>
 
                                             </div>
                                         </div>
@@ -1080,7 +1080,7 @@
                                     <div>
                                     <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
-                                            
+                                    <input type="hidden" name="batch_id" class="batch_id">
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="row mb-3">
@@ -1392,7 +1392,7 @@
                                                     <span class="pull-left" style="padding-right: 61px;">{{ __('၂၁။') }}</span>
                                                     <span class="pull-left">{{ __('(က)') }}</span>သင်တန်းအမှတ်စဥ်</label>
                                                 <div class="col-md-8">
-                                                        <input type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac"  readonly>
+                                                        <input type="text" name="batch_no" class="form-control batch_no"  placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac"  readonly>
 
                                                 </div>
                                             </div>
@@ -1686,17 +1686,39 @@
 
                 get_student_info(student_id).then(data => {
                     if(data){
+                        console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let last_exam = data.data.exam_registers.slice(-1);
+                        console.log('current_stu_course',current_stu_course);
+
+                        //show or hide direct_access_no and entry_success
+                        if(last_exam[0].is_full_module==null){                            
+                            $("#direct_access_no_self_div").hide();
+                            $("#entry_success_no_self_div").show();
+                            $("#direct_access_no_private_div").hide();
+                            $("#entry_success_no_private_div").show();
+                            $("#direct_access_no_mac_div").hide();
+                            $("#entry_success_no_mac_div").show();
+                        }else{
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }
 
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
+                            $(".batch_number").append(current_stu_course[0].batch.number);
+                            $(".batch_no").val(current_stu_course[0].batch.number);
                             if(last_exam.length!=0){
+                                // $('.batch_number').append(last_exam[0].batch.id);
                                 // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
-                                
+                                    $('.batch_id').val(batch_id);
                                     $.ajax({
                                     type: "get",
                                     url: BACKEND_URL+"/batch/"+batch_id,
@@ -1704,9 +1726,10 @@
                                     processData: false,
                                     async:false,
                                     success: function (res) {
+                                        console.log('res',res)
                                         
                                         
-                                            $('.batch_no').val(res.data.number);
+                                            $('.batch_no').val(res.data.number);                                            
                                             
                                             // $('.personal_no').val(data.data.cpersonal_no);
                                             $('#remain_module').val(last_exam[0].is_full_module)
@@ -1757,14 +1780,14 @@
                                         
                                 }
                             }else{
-                                    $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                                $('.batch_no').val(current_stu_course[0]?.batch?.number);
                                 $(".batch_number").append(current_stu_course[0].batch.number);
 
                                 }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
                         var info = data.data;
-                        // console.log('info',info);
+                        console.log('info',info);
                         // if(!info.exam_registers[0]){
                         //     console.log("Hello")
                         // }else{
@@ -1885,29 +1908,29 @@
                             $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                         }
 
-                        if(info.acca_cima){
-                            // document.getElementById(direct_access_no_self_div).style.display='block';
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
-                        }else if(!info.acca_cima && !info.da_pass_roll_number){
-                            $("#direct_access_no_self_div").hide();
-                            $("#entry_success_no_self_div").show();
-                            $("#direct_access_no_private_div").hide();
-                            $("#entry_success_no_private_div").show();
-                            $("#direct_access_no_mac_div").hide();
-                            $("#entry_success_no_mac_div").show();
-                        }else{
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
-                        }
+                        // if(info.acca_cima){
+                        //     // document.getElementById(direct_access_no_self_div).style.display='block';
+                        //     $("#direct_access_no_self_div").show();
+                        //     $("#entry_success_no_self_div").hide();
+                        //     $("#direct_access_no_private_div").show();
+                        //     $("#entry_success_no_private_div").hide();
+                        //     $("#direct_access_no_mac_div").show();
+                        //     $("#entry_success_no_mac_div").hide();
+                        // }else if(!info.acca_cima && !info.da_pass_roll_number){
+                        //     $("#direct_access_no_self_div").hide();
+                        //     $("#entry_success_no_self_div").show();
+                        //     $("#direct_access_no_private_div").hide();
+                        //     $("#entry_success_no_private_div").show();
+                        //     $("#direct_access_no_mac_div").hide();
+                        //     $("#entry_success_no_mac_div").show();
+                        // }else{
+                        //     $("#direct_access_no_self_div").show();
+                        //     $("#entry_success_no_self_div").hide();
+                        //     $("#direct_access_no_private_div").show();
+                        //     $("#entry_success_no_private_div").hide();
+                        //     $("#direct_access_no_mac_div").show();
+                        //     $("#entry_success_no_mac_div").hide();
+                        // }
 
                         // if(education_history){
                         //     console.log("education_history",education_history);

@@ -163,7 +163,7 @@
                                  
                                 <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
-                                    <div class="col-md-8">
+                                    {{--<div class="col-md-8">
                                         <div class="row">
                                             <div class="col-md-4 col-form-label">
                                                 <input type="checkbox" value="" id="cpa_check" onclick="CPA_Check()" >
@@ -231,12 +231,91 @@
                                                 </div>
                                             </div>
                                         </div>
-                                </div>
+                                    </div>--}}
+                                    <div class="col-md-8">
+                                        <div class="row mb-2">
+                                            <div class="col-md-7">
+                                                <input type="radio" name="education" id="cpa_edu" value="1" onclick="getCPAEducation()">
+                                                <label class="col-form-label" style="padding-left:5%;">CPA</label>
+                                            </div>
+                                        </div>
+                                        <div id="cpa">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 cpa_file"></div>
+                                                <div class="col-md-8">
+                                                    <input type="file"  class="form-control" name="cpa" style="display:none">
+                                                </div>
+                                            </div><br/>
+                                        </div>
+
+                                        <div class="row mb-2">
+                                            <div class="col-md-7">
+                                                <input type="radio" name="education" id="ra_edu" value="2" onclick="getCPAEducation()">
+                                                <label class="col-form-label" style="padding-left:5%;">RA</label>
+                                            </div>
+                                        </div>
+                                        <div id="ra">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 ra_file" id="ra_file"></div>
+                                                <div class="col-md-8">
+                                                    <!-- <div class="single-form"> -->
+                                                        <input type="file"  class="form-control" name="ra" style="display:none">
+                                                    <!-- </div> -->
+                                                </div>
+                                            </div><br/>
+                                        </div>
+
+                                        <div class="row mb-2">
+                                            <div class="col-md-7">
+                                                <input type="radio" name="education" id="education" value="3" onclick="getCPAEducation()">
+                                                <label class="col-md-5 col-form-label label">အသိအမှတ်ပြုပြည်ပဘွဲ့</label>
+                                            </div>
+                                        </div>
+                                        <div  id="edu" style="display:none;">
+                                            <div class="row mb-1" id="degree0">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 col-auto">
+                                                    <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
+                                                </div>
+                                                <div class="col-md-7 col-auto">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2" id="degree_year0">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 col-auto">
+                                                    <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
+                                                </div>
+                                                <div class="col-md-7 col-auto">
+                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4" id="edu0" >
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3 col-auto">
+                                                    <label for="" class="col-form-label"> Attached Certificate</label>
+                                                </div>
+                                                <div class="col-md-2 foreign_degree_file">
+                                                </div>
+                                                <div class="col-md-5"  id="degree_edu" >
+                                                    <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
+                                                </div>
+                                                <div class="col-md-1" id="add_div" >
+                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px; display: none;" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control " id="cpa_batch_no" name="cpa_batch_no"  placeholder="" >
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" placeholder="" >
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -350,7 +429,7 @@
                                             </div>
                                             <label class="col-md-5"  style="font-size:15px;">ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>--}}
 
-                                            <label class="col-md-11" class="form-control" style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" style="width: 100px;display: inline;"> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
+                                            <label class="col-md-11" class="form-control" style="font-size:15px;">ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားဖြစ်ပြီး ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control cpaff_pass_date" placeholder="ခုနှစ်/YYYY" style="width: 100px;display: inline;"> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။</label>
                                         </div>
 
 
@@ -369,7 +448,7 @@
                                             </div>
                                             <label class="col-md-4"  style="font-size:15px;">ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>--}}
 
-                                            <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ် <input type="text" name="papp_date" style="display: inline; width: 100px;" class="form-control papp_date" placeholder="ခုနှစ်/YYYY"> ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
+                                            <label class="col-md-11"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ် <input type="text" name="papp_date" id="papp_date" style="display: inline; width: 100px;" class="form-control papp_date" placeholder="ခုနှစ်/YYYY"> ခုနှစ်အတွက်မှတ်ပုံတင်ပေးပါရန်လျှောက်ထားပါသည်။</label>
                                         </div>
 
 
@@ -393,7 +472,7 @@
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1"><input type="radio" name="work_name" id="firm_check" value="" ></div>
+                                    <div class="col-md-1"><input type="radio" name="work_name" id="firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-10">
 
                                         <label style="font-size:15px;"> လုပ်ငန်းအမည် Firm Name အသုံးမပြုပါ။</label>
@@ -401,7 +480,7 @@
                                 </div><br/>
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1"><input type="radio" name="work_name" id="used_firm_check" value=""></div>
+                                    <div class="col-md-1"><input type="radio" name="work_name" id="used_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-10">
                                         <label style="font-size:15px;"> အသုံးပြုမည့်လုပ်ငန်းအမည် Firm Name, လုပ်ငန်းအမျိုးစားနှင့် မိမိ၏ အဆင့်မှာ အောက်ပါအတိုင်းဖြစ်ပါသည်-</label>
                                     </div>
@@ -448,7 +527,7 @@
 
                                 <div class="row mb-2">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value=""></div>
+                                    <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-4">
                                         <label style="font-size:15px;"> ဝန်ထမ်းအနေဖြင့် ဆောင်ရွက်နေသည့် လုပ်ငန်းအမည်</label>
                                     </div>
@@ -551,7 +630,7 @@
                                         <div class="row">
                                             <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
                                             <div class="col-md-3">
-                                                <input type="text" name="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
+                                                <input type="text" name="tax_year" id="tax_year" class="form-control tax_year" placeholder="ပြက္ခဒိန်နှစ်/YYYY">
                                             </div>
                                             <label class="col-md-5" >ပြက္ခဒိန်နှစ်အတွက် အခွန်ပေးဆောင်မှု </label>
                                         </div>
@@ -571,7 +650,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဇ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
                                     </div>
                                 </div><br/><br>
 
@@ -580,7 +659,7 @@
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -762,21 +841,38 @@
             dateFormat: "M-Y",
             allowInput: true,
     });
-
-    $(".tax_year").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    // $(".tax_year").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
+    // $(".papp_date").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
+    // $(".cpaff_pass_date").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
+    $("#cpaff_pass_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
-    $(".papp_date").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    $("#papp_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
-    $(".cpaff_pass_date").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    $("#tax_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
 </script>
 @endpush

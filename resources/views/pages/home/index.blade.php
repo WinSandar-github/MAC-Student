@@ -132,7 +132,19 @@
                                 {{-- <button class="course_list" data-bs-toggle="tab" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button> --}}
                                 <button class="course_list" value="result">စာမေးပွဲအောင်မြင်သူများစာရင်း</button>
                             </li>
+
                             
+                            
+                        </ul>
+
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                       
+                            <li>
+                                  <button value="exam" onclick=" window.open('/entry_exam_list','_blank')">CPA One ဝင်ခွင့်စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                            </li>
+                            <li>
+                                 <button class="course_list" onclick=" window.open('/qualified_test_list','_blank')">အရည်အချင်းစစ် စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                            </li>
                         </ul>
                         
                     </div>
@@ -151,7 +163,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block">Diploment in Accountancy (DA)</h4> 
+                                <h4 class="d-inline-block">Diploma in Accountancy (DA)</h4> 
                                 <a href="{{ url('student_course/1') }}" class="btn btn-success" style="float:right !important">Course Details</a>
                                 <hr>
                                 <ul style="line-height:180%">
@@ -172,7 +184,7 @@
                             <!-- Single Courses Start -->
                             <div class="single-courses">
                                 
-                                <h4 class="d-inline-block">Certificated Public Accountant (CPA)</h4> 
+                                <h4 class="d-inline-block">Certified Public Accountant (CPA)</h4> 
                                 <a href="{{ url('student_course/2') }}" class="btn btn-success" style="float:right !important">Course Details</a>
                                 <hr>
 

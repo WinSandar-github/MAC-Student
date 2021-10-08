@@ -72,6 +72,7 @@
                                     <div class="row mb-5">
                                       <div class="d-flex justify-content-between">
                                           <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                          <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                           <h6>အမှတ်စဥ် - <span name="da_batch_no" id="da_batch_no"></span></h6>
                                       </div>
                                     </div>
@@ -92,8 +93,8 @@
                                                 <label for="" class="col-md-6 col-form-label label_align_right"><span class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                 <div class="col-md-6">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
-                                                        <div class="col-md-2 col-5 pr-1">
-                                                            <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control" readonly>
+                                                        <div class="col-md-2 col-5 pr-2">
+                                                            <input type="text" name="nrc_state_region" id="nrc_state_region" class="form-control"  readonly>
                                                         </div>
                                                         <div class="col-md-3 col-7 px-1">
                                                             <input type="text" name="nrc_township" id="nrc_township" class="form-control" readonly>
@@ -217,7 +218,7 @@
 
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၉။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                            <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၁။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                             <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
@@ -501,8 +502,7 @@
         get_student_info(student_id).then(data => {
             if(data){
                 let current_stu_course = data.data.student_course_regs.slice(-1);
-                let last_exam = data.data.exam_registers.slice(-1);
-                
+                let last_exam = data.data.exam_registers.slice(-1);               
 
                 let current_stu_reg=data.data.student_register.slice(-1);
                 
@@ -540,6 +540,7 @@
 
                     
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
+                $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
                 $("#da_batch_no").append(current_stu_course[0].batch.number);
                 $("input[name='name_mm']").val(data.data.name_mm);
                 $("input[name='name_eng']").val(data.data.name_eng);

@@ -27,6 +27,7 @@ $("#photo").change(function () {
 });
 
 function selectStaff(value) {
+
     if (value == 1) {
         $('#rec_letter').css('display', 'block');
     } else {
@@ -85,7 +86,7 @@ function Private_School_Submit() {
     data.append('remain_module', $("input[name='remain_module']").val());
     data.append('batch_id', batch_id);
 
-    data.append('recommendation_letter',recommend_letter_private);
+    data.append('recommendation_letter', recommend_letter_private);
     show_loader();
 
     $.ajax({
@@ -137,7 +138,7 @@ function Self_Study_Submit() {
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('remain_module', $("input[name='remain_module']").val())
     data.append('batch_id', batch_id);
-    data.append('recommendation_letter',recommend_letter_self);
+    data.append('recommendation_letter', recommend_letter_self);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -145,14 +146,14 @@ function Self_Study_Submit() {
         data: data,
         contentType: false,
         processData: false,
-        success: function (result) {            
-            if (result.message == undefined) {    
-                EasyLoading.hide();            
+        success: function (result) {
+            if (result.message == undefined) {
+                EasyLoading.hide();
                 location.href = FRONTEND_URL + '/';
                 successMessage(result);
             }
-            else {      
-                EasyLoading.hide();          
+            else {
+                EasyLoading.hide();
                 location.href = FRONTEND_URL + '/';
                 successMessage(result.message);
             }
@@ -188,7 +189,7 @@ function Mac_Submit() {
     data.append('remain_module', $("input[name='remain_module']").val());
     data.append('batch_id', batch_id);
     data.append('mac_type', $("input[name='mac_type']").val());
-    data.append('recommendation_letter',recommend_letter_mac);
+    data.append('recommendation_letter', recommend_letter_mac);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -312,7 +313,7 @@ $('#cpa_register').submit(function (e) {
     send_data.append('type', $("input[name='attend_place']:checked").val());
     send_data.append('mac_type', $("input[name='mac_type']:checked").val());
     send_data.append('batch_id', batch_id)
-    show_loader(); 
+    show_loader();
 
     $.ajax({
         type: "POST",
@@ -428,7 +429,7 @@ $('#cpa_update').submit(function (e) {
         success: function (data) {
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = FRONTEND_URL + "/";
+            // location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
         }
@@ -475,8 +476,9 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                $('.batch_id').append(res.data.id);
-                $('#batch_id').val(res.data.id);
+                // console.log('res1',res);
+                $('.batch_id').append(res.data.number);
+                $('#batch_id').val(res.data.number);
                 $('#batch_name').text(res.data.name);
             }
         })
@@ -489,8 +491,12 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                $('.batch_id').append(res.data.id);
-                $('#batch_number').append(res.data.id);
+                // console.log('res2',res);
+                let entry_exam = res.data.exams.slice(-1);
+                // console.log('entry_exam',entry_exam);
+                $('#exam_date').append(formatMY(entry_exam[0].exam_start_date));
+                $('.batch_id').append(res.data.number);
+                $('#batch_number').append(res.data.number);
             }
         })
         $('.dir_cpa_app_form').show();
@@ -746,11 +752,11 @@ $('#cpa_entry_register').submit(function (e) {
     }
     e.preventDefault();
     var is_gov_staff;
-    if(document.getElementById('yes').checked){
-        is_gov_staff=1;
+    if (document.getElementById('yes').checked) {
+        is_gov_staff = 1;
     }
-    else{
-        is_gov_staff=0;
+    else {
+        is_gov_staff = 0;
     }
     var certificate = $('input[name="certificate[]"]');
 
