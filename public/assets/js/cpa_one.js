@@ -70,6 +70,7 @@ function Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
+    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id', student.id)
@@ -88,12 +89,12 @@ function Private_School_Submit() {
 
     data.append('recommendation_letter', recommend_letter_private);
     //send student info data
-    data.append('office_address', $("input[name='office_address']").val());
-    data.append('current_address', $("input[name='current_address']").val());
-    data.append('address', $("input[name='address']").val());
-    data.append('phone', $("input[name='phone']").val());
-    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
-    data.append('profile_photo', $("input[name='profile_photo_private']")[0].files[0]);
+    data.append('office_address', $("#private_school_container").find("input[name=office_address]").val());
+    data.append('current_address',$("#private_school_container").find("input[name=current_address]").val());
+    data.append('address', $("#private_school_container").find("input[name=address]").val());
+    data.append('phone', $("#private_school_container").find("input[name=phone]").val());
+    data.append('gov_staff', $("#private_school_container").find('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', profile_photo);
     show_loader();
 
     $.ajax({
@@ -127,6 +128,7 @@ function Self_Study_Submit() {
     
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
+    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('academic_year', $("#academic_year_self").val());
@@ -147,12 +149,12 @@ function Self_Study_Submit() {
     data.append('batch_id', $("input[name='batch_id']").val());
     data.append('recommendation_letter', recommend_letter_self);
     //send student info data
-    data.append('office_address', $("input[name='office_address']").val());
-    data.append('current_address', $("input[name='current_address']").val());
-    data.append('address', $("input[name='address']").val());
-    data.append('phone', $("input[name='phone']").val());
-    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
-    data.append('profile_photo', $("input[name='profile_photo_self']")[0].files[0]);
+    data.append('office_address', $("#self_study_container").find("input[name=office_address]").val());
+    data.append('current_address',$("#self_study_container").find("input[name=current_address]").val());
+    data.append('address', $("#self_study_container").find("input[name=address]").val());
+    data.append('phone', $("#self_study_container").find("input[name=phone]").val());
+    data.append('gov_staff', $("#self_study_container").find('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', profile_photo);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -183,6 +185,7 @@ function Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
+    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
@@ -206,13 +209,12 @@ function Mac_Submit() {
     data.append('mac_type', $("input[name='mac_type']").val());
     data.append('recommendation_letter', recommend_letter_mac);
     //send student info data
-    data.append('office_address', $("input[name='office_address']").val());
-    return alert($("input[name='office_address']").val());
-    data.append('current_address', $("input[name='current_address']").val());
-    data.append('address', $("input[name='address']").val());
-    data.append('phone', $("input[name='phone']").val());
-    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
-    data.append('profile_photo', $("input[name='profile_photo_mac']")[0].files[0]);
+    data.append('office_address', $("#mac_container").find("input[name=office_address]").val());
+    data.append('current_address',$("#mac_container").find("input[name=current_address]").val());
+    data.append('address', $("#mac_container").find("input[name=address]").val());
+    data.append('phone', $("#mac_container").find("input[name=phone]").val());
+    data.append('gov_staff', $("#mac_container").find('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', profile_photo);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -223,14 +225,14 @@ function Mac_Submit() {
         success: function (result) {
             EasyLoading.hide();
             console.log(result);
-            // if (result.message == undefined) {
-            //     successMessage(result);
-            //     location.href = FRONTEND_URL + '/';
-            // }
-            // else {
-            //     successMessage(result.message);
-            //     location.href = FRONTEND_URL + '/';
-            // }
+            if (result.message == undefined) {
+                successMessage(result);
+                location.href = FRONTEND_URL + '/';
+            }
+            else {
+                successMessage(result.message);
+                location.href = FRONTEND_URL + '/';
+            }
         },
         error: function (message) {
             EasyLoading.hide();

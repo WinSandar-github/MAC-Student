@@ -142,7 +142,7 @@
                                         </div>
                                     </div>
 
-                                    <form id="cpa_pp_form" method="post" action="javascript:void(0);" enctype="multipart/form-data" novalidate>
+                                    <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
                                     <input type="hidden" name="batch_id" class="batch_id">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -358,7 +358,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရုံးစိုက်ရာဒေသ</label>
                                             <div class="col-md-8">
-                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address_private" value="stupd"
+                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address"
                                                     class="form-control" readonly >
                                             </div>
                                         </div>
@@ -541,7 +541,7 @@
                                         </div>                                        
                                     </div>
 
-                                    <form id="cpa_ss_form" method="post" action="javascript:void(0);" enctype="multipart/form-data" novalidate>
+                                    <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
                                     <input type="hidden" name="batch_id" class="batch_id">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
@@ -757,7 +757,7 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရုံးစိုက်ရာဒေသ</label>
                                             <div class="col-md-8">
-                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address_self"
+                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address"
                                                     class="form-control" readonly >
                                             </div>
                                         </div>
@@ -1093,7 +1093,7 @@
                                         </div>
 
                                     <div>
-                                    <form  method="post" id="cpa_mac_form" action="javascript:void(0);" enctype="multipart/form-data" novalidate>
+                                    <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
                                     <input type="hidden" name="batch_id" class="batch_id">
                                             <div class="row">
@@ -1272,7 +1272,7 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရုံးစိုက်ရာဒေသ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address_mac"
+                                                    <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address"
                                                         class="form-control" readonly="">
                                                 </div>
                                             </div>
@@ -1733,8 +1733,8 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            $(".batch_number").append(current_stu_course[0].batch.number);
-                            $(".batch_no").val(current_stu_course[0].batch.number);
+                            $(".batch_number").append(current_stu_course[0].batch.id);
+                            $(".batch_no").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
                                 console.log(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1')
                                 // $('.batch_number').append(last_exam[0].batch.id);
@@ -1839,7 +1839,7 @@
                         //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
                         $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
                         $("#mac_container").find("input[name=salary]").val(job_history.salary);
-                        //$("#mac_container").find("input[name=office_address]").val(job_history.office_address);
+                        $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
                         document.getElementById('mac_preview_img').src = BASE_URL + data.data.image;
                         //$("#mac_container").find("previewImg").attr('src',BASE_URL + data.data.image);
                         
@@ -1869,7 +1869,7 @@
                         //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
                         $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
                         $("#self_study_container").find("input[name=salary]").val(job_history.salary);
-                        //$("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
+                        $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
                         
                         document.getElementById('self_study_preview_img').src = BASE_URL + data.data.image;
 
@@ -1899,7 +1899,7 @@
                         //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
                         $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
                         $("#private_school_container").find("input[name=salary]").val(job_history.salary);
-                        //$("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
+                        $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
                         document.getElementById('private_preview_img').src = BASE_URL + data.data.image;                  
                         }
 
