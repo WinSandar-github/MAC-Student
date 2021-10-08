@@ -255,6 +255,30 @@
                                             </div>
 
                                             <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_mac"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_mac'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">၄။</span>လူမျိုး</label>
                                                 <div class="col-md-8">
@@ -704,6 +728,30 @@
                                                 {{--User Photo--}}
                                             </div>
 
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_private"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_private'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                </div>
+                                            </div>
+
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
@@ -1050,7 +1098,7 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                             </option>
-@endforeach
+                                                                            @endforeach
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
@@ -1062,7 +1110,7 @@
                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                     {{ $township['township_mm'] }}
                                                                             </option>
-@endforeach
+                                                                            @endforeach
                                                                         </select>
                                                                         </select> -->
                                                                 </div>
@@ -1075,7 +1123,7 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                             </option>
-@endforeach
+                                                                            @endforeach
                                                                         </select> -->
                                                                 </div>
 
@@ -1130,6 +1178,29 @@
                                                 {{--User Photo--}}
                                             </div>
 
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_self"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_self'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                </div>
+                                            </div>
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
@@ -1730,6 +1801,7 @@
             get_student_info(student_id).then(data => {
                 // console.log(data,'data');
                 if (data) {
+                    console.log('student_info',data.data);
                      let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
                      
@@ -1740,62 +1812,58 @@
                     $(".batch_number").append(current_stu_course[0].batch.number);
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
+                    if(current_stu_course[0].mac_type == 1){
+                        $("#sub_mac").prop("checked",true);
+                    }else{
+                        $("sub_mac2").prop("checked",true);
+                    }
                     // console.log(data.data.citizen)
                     if(last_exam[0]){
-                    if(last_exam[0].grade == 1){
-                         let batch_id = localStorage.getItem('batch_id');
-                         $('.batch_id').val(batch_id);
-                        $.ajax({
-                        type: "get",
-                        url: BACKEND_URL+"/batch/"+batch_id,
-                        contentType: false,
-                        processData: false,
-                        async:false,
-                        success: function (res) {
-                             console.log('res',res)
-                            $('#batch_name').text(res.data.name);
-                            $('.batch_number').text(res.data.number);
-                            
-                            $('.batch_no').val(res.data.number);
-                            $('.personal_no').val(data.data.personal_no);
-                            $('#remain_module').val(last_exam[0].is_full_module)
+                        if(last_exam[0].grade == 1){
+                            let batch_id = localStorage.getItem('batch_id');
+                            $('.batch_id').val(batch_id);
+                            $.ajax({
+                                type: "get",
+                                url: BACKEND_URL+"/batch/"+batch_id,
+                                contentType: false,
+                                processData: false,
+                                async:false,
+                                success: function (res) {
+                                    console.log('res',res)
+                                    $('#batch_name').text(res.data.name);
+                                    $('.batch_number').text(res.data.number);
+                                    
+                                    $('.batch_no').val(res.data.number);
+                                    $('.personal_no').val(data.data.personal_no);
+                                    $('#remain_module').val(last_exam[0].is_full_module)
 
-                            if(last_exam[0].is_full_module == "1"){
-                                 $(".module_two").prop("checked", true);
-                              
-                                $('.module_one').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-
-
-                            }
-                            else if(last_exam[0].is_full_module=="2"){
-                                $(".module_one").prop("checked", true);
-                                $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
+                                    if(last_exam[0].is_full_module == "1"){
+                                        $(".module_two").prop("checked", true);
+                                    
+                                        $('.module_one').attr('disabled', true);
+                                        $('.module_full').attr('disabled', true);
 
 
- 
-                            }
-                            else if(last_exam[0].is_full_module=="3"){
-                                $(".module_full").prop("checked", true);
-                                 $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-                                
-
-                                  
-                            }
-
-                            
-                           
-
-                            }
-                        })   
+                                    }
+                                    else if(last_exam[0].is_full_module=="2"){
+                                        $(".module_one").prop("checked", true);
+                                        $('.module_two').attr('disabled', true);
+                                        $('.module_full').attr('disabled', true);
+        
+                                    }
+                                    else if(last_exam[0].is_full_module=="3"){
+                                        $(".module_full").prop("checked", true);
+                                        $('.module_two').attr('disabled', true);
+                                        $('.module_full').attr('disabled', true);                              
+                                        
+                                    }                          
+                                }
+                            }) 
                         
-                        
-                    }
-                     }else{
-                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                         $('.batch_id').val(current_stu_course[0]?.batch?.id);
+                        }
+                    }else{
+                        $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                        $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     }
                     
                     // $('.batch_no').val(current_stu_course[0]?.batch?.number);
@@ -1837,6 +1905,16 @@
                             $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
                         }
                     }
+
+                    if (data.data.gender == "Male") {
+                        $("#male_self").prop("checked", true);
+                        $("#male_private").prop("checked", true);
+                        $("#male_mac").prop("checked", true);
+                    } else {
+                        $("#female_self").prop("checked", true);
+                        $("#female_private").prop("checked", true);
+                        $("#female_mac").prop("checked", true);
+                    }
                     if(data.data.exam_registers.length!=0){
                         $("input[name='office_address']").prop('readonly', false);
                         $("input[name='current_address']").prop('readonly', false);
@@ -1845,10 +1923,12 @@
                         $("input[name='profile_photo_mac']").show();
                         $("input[name='profile_photo_self']").show();
                         $("input[name='profile_photo_private']").show();
+                        $("input[name='gov_staff']").prop('disabled', false);
                         $("input[name='recommend_letter_mac']").prop('disabled', false);
                         $("input[name='recommend_letter_self']").prop('disabled', false);
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
+                        $("input[name='mac_type']").prop('disabled', false);
                     }
                     else{
                         $("input[name='office_address']").prop('readonly', true);
@@ -1858,10 +1938,12 @@
                         $("input[name='profile_photo_mac']").hide();
                         $("input[name='profile_photo_self']").hide();
                         $("input[name='profile_photo_private']").hide();
+                        $("input[name='gov_staff']").prop('disabled', true);
                         $("input[name='recommend_letter_mac']").prop('disabled', true);
                         $("input[name='recommend_letter_self']").prop('disabled', true);
                         $("input[name='recommend_letter_private']").prop('disabled', true);
                         $("input[name='gov_staff']").prop('disabled', true);
+                        $("input[name='mac_type']").prop('disabled', true);
                     }
                 }
             });

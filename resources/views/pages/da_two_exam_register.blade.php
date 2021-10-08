@@ -161,6 +161,30 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                                    <div class="row col-md-8 py-2">
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id="male"
+                                                                        name="gender" value="Male" required>
+                                                                <span class="form-check-sign"></span>
+                                                                ကျား
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id='female'
+                                                                        name="gender" value='Female' required>
+                                                                <span class="form-check-sign"></span>
+                                                                မ
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">၅။</span>မွေးသက္ကရာဇ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date_of_birth" class="form-control"
@@ -675,6 +699,12 @@ $nrc_characters = config('myanmarnrc.characters');
 
                         $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
 
+                    }
+
+                    if (student_info.gender == "Male") {
+                        $("#male").prop("checked", true);
+                    } else {
+                        $("#female").prop("checked", true);
                     }
 
                     $("input[name='phone']").val(student_info.phone);

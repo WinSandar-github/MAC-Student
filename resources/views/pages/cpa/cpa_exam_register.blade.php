@@ -143,6 +143,30 @@
                                                 </div>
 
                                                 <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                                    <div class="row col-md-8 py-2">
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id="male"
+                                                                        name="gender" value="Male" required>
+                                                                <span class="form-check-sign"></span>
+                                                                ကျား
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id='female'
+                                                                        name="gender" value='Female' required>
+                                                                <span class="form-check-sign"></span>
+                                                                မ
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
                                                     <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
@@ -633,7 +657,7 @@
            var student_info = data.data ;
            console.log('student_info',student_info);
             let current_stu_course = data.data.student_course_regs.slice(-1);
-            $(".batch_number").append(current_stu_course[0].batch.number);
+            $(".batch_number").append((current_stu_course[0].batch.number));
             $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
            if(student_info.acca_cima){
                $('#last_exam_data').hide();
@@ -671,6 +695,12 @@
                 if(student_info.recommend_letter!=null){
                     $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
                 }
+            }
+
+            if(student_info.gender=="Male"){
+                $("#male").prop("checked",true);
+            }else{
+                $("#female").prop("checked",true);
             }
 
             if(current_stu_reg[0].type == 0){
