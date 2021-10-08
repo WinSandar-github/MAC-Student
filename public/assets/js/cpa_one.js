@@ -84,9 +84,16 @@ function Private_School_Submit() {
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('type', 1);
     data.append('remain_module', $("input[name='remain_module']").val());
-    data.append('batch_id', batch_id);
+    data.append('batch_id', $("input[name='batch_id']").val());
 
     data.append('recommendation_letter', recommend_letter_private);
+    //send student info data
+    data.append('office_address', $("input[name='office_address']").val());
+    data.append('current_address', $("input[name='current_address']").val());
+    data.append('address', $("input[name='address']").val());
+    data.append('phone', $("input[name='phone']").val());
+    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', $("input[name='profile_photo_private']")[0].files[0]);
     show_loader();
 
     $.ajax({
@@ -117,7 +124,7 @@ function Private_School_Submit() {
 function Self_Study_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
-
+    
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
     var data = new FormData();
@@ -137,8 +144,15 @@ function Self_Study_Submit() {
     data.append('type', 0);
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('remain_module', $("input[name='remain_module']").val())
-    data.append('batch_id', batch_id);
+    data.append('batch_id', $("input[name='batch_id']").val());
     data.append('recommendation_letter', recommend_letter_self);
+    //send student info data
+    data.append('office_address', $("input[name='office_address']").val());
+    data.append('current_address', $("input[name='current_address']").val());
+    data.append('address', $("input[name='address']").val());
+    data.append('phone', $("input[name='phone']").val());
+    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', $("input[name='profile_photo_self']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -181,15 +195,24 @@ function Mac_Submit() {
     data.append('good_behavior', good_morale_file);
     data.append('no_crime', no_crime_file);
     data.append('module', $("input[type='radio'][name='module']:checked").val());
+    
     data.append('type', 2);
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('batch_no_mac', $("input[id='batch_no_mac']").val());
     data.append('part_no_mac', $("input[id='part_no_mac']").val());
     data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     data.append('remain_module', $("input[name='remain_module']").val());
-    data.append('batch_id', batch_id);
+    data.append('batch_id', $("input[name='batch_id']").val());
     data.append('mac_type', $("input[name='mac_type']").val());
     data.append('recommendation_letter', recommend_letter_mac);
+    //send student info data
+    data.append('office_address', $("input[name='office_address']").val());
+    return alert($("input[name='office_address']").val());
+    data.append('current_address', $("input[name='current_address']").val());
+    data.append('address', $("input[name='address']").val());
+    data.append('phone', $("input[name='phone']").val());
+    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', $("input[name='profile_photo_mac']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -199,14 +222,15 @@ function Mac_Submit() {
         processData: false,
         success: function (result) {
             EasyLoading.hide();
-            if (result.message == undefined) {
-                successMessage(result);
-                location.href = FRONTEND_URL + '/';
-            }
-            else {
-                successMessage(result.message);
-                location.href = FRONTEND_URL + '/';
-            }
+            console.log(result);
+            // if (result.message == undefined) {
+            //     successMessage(result);
+            //     location.href = FRONTEND_URL + '/';
+            // }
+            // else {
+            //     successMessage(result.message);
+            //     location.href = FRONTEND_URL + '/';
+            // }
         },
         error: function (message) {
             EasyLoading.hide();

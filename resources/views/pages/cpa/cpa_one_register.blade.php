@@ -142,11 +142,11 @@
                                         </div>
                                     </div>
 
-                                    <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
+                                    <form id="cpa_pp_form" method="post" action="javascript:void(0);" enctype="multipart/form-data" novalidate>
                                     <input type="hidden" name="batch_id" class="batch_id">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <div class="row mb-3">
+                                            <div class="row mb-3 mt-4">
                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                 <div class="col-md-3">
                                                     <input type="text" name="name_mm" class="form-control" readonly="">
@@ -155,7 +155,7 @@
                                                     <input type="text" name="name_eng" class="form-control" readonly="">
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
+                                            <div class="row mb-3 mt-4">
                                                 <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                 <div class="col-md-6">
                                                     <div class="row" style="padding-top: 0px; margin-top: 0px;">
@@ -232,7 +232,15 @@
                                                     <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
                                                         alt="Upload Photo" class="profile_image" id="private_preview_img">
                                                 </div>
-                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <span class="btn btn-round btn-secondary btn-file">
+                                                        <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="file" id="profile_photo_private" name="profile_photo_private" accept="image/*"></span>
+                                                        <br>
+                                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                    </div>
                                                 
                                             </div>
                                             {{--User Photo--}}
@@ -275,7 +283,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ဖုန်းနံပါတ်</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
-                                                    class="form-control" value="{{ old('phone') }}" disabled >
+                                                    class="form-control" value="{{ old('phone') }}" readonly >
                                             </div>
                                         </div>
                                 
@@ -283,7 +291,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" id="address" name="address"
-                                                    class="form-control" value="{{ old('address') }}" disabled >
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
                                 
@@ -291,7 +299,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
-                                                    class="form-control" disabled value="{{ old('current_address') }}" >
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
                                 
@@ -350,8 +358,8 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရုံးစိုက်ရာဒေသ</label>
                                             <div class="col-md-8">
-                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address"
-                                                    class="form-control" value="{{ old('office_address') }}" disabled >
+                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address_private" value="stupd"
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
                                 
@@ -364,7 +372,7 @@
                                                         <div class="col-md-4"><input disabled type="radio"
                                                                                     class="form-check-input mr-3" id="yes_private"
                                                                                     name="gov_staff" value="1"
-                                                                                    style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                                    style="margin-left: 3%;"  onclick="$('#rec_letter_private').show()">
                                                         </div>
                                                         <div class="col-md-8"><label class="form-check-label " for="yes_private">ဟုတ်</label>
                                                         </div>
@@ -378,7 +386,7 @@
                                                         <div class="col-md-4"><input disabled type="radio"
                                                                                     class="form-check-input mr-3" id="no_private"
                                                                                     name="gov_staff" value="0"
-                                                                                    style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                                    style="margin-left: 3%;"  onclick="$('#rec_letter_private').hide()">
                                                         </div>
                                                         <div class="col-md-8"><label class="form-check-label " for="no_private">မဟုတ်</label></div>
 
@@ -533,11 +541,11 @@
                                         </div>                                        
                                     </div>
 
-                                    <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
+                                    <form id="cpa_ss_form" method="post" action="javascript:void(0);" enctype="multipart/form-data" novalidate>
                                     <input type="hidden" name="batch_id" class="batch_id">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
-                                                <div class="row mb-3">
+                                                <div class="row mb-3 mt-4">
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                     <div class="col-md-3">
                                                         <input type="text" name="name_mm" class="form-control" readonly="">
@@ -547,7 +555,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-3">
+                                                <div class="row mb-3 mt-4">
                                                     <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                     <div class="col-md-6">
                                                         <div class="row" style="padding-top: 0px; margin-top: 0px;">
@@ -624,8 +632,15 @@
                                                         <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
                                                             alt="Upload Photo" class="profile_image" id="self_study_preview_img">
                                                     </div>
-                                                    <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
-                                                    
+                                                    <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <span class="btn btn-round btn-secondary btn-file">
+                                                        <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                        <span class="fileinput-exists">Change</span>
+                                                        <input type="file" id="profile_photo_self" name="profile_photo_self" accept="image/*"></span>
+                                                        <br>
+                                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                    </div>
                                                 </div>
                                                 {{--User Photo--}}
                                             </div> 
@@ -667,7 +682,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ဖုန်းနံပါတ်</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
-                                                    class="form-control" value="{{ old('phone') }}" disabled >
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
                                 
@@ -675,7 +690,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" id="address" name="address"
-                                                    class="form-control" value="{{ old('address') }}" disabled >
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
                                 
@@ -683,7 +698,7 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
-                                                    class="form-control" disabled value="{{ old('current_address') }}" >
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
                                 
@@ -742,8 +757,8 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရုံးစိုက်ရာဒေသ</label>
                                             <div class="col-md-8">
-                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address"
-                                                    class="form-control" value="{{ old('office_address') }}" disabled >
+                                                <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address_self"
+                                                    class="form-control" readonly >
                                             </div>
                                         </div>
 
@@ -755,7 +770,7 @@
                                                         <div class="col-md-4"><input disabled type="radio"
                                                                                     class="form-check-input mr-3" id="yes_self"
                                                                                     name="gov_staff" value="1"
-                                                                                    style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                                    style="margin-left: 3%;"  onclick="$('#rec_letter_self').show()">
                                                         </div>
                                                         <div class="col-md-8"><label class="form-check-label " for="yes_self">ဟုတ်</label>
                                                         </div>
@@ -769,7 +784,7 @@
                                                         <div class="col-md-4"><input disabled type="radio"
                                                                                     class="form-check-input mr-3" id="no_self"
                                                                                     name="gov_staff" value="0"
-                                                                                    style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                                    style="margin-left: 3%;"  onclick="$('#rec_letter_self').hide()">
                                                         </div>
                                                         <div class="col-md-8"><label class="form-check-label " for="no_self">မဟုတ်</label></div>
 
@@ -1078,12 +1093,12 @@
                                         </div>
 
                                     <div>
-                                    <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
+                                    <form  method="post" id="cpa_mac_form" action="javascript:void(0);" enctype="multipart/form-data" novalidate>
 
                                     <input type="hidden" name="batch_id" class="batch_id">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-3 mt-4">
                                                         <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
                                                             <input type="text" name="name_mm" class="form-control" readonly="">
@@ -1093,7 +1108,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-3 mt-4">
                                                         <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
@@ -1134,8 +1149,15 @@
                                                             <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
                                                                 alt="Upload Photo" class="profile_image" id="mac_preview_img">
                                                         </div>
-                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle "></div>
-                                                        
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_mac" name="profile_photo_mac" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
                                                     </div>
                                                     {{--User Photo--}}
                                                 </div>
@@ -1175,7 +1197,7 @@
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၈။') }}</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="ဖုန်းနံပါတ်" id="phone" name="phone"
-                                                           class="form-control" value="{{ old('phone') }}" disabled >
+                                                           class="form-control" readonly >
                                                 </div>
                                             </div>
                                             
@@ -1183,7 +1205,7 @@
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" id="address" name="address"
-                                                           class="form-control" value="{{ old('address') }}" disabled >
+                                                           class="form-control" value="{{ old('address') }}" readonly >
                                                 </div>
                                             </div>
                                             
@@ -1191,7 +1213,7 @@
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၀။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" id="current_address" name="current_address"
-                                                           class="form-control" disabled value="{{ old('current_address') }}" >
+                                                           class="form-control" readonly >
                                                 </div>
                                             </div>
                                             
@@ -1250,8 +1272,8 @@
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ရုံးစိုက်ရာဒေသ</label>
                                                 <div class="col-md-8">
-                                                    <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address"
-                                                        class="form-control" value="{{ old('office_address') }}" readonly="">
+                                                    <input type="text" placeholder="ရုံးစိုက်ရာဒေသ" name="office_address" id="office_address_mac"
+                                                        class="form-control" readonly="">
                                                 </div>
                                             </div>
 
@@ -1263,7 +1285,7 @@
                                                             <div class="col-md-4"><input disabled type="radio"
                                                                                         class="form-check-input mr-3" id="yes_mac"
                                                                                         name="gov_staff" value="1"
-                                                                                        style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                                        style="margin-left: 3%;"  onclick="$('#rec_letter_mac').show()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label " for="yes_mac">ဟုတ်</label>
                                                             </div>
@@ -1277,7 +1299,7 @@
                                                             <div class="col-md-4"><input disabled type="radio"
                                                                                         class="form-check-input mr-3" id="no_mac"
                                                                                         name="gov_staff" value="0"
-                                                                                        style="margin-left: 3%;"  onclick="selectStaff()">
+                                                                                        style="margin-left: 3%;"  onclick="$('#rec_letter_mac').hide()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label " for="no_mac">မဟုတ်</label></div>
 
@@ -1714,10 +1736,12 @@
                             $(".batch_number").append(current_stu_course[0].batch.id);
                             $(".batch_no").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
+                                console.log(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1')
                                 // $('.batch_number').append(last_exam[0].batch.id);
                                 // check last exam and show current data
                                 if(last_exam[0].grade == 1 && last_exam[0].course.code == 'cpa_1'){
                                     let batch_id = localStorage.getItem('batch_id');
+                                    console.log("natch-id",batch_id);
                                     $('.batch_id').val(batch_id);
                                     $.ajax({
                                     type: "get",
@@ -1727,12 +1751,16 @@
                                     async:false,
                                     success: function (res) {
                                         console.log('res',res)
+                                        $('.batch_no').val(res.data.number);                                            
                                         
+                                        // $('.personal_no').val(data.data.cpersonal_no);
+                                        $('#remain_module').val(last_exam[0].is_full_module)
+
+                                        if(last_exam[0].is_full_module == "1"){
+                                            $(".module_two").prop("checked", true);
                                         
-                                            $('.batch_no').val(res.data.number);                                            
-                                            
-                                            // $('.personal_no').val(data.data.cpersonal_no);
-                                            $('#remain_module').val(last_exam[0].is_full_module)
+                                            $('.module_one').attr('disabled', true);
+                                            $('.module_full').attr('disabled', true);
 
                                             if(last_exam[0].is_full_module == "1"){
                                                 $(".module_two").prop("checked", true);
@@ -1740,50 +1768,36 @@
                                                 $('.module_one').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
-                                if(last_exam[0].is_full_module == "1"){
-                                    $(".module_two").prop("checked", true);
-                                
-                                    $('.module_one').attr('disabled', true);
-                                    $('.module_full').attr('disabled', true);
-
                                             }
                                             else if(last_exam[0].is_full_module=="2"){
                                                 $(".module_one").prop("checked", true);
                                                 $('.module_two').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
-                                }
-                                else if(last_exam[0].is_full_module=="2"){
-                                    $(".module_one").prop("checked", true);
-                                    $('.module_two').attr('disabled', true);
-                                    $('.module_full').attr('disabled', true);
-
-                
+                                            }
+                                            else if(last_exam[0].is_full_module=="2"){
+                                                $(".module_one").prop("checked", true);
+                                                $('.module_two').attr('disabled', true);
+                                                $('.module_full').attr('disabled', true);
                                             }
                                             else{
                                                 $(".module_full").prop("checked", true);
                                                 $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);
-                                                
-
-                                                
-                                            }
-
-                                    
-                                }
-
-                                        
-
-                                        }
-                                    })   
-                                        
-                                        
-                                }
-                            }else{
-                                $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                                $(".batch_number").append(current_stu_course[0].batch.number);
-
-                                }                    // $('.batch_no').val(current_stu_course[0].batch.number);
+                                                $('.module_full').attr('disabled', true);                                                    
+                                            }                                    
+                                        }   
+                                    }
+                                })   
+                            }
+                            else{
+                                $('.batch_id').val(current_stu_course[0].batch.id);
+                            } 
+                        }
+                        else{
+                            $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                            $(".batch_number").append(current_stu_course[0].batch.number);
+                            $('.batch_id').val(current_stu_course[0].batch.id);
+                        }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
                         var info = data.data;
@@ -1825,7 +1839,7 @@
                         //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
                         $("#mac_container").find("input[name=company_name]").val(job_history.company_name);
                         $("#mac_container").find("input[name=salary]").val(job_history.salary);
-                        $("#mac_container").find("input[name=office_address]").val(job_history.office_address);
+                        //$("#mac_container").find("input[name=office_address]").val(job_history.office_address);
                         document.getElementById('mac_preview_img').src = BASE_URL + data.data.image;
                         //$("#mac_container").find("previewImg").attr('src',BASE_URL + data.data.image);
                         
@@ -1855,7 +1869,7 @@
                         //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
                         $("#self_study_container").find("input[name=company_name]").val(job_history.company_name);
                         $("#self_study_container").find("input[name=salary]").val(job_history.salary);
-                        $("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
+                        //$("#self_study_container").find("input[name=office_address]").val(job_history.office_address);
                         
                         document.getElementById('self_study_preview_img').src = BASE_URL + data.data.image;
 
@@ -1885,7 +1899,7 @@
                         //$("#mac_container").find("input[name=current_address]").val(job_history.current_address);
                         $("#private_school_container").find("input[name=company_name]").val(job_history.company_name);
                         $("#private_school_container").find("input[name=salary]").val(job_history.salary);
-                        $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
+                        //$("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
                         document.getElementById('private_preview_img').src = BASE_URL + data.data.image;                  
                         }
 
@@ -1970,7 +1984,32 @@
                         //   $("#private_school_container").find("input[name=salary]").val(job_history.salary);
                         //   $("#private_school_container").find("input[name=office_address]").val(job_history.office_address);
                     //  }
-
+                        if(data.data.exam_registers.length!=0){
+                            $("input[name='office_address']").prop('readonly', false);
+                            $("input[name='current_address']").prop('readonly', false);
+                            $("input[name='address']").prop('readonly', false);
+                            $("input[name='phone']").prop('readonly', false);
+                            $("input[name='profile_photo_mac']").show();
+                            $("input[name='profile_photo_self']").show();
+                            $("input[name='profile_photo_private']").show();
+                            $("input[name='recommend_letter_mac']").prop('disabled', false);
+                            $("input[name='recommend_letter_self']").prop('disabled', false);
+                            $("input[name='recommend_letter_private']").prop('disabled', false);
+                            $("input[name='gov_staff']").prop('disabled', false);
+                        }
+                        else{
+                            $("input[name='office_address']").prop('readonly', true);
+                            $("input[name='current_address']").prop('readonly', true);
+                            $("input[name='address']").prop('readonly', true);
+                            $("input[name='phone']").prop('readonly', true);
+                            $("input[name='profile_photo_mac']").hide();
+                            $("input[name='profile_photo_self']").hide();
+                            $("input[name='profile_photo_private']").hide();
+                            $("input[name='recommend_letter_mac']").prop('disabled', true);
+                            $("input[name='recommend_letter_self']").prop('disabled', true);
+                            $("input[name='recommend_letter_private']").prop('disabled', true);
+                            $("input[name='gov_staff']").prop('disabled', true);
+                        }
                          
                     }
 

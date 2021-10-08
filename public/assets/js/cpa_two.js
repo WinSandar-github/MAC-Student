@@ -69,6 +69,13 @@ function CPA2_Private_School_Submit() {
     data.append('recommendation_letter',recommend_letter_private);
     data.append('type', 1);
     data.append('form_type', localStorage.getItem('course_id'));
+    //send student info data
+    data.append('office_address', $("input[name='office_address']").val());
+    data.append('current_address', $("input[name='current_address']").val());
+    data.append('address', $("input[name='address']").val());
+    data.append('phone', $("input[name='phone']").val());
+    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', $("input[name='profile_photo_private']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
@@ -121,6 +128,13 @@ function CPA2_Mac_Submit() {
     data.append('recommendation_letter',recommend_letter_mac);
     data.append('type', 2);
     data.append('form_type', localStorage.getItem('course_id'));
+    //send student info data
+    data.append('office_address', $("input[name='office_address']").val());
+    data.append('current_address', $("input[name='current_address']").val());
+    data.append('address', $("input[name='address']").val());
+    data.append('phone', $("input[name='phone']").val());
+    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', $("input[name='profile_photo_mac']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
@@ -173,6 +187,13 @@ function CPA2_Self_Study_Submit() {
     data.append('type', 0);
     data.append('recommendation_letter',recommend_letter_self);
     data.append('form_type', localStorage.getItem('course_id'));
+    //send student info data
+    data.append('office_address', $("input[name='office_address']").val());
+    data.append('current_address', $("input[name='current_address']").val());
+    data.append('address', $("input[name='address']").val());
+    data.append('phone', $("input[name='phone']").val());
+    data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', $("input[name='profile_photo_self']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",

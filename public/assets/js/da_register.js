@@ -297,6 +297,14 @@ function createDaTwoSelfStudy() {
     });
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
+
+    //send student info data
+    send_data.append('office_address', $("input[name='office_address']").val());
+    send_data.append('current_address', $("input[name='current_address']").val());
+    send_data.append('address', $("input[name='address']").val());
+    send_data.append('phone', $("input[name='phone']").val());
+    send_data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    send_data.append('profile_photo', $("input[name='profile_photo_self']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
@@ -349,6 +357,14 @@ function createDaTwoPrivateSchool() {
     if ($("input[name='form_type']").val() == "da two") {
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
     }
+
+    //send student info data
+    send_data.append('office_address', $("input[name='office_address']").val());
+    send_data.append('current_address', $("input[name='current_address']").val());
+    send_data.append('address', $("input[name='address']").val());
+    send_data.append('phone', $("input[name='phone']").val());
+    send_data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    send_data.append('profile_photo', $("input[name='profile_photo_private']")[0].files[0]);
     show_loader();
 
     $.ajax({
@@ -398,7 +414,13 @@ function createDaTwoMac() {
     send_data.append('academic_year', $("#mac_academic_year").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('mac_type', $("input[type='radio'][name='mac_type']:checked").val());
-
+    //send student info data
+    send_data.append('office_address', $("input[name='office_address']").val());
+    send_data.append('current_address', $("input[name='current_address']").val());
+    send_data.append('address', $("input[name='address']").val());
+    send_data.append('phone', $("input[name='phone']").val());
+    send_data.append('gov_staff', $('input[name="gov_staff"]:checked').val());
+    send_data.append('profile_photo', $("input[name='profile_photo_mac']")[0].files[0]);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
