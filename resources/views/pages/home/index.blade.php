@@ -125,6 +125,10 @@
                                 <button class="course_list" value="app">တက်ရောက်ခွင့်ရသူများစာရင်း</button>
                             </li>
                             <li>
+                                {{-- <button class="course_list" data-bs-toggle="tab" value="reg">တက်ရောက်ခွင့်ရသူများစာရင်း</button> --}}
+                                <button class="course_list" value="reg">မှတ်ပုံတင်ထားပြီးသူများစာရင်း</button>
+                            </li>
+                            <li>
                                 {{-- <button class="course_list" data-bs-toggle="tab" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button> --}}
                                 <button class="course_list" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
                             </li>
@@ -140,10 +144,10 @@
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                        
                             <li>
-                                  <button value="exam" onclick=" window.open('/entry_exam_list','_blank')">CPA One ဝင်ခွင့်စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                                  <button value="exam" onclick=" window.open(`${FRONTEND_URL}/entry_exam_list`,'_blank')">CPA One ဝင်ခွင့်စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
                             </li>
                             <li>
-                                 <button class="course_list" onclick=" window.open('/qualified_test_list','_blank')">အရည်အချင်းစစ် စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                                 <button class="course_list" onclick=" window.open(`${FRONTEND_URL}/qualified_test_list`,'_blank')">အရည်အချင်းစစ် စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
                             </li>
                         </ul>
                         
