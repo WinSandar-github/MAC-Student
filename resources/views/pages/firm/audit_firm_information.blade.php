@@ -211,12 +211,8 @@
 
 																				</div>
 																			</div>
-																		<li>
-                                    {{--<li>
-																			<i class="icofont-money"></i>
-																			<strong>Delay Fee</strong>
-																			<span class='delay-fee'>
-																		</li>--}}
+																		</li>
+
 																		<li>
 																			<i class="icofont-money"></i>
 																			<strong>Delay Fee(Within January)</strong>

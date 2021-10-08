@@ -468,13 +468,24 @@
 
                             </div>
                         </div>
-                        {{--reject register button--}}
-                        <div id="reject_register_btn" style="display:none;">
+                        {{--reject register buttons--}}
+                        <div id="reject_register_btn_audit" style="display:none;">
                           <div class="row" >
                               <div class="col-md-12">
                                   <div align="center">
                                       <p class="info-btn col-md-2 mb-4 text-dark h6">
                                           <a href="{{url('audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div id="reject_register_btn_non_audit" style="display:none;">
+                          <div class="row" >
+                              <div class="col-md-12">
+                                  <div align="center">
+                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                          <a href="" class="btn btn-success btn-hover-dark" >Update Register</a>
                                       </p>
                                   </div>
                               </div>

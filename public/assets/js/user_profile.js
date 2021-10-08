@@ -21,7 +21,7 @@ function user_profile() {
                     + " City, " + acc_firm.state_region + " State,");
                 $(".email").text(acc_firm.h_email);
                 $('.phone').text(acc_firm.telephones);
-
+                console.log(">>>>",acc_firm);
                 if (acc_firm.status == 2) {
                     $('#reject_remark_box').css("display", "block");
                     $('.reject_remark').text(acc_firm.remark);
@@ -50,20 +50,22 @@ function user_profile() {
                         $('.status_history').append('<span class="text-success">Your Audit Firm Form is Approved.</span>');
                     } else {
                         $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
-                        $('#reject_register_btn').css("display","block");
+                        $('#reject_register_btn_audit').css("display","block");
                     }
                 }
                 else {
+                    //if non-audit firm type
                     $("#info_for_non_audit").css("display", "block");
                     $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
                     $('.passport_csc_no').text(acc_firm.dir_passport_csc);
-                    //if non-audit firm type
+
                     if (acc_firm.status == 0) {
-                        $('.status_history').append('Your Non-Audit Firm Form is checking.');
+                        $('.status_history').append('<span class="text-warning">Your Non-Audit Firm Form is checking.</span>');
                     } else if (acc_firm.status == 1) {
-                        $('.status_history').append('Your Non-Audit Firm Form is Approved.');
+                        $('.status_history').append('<span class="text-success">Your Non-Audit Firm Form is Approved.</span>');
                     } else {
-                        $('.status_history').append('Your Non-Audit Firm Form is Rejected.');
+                        $('.status_history').append('<span class="text-danger">Your Non-Audit Firm Form is Rejected.</span>');
+                        $('#reject_register_btn_non_audit').css("display","block");
                     }
                 }
 

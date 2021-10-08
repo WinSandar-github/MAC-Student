@@ -308,41 +308,37 @@
 
 								<div class="row mb-3">
 									<div class="col-md-12">
-										<div class="card">
-											<div class="card-body">
-												<table id="myTable" class="table non_partner table-bordered input-table">
-													<thead>
-														<tr>
-															<th class="less-font-weight text-center" rowspan="2">Sr</th>
-															<th class="less-font-weight text-center" rowspan="2">Name</th>
-															<th class="less-font-weight text-center" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
+										<table id="myTable" class="table non_partner table-bordered input-table">
+											<thead>
+												<tr>
+													<th class="less-font-weight text-center" rowspan="2">Sr</th>
+													<th class="less-font-weight text-center" rowspan="2">Name</th>
+													<th class="less-font-weight text-center" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
 
-															<th  class="less-font-weight text-center"  >
-																<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerByNonAudit("non_partner")'>
-																	<li class="fa fa-plus"></li>
-																</button>
-															</th>
-														</tr>
+													<th  class="less-font-weight text-center"  >
+														<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerByNonAudit("non_partner")'>
+															<li class="fa fa-plus"></li>
+														</button>
+													</th>
+												</tr>
 
-													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" ></td>
-															<td>
-																<input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" >
-															</td>
+											</thead>
+											<tbody>
+												<tr>
+													<td align="center" class="align-middle">1</td>
+													<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" ></td>
+													<td>
+														<input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" >
+													</td>
 
-															<td class="text-center">
-																	<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowPartnerByNonAudit("non_partner")'>
-																		<li class="fa fa-times"></li>
-																	</button>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-										</div>
+													<td class="text-center">
+															<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowPartnerByNonAudit("non_partner")'>
+																<li class="fa fa-times"></li>
+															</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 
@@ -353,45 +349,41 @@
 								</div>
 								<div class="row mb-3">
 									<div class="col-md-12">
-										<div class="card">
-											<div class="card-body">
-												<table id="myTable" class="table non_director table-bordered">
-													<thead>
-														<tr>
-															<th class="less-font-weight text-center">Sr</th>
-															<th class="less-font-weight text-center">Name</th>
-															<th class="less-font-weight text-center">Position</th>
-															<th class="less-font-weight text-center" >Passport / CSC No.</th>
-															<!-- <th class="less-font-weight" >CSC No.</th> -->
-															<th  class="less-font-weight text-center">
-																<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorByNonAudit("non_director")'>
-																	<li class="fa fa-plus"></li>
-																</button>
-															</th>
-														</tr>
+										<table id="myTable" class="table non_director table-bordered">
+											<thead>
+												<tr>
+													<th class="less-font-weight text-center">Sr</th>
+													<th class="less-font-weight text-center">Name</th>
+													<th class="less-font-weight text-center">Position</th>
+													<th class="less-font-weight text-center" >Passport / CSC No.</th>
+													<!-- <th class="less-font-weight" >CSC No.</th> -->
+													<th  class="less-font-weight text-center">
+														<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorByNonAudit("non_director")'>
+															<li class="fa fa-plus"></li>
+														</button>
+													</th>
+												</tr>
 
-													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" ></td>
-															<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" ></td>
-															<td>
-																<input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" >
+											</thead>
+											<tbody>
+												<tr>
+													<td align="center" class="align-middle">1</td>
+													<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" ></td>
+													<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" ></td>
+													<td>
+														<input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" >
 
-															</td>
-															<!-- <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td> -->
+													</td>
+													<!-- <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td> -->
 
-															<td class="text-center">
-																	<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorByNonAudit("non_director")'>
-																		<li class="fa fa-times"></li>
-																	</button>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-										</div>
+													<td class="text-center">
+															<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorByNonAudit("non_director")'>
+																<li class="fa fa-times"></li>
+															</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 
