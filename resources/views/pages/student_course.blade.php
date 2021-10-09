@@ -85,7 +85,7 @@
                                         <?php
                                         $description = explode(',', $course[0]['course_type']['course_description']);
                                         foreach ($description as $des) {
-                                            echo '<p class="mb-4 p_font text-justify">' . $des . '</p>';
+                                            echo '<p class="mb-4 p_font " style="font-family: Arial, Helvetica, sans-serif; text-align: justify;">' . $des . '</p>';
                                         }
                                         ?>
                                         {{--@foreach($description as $des)
@@ -397,9 +397,8 @@
                     <p>DA Part II အောင်မြင်ပြီးသူများ</p>
                     <a id="da_pass" href="" class="btn btn-md btn-success">DA II Pass</a>
                     <hr>
-                    <p>ဝင်ခွင့်စာမေးပွဲဖြေဆိုသူများ</p>
-                    <a id="entry_exam" href="" class="btn btn-md btn-success">Entry Exam</a>
-                </div>
+                    <p id="entry_exam">ဝင်ခွင့်စာမေးပွဲဖြေဆိုသူများ</p>
+                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close

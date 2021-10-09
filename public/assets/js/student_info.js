@@ -516,6 +516,15 @@ function app_form_feedback() {
                     var reg_end_date = new Date(batch.mac_reg_end_date);
                     var exam_start_date = new Date(batch.exam_start_date);
                     var exam_end_date = new Date(batch.exam_reg_end_date);
+                    var entry_start_date = new Date(batch.entrance_pass_start_date);
+                    var entry_end_date = new Date(batch.entrance_pass_end_date);
+                    let entry_status;
+                    //entry status 1 is show and 2 is hide entry button 
+                    if (entry_start_date <= date && entry_end_date >= date) {
+                        entry_status = 1;
+                    } else {
+                        entry_status = 2;
+                    }
                     if (app_start_date <= date && app_end_date >= date) {
 
                         $(`.app${i}`).show();
@@ -524,7 +533,7 @@ function app_form_feedback() {
 
                         $(`.exm${i}`).hide();
 
-                        $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type})" class="btn btn-success btn-sm btn-hover-dark" >Enroll Now </a>`);
+                        $(`.check_login${i}`).append(`<a href="javascript:login_page(${batch_id},'${course_code}',${course_type},${entry_status})" class="btn btn-success btn-sm btn-hover-dark" >Enroll Now </a>`);
 
                     } else if (reg_start_date <= date && reg_end_date >= date) {
 
@@ -610,6 +619,8 @@ function loadCourse() {
 }
 
 function selectedRegistration(radioValue) {
+
+
     if (radioValue == 3) {
 
         $('#mac_container').css('display', 'block');
@@ -644,11 +655,11 @@ function createSelfStudy() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
-
+    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 0);
-    send_data.append('recommendation_letter',recommend_letter_self);
+    send_data.append('recommendation_letter', recommend_letter_self);
     send_data.append('batch_no_self', $("input[name='batch_no_self']").val());
     send_data.append('part_no_self', $("input[name='part_no_self']").val());
     send_data.append('personal_no_self', $("input[name='personal_no_self']").val());
@@ -658,9 +669,15 @@ function createSelfStudy() {
     });
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('remain_module', $("input[name='remain_module']").val())
-    send_data.append('batch_id', batch_id)
-
-
+    send_data.append('batch_id', $("input[name='batch_id']").val());
+    //send student info data
+    send_data.append('office_address', $("#self_study_container").find("input[name=office_address]").val());
+    send_data.append('current_address',$("#self_study_container").find("input[name=current_address]").val());
+    send_data.append('address', $("#self_study_container").find("input[name=address]").val());
+    send_data.append('phone', $("#self_study_container").find("input[name=phone]").val());
+    send_data.append('gov_staff', $("#self_study_container").find('input[name="gov_staff"]:checked').val());
+    send_data.append('profile_photo', profile_photo);
+   
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -682,11 +699,11 @@ function createPrivateSchool() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
-
+    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 1);
-    send_data.append('recommendation_letter',recommend_letter_private);
+    send_data.append('recommendation_letter', recommend_letter_private);
     send_data.append('batch_no_private', $("input[name='batch_no_private']").val());
     send_data.append('part_no_private', $("input[name='part_no_private']").val());
     send_data.append('personal_no_private', $("input[name='personal_no_private']").val());
@@ -694,9 +711,15 @@ function createPrivateSchool() {
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('private_school_name', $("#selected_school_id option:selected").text());
     send_data.append('remain_module', $("input[name='remain_module']").val())
-    send_data.append('batch_id', batch_id)
+    send_data.append('batch_id', $("input[name='batch_id']").val());
 
-
+    //send student info data
+    send_data.append('office_address', $("#private_school_container").find("input[name=office_address]").val());
+    send_data.append('current_address',$("#private_school_container").find("input[name=current_address]").val());
+    send_data.append('address', $("#private_school_container").find("input[name=address]").val());
+    send_data.append('phone', $("#private_school_container").find("input[name=phone]").val());
+    send_data.append('gov_staff', $("#private_school_container").find('input[name="gov_staff"]:checked').val());
+    send_data.append('profile_photo', profile_photo);
     // if($("input[name='form_type']").val()=="da two"){
     //     send_data.append('date', formatDate($("input[name='exam_date']").val()));
     // }
@@ -712,7 +735,7 @@ function createPrivateSchool() {
             EasyLoading.hide();
             successMessage(result);
             setInterval(() => {
-                 location.href = FRONTEND_URL + "/";
+                location.href = FRONTEND_URL + "/";
             }, 3000);
         }
     });
@@ -722,20 +745,27 @@ function createMac() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-
+    var profile_photo= $("input[name=profile_photo_mac]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 2);
-    send_data.append('recommendation_letter',recommend_letter_mac);
+    send_data.append('recommendation_letter', recommend_letter_mac);
     send_data.append('batch_no_mac', $("input[name='batch_no_mac']").val());
     send_data.append('part_no_mac', $("input[name='part_no_mac']").val());
     send_data.append('personal_no_mac', $("input[name='personal_no_mac']").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('remain_module', $("input[name='remain_module']").val())
-    send_data.append('batch_id', batch_id);
+    send_data.append('batch_id',$("input[name='batch_id']").val());
     send_data.append('mac_type', $("input[name='mac_type']").val());
-
+    //send student info data
+    send_data.append('office_address', $("#mac_container").find("input[name=office_address]").val());
+    send_data.append('current_address',$("#mac_container").find("input[name=current_address]").val());
+    send_data.append('address', $("#mac_container").find("input[name=address]").val());
+    send_data.append('phone', $("#mac_container").find("input[name=phone]").val());
+    send_data.append('gov_staff', $("#mac_container").find("input[name='gov_staff']:checked").val());
+    // return alert($("#mac_container").find("input[name='gov_staff']:checked").val());
+    send_data.append('profile_photo', profile_photo);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
