@@ -519,7 +519,7 @@ function direct_or_da() {
                 let entry_exam = res.data.exams.slice(-1);
                 console.log('entry_exam',entry_exam);
                 if(entry_exam.length != 0){
-                    $('#exam_date').append(formatDateMY(entry_exam[0].exam_start_date));
+                    $('#exam_date').append(formatDateMYEntry(entry_exam[0].exam_start_date));
                 }else{
                     $('#exam_date').append("-------");
                 }

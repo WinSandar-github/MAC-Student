@@ -736,7 +736,7 @@ function createMac() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_mac]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 2);
@@ -747,7 +747,7 @@ function createMac() {
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('remain_module', $("input[name='remain_module']").val())
-    send_data.append('batch_id', $("input[name='batch_id']").val());
+    send_data.append('batch_id',$("input[name='batch_id']").val());
     send_data.append('mac_type', $("input[name='mac_type']").val());
     //send student info data
     send_data.append('office_address', $("#mac_container").find("input[name=office_address]").val());

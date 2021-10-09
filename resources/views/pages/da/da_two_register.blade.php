@@ -1551,7 +1551,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
                     $('.course_name').val("Diploma In Accountancy Part Two");
-                    // $('.batch_id').val(current_stu_course[0].batch.id);
+                    $('.batch_id').val(current_stu_course[0].batch.id);
                     var reg_srno = current_stu_course[0].batch.number;
                     // $('#reg_srno').append(reg_srno+1)
 
@@ -1573,7 +1573,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     let batch_id = localStorage.getItem('batch_id');
-                    $('.batch_id').val(batch_id);
+                    // $('.batch_id').val(batch_id);
                     
                 
                     if( last_exam[0] && ( last_exam[0].batch_id == current_stu_course[0].batch_id ) && last_exam[0].is_full_module !== 3){
@@ -1588,6 +1588,7 @@ $nrc_characters = config('myanmarnrc.characters');
                             $('#batch_name').text(res.data.name);
                             
                             $('.batch_no').val(res.data.number);
+                            $('batch_id').val(re.data.id);
                             $('.personal_no').val(data.data.personal_no);
                             $('#remain_module').val(last_exam[0].is_full_module)
 
@@ -1625,6 +1626,7 @@ $nrc_characters = config('myanmarnrc.characters');
                         
                     }else{
                          $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                         $('.batch_no').val(current_stu_course[0]?.batch?.id);
                     }
 
                     let education = student_info.student_education_histroy;

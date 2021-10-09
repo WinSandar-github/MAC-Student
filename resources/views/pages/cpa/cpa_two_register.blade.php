@@ -1503,7 +1503,7 @@ $('document').ready(function(){
 
                 if(exam_registers[0].grade == 1 && exam_registers[0].course.code == 'cpa_2'){
                         let batch_id = localStorage.getItem('batch_id');
-                        $('.batch_id').val(batch_id);
+                        // $('.batch_id').val(batch_id);
                         $.ajax({
                         type: "get",
                         url: BACKEND_URL+"/batch/"+batch_id,
@@ -1515,6 +1515,7 @@ $('document').ready(function(){
  
                             
                             $('.batch_no').val(res.data.number);
+                            $('.batch_id').val(res.data.id);
                             $('.personal_no').val(data.data.personal_no);
  
 
@@ -1552,6 +1553,7 @@ $('document').ready(function(){
                         
                     }else{
                          $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                         $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     }
                     if(data.data.exam_registers.length!=0){
                         $("input[name='office_address']").prop('readonly', false);
