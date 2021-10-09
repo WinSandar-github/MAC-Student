@@ -44,26 +44,23 @@
             <div class="container mt-5"> <!-- container-fluid p-4 -->
                 <div class="status-reject" style="display:none">
                     <div class="card text-white bg-dark mb-3">
-
                         <div class="card-body">
-                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form
-                             </p>
+                            <p class="card-text reject">Your Registration Form is need to prepare.Please update your form !
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div id="audit_form_pending" style="display:none; margin-top:5%;">
                     <div class="card text-white bg-primary my-3">
-
                         <div class="card-body">
-                            <p class="card-text">Your Audit Firm Form is checking</p>
+                            <p class="card-text">Your Audit Registration is checking</p>
                         </div>
                     </div>
                 </div>
                 <div id="audit_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
                     <div class="card text-white bg-primary my-3">
-
                         <div class="card-body">
-                            <p class="card-text">Your Audit Registeration Form is approved! You need to subscribe your audit service with desire payment method!</p>
+                            <p class="card-text">Your Audit Registration Form is approved! You need to subscribe your audit service with desire payment method!</p>
                         </div>
                     </div>
 
@@ -114,12 +111,12 @@
                                         <tr>
                                             <td width="15%">
                                                 <div class="single-form">
-                                                    <label class="col-form-label">Applied Date</label>
+                                                    <label class="col-form-label">Registration No.</label>
                                                 </div>
                                             </td>
                                             <td width="85%">
                                                 <div class="single-form">
-                                                    <input type="text" class="form-control" id="register_date" readonly="">
+                                                    <input type="text" class="form-control" id="reg_no" readonly="">
                                                 </div>
                                             </td>
                                         </tr>
@@ -214,12 +211,8 @@
 
 																				</div>
 																			</div>
-																		<li>
-                                    {{--<li>
-																			<i class="icofont-money"></i>
-																			<strong>Delay Fee</strong>
-																			<span class='delay-fee'>
-																		</li>--}}
+																		</li>
+
 																		<li>
 																			<i class="icofont-money"></i>
 																			<strong>Delay Fee(Within January)</strong>
@@ -259,33 +252,29 @@
 																			</div>
 																		</li>
 
+																		{{--initial register button--}}
                                     <div class="row register-btn">
                                         <div class="col-md-6"></div>
                                         <div class="col-md-6">
                                             <div class="pull-right mt-4">
                                                 <p class="info-btn col-md-2 mb-4 text-dark h6">
                                                     <a href="{{url('audit_firm')}}" class="btn btn-success btn-hover-dark" >Register</a>
-
                                                 </p>
-
                                             </div>
-
                                         </div>
-
                                     </div>
+
 				                            <div class="row payment-btn" style="display:none;">
 				                                <div class="col-md-6"></div>
 				                                <div class="">
 				                                    <div class="pull-right mt-4">
 				                                        <p class="info-btn text-dark h6">
-
 				                                            <button id="audit_payment_btn" class="btn btn-success btn-hover-dark"> Go to payment</button>
 				                                        </p>
-
 				                                    </div>
 				                                </div>
-
 				                            </div>
+
 																</ul>
 															</div>
 														</div>

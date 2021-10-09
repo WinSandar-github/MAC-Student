@@ -257,7 +257,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="" >
+                                        <input type="text"  class="form-control" name="cpersonal_no" id="cpersonal_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -293,9 +293,9 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
-                                <div class="pass_batch_two" style="display:none">
+                                {{--<div class="pass_batch_two" style="display:none">
                                     <div class="row mb-3">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-1"></div>
@@ -321,7 +321,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
@@ -329,11 +329,11 @@
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
                                     </div>
                                     <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
-                                    <input type="text" name="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
+                                    <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
                                     ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
-                                <div class="qt_pass" style="display:none">
+                                {{--<div class="qt_pass" style="display:none">
                                     <div class="row mb-3">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-1"></div>
@@ -359,7 +359,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -506,7 +506,7 @@
                                         <input type="file"  class="form-control" name="three_years_full"  >
                                     </div>
                                 </div>
-                                <div class="row mb-4">
+                                {{--<div class="row mb-4">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
 
@@ -514,7 +514,7 @@
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="letter"  >
                                     </div>
-                                </div>
+                                </div>--}}
                                 {{--<div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
@@ -593,38 +593,58 @@
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
+    getCpersonalNo();
     // check_email_cpaff();
     $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",
             allowInput: true,
     });
-    $("input[name='exam_year']").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
-    });
-    $("input[name='exam_month']").flatpickr({
-            enableTime: false,
-            dateFormat: "M",
-            allowInput: true,
-    });
+    // $("input[name='exam_year']").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
+    // $("input[name='exam_month']").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "M",
+    //         allowInput: true,
+    // });
     $("input[name='qt_pass_date']").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",
             allowInput: true,
     });
 
-    $("input[name='cpa2_pass_date']").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
-    });
+    // $("input[name='cpa2_pass_date']").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
     $(document).on('keydown', '#father_name_mm', function () {
         myanmarLetterOnly($(this));
     });
     $(document).on('keydown', '#name_mm', function () {
         myanmarLetterOnly($(this));
     });
+
+    $("#cpa2_pass_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#exam_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#exam_month").datepicker({
+        format: "mm",
+        viewMode: "months", 
+        minViewMode: "months",
+        autoclose:true //to close picker once year is selected
+    }); 
 </script>
 @endpush

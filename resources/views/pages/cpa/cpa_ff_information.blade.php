@@ -1,13 +1,4 @@
-@php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
-@endphp
-
 @extends('layouts.app')
-
 @section('content')
      <div class="main-wrapper">
         <!-- Page Banner Start -->
@@ -81,21 +72,21 @@
                 </div>
 
 
-								<div id="cpa_initial">
-									<div class="row">
-										<div class="card col-md-7 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Description</h4>
-														<hr>
-														<div class="info-list">
+                                <div id="cpa_initial">
+                                    <div class="row">
+                                        <div class="card col-md-7 m-2">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 widget-information">
+                                                        <h4 class="col-md-12 card-title text-success">Description</h4>
+                                                        <hr>
+                                                        <div class="info-list">
                                                             <div class="row mb-3">
                                                                 <div class="col-md-12">
                                                                     <div class="description-info"></div>
                                                                 </div>
                                                             </div>
-															<div class="row">
+                                                            <div class="row">
                                                                 <div class="col-md-12">
                                                                     <h4 class="col-md-12 card-title text-success">Requirement</h4>
                                                                     <hr>
@@ -104,31 +95,32 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="card col-md-4 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Fees</h4>
-														<hr>
-														<div class="info-list">
-															<div class="col-md-12">
-																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-																		<div class="row register-btn">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card col-md-4 m-2">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 widget-information">
+                                                        <h4 class="col-md-12 card-title text-success">Fees</h4>
+                                                        <hr>
+                                                        <div class="info-list">
+                                                            <div class="col-md-12">
+                                                                <ul>
+                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
+                                                                        <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li><br>
+                                                                        <div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6 pull-right">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" style="padding-left: 5%;">Register</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -150,15 +142,15 @@
                                                                             </div>
                                                                             
                                                                         </div>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 <!--Modal-->
 <form method="post" class="needs-validation" action="javascript:cpaffPaymentSubmit();" enctype="multipart/form-data"
           novalidate>
@@ -226,8 +218,8 @@
                 {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
-	                    
-						<div class="row">
+                        
+                        <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
                                     <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်') }}</label>
@@ -312,7 +304,7 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 cpa_file"></div>
                                                 <div class="col-md-8">
-                                                    <input type="file"  class="form-control" name="cpa" >
+                                                    <input type="file"  class="form-control" name="cpa" style="display:none">
                                                 </div>
                                             </div><br/>
                                         </div>
@@ -329,7 +321,7 @@
                                                 <div class="col-md-2 ra_file" id="ra_file"></div>
                                                 <div class="col-md-8">
                                                     <!-- <div class="single-form"> -->
-                                                        <input type="file"  class="form-control" name="ra" >
+                                                        <input type="file"  class="form-control" name="ra" style="display:none">
                                                     <!-- </div> -->
                                                 </div>
                                             </div><br/>
@@ -372,7 +364,7 @@
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <button type="button" class="btn btn-primary"  style="padding-left:5px; display: none;" id="add_btn" onclick="AddCPAFFDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -385,7 +377,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -410,7 +402,7 @@
 
                         <div class="row">
                             <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpa2_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                            <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" id="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
                         </div><br/>
 
                         <div class="row">
@@ -420,7 +412,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" required=""> ၊ခုနှစ် <input type="text" name="old_card_no_year" class="form-control" style="display: inline;width: 100px;" required="">)  (မိတ္တူတင်ပြရန်)</div>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" required=""> ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" required="">)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
                                     <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                 </div>
@@ -429,7 +421,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                <div class="col-md-6 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" required="">
+                                <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" required="">
                             </div><br/><br>
 
                             <div class="row">
@@ -546,13 +538,13 @@
                               </div>
                           </div><br/><br> --}}
 
-							<div class="row">
+                            <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                 <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" ></div>
                                 <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                             </div><br/>
-											
-							<br/>
+                                            
+                            <br/>
                       <div class="row ">
                           <div class="col-md-2 offset-md-5">
                               <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
@@ -611,50 +603,48 @@
         var course_type = location.pathname.split('/');
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
-        localStorage.setItem('course_type',course_type[2])
+            localStorage.setItem('course_type',course_type[2]);
         }
         $('#profile').on('click', function(e) {
-    $('#file').click();
-});
-$('#file').change(function(e) {
+            $('#file').click();
+        });
+        $('#file').change(function(e) {
+            var input = e.target;
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
 
-    var input = e.target;
-    if (input.files && input.files[0]) {
-    var file = input.files[0];
+                var reader = new FileReader();
 
-    var reader = new FileReader();
-
-    reader.readAsDataURL(file);
-    reader.onload = function(e) {
-        $('.dashes-label').css('color','transparent');
-        $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
-    }
-    }
-})
-        
-        form_feedback();
-        loadDescription('CPA (Full Fluged)');
-        checkPaymentCpaff();
-        loadCpaffData();
-        loadCpaffInitialData();
-    })
-    //app_form_feedback();
-    $("input[name='cpa2_pass_date']").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+                reader.readAsDataURL(file);
+                reader.onload = function(e) {
+                    $('.dashes-label').css('color','transparent');
+                    $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+                }
+            }
+        });    
     });
-
-    $("input[name='renew_accepted_date']").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
+    $("#cpaff_pass_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#renew_accepted_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#old_card_no_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
-
-    $("input[name='old_card_no_year']").flatpickr({
-            enableTime: false,
-            dateFormat: "M-Y",
-            allowInput: true,
-    });
+    form_feedback();
+    loadDescription('CPAFF');
+    checkPaymentCpaff();
+    loadCpaffData();
+    loadCpaffInitialData();
 </script>
 @endpush

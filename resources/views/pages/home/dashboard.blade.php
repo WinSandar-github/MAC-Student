@@ -310,7 +310,7 @@
                                 </div>
 
                             </div>
-                            
+
                             <div id="article_row">
                                 <div class="col-md-12 ">
                                     <h5 class="text-center border-bottom py-2 my-2"
@@ -346,7 +346,9 @@
                                                 <thead>
                                                     <th>Course Name</th>
                                                     <th>Batch Name</th>
+                                                    <th>Module</th>
                                                     <th>Success Year</th>
+                                                    
                                                 </thead>
                                                 <tbody class="course">
                                                 </tbody>
@@ -459,21 +461,43 @@
                             </div>
 
                         </div>
+
                         <div class="row my-2">
-
-
                             <h5 class="text-center border-bottom pb-2"
                                 style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
 
-                            <div class="text-center status_history">
+                            <div class="text-center fw-bolder status_history">
 
                             </div>
+                        </div>
+                        {{--reject register buttons--}}
+                        <div id="reject_register_btn_audit" style="display:none;">
+                          <div class="row" >
+                              <div class="col-md-12">
+                                  <div align="center">
+                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                          <a href="{{url('audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div id="reject_register_btn_non_audit" style="display:none;">
+                          <div class="row" >
+                              <div class="col-md-12">
+                                  <div align="center">
+                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                          <a href="" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
                         </div>
                         <div id="reject_remark_box" style="display:none;">
                           <div class="row my-2">
                             <h5 class="text-center border-bottom pb-2"
                                 style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
-                            <div class="text-center reject_remark">
+                            <div class="text-center text-danger reject_remark">
 
                             </div>
                           </div>
@@ -487,7 +511,7 @@
             </div>
 
             <!-- cpaff other dashboard -->
-                  <div class="cpaff_other">
+            <div class="cpaff_other">
                 <div class="row">
 
                     <div class="col-md-8 offset-md-2">
@@ -842,6 +866,68 @@
                                 </div>
                             </div>
                         </div>
+            </div>
+
+            <div class="qualified_test">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row m-2 mt-3 border-bottom">
+                            <div class="col-md-6">
+                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
+                            </div>
+                        </div>
+                        <div class="row m-2 mt-3 border-bottom">
+                            <div class="col-md-6">
+                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                            </div>
+                            <div class="col-md-6">
+                                <span id="qt_nrc"></span>
+                            </div>
+                        </div>
+
+                        <div class="row m-2 mt-3 border-bottom">
+                            <div class="col-md-6">
+                                <p class="ml-2" style="font-weight:bold">Email</p>
+                            </div>
+                            <div class="col-md-6">
+                                <span id="qt_email"></span>
+                            </div>
+                        </div>
+                        <div class="row m-2 mt-3 border-bottom">
+                            <div class="col-md-6">
+                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                            </div>
+                            <div class="col-md-6">
+                                <span id="qt_phone"></span>
+                            </div>
+                        </div>
+                         
+
+                    </div>
+
+                </div>
+
+                <div class="row my-2">
+
+
+                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                        Application Status</h5>
+
+                    <div class="text-center status_history">
+
+                    </div>
+                    <div class="text-center status_papp">
+
+                    </div>
+                </div>
+
+
             </div>
             <!--end teacher dashboard-->
         </div>

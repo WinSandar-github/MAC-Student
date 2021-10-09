@@ -143,10 +143,10 @@
                                                     </td>
                                                 </tr>
                                             </table>--}}
-
+                                            <input type="hidden" name="batch_id" class="batch_id">
                                             <div class="row mb-3">
                                                 <div class="col-md-9">
-                                                    <div class="row mb-4">
+                                                    <div class="row mb-4 mt-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -165,7 +165,7 @@
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -175,24 +175,24 @@
                                                                                     {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                             </option>
                                                                     @endforeach
-                                                                                                                                            </select> -->
-                                                                                                                                    </div>
-                                                                                                                                    <div class="col-md-3 col-7 px-1">
-                                                                                                                                        <input type="text" name="nrc_township"
-                                                                                                                                            class="form-control" readonly>
-                                                                                                                                    <!-- <select class="form-control" name="nrc_township" id="nrc_township"
-                                                                                                                                                    style="margin-top: 0px; margin-bottom: 0px;">
-                                                                                                                                                @foreach($nrc_townships as $township)
-                                                                                                                                        <option value="{{ $township['township_mm'] }}">
-                                                                                                                                                        {{ $township['township_mm'] }}
-                                                                                                                                                </option>
-                                                                    @endforeach
+                                                                    </select> -->
+                                                            </div>
+                                                            <div class="col-md-3 col-7 px-1">
+                                                                <input type="text" name="nrc_township" style="padding:6px"
+                                                                    class="form-control" readonly>
+                                                            <!-- <select class="form-control" name="nrc_township" id="nrc_township"
+                                                                            style="margin-top: 0px; margin-bottom: 0px;">
+                                                                        @foreach($nrc_townships as $township)
+                                                                <option value="{{ $township['township_mm'] }}">
+                                                                                {{ $township['township_mm'] }}
+                                                                        </option>
+                                                                        @endforeach
                                                                                                                                             </select>
                                                                                                                                             </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
                                                                     <input type="text" name="nrc_citizen"
-                                                                           class="form-control" readonly>
+                                                                           class="form-control" readonly style="padding:6px">
                                                                 <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
                                                                             @foreach($nrc_citizens as $citizen)
@@ -240,14 +240,47 @@
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
                                                         </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_mac" name="profile_photo_mac" accept="image/*" ></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 {{--User Photo--}}
                                             </div>
 
                                             <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>ကျား / မ (Gender)</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_mac"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_mac'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၄။</span>လူမျိုး</label>
+                                                            class="pull-left">၅။</span>လူမျိုး</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="race" class="form-control" readonly>
                                                 </div>
@@ -255,7 +288,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၅။</span>ကိုးကွယ်သည့်ဘာသာ</label>
+                                                            class="pull-left">၆။</span>ကိုးကွယ်သည့်ဘာသာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="religion" class="form-control" readonly>
                                                 </div>
@@ -263,7 +296,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၆။</span>မွေးသက္ကရာဇ်</label>
+                                                            class="pull-left">၇။</span>မွေးသက္ကရာဇ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="date_of_birth" class="form-control"
                                                            readonly>
@@ -272,7 +305,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
+                                                            class="pull-left">၈။</span>ပညာအရည်အချင်း</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="education" class="form-control" readonly>
                                                 </div>
@@ -280,7 +313,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၈။</span>ရာထူး</label>
+                                                            class="pull-left">၉။</span>ရာထူး</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="position" class="form-control" readonly>
                                                 </div>
@@ -288,7 +321,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၉။</span>ဌာန</label>
+                                                            class="pull-left">၁၀။</span>ဌာန</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="department" class="form-control" readonly>
                                                 </div>
@@ -296,7 +329,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၀။</span>ရုံးစိုက်ရာဒေသ</label>
+                                                            class="pull-left">၁၁။</span>ရုံးစိုက်ရာဒေသ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="office_address" class="form-control"
                                                            readonly>
@@ -305,21 +338,21 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၁။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
+                                                            class="pull-left">၁၂။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                 </label>
                                                 <div class="col-md-4 pt-2">
                                                     <div class="form-check">
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <input type="radio" class="form-check-input mr-3"
-                                                                       id="yes_mac" name="gov_staff"
-                                                                       style="margin-left: 3%;">
+                                                                       id="yes_mac" name="gov_staff"  value="1"
+                                                                       style="margin-left: 3%;" onclick="$('#rec_letter_mac').show()">
                                                                 <label class="form-check-label " for="yes">ဟုတ်</label>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <input type="radio" class="form-check-input mr-3"
-                                                                       id="no_mac" name="gov_staff"
-                                                                       style="margin-left: 3%;">
+                                                                       id="no_mac" name="gov_staff"  value="0"
+                                                                       style="margin-left: 3%;" onclick="$('#rec_letter_mac').hide()">
                                                                 <label class="form-check-label " for="no">မဟုတ်</label>
                                                             </div>
                                                         </div>
@@ -329,7 +362,7 @@
                                                 {{--<div class="col-md-2 pt-2">
                                                     <div class="form-check">
                                                         <div class="row">
-                                                            <div class="col-md-4"><input type="radio" class="form-check-input mr-3" id="no_mac" name="gov_staff" style="margin-left: 3%;">
+                                                            <div class="col-md-4"><input type="radio" class="form-check-input mr-3" id="no_mac" name="gov_staff" style="margin-left: 3%;"  onclick="$('#rec_letter_mac').show()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label " for="no">မဟုတ်</label>
                                                                 <div class="invalid-feedback">နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
@@ -358,7 +391,7 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၂။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                                            class="pull-left">၁၃။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="current_address" class="form-control"> {{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
@@ -366,7 +399,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၃။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
+                                                            class="pull-left">၁၄။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="address" class="form-control">{{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
@@ -374,7 +407,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၄။</span>ဖုန်းနံပါတ်</label>
+                                                            class="pull-left">၁၅။</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="phone" class="form-control">{{--Users should update their phone number. so remove readonly attribute--}}
                                                 </div>
@@ -382,7 +415,7 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၅။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                            class="pull-left">၁၆။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control sr_no" name="student_regno"
                                                            readonly>
@@ -411,7 +444,7 @@
 
                                             <div class="row mb-3" style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၆။</span>(က)
+                                                            class="pull-left">၁၇။</span>(က)
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">တက်ရောက်မည့်သင်တန်း</label>
 
@@ -586,8 +619,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                    <div class="row mb-3">
+                                                    <input type="hidden" name="batch_id" class="batch_id">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -600,13 +633,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -619,7 +652,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
+                                                                    <input type="text" name="nrc_township" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -632,7 +665,7 @@
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
-                                                                    <input type="text" name="nrc_citizen"
+                                                                    <input type="text" name="nrc_citizen" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                             <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -659,7 +692,7 @@
 
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၃။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -681,15 +714,48 @@
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
                                                         </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_private" name="profile_photo_private" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 {{--User Photo--}}
                                             </div>
 
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>ကျား / မ (Gender)</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_private"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_private'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                </div>
+                                            </div>
+
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၄။</span>လူမျိုး</label>
+                                                            class="pull-left">၅။</span>လူမျိုး</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="race" class="form-control" readonly>
                                                 </div>
@@ -697,7 +763,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၅။</span>ကိုးကွယ်သည့်ဘာသာ</label>
+                                                            class="pull-left">၆။</span>ကိုးကွယ်သည့်ဘာသာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="religion" class="form-control" readonly>
                                                 </div>
@@ -705,7 +771,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၆။</span>မွေးသက္ကရာဇ်</label>
+                                                            class="pull-left">၇။</span>မွေးသက္ကရာဇ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="date_of_birth" class="form-control"
                                                            disabled>
@@ -714,7 +780,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
+                                                            class="pull-left">၈။</span>ပညာအရည်အချင်း</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="education" class="form-control" readonly>
                                                 </div>
@@ -722,7 +788,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၈။</span>ရာထူး</label>
+                                                            class="pull-left">၉။</span>ရာထူး</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="position" class="form-control" readonly>
                                                 </div>
@@ -730,7 +796,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၉။</span>ဌာန</label>
+                                                            class="pull-left">၁၀။</span>ဌာန</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="department" class="form-control" readonly>
                                                 </div>
@@ -738,7 +804,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၀။</span>ရုံးစိုက်ရာဒေသ</label>
+                                                            class="pull-left">၁၁။</span>ရုံးစိုက်ရာဒေသ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="office_address" class="form-control"
                                                            readonly>
@@ -746,7 +812,7 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၁။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
+                                                            class="pull-left">၁၂။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                 </label>
                                                 <div class="col-md-2 pt-2">
                                                     <div class="form-check">
@@ -754,8 +820,8 @@
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
                                                                                          id="yes_private"
-                                                                                         name="gov_staff"
-                                                                                         style="margin-left: 3%;">
+                                                                                         name="gov_staff" value="1"
+                                                                                         style="margin-left: 3%;" onclick="$('#rec_letter_private').show()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
                                                                                          for="yes">ဟုတ်</label>
@@ -770,8 +836,8 @@
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
                                                                                          id="no_private"
-                                                                                         name="gov_staff"
-                                                                                         style="margin-left: 3%;">
+                                                                                         name="gov_staff" value="0"
+                                                                                         style="margin-left: 3%;" onclick="$('#rec_letter_private').hide()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
                                                                                          for="no">မဟုတ်</label>
@@ -801,7 +867,7 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၂။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                                            class="pull-left">၁၃။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="current_address" class="form-control"
                                                            readonly>
@@ -810,7 +876,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၃။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
+                                                            class="pull-left">၁၄။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="address" class="form-control" readonly>
                                                 </div>
@@ -818,7 +884,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၄။</span>ဖုန်းနံပါတ်</label>
+                                                            class="pull-left">၁၅။</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="phone" class="form-control" readonly>
                                                 </div>
@@ -826,7 +892,7 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၅။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                            class="pull-left">၁၆။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
 
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control sr_no" name="student_regno"
@@ -835,7 +901,7 @@
                                             </div>
 
                                             <div class="row mb-3" style="display:none">
-                                                <label class="col-md-1 col-form-label">၁၆။</label>
+                                                <label class="col-md-1 col-form-label">၁၇။</label>
                                                 <label class="col-md-1 col-form-label">(က)</label>
 
                                                 <label class="col-md-2 col-form-label label_align_right">တက်ရောက်မည့်သင်တန်း</label>
@@ -873,7 +939,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၆။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -1000,11 +1066,11 @@
                                                     </div>
                                                 </div>
                                             </div><br/>--}}
-
+                                            <input type="hidden" name="batch_id" class="batch_id">
                                             <div class="row">
                                                 <div class="col-md-9">
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4 mt-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၁။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -1017,13 +1083,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row mb-4">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
                                                         <div class="col-md-6">
                                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                                 <div class="col-md-2 col-5 pr-1">
-                                                                    <input type="text" name="nrc_state_region"
+                                                                    <input type="text" name="nrc_state_region" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_state_region"
                                                                                 id="nrc_state_region"
@@ -1032,11 +1098,11 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                             </option>
-@endforeach
+                                                                            @endforeach
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-3 col-7 px-1">
-                                                                    <input type="text" name="nrc_township"
+                                                                    <input type="text" name="nrc_township" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_township" id="nrc_township"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1044,12 +1110,12 @@
                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                     {{ $township['township_mm'] }}
                                                                             </option>
-@endforeach
+                                                                            @endforeach
                                                                         </select>
                                                                         </select> -->
                                                                 </div>
                                                                 <div class="col-md-2 col-5 px-1">
-                                                                    <input type="text" name="nrc_citizen"
+                                                                    <input type="text" name="nrc_citizen" style="padding:6px"
                                                                            class="form-control" readonly>
                                                                 <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen"
                                                                                 style="margin-top: 0px; margin-bottom: 0px;">
@@ -1057,7 +1123,7 @@
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                             </option>
-@endforeach
+                                                                            @endforeach
                                                                         </select> -->
                                                                 </div>
 
@@ -1076,7 +1142,7 @@
 
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <div class="row">
                                                         <label for="" class="col-md-6 col-form-label label_align_right"><span
                                                                     class="pull-left">၃။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                                         <div class="col-md-3">
@@ -1098,15 +1164,47 @@
                                                                  src="{{asset('/assets/images/blank-profile-picture-1.png')}}"
                                                                  accept="image/png,image/jpeg" alt="">
                                                         </div>
-                                                    </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <span class="btn btn-round btn-secondary btn-file">
+                                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="file" id="profile_photo_self" name="profile_photo_self" accept="image/*"></span>
+                                                            <br>
+                                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                        </div>
+                                                    </div>                                                    
                                                 </div>
                                                 {{--User Photo--}}
                                             </div>
 
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>ကျား / မ (Gender)</label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_self"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_self'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                                </div>
+                                            </div>
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၄။</span>လူမျိုး</label>
+                                                            class="pull-left">၅။</span>လူမျိုး</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="race" class="form-control" readonly>
                                                 </div>
@@ -1114,7 +1212,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၅။</span>ကိုးကွယ်သည့်ဘာသာ</label>
+                                                            class="pull-left">၆။</span>ကိုးကွယ်သည့်ဘာသာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="religion" class="form-control" readonly>
                                                 </div>
@@ -1122,7 +1220,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၆။</span>မွေးသက္ကရာဇ်</label>
+                                                            class="pull-left">၇။</span>မွေးသက္ကရာဇ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="date_of_birth" class="form-control"
                                                            readonly>
@@ -1131,7 +1229,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
+                                                            class="pull-left">၈။</span>ပညာအရည်အချင်း</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="education" class="form-control" readonly>
                                                 </div>
@@ -1139,7 +1237,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၈။</span>ရာထူး</label>
+                                                            class="pull-left">၉။</span>ရာထူး</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="position" class="form-control" readonly>
                                                 </div>
@@ -1147,7 +1245,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၉။</span>ဌာန</label>
+                                                            class="pull-left">၁၀။</span>ဌာန</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="department" class="form-control" readonly>
                                                 </div>
@@ -1155,7 +1253,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၀။</span>ရုံးစိုက်ရာဒေသ</label>
+                                                            class="pull-left">၁၁။</span>ရုံးစိုက်ရာဒေသ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="office_address" class="form-control"
                                                            readonly>
@@ -1164,15 +1262,15 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၁။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
+                                                            class="pull-left">၁၂။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်
                                                 </label>
                                                 <div class="col-md-2 pt-2">
                                                     <div class="form-check">
                                                         <div class="row">
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
-                                                                                         id="yes_self" name="gov_staff"
-                                                                                         style="margin-left: 3%;">
+                                                                                         id="yes_self" name="gov_staff" value="1"
+                                                                                         style="margin-left: 3%;" onclick="$('#rec_letter_self').show()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
                                                                                          for="yes">ဟုတ်</label>
@@ -1186,8 +1284,8 @@
                                                         <div class="row">
                                                             <div class="col-md-4"><input type="radio"
                                                                                          class="form-check-input mr-3"
-                                                                                         id="no_self" name="gov_staff"
-                                                                                         style="margin-left: 3%;">
+                                                                                         id="no_self" name="gov_staff" value="0"
+                                                                                         style="margin-left: 3%;" onclick="$('#rec_letter_self').hide()">
                                                             </div>
                                                             <div class="col-md-8"><label class="form-check-label "
                                                                                          for="no">မဟုတ်</label>
@@ -1217,7 +1315,7 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၂။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                                            class="pull-left">၁၃။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="current_address" class="form-control"> {{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
@@ -1225,7 +1323,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၃။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
+                                                            class="pull-left">၁၄။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="address" class="form-control"> {{--Users should update their address. so remove readonly attribute--}}
                                                 </div>
@@ -1233,7 +1331,7 @@
 
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၄။</span>ဖုန်းနံပါတ်</label>
+                                                            class="pull-left">၁၅။</span>ဖုန်းနံပါတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="phone" class="form-control"> {{--Users should update their phone number. so remove readonly attribute--}}
                                                 </div>
@@ -1241,7 +1339,7 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၅။</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                            class="pull-left">၁၆။</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control sr_no" name="student_regno"
                                                            readonly>
@@ -1250,49 +1348,49 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၆။</span>မှတ်ပုံတင်ရသည့်အကြောင်းရင်း
+                                                            class="pull-left">၁၇။</span>မှတ်ပုံတင်ရသည့်အကြောင်းရင်း
                                                     - </label>
                                                 <div class="row col-md-8 py-2">
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label" required>
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input mt-1" type="radio"
                                                                    name="reg_reason[]" required value="ယခုနှစ်တက်ရောက်ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (က) ယခုနှစ်တက်ရောက်ခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ခ) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဂ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="စာမေးပွဲကျရှုံးခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဃ) စာမေးပွဲကျရှုံးခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" required value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (င) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
@@ -1302,77 +1400,10 @@
                                                 </div>
                                             </div>
 
-                                            {{--<div class="row mb-3" style="margin-left:100px;">
-                                                <div class="col-md-1">
-                                                    <label class="form-check-label">(က)</label>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <input type="checkbox" value="ယခုနှစ်တက်ရောက်ခြင်း"
-                                                           name="reg_reason[]">
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <label class="form-check-label">ယခုနှစ်တက်ရောက်ခြင်း</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" style="margin-left:100px;">
-                                                <div class="col-md-1">
-                                                    <label class="form-check-label">(ခ)</label>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <input type="checkbox"
-                                                           value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း"
-                                                           name="reg_reason[]">
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <label>သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း</label>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row mb-3" style="margin-left:100px;">
-                                                <div class="col-md-1">
-                                                    <label class="form-check-label">(ဂ)</label>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <input type="checkbox" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း"
-                                                           name="reg_reason[]">
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <label>သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း</label>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row mb-3" style="margin-left:100px;">
-                                                <div class="col-md-1">
-                                                    <label class="form-check-label">(ဃ)</label>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <input type="checkbox" value="စာမေးပွဲကျရှုံးခြင်း"
-                                                           name="reg_reason[]">
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <label>စာမေးပွဲကျရှုံးခြင်း</label>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row mb-3" style="margin-left:100px;">
-                                                <div class="col-md-1">
-                                                    <label class="form-check-label">(င)</label>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <input type="checkbox" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း"
-                                                           name="reg_reason[]">
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <label>သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း</label>
-                                                </div>
-                                            </div>--}}
+                                            
 
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>ယခုဖြေဆိုမည့် Module -</label>
+                                                <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၈။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
                                                         <label class="form-check-label">
@@ -1409,7 +1440,7 @@
 
                                             <div class="row mb-3"  style="display:none;">
                                                 <label class="col-md-2 col-form-label label_align_right">
-                                                    <span class="pull-left">၁၈။</span>(က)
+                                                    <span class="pull-left">၁၉။</span>(က)
                                                 </label>
                                                 <label class="col-md-2 col-form-label label_align_right">တက်ရောက်မည့်သင်တန်း</label>
 
@@ -1701,7 +1732,9 @@
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
+                // console.log(data,'data');
                 if (data) {
+                    console.log('student_info',data.data);
                      let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
                      
@@ -1710,61 +1743,67 @@
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type_name').text(mac_name)
                     $(".batch_number").append(current_stu_course[0].batch.number);
+                    // console.log('batch_number',current_stu_course[0].batch.number);
+                    
+                    $('.batch_id').val(current_stu_course[0].batch.id);
+                    // console.log('batch_id',current_stu_course[0].batch.id);
+                    
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
-                    console.log(data.data.citizen)
-                    if(last_exam[0]){
-                    if(last_exam[0].grade == 1){
-                         let batch_id = localStorage.getItem('batch_id');
-                        $.ajax({
-                        type: "get",
-                        url: BACKEND_URL+"/batch/"+batch_id,
-                        contentType: false,
-                        processData: false,
-                        async:false,
-                        success: function (res) {
-                            $('#batch_name').text(res.data.name);
-                            
-                            
-                            $('.batch_no').val(res.data.number);
-                            $('.personal_no').val(data.data.personal_no);
-                            $('#remain_module').val(last_exam[0].is_full_module)
-
-                            if(last_exam[0].is_full_module == "1"){
-                                 $(".module_two").prop("checked", true);
-                              
-                                $('.module_one').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-
-
-                            }
-                            else if(last_exam[0].is_full_module=="2"){
-                                $(".module_one").prop("checked", true);
-                                $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-
-
- 
-                            }
-                            else if(last_exam[0].is_full_module=="3"){
-                                $(".module_full").prop("checked", true);
-                                 $('.module_two').attr('disabled', true);
-                                $('.module_full').attr('disabled', true);
-                                
-
-                                  
-                            }
-
-                            
-                           
-
-                            }
-                        })   
-                        
-                        
+                    if(current_stu_course[0].mac_type == 1){
+                        $("#sub_mac").prop("checked",true);
+                    }else{
+                        $("sub_mac2").prop("checked",true);
                     }
-                     }else{
-                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                    // console.log(data.data.citizen)
+                    if(last_exam[0]){
+                        if(last_exam[0].grade == 1){
+                            let batch_id = localStorage.getItem('batch_id');
+                            
+                            $.ajax({
+                                type: "get",
+                                url: BACKEND_URL+"/batch/"+batch_id,
+                                contentType: false,
+                                processData: false,
+                                async:false,
+                                success: function (res) {
+                                    console.log('res',res.data.number)
+                                    $('#batch_name').text(res.data.name);
+                                    $('.batch_number').text(res.data.number);
+                                    $('.batch_id').val(res.data.id);
+
+                                    
+                                    $('.batch_no').val(res.data.number);
+                                    $('.personal_no').val(data.data.personal_no);
+                                    $('#remain_module').val(last_exam[0].is_full_module)
+
+                                    if(last_exam[0].is_full_module == "1"){
+                                        $(".module_two").prop("checked", true);
+                                    
+                                        $('.module_one').attr('disabled', true);
+                                        $('.module_full').attr('disabled', true);
+
+
+                                    }
+                                    else if(last_exam[0].is_full_module=="2"){
+                                        $(".module_one").prop("checked", true);
+                                        $('.module_two').attr('disabled', true);
+                                        $('.module_full').attr('disabled', true);
+        
+                                    }
+                                    else if(last_exam[0].is_full_module=="3"){
+                                        $(".module_full").prop("checked", true);
+                                        $('.module_two').attr('disabled', true);
+                                        $('.module_full').attr('disabled', true);                              
+                                        
+                                    }                          
+                                }
+                            }) 
+                        
+                        }
+                    }else{
+                        $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                        $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     }
                     
                     // $('.batch_no').val(current_stu_course[0]?.batch?.number);
@@ -1790,7 +1829,7 @@
                     $("input[name='current_address']").val(data.data.current_address);
                     $("input[name='address']").val(data.data.address);
                     $("input[name='phone']").val(data.data.phone);
-
+                    // $('.batch_id').val(current_stu_course[0]?.batch?.id);
                     if (data.data.gov_staff == 0) {
                         $("#no_self").prop("checked", true);
                         $("#no_private").prop("checked", true);
@@ -1805,6 +1844,46 @@
                         if(data.data.recommend_letter!=null){
                             $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
                         }
+                    }
+
+                    if (data.data.gender == "Male") {
+                        $("#male_self").prop("checked", true);
+                        $("#male_private").prop("checked", true);
+                        $("#male_mac").prop("checked", true);
+                    } else {
+                        $("#female_self").prop("checked", true);
+                        $("#female_private").prop("checked", true);
+                        $("#female_mac").prop("checked", true);
+                    }
+                    if(data.data.exam_registers.length!=0){
+                        $("input[name='office_address']").prop('readonly', false);
+                        $("input[name='current_address']").prop('readonly', false);
+                        $("input[name='address']").prop('readonly', false);
+                        $("input[name='phone']").prop('readonly', false);
+                        $("input[name='profile_photo_mac']").show();
+                        $("input[name='profile_photo_self']").show();
+                        $("input[name='profile_photo_private']").show();
+                        $("input[name='gov_staff']").prop('disabled', false);
+                        $("input[name='recommend_letter_mac']").prop('disabled', false);
+                        $("input[name='recommend_letter_self']").prop('disabled', false);
+                        $("input[name='recommend_letter_private']").prop('disabled', false);
+                        $("input[name='gov_staff']").prop('disabled', false);
+                        $("input[name='mac_type']").prop('disabled', false);
+                    }
+                    else{
+                        $("input[name='office_address']").prop('readonly', true);
+                        $("input[name='current_address']").prop('readonly', true);
+                        $("input[name='address']").prop('readonly', true);
+                        $("input[name='phone']").prop('readonly', true);
+                        $("input[name='profile_photo_mac']").hide();
+                        $("input[name='profile_photo_self']").hide();
+                        $("input[name='profile_photo_private']").hide();
+                        $("input[name='gov_staff']").prop('disabled', true);
+                        $("input[name='recommend_letter_mac']").prop('disabled', true);
+                        $("input[name='recommend_letter_self']").prop('disabled', true);
+                        $("input[name='recommend_letter_private']").prop('disabled', true);
+                        $("input[name='gov_staff']").prop('disabled', true);
+                        $("input[name='mac_type']").prop('disabled', true);
                     }
                 }
             });

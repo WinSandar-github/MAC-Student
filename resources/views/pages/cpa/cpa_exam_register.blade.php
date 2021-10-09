@@ -65,12 +65,13 @@
                             <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
                                 <div class="card-body">
                                     <div class="row mb-5">
-                                        <h5 class="card-title text-center fw-bolder">
+                                        <h5 class="card-title text-center fw-bolder mb-3">
                                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
                                             လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းစာမေးပွဲဖြေခွင့်လျှောက်လွှာ<br>
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                            <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                             <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                         </div>
                                     </div>
@@ -138,6 +139,30 @@
                                                             
                                                         </div>
                                                         {{--User Photo--}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                                    <div class="row col-md-8 py-2">
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id="male"
+                                                                        name="gender" value="Male" required>
+                                                                <span class="form-check-sign"></span>
+                                                                ကျား
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id='female'
+                                                                        name="gender" value='Female' required>
+                                                                <span class="form-check-sign"></span>
+                                                                မ
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
                                                     </div>
                                                 </div>
 
@@ -632,12 +657,13 @@
            var student_info = data.data ;
            console.log('student_info',student_info);
             let current_stu_course = data.data.student_course_regs.slice(-1);
-            $(".batch_number").append(current_stu_course[0].batch.number);
+            $(".batch_number").append((current_stu_course[0].batch.number));
+            $("#exam_date").append(formatDateMY(current_stu_course[0].batch.exam_start_date));
            if(student_info.acca_cima){
                $('#last_exam_data').hide();
 
            }else{
-            $('#last_exam_data').show();
+            $('#last_exam_data').hide();
            }
 
             let current_stu_reg=student_info.student_register.slice(-1);
@@ -669,6 +695,12 @@
                 if(student_info.recommend_letter!=null){
                     $(".recommend_letter").append("<a href='"+BASE_URL+student_info.recommend_letter+"'  target='_blank'>View File</a><br/>")
                 }
+            }
+
+            if(student_info.gender=="Male"){
+                $("#male").prop("checked",true);
+            }else{
+                $("#female").prop("checked",true);
             }
 
             if(current_stu_reg[0].type == 0){
