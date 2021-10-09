@@ -5,74 +5,174 @@
 
 <?php
     
+
+    $orderid= "2106-000212";
+    $returnURL="http://localhost/new-visa/index";
+    $currency="USD";
+    $amount="500";
+    $description="test donation 2106-000212";
+    $merchangname="MAC";
     $merchantID="CB0000000391";
-    $pwd="8d9aadc462af9407f1445e488775f5cf";
     $version=50;
-    $base_url="https://cbbank.gateway.mastercard.com";
-    $api_url=$base_url."/api/rest/version/".$version."/merchant/".$merchantID;
+    $base_url="https://cbbank.gateway.mastercard.com/";
+    $hostedcheckout_url="https://cbbank.gateway.mastercard.com/checkout/version/50/checkout.js";
     $sessionjs_url=$base_url."/form/version/".$version."/merchant/".$merchantID."/session.js";
-    $hostedcheckout_url=$base_url."/checkout/version/".$version."/checkout.js";
+    /*Your API Credential Password */
+    $pwd="8d9aadc462af9407f1445e488775f5cf";
+    
+    
+    $merchantAdress="130 Joo Seng Road";
+    $merchantPhone="0912312334";
+    $merchantLogo="https://demo.aggademo.me/MAC_Student/public/img/cash.png";
+    
+    $curl = curl_init();
+    
+    curl_setopt($curl, CURLOPT_URL, "https://cbbank.gateway.mastercard.com/api/rest/version/50/merchant/CB0000000391/session");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, false);
+    
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+    
+    
+    
+    
+    curl_setopt($curl, CURLOPT_POSTFIELDS, '
+        {
+            "apiOperation": "CREATE_CHECKOUT_SESSION",
+            "interaction": {
+                "operation": "VERIFY",
+                "merchant": {
+                    "name": "'.$merchangname.'",
+                    "address": {
+                        "line1": "'.$merchantAdress.'"
+                    },
+                "phone": "'.$merchantPhone.'",
+                "logo"   : "'.$merchantLogo.'"
+                },
+            "displayControl": {
+                "billingAddress": "OPTIONAL",
+                "customerEmail": "OPTIONAL",
+                "orderSummary":"SHOW",
+                "shipping":"HIDE"
+    
+                },
+            "returnUrl": "'.$returnURL.'"
+            },
+    
+            "order": {
+                "id": "'.$orderid.'",
+                "amount": '.$amount.',
+                "currency": "'.$currency.'",
+                "description": "'.$description.'"
+            }
+    }');
+    
+    $headers=array();
     $credential="merchant.".$merchantID.":".$pwd;
     $encoded_credential=base64_encode($credential);
-    $postUrl="https://demo.aggademo.me/MAC_Student/public/index.php/post_payment/visa_master";
-    $orderid="3231";
-    $amount="500";
-    $return_url="https://demo.aggademo.me/MAC_Student/public/index.php/payment_status";
-    $currency="USD";
-
-    $datatopost="apiOperation=CREATE_CHECKOUT_SESSION&apiPassword=$pwd&interaction.returnUrl=$return_url&apiUsername=merchant.$merchantID&merchant=$merchantID&interaction.operation=AUTHORIZE&
-    order.id=$orderid&order.amount=$amount&order.currency=$currency";
+    //$headers = array('Content-Type: application/json', 'Authorization: Basic '.$encoded_credential);
+    $headers = array('Content-Type: text/javascript', 'Authorization: Basic '.$encoded_credential);
+    
+    curl_setopt($curl, CURLOPT_HTTPHEADER,$headers);
     
     
-        $ch = curl_init();          
-        curl_setopt($ch, CURLOPT_URL, $api_url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
-        //cutl_setopt($ch, CURLOPT_POST,true); 
-
-        curl_setopt($ch, CURLOPT_POSTFIELDS,$datatopost);
-
-        $header = array('Content-Type: application/json', 'Authorization: Basic '.$encoded_credential);
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_REFERER, $postUrl);                                                         
-        //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-                                                                
-            
-        curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);										 
-        $result = curl_exec($ch);
-
-        var_dump($result);
-
-        
     
-?>
-
-
-
-<script type="text/javascript">
-
-
-    var session_id = '';
-			
-    function errorCallback(error) {
-       console.log(JSON.stringify(error));
-    }
+    $response = curl_exec($curl);
     
-    function cancelCallback() {				
-        console.log('Payment cancelled');
-    }
+    
+    curl_close($curl);
+    
+    print_r($response);
+    
+    
+    $session_id=explode(":",explode(",",$response)[2])[2];
+    
+    $session_id=str_replace("\"","",$session_id);
+    
+    echo $session_id."\n";
+    
+    
+    ?>
+    
+    <script src="<?php echo $hostedcheckout_url; ?>"  data-error="errorCallback" data-cancel="<?php echo $returnURL; ?>" data-complete="completeCallback"></script>
+    
+    
+    <script type="text/javascript">
+    
+            function errorCallback(error) {
+                console.log(JSON.stringify(error));
+                }
+    
+            function cancelCallback() {             
+                console.log('Payment cancelled');
+                }
+    
+            function completeCallback()
+                {
+                 console.log('success');
+                }
+    
+    
+            Checkout.configure({
+    
+                    session: { 
+                            id: '<?php echo $session_id; ?>'
+                       },
+    
+                    merchant: '<?php echo $merchantID; ?>',
+                    order: {
+                        amount: function() {
+                            Amt = parseFloat(<?php echo $amount; ?>);
+                            return Amt;
+                        },
+                        currency: function()
+                        {
+                            currency = String('<?php echo $currency; ?>');
+                            console.log(currency);
+                            return currency;
+                        },
+                        description: '<?php echo $description; ?>',
+                        reference:function(){
+                            var ref = "test1231 Ref";
+                            return ref;
+                        },
+                       id: '<?php echo $orderid; ?>'
+                    },
+                    
+                    
+                                
+                   interaction: {
+                        
+                        merchant      : {
+                            name   : '<?php echo $merchantID; ?>',
+                            address: {
+                                          line1: '200 Sample St'
+                                                   
+                            },                      
+                            phone  : '09123456789',
+                            logo   : 'https://demo.aggademo.me/MAC_Student/public/img/cash.png'
+                        },
+                        locale        : 'en_US',
+                        theme         : 'default',
+                        displayControl: {
+                            billingAddress  : 'OPTIONAL',
+                            customerEmail   : 'OPTIONAL',
+                            orderSummary    : 'SHOW',
+                            shipping        : 'HIDE'
+                        }
+                    },
+                    
+                    
+                });
+    
+               
+    </script>
+    
+    
+    <input type="button" value="Pay with Payment Page"  /> 
 
-    function completeCallback()
-    {
-        console.log('success');
-    }
- 
 
-
-
-
-
-</script>
 
 
 
@@ -133,7 +233,7 @@
                             <input type="hidden" name="payment_status" value="1">
                             <div class="row mb-3">
                                 <div class="col-md-2 offset-md-5">
-                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                    <button type="submit" onclick="Checkout.showPaymentPage();" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
                                 </div> 
                             </div>
                         </div>
