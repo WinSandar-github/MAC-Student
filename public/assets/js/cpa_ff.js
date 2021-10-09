@@ -405,7 +405,7 @@ function loadCpaffInitialData() {
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#cpaff_reg_no').val(cpaff_data.cpa_batch_no)
+            $('#reg_no').val(cpaff_data.reg_no)
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
@@ -469,7 +469,7 @@ function createCPAFFRegister() {
     var cpd_record = $("input[name=cpd_record]")[0].files[0];
     // var passport_image = $("input[name=passport_image]")[0].files[0];
     var three_years_full = $("input[name=three_years_full]")[0].files[0];
-    var letter = $("input[name=letter]")[0].files[0];
+    // var letter = $("input[name=letter]")[0].files[0];
 
     var cpa_edu = document.getElementById("cpa_edu");
     var ra_edu = document.getElementById("ra_edu");
@@ -543,11 +543,11 @@ function createCPAFFRegister() {
     send_data.append('cpd_record', cpd_record);
     send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('three_years_full', three_years_full);
-    send_data.append('letter', letter);
+    // send_data.append('letter', letter);
 
 
     //save to cpaff
-    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    send_data.append('cpa_batch_no', $("input[name=cpersonal_no]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
@@ -646,6 +646,13 @@ function isLoginCPAFF() {
         });
 
     }
+}
+
+function getCpersonalNo()
+{
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    // console.log(student.cpersonal_no)
+    $('#cpersonal_no').val(student.cpersonal_no);
 }
 
 function form_feedback() {
@@ -981,7 +988,8 @@ function RenewCPAFF() {
             }
         });
     }
-    send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
+    // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
+    send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
     send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
     send_data.append('old_card_no', $("input[name=reg_no]").val());
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
