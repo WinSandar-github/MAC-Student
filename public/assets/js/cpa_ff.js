@@ -438,9 +438,9 @@ function loadCpaffInitialData() {
             var cpaff_data = data.data;
             // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
-            $('#address').val(cpaff_data.address);
-            $('#phone').val(cpaff_data.phone);
-            $('#contact_mail').val(cpaff_data.contact_mail);
+            // $('#address').val(cpaff_data.address);
+            // $('#phone').val(cpaff_data.phone);
+            // $('#contact_mail').val(cpaff_data.contact_mail);
             $('#reg_no').val(cpaff_data.reg_no)
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
@@ -1031,6 +1031,10 @@ function RenewCPAFF() {
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
     send_data.append('is_convicted', $("input[name=fine_person]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('contact_mail', $("input[name=contact_mail]").val());
+    send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('is_renew', 1);
     $.ajax({
         url: BACKEND_URL + "/renew_cpaff",

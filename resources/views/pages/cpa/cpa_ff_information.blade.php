@@ -1,13 +1,4 @@
-@php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
-@endphp
-
 @extends('layouts.app')
-
 @section('content')
      <div class="main-wrapper">
         <!-- Page Banner Start -->
@@ -81,21 +72,21 @@
                 </div>
 
 
-								<div id="cpa_initial">
-									<div class="row">
-										<div class="card col-md-7 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Description</h4>
-														<hr>
-														<div class="info-list">
+                                <div id="cpa_initial">
+                                    <div class="row">
+                                        <div class="card col-md-7 m-2">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 widget-information">
+                                                        <h4 class="col-md-12 card-title text-success">Description</h4>
+                                                        <hr>
+                                                        <div class="info-list">
                                                             <div class="row mb-3">
                                                                 <div class="col-md-12">
                                                                     <div class="description-info"></div>
                                                                 </div>
                                                             </div>
-															<div class="row">
+                                                            <div class="row">
                                                                 <div class="col-md-12">
                                                                     <h4 class="col-md-12 card-title text-success">Requirement</h4>
                                                                     <hr>
@@ -104,32 +95,32 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="card col-md-4 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Fees</h4>
-														<hr>
-														<div class="info-list">
-															<div class="col-md-12">
-																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card col-md-4 m-2">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 widget-information">
+                                                        <h4 class="col-md-12 card-title text-success">Fees</h4>
+                                                        <hr>
+                                                        <div class="info-list">
+                                                            <div class="col-md-12">
+                                                                <ul>
+                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'> </li>
+                                                                        <li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li>
-																		<div class="row register-btn">
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li><br>
+                                                                        <div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6 pull-right">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" style="padding-left: 5%;">Register</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -151,15 +142,15 @@
                                                                             </div>
                                                                             
                                                                         </div>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 <!--Modal-->
 <form method="post" class="needs-validation" action="javascript:cpaffPaymentSubmit();" enctype="multipart/form-data"
           novalidate>
@@ -227,8 +218,8 @@
                 {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
-	                    
-						<div class="row">
+                        
+                        <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
                                     <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>{{ __('လျှောက်ထားသူ၏ကိုယ်ရေးအချက်အလက်') }}</label>
@@ -530,15 +521,6 @@
 
                           {{--<div class="row">
                               <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                              <div class="col-md-6 col-form-label">{{ __('ပတ်စပို့အရွယ်ဓာတ်ပုံ') }}</div>
-                              <div class="col-md-4">
-                                          <input type="file"  class="form-control" name="passport_image">
-                              </div>
-                          </div><br/><br>--}}
-
-                          {{--<div class="row">
-                              <div class="col-md-1"></div>
                               <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
                               <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
@@ -549,13 +531,13 @@
                               </div>
                           </div>--}}<br/><br>
 
-							<div class="row">
+                            <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                 <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" ></div>
                                 <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                             </div><br/>
-											
-							<br/>
+                                            
+                            <br/>
                       <div class="row ">
                           <div class="col-md-2 offset-md-5">
                               <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
@@ -567,16 +549,6 @@
             </div>
         </div>
     </div>
-    <!-- JavaScript Section -->
-    <script>
-         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
-        // get NRC Townships data from myanmarnrc.php config file
-        var mmnrc_townships = {!! json_encode($nrc_townships) !!};
-        // get NRC characters data from myanmarnrc.php config file
-        var mmnrc_characters = {!! json_encode($nrc_characters) !!};
-        // get language data from myanmarnrc.php config file
-        var mmnrc_language = "{{ $nrc_language }}";
-    </script>
 @endsection
 @push('scripts')
 <script type="text/javascript">
@@ -584,51 +556,26 @@
         var course_type = location.pathname.split('/');
         var student = JSON.parse(localStorage.getItem('studentinfo'));
         if(!student){
-        localStorage.setItem('course_type',course_type[2])
+            localStorage.setItem('course_type',course_type[2]);
         }
         $('#profile').on('click', function(e) {
-    $('#file').click();
-});
-$('#file').change(function(e) {
+            $('#file').click();
+        });
+        $('#file').change(function(e) {
+            var input = e.target;
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
 
-    var input = e.target;
-    if (input.files && input.files[0]) {
-    var file = input.files[0];
+                var reader = new FileReader();
 
-    var reader = new FileReader();
-
-    reader.readAsDataURL(file);
-    reader.onload = function(e) {
-        $('.dashes-label').css('color','transparent');
-        $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
-    }
-    }
-})
-        
-        form_feedback();
-        loadDescription('CPA (Full Fluged)');
-        checkPaymentCpaff();
-        loadCpaffData();
-        loadCpaffInitialData();
-    })
-    //app_form_feedback();
-    // $("input[name='cpa2_pass_date']").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-
-    // $("input[name='renew_accepted_date']").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-
-    // $("input[name='old_card_no_year']").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "M-Y",
-    //         allowInput: true,
-    // });
+                reader.readAsDataURL(file);
+                reader.onload = function(e) {
+                    $('.dashes-label').css('color','transparent');
+                    $('#profile').css('background-image', 'url(' + reader.result + ')').addClass('hasImage');
+                }
+            }
+        });    
+    });
     $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
@@ -647,5 +594,10 @@ $('#file').change(function(e) {
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    form_feedback();
+    loadDescription('CPAFF');
+    checkPaymentCpaff();
+    loadCpaffData();
+    loadCpaffInitialData();
 </script>
 @endpush
