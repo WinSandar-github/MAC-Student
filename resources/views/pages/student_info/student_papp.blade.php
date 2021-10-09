@@ -280,7 +280,7 @@
                                                     <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်" readonly>
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -289,7 +289,7 @@
                                                     <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="text" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" disabled>
                                                 </div>
                                             </div>
 
