@@ -222,7 +222,7 @@
                         <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
                     </div>--}}
                 </div>
-                <form method="post" action="javascript:RenewCPAFF();" enctype="multipart/form-data"  id="cpaff_renew_form_submit">
+                <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">
                 {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
@@ -536,17 +536,15 @@
                               </div>
                           </div><br/><br>--}}
 
-                          <div class="row">
+                          {{-- <div class="row">
                               <div class="col-md-1"></div>
                               <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
                               <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
                               <div class="col-md-4">
-
-                                          <input type="file"  class="form-control" name="letter" required="">
-
+                                <input type="file"  class="form-control" name="letter" required="">
                               </div>
-                          </div><br/><br>
+                          </div><br/><br> --}}
 
 							<div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -566,6 +564,36 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ကိုယ်တိုင်ဝန်ခံချက်</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe src="{{ asset('assets/images/TMS requirment(23-9-2021).pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
+                <div class="pull-right mt-1">
+                    <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession_renew" id="accept_cpaffRenew" value="1">
+                    <label class="fw-bold">လက်ခံသည်</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="self_confession_renew" id="not-accept_cpaffRenew" value="2">
+                    <label class="fw-bold">လက်မခံပါ</label>
+                    </div>
+                    <div class="text-danger" id="valid_self_confession" style="display : none">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="RenewCPAFF()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
@@ -628,7 +656,5 @@ $('#file').change(function(e) {
             dateFormat: "M-Y",
             allowInput: true,
     });
-    
-
 </script>
 @endpush
