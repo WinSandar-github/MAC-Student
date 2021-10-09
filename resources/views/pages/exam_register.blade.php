@@ -138,6 +138,30 @@
                                     </div>
 
                                     <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                        <div class="row col-md-8 py-2">
+                                            <div class="col-md-3 form-check-radio mx-2">
+                                                <label class="form-check-label">
+                                                    <input disabled class="form-check-input" type="radio" id="male"
+                                                            name="gender" value="Male" required>
+                                                    <span class="form-check-sign"></span>
+                                                    ကျား
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio mx-2">
+                                                <label class="form-check-label">
+                                                    <input disabled class="form-check-input" type="radio" id='female'
+                                                            name="gender" value='Female' required>
+                                                    <span class="form-check-sign"></span>
+                                                    မ
+                                                </label>
+                                            </div>
+                                            
+                                            <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
                                         <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၄။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="personal_no" id="personal_no" class="form-control" readonly>
@@ -537,6 +561,11 @@
                     }
                     
 
+                if (data.data.gender == "Male") {
+                    $("#male").prop("checked", true);
+                } else {
+                    $("#female").prop("checked", true);
+                }
 
                     
                 document.getElementById('previewImg').src = BASE_URL + data.data.image;
