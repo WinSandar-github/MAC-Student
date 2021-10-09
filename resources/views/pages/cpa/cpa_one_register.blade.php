@@ -1714,23 +1714,23 @@
                         console.log('current_stu_course',current_stu_course);
 
                         //show or hide direct_access_no and entry_success
-                        if(last_exam[0].is_full_module==null){                            
-                            $("#direct_access_no_self_div").hide();
-                            $("#entry_success_no_self_div").show();
-                            $("#direct_access_no_private_div").hide();
-                            $("#entry_success_no_private_div").show();
-                            $("#direct_access_no_mac_div").hide();
-                            $("#entry_success_no_mac_div").show();
-                        }else{
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
-                        }
-
-
+                        if(last_exam.length!=0){
+                            if(last_exam[0].is_full_module==null){                            
+                                $("#direct_access_no_self_div").hide();
+                                $("#entry_success_no_self_div").show();
+                                $("#direct_access_no_private_div").hide();
+                                $("#entry_success_no_private_div").show();
+                                $("#direct_access_no_mac_div").hide();
+                                $("#entry_success_no_mac_div").show();
+                            }else{
+                                $("#direct_access_no_self_div").show();
+                                $("#entry_success_no_self_div").hide();
+                                $("#direct_access_no_private_div").show();
+                                $("#entry_success_no_private_div").hide();
+                                $("#direct_access_no_mac_div").show();
+                                $("#entry_success_no_mac_div").hide();
+                            }
+                        }  
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
                             $(".batch_number").append(current_stu_course[0].batch.id);
