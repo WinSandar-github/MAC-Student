@@ -1,10 +1,10 @@
-var FRONTEND_URL = "http://localhost:8001";
-var BASE_URL = "http://localhost:8000";
-var BACKEND_URL = "http://localhost:8000/api";
+// var FRONTEND_URL = "http://localhost:8001";
+// var BASE_URL = "http://localhost:8000";
+// var BACKEND_URL = "http://localhost:8000/api";
 
-// var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
+var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
+var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
+var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
@@ -43,7 +43,6 @@ $('document').ready(function () {
         type: 'GET',
         async: false,
         success: function (response) {
-            console.log("Response", response)
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
@@ -56,6 +55,34 @@ function formatDate(date) {
     var income_date = date.split('-');
     var date = income_date[2] + '-' + income_date[1] + '-' + income_date[0];
     return date;
+}
+
+function formatMY(date) {
+    var income_date = date.split('-');
+    var date = income_date[1] + '-' + income_date[2];
+    return date;
+}
+
+function formatDateMY(date) {
+
+    var income_date = date.split('-');
+    var day = income_date[2];
+    var month = income_date[1];
+    var year = income_date[0];
+
+    var options = { month: 'short' };
+    var month_short = new Date(month);
+    var exam_month = new Intl.DateTimeFormat('en-US', options).format(month_short);
+    var date = exam_month + '-' + year;
+    return date;
+}
+
+function mm2en(num) {
+    var nums = { 0: '၀', 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉' };
+    return num.replace(/([0-9])/g, function (s, key) {
+        console.log(nums[key] || s);
+        return nums[key] || s;
+    });
 }
 
 function ConfirmSubmit() {
@@ -184,7 +211,7 @@ function addRowPartner(tbody) {
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
-    cols += '<td>' + (row) + '</td>';
+    cols += '<td align="center" class="align-middle">' + (row) + '</td>';
     cols += '<td><input type="text" name="foa_pub_pri_reg_no[]"  id="foa_pub_pri_reg_no' + row + '" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control"  class="form-control" autocomplete="off"  /></td>';
     cols += '<td><input type="text" name="foa_name[]" class="form-control" autocomplete="off"/></td>';
     cols += '<td><input type="radio" name="foa_authority_to_sign' + row + '" class="report_yes" value="1" > <label class="form-check-label" >Yes</label></td>';
@@ -218,7 +245,7 @@ function addRowDirector(tbody) {
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
-    cols += '<td>' + (row) + '</td>';
+    cols += '<td align="center" class="align-middle">' + (row) + '</td>';
     cols += '<td><input type="text" name="do_name[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="do_position[]" class="form-control" autocomplete="off" /></td>';
     cols += '<td><input type="text" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" /> </td>';
@@ -246,9 +273,9 @@ function addRowPartnerByNonAudit(tbody) {
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
-    cols += '<td>' + (row) + '</td>';
-    cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" required></td>';
-    cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td align="center" class="align-middle">' + (row) + '</td>';
+    cols += '<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" ></td>';
+    cols += '<td><input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" ></td>';
     //cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><i class="fa fa-times"></i></button></td>';
     cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowPartnerByNonAudit("' + tbody + '")><li class="fa fa-times"></li></button></td>';
     newRow.append(cols);
@@ -281,10 +308,10 @@ function addRowDirectorByNonAudit(tbody) {
     var newRow = $("<tr>");
     var cols = "";
     var row = $('.' + tbody + ' tr').length;
-    cols += '<td>' + (row) + '</td>';
-    cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" required></td>';
-    cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" required></td>';
-    cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" required></td>';
+    cols += '<td align="center" class="align-middle">' + (row) + '</td>';
+    cols += '<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" ></td>';
+    cols += '<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" ></td>';
+    cols += '<td><input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" ></td>';
     // cols += '<td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td>';
     //cols += '<td><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><i class="fa fa-trash"></i></button></td>';
     cols += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=delRowDirectorByNonAudit("' + tbody + '")><li class="fa fa-times"></li></button></td>';

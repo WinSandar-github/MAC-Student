@@ -31,7 +31,7 @@ function CheckPartTwo() {
         $("input[name=country]").prop('disabled', false);
         $("input[name=government]").prop('disabled', false);
         $("input[name=roll_no]").prop('disabled', false);
-        $("input[name=roll_no]").prop('disabled', false);
+        // $("input[name=roll_no]").prop('disabled', false);
         $("input[name=exam_year]").prop('disabled', false);
         $("input[name=exam_month]").prop('disabled', false);
         $("input[name=cpa2_pass_date]").val('');
@@ -174,6 +174,13 @@ $().ready(function () {
             nrc_number: {
                 required: true,
             },
+            cpa:{
+                required : "#cpa_edu:checked"
+            },
+            ra:{
+                required : "#ra_edu:checked"
+            },
+            education:"required",
             nrc_front: "required",
             nrc_back: "required",
             father_name_mm: "required",
@@ -200,6 +207,9 @@ $().ready(function () {
             },
             nrc_front: "Please upload nrc photo (front)",
             nrc_back: "Please upload nrc photo (back)",
+            education:"Please select one",
+            cpa:"Please upload CPA file",
+            ra:"Please upload RA file",
             father_name_mm: "Please enter your father name in english",
             cpa_batch_no: "Please enter cpa batch number",
             address: "Please enter your address",
@@ -395,19 +405,23 @@ function loadCpaffInitialData() {
             $('#address').val(cpaff_data.address);
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#cpaff_reg_no').val(cpaff_data.cpa_batch_no)
+            $('#reg_no').val(cpaff_data.reg_no)
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
-                getCPAEducation();
-                $(".ra_file").append("<a href='" + BASE_URL + cpaff_data.ra + "'  target='_blank'>View File</a><br/>");
+                $('#cpa_edu').attr('disabled', true);   
+                $('#education').attr('disabled', true); 
+                getCPAEducation();        
+                $(".ra_file").append("<a href='"+BASE_URL+cpaff_data.ra+"'  target='_blank'>View File</a><br/>");
             }
             else {
                 getCPAEducation();
                 $(".ra_file").append("");
             }
-            if (cpaff_data.cpa != null && cpaff_data.cpa != "null") {
-                $('#cpa_edu').attr('checked', true);
+            if(cpaff_data.cpa!=null && cpaff_data.cpa!="null"){
+                $('#cpa_edu').attr('checked', true);   
+                $('#education').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);            
                 getCPAEducation();
                 $(".cpa_file").show();
                 $(".cpa_file").append("<a href='" + BASE_URL + cpaff_data.cpa + "'  target='_blank'>View File</a><br/>");
@@ -418,6 +432,8 @@ function loadCpaffInitialData() {
             }
             if (cpaff_data.foreign_degree != null && cpaff_data.foreign_degree != "null") {
                 $('#education').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);
                 getCPAEducation();
                 let foreign_degree = JSON.parse(cpaff_data.foreign_degree);
                 let degree_name = JSON.parse(cpaff_data.degree_name);
@@ -453,7 +469,7 @@ function createCPAFFRegister() {
     var cpd_record = $("input[name=cpd_record]")[0].files[0];
     // var passport_image = $("input[name=passport_image]")[0].files[0];
     var three_years_full = $("input[name=three_years_full]")[0].files[0];
-    var letter = $("input[name=letter]")[0].files[0];
+    // var letter = $("input[name=letter]")[0].files[0];
 
     var cpa_edu = document.getElementById("cpa_edu");
     var ra_edu = document.getElementById("ra_edu");
@@ -527,17 +543,25 @@ function createCPAFFRegister() {
     send_data.append('cpd_record', cpd_record);
     send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('three_years_full', three_years_full);
-    send_data.append('letter', letter);
+    // send_data.append('letter', letter);
 
 
     //save to cpaff
-    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    send_data.append('cpa_batch_no', $("input[name=cpersonal_no]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('is_renew', 0);
     send_data.append('form_type', $("input[name=form_type]").val());
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
+    send_data.append('cpa2_pass_date', $("input[name=cpa2_pass_date]").val());
+    send_data.append('reg_no', $("input[name=reg_no]").val());
+    send_data.append('country', $("input[name=country]").val());
+    send_data.append('government', $("input[name=government]").val());
+    send_data.append('exam_year', $("input[name=exam_year]").val());
+    send_data.append('exam_month', $("input[name=exam_month]").val());
+    send_data.append('roll_no', $("input[name=roll_no]").val());
+
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/cpa_ff",
@@ -622,6 +646,13 @@ function isLoginCPAFF() {
         });
 
     }
+}
+
+function getCpersonalNo()
+{
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    // console.log(student.cpersonal_no)
+    $('#cpersonal_no').val(student.cpersonal_no);
 }
 
 function form_feedback() {
@@ -712,7 +743,7 @@ function loadCPAFF() {
 
                         $('input[name=pass_batch_no]').val(data.pass_batch_no);
                         $('input[name=pass_personal_no]').val(data.pass_personal_no);
-                        $('input[name=total_hours]').val(data.total_hours);
+                        // $('input[name=total_hours]').val(data.total_hours);
                         $('input[name=degree_pass_year0]').val(data.degree_pass_year0);
                         $('input[name=degree_name0]').val(data.degree_name0);
                         loadFile(data.cpa_certificate, "view_cpa_certificate");
@@ -917,11 +948,13 @@ function selectStaff() {
 
 function RenewCPAFF() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var profile_photo = $("input[name=profile_photo]")[0].files[0];
     var cpa = $("input[name=cpa]")[0].files[0];
     var ra = $("input[name=ra]")[0].files[0];
     show_loader();
     var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
     send_data.append('student_info_id', student.id);
+    // send_data.append('student_info_id', student.id);
     if ($("input[name=nrc_front]")[0].files[0]) {
         send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
     } else {
@@ -955,7 +988,8 @@ function RenewCPAFF() {
             }
         });
     }
-    send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
+    // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
+    send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
     send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
     send_data.append('old_card_no', $("input[name=reg_no]").val());
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());

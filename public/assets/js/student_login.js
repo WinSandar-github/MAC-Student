@@ -86,7 +86,7 @@ function login_page(batch_id, course_code, course_type, entry_status) {
 
                 $('#entry_exam').append(`<br><a href="${FRONTEND_URL}/cpa_one_entry_form/${batch_id}" class="btn btn-md my-3 btn-success">Entry Exam</a>`);
             } else {
-                alert("Entry Exam")
+
                 $('#entry_exam').append(`<br><p class= "btn btn-info btn-md my-2  h6" > Form Close </p > `);
 
             }

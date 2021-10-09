@@ -85,7 +85,7 @@
                                         <?php
                                         $description = explode(',', $course[0]['course_type']['course_description']);
                                         foreach ($description as $des) {
-                                            echo '<p class="mb-4 p_font text-justify">' . $des . '</p>';
+                                            echo '<p class="mb-4 p_font " style="font-family: Arial, Helvetica, sans-serif; text-align: justify;">' . $des . '</p>';
                                         }
                                         ?>
                                         {{--@foreach($description as $des)

@@ -85,6 +85,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)သင်တန်းစာမေးပွဲဖြေဆိုခွင့်လျှောက်လွှာ</h5><br/>
                                                 <div class="d-flex justify-content-between mb-3">
                                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                                    <h6>စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                                     <h6>အမှတ်စဥ် - <span id="batch_number"></span></h6>
                                                 </div>
                                                 <div class="row">
@@ -118,10 +119,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                                                         <input type="text" class="form-control nrc_state_region" name="nrc_state_region"  style="padding: 6px;" readonly>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <input type="text" class="form-control nrc_township" name="nrc_township" readonly>
+                                                                        <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                        <input type="text" class="form-control nrc_citizen" name="nrc_citizen" style="padding: 6px;" readonly>
                                                                     </div>
 
                                                                     <div class="col-md-4">
@@ -156,6 +157,30 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                         </div>
                                                         {{--User Photo--}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                                    <div class="row col-md-8 py-2">
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id="male"
+                                                                        name="gender" value="Male" required>
+                                                                <span class="form-check-sign"></span>
+                                                                ကျား
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-md-3 form-check-radio mx-2">
+                                                            <label class="form-check-label">
+                                                                <input disabled class="form-check-input" type="radio" id='female'
+                                                                        name="gender" value='Female' required>
+                                                                <span class="form-check-sign"></span>
+                                                                မ
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
                                                     </div>
                                                 </div>
 
@@ -295,13 +320,13 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <div class="col-md-4 col-form-label" id="">စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်
+                                                    <div class="col-md-4 col-form-label label" id=""><span class="pull-left" id="da2_label2">၁၅။</span>စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်
                                                     </div>
                                                 </div>
 
                                             <div class="row mb-3">
                                                 <label class="col-md-1 col-form-label label">
-                                                    <span class="pull-left" id="da2_label2"></span>
+                                                    
                                                 </label>
                                                 <label class="col-md-3 col-form-label label">
                                                     <span class="pull-left">(က)</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ
@@ -361,10 +386,10 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div><br />--}}
 
                                             <div class="row">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၆။</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label3">၁၆။</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
                                                 <div class="col-md-8">
                                                   <div class="form-group">
-                                                    <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" >
+                                                    <select class="form-control form-select" name="exam_department" id="exam_department" >
                                                         <option value="" disabled selected>ဖြေဆိုမည့်စာဖြေဌာန ရွေးချယ်ပါ</option>
                                                     </select>
                                                   </div>
@@ -372,27 +397,27 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၇။</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
+                                                <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left" id="da2_label4">၁၇။</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="class_address" id="class_address" class="form-control" readonly>
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label5">၁၈။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="" name="personal_no" id="personal_no"  class="form-control" value="" readonly="">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left">၁၉။</span>ယခုဖြေဆိုမည့် Module</label>
+                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left" id="da2_label6">၁၉။</span>ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-8">
                                             <div class="row" disabled>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="0" class="form-check-input module_one" name="is_full_module" value="1" required>
+                                                            <input type="radio" id="0" class="form-check-input module_one" name="is_full_module" value="1" disabled required>
                                                             Module 1
                                                         </div>
                                                     </div>
@@ -400,7 +425,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="1" class="form-check-input module_two" name="is_full_module" value="2" required>
+                                                            <input type="radio" id="1" class="form-check-input module_two" name="is_full_module" value="2" disabled required>
                                                             Module 2
                                                         </div>
                                                     </div>
@@ -408,7 +433,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="form-check-inline">
-                                                            <input type="radio" id="2" class="form-check-input module_full"  name="is_full_module" value="3" required>
+                                                            <input type="radio" id="2" class="form-check-input module_full"  name="is_full_module" value="3" disabled required>
                                                             All Modules
                                                         </div>
                                                     </div>
@@ -545,25 +570,28 @@ $nrc_characters = config('myanmarnrc.characters');
             get_student_info(student_id).then(data => {
             
                 let student_info = data.data
+                console.log('student_info',student_info);
                 let student_reg = data.data.student_register
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);
 
                 let current_stu_reg=data.data.student_register.slice(-1);
                 // let last_exam = data.data.exam_registers.slice(-1);
+                console.log('current_stu_course',current_stu_course);
                 $("#batch_number").append(current_stu_course[0].batch.number);
+                $('#exam_date').append(formatDateMY(current_stu_course[0].batch.exam_start_date));
                 //console.log("student_reg >>>>",student_reg.personal_no);
                 if(data){
                     // console.log(data.data,"student_reg");
-                    // if(current_stu_reg[0].module=="1"){
-                    //      $("#0").prop("checked", true);
-                    // }
-                    // else if(current_stu_reg[0].module=="2"){
-                    //     $("#1").prop("checked", true);
-                    // }
-                    // else if(current_stu_reg[0].module=="3"){
-                    //     $("#2").prop("checked", true);
-                    // }
+                    if(current_stu_reg[0].module=="1"){
+                         $("#0").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="2"){
+                        $("#1").prop("checked", true);
+                    }
+                    else if(current_stu_reg[0].module=="3"){
+                        $("#2").prop("checked", true);
+                    }
                     // let current_stu_course = data.data.student_course_regs.slice(-1);
                     // console.log('current_stu_course',current_stu_course)
 
@@ -594,7 +622,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     if(last_exam.length!=0)
                     {
                         if(last_exam[0].course.code == 'da_2') {
-                            $("input[name='date']").val(formatDate(last_exam[0].created_at));
+                            // $("input[name='date']").val(formatDate(last_exam[0].created_at));
 
                             if(last_exam[0].is_full_module == "1")
                             {
@@ -616,15 +644,15 @@ $nrc_characters = config('myanmarnrc.characters');
                                 
                             }
 
-                            if(last_exam[0].is_full_module == "1"){
+                            // if(last_exam[0].is_full_module == "1"){
                                 
-                                $("#lst_m1").prop("checked", true);
-                                $("#lst_m2").attr("disabled", "disabled");  
-                            }
-                            else if(last_exam[0].is_full_module=="2"){
-                                $("#lst_m2").prop("checked", true);
-                                $("#lst_m1").attr("disabled", "disabled"); 
-                            }
+                            //     $("#lst_m1").prop("checked", true);
+                            //     $("#lst_m2").attr("disabled", "disabled");  
+                            // }
+                            // else if(last_exam[0].is_full_module=="2"){
+                            //     $("#lst_m2").prop("checked", true);
+                            //     $("#lst_m1").attr("disabled", "disabled"); 
+                            // }
                         }
                     }else{
                          if(current_stu_reg[0].module=="1"){
@@ -673,6 +701,12 @@ $nrc_characters = config('myanmarnrc.characters');
 
                     }
 
+                    if (student_info.gender == "Male") {
+                        $("#male").prop("checked", true);
+                    } else {
+                        $("#female").prop("checked", true);
+                    }
+
                     $("input[name='phone']").val(student_info.phone);
                     $("input[name='address']").val(student_info.address);
                     $("input[name='current_address']").val(student_info.current_address);
@@ -713,6 +747,11 @@ $nrc_characters = config('myanmarnrc.characters');
                     document.getElementById('is_private_school').style.display = 'block';
                     document.getElementById('da2_label1').innerHTML = "၁၅။";
                     document.getElementById('da2_label2').innerHTML = "၁၆။";
+                    document.getElementById('da2_label3').innerHTML = "၁၇။";
+                    document.getElementById('da2_label4').innerHTML = "၁၈။";
+                    document.getElementById('da2_label5').innerHTML = "၁၉။";
+                    document.getElementById('da2_label6').innerHTML = "၂၀။";
+                    
                 }
             } else {
                 if (document.getElementById('is_private_school')) {

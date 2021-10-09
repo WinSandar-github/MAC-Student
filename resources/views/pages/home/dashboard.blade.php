@@ -310,7 +310,7 @@
                                 </div>
 
                             </div>
-                            
+
                             <div id="article_row">
                                 <div class="col-md-12 ">
                                     <h5 class="text-center border-bottom py-2 my-2"
@@ -346,7 +346,9 @@
                                                 <thead>
                                                     <th>Course Name</th>
                                                     <th>Batch Name</th>
+                                                    <th>Module</th>
                                                     <th>Success Year</th>
+                                                    
                                                 </thead>
                                                 <tbody class="course">
                                                 </tbody>
@@ -459,21 +461,43 @@
                             </div>
 
                         </div>
+
                         <div class="row my-2">
-
-
                             <h5 class="text-center border-bottom pb-2"
                                 style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
 
-                            <div class="text-center status_history">
+                            <div class="text-center fw-bolder status_history">
 
                             </div>
+                        </div>
+                        {{--reject register buttons--}}
+                        <div id="reject_register_btn_audit" style="display:none;">
+                          <div class="row" >
+                              <div class="col-md-12">
+                                  <div align="center">
+                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                          <a href="{{url('audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div id="reject_register_btn_non_audit" style="display:none;">
+                          <div class="row" >
+                              <div class="col-md-12">
+                                  <div align="center">
+                                      <p class="info-btn col-md-2 mb-4 text-dark h6">
+                                          <a href="" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
                         </div>
                         <div id="reject_remark_box" style="display:none;">
                           <div class="row my-2">
                             <h5 class="text-center border-bottom pb-2"
                                 style="font-weight:bold ;background-color:#E7F8EE;">Reject Remark</h5>
-                            <div class="text-center reject_remark">
+                            <div class="text-center text-danger reject_remark">
 
                             </div>
                           </div>

@@ -78,6 +78,7 @@
                                     </h5>
                                     <div class="d-flex justify-content-between">
                                         <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                        <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                         <h6>အမှတ်စဥ် - <span class="batch_id"></span></h6>
                                     </div>
                                 </div>
@@ -275,6 +276,30 @@
                                                 <div>
                                                     <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" class="form-control" id="father_name_eng" value="{{ old('father_name_eng') }}">
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                            <div class="row col-md-8 py-2">
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="radio" id="male"
+                                                                name="gender" value="Male" required>
+                                                        <span class="form-check-sign"></span>
+                                                        ကျား
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="radio" id='female'
+                                                                name="gender" value='Female' required>
+                                                        <span class="form-check-sign"></span>
+                                                        မ
+                                                    </label>
+                                                </div>
+                                                
+                                                <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
                                             </div>
                                         </div>
 
