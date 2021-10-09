@@ -8,6 +8,7 @@ var BASE_URL = "https://demo.aggademo.me/MAC/public/";
 
 var counter = 0;
 
+
 var toastOptions = {
     "closeButton": true,
     "debug": false,
