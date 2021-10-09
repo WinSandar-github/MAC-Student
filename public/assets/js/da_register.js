@@ -285,7 +285,7 @@ function createDaTwoSelfStudy() {
 
     localStorage.setItem("isPrivateSchool", false);
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
-    var profile_photo=$("input[name='profile_photo_self']")[0].files[0];
+    var profile_photo = $("input[name='profile_photo_self']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -294,7 +294,7 @@ function createDaTwoSelfStudy() {
     send_data.append('personal_no_self', $("input[id='personal_no_self']").val());
     send_data.append('academic_year', $("#self_academic_year").val());
     send_data.append('type', 0);
-    send_data.append('recommendation_letter',recommend_letter_self);
+    send_data.append('recommendation_letter', recommend_letter_self);
     $('input[name="reg_reason[]"]:checked').map(function (key, val) {
         send_data.append('reg_reason[]', val.value);
     });
@@ -302,11 +302,11 @@ function createDaTwoSelfStudy() {
     send_data.append('form_type', $("input[name='form_type']").val());
     //send student info data
     send_data.append('office_address', $("#self_study_container").find("input[name=office_address]").val());
-    send_data.append('current_address',$("#self_study_container").find("input[name=current_address]").val());
+    send_data.append('current_address', $("#self_study_container").find("input[name=current_address]").val());
     send_data.append('address', $("#self_study_container").find("input[name=address]").val());
     send_data.append('phone', $("#self_study_container").find("input[name=phone]").val());
     send_data.append('gov_staff', $("#self_study_container").find('input[name="gov_staff"]:checked').val());
-    send_data.append('profile_photo',profile_photo );
+    send_data.append('profile_photo', profile_photo);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/store_student_app_reg",
@@ -344,7 +344,7 @@ $("#da_two_private_submit").click(function () {
 function createDaTwoPrivateSchool() {
     localStorage.setItem("isPrivateSchool", true);
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
-    var profile_photo=$("input[name='profile_photo_private']")[0].files[0];
+    var profile_photo = $("input[name='profile_photo_private']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
@@ -355,18 +355,18 @@ function createDaTwoPrivateSchool() {
     send_data.append('private_school_name', $("#selected_school_id option:selected").text());
     send_data.append('academic_year', $("#academic_year").val());
     send_data.append('type', 1);
-    send_data.append('recommendation_letter',recommend_letter_private);
+    send_data.append('recommendation_letter', recommend_letter_private);
     send_data.append('form_type', $("input[name='form_type']").val());
     if ($("input[name='form_type']").val() == "da two") {
         send_data.append('date', formatDate($("input[name='exam_date']").val()));
     }
     //send student info data
     send_data.append('office_address', $("#private_school_container").find("input[name=office_address]").val());
-    send_data.append('current_address',$("#private_school_container").find("input[name=current_address]").val());
+    send_data.append('current_address', $("#private_school_container").find("input[name=current_address]").val());
     send_data.append('address', $("#private_school_container").find("input[name=address]").val());
     send_data.append('phone', $("#private_school_container").find("input[name=phone]").val());
     send_data.append('gov_staff', $("#private_school_container").find('input[name="gov_staff"]:checked').val());
-    send_data.append('profile_photo',profile_photo );
+    send_data.append('profile_photo', profile_photo);
     show_loader();
 
     $.ajax({
@@ -393,34 +393,34 @@ $("#submit_btn_mac").click(function () {
     // console.log('da_one_pass_level',$("input[name=da_one_pass_level_mac]").val());
     // console.log('mac_semester',$(".personal_no_mac").val());
     if ($("#mac_academic_year").val() != "" && $("input[name=da_one_pass_level_mac]").val() != "" && $(".personal_no_mac").val() != "") {
-        // alert("ShowHello") 
+
         $('#exampleModal1').modal('show');
     } else {
-        // alert("Hide Hello") 
+
         $('#exampleModal1').modal('hide');
     }
 });
 
 function createDaTwoMac() {
-    localStorage.setItem("isPrivateSchool", false);    
+    localStorage.setItem("isPrivateSchool", false);
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-    var profile_photo=$("input[name='profile_photo_mac']")[0].files[0]
+    var profile_photo = $("input[name='profile_photo_mac']")[0].files[0]
     var send_data = new FormData();
-    
+
     send_data.append('student_id', student_id);
     send_data.append('batch_id', $("input[name='batch_id']").val());
     send_data.append('batch_no_mac', $("input[id='batch_no_mac']").val());
     send_data.append('part_no_mac', $("input[id='part_no_mac']").val());
     send_data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     send_data.append('type', 2);
-    send_data.append('recommendation_letter',recommend_letter_mac);
+    send_data.append('recommendation_letter', recommend_letter_mac);
     send_data.append('form_type', $("input[name='form_type']").val());
     send_data.append('academic_year', $("#mac_academic_year").val());
     send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     send_data.append('mac_type', $("input[type='radio'][name='mac_type']:checked").val());
     //send student info data
     send_data.append('office_address', $("#mac_container").find("input[name=office_address]").val());
-    send_data.append('current_address',$("#mac_container").find("input[name=current_address]").val());
+    send_data.append('current_address', $("#mac_container").find("input[name=current_address]").val());
     send_data.append('address', $("#mac_container").find("input[name=address]").val());
     send_data.append('phone', $("#mac_container").find("input[name=phone]").val());
     send_data.append('gov_staff', $("#mac_container").find('input[name="gov_staff"]:checked').val());

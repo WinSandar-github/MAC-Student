@@ -1,17 +1,19 @@
-function showAppList(course_code) {
+function showRegList(course_code) {
 
 
-    $('#tbl_application').DataTable({
+    var reg_table = $('.tbl_reg_list').DataTable({
         scrollX: true,
         processing: true,
         serverSide: true,
         searching: false,
-        paging: true,
+        paging: false,
+        "order": [[1, 'asc']],
         ajax: {
             url: BACKEND_URL + "/get_attendes_student",
             type: "POST",
             data: function (d) {
-                d.course_code = course_code
+                d.course_code = course_code,
+                    d.module = $('#selected_module').val()
 
             }
         },
@@ -24,6 +26,50 @@ function showAppList(course_code) {
             { data: 'cpersonal_no', name: 'cpersonal_no' },
 
 
+
+        ],
+        sort: function (row, type, set, meta) {
+            return row[meta.col][1];
+        }
+    });
+
+    $("#selected_module").change(function () {
+
+        reg_table.draw();
+
+    });
+
+
+
+
+}
+
+function showAppList(course_code) {
+
+
+    $('#tbl_application').DataTable({
+        scrollX: true,
+        processing: true,
+        serverSide: true,
+        searching: false,
+        paging: true,
+        "order": [[1, 'asc']],
+        ajax: {
+            url: BACKEND_URL + "/get_student_app_list",
+            type: "POST",
+            data: function (d) {
+                d.course_code = course_code
+
+            }
+        },
+        columns: [
+
+            { data: "sr_no", name: 'No' },
+            { data: 'student_info.name_mm', name: 'student_info.name_mm' },
+            { data: 'student_info.father_name_mm', name: 'student_info.father_name_mm' },
+            { data: 'nrc', name: 'nrc' },
+
+
         ],
         sort: function (row, type, set, meta) {
             return row[meta.col][1];
@@ -34,20 +80,24 @@ function showAppList(course_code) {
 
 }
 
+
 function showExamList(course_code) {
 
 
-    $('#tbl_approve_exam').DataTable({
+    var exam_table = $('#tbl_approve_exam').DataTable({
         scrollX: true,
         processing: true,
         serverSide: true,
         searching: false,
-        paging: true,
+        paging: false,
+        "order": [[1, 'asc']],
         ajax: {
             url: BACKEND_URL + "/approve_exam_list",
             type: "POST",
             data: function (d) {
-                d.course_code = course_code;
+                d.course_code = course_code,
+                    d.module = $('#selected_module').val()
+
 
 
             }
@@ -62,23 +112,35 @@ function showExamList(course_code) {
 
 
         ],
+        "dom": '<"float-left"l><"float-right"f>rt<"bottom float-left"i><"bottom float-right"p><"clear">',
+
 
     });
+
+    $("#selected_module").change(function () {
+
+        exam_table.draw();
+
+    });
+
 }
 
 function showExamResultList(course_code) {
-    $('#tbl_exam_result').DataTable({
+    let exam_result_table = $('#tbl_exam_result_list').DataTable({
         scrollX: true,
         processing: true,
         serverSide: true,
         searching: false,
-        paging: true,
+        paging: false,
+        "order": [[1, 'asc']],
         ajax: {
             url: BACKEND_URL + "/approve_exam_list",
             type: "POST",
             data: function (d) {
                 d.course_code = course_code;
                 d.grade = 1;
+                d.module = $('#selected_module').val()
+
 
             }
         },
@@ -96,6 +158,14 @@ function showExamResultList(course_code) {
             { data: 'student_info.personal_no', name: 'personal_no' }
 
         ],
+        "dom": '<"float-left"l><"float-right"f>rt<"bottom float-left"i><"bottom float-right"p><"clear">',
+
+
+    });
+
+    $("#selected_module").change(function () {
+
+        exam_result_table.draw();
 
     });
 
