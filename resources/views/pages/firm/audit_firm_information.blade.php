@@ -111,12 +111,12 @@
                                         <tr>
                                             <td width="15%">
                                                 <div class="single-form">
-                                                    <label class="col-form-label">Applied Date</label>
+                                                    <label class="col-form-label">Registration No.</label>
                                                 </div>
                                             </td>
                                             <td width="85%">
                                                 <div class="single-form">
-                                                    <input type="text" class="form-control" id="register_date" readonly="">
+                                                    <input type="text" class="form-control" id="reg_no" readonly="">
                                                 </div>
                                             </td>
                                         </tr>
@@ -357,7 +357,7 @@
         }
 				loadDescription('Audit');
         audit_reg_feedback();
-        //checkPaymentAudit();
+        checkPaymentAudit();
         auditData();
         dateQuery();
         verifyStatus();

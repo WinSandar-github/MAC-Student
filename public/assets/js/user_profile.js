@@ -1824,6 +1824,9 @@ $('.course_list').click(function () {
         case 'app':
             show_url = '/application_list/'
             break;
+        case 'reg':
+            show_url = '/attend_registration_list/'
+            break;
         case 'exam':
             show_url = '/exam_registration_list/'
             break;

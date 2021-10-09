@@ -1,4 +1,5 @@
 @extends('pages.home.announcement')
+
 @section('content')
 <div class="row">
     <div class="col-md-12 text-center">
@@ -7,12 +8,8 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-12">
-                            @php
-                            $start_year = date('Y',strtotime($course['active_batch'][0]['start_date']));
- @endphp
-                            
-                            <h5 class="text-center m-3"> {{$course['name_mm']}}သင်တန်း ({{$start_year}}-{{$start_year+1}})  </h5>
-                            <h5 class="text-center m-3"> တက်ရောက်ခွင့်ရသူများစာရင်း</h5>
+                            <h5 class="text-center m-3"> {{$course['name_mm']}} အမှတ်စဥ် - {{$course['active_batch'][0]['number'] }} စာမေးပွဲတွင်</h5>
+                            <h5 class="text-center m-3"> Module အလိုက်ဖြေဆိုရန် မှတ်ပုံတင်ထားသူများစာရင်း</h5>
 
                         </div>
                     </div>
@@ -63,24 +60,40 @@
 
                                 </div> --}}
                                  <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                     
+                                 
+                                       
+                                             
+                                           
+                                            <div class="col-md-3 pull-right">
+                                                
+                                                <select class="form-control form-select" name="selected_module" id="selected_module">
+                                                    <option value="" selected disabled>Select Module</option>
+                                                    @foreach($modules as $module)
+                                                    <option value="{{$module['id']}}">{{$module['name']}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                                
+                                        
 
-                                            <table width="100%" id="tbl_application" class="table table-hover text-nowrap ">
+                                            <table width="100%" class="tbl_reg_list table table-hover text-nowrap ">
                                                 <thead>
                                                     <tr>
                                                         <th class="bold-font-weight" >No</th>
                                                         <th class="bold-font-weight" >အမည်</th>
                                                         <th class="bold-font-weight" >အဖအမည်</th>
                                                         <th class="bold-font-weight" >မှတ်ပုံတင်နံပါတ်</th>
-                                                       
+                                                        
+                                                        <th class="bold-font-weight" >ကိုယ်ပိုင်နံပါတ်</th>
+                                                 
 
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tbl_app_list_body" class="hoverTable">
+                                                <tbody id="tbl_reg_list_body" class="hoverTable">
                                                 </tbody>
                                             </table>
-                                        </div>
+                                       
                                     </div>
                                             
                                     
@@ -100,7 +113,7 @@
 <script>
         $('document').ready(function(){
             var course_code = $('#course_code').val();
-              showAppList(course_code);
+              showRegList(course_code);
         })
         </script>
 

@@ -165,7 +165,9 @@ Route::get('article_resign_registration', 'ArticleController@articleResign');
 Route::get('article_information', 'ArticleInfoController@info');
 
 //list of all result
-Route::get('application_list/{course_id}','ReportController@app_list');
+Route::get('attend_registration_list/{course_id}','ReportController@attendRegistrationList');
+Route::get('application_list/{course_id}','ReportController@appList');
+
 
 Route::get('exam_registration_list/{course_id}','ReportController@exam_list');
 Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');

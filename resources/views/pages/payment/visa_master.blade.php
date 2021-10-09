@@ -7,7 +7,7 @@
     
 
     $orderid= "2106-000212";
-    $returnURL="http://localhost/new-visa/index";
+    $returnURL="https://demo.aggademo.me/MAC_Student/public/index.php/post_payment/visa_master";
     $currency="USD";
     $amount="500";
     $description="test donation 2106-000212";
@@ -118,40 +118,26 @@
     
                     session: { 
                             id: '<?php echo $session_id; ?>'
-                       },
+                        },
     
                     merchant: '<?php echo $merchantID; ?>',
                     order: {
-                        amount: function() {
-                            Amt = parseFloat(<?php echo $amount; ?>);
-                            return Amt;
-                        },
-                        currency: function()
-                        {
-                            currency = String('<?php echo $currency; ?>');
-                            console.log(currency);
-                            return currency;
-                        },
+                        amount: parseFloat(<?php echo $amount; ?>),
+                        currency: '<?php echo $currency; ?>',
                         description: '<?php echo $description; ?>',
-                        reference:function(){
-                            var ref = "test1231 Ref";
-                            return ref;
-                        },
-                       id: '<?php echo $orderid; ?>'
+                        reference:"test1231 Ref",
+                        id: '<?php echo $orderid; ?>'
                     },
                     
-                    
-                                
-                   interaction: {
+                    interaction: {
                         
-                        merchant      : {
+                        merchant : {
                             name   : '<?php echo $merchantID; ?>',
                             address: {
-                                          line1: '200 Sample St'
-                                                   
+                                          line1: '200 Sample St'                   
                             },                      
-                            phone  : '09123456789',
-                            logo   : 'https://demo.aggademo.me/MAC_Student/public/img/cash.png'
+                            phone  : '<?php echo $merchantPhone; ?>',
+                            logo   : '<?php echo $merchantLogo; ?>'
                         },
                         locale        : 'en_US',
                         theme         : 'default',
