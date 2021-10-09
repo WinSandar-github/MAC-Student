@@ -275,9 +275,6 @@ $('#cpa_register').submit(function (e) {
     }
 
 
-
-
-
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -295,6 +292,7 @@ $('#cpa_register').submit(function (e) {
 
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('race', $("input[name=race]").val());
     send_data.append('religion', $("input[name=religion]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
@@ -519,8 +517,13 @@ function direct_or_da() {
             success: function (res) {
                 // console.log('res2',res);
                 let entry_exam = res.data.exams.slice(-1);
-                // console.log('entry_exam',entry_exam);
-                $('#exam_date').append(formatMY(entry_exam[0].exam_start_date));
+                console.log('entry_exam',entry_exam);
+                if(entry_exam.length != 0){
+                    $('#exam_date').append(formatDateMY(entry_exam[0].exam_start_date));
+                }else{
+                    $('#exam_date').append("-------");
+                }
+                
                 $('.batch_id').append(res.data.number);
                 $('#batch_number').append(res.data.number);
             }
@@ -816,6 +819,7 @@ $('#cpa_entry_register').submit(function (e) {
 
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('race', $("input[name=race]").val());
     send_data.append('religion', $("input[name=religion]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());

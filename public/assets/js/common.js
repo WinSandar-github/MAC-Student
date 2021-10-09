@@ -59,7 +59,7 @@ function formatDate(date) {
 
 function formatMY(date) {
     var income_date = date.split('-');
-    var date =income_date[1] + '-' + income_date[2];
+    var date = income_date[1] + '-' + income_date[2];
     return date;
 }
 
@@ -70,11 +70,19 @@ function formatDateMY(date) {
     var month = income_date[1];
     var year = income_date[0];
 
-    var options = { month: 'short'};
-    var month_short= new Date(month);
+    var options = { month: 'short' };
+    var month_short = new Date(month);
     var exam_month = new Intl.DateTimeFormat('en-US', options).format(month_short);
-    var date =   exam_month + '-' + year;
+    var date = exam_month + '-' + year;
     return date;
+}
+
+function mm2en(num) {
+    var nums = { 0: '၀', 1: '၁', 2: '၂', 3: '၃', 4: '၄', 5: '၅', 6: '၆', 7: '၇', 8: '၈', 9: '၉' };
+    return num.replace(/([0-9])/g, function (s, key) {
+        console.log(nums[key] || s);
+        return nums[key] || s;
+    });
 }
 
 function ConfirmSubmit() {

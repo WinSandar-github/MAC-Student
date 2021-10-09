@@ -248,6 +248,30 @@
                                     </div>
 
                                         <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                            <div class="row col-md-8 py-2">
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id="male_private"
+                                                                name="gender" value="Male" required>
+                                                        <span class="form-check-sign"></span>
+                                                        ကျား
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id='female_private'
+                                                                name="gender" value='Female' required>
+                                                        <span class="form-check-sign"></span>
+                                                        မ
+                                                    </label>
+                                                </div>
+                                                
+                                                <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>လူမျိုး</label>
                                             <div class="col-md-8">
                                                 <input type="text" placeholder="လူမျိုး" name="race" id="race" class="form-control"
@@ -644,6 +668,30 @@
                                                 </div>
                                                 {{--User Photo--}}
                                             </div> 
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                            <div class="row col-md-8 py-2">
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id="male_self"
+                                                                name="gender" value="Male" required>
+                                                        <span class="form-check-sign"></span>
+                                                        ကျား
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-3 form-check-radio mx-2">
+                                                    <label class="form-check-label">
+                                                        <input disabled class="form-check-input" type="radio" id='female_self'
+                                                                name="gender" value='Female' required>
+                                                        <span class="form-check-sign"></span>
+                                                        မ
+                                                    </label>
+                                                </div>
+                                                
+                                                <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                            </div>
                                         </div>
 
                                         <div class="row mb-3">
@@ -1160,6 +1208,30 @@
                                                         </div>
                                                     </div>
                                                     {{--User Photo--}}
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
+                                                <div class="row col-md-8 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id="male_mac"
+                                                                    name="gender" value="Male" required>
+                                                            <span class="form-check-sign"></span>
+                                                            ကျား
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input disabled class="form-check-input" type="radio" id='female_mac'
+                                                                    name="gender" value='Female' required>
+                                                            <span class="form-check-sign"></span>
+                                                            မ
+                                                        </label>
+                                                    </div>
+                                                    
+                                                    <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
                                                 </div>
                                             </div>
 
@@ -1711,26 +1783,9 @@
                         console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('current_stu_course',current_stu_course);
+                        console.log('current_stu_course',current_stu_course);                       
 
-                        //show or hide direct_access_no and entry_success
-                        if(last_exam.length!=0){
-                            if(last_exam[0].is_full_module==null){                            
-                                $("#direct_access_no_self_div").hide();
-                                $("#entry_success_no_self_div").show();
-                                $("#direct_access_no_private_div").hide();
-                                $("#entry_success_no_private_div").show();
-                                $("#direct_access_no_mac_div").hide();
-                                $("#entry_success_no_mac_div").show();
-                            }else{
-                                $("#direct_access_no_self_div").show();
-                                $("#entry_success_no_self_div").hide();
-                                $("#direct_access_no_private_div").show();
-                                $("#entry_success_no_private_div").hide();
-                                $("#direct_access_no_mac_div").show();
-                                $("#entry_success_no_mac_div").hide();
-                            }
-                        }  
+
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
                             $(".batch_number").append(current_stu_course[0].batch.id);
@@ -1744,23 +1799,17 @@
                                     console.log("natch-id",batch_id);
                                     $('.batch_id').val(batch_id);
                                     $.ajax({
-                                    type: "get",
-                                    url: BACKEND_URL+"/batch/"+batch_id,
-                                    contentType: false,
-                                    processData: false,
-                                    async:false,
-                                    success: function (res) {
-                                        console.log('res',res)
-                                        $('.batch_no').val(res.data.number);                                            
-                                        
-                                        // $('.personal_no').val(data.data.cpersonal_no);
-                                        $('#remain_module').val(last_exam[0].is_full_module)
-
-                                        if(last_exam[0].is_full_module == "1"){
-                                            $(".module_two").prop("checked", true);
-                                        
-                                            $('.module_one').attr('disabled', true);
-                                            $('.module_full').attr('disabled', true);
+                                        type: "get",
+                                        url: BACKEND_URL+"/batch/"+batch_id,
+                                        contentType: false,
+                                        processData: false,
+                                        async:false,
+                                        success: function (res) {
+                                            console.log('res',res)
+                                            $('.batch_no').val(res.data.number);                                            
+                                            
+                                            // $('.personal_no').val(data.data.cpersonal_no);
+                                            $('#remain_module').val(last_exam[0].is_full_module)
 
                                             if(last_exam[0].is_full_module == "1"){
                                                 $(".module_two").prop("checked", true);
@@ -1768,45 +1817,73 @@
                                                 $('.module_one').attr('disabled', true);
                                                 $('.module_full').attr('disabled', true);
 
-                                            }
-                                            else if(last_exam[0].is_full_module=="2"){
-                                                $(".module_one").prop("checked", true);
-                                                $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);
+                                                if(last_exam[0].is_full_module == "1"){
+                                                    $(".module_two").prop("checked", true);
+                                                
+                                                    $('.module_one').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);
 
-                                            }
-                                            else if(last_exam[0].is_full_module=="2"){
-                                                $(".module_one").prop("checked", true);
-                                                $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);
-                                            }
-                                            else{
-                                                $(".module_full").prop("checked", true);
-                                                $('.module_two').attr('disabled', true);
-                                                $('.module_full').attr('disabled', true);                                                    
-                                            }                                    
-                                        }   
-                                    }
-                                })   
+                                                }
+                                                else if(last_exam[0].is_full_module=="2"){
+                                                    $(".module_one").prop("checked", true);
+                                                    $('.module_two').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);
+
+                                                }
+                                                else if(last_exam[0].is_full_module=="2"){
+                                                    $(".module_one").prop("checked", true);
+                                                    $('.module_two').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);
+                                                }
+                                                else{
+                                                    $(".module_full").prop("checked", true);
+                                                    $('.module_two').attr('disabled', true);
+                                                    $('.module_full').attr('disabled', true);                                                    
+                                                }                                    
+                                            }   
+                                        }
+                                    })   
+                                }
+                                else{
+                                    $('.batch_id').val(current_stu_course[0].batch.id);
+                                } 
                             }
                             else{
+                                $('.batch_no').val(current_stu_course[0]?.batch?.number);
+                                $(".batch_number").append(current_stu_course[0].batch.number);
                                 $('.batch_id').val(current_stu_course[0].batch.id);
-                            } 
-                        }
-                        else{
-                            $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                            $(".batch_number").append(current_stu_course[0].batch.number);
-                            $('.batch_id').val(current_stu_course[0].batch.id);
-                        }                    // $('.batch_no').val(current_stu_course[0].batch.number);
+                            }                    // $('.batch_no').val(current_stu_course[0].batch.number);
                             
 
                         var info = data.data;
                         console.log('info',info);
-                        // if(!info.exam_registers[0]){
-                        //     console.log("Hello")
-                        // }else{
-                        //     console.log("Not")
-                        // }
+
+                        //show or hide direct_access_no and entry_success
+                        if(last_exam.length==0){
+                            console.log("for direct");
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }else if(last_exam[0].exam_type_id == 3){   
+                            console.log("for entry");                        
+                            $("#direct_access_no_self_div").hide();
+                            $("#entry_success_no_self_div").show();
+                            $("#direct_access_no_private_div").hide();
+                            $("#entry_success_no_private_div").show();
+                            $("#direct_access_no_mac_div").hide();
+                            $("#entry_success_no_mac_div").show();
+                        }else{
+                            console.log("for datocpa da2pass");
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }
                         
 
                         var job_history = data.data.student_job;
@@ -1920,6 +1997,17 @@
                             $("#mac_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                             $("#self_study_container").find("input[name=gov_staff][value=0]").prop("checked",true);
                             $("#private_school_container").find("input[name=gov_staff][value=0]").prop("checked",true);
+                        }
+
+                        //gender
+                        if (info.gender == "Male") {
+                            $("#male_self").prop("checked", true);
+                            $("#male_private").prop("checked", true);
+                            $("#male_mac").prop("checked", true);
+                        } else {
+                            $("#female_self").prop("checked", true);
+                            $("#female_private").prop("checked", true);
+                            $("#female_mac").prop("checked", true);
                         }
 
                         // if(info.acca_cima){
