@@ -561,7 +561,7 @@
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" name="cpa_ff_file"  id="cpa_ff_file" >
                                     </div>
-                                </div><br/><br>
+                                </div><br/>
                                 {{--<div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ခ)</div>
