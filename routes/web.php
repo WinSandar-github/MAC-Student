@@ -90,7 +90,7 @@ Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
-//Cpa 
+//Cpa
 Route::get('cpa_one_form/{id}', 'CPAOneRegisterController@cpaOneForm');
 Route::get('cpa_one_entry_form/{id}', 'CPAOneRegisterController@cpaOneEntryForm');
 Route::get('cpa_one_dapass_form/{id}', 'CPAOneRegisterController@cpaOneDaPassForm');
@@ -125,6 +125,9 @@ Route::get('audit_firm', 'AuditFirmController@auditFirm');
 
 // Audit Firm Information
 Route::get('audit_firm_information', 'AuditFirmInfoController@info');
+
+// Audit Firm Reject Register
+Route::get('audit_firm_reject_register', 'AuditFirmInfoController@updateRejectedRegister');
 
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
@@ -162,10 +165,16 @@ Route::get('article_resign_registration', 'ArticleController@articleResign');
 Route::get('article_information', 'ArticleInfoController@info');
 
 //list of all result
-Route::get('application_list/{course_id}','ReportController@app_list');
+Route::get('attend_registration_list/{course_id}','ReportController@attendRegistrationList');
+Route::get('application_list/{course_id}','ReportController@appList');
+
 
 Route::get('exam_registration_list/{course_id}','ReportController@exam_list');
 Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
+Route::get('entry_exam_list','ReportController@entryExamList');
+Route::get('qualified_test_list','ReportController@qualifiedTestList');
+
+
 
 
 //Payment Page

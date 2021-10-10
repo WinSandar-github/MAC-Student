@@ -53,7 +53,7 @@
     <!-- dataTables -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dataTables/dataTables.bootstrap5.min.css') }}">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
    
     @stack('styles')
     <style>
@@ -165,6 +165,9 @@
 
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
+<script src="{{ asset('assets/js/backendService.js') }}"></script>
+<script src="{{ asset('assets/js/common.js') }}"></script>
+
 <script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-validation/dist/additional-methods.min.js') }}"></script>
 
@@ -184,7 +187,6 @@
 <script src="{{ asset('assets/js/student_login.js') }}"></script>
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
 <script src="{{ asset('assets/js/auth.js') }}"></script>
-
 <script src="{{ asset('assets/js/papp.js') }}"></script>
 <script src="{{ asset('assets/js/cpa_one.js') }}"></script>
 <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
@@ -192,7 +194,7 @@
 <script src="{{ asset('vendor/myanmarnrc/myanmarnrc.js') }}"></script>
 <script src="{{ asset('assets/js/audit_firm.js') }}"></script>
 <script src="{{ asset('assets/js/school.js') }}"></script>
-
+ 
 
 <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> -->
@@ -211,7 +213,6 @@
 
 
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
-<script src="{{ asset('assets/js/common.js') }}"></script>
 <script src="{{ asset('assets/js/exam_register.js') }}"></script>
 <script src="{{ asset('assets/js/da_register.js') }}"></script>
 <script src="{{ asset('assets/js/user_profile.js') }}"></script>
@@ -224,7 +225,7 @@
 
 
 <script src="{{ asset('assets/js/teacher_register.js') }}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 <!-- <script>
 show_loader()
 setTimeout(() => {

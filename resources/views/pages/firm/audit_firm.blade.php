@@ -247,7 +247,7 @@
                                                                   <th class="less-font-weight text-center">Telephone</th>
                                                                   <th class="less-font-weight text-center">Email</th>
                                                                   <th class="less-font-weight text-center">Website</th>
-                                                                  <th  class="less-font-weight text-center"  >
+                                                                  <th  class="less-font-weight text-center" >
                                                                     <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranch("branch")'>
                                                                       <li class="fa fa-plus"></li>
                                                                     </button>
@@ -524,7 +524,7 @@
                                             </div>
 
                                             <div id="company">
-                                                    <div class="row">
+                                              <div class="row">
                                                         <div class="col-md-1"></div>
                                                         <div class="col-md-11">
                                                             <div class="card" id="audit_company">
@@ -776,7 +776,7 @@
                                                       </thead>
                                                       <tbody>
                                                           <tr>
-                                                              <td>1</td>
+                                                              <td align="center" class="align-middle">1</td>
                                                               <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control" autocomplete="off" ></td>
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
@@ -830,7 +830,7 @@
                                                       </thead>
                                                       <tbody>
                                                           <tr>
-                                                              <td>1</td>
+                                                              <td align="center" class="align-middle">1</td>
                                                               <td><input type="text" value="" name="do_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td><input type="text" value="" name="do_position[]" class="form-control" autocomplete="off" ></td>
                                                               <td><input type="text" value="" name="do_cpa_reg_no[]" class="form-control" autocomplete="off" ></td>

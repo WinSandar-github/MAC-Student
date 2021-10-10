@@ -27,6 +27,7 @@ $("#photo").change(function () {
 });
 
 function selectStaff(value) {
+
     if (value == 1) {
         $('#rec_letter').css('display', 'block');
     } else {
@@ -69,6 +70,7 @@ function Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
+    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id', student.id)
@@ -83,9 +85,16 @@ function Private_School_Submit() {
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('type', 1);
     data.append('remain_module', $("input[name='remain_module']").val());
-    data.append('batch_id', batch_id);
+    data.append('batch_id', $("input[name='batch_id']").val());
 
-    data.append('recommendation_letter',recommend_letter_private);
+    data.append('recommendation_letter', recommend_letter_private);
+    //send student info data
+    data.append('office_address', $("#private_school_container").find("input[name=office_address]").val());
+    data.append('current_address',$("#private_school_container").find("input[name=current_address]").val());
+    data.append('address', $("#private_school_container").find("input[name=address]").val());
+    data.append('phone', $("#private_school_container").find("input[name=phone]").val());
+    data.append('gov_staff', $("#private_school_container").find('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', profile_photo);
     show_loader();
 
     $.ajax({
@@ -116,9 +125,10 @@ function Private_School_Submit() {
 function Self_Study_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
-
+    
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
+    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('academic_year', $("#academic_year_self").val());
@@ -136,8 +146,15 @@ function Self_Study_Submit() {
     data.append('type', 0);
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('remain_module', $("input[name='remain_module']").val())
-    data.append('batch_id', batch_id);
-    data.append('recommendation_letter',recommend_letter_self);
+    data.append('batch_id', $("input[name='batch_id']").val());
+    data.append('recommendation_letter', recommend_letter_self);
+    //send student info data
+    data.append('office_address', $("#self_study_container").find("input[name=office_address]").val());
+    data.append('current_address',$("#self_study_container").find("input[name=current_address]").val());
+    data.append('address', $("#self_study_container").find("input[name=address]").val());
+    data.append('phone', $("#self_study_container").find("input[name=phone]").val());
+    data.append('gov_staff', $("#self_study_container").find('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', profile_photo);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -145,14 +162,14 @@ function Self_Study_Submit() {
         data: data,
         contentType: false,
         processData: false,
-        success: function (result) {            
-            if (result.message == undefined) {    
-                EasyLoading.hide();            
+        success: function (result) {
+            if (result.message == undefined) {
+                EasyLoading.hide();
                 location.href = FRONTEND_URL + '/';
                 successMessage(result);
             }
-            else {      
-                EasyLoading.hide();          
+            else {
+                EasyLoading.hide();
                 location.href = FRONTEND_URL + '/';
                 successMessage(result.message);
             }
@@ -168,6 +185,7 @@ function Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
+    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
@@ -180,15 +198,23 @@ function Mac_Submit() {
     data.append('good_behavior', good_morale_file);
     data.append('no_crime', no_crime_file);
     data.append('module', $("input[type='radio'][name='module']:checked").val());
+    
     data.append('type', 2);
     data.append('form_type', localStorage.getItem('course_id'));
     data.append('batch_no_mac', $("input[id='batch_no_mac']").val());
     data.append('part_no_mac', $("input[id='part_no_mac']").val());
     data.append('personal_no_mac', $("input[id='personal_no_mac']").val());
     data.append('remain_module', $("input[name='remain_module']").val());
-    data.append('batch_id', batch_id);
+    data.append('batch_id', $("input[name='batch_id']").val());
     data.append('mac_type', $("input[name='mac_type']").val());
-    data.append('recommendation_letter',recommend_letter_mac);
+    data.append('recommendation_letter', recommend_letter_mac);
+    //send student info data
+    data.append('office_address', $("#mac_container").find("input[name=office_address]").val());
+    data.append('current_address',$("#mac_container").find("input[name=current_address]").val());
+    data.append('address', $("#mac_container").find("input[name=address]").val());
+    data.append('phone', $("#mac_container").find("input[name=phone]").val());
+    data.append('gov_staff', $("#mac_container").find('input[name="gov_staff"]:checked').val());
+    data.append('profile_photo', profile_photo);
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -198,6 +224,7 @@ function Mac_Submit() {
         processData: false,
         success: function (result) {
             EasyLoading.hide();
+            console.log(result);
             if (result.message == undefined) {
                 successMessage(result);
                 location.href = FRONTEND_URL + '/';
@@ -248,9 +275,6 @@ $('#cpa_register').submit(function (e) {
     }
 
 
-
-
-
     // var certificate = $('#certificate0')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
@@ -268,6 +292,7 @@ $('#cpa_register').submit(function (e) {
 
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('race', $("input[name=race]").val());
     send_data.append('religion', $("input[name=religion]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
@@ -312,7 +337,7 @@ $('#cpa_register').submit(function (e) {
     send_data.append('type', $("input[name='attend_place']:checked").val());
     send_data.append('mac_type', $("input[name='mac_type']:checked").val());
     send_data.append('batch_id', batch_id)
-    show_loader(); 
+    show_loader();
 
     $.ajax({
         type: "POST",
@@ -428,7 +453,7 @@ $('#cpa_update').submit(function (e) {
         success: function (data) {
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            location.href = FRONTEND_URL + "/";
+            // location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
         }
@@ -475,8 +500,9 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                $('.batch_id').append(res.data.id);
-                $('#batch_id').val(res.data.id);
+                // console.log('res1',res);
+                $('.batch_id').append(res.data.number);
+                $('#batch_id').val(res.data.number);
                 $('#batch_name').text(res.data.name);
             }
         })
@@ -489,8 +515,17 @@ function direct_or_da() {
             contentType: false,
             processData: false,
             success: function (res) {
-                $('.batch_id').append(res.data.id);
-                $('#batch_number').append(res.data.id);
+                // console.log('res2',res);
+                let entry_exam = res.data.exams.slice(-1);
+                console.log('entry_exam',entry_exam);
+                if(entry_exam.length != 0){
+                    $('#exam_date').append(formatDateMYEntry(entry_exam[0].exam_start_date));
+                }else{
+                    $('#exam_date').append("-------");
+                }
+                
+                $('.batch_id').append(res.data.number);
+                $('#batch_number').append(res.data.number);
             }
         })
         $('.dir_cpa_app_form').show();
@@ -745,7 +780,13 @@ $('#cpa_entry_register').submit(function (e) {
         return;
     }
     e.preventDefault();
-
+    var is_gov_staff;
+    if (document.getElementById('yes').checked) {
+        is_gov_staff = 1;
+    }
+    else {
+        is_gov_staff = 0;
+    }
     var certificate = $('input[name="certificate[]"]');
 
     let batch_id = url.substring(url.lastIndexOf('/') + 1);
@@ -778,13 +819,14 @@ $('#cpa_entry_register').submit(function (e) {
 
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     send_data.append('race', $("input[name=race]").val());
     send_data.append('religion', $("input[name=religion]").val());
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('current_address', $("input[name=current_address]").val());
     send_data.append('phone', $("input[name=phone]").val());
-    send_data.append('gov_staff', $("input[name=gov_staff]").val());
+    send_data.append('gov_staff', is_gov_staff);
     // $(':radio:checked').map(function(){send_data.append('gov_staff',$(this).val())});
     send_data.append('image', image);
     send_data.append('registration_no', $("input[name=registration_no]").val());
