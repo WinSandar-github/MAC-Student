@@ -2019,6 +2019,7 @@ function loadSchoolByDash(school) {
     } else if (school.approve_reject_status == 1) {
         $('.sch_status_history').append('School Registration is Approved.');
         $('.sch_payment-btn').show();
+        $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
         $('.sch_payment-status').show();
     } else {
 
@@ -2030,6 +2031,7 @@ function loadSchoolByDash(school) {
             $('.sch_status').hide();
         } else {
             $('.sch_reject-btn').show();
+            $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
             $('.sch_status_history').append('School Registration is Rejected.');
 
             $('.sch_reject-reason').append(school.reason);
@@ -2045,6 +2047,7 @@ function loadSchoolByDash(school) {
             $('.sch_renew-btn').hide();
         } else {
             $('.sch_renew-btn').show();
+            $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
         }
         $('.sch_payment-status').show();
         $('.sch_payment-btn').hide();
@@ -2071,10 +2074,12 @@ function laodTeacherByDash(teacher) {
     } else if (teacher.approve_reject_status == 1) {
         $('.teacher_status_history').append('Teacher Registration is Approved.');
         $('.teacher_payment-btn').show();
+        $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
         $('.teacher_payment-status').show();
     } else {
         $('.teacher_status_history').append('Teacher Registration is Rejected.');
         $('.teacher_reject-btn').show();
+        $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
         $('.teacher_reject-reason').append(teacher.reason);
     }
     if (teacher.payment_method != null) {
@@ -2085,6 +2090,7 @@ function laodTeacherByDash(teacher) {
         var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
         $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
         $('.teacher_renew-btn').show();
+        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
         $('.teacher_payment-status').show();
         $('.teacher_payment-btn').hide();
         $(".teacher_payment_status").text("Complete");
@@ -2111,10 +2117,12 @@ function loadRenewTeacherDash(teacher){
     } else if (teacher.approve_reject_status == 1) {
         $('.teacher_status_history').append('Teacher Registration is Approved.');
         $('.teacher_payment-btn').show();
+        $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
         $('.teacher_payment-status').show();
     } else {
         $('.teacher_status_history').append('Teacher Registration is Rejected.');
         $('.teacher_reject-btn').show();
+        $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
         $('.teacher_reject-reason').append(teacher.reason);
     }
     if (teacher.payment_method != null) {
@@ -2123,8 +2131,9 @@ function loadRenewTeacherDash(teacher){
         var period_date = teacher.payment_date.split(' ');
         var new_period_date = period_date[0].split('-');
         var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-        $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+        $('#teacher_period_time').text("01-01-"+now.getFullYear()+ " to 31-12-" + now.getFullYear());
         $('.teacher_renew-btn').show();
+        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
         $('.teacher_payment-status').show();
         $('.teacher_payment-btn').hide();
         $(".teacher_payment_status").text("Complete");
