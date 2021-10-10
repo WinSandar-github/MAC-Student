@@ -691,9 +691,8 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
-
-                                                    <a href="/MAC_Student/public/index.php/school_edit" class="btn btn-success btn-hover-dark"> Update</a>
+                                                <p class="info-btn text-dark h6 sch-reject-p">
+                                                
                                                 </p>
                                             </div>
                                     </div>
@@ -703,10 +702,10 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
+                                                <p class="info-btn text-dark h6 sch_payment-p">
 
-                                                    <a href="/MAC_Student/public/index.php/school_information" class="btn btn-success btn-hover-dark"> Go to
-                                                        payment</a>
+                                                    <!-- <a href="/school_information" class="btn btn-success btn-hover-dark"> Go to
+                                                        payment</a> -->
                                                 </p>
                                             </div>
                                     </div>
@@ -715,9 +714,9 @@
                                     <div class="col-md-6"></div>
                                     <div class="">
                                                 <div class=" pull-right mt-4">
-                                                    <p class="info-btn text-dark h6">
+                                                    <p class="info-btn text-dark h6 sch_renew-p">
 
-                                                        <a href="/MAC_Student/public/index.php/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                        <!-- <a href="/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a> -->
                                                     </p>
                                                 </div>
                                     </div>
@@ -833,9 +832,9 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
-
-                                                    <a href="/MAC_Student/public/index.php/teacher_register" class="btn btn-success btn-hover-dark"> Update</a>
+                                                <p class="info-btn text-dark h6 teacher_reject-p">
+                                                    <!--https://demo.aggademo.me/MAC_Student/public/index.php-->
+                                                    <!-- <a href="/teacher_register" class="btn btn-success btn-hover-dark"> Update</a> -->
                                                 </p>
                                             </div>
                                     </div>
@@ -845,10 +844,10 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
+                                                <p class="info-btn text-dark h6 teacher_payment-p">
 
-                                                    <a href="/MAC_Student/public/index.php/teacher_information" class="btn btn-success btn-hover-dark"> Go to
-                                                        payment</a>
+                                                    <!-- <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Go to
+                                                        payment</a> -->
                                                 </p>
                                             </div>
                                     </div>
@@ -857,9 +856,9 @@
                                     <div class="col-md-6"></div>
                                     <div class="">
                                                 <div class=" pull-right mt-4">
-                                                    <p class="info-btn text-dark h6">
+                                                    <p class="info-btn text-dark h6 teacher_renew-p">
 
-                                                        <a href="/MAC_Student/public/index.php/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                        <!-- <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a> -->
                                                     </p>
                                                 </div>
                                     </div>
@@ -867,7 +866,7 @@
                             </div>
                         </div>
             </div>
-
+            <!--end teacher dashboard-->
             <div class="qualified_test">
                 <div class="row">
                     <div class="col-md-3">
@@ -929,7 +928,7 @@
 
 
             </div>
-            <!--end teacher dashboard-->
+            
         </div>
     </div>
 <!-- update profile -->
