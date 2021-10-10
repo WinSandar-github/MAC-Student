@@ -241,10 +241,10 @@
 															<div class="col-md-12">
 																<ul>
 																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
-																		<li><i class="icofont-money"></i> <strong>Initial Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fee</strong><span class='renew-yearly-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
+                                                                        <!-- <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li> -->
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='reconnected-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>CPA Subject Fee</strong><span class='cpa-subject-fee'></li>
@@ -290,6 +290,19 @@
                                                                             </div>
                                                                             
                                                                         </div>
+                                                                        <div class="row renew-payment-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        
+                                                                                        <button id="renewteacher_modal" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
 																</ul>
 															</div>
 														</div>
@@ -322,7 +335,7 @@
 
                                                                 <label class="col-md-5 col-form-label label" >{{ __('အီးမေးလ်') }}</label>
                                                                 <div class="col-md-6">
-                                                                    <input type="email" name="email" class="form-control" autocomplete='off' disabled>
+                                                                    <input type="email" name="email" class="form-control" autocomplete='off' readonly>
                                                                     
                                                                 </div>
                                                             </div>
@@ -331,11 +344,11 @@
                                                                 <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                                                 <label class="col-md-5 col-form-label label">{{ __('အမည်(မြန်မာ/အင်္ဂလိပ်)') }}</label>
                                                                 <div class="col-md-3">
-                                                                    <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' disabled>
+                                                                    <input type="text" name="name_mm" id="name_mm" class="form-control" autocomplete='off' readonly>
                                                                     
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <input type="text" name="name_eng" class="form-control"autocomplete='off' disabled>
+                                                                    <input type="text" name="name_eng" class="form-control"autocomplete='off' readonly>
                                                                     
                                                                 </div>
                                                             </div>
@@ -343,11 +356,11 @@
                                                                 <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
                                                                 <label class="col-md-5 col-form-label label">{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</label>
                                                                 <div class="col-md-3">
-                                                                    <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" autocomplete='off' disabled>
+                                                                    <input type="text" name="father_name_mm" id="father_name_mm" class="form-control" autocomplete='off' readonly>
                                                                     
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <input type="text" name="father_name_eng" class="form-control" autocomplete='off' disabled>
+                                                                    <input type="text" name="father_name_eng" class="form-control" autocomplete='off' readonly>
                                                                     
                                                                 </div>
                                                             </div>
@@ -386,7 +399,7 @@
                                                                 <div class="col-md-8">
                                                                     <div class="row" >
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" disabled>
+                                                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
                                                                                 @foreach($nrc_regions as $region)
                                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                         {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -395,7 +408,7 @@
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-3 col-7 px-1">
-                                                                            <select class="form-control" name="nrc_township" id="nrc_township" disabled>
+                                                                            <select class="form-control" name="nrc_township" id="nrc_township" readonly>
                                                                                 @foreach($nrc_townships as $township)
                                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                         {{ $township['township_mm'] }}
@@ -405,7 +418,7 @@
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" disabled>
+                                                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
                                                                                 @foreach($nrc_citizens as $citizen)
                                                                                 <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -415,7 +428,7 @@
                                                                         </div>
 
                                                                         <div class="col-md-5 col-7 pl-1">
-                                                                        <input type="text" name="nrc_number" id="nrc_number" disabled autocomplete='off'  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" >
+                                                                        <input type="text" name="nrc_number" id="nrc_number" readonly autocomplete='off'  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" placeholder="" style="height: 38px" >
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -470,7 +483,7 @@
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <label for="" class="col-md-3 col-form-label label_align_right">လူမျိုး</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" name="race" class="form-control" disabled>
+                                                            <input type="text" name="race" class="form-control" readonly>
                                                         </div>
                                                     </div>
 
@@ -478,7 +491,7 @@
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                                         <label for="" class="col-md-3 col-form-label label_align_right">ကိုးကွယ်သည့်ဘာသာ</label>
                                                         <div class="col-md-8">
-                                                            <input type="text"   name="religion" class="form-control" disabled>
+                                                            <input type="text"   name="religion" class="form-control" readonly>
                                                         </div>
                                                     </div>
 
@@ -486,7 +499,7 @@
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
                                                         <label for="" class="col-md-3 col-form-label label">မွေးသက္ကရာဇ်</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" name="date_of_birth" class="form-control" disabled>
+                                                            <input type="text" name="date_of_birth" class="form-control" readonly>
                                                         </div>
                                                     </div>
 
@@ -494,7 +507,7 @@
                                                         <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                                         <label class="col-md-3 col-form-label label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" name="phone_number" class="form-control"  autocomplete="off">
+                                                            <input type="text" name="phone" class="form-control"  autocomplete="off">
                                                         
                                                         </div>
                                                     </div>
@@ -502,7 +515,7 @@
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
                                                             <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ</label>
                                                             <div class="col-md-8">
-                                                                <input type="text"  name="address" class="form-control" autocomplete="off">
+                                                                <input type="text"  name="current_address" class="form-control" autocomplete="off">
                                                             </div>
                                                     </div>
 
@@ -510,7 +523,7 @@
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                                             <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                             <div class="col-md-8">
-                                                                <input type="text"  name="current_address" class="form-control" disabled>
+                                                                <input type="text"  name="address" class="form-control" readonly>
                                                             </div>
                                                     </div>
 
@@ -545,8 +558,9 @@
                                                             <input type="hidden" id="exp_desc">
                                                             <input type="hidden" id="position">
                                                             <input type="hidden" id="department">
-                                                            <input type="hidden" id="organization">
+                                                            <input type="hidden" id="renew_teacher_id">
                                                             <input type="hidden" id="payment_date">
+                                                            
                                                     </div>
                                                     
                                                     <div class="row mb-3">
@@ -578,6 +592,17 @@
                                                                         <option value="" disabled selected>ရွေးပါ</option>
                                                                         
                                                                 </select>
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label"></label>
+                                                        <label class="col-md-3 col-form-label label"></label>
+                                                        <div class="col-md-8">
+                                                            <div class="private_type">
+                                                                <input type="text" class="form-control" id="school_name" name="school_name" autocomplete="off">
                                                             </div>
                                                             
                                                             
@@ -620,7 +645,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၁၅။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control" id="regno" disabled>
+                                                            <input type="text" class="form-control" id="regno" name="regno" readonly>
                                                             
                                                         </div>
                                                 </div>
@@ -632,16 +657,16 @@
                                                             
                                                         </div>
                                                 </div>   
-                                                <div class="row mb-3">
+                                                <!-- <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
                                                     <label class="col-md-3 col-form-label label">This certificate is valid for the period</label>
                                                         <div class="col-md-8">
                                                             <input type="text" class="form-control" id="register_date" disabled>
                                                             
                                                         </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၈။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၇။') }}</label>
                                                     <label class="col-md-3 col-form-label label">Status</label>
                                                     <div class="col-md-8">
                                                             <input type="text" class="form-control" id="message" disabled>
@@ -668,6 +693,53 @@
             </div>
         </div>
     </div>
+    <form method="post" class="needs-validation" action="javascript:renewteacherPaymentSubmit();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="renewteacherpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">Teacher Registeration Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="teacher_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- JavaScript Section -->
     <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};

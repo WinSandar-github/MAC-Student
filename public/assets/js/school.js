@@ -628,8 +628,8 @@ function loadDescription(membership_name,divname){
           late_fee_feb_to_apr_partner += value.late_fee_feb_to_apr_partner;
           reconnect_fee_sole += value.reconnect_fee_sole;
           reconnect_fee_partner += value.reconnect_fee_partner;
-          //cpa_subject_fee +=value.cpa_subject_fee;
-          //da_subject_fee +=value.da_subject_fee;
+          cpa_subject_fee +=value.cpa_subject_fee;
+          da_subject_fee +=value.da_subject_fee;
           reconnected_fee +=value.reconnected_fee;
       })
       $('.application-fee').append(thousands_separators(application_fee)+" MMK");

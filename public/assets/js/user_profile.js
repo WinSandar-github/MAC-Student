@@ -71,11 +71,15 @@ function user_profile() {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school);
                 
-            } else if (data.teacher && data.school==null) {
+            }else if (data.teacher && data.school==null && data.teacher_renew.length==0) {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
                 
-            } 
+            }else if (data.teacher_renew && data.teacher) {
+                $('.dashboard_name').append('Teacher ');
+                loadRenewTeacherDash(data.teacher_renew.pop());
+                
+            }  
             else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
@@ -1996,8 +2000,9 @@ function laodTeacherByDash(teacher){
     if (teacher.payment_method != null) {
         $('.teacher_period').show();
         var now = new Date();
-        var period_date = teacher.payment_date.split('-');
-        var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
+        var period_date = teacher.payment_date.split(' ');
+        var new_period_date = period_date[0].split('-');
+        var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
         $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
         $('.teacher_renew-btn').show();
         $('.teacher_payment-status').show();
@@ -2006,4 +2011,45 @@ function laodTeacherByDash(teacher){
     }else{
         $(".teacher_payment_status").text("Incomplete");
     }
+    
+}
+function loadRenewTeacherDash(teacher){
+    
+    $('.teacher-title').text('Teacher Information')
+    $('.teacher').show();
+    $('.cpaff_other').hide();
+    $('.da-card').hide();
+    //localStorage.setItem("teacher_id", teacher.id);
+    $('#teacher_name_mm').text(teacher.name_mm);
+    $('#teacher_name_eng').text(teacher.name_eng);
+    $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
+
+    $("#teacher_email").text(teacher.email);
+    $('#teacher_phone').text(teacher.phone);
+    if (teacher.approve_reject_status == 0) {
+        $('.teacher_status_history').append('Teacher Registration is checking.');
+    } else if (teacher.approve_reject_status == 1) {
+        $('.teacher_status_history').append('Teacher Registration is Approved.');
+        $('.teacher_payment-btn').show();
+        $('.teacher_payment-status').show();
+    } else {
+        $('.teacher_status_history').append('Teacher Registration is Rejected.');
+        $('.teacher_reject-btn').show();
+        $('.teacher_reject-reason').append(teacher.reason);
+    }
+    if (teacher.payment_method != null) {
+        $('.teacher_period').show();
+        var now = new Date();
+        var period_date = teacher.payment_date.split(' ');
+        var new_period_date = period_date[0].split('-');
+        var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+        $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+        $('.teacher_renew-btn').show();
+        $('.teacher_payment-status').show();
+        $('.teacher_payment-btn').hide();
+        $(".teacher_payment_status").text("Complete");
+    }else{
+        $(".teacher_payment_status").text("Incomplete");
+    }
+    
 }
