@@ -1,12 +1,3 @@
-// var FRONTEND_URL = "http://localhost:8001";
-// var BASE_URL = "http://localhost:8000";
-// var BACKEND_URL = "http://localhost:8000/api"
-
-// var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-// var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-// var BASE_URL = "https://demo.aggademo.me/MAC/public/";
-
-
 var counter = 0;
 
 var toastOptions = {
@@ -45,11 +36,10 @@ $('document').ready(function () {
         type: 'GET',
         async: false,
         success: function (response) {
-            console.log(response)
+
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
-                console.log(course)
-                $('ul.course_type').append(course);
+                $('.course_type').append(course);
             });
         }
     });
