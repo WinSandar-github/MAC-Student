@@ -119,7 +119,7 @@ function login_page(batch_id, course_code, course_type, entry_status) {
 
             // location.href = FRONTEND_URL+`/ cpa_one_form / ${ batch_id }`;
         } else {
-            location.href = FRONTEND_URL + `/ da_one_form / ${batch_id}`;
+            location.href = FRONTEND_URL + `/da_one_form/${batch_id}`;
 
 
         }
