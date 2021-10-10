@@ -247,7 +247,7 @@
                                                                   <th class="less-font-weight text-center">Telephone</th>
                                                                   <th class="less-font-weight text-center">Email</th>
                                                                   <th class="less-font-weight text-center">Website</th>
-                                                                  <th  class="less-font-weight text-center"  >
+                                                                  <th  class="less-font-weight text-center" >
                                                                     <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranch("branch")'>
                                                                       <li class="fa fa-plus"></li>
                                                                     </button>
@@ -524,7 +524,7 @@
                                             </div>
 
                                             <div id="company">
-                                                    <div class="row">
+                                              <div class="row">
                                                         <div class="col-md-1"></div>
                                                         <div class="col-md-11">
                                                             <div class="card" id="audit_company">
