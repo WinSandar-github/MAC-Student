@@ -152,10 +152,10 @@
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>အမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm" class="form-control" id="name_mm">
+                                            <input type="text" placeholder="အမည်(မြန်မာ)-နာမ်မည်သာရေးပါ။" name="name_mm" class="form-control" id="name_mm">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" class="form-control" id="name_eng">
+                                            <input type="text" placeholder="အမည်(အင်္ဂလိပ်)-နာမ်မည်သာရေးပါ။" name="name_eng" class="form-control" id="name_eng">
                                         </div>
                                     </div>
 
