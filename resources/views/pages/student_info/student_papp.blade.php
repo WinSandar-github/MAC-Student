@@ -280,7 +280,7 @@
                                                     <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်" readonly>
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -289,7 +289,7 @@
                                                     <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="text" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" disabled>
                                                 </div>
                                             </div>
 
@@ -300,9 +300,9 @@
                                                 </div>
                                                 <div class="col-md-2 foreign_degree_file">
                                                 </div>
-                                                <div class="col-md-5"  id="degree_edu" >
+                                                {{--<div class="col-md-5"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
-                                                </div>
+                                                </div>--}}
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary"  style="padding-left:5px; display: none;" id="add_btn" onclick="AddCPAFFDegree()" >
                                                         <i class="fa fa-plus"></i>

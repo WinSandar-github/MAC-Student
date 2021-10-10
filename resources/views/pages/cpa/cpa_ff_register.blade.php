@@ -244,7 +244,7 @@
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <button type="button" class="btn btn-primary"   style="padding-left:5px;"  id="add_btn" onclick="AddCPAFFInitialDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
