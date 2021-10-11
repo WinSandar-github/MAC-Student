@@ -523,19 +523,19 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="address">
+                                        <input type="text"  class="form-control" name="address" id="address">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('တယ်လီဖုန်းနံပါတ်၊ Fax ဖုန်းနံပါတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="phone">
+                                        <input type="text"  class="form-control" name="phone" id="phone">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('E-mail Address') }}</div>
                                     <div class="col-md-8">
-                                        <input type="email" class="form-control" name="contact_mail">
+                                        <input type="email" class="form-control" name="contact_mail" id="contact_mail">
                                     </div>
                                 </div>
                                 {{--<div class="row mb-3" style="padding-left: 15px;">
