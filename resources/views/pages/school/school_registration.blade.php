@@ -556,15 +556,15 @@
                             </div>
                             <div class="row">
 
-                                <div class="col-md-12">
-                                        <table class="table tbl_branch_school table-bordered input-table" id="tbl_branch_school">
-                                            <thead>
+                                <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
+                                        <table class="table tbl_branch_school table-bordered text-nowrap" id="tbl_branch_school">
+                                            <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center"  >စဉ်</th>
-                                                    <th class="less-font-weight text-center"  width="30%">ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
+                                                    <th class="less-font-weight text-center" >ကျောင်းခွဲတည်နေရာလိပ်စာ</th>
                                                     <th class="less-font-weight text-center"  >ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</th>
                                                     <th class="less-font-weight text-center"  >ပိုင်ဆိုင်မှုပုံစံ</th>
-                                                    <th class="less-font-weight text-center"  width="40%">သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</th>
+                                                    <th class="less-font-weight text-center"  >သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</th>
                                                     <th  class="less-font-weight text-center"  ><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranchSchool("tbl_branch_school")'><li class="fa fa-plus"></li></button></th>
                                                 </tr>
                                             </thead>

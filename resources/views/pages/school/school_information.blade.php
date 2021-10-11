@@ -155,6 +155,19 @@
                                                                             </div>
                                                                             
                                                                         </div>
+                                                                        <div class="row renew_payment-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        
+                                                                                        <button id="renew_school_modal" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
 																</ul>
 															</div>
 														</div>
@@ -349,6 +362,7 @@
                                     <input type="hidden" id="student_info_id">
                                     <input type="hidden" id="branch_own_type_h">
                                     <input type="hidden" id="hinitial_status" value="1">
+                                    <input type="hidden" id="type">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
