@@ -29,12 +29,14 @@ function errorMessage(message) {
 }
 
 $('document').ready(function () {
+
     //getCourseType for Nav bar
     $.ajax({
         url: BACKEND_URL + '/get_course_type',
         type: 'GET',
         async: false,
         success: function (response) {
+
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
@@ -57,14 +59,14 @@ function formatMY(date) {
 
 function formatDateMYEntry(date) {
     var income_date = date.split('-');
-    var date =income_date[1] + '-' + income_date[2];
+    var date = income_date[1] + '-' + income_date[2];
     return date;
 }
 
 function formatDateMY(date) {
 
     var income_date = date.split('-');
-    console.log('income_date',income_date)
+    console.log('income_date', income_date)
     var day = income_date[2];
     var month = income_date[1];
     var year = income_date[0];
