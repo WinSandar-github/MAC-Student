@@ -587,7 +587,7 @@
         </div>
       </div>
     <!-- JavaScript Section -->
-    <script>
+    {{-- <script>
          var mmnrc_regions = {!! json_encode($nrc_regions) !!};
         // get NRC Townships data from myanmarnrc.php config file
         var mmnrc_townships = {!! json_encode($nrc_townships) !!};
@@ -595,7 +595,7 @@
         var mmnrc_characters = {!! json_encode($nrc_characters) !!};
         // get language data from myanmarnrc.php config file
         var mmnrc_language = "{{ $nrc_language }}";
-    </script>
+    </script> --}}
 @endsection
 @push('scripts')
 <script type="text/javascript">
