@@ -164,6 +164,7 @@ function teacherPaymentSubmit(){
             $.each(result.count_invoice_no, function( key, val ){
                 
                     if(val.count_invoice_no==0){
+                        var count_invoice=val.count_invoice_no+1;
                         var str = "" + count_invoice;
                         var pad = "000"
                         var ans = pad.substring(0, pad.length - str.length) + str

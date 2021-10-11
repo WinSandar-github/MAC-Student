@@ -7,6 +7,7 @@ function user_profile() {
         success: function (result) {
             EasyLoading.hide();
             let data = result.data;
+            
             if (data.accountancy_firm_info_id) {
                 $('.title').text('Accountancy Firm')
                 $('.acc_firm').show();
@@ -81,14 +82,14 @@ function user_profile() {
                 $('.dashboard_name').append('Teacher ');
                 loadRenewTeacherDash(data.teacher_renew.pop());
                 
-            }else if (data.teacher_renew && data.teacher && data.school) {
-                $('.dashboard_name').append('Teacher And School ');
-                loadRenewTeacherDash(data.teacher_renew.pop());
-                loadSchoolByDash(data.school);
-
             }else if (data.school && data.teacher && data.teacher_renew.length==0) {
                 $('.dashboard_name').append('Teacher And School ');
                 laodTeacherByDash(data.teacher);
+                loadSchoolByDash(data.school);
+
+            }else if (data.school && data.teacher && data.teacher_renew) {
+                $('.dashboard_name').append('Teacher And School ');
+                loadRenewTeacherDash(data.teacher_renew.pop());
                 loadSchoolByDash(data.school);
 
             }else if (data.cpa_ff && data.student_course_regs == '') {
@@ -2032,7 +2033,7 @@ function saveGovDoneForm(id) {
 
 }
 function loadSchoolByDash(school) {
-
+    console.log(school);
     $('.school-title').text('School Information')
     $('.school').show();
     $('.cpaff_other').hide();
@@ -2070,8 +2071,9 @@ function loadSchoolByDash(school) {
     if (school.payment_method != null) {
         $('.sch_period').show();
         var now = new Date();
-        var period_date = school.payment_date.split('-');
-        var period = period_date[2] + '-' + period_date[1] + '-' + period_date[0];
+        var period_date = school.payment_date.split(' ');
+        var new_period_date = period_date[0].split('-');
+        var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
         $('#sch_period_time').text(period + " to 31-12-" + now.getFullYear());
         if (school.initial_status == 2) {
             $('.sch_renew-btn').hide();
