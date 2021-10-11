@@ -14,5 +14,9 @@ class CPAFFController extends Controller
     public function other(){
         return view('pages.cpa.cpaff_other');
     }
+
+    public function reject(){
+        return view('pages.cpa.cpaff_reject');
+    }
    
 }
