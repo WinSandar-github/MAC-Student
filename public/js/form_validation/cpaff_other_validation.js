@@ -8,6 +8,7 @@ $().ready(function (){
                 equalTo : "#password"
             },
             profile_photo : "required",
+            gender:"required",
             name_mm : "required",
             name_eng : "required",
             nrc_state_region : "required",
@@ -59,6 +60,7 @@ $().ready(function (){
             name_mm : "Please enter your name in Myanmar",
             name_eng : "Please enter your name in English",
             nrc_state_region : "Please select one",
+            gender:"Please select one",
             nrc_township : "Please select one",
             nrc_citizen : "Please select one",
             nrc_number : {
@@ -165,6 +167,7 @@ function createCpaffOtherRegister(){
     // send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
     send_data.append('total_hours', $("input[name=total_hours]").val());
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     if(cpa_edu.checked==true){
         send_data.append('cpa', cpa);
     }
@@ -250,7 +253,11 @@ function createCpaffOtherRegister(){
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
-    
+    send_data.append('country', $("input[name=country]").val());
+    send_data.append('government', $("input[name=government]").val());
+    send_data.append('exam_year', $("input[name=exam_year]").val());
+    send_data.append('exam_month', $("input[name=exam_month]").val());
+    send_data.append('roll_no', $("input[name=roll_no]").val());
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
         type: 'post',

@@ -379,9 +379,9 @@ function loadPappData()
             console.log('papp_data',papp_data)
             $('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
-            // $('#address').val(papp_data.address);
-            // $('#phone').val(papp_data.phone);
-            // $('#contact_mail').val(papp_data.contact_mail);
+            $('#address').val(papp_data.address);
+            $('#phone').val(papp_data.phone);
+            $('#contact_mail').val(papp_data.contact_mail);
             $('#cpaff_reg_no').val(papp_data.cpa_batch_no);
             // $('#total_hours').val(papp_data.cpd_hours);
         }

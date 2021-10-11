@@ -361,7 +361,11 @@ function loadCpaffData() {
                     type: 'get',
                     data: "",
                     success: function (data) {
+                        console.log(data,"aa");
                         var cpaff_data = data.data;
+                        if(document.getElementById('cpersonal_no')){
+                            $('#cpersonal_no').val(cpaff_data.cpersonal_no);
+                        }
                         $('#name_mm').val(cpaff_data.name_mm);
                         $('#name_eng').val(cpaff_data.name_eng);
                         $('#nrc_state_region').val(cpaff_data.nrc_state_region);
@@ -371,6 +375,8 @@ function loadCpaffData() {
                         $('#nrc_state_region').val(cpaff_data.nrc_state_region);
                         $('#father_name_mm').val(cpaff_data.father_name_mm);
                         $('#father_name_eng').val(cpaff_data.father_name_eng);
+                        // console.log(cpaff_data.gender);
+                        cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                     }
                 });
             }
@@ -392,6 +398,7 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(student.nrc_state_region);
                             $('#father_name_mm').val(student.father_name_mm);
                             $('#father_name_eng').val(student.father_name_eng);
+                            cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                             $('#remark').css('display', 'block');
                             $('#remark_description').text(cpaff_data.reject_description);
                             $('#cpaff_submit').html('Update');
@@ -419,6 +426,7 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
                             $('#father_name_mm').val(cpaff_data.father_name_mm);
                             $('#father_name_eng').val(cpaff_data.father_name_eng);
+                            cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                         }
                     });
                 }
@@ -434,14 +442,14 @@ function loadCpaffInitialData() {
         type: 'get',
         data: "",
         success: function (data) {
-            // console.log(data)
+            console.log(data)
             var cpaff_data = data.data;
             // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
-            // $('#address').val(cpaff_data.address);
-            // $('#phone').val(cpaff_data.phone);
-            // $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#reg_no').val(cpaff_data.reg_no)
+            $('#address').val(cpaff_data.address);
+            $('#phone').val(cpaff_data.phone);
+            $('#contact_mail').val(cpaff_data.contact_mail);
+            $('#reg_no').val(cpaff_data.reg_no);
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
@@ -517,7 +525,7 @@ function createCPAFFRegister() {
     var send_data = new FormData();
     send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
-
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     if (cpa_edu.checked == true) {
         send_data.append('cpa', cpa);
     }

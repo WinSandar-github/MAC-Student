@@ -270,6 +270,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="col-md-3 text-center">
                                 {{--User Photo--}}
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -289,9 +290,30 @@
                                 </div>
                                 {{--User Photo--}}
                             </div>
+                            <div class="row mb-3" style="padding-left: 110px;">
+                                <div class="col-md-3 col-form-label label"><span class="pull-left">(ဃ)</span>ကျား / မ (Gender)</div>
+                                <div class="row col-md-8 py-2">
+                                    <div class="col-md-3 form-check-radio mx-2">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" id="male"
+                                                    name="gender" value="Male">
+                                            <span class="form-check-sign"></span>
+                                            ကျား
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3 form-check-radio mx-2">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" id='female'
+                                                    name="gender" value='Female' >
+                                            <span class="form-check-sign"></span>
+                                            မ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
                                     <div class="col-md-9">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
@@ -375,13 +397,13 @@
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဆ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address" id="address">
                                     </div>
@@ -412,7 +434,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" required=""> ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" required="">)  (မိတ္တူတင်ပြရန်)</div>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
                                     <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                 </div>
@@ -421,7 +443,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" required="">
+                                <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" >
                             </div><br/><br>
 
                             <div class="row">
