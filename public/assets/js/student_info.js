@@ -519,6 +519,7 @@ function app_form_feedback() {
                     var entry_start_date = new Date(batch.entrance_pass_start_date);
                     var entry_end_date = new Date(batch.entrance_pass_end_date);
                     let entry_status;
+                    console.log(app_end_date, app_start_date, date)
                     //entry status 1 is show and 2 is hide entry button 
                     if (entry_start_date <= date && entry_end_date >= date) {
                         entry_status = 1;
@@ -655,7 +656,7 @@ function createSelfStudy() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
+    var profile_photo = $("input[name='profile_photo_self']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 0);
@@ -672,12 +673,12 @@ function createSelfStudy() {
     send_data.append('batch_id', $("input[name='batch_id']").val());
     //send student info data
     send_data.append('office_address', $("#self_study_container").find("input[name=office_address]").val());
-    send_data.append('current_address',$("#self_study_container").find("input[name=current_address]").val());
+    send_data.append('current_address', $("#self_study_container").find("input[name=current_address]").val());
     send_data.append('address', $("#self_study_container").find("input[name=address]").val());
     send_data.append('phone', $("#self_study_container").find("input[name=phone]").val());
     send_data.append('gov_staff', $("#self_study_container").find('input[name="gov_staff"]:checked').val());
     send_data.append('profile_photo', profile_photo);
-   
+
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/student_register",
@@ -699,7 +700,7 @@ function createPrivateSchool() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
+    var profile_photo = $("input[name='profile_photo_private']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 1);
@@ -715,7 +716,7 @@ function createPrivateSchool() {
 
     //send student info data
     send_data.append('office_address', $("#private_school_container").find("input[name=office_address]").val());
-    send_data.append('current_address',$("#private_school_container").find("input[name=current_address]").val());
+    send_data.append('current_address', $("#private_school_container").find("input[name=current_address]").val());
     send_data.append('address', $("#private_school_container").find("input[name=address]").val());
     send_data.append('phone', $("#private_school_container").find("input[name=phone]").val());
     send_data.append('gov_staff', $("#private_school_container").find('input[name="gov_staff"]:checked').val());
@@ -745,7 +746,7 @@ function createMac() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
+    var profile_photo = $("input[name=profile_photo_mac]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
     send_data.append('type', 2);
@@ -760,7 +761,7 @@ function createMac() {
     send_data.append('mac_type', $("input[name='mac_type']").val());
     //send student info data
     send_data.append('office_address', $("#mac_container").find("input[name=office_address]").val());
-    send_data.append('current_address',$("#mac_container").find("input[name=current_address]").val());
+    send_data.append('current_address', $("#mac_container").find("input[name=current_address]").val());
     send_data.append('address', $("#mac_container").find("input[name=address]").val());
     send_data.append('phone', $("#mac_container").find("input[name=phone]").val());
     send_data.append('gov_staff', $("#mac_container").find("input[name='gov_staff']:checked").val());
