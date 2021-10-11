@@ -70,7 +70,7 @@ function Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_private]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id', student.id)
@@ -185,7 +185,7 @@ function Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_mac]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];

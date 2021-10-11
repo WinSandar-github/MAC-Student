@@ -704,7 +704,7 @@
             }
 
             if(current_stu_reg[0].type == 0){
-                $("input[name='attend_place']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
+                $("input[name='attend_place']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ");
             }else if(current_stu_reg[0].type == 1){
                 $("input[name='attend_place']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
             }else if(student_info.student_register[0].type == 2 && student_info.student_course_regs[0].mac_type == 1){
