@@ -33,12 +33,12 @@
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
             <form id="audit_renew_form" method="post" class="" action="javascript:auditRenewSubscribe();" enctype="multipart/form-data" >
-
+                        <input type="hidden" name="audit_firm_type_id" value="1" />
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                               <div class="row mb-5">
                                   <h5 class="card-title text-center fw-bolder">
-                                      APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME
+                                      APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME (Renewal)
                                   </h5>
                               </div>
                               <div class="row mb-3">
@@ -54,8 +54,8 @@
                                           <div class="row mb-5">
                                               {{--<label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
                                               <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
-                                              <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
-                                              <div class="col-md-8">
+                                              <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
+                                              <div class="col-md-7">
                                                   <input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" readonly="">
                                                   @if ($errors->has('email'))
                                                       <span class="text-danger">
@@ -68,18 +68,19 @@
                                           <div class="row mb-5">
                                               {{--<label for="" class="col-md-1 col-form-label">{{ __('2.') }}</label>
                                               <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>--}}
-                                              <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Accountancy Firm Name</label>
-                                              <div class="col-md-8">
-                                                  <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                              <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Accountancy Firm Name</label>
+                                              <div class="col-md-7">
+                                                  <input type="text" class="form-control" name="accountancy_firm_name" id="accountancy_firm_name" readonly="">
                                               </div>
                                           </div>
 
                                           <div class="row mb-5">
-                                              <label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
-                                              <label class="col-md-5 col-form-label label_align_right">{{ __('Accountancy Firm Registration No.') }}</label>
-                                              <div class="col-md-6">
+                                              {{--<label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
+                                              <label class="col-md-5 col-form-label label_align_right">{{ __('Accountancy Firm Registration No.') }}</label>--}}
+                                              <label class="col-md-5 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Accountancy Firm Registration No.</label>
+                                              <div class="col-md-7">
                                                   <div class="form-group ">
-                                                  <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
+                                                  <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">
                                                   </div>
                                               </div>
                                           </div>

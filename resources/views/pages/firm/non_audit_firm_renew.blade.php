@@ -35,7 +35,7 @@
             <form method="post" id="non_audit_renew_form" action="javascript:nonAuditRenewSubscribe();" enctype="multipart/form-data">
                 <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                   <div class="row mb-5">
-    									<h5 class="card-title text-center fw-bolder" id="local_header">
+    									<h5 class="card-title text-center fw-bolder" id="local_header" style="display:none;">
     											APPLICATION FOR REGISTRATION OF LOCAL FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
     									</h5>
     									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
@@ -44,13 +44,13 @@
     							</div>
                   <div class="row mb-3">
                     <div class="col-md-12">
-                      <div class="col-md-3 pull-left">
+                      {{--<div class="col-md-3 pull-left">
                         <select class="form-control form-select" id="choose_firm_type" aria-label="">
                             <option value="0" selected>Choose Firm Type</option>
                             <option value="1">Local</option>
                             <option value="2">Foreign</option>
                         </select>
-                      </div>
+                      </div>--}}
                         <div class="col-md-2 pull-right">
                           <h6>For the year - {{ date('Y') }}</h6>
                         </div>
@@ -60,10 +60,10 @@
 	                <input type="hidden" value="1" name="local_foreign_type">
                 <!-- <br> -->
 
-                    <div class="card-header" style="" id="local_info">
+                    <div class="card-header"  id="local_info" style="display:none;">
                         <h4>Local Firm Information</h4>
                     </div>
-                    <div class="card-header" style="display:none;" id="foreign_info">
+                    <div class="card-header"  id="foreign_info" style="display:none;">
                         <h4>Foreign Firm Information</h4>
 					          </div>
 

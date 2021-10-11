@@ -70,7 +70,7 @@
                         <div class="card border-success mb-3">
                             <div class="card-body text-success">
                                 <div class="col-md-12">
-                                    {{--<div class="row">
+                                    <div class="row">
                                         <center><h4>Audit Firm Data</h4></center><br><br>
                                         <table class="table table-bordered input-table border-success" width="100%" style="text-align:center;">
                                             <tr>
@@ -94,7 +94,7 @@
                                         <div class="form-group">
                                             <a href="#" class="btn btn-sm btn-block btn-info pull-right">Choose Payment</a>
                                         </div>
-                                    </div>--}}
+                                    </div>
                                     <table width="100%">
                                         <tr>
                                             <td width="15%">
@@ -264,7 +264,7 @@
                                         </div>
                                     </div>
 
-				                            <div class="row payment-btn" style="display:none;">
+				                            {{--<div class="row payment-btn" style="display:none;">
 				                                <div class="col-md-6"></div>
 				                                <div class="">
 				                                    <div class="pull-right mt-4">
@@ -273,7 +273,7 @@
 				                                        </p>
 				                                    </div>
 				                                </div>
-				                            </div>
+				                            </div>--}}
 
 																</ul>
 															</div>
@@ -285,7 +285,7 @@
 									</div>
 								</div>
                                 <!-- Payment Modal -->
-        <form method="post" class="needs-validation" action="javascript:auditPaymentSubmit();" enctype="multipart/form-data"
+        {{--<form method="post" class="needs-validation" action="javascript:auditPaymentSubmit();" enctype="multipart/form-data"
               novalidate>
             @csrf
             <div class="modal fade" id="auditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -331,7 +331,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form>--}}
             </div>
         </div>
     </div>
@@ -356,11 +356,11 @@
         localStorage.setItem('course_type',course_type[2])
         }
 				loadDescription('Audit');
-        audit_reg_feedback();
-        checkPaymentAudit();
+        //audit_reg_feedback();
+        //checkPaymentAudit();
         auditData();
-        dateQuery();
-        verifyStatus();
+        //dateQuery();
+        //verifyStatus();
     })
     //app_form_feedback();
 

@@ -483,7 +483,18 @@ function getNonAuditData(){
       success: function (data){
           var non_audit_data = data;
           non_audit_data.forEach(function(element){
-
+            if(element.local_foreign_type == 1){
+              $('#local_header').css('display','block');
+              $('#foreign_header').css('display','none');
+              $('#local_info').css('display','block');
+              $('#foreign_info').css('display','none');
+            }
+            else{
+              $('#local_header').css('display','none');
+              $('#foreign_header').css('display','block');
+              $('#local_info').css('display','none');
+              $('#foreign_info').css('display','block');
+            }
             $('input[name=email]').val(student.email);
             // $('input[name=password]').val(student.password);
             // $('input[name=confirm_password]').val(student.password);
@@ -661,8 +672,8 @@ function getNonAuditData(){
             }
 
             // Types Of Service Provided
-            $('#type_service'+element.type_of_service_provided_id).prop("checked", true);
-            $('#tbl_type_service_body').find("input[type=checkbox]").prop('disabled',true);
+            // $('#type_service'+element.type_of_service_provided_id).prop("checked", true);
+            // $('#tbl_type_service_body').find("input[type=checkbox]").prop('disabled',true);
 
             // Particulars Of Directors/ Staff Members Who Is A Myanmar CPA
             var cpa_myanmar=element.my_cpa_foreigns;

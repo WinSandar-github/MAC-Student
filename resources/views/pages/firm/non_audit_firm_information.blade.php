@@ -433,10 +433,10 @@
         localStorage.setItem('course_type',course_type[2])
         }
 		loadDescription('Non-Audit');
-		nonAuditRegFeedback();
-        nonAuditFirmDateQuery();
-		nonAuditVerifyStatus();
-		checkPaymentNonAudit();
+		//nonAuditRegFeedback();
+    //nonAuditFirmDateQuery();
+		//nonAuditVerifyStatus();
+		//checkPaymentNonAudit();
 		nonAuditData();
     })
     //app_form_feedback();
