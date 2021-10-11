@@ -513,8 +513,10 @@
             <!-- cpaff other dashboard -->
             <div class="cpaff_other">
                 <div class="row">
-
-                    <div class="col-md-8 offset-md-2">
+                    <div class="col-md-3">
+                        <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
+                    </div>
+                    <div class="col-md-8">
                         <div class="row m-2 mt-3 border-bottom">
                             <div class="col-md-6">
                                 <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
