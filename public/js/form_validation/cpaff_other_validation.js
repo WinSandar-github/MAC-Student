@@ -47,7 +47,6 @@ $().ready(function (){
             cpd_record : "required",
             total_hours : "required",
             three_years_full : "required",
-            letter : "required",
         },
         messages:{
             email : "Please enter your email",
@@ -86,7 +85,6 @@ $().ready(function (){
             cpd_record : "Please upload CPD record",
             total_hours : "Please enter total ours",
             three_years_full : "Please upload 3years full form",
-            letter : "Please enter your letter",
 
         },
         submitHandler: function(form) {
@@ -110,7 +108,7 @@ $().ready(function (){
                         Swal.fire("NRC has been used, please check again!");
                     }
                     else if(result.email==null && result.nrc==null){
-                        $('#cpaffModal').modal('show');
+                        $('#submitModal').modal('show');
                         send_email();
                     }
                 }
@@ -128,11 +126,20 @@ function check_email_cpaff_other()
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
     var code = $("input[name=verify_code]").val();
-    if(verify_code != code){
-        successMessage("Your code is not correct.Please check your email inbox again!");
-    }else{
-        createCpaffOtherRegister();
-        $('#cpaffModal').modal('hide');
+    var self_confession_accept = document.getElementById("accept");
+    var self_confession_not_accept = document.getElementById("not-accept");
+    if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
+        if(verify_code != code){
+            errorMessage("Your code is not correct.Please check your email inbox again!");
+        }else{
+            createCpaffOtherRegister();
+            $('#cpaffModal').modal('hide');
+        }
+    }
+    else{
+        $('#valid_self_confession').text("Please choose Yes Or No");
+        $('#valid_self_confession').css('display','block');
+        errorMessage("Please choose Yes or No in Previous Page");
     }
 }
 
@@ -154,12 +161,11 @@ function createCpaffOtherRegister(){
     var cpd_record      =   $("input[name=cpd_record]")[0].files[0];
     // var passport_image  =   $("input[name=passport_image]")[0].files[0];
     var three_years_full  =   $("input[name=three_years_full]")[0].files[0];
-    var letter  =   $("input[name=letter]")[0].files[0];
+    // var letter  =   $("input[name=letter]")[0].files[0];
 
     var cpa_edu         = document.getElementById("cpa_edu");
     var ra_edu          = document.getElementById("ra_edu");
     var education       = document.getElementById("education");
-
     var cpa_part_2      = document.getElementById("cpa_part_2_check");
     var qt_pass         = document.getElementById("qt_pass_check");
 
@@ -229,7 +235,7 @@ function createCpaffOtherRegister(){
     send_data.append('cpd_record', cpd_record);
     // send_data.append('passport_image', passport_image);
     send_data.append('three_years_full', three_years_full);
-    send_data.append('letter', letter);
+    // send_data.append('letter', letter);
 
     //save to cpaff
     send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
@@ -250,6 +256,7 @@ function createCpaffOtherRegister(){
     send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
     send_data.append('is_renew', 0);
+    send_data.append('self_confession',$("input[name=self_confession]").val());
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
@@ -265,6 +272,7 @@ function createCpaffOtherRegister(){
         contentType: false,
         processData: false,
         success: function(result){
+            console.log("success");
             successMessage("You have successfully registerd!");
             // location.reload();
             location.href = FRONTEND_URL+"/";
@@ -272,5 +280,4 @@ function createCpaffOtherRegister(){
         error:function (message){
         }
     });
-
 }
