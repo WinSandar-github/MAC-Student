@@ -613,44 +613,10 @@ function loadRenewTeacher(){
 }
 function renewTeacher(){
   var send_data=new FormData($( "#teacher_renew_form" )[0]);
-//   if($("input[name=nrc_front]")[0].files[0]){
-//     send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
-//   }else{
-//     send_data.append('nrc_front', $('#hidden_nrc_front').val());
-//   }
-//   if($("input[name=nrc_back]")[0].files[0]){
-//     send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
-//   }else{
-//     send_data.append('nrc_back', $('#hidden_nrc_back').val());
-//   }
 
-send_data.append('teacher_id', $('#teacher_id').val());
-send_data.append('student_info_id', $('#student_info_id').val());
-//   send_data.append('school_name', $('#hschool_name').val());
-//   send_data.append('initial_status', $('#hinitial_status').val());
-//   if($('#payment_date').val()){
-//     send_data.append('payment_date', $('#payment_date').val());
-//   }else{
-//     send_data.append('payment_date', $('#payment_date').val());
-//   }
-  
-// if($('#gov_employee').val()){
-    
-//         send_data.append('gov_employee', $('#gov_employee').val());
-//         send_data.append('exp_desc', $('#exp_desc').val());
-//         send_data.append('recommend_letter', $('#hrecommend_letter').val());
-//         send_data.append('position', $("input[id=position]").val());
-//         send_data.append('department',$("input[id=department]").val());
-//         send_data.append('organization',$("input[id=organization]").val());
-    
-// }else{
-//     if($("input[name=recommend_letter]")[0].files[0]){
-//         send_data.append('recommend_letter', $("input[name=recommend_letter]")[0].files[0]);
-//     }else{
-//         send_data.append('recommend_letter', $('#hrecommend_letter').val());
-//     }
-// }
-  //send_data.append('_method', 'PATCH');
+    send_data.append('teacher_id', $('#teacher_id').val());
+    send_data.append('student_info_id', $('#student_info_id').val());
+
   show_loader();
     $.ajax({
         url: BACKEND_URL+'/renewTeacher',
@@ -691,6 +657,12 @@ function ConfirmSubmitTeacher(){
         $('.submit_btn').prop("disabled",false);
     } else {
         $('.submit_btn').prop("disabled",true);
+    }
+    var checkbox = document.getElementById("submit_renewUpdate");
+    if (checkbox.checked == true) {
+        $('.submit_renewbtn').prop("disabled",false);
+    } else {
+        $('.submit_renewbtn').prop("disabled",true);
     }
 }
 
@@ -784,80 +756,162 @@ function updateTeacher(){
               var form_data = data;
               form_data.forEach(function(element){
                     var teacher=element.teacher;
-                    if(element.approve_reject_status == 2){
-                        $('#teacher_form').css('display','none');
-                        $('#teacher_update').css('display','block');
-                        $('input[name=email]').val(teacher.email);
-                        $('input[name=name_mm]').val(teacher.name_mm);
-                        $('input[name=name_eng]').val(teacher.name_eng);
-                        $('input[name=father_name_mm]').val(teacher.father_name_mm);
-                        $('input[name=father_name_eng]').val(teacher.father_name_eng);
-                        $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
-                        $('input[name=nrc_township]').val(teacher.nrc_township);
-                        $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
-                        $('input[name=nrc_number]').val(teacher.nrc_number);
-                        $('input[name=phone_number]').val(teacher.phone);
-                        $('textarea[name=exp_desc]').val(teacher.exp_desc);
-                        $('#teacher_id').val(teacher.id);
-                        $('#student_info_id').val(student.id);
-                        $('#hidden_profile').val(teacher.image);
-                              $('#hidden_nrc_front').val(teacher.nrc_front);
-                              $('#hidden_nrc_back').val(teacher.nrc_back);
-                              $('#hschool_name').val(teacher.school_name);
-                              $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
-                              $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
-                              loadEductaionHistory(teacher.id,'tbl_degree_update');
-                                if(teacher.certificates.search(/[\'"[\]']+/g)==0){
-                                    loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
-                                    loadSubject(2,"selected_cpa_subject_up");
-                                
-                                }else{
-                                    loadCertificates(teacher.certificates,"selected_cpa_subject_up");
+                    if(element.teacher_renew.length==0){
+                        if(element.approve_reject_status == 2){
+                            $('#teacher_form').css('display','none');
+                            $('#teacher_update').css('display','block');
+                            $('input[name=email]').val(teacher.email);
+                            $('input[name=name_mm]').val(teacher.name_mm);
+                            $('input[name=name_eng]').val(teacher.name_eng);
+                            $('input[name=father_name_mm]').val(teacher.father_name_mm);
+                            $('input[name=father_name_eng]').val(teacher.father_name_eng);
+                            $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
+                            $('input[name=nrc_township]').val(teacher.nrc_township);
+                            $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
+                            $('input[name=nrc_number]').val(teacher.nrc_number);
+                            $('input[name=phone_number]').val(teacher.phone);
+                            $('textarea[name=exp_desc]').val(teacher.exp_desc);
+                            $('#teacher_id').val(teacher.id);
+                            $('#student_info_id').val(student.id);
+                            $('#hidden_profile').val(teacher.image);
+                                  $('#hidden_nrc_front').val(teacher.nrc_front);
+                                  $('#hidden_nrc_back').val(teacher.nrc_back);
+                                  $('#hschool_name').val(teacher.school_name);
+                                  $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
+                                  $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                                  loadEductaionHistory(teacher.id,'tbl_degree_update');
+                                    if(teacher.certificates.search(/[\'"[\]']+/g)==0){
+                                        loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_up");
+                                        loadSubject(2,"selected_cpa_subject_up");
                                     
-                                    loadSubject(2,"selected_cpa_subject_up");
-                                   
+                                    }else{
+                                        loadCertificates(teacher.certificates,"selected_cpa_subject_up");
+                                        
+                                        loadSubject(2,"selected_cpa_subject_up");
+                                       
+                                    }
+                                    if(teacher.diplomas.search(/[\'"[\]']+/g)==0){
+                                        loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject_up");
+                                        loadSubject(1,"selected_da_subject_up")
+                                    }else{
+                                        loadCertificates(teacher.diplomas,"selected_da_subject_up");
+                                        loadSubject(1,"selected_da_subject_up")
+                                    }
+                                    $('#hinitial_status').val(teacher.initial_status);
+                                    $('#payment_date').val(teacher.payment_date);
+                                $("input[name=race]").val(teacher.race);
+                                $("input[name=religion]").val(teacher.religion);
+                                $("input[name=date_of_birth]").val(teacher.date_of_birth);
+                                $("input[name=address]").val(teacher.address);
+                                $("input[name=current_address]").val(teacher.current_address);
+                                $("input[name=position]").val(teacher.position);
+                                $("input[name=department]").val(teacher.department);
+                                $("input[name=organization]").val(teacher.organization);
+                                  if(teacher.gov_employee == 1){
+                                    $('input:radio[id=gov_employee1]').attr('checked',true);
+                                    $('#update_rec_letter').css('display','block');
+                                    if(teacher.recommend_letter!=""){
+                                        $(".recommend_letter").append(`<a href='${BASE_URL+teacher.recommend_letter}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+                                    }
+                                    $('#hrecommend_letter').val(teacher.recommend_letter);
                                 }
-                                if(teacher.diplomas.search(/[\'"[\]']+/g)==0){
-                                    loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject_up");
-                                    loadSubject(1,"selected_da_subject_up")
-                                }else{
-                                    loadCertificates(teacher.diplomas,"selected_da_subject_up");
-                                    loadSubject(1,"selected_da_subject_up")
+                                else{
+                                    $('input:radio[id=gov_employee2]').attr('checked',true);
+                                    $('#update_rec_letter').css('display','none');
                                 }
-                                $('#hinitial_status').val(teacher.initial_status);
-                                $('#payment_date').val(teacher.payment_date);
-                            $("input[name=race]").val(teacher.race);
-                            $("input[name=religion]").val(teacher.religion);
-                            $("input[name=date_of_birth]").val(teacher.date_of_birth);
-                            $("input[name=address]").val(teacher.address);
-                            $("input[name=current_address]").val(teacher.current_address);
-                            $("input[name=position]").val(teacher.position);
-                            $("input[name=department]").val(teacher.department);
-                            $("input[name=organization]").val(teacher.organization);
-                              if(teacher.gov_employee == 1){
-                                $('input:radio[id=gov_employee1]').attr('checked',true);
-                                $('#update_rec_letter').css('display','block');
-                                if(teacher.recommend_letter!=""){
-                                    $(".recommend_letter").append(`<a href='${BASE_URL+teacher.recommend_letter}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
-                                }
-                                $('#hrecommend_letter').val(teacher.recommend_letter);
-                            }
-                            else{
-                                $('input:radio[id=gov_employee2]').attr('checked',true);
-                                $('#update_rec_letter').css('display','none');
-                            }
-                            if(teacher.school_id!=null){
-                                $('input:radio[id=school_staff1]').attr('checked',true);
-                                $('.private_type').css('display','block');
-                                $('.individual_type').css('display','none');
-                              }else{
-                                $('input:radio[id=school_staff2]').attr('checked',true);
-                                $('.individual_type').css('display','block');
-                                $('.private_type').css('display','none');
-                                $('input[name=school_name]').val(teacher.school_name);
-                              }
-                              
+                                if(teacher.school_type!=0){
+                                    $('input:radio[id=school_staff1]').attr('checked',true);
+                                    $('.private_type').css('display','block');
+                                    $('.individual_type').css('display','none');
+                                  }else{
+                                    $('input:radio[id=school_staff2]').attr('checked',true);
+                                    $('.individual_type').css('display','block');
+                                    $('.private_type').css('display','none');
+                                    $('input[name=school_name]').val(teacher.school_name);
+                                  }
+                                  
+                        }
+                    }else{
+                        var new_teacher_renew=element.teacher_renew.pop();
+                        if(new_teacher_renew.approve_reject_status == 2){
+                            $('#teacher_form').css('display','none');
+                            $('#teacher_update').css('display','none');
+                            $('#teacher_renew_update').css('display','block');
+                            $('input[name=email]').val(teacher.email);
+                            $('input[name=name_mm]').val(teacher.name_mm);
+                            $('input[name=name_eng]').val(teacher.name_eng);
+                            $('input[name=father_name_mm]').val(teacher.father_name_mm);
+                            $('input[name=father_name_eng]').val(teacher.father_name_eng);
+                            $('input[name=nrc_state_region]').val(teacher.nrc_state_region);
+                            $('input[name=nrc_township]').val(teacher.nrc_township);
+                            $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
+                            $('input[name=nrc_number]').val(teacher.nrc_number);
+                            $('input[name=phone_renew]').val(new_teacher_renew.phone);
+                            
+                            $('#renew_teacher_id').val(new_teacher_renew.id);
+                            $('#student_info_id').val(new_teacher_renew.student_info_id);
+                           // $('#hidden_profile').val(teacher.image);
+                           if(new_teacher_renew.nrc_front==null){
+                            $('#hidden_nrc_front').val(teacher.nrc_front);
+                            $("#nrc_front_img_renew").attr("src",BASE_URL+teacher.nrc_front);
+                           }else{
+                            $('#hidden_nrc_front').val(new_teacher_renew.nrc_front);
+                            $("#nrc_front_img_renew").attr("src",BASE_URL+new_teacher_renew.nrc_front);
+                           }
+                            if(new_teacher_renew.nrc_back==null){
+                                $('#hidden_nrc_back').val(teacher.nrc_back);
+                                $("#nrc_back_img_renew").attr("src",BASE_URL+teacher.nrc_back);
+                            }else{
+                                $('#hidden_nrc_back').val(new_teacher_renew.nrc_back);
+                                $("#nrc_back_img_renew").attr("src",BASE_URL+new_teacher_renew.nrc_back);
+                            }      
+                                  
+                            $('#hschool_name_renew').val(new_teacher_renew.school_name);
+                            $('input[name=school_name_renew]').val(new_teacher_renew.school_name);     
+                                  
+                                  loadEductaionHistoryByRenew(new_teacher_renew.id,'tbl_degree_renew_update');
+                                    if(new_teacher_renew.certificates.search(/[\'"[\]']+/g)==0){
+                                        loadCertificates(new_teacher_renew.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_renew_update");
+                                        loadSubject(2,"selected_cpa_subject_renew_update");
+                                    
+                                    }else{
+                                        loadCertificates(new_teacher_renew.certificates,"selected_cpa_subject_renew_update");
+                                        
+                                        loadSubject(2,"selected_cpa_subject_renew_update");
+                                       
+                                    }
+                                    if(new_teacher_renew.diplomas.search(/[\'"[\]']+/g)==0){
+                                        loadCertificates(new_teacher_renew.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject_renew_update");
+                                        loadSubject(1,"selected_da_subject_renew_update")
+                                    }else{
+                                        loadCertificates(new_teacher_renew.diplomas,"selected_da_subject_renew_update");
+                                        loadSubject(1,"selected_da_subject_renew_update")
+                                    }
+                                    $('#hinitial_status').val(teacher.initial_status);
+                                    $('#payment_date').val(teacher.payment_date);
+                                $("input[name=race]").val(teacher.race);
+                                $("input[name=religion]").val(teacher.religion);
+                                $("input[name=date_of_birth]").val(teacher.date_of_birth);
+                                $("input[name=address]").val(teacher.address);
+                                $("input[name=current_address]").val(new_teacher_renew.current_address);
+                                $("input[name=position]").val(teacher.position);
+                                $("input[name=department]").val(teacher.department);
+                                $("input[name=organization]").val(teacher.organization);
+                                
+                                if(new_teacher_renew.school_type!=0){
+                                    $('input:radio[id=school_staff_renew1]').attr('checked',true);
+                                    $('.private_type').css('display','block');
+                                    $('.individual_type').css('display','none');
+                                  }else{
+                                    $('input:radio[id=school_staff_renew2]').attr('checked',true);
+                                    $('.individual_type').css('display','block');
+                                    $('.private_type').css('display','none');
+                                    
+                                  }
+                                  
+                        }
                     }
+                    
               })
             }
         });
@@ -865,7 +919,115 @@ function updateTeacher(){
 
     }
 }
-
-function loadInvoiceByTeacher(){
+function updateTeacherByReject(){
+    var send_data=new FormData($( "#teacher_update_form" )[0]);
+      if($("input[name=nrc_front]")[0].files[0]){
+        send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+      }else{
+        send_data.append('nrc_front', $('#hidden_nrc_front').val());
+      }
+      if($("input[name=nrc_back]")[0].files[0]){
+        send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+      }else{
+        send_data.append('nrc_back', $('#hidden_nrc_back').val());
+      }
     
+      send_data.append('reason', $('#initial_reject').val());
+    send_data.append('student_info_id', $('#student_info_id').val());
+      send_data.append('school_name', $('#hschool_name').val());
+      send_data.append('initial_status', $('#hinitial_status').val());
+      if($('#payment_date').val()){
+        send_data.append('payment_date', $('#payment_date').val());
+      }else{
+        send_data.append('payment_date', $('#payment_date').val());
+      }
+      
+    if($('#gov_employee').val()){
+        
+            send_data.append('gov_employee', $('#gov_employee').val());
+            send_data.append('exp_desc', $('#exp_desc').val());
+            send_data.append('recommend_letter', $('#hrecommend_letter').val());
+            send_data.append('position', $("input[id=position]").val());
+            send_data.append('department',$("input[id=department]").val());
+            send_data.append('organization',$("input[id=organization]").val());
+        
+    }else{
+        if($("input[name=recommend_letter]")[0].files[0]){
+            send_data.append('recommend_letter', $("input[name=recommend_letter]")[0].files[0]);
+        }else{
+            send_data.append('recommend_letter', $('#hrecommend_letter').val());
+        }
+    }
+    var id=$('#teacher_id').val();
+    send_data.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL+'/teacher/'+id,
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+
+        },
+        error: function (result) {
+        },
+    });
+}
+function loadEductaionHistoryByRenew(id,table){
+    $.ajax({
+        type : 'POST',
+        url : BACKEND_URL+"/getEducationHistory",
+        data: 'renewteacher_id='+id,
+        success: function(result){
+            $.each(result.data, function( index, value ){
+                var tr="<tr>";
+                tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_renewdegrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.university_name+'" readonly/></td>';
+                tr += '<td><input type="hidden" name="old_renewdegrees_certificates_h[]" class="form-control" value='+value.certificate+'><input type="file" name="old_renewdegrees_certificates[]" class="form-control"><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
+                tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+                tr += "</tr>";
+                $("table."+table).append(tr);
+            });
+        }
+    });
+}
+function updateRenewTeacherByReject(){
+    var send_data=new FormData($( "#teacher_renewupdate_form" )[0]);
+      if($("input[name=nrc_front]")[0].files[0]){
+        send_data.append('nrc_front', $("input[name=nrc_front_renew]")[0].files[0]);
+      }else{
+        send_data.append('nrc_front', $('#hidden_nrc_front').val());
+      }
+      if($("input[name=nrc_back]")[0].files[0]){
+        send_data.append('nrc_back', $("input[name=nrc_back_renew]")[0].files[0]);
+      }else{
+        send_data.append('nrc_back', $('#hidden_nrc_back').val());
+      }
+    
+    send_data.append('reason', $('#renew_reject').val());
+    send_data.append('student_info_id', $('#student_info_id').val());
+    send_data.append('school_name', $('#hschool_name_renew').val());
+    
+    var id=$('#renew_teacher_id').val();
+    //send_data.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL+'/renewTeacherUpdate/'+id,
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+
+        },
+        error: function (result) {
+        },
+    });
 }
