@@ -30,6 +30,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap/bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="{{ asset('modal-wizard/dist/css/MultiStep.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('modal-wizard/dist/css/MultiStep-theme.min.css') }}">
 
     <!-- CSS-->
     <link rel="stylesheet" href="{{ asset('assets/css/cpa_ff.css') }}">
@@ -166,13 +169,16 @@
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
 <script src="{{ asset('assets/js/backendService.js') }}"></script>
+<script src="{{ asset('assets/js/navbar.js') }}"></script>
 <script src="{{ asset('assets/js/common.js') }}"></script>
 
 <script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-validation/dist/additional-methods.min.js') }}"></script>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{{ asset('modal-wizard/dist/js/MultiStep.min.js') }}"></script>
+
 <!-- <script src="assets/js/plugins.min.js"></script> -->
-<script src="{{ asset('assets/js/navbar.js') }}"></script>
 <!-- EasyLoading -->
 
 <script src="{{ asset('EasyLoading/jquery-ui.min.js')}}"></script>

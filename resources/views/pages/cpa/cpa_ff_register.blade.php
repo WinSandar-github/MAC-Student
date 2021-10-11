@@ -173,9 +173,29 @@
                                 </div>
                                 {{--User Photo--}}
                             </div>
-                                 
+                            <div class="row mb-3" style="padding-left: 110px;">
+                                <div class="col-md-3 col-form-label label"><span class="pull-left">(ဃ)</span>ကျား / မ (Gender)</div>
+                                <div class="row col-md-8 py-2">
+                                    <div class="col-md-3 form-check-radio mx-2">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" id="male"
+                                                    name="gender" value="Male">
+                                            <span class="form-check-sign"></span>
+                                            ကျား
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3 form-check-radio mx-2">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" id='female'
+                                                    name="gender" value='Female' >
+                                            <span class="form-check-sign"></span>
+                                            မ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
                                     <div class="col-md-8">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
@@ -255,13 +275,13 @@
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="cpersonal_no" id="cpersonal_no" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဆ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address"  placeholder="" >
                                     </div>

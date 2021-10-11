@@ -184,4 +184,14 @@ class PaymentController extends Controller
     //         return redirect(url('master'));
     //     }
     // }
+
+    public function cbpayQR()
+    {
+        return view('pages.payment.cbpay_qr');
+    }
+
+    public function cbpayPin()
+    {
+        return view('pages.payment.cbpay_pin');
+    }
 }
