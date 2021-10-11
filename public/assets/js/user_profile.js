@@ -147,11 +147,7 @@ function user_profile() {
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
                     } else {
-<<<<<<< HEAD
                         $('.status_history').append('PAPP '+is_renew+' Registration Form is Rejected.');
-=======
-                        // $('.status_history').append('PAPP Registration Form is Rejected.');
->>>>>>> f14027073b39bf5b82eb0c9a7331079188a78b6c
                     }
                 }
                 // if (cpaff.payment_method != null) {
