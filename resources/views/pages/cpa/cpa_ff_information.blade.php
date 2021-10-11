@@ -340,7 +340,7 @@
                                                     <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
+                                                    <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်" readonly>
                                                 </div>
                                             </div>
                                             <div class="row mb-2" id="degree_year0">
@@ -349,7 +349,7 @@
                                                     <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" readonly>
                                                 </div>
                                             </div>
 
@@ -360,7 +360,7 @@
                                                 </div>
                                                 <div class="col-md-2 foreign_degree_file">
                                                 </div>
-                                                <div class="col-md-5"  id="degree_edu" >
+                                                <div class="col-md-5"  id="degree_edu" style="padding-left:5px; display: none;" >
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >

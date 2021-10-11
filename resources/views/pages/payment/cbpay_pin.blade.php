@@ -42,7 +42,7 @@
                                 </center>
                                 
                                 <div class="col-12" >
-                                    <h3 class="heading text-center">CBPay</h3>
+                                    <h3 class="heading text-center">CBPay Pin</h3>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -67,10 +67,4 @@
     </div>
 </div>
 @endsection
-@push('scripts')
-    <script src="{{ asset('assets/js/payment.js') }}"></script>
-    <script type="text/javascript">
-        deviceOS();
-    </script>
-@endpush
 

@@ -169,6 +169,7 @@
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
 <script src="{{ asset('assets/js/backendService.js') }}"></script>
+<script src="{{ asset('assets/js/navbar.js') }}"></script>
 <script src="{{ asset('assets/js/common.js') }}"></script>
 
 <script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
@@ -178,7 +179,6 @@
 <script src="{{ asset('modal-wizard/dist/js/MultiStep.min.js') }}"></script>
 
 <!-- <script src="assets/js/plugins.min.js"></script> -->
-<script src="{{ asset('assets/js/navbar.js') }}"></script>
 <!-- EasyLoading -->
 
 <script src="{{ asset('EasyLoading/jquery-ui.min.js')}}"></script>

@@ -40,9 +40,9 @@ if($("#teacher_register_form").validate({
             required : "#gov_staff1:checked"
         },
         exp_desc : "required",
-        selected_school_id : {
-            required : "#school_staff1:checked"
-        },
+        // selected_school_id : {
+        //     required : "#school_staff1:checked"
+        // },
         school_name : {
             required : "#school_staff2:checked"
         },
