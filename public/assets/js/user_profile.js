@@ -77,12 +77,21 @@ function user_profile() {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
                 
-            }else if (data.teacher_renew && data.teacher) {
+            }else if (data.teacher_renew && data.teacher && data.school==null) {
                 $('.dashboard_name').append('Teacher ');
                 loadRenewTeacherDash(data.teacher_renew.pop());
                 
-            }  
-            else if (data.cpa_ff && data.student_course_regs == '') {
+            }else if (data.teacher_renew && data.teacher && data.school) {
+                $('.dashboard_name').append('Teacher And School ');
+                loadRenewTeacherDash(data.teacher_renew.pop());
+                loadSchoolByDash(data.school);
+
+            }else if (data.school && data.teacher && data.teacher_renew.length==0) {
+                $('.dashboard_name').append('Teacher And School ');
+                laodTeacherByDash(data.teacher);
+                loadSchoolByDash(data.school);
+
+            }else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 console.log('cpaff',data.cpa_ff);
@@ -96,6 +105,7 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
+                var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
                 var is_renew;
                 if(cpaff.is_renew==0){
@@ -112,8 +122,8 @@ function user_profile() {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Approved.<br><br>');
                     $('.status_history').append('Action &nbsp;&nbsp;');
                     $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
-                    $('.status_papp').append('Action &nbsp;&nbsp;');
-                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                    // $('.status_papp').append('Action &nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
                     $('.status_history').append(`<a href="${cpaff_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
@@ -137,7 +147,11 @@ function user_profile() {
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
                     } else {
+<<<<<<< HEAD
                         $('.status_history').append('PAPP '+is_renew+' Registration Form is Rejected.');
+=======
+                        // $('.status_history').append('PAPP Registration Form is Rejected.');
+>>>>>>> f14027073b39bf5b82eb0c9a7331079188a78b6c
                     }
                 }
                 // if (cpaff.payment_method != null) {
@@ -169,12 +183,7 @@ function user_profile() {
                 } else {
                     $('.status_history').append('Mentor Registration is Rejected.');
                 }
-            } else if (data.school && data.teacher) {
-                $('.dashboard_name').append('Teacher And School ');
-                laodTeacherByDash(data.teacher);
-                loadSchoolByDash(data.school);
-
-            } else if (data.qualified_test) {
+            }else if (data.qualified_test) {
                 let qt = data.qualified_test;
 
                 $('.title').text('Student Information')

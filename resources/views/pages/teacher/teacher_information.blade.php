@@ -205,7 +205,7 @@
                                                          
 								<div id="teacher_initial">
 									<div class="row">
-										<div class="card col-md-7 m-2">
+										<div class="card col-md-6 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -231,7 +231,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-4 m-2">
+										<div class="card col-md-5 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -240,15 +240,15 @@
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <!-- <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li> -->
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fee</strong><span class='reconnected-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>CPA Subject Fee</strong><span class='cpa-subject-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>DA Subject Fee</strong><span class='da-subject-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Application Fees</strong> <span class='application-fee'></span></li>
+																		<li><i class="icofont-money"></i> <strong>Registration Fees</strong><span class='registration-fee'></span></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fees</strong><strong> -CPA One Subject</strong><span class='cpa-subject-fee'></span><br/><strong style="margin-left: 27%;">-DA One Subject</strong><span class='da-subject-fee'></span></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fees</strong><strong> -CPA One Subject</strong><span class='cpa-subject-fee'></span><br/><strong style="margin-left: 28%;">-DA One Subject</strong><span class='da-subject-fee'></span></li>
+                                                                        <!-- <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li> <span class='yearly-fee'>-->
+                                                                        <!-- <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li> -->
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fees</strong><span class='delay-fee'></span></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fees</strong><span class='reconnected-fee'></span></li>
+                                                                        
 																		<div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6">
@@ -690,6 +690,7 @@
                                     </div>
                                     </form>
                                 </div>
+                                
             </div>
         </div>
     </div>
