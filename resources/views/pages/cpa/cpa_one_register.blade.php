@@ -1783,12 +1783,13 @@
                         console.log('data',data);
                         let current_stu_course = data.data.student_course_regs.slice(-1);
                         let last_exam = data.data.exam_registers.slice(-1);
-                        console.log('current_stu_course',current_stu_course);                       
+                        console.log('current_stu_course',current_stu_course); 
+                        console.log('last_exam',last_exam);                       
 
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            $(".batch_number").append(current_stu_course[0].batch.number);
+                            // $(".batch_number").append(current_stu_course[0].batch.number);
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
@@ -1809,6 +1810,7 @@
                                             console.log('res',res)
                                             $('.batch_no').val(res.data.number);                                            
                                             $('.batch_id').val(res.data.id);
+                                            $('.batch_number').append(res.data.number)
                                             // $('.personal_no').val(data.data.cpersonal_no);
                                             $('#remain_module').val(last_exam[0].is_full_module)
 
@@ -1868,8 +1870,17 @@
                             $("#entry_success_no_private_div").hide();
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
-                        }else if(last_exam[0].exam_type_id == 3){   
-                            console.log("for entry");                        
+                        }else if(info.da_pass_roll_number){
+                            console.log("for da2pass");
+                            $("#direct_access_no_self_div").show();
+                            $("#entry_success_no_self_div").hide();
+                            $("#direct_access_no_private_div").show();
+                            $("#entry_success_no_private_div").hide();
+                            $("#direct_access_no_mac_div").show();
+                            $("#entry_success_no_mac_div").hide();
+                        }
+                        if(last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
+                            console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();
                             $("#direct_access_no_private_div").hide();
@@ -1877,13 +1888,13 @@
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
                         }else{
-                            console.log("for datocpa da2pass");
-                            $("#direct_access_no_self_div").show();
-                            $("#entry_success_no_self_div").hide();
-                            $("#direct_access_no_private_div").show();
-                            $("#entry_success_no_private_div").hide();
-                            $("#direct_access_no_mac_div").show();
-                            $("#entry_success_no_mac_div").hide();
+                            console.log("for entry2");
+                            $("#direct_access_no_self_div").hide();
+                            $("#entry_success_no_self_div").show();
+                            $("#direct_access_no_private_div").hide();
+                            $("#entry_success_no_private_div").show();
+                            $("#direct_access_no_mac_div").hide();
+                            $("#entry_success_no_mac_div").show();
                         }
                         
 

@@ -128,7 +128,7 @@ function Self_Study_Submit() {
     
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_self]")[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('academic_year', $("#academic_year_self").val());
