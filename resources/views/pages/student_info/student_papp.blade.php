@@ -678,7 +678,7 @@
 
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="reg_no"  id="reg_no" readonly="">
+                                        <input type="text"  class="form-control" name="reg_no"  id="reg_no">
                                     </div>
                                 </div><br/><br>
 
