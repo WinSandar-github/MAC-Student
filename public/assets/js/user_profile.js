@@ -94,21 +94,24 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
+                var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
-                if (cpaff.status == 0) {
+                // console.log(cpaff[0].status)
+                if (cpaff[0].status == 0) {
                     $('.status_history').append('CPA Full-Fledged Registration Form is checking.<br><br>');
-                    $('.status_papp').append('Action &nbsp;&nbsp;');
-                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
-                } else if (cpaff.status == 1) {
+                    // $('.status_papp').append('Action &nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                } else if (cpaff[0].status == 1) {
                     $('.status_history').append('CPA Full-Fledged Registration Form is Approved.<br><br>');
                     $('.status_history').append('Action &nbsp;&nbsp;');
                     $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
-                    $('.status_papp').append('Action &nbsp;&nbsp;');
-                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                    // $('.status_papp').append('Action &nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA Full-Fledged Registration Form is Rejected.');
-                    $('.status_history').append(`<a href="${cpaff_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
+                // console.log(data.papp)
                 if (data.papp && data.student_course_regs == '') {
                     if (data.papp.status == 0) {
                         $('.status_history').append('PAPP Registration Form is checking.<br><br>');
@@ -120,7 +123,7 @@ function user_profile() {
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
                     } else {
-                        $('.status_history').append('PAPP Registration Form is Rejected.');
+                        // $('.status_history').append('PAPP Registration Form is Rejected.');
                     }
                 }
                 // if (cpaff.payment_method != null) {

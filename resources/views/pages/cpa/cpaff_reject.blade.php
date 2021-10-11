@@ -105,7 +105,8 @@
                     <div class="card-body">
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
-                    <form method="post" id="cpaff_form" action="javascript:void();" enctype="multipart/form-data">
+                    <form method="post" id="cpaff_reject_form" action="javascript:void();" enctype="multipart/form-data">
+                        @csrf
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
                         <input type="hidden" name="form_type" value="0">
@@ -590,6 +591,7 @@
     </script>
 @endsection
 @push('scripts')
+<script src="{{ asset('assets/js/cpaff_reject.js') }}"></script>
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
