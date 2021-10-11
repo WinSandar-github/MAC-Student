@@ -77,12 +77,21 @@ function user_profile() {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
                 
-            }else if (data.teacher_renew && data.teacher) {
+            }else if (data.teacher_renew && data.teacher && data.school==null) {
                 $('.dashboard_name').append('Teacher ');
                 loadRenewTeacherDash(data.teacher_renew.pop());
                 
-            }  
-            else if (data.cpa_ff && data.student_course_regs == '') {
+            }else if (data.teacher_renew && data.teacher && data.school) {
+                $('.dashboard_name').append('Teacher And School ');
+                loadRenewTeacherDash(data.teacher_renew.pop());
+                loadSchoolByDash(data.school);
+
+            }else if (data.school && data.teacher && data.teacher_renew.length==0) {
+                $('.dashboard_name').append('Teacher And School ');
+                laodTeacherByDash(data.teacher);
+                loadSchoolByDash(data.school);
+
+            }else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 console.log('cpaff',data.cpa_ff);
@@ -162,12 +171,7 @@ function user_profile() {
                 } else {
                     $('.status_history').append('Mentor Registration is Rejected.');
                 }
-            } else if (data.school && data.teacher) {
-                $('.dashboard_name').append('Teacher And School ');
-                laodTeacherByDash(data.teacher);
-                loadSchoolByDash(data.school);
-
-            } else if (data.qualified_test) {
+            }else if (data.qualified_test) {
                 let qt = data.qualified_test;
 
                 $('.title').text('Student Information')
