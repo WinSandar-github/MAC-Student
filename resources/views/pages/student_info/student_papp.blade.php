@@ -736,7 +736,7 @@
             </div>
         </div>
     </form> --}}
-    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#pappModal">Open modal</button>
+    {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#pappModal">Open modal</button> --}}
     <div id="pappModal" class="multi-step" style="width: 100%;height : 100vh">
     </div>
     </div>
