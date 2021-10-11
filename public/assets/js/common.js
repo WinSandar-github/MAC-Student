@@ -1,13 +1,4 @@
-// var FRONTEND_URL = "http://localhost:8081";
-// var BASE_URL = "http://localhost:8000";
-// var BACKEND_URL = "http://localhost:8000/api";
-
-var BACKEND_URL = "https://demo.aggademo.me/MAC/public/index.php/api";
-var FRONTEND_URL = "https://demo.aggademo.me/MAC_Student/public/index.php";
-var BASE_URL = "https://demo.aggademo.me/MAC/public/";
-
 var counter = 0;
-
 
 var toastOptions = {
     "closeButton": true,
@@ -38,12 +29,14 @@ function errorMessage(message) {
 }
 
 $('document').ready(function () {
+
     //getCourseType for Nav bar
     $.ajax({
         url: BACKEND_URL + '/get_course_type',
         type: 'GET',
         async: false,
         success: function (response) {
+
             $.each(response.data, function (i, v) {
                 var course = `<li><a href='${FRONTEND_URL}/student_course/${v.id}'>${v.course_name}</a></li>`;
                 $('.course_type').append(course);
@@ -66,14 +59,14 @@ function formatMY(date) {
 
 function formatDateMYEntry(date) {
     var income_date = date.split('-');
-    var date =income_date[1] + '-' + income_date[2];
+    var date = income_date[1] + '-' + income_date[2];
     return date;
 }
 
 function formatDateMY(date) {
 
     var income_date = date.split('-');
-    console.log('income_date',income_date)
+    console.log('income_date', income_date)
     var day = income_date[2];
     var month = income_date[1];
     var year = income_date[0];
@@ -116,6 +109,7 @@ function addRowEducation(tbody) {
     $("table." + tbody).append(newRow);
     counter++;
 }
+
 function delRowEducation(tbody) {
     $("table." + tbody).on("click", ".delete", function (event) {
         $(this).closest("tr").remove();
@@ -141,7 +135,6 @@ function addRowSubject(tbody) {
     }
 }
 // function addRowDipSubject(tbody) {
-
 
 function addRowDipSubject(tbody) {
     var newRow = $("<tr>");
@@ -264,6 +257,7 @@ function addRowDirector(tbody) {
     $("table." + tbody).append(newRow);
     counter++;
 }
+
 function delRowDirector(tbody) {
     $("table." + tbody).on("click", ".delete", function (event) {
         var deleted_row = $(this).closest("tr");
@@ -466,6 +460,7 @@ function resetForm(form) {
     $(form).removeClass('was-validated');
     form.reset();
 }
+
 // form validation
 (function () {
     'use strict';
@@ -485,14 +480,11 @@ function resetForm(form) {
     }, false);
 })();
 
-
 async function get_course_by_code(course_code) {
     let response = await fetch(BACKEND_URL + "/course_by_course_code/" + course_code)
     let data = await response.json()
     return data;
 }
-
-
 
 function createDataTable(table) {
 
@@ -515,6 +507,7 @@ function createDataTable(table) {
             .columns.adjust();
     });
 }
+
 function createDataTableWithAsc(table) {
 
     $(table).DataTable({
@@ -536,13 +529,13 @@ function createDataTableWithAsc(table) {
             .columns.adjust();
     });
 }
+
 function destroyDatatable(table, tableBody) {
     if ($.fn.DataTable.isDataTable(table)) {
         $(table).DataTable().destroy();
     }
     $(tableBody).empty();
 }
-
 
 function dataMessage(message, table, tableBody) {
     var dataMsg = message.responseText;
@@ -556,21 +549,25 @@ function dataMessage(message, table, tableBody) {
     }
 
 }
+
 function getIndexNumber(table) {
     $(table).each(function () {
         $(this).find("td").first().html($(this).index() + 1);
     });
 }
+
 function numberRows() {
     $('table tbody tr').each(function (idx) {
         $(this).children(":eq(0)").html(idx + 1);
     });
 }
+
 function thousands_separators(num) {
     var num_parts = num.toString().split(".");
     num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return num_parts.join(".");
 }
+
 function convert(num) {
 
     var numeralCodes = [["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],         // Ones

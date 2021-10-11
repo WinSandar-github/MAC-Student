@@ -428,6 +428,17 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                                        <label class="col-md-1 col-form-label"></label>
+                                                        <label class="col-md-3 col-form-label label"></label>
+                                                        <div class="col-md-8">
+                                                            <div class="private_type">
+                                                                <input type="text" class="form-control" id="school_name" name="school_name">
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၁၆။') }}</label>
                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>
                                     <div class="col-md-6 pull-right" style="text-align:right;">
@@ -827,6 +838,7 @@
                                                             
                                                         </div>
                                                     </div>
+                                                    
                                                 <div class="row mb-3">
                                                     <label class="col-md-1 col-form-label">{{ __('၁၄။') }}</label>
                                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>

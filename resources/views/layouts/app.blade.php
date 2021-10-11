@@ -165,11 +165,14 @@
 
 <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
+<script src="{{ asset('assets/js/backendService.js') }}"></script>
+<script src="{{ asset('assets/js/navbar.js') }}"></script>
+<script src="{{ asset('assets/js/common.js') }}"></script>
+
 <script src="{{ asset('vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-validation/dist/additional-methods.min.js') }}"></script>
 
 <!-- <script src="assets/js/plugins.min.js"></script> -->
-<script src="{{ asset('assets/js/navbar.js') }}"></script>
 <!-- EasyLoading -->
 
 <script src="{{ asset('EasyLoading/jquery-ui.min.js')}}"></script>
@@ -184,7 +187,6 @@
 <script src="{{ asset('assets/js/student_login.js') }}"></script>
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
 <script src="{{ asset('assets/js/auth.js') }}"></script>
-
 <script src="{{ asset('assets/js/papp.js') }}"></script>
 <script src="{{ asset('assets/js/cpa_one.js') }}"></script>
 <script src="{{ asset('assets/js/cpa_ff.js') }}"></script>
@@ -211,7 +213,6 @@
 
 
 <script src="{{ asset('assets/js/student_info.js') }}"></script>
-<script src="{{ asset('assets/js/common.js') }}"></script>
 <script src="{{ asset('assets/js/exam_register.js') }}"></script>
 <script src="{{ asset('assets/js/da_register.js') }}"></script>
 <script src="{{ asset('assets/js/user_profile.js') }}"></script>

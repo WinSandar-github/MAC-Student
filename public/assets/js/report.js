@@ -28,9 +28,8 @@ function showRegList(course_code) {
 
 
         ],
-        sort: function (row, type, set, meta) {
-            return row[meta.col][1];
-        }
+        "dom": '<"float-left"l><"float-right"f>rt<"bottom float-left"i><"bottom float-right"p><"clear">',
+
     });
 
     $("#selected_module").change(function () {
