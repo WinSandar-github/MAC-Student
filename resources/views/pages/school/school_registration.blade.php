@@ -845,6 +845,7 @@
                             </div>
 
                             <input type="hidden" id="student_info_id" >
+                            <input type="hidden" id="initial_reject" value="This user is rejecter but this user is updated">
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                 <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
