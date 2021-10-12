@@ -71,7 +71,7 @@
                     <br/>
                     <br/>
                 </div>
-                <div class="col-md-12 text-center mb-5" style="display:none;font-weight:bold;font-size:20px;" name="remark" id="remark">
+                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
                     <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
                 </div>
                 <div id="expiry_card" style="display:none;">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
 
-                <div class="card border-success mb-3" id="papp_from" style="display:none;">
+                <div class="card border-success mb-3" id="papp_from">
 
                     <div class="card-body ">
                         <div style="text-align: right;margin-top:1%;">
@@ -97,7 +97,7 @@
                         <form  method="post" id="papp_form" action="javascript:void();" enctype="multipart/form-data">
                             <fieldset id="fieldset" disabled="disabled">
                             <!-- <fieldset id="fieldset" > -->
-
+                            <input type="hidden" id="papp_id" name="papp_id"/>
                             <div class="row">
                                 <div class="col-md-9">
                                 <div class="row mb-3">
@@ -691,7 +691,7 @@
                                 </div><br/><br>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" id="papp_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                        <button type="submit" id="papp_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Update') }}</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -762,7 +762,16 @@
    isLoginPAPP();
    Papp_feedback();
    loadCpaffInitialData();
-
+   loadPappData();
+//    loc = window.location.href;   
+//    let papp_url = new URL(loc);
+//    console.log('myVar',papp_url.pathname);
+//    var id = papp_url.herf.substring(papp_url.href.lastIndexOf('/') + 1);
+//    alert(id);
+    var papp_id=localStorage.getItem('papp_id');
+    var reject_description=localStorage.getItem('reject_reason');
+    $('#papp_id').val(papp_id);
+    $('#remark_description').text(reject_description);
    $('input[name="degree_pass_year[]"]').flatpickr({
             enableTime: false,
             dateFormat: "M-Y",
