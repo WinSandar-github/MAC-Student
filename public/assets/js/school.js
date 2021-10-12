@@ -257,6 +257,7 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
+  
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
@@ -264,7 +265,9 @@ function getCourses(){
            var opt;
           $.each(response.data,function(i,v){
               var newcode=(v.code).split('_');
-              var course_code=convert(newcode[1]);
+              var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+              var course_code=result.numeral;
+              
               opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
           $(".multiple-attend-course").append(opt);
@@ -688,7 +691,8 @@ function loadStudentCourse(course_id){
       success: function (result) {
         var data=result.data;
         var newcode=data.code.split('_');
-        var course_code=convert(newcode[1]);
+        var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+        var course_code=result.numeral;
         var $newOption = $("<option selected='selected'></option>").val(data.id).text(newcode[0].toUpperCase()+' '+course_code);
         $("#attend_course").append($newOption).trigger('change');
 
@@ -1076,7 +1080,8 @@ function loadCertificates(name,row){
         success: function (result) {
             $.each(result.group_data, function( index, value ){
                         var newcode=index.split('_');
-                        var course_code=convert(newcode[1]);
+                        var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+                        var course_code=result.numeral;
                         $.each(value, function(key, val){
                           subject.push(newcode[0].toUpperCase()+' '+course_code+":"+val.subject_name);
                           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].value=subject.join();
