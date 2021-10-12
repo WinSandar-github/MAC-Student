@@ -4,7 +4,9 @@
 $("#school_modal").click(function() {
     $('#schoolpaymentModal').modal('show');
 });
-
+$("#renew_school_modal").click(function() {
+  $('#renewSchoolpaymentModal').modal('show');
+});
 $('#cash_img').click(function() {
     $('#school_btn').prop('disabled', false);
 });
@@ -65,9 +67,9 @@ function schoolPaymentSubmit(){
                       //var count_invoice=val.count_invoice_no+1;
                       $.each(result.data, function( index, value ){
                           
-                          if(value.payment_date==null){
+                          if(value.from_valid_date==null){
                               
-                                  if(current_date > value.payment_date){
+                                  if(current_date > value.from_valid_date){
                                       var str = "" + count_invoice;
                                       var pad = "000"
                                       var ans = pad.substring(0, pad.length - str.length) + str
@@ -106,38 +108,56 @@ function schoolPaymentSubmit(){
   })
     
 }
-
+function renewSchoolPaymentSubmit(){
+  $.ajax({
+    url: BACKEND_URL + "/renewSchoolPayment",
+    type: 'patch',
+    data: 'id='+$('#school_id').val(),
+    success: function (data) {
+            successMessage("Your payment is successfully");
+            location.href = FRONTEND_URL + "/school_information";
+        },
+        error:function (message){
+        }
+  })
+}
 function checkPaymentSchool(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
 
     if(student!=null){
       $.ajax({
-        url: BACKEND_URL+"/check_payment_school/"+student.school_id,
+        url: BACKEND_URL+"/getSchoolInfo/"+student.id,//check_payment_school
         type: 'GET',
-        success: function(data){
+        success: function(result){
           
-          var form_data = data;
-          form_data.forEach(function(element){
-           if(element.initial_status==0){
-             $('#type').val(element.type);
-              if(element.payment_method != null){
-                $('#school_modal').prop('disabled', true);
-                loadRenewSchool();
-
-              }else{
-                  $('#school_modal').prop('disabled', false);
-              }
-           }else{
-              if(element.renew_payment_method != null){
+          var school=result.data.pop();
+          
+          // var form_data = data;
+          // form_data.forEach(function(element){
+           if(school.initial_status==1){
+              $('#school_id').val(school.id);
+              $('#type').val(school.type);
+              if(school.payment_method != null){
                 $('#renew_school_modal').prop('disabled', true);
                 loadRenewSchool();
 
               }else{
                   $('#renew_school_modal').prop('disabled', false);
               }
+           }else{
+              $('#type').val(school.type);
+              if(school.payment_method != null){
+                $('#school_modal').prop('disabled', true);
+                loadRenewSchool();
+
+              }else{
+                  $('#school_modal').prop('disabled', false);
+              }
            }
+             
+          
             
-          })
+          //})
         }
     });
     }
@@ -186,27 +206,34 @@ function school_reg_feedback(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     if(student!=null){
       $.ajax({
-        url: BACKEND_URL+"/getSchoolStatus/"+student.id,
+        url: BACKEND_URL+"/getSchoolInfo/"+student.id,//getSchoolStatus
         type: 'GET',
-        success: function(data){
+        success: function(result){
 
-          var form_data = data;
-          form_data.forEach(function(element){
-                var school=element.school;
-                if(school.initial_status==0){
-                    if(element.approve_reject_status == 0){
+          // var form_data = data;
+          // form_data.forEach(function(element){
+            var school=result.data.pop();
+                
+                    if(school.approve_reject_status == 0){
 
                         $('#school_pending').css('display','block');
                         $('#school_approve').css('display','none');
                         $('.register-btn').css('display','none');
                         $('.update-btn').css('display','none');
-                    }else if(element.approve_reject_status == 1){
-                        $('#school_approve').css('display','block');
-                        $('#school_pending').css('display','none');
+                    }else if(school.approve_reject_status == 1){
+                      $('#school_approve').css('display','block');
+                      $('#school_pending').css('display','none');
+                      $('.register-btn').css({'display':'none'});
+                      $('.register-btn').removeClass('mt-4');
+                      if(school.initial_status==0){
                         $('.payment-btn').css('display','block');
-                        $('.register-btn').css({'display':'none'});
-                        $('.register-btn').removeClass('mt-4');
                         $('.update-btn').css('display','none');
+                      }else if(school.initial_status==1){
+                        $('.payment-btn').css('display','none');
+                        $('.update-btn').css('display','none');
+                        $('.renew_payment-btn').css('display','block');
+                      }
+                        
                     }
                     else{
                       $('.status-reject').css('display','block');
@@ -216,32 +243,9 @@ function school_reg_feedback(){
                       $('.update-btn').css('display','block');
                       getSchoolInfo();
                   }
-                }else{
-                  if(element.approve_reject_status == 0){
-
-                    $('#school_pending').css('display','block');
-                    $('#school_approve').css('display','none');
-                    $('.register-btn').css('display','none');
-                    $('.update-btn').css('display','none');
-                  }else if(element.approve_reject_status == 1){
-                      $('#school_approve').css('display','block');
-                      $('#school_pending').css('display','none');
-                      $('.payment-btn').css('display','block');
-                      $('.register-btn').css({'display':'none'});
-                      $('.register-btn').removeClass('mt-4');
-                      $('.update-btn').css('display','none');
-                  }
-                  else{
-                    $('.status-reject').css('display','block');
-                    $('.reject-reason').append(school.reason);
-                    $('.register-btn').css('display','none');
-                    $('.payment-btn').css('display','none');
-                    $('.update-btn').css('display','block');
-                    getSchoolInfo();
-                }
-                }
                 
-          })
+                
+          //})
         }
     });
     }
@@ -404,20 +408,17 @@ function loadRenewSchool(){
   if(student!=null){
       $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/school/"+student.school_id,
+        url : BACKEND_URL+"/getSchoolInfo/"+student.id,//school
         success: function (result) {
-            var school=result.data;
-            console.log(school.nrc_state_region)
+            var school=result.data.pop();
+            
             if(school.approve_reject_status==1){
                   $('#school_approve').css('display','none');
                   document.getElementById('school_detail').style.display='none';
                   document.getElementById('school_renew_form').style.display='block';
                   //getSchoolInfo();
-                  var accept=new Date(school.payment_date);
-                  var month=accept.getMonth()+1;
-                  var year=accept.getFullYear();
-                  var y=year+3;
-                  var now=new Date();
+                  
+                  
                   $('input[name=email]').val(school.email);
                   $('input[name=name_mm]').val(school.name_mm);
                   $('input[name=name_eng]').val(school.name_eng);
@@ -549,8 +550,8 @@ function loadRenewSchool(){
                   // loadFile(school.sch_establish_notes_attach,"view_sch_establish_notes_attach");
                   // loadEductaionHistoryBySchool(school.id,'tbl_degree');
                   ///$('#previewImg').attr("src",BASE_URL+school.profile_photo);
-                  $('input[name=school_name]').val(school.school_name);
-                  $('textarea[name=school_address]').val(school.school_address);
+                  //$('input[name=school_name]').val(school.school_name);
+                  //$('textarea[name=school_address]').val(school.school_address);
                   $('#hidden_nrc_front').val(school.nrc_front);
                   $('#hidden_business_license').val(school.business_license);
                   $('#hidden_company_reg').val(school.company_reg);
@@ -575,8 +576,22 @@ function loadRenewSchool(){
                   $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
                   $('#regno').val(school.invoice_no);
                   $('#hinitial_status').val(1);
-                  $('#renew_id').val(school.id);
+                  $('#school_id').val(school.id);
+                  $('#student_info_id').val(student.id);
                   //$('#register_date').val(school.renew_date);
+                  if(school.initial_status==0){
+                    var accept=new Date(school.from_valid_date);
+                    var month=accept.getMonth()+1;
+                    var year=accept.getFullYear();
+                    var y=year+3;
+                    var now=new Date();
+                  }else if(school.initial_status==1){
+                    var accept=new Date(school.renew_date);
+                    var month=accept.getMonth()+1;
+                    var year=accept.getFullYear();
+                    var y=year+3;
+                    var now=new Date();
+                  }
                   $('#register_date').val("Nov-1-"+now.getFullYear()+" to Dec-31-"+y);
                   if((now.getFullYear()==y && (now.getMonth()+1)==month) || now.getFullYear() >year){
                     $("#message").val("Your registeration is expired! You need to submit new registeration form again.");
@@ -637,11 +652,11 @@ function renewSchool(){
     }
     send_data.append('student_info_id', $('#student_info_id').val());
     send_data.append('initial_status',  $('#hinitial_status').val());
-    send_data.append('renew_id',  $('#renew_id').val());
+    send_data.append('school_id',  $('#school_id').val());
     send_data.append('invoice_no',  $('#regno').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
     $("input[id=old_branch_sch_own_type]").map(function(){send_data.append('old_branch_sch_own_type[]',$(this).val())});
-    send_data.append('initial_status', $('#hinitial_status').val());
+    
     //send_data.append('_method', 'PATCH');
     show_loader();
       $.ajax({
@@ -982,10 +997,10 @@ function delInputFile(diventry){
   $('.btn-remove').parents('.'+diventry+':first').remove();
 }
 function loadTeacherById(row){
-  var invoice_no=$('#teacher_registration_no'+row).val();
+  var t_code=$('#teacher_registration_no'+row).val();
   $.ajax({
     type : 'GET',
-    url : BACKEND_URL+"/getTeacher/"+invoice_no,
+    url : BACKEND_URL+"/getTeacherByTCode/"+t_code,
     success: function(result){
       
       var subject=[];

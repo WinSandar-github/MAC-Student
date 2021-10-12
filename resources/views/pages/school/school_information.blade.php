@@ -225,6 +225,54 @@
             </div>
         </div>
     </form>
+    <!--renew Modal-->
+<form method="post" class="needs-validation" action="javascript:renewSchoolPaymentSubmit();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="renewSchoolpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">School Registeration Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
                 <div class="card border-success mb-3" id="school_renew_form" style="display:none;">
                     <div class="card-body p-4">
                             <div class="row mb-3">
