@@ -147,6 +147,9 @@ Route::get('school_information', 'SchoolInfoController@info');
 //School edit Form
 Route::get('school_edit', 'SchoolController@edit');
 
+//School renewedit Form
+Route::get('renew_school_edit', 'SchoolController@renew_edit');
+
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
 
