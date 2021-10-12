@@ -527,38 +527,10 @@
 
 
                 </div>
-<<<<<<< HEAD
                 <div class="card-body cpaff_other">
                         <div class="row">
                             <div class="col-md-3">
                                 <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
-=======
-            </div>
-
-            <!-- cpaff other dashboard -->
-            <div class="cpaff_other">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
-                            </div>
-                        </div>
-                        <div class="row my-2">
-                            <h5 class="text-center border-bottom p-3" style="font-weight:bold ;background-color:#E7F8EE;">
-                                Application Status
-                            </h5>
-                            <div class="text-center fw-bold">
-                                <span class="status_history"></span>
-                            </div>
-                            <div class="text-center status_papp">
->>>>>>> f5a4b3a36a7767617cdab04759122222584d2e3b
                             </div>
                             <div class="col-md-8">
                                 <div class="row m-2 mt-3 border-bottom">
@@ -604,12 +576,9 @@
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
                             </div>
 
                         </div>
-=======
->>>>>>> f5a4b3a36a7767617cdab04759122222584d2e3b
 
                         <div class="row my-2">
                             <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
@@ -620,7 +589,6 @@
                     </div>
             </div>
 
-<<<<<<< HEAD
             <!-- cpaff other dashboard -->
             {{--<div class="cpaff_other">
                 <div class="card">
@@ -687,11 +655,6 @@
                     </div>
                 </div>
             </div>--}}
-=======
-
-                </div>
-            </div>
->>>>>>> f5a4b3a36a7767617cdab04759122222584d2e3b
             <!-- end cpaff other dashboard -->
             <!-- school dashboard-->
             <div class="school" style="display:none;">
