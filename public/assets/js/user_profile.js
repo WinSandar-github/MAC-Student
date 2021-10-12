@@ -116,8 +116,8 @@ function user_profile() {
                 }
                 if (cpaff.status == 0) {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is checking.<br><br>');
-                    $('.status_papp').append('Action &nbsp;&nbsp;');
-                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                    // $('.status_papp').append('Action &nbsp;&nbsp;');
+                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else if (cpaff.status == 1) {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Approved.<br><br>');
                     $('.status_history').append('Action &nbsp;&nbsp;');
@@ -126,9 +126,12 @@ function user_profile() {
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
-                    $('.status_history').append(`<a href="${cpaff_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 if (data.papp.length!=0 && data.student_course_regs == '') {
+                    var reject_initial=FRONTEND_URL + "/update_papp_initial";
+                    var reject_renewal=FRONTEND_URL + "/update_papp_renewal";
+                    // var reject_initial=FRONTEND_URL + "/student_papp";
                     var papp_latest_data=data.papp[data.papp.length-1];
                     var is_renew;
                     if(papp_latest_data.type==0){
@@ -147,7 +150,16 @@ function user_profile() {
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
                     } else {
-                        $('.status_history').append('PAPP '+is_renew+' Registration Form is Rejected.');
+                        localStorage.setItem('papp_id',papp_latest_data.id);
+                        localStorage.setItem('reject_reason',papp_latest_data.reject_description);
+                        $('.status_history').append('PAPP '+is_renew+' Registration Form is Rejected.');                       
+                        if(papp_latest_data.type==0){
+                            $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                        }
+                        else{
+                            $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                        }
+                        
                     }
                 }
                 // if (cpaff.payment_method != null) {
@@ -352,6 +364,8 @@ function user_profile() {
                     }
 
                     if (data.papp.length !== 0) {
+                        var reject_initial=FRONTEND_URL + "/update_papp_initial";
+                        var reject_renewal=FRONTEND_URL + "/update_papp_renewal";
                         let papp_latest_data=data.papp[data.papp.length-1];
                         var is_renew_papp;
                         if(papp_latest_data.type==0){
@@ -418,14 +432,25 @@ function user_profile() {
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             }
                         } else {
+                            localStorage.setItem('papp_id',papp_latest_data.id);
+                            localStorage.setItem('reject_reason',papp_latest_data.reject_description);
                             $('.status').append(`
                             <tr>
                                 <td>PAPP ${is_renew_papp}</td>
-                                <td>${formatDate(papp_latest_dataff.created_at)}</td>
+                                <td>${formatDate(papp_latest_data.created_at)}</td>
                                 <td>${formatDate(papp_latest_data.updated_at)}</td>
                                 <td><span class="badge bg-danger">Reject</span></td>
                             </tr>
-                            `);
+                            `);                      
+                            if(papp_latest_data.type==0){
+                                // $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                            }
+                            else{
+                                // $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                                $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                            }
+                            
                         }
                     }
                     // $('#next_course').hide();
