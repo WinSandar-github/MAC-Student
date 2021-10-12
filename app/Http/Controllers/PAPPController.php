@@ -10,4 +10,12 @@ class PAPPController extends Controller
     public function info(){
         return view('pages.student_info.student_papp');
     }
+
+    public function reject_initial(){
+        return view('pages.student_info.update_papp_initial');
+    }
+
+    public function reject_renewal(){
+        return view('pages.student_info.update_papp_renewal');
+    }
 }
