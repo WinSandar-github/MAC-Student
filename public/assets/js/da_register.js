@@ -208,7 +208,7 @@ $('#da_update').submit(function (e) {
     formData.append('_method', 'PATCH');
     var student_id = $('#stu_id').val();
 
-
+    show_loader();
     $.ajax({
         type: "POST",
         url: BACKEND_URL + "/student_info/" + student_id,
@@ -217,7 +217,9 @@ $('#da_update').submit(function (e) {
         processData: false,
         data: formData,
         success: function (data) {
+            EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
+            successMessage("You have successfully updated!");
             location.href = FRONTEND_URL + "/";
         },
         error: function (message) {

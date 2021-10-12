@@ -407,13 +407,15 @@
                                                         <label
                                                             class="col-md-3 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-8">
-                                                            <div class="form-group">
+                                                            <input type="text" name="private_school_name" id="selected_school_id"
+                                                                    class="form-control" value="{{ old('private_school_name') }}" readonly="">
+                                                            <!-- <div class="form-group">
                                                                 <select  class="form-control form-select"
                                                                     name="private_school_name" id="selected_school_id"
                                                                     style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -749,7 +751,7 @@
                 $("input[name='roll_number']").val(data.data.student_education_histroy.roll_number);
                 $("input[name='qualified_date']").val(data.data.student_education_histroy.qualified_date);
 
-                // $("input[name='private_school_name']").val(data.data.student_register[0].private_school_name);
+                $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
 
               
                 console.log(exam_registers)
@@ -804,7 +806,7 @@
 
     });
     loadExamDepartment();
-    loadSchoolList();
+    // loadSchoolList();
 </script>
 <script>
     // $( "#cpa_exam_submit" ).click(function() {

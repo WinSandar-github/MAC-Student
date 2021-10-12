@@ -188,13 +188,15 @@
                                                             id="cpa2_label1">{{ __('၁၀။') }}</label>
                                                         <label class="col-md-3 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-8">
-                                                            <div class="form-group">
+                                                            <input type="text" name="private_school_name" id="selected_school_id"
+                                                                    class="form-control" value="{{ old('private_school_name') }}" readonly="">
+                                                            <!-- <div class="form-group">
                                                                 <select class="form-control form-select"
                                                                     name="private_school_name" id="selected_school_id"
                                                                     style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div><br />
                                                 </div>
@@ -486,7 +488,7 @@
                 // console.log(data.data.cpersonal_no)
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
-                
+                $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
                 if(exam_registers )
                 {
 
@@ -562,6 +564,6 @@
 
         })
         loadExamDepartment();
-        loadSchoolList();
+        // loadSchoolList();
     </script>
 @endpush
