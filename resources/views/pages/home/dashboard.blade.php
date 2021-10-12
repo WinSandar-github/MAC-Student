@@ -34,9 +34,9 @@
     </div>
 
     <div class=" section section-padding mt-n10">
-        <div class="container">
-            <div class="card da-card"><!-- when school and teacher dashboard use da-card hide  -->
-                <div class="card-header title text-center text-dark h5" style="background-color:#E7F8EE;">
+        <div class="container" style="margin-top: 0px!important">
+            <div class="card da-card shadow-lg"><!-- when school and teacher dashboard use da-card hide  -->
+                <div class="card-header title text-center text-dark h5 p-3" style="background-color:#E7F8EE;">
                 </div>
 
                 <div class="card-body">
@@ -467,7 +467,6 @@
                                 style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
 
                             <div class="text-center fw-bolder status_history">
-
                             </div>
                         </div>
                         {{--reject register buttons--}}
@@ -504,7 +503,27 @@
                         </div>
 
                     </div>
+                     <!-- cpaff other dashboard -->
+                    <div class="cpaff_other">
+                        <div class="row">
 
+                            <div class="col-md-12">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-4">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-4">
+                                        <p class="ml-2" style="font-weight:bold">NRC</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span id="cpaff_nrc"></span>
+                                    </div>
+                                </div>
 
 
                 </div>
@@ -525,60 +544,22 @@
                                 <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
                             </div>
                         </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                        <div class="row my-2">
+                            <h5 class="text-center border-bottom p-3" style="font-weight:bold ;background-color:#E7F8EE;">
+                                Application Status
+                            </h5>
+                            <div class="text-center fw-bold">
+                                <span class="status_history"></span>
                             </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_nrc"></span>
+                            <div class="text-center status_papp">
                             </div>
                         </div>
 
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Email</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_email"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_phone"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom period" style="display:none;">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">This certificate is valid for the
-                                    period</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="period_time_cpaff"></span>
-                            </div>
-                        </div>
 
                     </div>
+
 
                 </div>
-
-                <div class="row my-2">
-
-
-                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                        Application Status</h5>
-
-                    <div class="text-center status_history">
-
-                    </div>
-                    <div class="text-center status_papp">
-
-                    </div>
-                </div>
-
-
             </div>
             <!-- end cpaff other dashboard -->
             <!-- school dashboard-->
