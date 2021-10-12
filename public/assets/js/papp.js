@@ -142,7 +142,7 @@ function check_email_papp()
     var self_confession_not_accept_PAPP = document.getElementsByClassName("not_accept_PAPP");
     var accept_PAPP = document.getElementById("accept");
     var not_accept_PAPP = document.getElementById("not-accept");
-    if(self_confession_accept_PAPP.checked == true || self_confession_not_accept_PAPP.checked == true && accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+    // if(self_confession_accept_PAPP.checked == true || self_confession_not_accept_PAPP.checked == true && accept_PAPP.checked == true || not_accept_PAPP.checked == true){
         if(verify_code != code){
             errorMessage("Your code is not correct.Please check your email inbox again!");
             // $('#exampleModal').modal('show');
@@ -152,22 +152,22 @@ function check_email_papp()
             Papp_Submit();
             $('#pappModal').modal('hide');
         }
-    }
-    else{
-        if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
-            console.log("cc");
-            $('#valid_self_confession_PAPP').css('display','none');
-        }
-        else{
-            console.log("bb");
-            $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
-            $('#valid_self_confession_PAPP').css('display','block');
-        }
-        console.log("aa");
-        $(".accept_PAPP:unchecked").css("border","1px solid red");
-        $(".not_accept_PAPP:unchecked").css("border","1px solid red");
-        errorMessage("Please choose Yes or No in Previous Page");  
-    }
+    // }
+    // else{
+    //     if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+    //         console.log("cc");
+    //         $('#valid_self_confession_PAPP').css('display','none');
+    //     }
+    //     else{
+    //         console.log("bb");
+    //         $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
+    //         $('#valid_self_confession_PAPP').css('display','block');
+    //     }
+    //     console.log("aa");
+    //     $(".accept_PAPP:unchecked").css("border","1px solid red");
+    //     $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+    //     errorMessage("Please choose Yes or No in Previous Page");  
+    // }
 }
 
 function checkPaymentPapp(){
@@ -328,23 +328,48 @@ function Papp_Submit(){
     data.append('phone', $("input[name=phone]").val());
     data.append('contact_mail', $("input[name=contact_mail]").val());
     data.append('reg_no', $("input[name=reg_no]").val());
-    data.append('type',0);
+    data.append('type',0);    
     show_loader(); 
-    $.ajax({
-    url: BACKEND_URL+"/papp",
-    type: 'post',
-    data:data,
-    contentType: false,
-    processData: false,
-    success: function(result){
-        EasyLoading.hide();
-        successMessage("You have successfully registerd!");
-            // location.reload();
-            location.href = FRONTEND_URL+'/';
-        },
-    error:function (message){
-        }
-    });
+    if($('#papp_id').val())
+    {
+        var id=$('#papp_id').val();
+        data.append('papp_id',id);   
+        $.ajax({
+            url: BACKEND_URL+"/update_papp_initial",
+            type: 'post',
+            data:data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage("You have successfully updated!");
+                    // location.reload();
+                    location.href = FRONTEND_URL+'/';
+                },
+            error:function (message){
+                EasyLoading.hide();
+                }
+            });
+    }
+    else
+    {
+        $.ajax({
+        url: BACKEND_URL+"/papp",
+        type: 'post',
+        data:data,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            EasyLoading.hide();
+            successMessage("You have successfully registerd!");
+                // location.reload();
+                location.href = FRONTEND_URL+'/';
+            },
+        error:function (message){
+            EasyLoading.hide();
+            }
+        });
+    }
 }
 
 function isLoginPAPP(){
@@ -395,7 +420,6 @@ function loadPappData()
         type: 'get',
         data:"",
         success: function(data){
-            // console.log(data)
             var papp_data = data.data;
             console.log('papp_data',papp_data)
             $('#reg_no').val(papp_data.cpa_batch_no);
@@ -404,7 +428,7 @@ function loadPappData()
             $('#phone').val(papp_data.phone);
             $('#contact_mail').val(papp_data.contact_mail);
             $('#cpaff_reg_no').val(papp_data.cpa_batch_no);
-            // $('#total_hours').val(papp_data.cpd_hours);
+            //$('#remark_description').text(papp_data.reject_description);
         }
     });
 }
@@ -456,7 +480,8 @@ function Papp_feedback(){
                     }
                     else if(data.status==2 || data.renew_status==2)
                     {
-                        document.getElementById('rejected').style.display='block';
+                        // document.getElementById('papp_from').style.display='block';
+                        // document.getElementById('remark').style.display='block';
                     }
                 }
                 else{
@@ -734,29 +759,55 @@ function RenewPAPP(){
                 send_data.append('contact_mail', $("input[name=contact_mail]").val());
                 send_data.append('reg_no', $("input[name=reg_no]").val());
                 send_data.append('type',1);
-                send_data.append('_method', 'POST');
+                //send_data.append('_method', 'POST');
                 show_loader();
-                $.ajax({
-                    url: BACKEND_URL+"/papp_renew",
-                    type: 'post',
-                    data:send_data,
-                    contentType: false,
-                    processData: false,
-                    success: function(result){
-                        EasyLoading.hide();
-                        successMessage(result.message);
-                        // location.reload();
-                        location.href = FRONTEND_URL+'/';
-                        document.getElementById('approved').style.display='none';
-                        document.getElementById('rejected').style.display='none';
-                        document.getElementById('pending').style.display='none';
-                        document.getElementById('papp_form').style.display='none';
-                        document.getElementById('papp_renew_form').style.display='none';
-                        document.getElementById('expiry_card').style.display='none';
-                    },
-                    error:function (message){
-                    }
-                });
+                if($('#papp_id').val()){
+                    send_data.append('papp_id',$('#papp_id').val());
+                    $.ajax({
+                        url: BACKEND_URL+"/update_papp_renewal",
+                        type: 'post',
+                        data:send_data,
+                        contentType: false,
+                        processData: false,
+                        success: function(result){
+                            EasyLoading.hide();
+                            successMessage(result.message);
+                            // location.reload();
+                            location.href = FRONTEND_URL+'/';
+                            document.getElementById('approved').style.display='none';
+                            document.getElementById('rejected').style.display='none';
+                            document.getElementById('pending').style.display='none';
+                            document.getElementById('papp_form').style.display='none';
+                            document.getElementById('papp_renew_form').style.display='none';
+                            document.getElementById('expiry_card').style.display='none';
+                        },
+                        error:function (message){
+                        }
+                    });
+                }
+                else{
+                    $.ajax({
+                        url: BACKEND_URL+"/papp_renew",
+                        type: 'post',
+                        data:send_data,
+                        contentType: false,
+                        processData: false,
+                        success: function(result){
+                            EasyLoading.hide();
+                            successMessage(result.message);
+                            // location.reload();
+                            location.href = FRONTEND_URL+'/';
+                            document.getElementById('approved').style.display='none';
+                            document.getElementById('rejected').style.display='none';
+                            document.getElementById('pending').style.display='none';
+                            document.getElementById('papp_form').style.display='none';
+                            document.getElementById('papp_renew_form').style.display='none';
+                            document.getElementById('expiry_card').style.display='none';
+                        },
+                        error:function (message){
+                        }
+                    });
+                }
             }
         },
         error:function (message){
