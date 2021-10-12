@@ -155,6 +155,19 @@
                                                                             </div>
                                                                             
                                                                         </div>
+                                                                        <div class="row renew_payment-btn" style="display:none;">
+                                                                            <div class="col-md-6"></div>
+                                                                            <div class="">
+                                                                                <div class="pull-right mt-4">
+                                                                                    <p class="info-btn text-dark h6">
+                                                                                        
+                                                                                        <button id="renew_school_modal" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                                                                    </p>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
 																</ul>
 															</div>
 														</div>
@@ -169,6 +182,54 @@
           novalidate>
         @csrf
         <div class="modal fade" id="schoolpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <br>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <center>
+                                <h4 style="margin-bottom:5%;">School Registeration Form Fee - ****** MMK</h4>
+                            </center>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                         data-value="CBPAY" name="payment_method" id="cb_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                         data-value="MPU" name="payment_method" id="mpu_img">
+                                </center>
+                                <br>
+                            </div>
+                            <div class="col-sm-3 col-5">
+                                <center>
+                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                         data-value="CASH" name="payment_method" id="cash_img">
+                                </center>
+                                <br>
+                            </div>
+                            <input type="hidden" name="payment_method" value="CASH">
+                            <center>
+                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--renew Modal-->
+<form method="post" class="needs-validation" action="javascript:renewSchoolPaymentSubmit();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="renewSchoolpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -309,31 +370,31 @@
                                             <div class="col-md-8">
                                                 <div class="row">
                                                 <div class="col-md-2">
-                                                        <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
-                                                        @foreach($nrc_regions as $region)
+                                                        <input type='text' class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                        <!-- @foreach($nrc_regions as $region)
                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                             </option>
-                                                        @endforeach
-                                                        </select>
+                                                        @endforeach -->
+                                                        
                                                 </div>
                                                 <div class="col-md-3">
-                                                        <select class="form-control" name="nrc_township" id="nrc_township" readonly>
-                                                            @foreach($nrc_townships as $township)
+                                                        <input type='text' class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                            <!-- @foreach($nrc_townships as $township)
                                                                 <option value="{{ $township['township_mm'] }}">
                                                                     {{ $township['township_mm'] }}
                                                                 </option>
-                                                            @endforeach
-                                                        </select>
+                                                            @endforeach -->
+                                                        
                                                 </div>
                                                 <div class="col-md-2 ">
-                                                    <select class="form-control" name="nrc_citizen" id="nrc_citizen"  readonly>
-                                                        @foreach($nrc_citizens as $citizen)
+                                                    <input type='text' class="form-control" name="nrc_citizen" id="nrc_citizen"  readonly>
+                                                        <!-- @foreach($nrc_citizens as $citizen)
                                                             <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                 {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                             </option>
-                                                        @endforeach
-                                                    </select>
+                                                        @endforeach -->
+                                                    
                                                 </div>
                                                 <div class="col-md-5 ">
                                                     <input type="text" name="nrc_number" id="nrc_number"  pattern=".{6,6}" class="form-control" oninput="this.value=this.value.replace(/[^၀-၉]/g,'');"  maxlength="6" minlength="6" readonly style="height: 38px" autocomplete='off'>
@@ -348,7 +409,9 @@
                                     <input type="hidden" id="school_id">
                                     <input type="hidden" id="student_info_id">
                                     <input type="hidden" id="branch_own_type_h">
-                                    <input type="hidden" id="hinitial_status" value="1">
+                                    <input type="hidden" id="hinitial_status">
+                                    <input type="hidden" id="type">
+                                    <input type="hidden" id="renew_id">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
@@ -436,17 +499,17 @@
                                         
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၉။</span>Applied Date</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="register_date" readonly>
                                         
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၁၀။</span>Status</label>
+                                                class="pull-left">၉။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
@@ -454,7 +517,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၁။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၁၀။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>

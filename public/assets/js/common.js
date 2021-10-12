@@ -574,7 +574,7 @@ function convert(num) {
     ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
     ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]];
     var numeral = "";
-    var digits = num.toString().split('').reverse();
+    var digits = num.split('').reverse();
     for (var i = 0; i < digits.length; i++) {
         numeral = numeralCodes[i][parseInt(digits[i])] + numeral;
     }
