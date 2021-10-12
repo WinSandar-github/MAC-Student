@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="approved" style="display:none;">
+                {{--<div id="approved" style="display:none;">
                         <div class="card text-white bg-primary my-3">
 
                             <div class="card-body">
@@ -76,6 +76,9 @@
                             </div>
                         </div>
 
+                </div>--}}
+                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
                 </div>
 								{{--<div class="card-body" id="papp_initial">
 									<div class="row">
@@ -126,33 +129,12 @@
 															</div>
 														</div>
 												</div>
-												<div class="col-md-5">
-														<h5 class="mt-2"><strong>Course Fees</strong></h5>
-														<hr>
-														<div class="info-list">
-																<ul>
-                                                                        <li><i class="icofont-money"></i> <strong>Application Fee</strong> </li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for MAC Class</strong></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Self-Study Class</strong> <span></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee for Private School Class</strong></li>
-																		<!-- <li><i class="icofont-money"></i> <strong>Exam Fee</strong></li> -->
-																		<li><i class="icofont-money"></i> <strong>Course Fee for MAC Class</strong></li>
-																		<li><i class="icofont-ui-note"></i> <strong>Description</strong></li>
-																		<li><i class="icofont-certificate-alt-1"></i> <strong>Certificate</strong></li>
-																		<div class="pull-right mt-4">
-																			<p class="info-btn col-md-2 mb-4 text-dark h6">
-																				<a href="{{url('student_papp')}}" class="btn btn-primary btn-hover-dark" >Register</a>
-																			</p>
-																		</div>
-																</ul>
-														</div>
-												</div>
 											</div>
 										</div>
 									</div>
 								</div>--}}
 
-								<div id="papp_initial">
+								{{--<div id="papp_initial">
 									<div class="row">
 										<div class="card col-md-7 m-2">
 											<div class="card-body">
@@ -180,57 +162,9 @@
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-4 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Fees</h4>
-														<hr>
-														<div class="info-list">
-															<div class="col-md-12">
-																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
-																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
-																		<li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li>
-                                                                        <div class="row register-btn">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark">Register</a>
-                                                                                        
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <div class="row payment-btn" style="display:none;">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn text-dark h6">
-                                                                                        
-                                                                                        <button id="papp_modal" value="submit" class="btn btn-success btn-hover-dark"> Go to payment</button>
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										
 									</div>
-								</div>
+								</div>--}}
 
 
     <!--Modal-->
@@ -281,7 +215,7 @@
             </div>
         </div>
     </form>
-                <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/><!---->
+                <div class="card border-success mb-3" id="papp_renew_form"><br/><!---->
                     <div class="row mb-5">
                         <div style="text-align: right;margin-top:1%;">
                             <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၄)</h6>
@@ -297,6 +231,7 @@
                     </div>
                     <form method="post" action="javascript:RenewPAPP();" enctype="multipart/form-data" id="papp_renew_form_submit">
                     	<div class="card-body">
+                            <input type="hidden" id="papp_id" name="papp_id"/>
 						<div class="row">
                                 <div class="col-md-9">
                                 <div class="row mb-3">
@@ -840,7 +775,7 @@
 								</div><br>
                               <div class="row ">
                                   <div class="col-md-2 offset-md-5">
-                                      <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
+                                      <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Update') }}</button>
                                   </div>
                               </div><br/>
                         </div>
@@ -875,6 +810,10 @@
         loadCpaffData();
         loadPappData();
         loadCpaffInitialData();
+        var papp_id=localStorage.getItem('papp_id');
+        var reject_description=localStorage.getItem('reject_reason');
+        $('#papp_id').val(papp_id);
+        $('#remark_description').text(reject_description);
     });
     $("#papp_date").datepicker({
         format: "yyyy",
