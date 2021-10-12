@@ -50,6 +50,7 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+Route::get('cpa_ff_reject', 'CPAFFController@reject');
 Route::get('cpaff_other', 'CPAFFController@other');
 
 // CPA_FF Information Page
@@ -186,6 +187,7 @@ Route::get('/setPayment', 'PaymentController@setPayment');
 Route::post('payment_method/{id}', 'PaymentController@postPayment');
 Route::post('post_payment/{type}', 'PaymentController@postPayment');
 Route::post('/payment_status', 'PaymentController@paymentStatus'); // response route
-
+Route::get('/cbpay_qr', 'PaymentController@cbpayQR');
+Route::get('/cbpay_pin', 'PaymentController@cbpayPin');
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
