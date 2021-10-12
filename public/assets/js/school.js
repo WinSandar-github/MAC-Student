@@ -78,7 +78,7 @@ function schoolPaymentSubmit(){
                                   }
                                   
                           }else{
-                              if(current_date > value.payment_date){
+                              if(current_date > value.from_valid_date){
                                   var str = "" + count_invoice;
                                   var pad = "000"
                                   var ans = pad.substring(0, pad.length - str.length) + str
@@ -236,12 +236,16 @@ function school_reg_feedback(){
                         
                     }
                     else{
-                      $('.status-reject').css('display','block');
-                      $('.reject-reason').append(school.reason);
-                      $('.register-btn').css('display','none');
-                      $('.payment-btn').css('display','none');
-                      $('.update-btn').css('display','block');
-                      getSchoolInfo();
+                        $('.status-reject').css('display','block');
+                        $('.reject-reason').append(school.reason);
+                        $('.register-btn').css('display','none');
+                        $('.payment-btn').css('display','none');
+                        $('.update-btn').css('display','block');
+                        
+                        getSchoolInfo();
+                        
+                      
+                      
                   }
                 
                 
@@ -253,6 +257,7 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
+  
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
@@ -260,7 +265,9 @@ function getCourses(){
            var opt;
           $.each(response.data,function(i,v){
               var newcode=(v.code).split('_');
-              var course_code=convert(newcode[1]);
+              var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+              var course_code=result.numeral;
+              
               opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
           $(".multiple-attend-course").append(opt);
@@ -684,7 +691,8 @@ function loadStudentCourse(course_id){
       success: function (result) {
         var data=result.data;
         var newcode=data.code.split('_');
-        var course_code=convert(newcode[1]);
+        var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+        var course_code=result.numeral;
         var $newOption = $("<option selected='selected'></option>").val(data.id).text(newcode[0].toUpperCase()+' '+course_code);
         $("#attend_course").append($newOption).trigger('change');
 
@@ -1072,7 +1080,8 @@ function loadCertificates(name,row){
         success: function (result) {
             $.each(result.group_data, function( index, value ){
                         var newcode=index.split('_');
-                        var course_code=convert(newcode[1]);
+                        var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+                        var course_code=result.numeral;
                         $.each(value, function(key, val){
                           subject.push(newcode[0].toUpperCase()+' '+course_code+":"+val.subject_name);
                           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[5].children[0].value=subject.join();
@@ -1090,12 +1099,13 @@ function getSchoolInfo(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
   $.ajax({
     type : 'GET',
-    url : BACKEND_URL+"/school/"+student.school_id,
+    url : BACKEND_URL+"/getSchoolInfo/"+student.id,//school
     success: function (result) {
-        var school=result.data;
+        var school=result.data.pop();
+        $('#regno').val(school.s_code);
         $('#school_id').val(school.id);
         $('#student_info_id').val(student.id);
-        if($('#hinitial_status').val()==1){
+        if(school.initial_status==1){
           $('#hinitial_status').val(1);
         }else{
           $('#hinitial_status').val(school.initial_status);
@@ -1118,7 +1128,8 @@ function getSchoolInfo(){
         $('#hidden_nrc_back').val(school.nrc_back);
         $("#nrc_front_img").attr("src",BASE_URL+school.nrc_front);
         $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
-        //loadEductaionHistoryBySchool(school.id,'tbl_degree');
+        
+        loadEductaionHistoryBySchool(school.id,'tbl_degree');
         if(school.type!=null){
           $('#hidden_school_type').val(school.type);
           if($("input:radio[id=school_type1]").val()==school.type){
@@ -1140,212 +1151,222 @@ function getSchoolInfo(){
 
 
         }
-        //loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
+        loadStudentCourse(school.attend_course.replace(/[\'"[\]']+/g, ''));
         if(school.own_type== "private"){
           $('#'+school.own_type).prop("checked", true);
-          $('input[id=rent]').attr('disabled', 'disabled');
-          $('input[id=use_sharing]').attr('disabled', 'disabled');
+          //$('input[id=rent]').attr('disabled', 'disabled');
+          //$('input[id=use_sharing]').attr('disabled', 'disabled');
 
 
         }else if(school.own_type== "rent"){
           $('#'+school.own_type).prop("checked", true);
-          $('input[id=private]').attr('disabled', 'disabled');
-          $('input[id=use_sharing]').attr('disabled', 'disabled');
+          //$('input[id=private]').attr('disabled', 'disabled');
+          //$('input[id=use_sharing]').attr('disabled', 'disabled');
 
 
         }else{
           $('#'+school.own_type).prop("checked", true);
-          $('input[id=private]').attr('disabled', 'disabled');
-          $('input[id=rent]').attr('disabled', 'disabled');
+          //$('input[id=private]').attr('disabled', 'disabled');
+          ///$('input[id=rent]').attr('disabled', 'disabled');
         }
       $('input[name=school_name]').val(school.school_name);
       $('textarea[name=school_address]').val(school.school_address);
-      //removeBracketed(school.attachment,"view_attachment");
-      $('#hidden_attachment').val(school.attachment.replace(/[\'"[\]']+/g, ''));
+      
+      if(school.attachment!=null){
+        removeBracketed(school.attachment,"view_attachment");
+        $('#hidden_attachment').val(school.attachment.replace(/[\'"[\]']+/g, ''));
+      }
+      if(school.own_type_letter!=null){
+        removeBracketed(school.own_type_letter,"view_ownType_letter");
+      }
       $('#hidden_own_type_letter').val(school.own_type_letter);
-     // removeBracketed(school.own_type_letter,"view_ownType_letter");
+      
       $('#hidden_school_location_attach').val(school.school_location_attach);
-      //loadFile(school.school_location_attach,"view_school_location_attach");
-      //removeBracketed(school.business_license,"view_business_license");
+      loadFile(school.school_location_attach,"view_school_location_attach");
+      if(school.business_license!=null){
+        removeBracketed(school.business_license,"view_business_license");
+      }
       $('#hidden_business_license').val(school.business_license);
-      //removeBracketed(school.sch_establish_notes_attach,"view_sch_establish_notes_attach");
+      if(school.sch_establish_notes_attach!=null){
+        removeBracketed(school.sch_establish_notes_attach,"view_sch_establish_notes_attach");
+      }
       $('#hidden_sch_establish_notes_attach').val(school.sch_establish_notes_attach);
       var school_establishers=school.school_establishers;
-      // $.each(school_establishers, function( index, value ){
-      //   var tr="<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_establisher_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-      //   tr += '<td><input type="text" name="old_establisher_name[]" class="form-control" value="'+value.name+'"/></td>';
-      //   tr += '<td><input type="text" name="old_establisher_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
-      //   tr += '<td><input type="text" name="old_establisher_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
-      //   tr += '<td><input type="text" name="old_establisher_education[]" class="form-control" value="'+value.education+'"/></td>';
-      //   tr += '<td><input type="text" name="old_establisher_address[]" class="form-control" value="'+value.address+'"/></td>';
-      //   tr += '<td><input type="text" name="old_establisher_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
-      //   tr += '<td><input type="email" name="old_establisher_email[]" class="form-control" value="'+value.email+'"/></td>';
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_sch_established_persons_body").append(tr);
-      // });
+      $.each(school_establishers, function( index, value ){
+        var tr="<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_establisher_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+        tr += '<td><input type="text" name="old_establisher_name[]" class="form-control" value="'+value.name+'"/></td>';
+        tr += '<td><input type="text" name="old_establisher_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+        tr += '<td><input type="text" name="old_establisher_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
+        tr += '<td><input type="text" name="old_establisher_education[]" class="form-control" value="'+value.education+'"/></td>';
+        tr += '<td><input type="text" name="old_establisher_address[]" class="form-control" value="'+value.address+'"/></td>';
+        tr += '<td><input type="text" name="old_establisher_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+        tr += '<td><input type="email" name="old_establisher_email[]" class="form-control" value="'+value.email+'"/></td>';
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_sch_established_persons_body").append(tr);
+      });
       var school_governs=school.school_governs;
-      // $.each(school_governs, function( index, value ){
-      //   var tr="<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_govern_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="text" name="old_govern_name[]" class="form-control" value="'+value.name+'"/></td>';
-      //   tr += '<td><input type="text" name="old_govern_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
-      //   tr += '<td><input type="text" name="old_govern_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
-      //   tr += '<td><input type="text" name="old_govern_education[]" class="form-control" value="'+value.education+'"/></td>';
-      //   tr += '<td><input type="text" name="old_govern_responsibility[]" class="form-control" value="'+value.responsibility+'"/></td>';
-      //   tr += '<td><input type="text" name="old_govern_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
-      //   tr += '<td><input type="email" name="old_govern_email[]" class="form-control" value="'+value.email+'"/></td>';
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_sch_governs_body").append(tr);
-      // });
+       $.each(school_governs, function( index, value ){
+        var tr="<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_govern_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="text" name="old_govern_name[]" class="form-control" value="'+value.name+'"/></td>';
+        tr += '<td><input type="text" name="old_govern_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+        tr += '<td><input type="text" name="old_govern_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
+        tr += '<td><input type="text" name="old_govern_education[]" class="form-control" value="'+value.education+'"/></td>';
+        tr += '<td><input type="text" name="old_govern_responsibility[]" class="form-control" value="'+value.responsibility+'"/></td>';
+        tr += '<td><input type="text" name="old_govern_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+        tr += '<td><input type="email" name="old_govern_email[]" class="form-control" value="'+value.email+'"/></td>';
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_sch_governs_body").append(tr);
+      });
       var school_members=school.school_members;
-      // $.each(school_members, function( index, value ){
-      //   var tr="<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_member_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="text" name="old_member_name[]" class="form-control" value="'+value.name+'"/></td>';
-      //   tr += '<td><input type="text" name="old_member_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
-      //   tr += '<td><input type="text" name="old_member_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
-      //   tr += '<td><input type="text" name="old_member_education[]" class="form-control" value="'+value.education+'"/></td>';
-      //   tr += '<td><input type="text" name="old_member_responsibility[]" class="form-control" value="'+value.responsibility+'"/></td>';
-      //   tr += '<td><input type="text" name="old_member_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
-      //   tr += '<td><input type="email" name="old_member_email[]" class="form-control" value="'+value.email+'"/></td>';
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_member_list_biography_body").append(tr);
-      // });
+      $.each(school_members, function( index, value ){
+        var tr="<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_member_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="text" name="old_member_name[]" class="form-control" value="'+value.name+'"/></td>';
+        tr += '<td><input type="text" name="old_member_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+        tr += '<td><input type="text" name="old_member_cpa_papp_no[]" class="form-control" value="'+value.cpa_papp_no+'"/></td>';
+        tr += '<td><input type="text" name="old_member_education[]" class="form-control" value="'+value.education+'"/></td>';
+        tr += '<td><input type="text" name="old_member_responsibility[]" class="form-control" value="'+value.responsibility+'"/></td>';
+        tr += '<td><input type="text" name="old_member_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+        tr += '<td><input type="email" name="old_member_email[]" class="form-control" value="'+value.email+'"/></td>';
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_member_list_biography_body").append(tr);
+      });
       var school_teachers=school.school_teachers;
-      // $.each(school_teachers, function( index, value ){
-      //   var tr="<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_teacher_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="text" name="old_teacher_registration_no[]" class="form-control" value="'+value.registration_no+'"/></td>';
-      //   tr += '<td><input type="text" name="old_teacher_name[]" class="form-control" value="'+value.name+'"/></td>';
-      //   tr += '<td><input type="text" name="old_teacher_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
-      //   tr += '<td><input type="text" name="old_teacher_education[]" class="form-control" value="'+value.education+'"/></td>';
-      //   tr += '<td><input type="text" name="old_teaching_subject[]" class="form-control" value="'+value.subject+'"/></td>';
-      //   tr += '<td><input type="text" name="old_teacher_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
-      //   tr += '<td><input type="email" name="old_teacher_email[]" class="form-control" value="'+value.email+'"/></td>';
-      //   tr += `<td><input type="hidden" name="old_teacher_reg_copy_h[]" class="form-control" value=`+value.teacher_reg_copy+`><input type="file" name="old_teacher_reg_copy[]" class="form-control"><a href='${BASE_URL+value.teacher_reg_copy}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_teacher_list_biography_body").append(tr);
-      // });
+      $.each(school_teachers, function( index, value ){
+        var tr="<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_teacher_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="text" name="old_teacher_registration_no[]" class="form-control" value="'+value.registration_no+'"/></td>';
+        tr += '<td><input type="text" name="old_teacher_name[]" class="form-control" value="'+value.name+'"/></td>';
+        tr += '<td><input type="text" name="old_teacher_nrc[]" class="form-control" value="'+value.nrc+'"/></td>';
+        tr += '<td><input type="text" name="old_teacher_education[]" class="form-control" value="'+value.education+'"/></td>';
+        tr += '<td><input type="text" name="old_teaching_subject[]" class="form-control" value="'+value.subject+'"/></td>';
+        tr += '<td><input type="text" name="old_teacher_ph_number[]" class="form-control" value="'+value.ph_number+'"/></td>';
+        tr += '<td><input type="email" name="old_teacher_email[]" class="form-control" value="'+value.email+'"/></td>';
+        tr += `<td><input type="hidden" name="old_teacher_reg_copy_h[]" class="form-control" value=`+value.teacher_reg_copy+`><input type="file" name="old_teacher_reg_copy[]" class="form-control"><a href='${BASE_URL+value.teacher_reg_copy}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_teacher_list_biography_body").append(tr);
+      });
       var school_bulding_type=school.bulding_type;
-      // $.each(school_bulding_type, function( index, value ){
-      //   var tr="<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_bulding_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="text" name="old_bulding_type[]" class="form-control" value="'+value.bulding_type+'"/></td>';
-      //   tr += '<td><input type="text" name="old_building_measurement[]" class="form-control" value="'+value.building_measurement+'"/></td>';
-      //   tr += '<td><input type="number" name="old_floor_numbers[]" class="form-control" value="'+value.floor_numbers+'"/></td>';
-      //   tr += `<td><input type="hidden" name="old_school_building_attach_h[]" class="form-control" value=`+value.school_building_attach+`><input type="file" name="old_school_building_attach[]" class="form-control"><a href='${BASE_URL+value.school_building_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_bulding_type_body").append(tr);
-      // });
+      $.each(school_bulding_type, function( index, value ){
+        var tr="<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_bulding_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="text" name="old_bulding_type[]" class="form-control" value="'+value.bulding_type+'"/></td>';
+        tr += '<td><input type="text" name="old_building_measurement[]" class="form-control" value="'+value.building_measurement+'"/></td>';
+        tr += '<td><input type="number" name="old_floor_numbers[]" class="form-control" value="'+value.floor_numbers+'"/></td>';
+        tr += `<td><input type="hidden" name="old_school_building_attach_h[]" class="form-control" value=`+value.school_building_attach+`><input type="file" name="old_school_building_attach[]" class="form-control"><a href='${BASE_URL+value.school_building_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_bulding_type_body").append(tr);
+      });
       var classroom=school.classroom;
-      // $.each(classroom, function( index, value ) {
-      //   var tr="<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_classroom_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="number" name="old_classroom_number[]" class="form-control" value="'+value.classroom_number+'"/></td>';
-      //   tr += '<td><input type="text" name="old_classroom_measurement[]" class="form-control" value="'+value.classroom_measurement+'"/></td>';
-      //   tr += '<td><input type="number" name="old_student_num_limit[]" class="form-control" value="'+value.student_num_limit+'"/></td>';
-      //   tr += '<td><input type="number" name="old_air_con[]" class="form-control" value="'+value.air_con+'"/></td>';
-      //   tr += `<td><input type="hidden" name="old_classroom_attach_h[]" class="form-control" value=`+value.classroom_attach+`><input type="file" name="old_classroom_attach[]" class="form-control"><a href='${BASE_URL+value.classroom_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_classroom_body").append(tr);
-      // });
+      $.each(classroom, function( index, value ) {
+        var tr="<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_classroom_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="number" name="old_classroom_number[]" class="form-control" value="'+value.classroom_number+'"/></td>';
+        tr += '<td><input type="text" name="old_classroom_measurement[]" class="form-control" value="'+value.classroom_measurement+'"/></td>';
+        tr += '<td><input type="number" name="old_student_num_limit[]" class="form-control" value="'+value.student_num_limit+'"/></td>';
+        tr += '<td><input type="number" name="old_air_con[]" class="form-control" value="'+value.air_con+'"/></td>';
+        tr += `<td><input type="hidden" name="old_classroom_attach_h[]" class="form-control" value=`+value.classroom_attach+`><input type="file" name="old_classroom_attach[]" class="form-control"><a href='${BASE_URL+value.classroom_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_classroom_body").append(tr);
+      });
       var toilet_type=school.toilet_type;
-      // $.each(toilet_type, function( index, value ) {
-      //   var tr = "<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_toilet_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="text" name="old_toilet_type[]" class="form-control" value="'+value.toilet_type+'"/></td>';
-      //   tr += '<td><input type="number" name="old_toilet_number[]" class="form-control" value="'+value.toilet_number+'"/></td>';
-      //   tr += `<td><input type="hidden" name="old_toilet_attach_h[]" class="form-control" value=`+value.toilet_attach+`><input type="file" name="old_toilet_attach[]" class="form-control"><a href='${BASE_URL+value.toilet_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_toilet_type_body").append(tr);
-      // });
+      $.each(toilet_type, function( index, value ) {
+        var tr = "<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_toilet_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="text" name="old_toilet_type[]" class="form-control" value="'+value.toilet_type+'"/></td>';
+        tr += '<td><input type="number" name="old_toilet_number[]" class="form-control" value="'+value.toilet_number+'"/></td>';
+        tr += `<td><input type="hidden" name="old_toilet_attach_h[]" class="form-control" value=`+value.toilet_attach+`><input type="file" name="old_toilet_attach[]" class="form-control"><a href='${BASE_URL+value.toilet_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_toilet_type_body").append(tr);
+      });
       var manage_room_numbers=school.manage_room_numbers;
-      // $.each(manage_room_numbers, function( index, value ) {
-      //   var tr = "<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_manage_room_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="number" name="old_manage_room_numbers[]" class="form-control" value="'+value.manage_room_numbers+'"/></td>';
-      //   tr += '<td><input type="text" name="old_manage_room_measurement[]" class="form-control" value="'+value.manage_room_measurement+'"/></td>';
-      //   tr += `<td><input type="hidden" name="old_manage_room_attach_h[]" class="form-control" value=`+value.manage_room_attach+`><input type="file" name="old_manage_room_attach[]" class="form-control"><a href='${BASE_URL+value.manage_room_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
-      //   tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
-      //   tr += "</tr>";
-      //   $(".tbl_manage_room_numbers_body").append(tr);
-      // });
+      $.each(manage_room_numbers, function( index, value ) {
+        var tr = "<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_manage_room_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="number" name="old_manage_room_numbers[]" class="form-control" value="'+value.manage_room_numbers+'"/></td>';
+        tr += '<td><input type="text" name="old_manage_room_measurement[]" class="form-control" value="'+value.manage_room_measurement+'"/></td>';
+        tr += `<td><input type="hidden" name="old_manage_room_attach_h[]" class="form-control" value=`+value.manage_room_attach+`><input type="file" name="old_manage_room_attach[]" class="form-control"><a href='${BASE_URL+value.manage_room_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+        tr += '<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" ><li class="fa fa-times"></li></button></td>';
+        tr += "</tr>";
+        $(".tbl_manage_room_numbers_body").append(tr);
+      });
       var school_branch=school.school_branch;
-      // $.each(school_branch, function( index, value ) {
-      //   var tr = "<tr>";
-      //   tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_branch_school_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
-      //   tr += '<td><input type="text" name="old_branch_school_address[]" class="form-control" value="'+value.branch_school_address+'"/></td>';
-      //   tr += `<td><input type="hidden" name="old_branch_school_attach_h[]" class="form-control" value=`+value.branch_school_attach+`><input type="file" name="old_branch_school_attach[]" class="form-control"><a href='${BASE_URL+value.branch_school_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+      $.each(school_branch, function( index, value ) {
+        var tr = "<tr>";
+        tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_branch_school_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+        tr += '<td><input type="text" name="old_branch_school_address[]" class="form-control" value="'+value.branch_school_address+'"/></td>';
+        tr += `<td><input type="hidden" name="old_branch_school_attach_h[]" class="form-control" value=`+value.branch_school_attach+`><input type="file" name="old_branch_school_attach[]" class="form-control"><a href='${BASE_URL+value.branch_school_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
 
-      //   if(value.branch_sch_own_type=="private"){
-      //     tr += '<td>'+
-      //     '<div class="form-group">'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
-      //                                              'value="private" checked onclick=brachOwnType(this)> ကိုယ်ပိုင်'+
+        if(value.branch_sch_own_type=="private"){
+          tr += '<td>'+
+          '<div class="form-group">'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                   'value="private" checked onclick=brachOwnType(this)> ကိုယ်ပိုင်'+
 
-      //                                   '</div>'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
-      //                                              'value="rent" onclick=brachOwnType(this)> အငှား '+
-      //                                   '</div>'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
-      //                                              'id="old_branch_sch_own_type" value="use_sharing" onclick=brachOwnType(this)> တွဲဖက်သုံး'+
-      //                                   '</div>'+
-      //                               '</div>'+
-      //     '</td>';
-      //   }else if(value.branch_sch_own_type=="rent"){
-      //     tr += '<td>'+
-      //     '<div class="form-group">'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
-      //                                              'value="private" onclick=brachOwnType(this)> ကိုယ်ပိုင်'+
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                   'value="rent" onclick=brachOwnType(this)> အငှား '+
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
+                                                   'id="old_branch_sch_own_type" value="use_sharing" onclick=brachOwnType(this)> တွဲဖက်သုံး'+
+                                        '</div>'+
+                                    '</div>'+
+          '</td>';
+        }else if(value.branch_sch_own_type=="rent"){
+          tr += '<td>'+
+          '<div class="form-group">'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                   'value="private" onclick=brachOwnType(this)> ကိုယ်ပိုင်'+
 
-      //                                   '</div>'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
-      //                                              'value="rent" checked onclick=brachOwnType(this)> အငှား '+
-      //                                   '</div>'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
-      //                                              'id="old_branch_sch_own_type" value="use_sharing" onclick=brachOwnType(this)> တွဲဖက်သုံး'+
-      //                                   '</div>'+
-      //                               '</div>'+
-      //     '</td>';
-      //   }else{
-      //     tr += '<td>'+
-      //     '<div class="form-group">'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
-      //                                              'value="private" onclick=brachOwnType('+this+')> ကိုယ်ပိုင်'+
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                   'value="rent" checked onclick=brachOwnType(this)> အငှား '+
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
+                                                   'id="old_branch_sch_own_type" value="use_sharing" onclick=brachOwnType(this)> တွဲဖက်သုံး'+
+                                        '</div>'+
+                                    '</div>'+
+          '</td>';
+        }else{
+          tr += '<td>'+
+          '<div class="form-group">'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                   'value="private" onclick=brachOwnType('+this+')> ကိုယ်ပိုင်'+
 
-      //                                   '</div>'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
-      //                                              'value="rent" onclick=brachOwnType('+this+')> အငှား '+
-      //                                   '</div>'+
-      //                                   '<div class="form-check mt-2 form-check-inline">'+
-      //                                       '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
-      //                                              'id="old_branch_sch_own_type" value="use_sharing" checked onclick=brachOwnType('+this+')> တွဲဖက်သုံး'+
-      //                                   '</div>'+
-      //                               '</div>'+
-      //     '</td>';
-      //   }
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                   'value="rent" onclick=brachOwnType('+this+')> အငှား '+
+                                        '</div>'+
+                                        '<div class="form-check mt-2 form-check-inline">'+
+                                            '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
+                                                   'id="old_branch_sch_own_type" value="use_sharing" checked onclick=brachOwnType('+this+')> တွဲဖက်သုံး'+
+                                        '</div>'+
+                                    '</div>'+
+          '</td>';
+        }
 
 
-      //   tr += `<td><input type="hidden" name="old_branch_sch_letter_h[]" class="form-control" value=`+value.branch_sch_letter+`><input type="file" name="old_branch_sch_letter[]" class="form-control"><a href='${BASE_URL+value.branch_sch_letter}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
-      //   tr += "</tr>";
-      //   $(".tbl_branch_school_body").append(tr);
-      // });
+        tr += `<td><input type="hidden" name="old_branch_sch_letter_h[]" class="form-control" value=`+value.branch_sch_letter+`><input type="file" name="old_branch_sch_letter[]" class="form-control"><a href='${BASE_URL+value.branch_sch_letter}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+        tr += "</tr>";
+        $(".tbl_branch_school_body").append(tr);
+      });
     }
   });
 
@@ -1415,4 +1436,102 @@ function formType(value){
     $('.form_type_two').css('display','none');
   }
 
+}
+function updateSchool(){
+  var send_data=new FormData($("#school_renew_form_data")[0]);
+  var id=$('#school_id').val();
+  if($("input[name=nrc_front]")[0].files.length!=0){
+    send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+  }else{
+    send_data.append('nrc_front', $('#hidden_nrc_front').val());
+  }
+  if($("input[name=nrc_back]")[0].files.length!=0){
+    send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+  }else{
+    send_data.append('nrc_back', $('#hidden_nrc_back').val());
+  }
+
+  send_data.append('old_attachment', $('#hidden_attachment').val());
+  send_data.append('old_business_license', $('#hidden_business_license').val());
+  send_data.append('old_own_type_letter', $('#hidden_own_type_letter').val());
+  send_data.append('old_sch_establish_notes_attach', $('#hidden_sch_establish_notes_attach').val());
+
+  // if($("input[id=business_license]")[0].files.length==0){
+  //   send_data.append('business_license', $('#hidden_business_license').val());
+  // }
+  send_data.append('school_location_attach', $('#hidden_school_location_attach').val());
+
+  if($('#hidden_school_type').val()!=0){
+    send_data.append('school_type',$('#hidden_school_type').val());
+  }
+  send_data.append('student_info_id', $('#student_info_id').val());
+  send_data.append('initial_status',  $('#hinitial_status').val());
+  send_data.append('school_id',  $('#school_id').val());
+  send_data.append('invoice_no',  $('#regno').val());
+  send_data.append('reason', $('#initial_reject').val());
+  $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
+  $("input[id=old_branch_sch_own_type]").map(function(){send_data.append('old_branch_sch_own_type[]',$(this).val())});
+  
+  send_data.append('_method', 'PATCH');
+  show_loader();
+    $.ajax({
+        url: BACKEND_URL+'/school/'+id,
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+
+        },
+        error: function (result) {
+        },
+    });
+}
+function renewUpdateSchool(){
+  var send_data=new FormData($("#school_renew_form_data")[0]);
+  var id=$('#school_id').val();
+  if($("input[name=nrc_front]")[0].files.length!=0){
+    send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+  }else{
+    send_data.append('nrc_front', $('#hidden_nrc_front').val());
+  }
+  if($("input[name=nrc_back]")[0].files.length!=0){
+    send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+  }else{
+    send_data.append('nrc_back', $('#hidden_nrc_back').val());
+  }
+
+  send_data.append('old_attachment', $('#hidden_attachment').val());
+  send_data.append('old_business_license', $('#hidden_business_license').val());
+  send_data.append('old_own_type_letter', $('#hidden_own_type_letter').val());
+  send_data.append('old_sch_establish_notes_attach', $('#hidden_sch_establish_notes_attach').val());
+  if($('#hidden_school_type').val()!=0){
+    send_data.append('school_type',$('#hidden_school_type').val());
+  }
+  send_data.append('student_info_id', $('#student_info_id').val());
+  send_data.append('initial_status',  $('#hinitial_status').val());
+  send_data.append('school_id',  $('#school_id').val());
+  send_data.append('invoice_no',  $('#regno').val());
+  send_data.append('reason', $('#initial_reject').val());
+  
+  //send_data.append('_method', 'PATCH');
+  show_loader();
+    $.ajax({
+        url: BACKEND_URL+'/renewUpdateSchool/'+id,
+        type: 'post',
+        data:send_data,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            location.href=FRONTEND_URL+'/';
+
+        },
+        error: function (result) {
+        },
+    });
 }

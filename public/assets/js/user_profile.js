@@ -84,14 +84,7 @@ function user_profile() {
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
 
-            }
-            // else if (data.school && data.teacher && data.teacher_renew) {
-            //     $('.dashboard_name').append('Teacher And School ');
-            //     loadRenewTeacherDash(data.teacher_renew.pop());
-            //     loadSchoolByDash(data.school);
-
-            // }
-            else if (data.cpa_ff && data.student_course_regs == '') {
+            }else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 console.log('cpaff',data.cpa_ff);
@@ -2065,10 +2058,10 @@ function saveGovDoneForm(id) {
 
 }
 function loadSchoolByDash(school_data) {
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
+
     $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/getSchoolInfo/"+student.id,
+        url : BACKEND_URL+"/getSchoolInfo/"+school_data.student_info_id,
         success: function (result) {
 
             var school=result.data.pop();
@@ -2101,7 +2094,11 @@ function loadSchoolByDash(school_data) {
                         $('.sch_status').hide();
                     } else {
                         $('.sch_reject-btn').show();
-                        $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
+                        if(school.initial_status==0){
+                            $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
+                        }else if(school.initial_status==1){
+                            $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/renew_school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
+                        }
                         $('.sch_status_history').append('School Registration is Rejected.');
 
                         $('.sch_reject-reason').append(school.reason);
@@ -2140,11 +2137,11 @@ function loadSchoolByDash(school_data) {
     });
 
 }
-function laodTeacherByDash(teacher) {
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
+function laodTeacherByDash(teacher_data) {
+
     $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/getTeacher/"+student.id,
+        url : BACKEND_URL+"/getTeacher/"+teacher_data.student_info_id,
         success: function (result) {
 
         var teacher=result.data.pop();
