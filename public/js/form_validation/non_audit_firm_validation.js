@@ -21,8 +21,10 @@ $().ready(function (){
             name_sole_proprietor : "required",
             //t_s_p_id : "required",
             declaration : "required",
+            declaration_mm : "required",
             foa_authority_to_sign : "required",
             head_office_address : "required",
+            head_office_address_mm : "required",
             choose_firm_type : {
               required: true
             },
@@ -49,8 +51,10 @@ $().ready(function (){
             name_sole_proprietor : "Please enter Name Of Sole Proprietor/ Managing Partner",
             //t_s_p_id : "Please select Type of Service Provided",
             declaration : "Please enter declaration",
+            declaration_mm : "Please enter declaration",
             foa_authority_to_sign : "Please select one",
-            head_office_address : "Please enter head office address",
+            head_office_address : "Please enter head office address(English)",
+            head_office_address_mm : "Please enter head office address(Myanmar)",
             choose_firm_type : "Please select firm type",
             dir_passport_csc : "Please enter Passport/CSC No."
         },

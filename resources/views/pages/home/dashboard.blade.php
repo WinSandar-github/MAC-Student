@@ -348,7 +348,7 @@
                                                     <th>Batch Name</th>
                                                     <th>Module</th>
                                                     <th>Success Year</th>
-                                                    
+
                                                 </thead>
                                                 <tbody class="course">
                                                 </tbody>
@@ -379,7 +379,6 @@
                     </div>
                     <div class="acc_firm">
                         <div class="row">
-
                             <div class="col-md-8 offset-md-2">
                                 <div class="row   mt-3 border-bottom">
                                     <div class="col-md-6">
@@ -400,10 +399,18 @@
                                 </div>
                                 <div class="row  mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Head Office Address</p>
+                                        <p class="ml-2" style="font-weight:bold">Head Office Address(English)</p>
                                     </div>
                                     <div class="col-md-6">
                                         <span class="text-start" id="head_office"></span>
+                                    </div>
+                                </div>
+                                <div class="row  mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Head Office Address(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="text-start" id="head_office_mm"></span>
                                     </div>
                                 </div>
 
@@ -463,12 +470,52 @@
                         </div>
 
                         <div class="row my-2">
-                            <h5 class="text-center border-bottom pb-2"
-                                style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
-
+                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
                             <div class="text-center fw-bolder status_history">
                             </div>
+                            <div class="text-center fw-bolder" id="message">
+
+                            </div>
+                            {{--<input type="text" class="form-control" id="message" readonly="">--}}
                         </div>
+                        {{--renew buttons--}}
+                        <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
+                            <div class="form-group">
+                                <center>
+                                    <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="row" id="check_renew_nonaudit" style="display:none;text-align: center; margin-top: 2%;">
+                            <div class="form-group">
+                                <center>
+                                    <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
+                                </center>
+                            </div>
+                        </div>
+                        {{--payment buttons--}}
+                        <div class="row payment-btn" style="display:none;">
+                            <div class="col-md-6"></div>
+                            <div class="">
+                                <div class="mt-4" align="center">
+                                    <p class="info-btn text-dark h6">
+                                        <button id="audit_payment_btn" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row nonaudit-payment-btn" style="display:none;">
+                            <div class="col-md-6"></div>
+                            <div class="">
+                                <div class="mt-4" align="center">
+                                    <p class="info-btn text-dark h6">
+                                        <button id="non_audit_payment_btn" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         {{--reject register buttons--}}
                         <div id="reject_register_btn_audit" style="display:none;">
                           <div class="row" >
@@ -677,7 +724,7 @@
 
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6 sch-reject-p">
-                                                
+
                                                 </p>
                                             </div>
                                     </div>
@@ -891,7 +938,7 @@
                                 <span id="qt_phone"></span>
                             </div>
                         </div>
-                         
+
 
                     </div>
 
@@ -913,7 +960,7 @@
 
 
             </div>
-            
+
         </div>
     </div>
 <!-- update profile -->
@@ -1080,3 +1127,115 @@
         </div>
     </div>
 </div>
+
+{{--Audit Payment Modal--}}
+<form method="post" class="needs-validation" action="javascript:auditPaymentSubmit();" enctype="multipart/form-data"
+      novalidate>
+    @csrf
+    <div class="modal fade" id="auditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <br>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <center>
+                            <h4 style="margin-bottom:5%;">Audit Firm Registration Form Fee - ****** MMK</h4>
+                        </center>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                     data-value="CBPAY" name="payment_method" id="cb_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                     data-value="MPU" name="payment_method" id="mpu_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                     data-value="CASH" name="payment_method" id="cash_img">
+                            </center>
+                            <br>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                        <center>
+                            <button type="submit" id="audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                        </center>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</form>
+
+{{--Non-Audit Payment Modal--}}
+<form method="post" class="needs-validation" action="javascript:nonAuditPaymentSubmit();" enctype="multipart/form-data"
+      novalidate>
+    @csrf
+    <div class="modal fade" id="nonAuditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <br>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <center>
+                            <h4 style="margin-bottom:5%;">Non-Audit Firm Registration Form Fee - ****** MMK</h4>
+                        </center>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                     data-value="CBPAY" name="payment_method" id="cb_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                     data-value="MPU" name="payment_method" id="mpu_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                     data-value="CASH" name="payment_method" id="cash_img">
+                            </center>
+                            <br>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                        <center>
+                            <button type="submit" id="non_audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                        </center>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</form>
+
+@push('scripts')
+<script type="text/javascript">
+    $('document').ready(function(){
+        dateQuery();
+        verifyStatus();
+        //checkPaymentAudit();
+        audit_reg_feedback();
+        firmDashboardData();
+    })
+    //app_form_feedback();
+
+</script>
+@endpush
