@@ -74,7 +74,7 @@
 
                                 <div id="cpa_initial">
                                     <div class="row">
-                                        <div class="card col-md-7 m-2">
+                                        <div class="card col-md-6 m-2">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 widget-information">
@@ -100,7 +100,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card col-md-4 m-2">
+                                        <div class="card col-md-5 m-2">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 widget-information">
@@ -120,7 +120,7 @@
                                                                             <div class="col-md-6 pull-right">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" style="padding-left: 5%;">Register</a>
+                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark">Register</a>
                                                                                         
                                                                                     </p>
                                                                                     

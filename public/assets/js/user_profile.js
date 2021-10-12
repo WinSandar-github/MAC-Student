@@ -122,8 +122,8 @@ function user_profile() {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Approved.<br><br>');
                     $('.status_history').append('Action &nbsp;&nbsp;');
                     $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
-                    // $('.status_papp').append('Action &nbsp;&nbsp;');
-                    // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
+                    $('.status_papp').append('Action &nbsp;&nbsp;');
+                    $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
                     $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
@@ -146,10 +146,33 @@ function user_profile() {
                     } else if (papp_latest_data.status == 1) {
                         $('.status_papp').css('display', 'none');
                         var papp_renew_url = FRONTEND_URL + "/student_papp_information";
-                        $('.status_history').append('PAPP '+is_renew+' Registration Form is Approved.<br><br>');
-                        $('.status_history').append('Action &nbsp;&nbsp;');
-                        $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                        // $('.status_history').append('PAPP '+is_renew+' Registration Form is Approved.<br><br>');
+                        // $('.status_history').append('Action &nbsp;&nbsp;');
+                        // $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+
+                        var accept = new Date(papp_latest_data.renew_accepted_date);
+                        var month = accept.getMonth();
+                        var current_month = new Date();
+
+                        // var check_month = current_month.getMonth();
+                        var check_month = 10;
+                        var year = accept.getFullYear();
+                        var y = year + 1;
+                        var now = new Date();
+
+                        if (check_month != 10) {
+                            // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
+                            $('.status_history').append('PAPP '+is_renew+' Registration Form is Approved.<br><br>');
+                            $('.status_history').append('Action &nbsp;&nbsp;');
+                            $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                        } else if (check_month == 10) {
+                            // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
+                            $('.status_history').append('PAPP '+is_renew+' Registration Form is Approved.<br><br>');
+                            $('.status_history').append('Action &nbsp;&nbsp;');
+                            $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                        }
                     } else {
+                        $('.status_papp').css('display', 'none');
                         localStorage.setItem('papp_id',papp_latest_data.id);
                         localStorage.setItem('reject_reason',papp_latest_data.reject_description);
                         $('.status_history').append('PAPP '+is_renew+' Registration Form is Rejected.');                       

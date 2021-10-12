@@ -615,7 +615,7 @@
                                     </div>
                                 </div><br/>
 
-                                <div class="row">
+                                <div class="row mt-1">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-7">
@@ -625,7 +625,7 @@
                                             <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div><br/><br>
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဂ) </div>
                                     <div class="col-md-7">
@@ -647,20 +647,20 @@
                                     </div>
                                 </div><br/>
 
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
+                                    <div class="col-md-3">
                                                 <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
                                     </div>
                                 </div><br/><br>
 
-                                <div class="row mb-3">
+                                <div class="row mt-1">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
+                                    <div class="col-md-3">
                                                 <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
                                     </div>
                                 </div>
@@ -674,17 +674,17 @@
                                     </div>
                                 </div>--}}
                                 <br/><br>
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">CPA(FF) Registeraion No.</div>
+                                    <div class="col-md-3">
                                         <input type="text"  class="form-control" name="reg_no"  id="reg_no">
                                     </div>
                                 </div><br/><br>
 
-                                <div class="row">
+                                <div class="row mt-3">
                                     <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm" onchange="$('#papp_submit').prop('disabled', !this.checked)"></div>
                                     <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
