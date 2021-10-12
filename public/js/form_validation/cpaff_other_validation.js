@@ -265,6 +265,7 @@ function createCpaffOtherRegister(){
     send_data.append('exam_year', $("input[name=exam_year]").val());
     send_data.append('exam_month', $("input[name=exam_month]").val());
     send_data.append('roll_no', $("input[name=roll_no]").val());
+    send_data.append('type', 0);
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
         type: 'post',

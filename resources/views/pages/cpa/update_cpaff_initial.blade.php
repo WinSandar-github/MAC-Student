@@ -1,12 +1,13 @@
 @php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
 @endphp
 
 @extends('layouts.app')
+
 @section('content')
     <div class="main-wrapper">
 
@@ -63,7 +64,23 @@
         <div class="container" style="overflow: hidden;">
 
             <div class="row mt-5">
+                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="check_age" id="check_age">
+                    <label class="col-md-12 col-form-label">{{ __('အသက် ၂၁ မပြည့်​သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
 
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+                <div class="col-md-12 text-center" style="display:none;font-weight:bold;font-size:20px;" name="pass_cpa_two" id="pass_cpa_two">
+                    <label class="col-md-12 col-form-label">{{ __('CPA 2 မအောင်မြင်သေးပါသဖြင့် ဤ Form အား ဖြည့်စွက်၍ မရနိုင်ပါ။') }}</label>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
+                </div>
                 <div id="expiry_card" style="display:none;">
                     <div class="card border-danger my-3" style="height:60px;">
                         <div class="card-body">
@@ -84,10 +101,12 @@
                     <div class="card-body">
 
                     {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
-                    <form method="post" id="cpaff_other_form" action="javascript:void();" enctype="multipart/form-data">
+                    <form method="post" id="cpaff_form" action="javascript:void();" enctype="multipart/form-data">
+                        @csrf
                     <!-- <fieldset id="fieldset" > -->
                         <input type="hidden" name="status">
-                        <input type="hidden" name="form_type" value="1">
+                        <input type="hidden" name="form_type" value="0">
+                        <input type="hidden" id="cpaff_id" name="cpaff_id"/>
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
@@ -95,21 +114,41 @@
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 100px;">
-                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အီးမေးလ်') }}</div>
-                                    <div class="col-md-8">
-                                        <input type="email" placeholder="အီးမေးလ်လိပ်စာထည့်ပါ" name="email" class="form-control" id="email">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(က)') }}</span>{{ __('အမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
+                                    <div class="col-md-4">
+                                        <input type="text"  class="form-control" name="name_mm" id="name_mm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text"  class="form-control" name="name_eng" id="name_eng">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
-                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('လျို့ဝှက်နံပါတ်') }}</div>
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ခ)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="password" placeholder="လျှို့ဝှက်နံပါတ်ထည့်ပါ" name="password" class="form-control" id="password">
+                                        <div class="row">
+                                            <div class="col-md-2 col-5 pr-1">
+                                                <input type="text" name="nrc_state_region" class="form-control" id="nrc_state_region" readonly="">
+                                            </div>
+                                            <div class="col-md-3 col-7 px-1">
+                                                <input type="text" name="nrc_township" class="form-control" id="nrc_township" readonly="">
+                                            </div>
+                                            <div class="col-md-2 col-5 px-1">
+                                                <input type="text" name="nrc_citizen" class="form-control" id="nrc_citizen" readonly="">
+                                            </div>
+
+                                            <div class="col-md-5 col-7 pl-1">
+                                                <input type="text" name="nrc_number" class="form-control" id="nrc_number" readonly="">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 100px;">
-                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('လျို့ဝှက်နံပါတ်အတည်ပြုခြင်း') }}</div>
-                                    <div class="col-md-8">
-                                        <input type="password" placeholder="လျှို့ဝှက်နံပါတ်အတည်ပြုခြင်း" name="confirm_password" class="form-control" id="confirm_password">
+                                    <div class="col-md-4 col-form-label label"><span class="pull-left">{{ __('(ဂ)') }}</span>{{ __('အဘအမည် (မြန်မာ/အင်္ဂလိပ်)') }}</div>
+                                    <div class="col-md-4">
+                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text"  class="form-control" name="father_name_eng" id="father_name_eng">
                                     </div>
                                 </div>
                             </div>
@@ -132,92 +171,9 @@
                                 </div>
                                 {{--User Photo--}}
                             </div>
-                                <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('အမည်') }}</div>                                    
-                                    <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_mm" id="name_mm" placeholder="အမည်(မြန်မာ)" >
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="name_eng"  placeholder="အမည်(အင်္ဂလိပ်)" >
-                                    </div>
-                                </div>
-                                <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်') }}</div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-2 col-5 pr-1">
-                                                <select class="form-control" name="nrc_state_region" id="nrc_state_region">
-                                                    <option value="" disabled selected>ရွေးပါ</option>
-                                                    @foreach($nrc_regions as $region)
-                                                        <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
-                                                            {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3 col-7 px-1">
-                                                <select class="form-control" name="nrc_township" id="nrc_township">
-                                                    <option value="" disabled selected>ရွေးပါ</option>
-                                                    @foreach($nrc_townships as $township)
-                                                        <option value="{{ $township['township_mm'] }}">
-                                                            {{ $township['township_mm'] }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-2 col-5 px-1">
-                                                <select class="form-control" name="nrc_citizen" id="nrc_citizen">
-                                                    <option value="" disabled selected>ရွေးပါ</option>
-                                                    @foreach($nrc_citizens as $citizen)
-                                                        <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
-                                                            {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <div class="col-md-5 col-7 pl-1">
-                                                <input type="text" name="nrc_number" placeholder="ဥပမာ - ၁၂၃၄၅၆" id="nrc_number" class="form-control" maxlength="6" minlength="6" oninput="this.value = en2mm(this.value);" pattern=".{6,6}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('အဘအမည်') }}</div>
-                                    <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_mm" id="father_name_mm"  placeholder="အဖအမည်(မြန်မာ)" >
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="father_name_eng"  placeholder="အဖအမည်(အင်္ဂလိပ်)" >
-                                    </div>
-                                </div> 
-                                <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">(ဆ)</span>ကျား / မ (Gender)</div>
-                                    <div class="row col-md-8 py-2">
-                                        <div class="col-md-3 form-check-radio mx-2">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="radio" id="male"
-                                                        name="gender" value="Male" required>
-                                                <span class="form-check-sign"></span>
-                                                ကျား
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3 form-check-radio mx-2">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="radio" id='female'
-                                                        name="gender" value='Female' required>
-                                                <span class="form-check-sign"></span>
-                                                မ
-                                            </label>
-                                        </div>
-                                        
-                                        <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
-                                    </div>
-                                </div>
+                                 
                                 <div class="row" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဇ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဃ)') }}</span>{{ __('ပညာအရည်အချင်း') }}</div>
                                     <div class="col-md-8">
                                         <div class="row mb-2">
                                             <div class="col-md-7">
@@ -286,7 +242,7 @@
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <button type="button" class="btn btn-primary"   style="padding-left:5px;"  id="add_btn" onclick="AddCPAFFInitialDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -297,13 +253,13 @@
                                 </div>
 
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဈ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="" >
+                                        <input type="text"  class="form-control" name="cpersonal_no" id="cpersonal_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ည)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
                                     <div class="col-md-8">
                                         <input type="text"  class="form-control" name="address"  placeholder="" >
                                     </div>
@@ -321,7 +277,6 @@
                                     </div>
                                 </div>
                             </div>
-
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
                                     <label class="col-md-10 col-form-label">{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ)') }}</label>
@@ -336,9 +291,9 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
-                                <div class="pass_batch_two" style="display:none">
+                                {{--<div class="pass_batch_two" style="display:none">
                                     <div class="row mb-3">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-1"></div>
@@ -364,7 +319,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
@@ -376,7 +331,7 @@
                                     ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
-                                <div class="qt_pass" style="display:none">
+                                {{--<div class="qt_pass" style="display:none">
                                     <div class="row mb-3">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-1"></div>
@@ -402,7 +357,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -537,7 +492,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
                                     <div class="col-md-6 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
-                                    <div class="col-md-4">င
+                                    <div class="col-md-4">
                                         <input type="file"  class="form-control" name="passport_image"  >
                                     </div>
                                 </div>--}}
@@ -549,7 +504,7 @@
                                         <input type="file"  class="form-control" name="three_years_full"  >
                                     </div>
                                 </div>
-                                {{-- <div class="row mb-4">
+                                {{--<div class="row mb-4">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
 
@@ -557,7 +512,7 @@
                                     <div class="col-md-4">
                                         <input type="file"  class="form-control" name="letter"  >
                                     </div>
-                                </div> --}}
+                                </div>--}}
                                 {{--<div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
@@ -577,7 +532,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                        <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Update') }}</button>
                                     </div>
                                 </div>
                         </form>
@@ -586,9 +541,40 @@
             <div>
         </div>
     </div>
-    {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#submitModal">Open modal</button> --}}
-    <div id="submitModal" class="multi-step" style="width: 100%;height : 100vh">
-    </div>
+
+    <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="cpaffModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div><br>
+                          <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
+                          </div>
+                      </div>
+                      <center>
+                          <button type="submit" id="btn1" onclick="check_email_cpaff()" class="btn btn-success btn-hover-dark w-30">Verify
+                          </button>
+                      </center><br>
+                      <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                      </div><br><br>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <!-- JavaScript Section -->
     <script>
@@ -602,28 +588,32 @@
     </script>
 @endsection
 @push('scripts')
-<script src="{{ asset('js/form_validation/cpaff_other_validation.js') }}"></script>
 <script type="text/javascript">
-    // isLoginCPAFF();
-    // form_feedback();
+    isLoginCPAFF();
+    form_feedback();
+    getCpersonalNo();
+
+    var cpaff_id=localStorage.getItem('cpaff_id');
+    var reject_description=localStorage.getItem('reject_reason');
+    $('#cpaff_id').val(cpaff_id);
+    $('#remark_description').text(reject_description);
     // check_email_cpaff();
     $(".degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",
             allowInput: true,
     });
-
     $("input[name='qt_pass_date']").flatpickr({
             enableTime: false,
             dateFormat: "M-Y",
             allowInput: true,
     });
-
-    // $("input[name='cpa2_pass_date']").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
+    $(document).on('keydown', '#father_name_mm', function () {
+        myanmarLetterOnly($(this));
+    });
+    $(document).on('keydown', '#name_mm', function () {
+        myanmarLetterOnly($(this));
+    });
 
     $("#cpa2_pass_date").datepicker({
         format: "yyyy",
@@ -643,65 +633,5 @@
         minViewMode: "months",
         autoclose:true //to close picker once year is selected
     }); 
-
-    $(document).on('keydown', '#father_name_mm', function () {
-        myanmarLetterOnly($(this));
-    });
-    $(document).on('keydown', '#name_mm', function () {
-        myanmarLetterOnly($(this));
-    });
-    function myanmarLetterOnly(self) {
-        val = self.val();
-        if (/[a-zA-Z0-9]+$/.test(val)) {
-            self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
-        }
-    }
-    $(document).ready(function() {
-        $('.modal').MultiStep({
-            title:'ဝန်ခံချက်',
-            data:[{
-                content:`
-                <iframe src="{{ asset('assets/images/TMS requirment(23-9-2021).pdf') }}"  style="overflow:scroll;height:70vh;width:100%" height="100vh" width="70vh"></iframe>
-                <div class="pull-right mt-1">
-                    <h6 class="pull-left me-4 fw-bold">အထက်ဖော်ပြပါအချက်များအား</h6>
-                    <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="self_confession" id="accept" value="1">
-                    <label class="fw-bold">လက်ခံသည်</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="self_confession" id="not-accept" value="2">
-                    <label class="fw-bold">လက်မခံပါ</label>
-                    </div>
-                    <div class="text-danger" id="valid_self_confession" style="display : none">
-                    </div>
-                </div>
-                `,
-                label:'ကိုယ်တိုင်ဝန်ခံချက်'
-            },],
-            final:`
-            <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data" novalidate>
-                @csrf
-                <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
-                <div class="mb-3" style="text-align:center;">
-                    <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
-                    <label>We have been sent verification code on your email.Please check your email.</label>
-                </div><br>
-                <div class="mb-3" style="text-align:center;">
-                    <label style="margin-bottom: 2%;">Enter your verification code</label>
-                    <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
-                </div>
-                <center>
-                <button type="submit" id="btn1" onclick="check_email_cpaff_other()" class="btn btn-success btn-hover-dark w-30">Verify
-                </button>
-                </center><br>
-                <div class="col-md-12" style="text-align:center;">
-                    <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
-                </div><br><br>
-            </form>
-            `,
-            finalLabel:'Email Verification',
-            modalSize:'lg',
-        });
-    });
 </script>
 @endpush
