@@ -41,6 +41,8 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
+Route::get('update_papp_initial','PAPPController@reject_initial');
+Route::get('update_papp_renewal','PAPPController@reject_renewal');
 
 //PAPP Information Page
 Route::get('student_papp_information','PAPPInfoController@info');
@@ -50,6 +52,7 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+Route::get('cpa_ff_reject', 'CPAFFController@reject');
 Route::get('cpaff_other', 'CPAFFController@other');
 
 // CPA_FF Information Page

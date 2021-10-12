@@ -525,31 +525,23 @@
                                     </div>
                                 </div>
 
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-4">
-                                        <p class="ml-2" style="font-weight:bold">Email</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span id="cpaff_email"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-4">
-                                        <p class="ml-2" style="font-weight:bold">Phone</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span id="cpaff_phone"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom period" style="display:none;">
-                                    <div class="col-md-4">
-                                        <p class="ml-2" style="font-weight:bold">This certificate is valid for the
-                                            period</p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <span id="period_time_cpaff"></span>
-                                    </div>
-                                </div>
+
+                </div>
+            </div>
+
+            <!-- cpaff other dashboard -->
+            <div class="cpaff_other">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row m-2 mt-3 border-bottom">
+                            <div class="col-md-6">
+                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
                             </div>
                         </div>
                         <div class="row my-2">

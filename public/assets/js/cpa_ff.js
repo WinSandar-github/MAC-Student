@@ -361,7 +361,11 @@ function loadCpaffData() {
                     type: 'get',
                     data: "",
                     success: function (data) {
+                        console.log(data,"aa");
                         var cpaff_data = data.data;
+                        if(document.getElementById('cpersonal_no')){
+                            $('#cpersonal_no').val(cpaff_data.cpersonal_no);
+                        }
                         $('#name_mm').val(cpaff_data.name_mm);
                         $('#name_eng').val(cpaff_data.name_eng);
                         $('#nrc_state_region').val(cpaff_data.nrc_state_region);
@@ -370,7 +374,9 @@ function loadCpaffData() {
                         $('#nrc_number').val(cpaff_data.nrc_number);
                         $('#nrc_state_region').val(cpaff_data.nrc_state_region);
                         $('#father_name_mm').val(cpaff_data.father_name_mm);
-                        $('#father_name_eng').val(cpaff_data.father_name_eng);
+                        $('#father_name_eng').val(cpaff_data.father_name_eng);                        
+                        
+                        cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                     }
                 });
             }
@@ -392,6 +398,7 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(student.nrc_state_region);
                             $('#father_name_mm').val(student.father_name_mm);
                             $('#father_name_eng').val(student.father_name_eng);
+                            cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                             $('#remark').css('display', 'block');
                             $('#remark_description').text(cpaff_data.reject_description);
                             $('#cpaff_submit').html('Update');
@@ -419,6 +426,7 @@ function loadCpaffData() {
                             $('#nrc_state_region').val(cpaff_data.nrc_state_region);
                             $('#father_name_mm').val(cpaff_data.father_name_mm);
                             $('#father_name_eng').val(cpaff_data.father_name_eng);
+                            cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
                         }
                     });
                 }
@@ -434,14 +442,14 @@ function loadCpaffInitialData() {
         type: 'get',
         data: "",
         success: function (data) {
-            // console.log(data)
+            console.log(data)
             var cpaff_data = data.data;
             // console.log('cpaff_data11',cpaff_data)
             $('#cpa_batch_no').val(cpaff_data.cpa_batch_no);
-            // $('#address').val(cpaff_data.address);
-            // $('#phone').val(cpaff_data.phone);
-            // $('#contact_mail').val(cpaff_data.contact_mail);
-            $('#reg_no').val(cpaff_data.reg_no)
+            $('#address').val(cpaff_data.address);
+            $('#phone').val(cpaff_data.phone);
+            $('#contact_mail').val(cpaff_data.contact_mail);
+            $('#reg_no').val(cpaff_data.reg_no);
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
@@ -517,7 +525,7 @@ function createCPAFFRegister() {
     var send_data = new FormData();
     send_data.append('student_info_id', student.id);
     send_data.append('profile_photo', profile_photo);
-
+    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
     if (cpa_edu.checked == true) {
         send_data.append('cpa', cpa);
     }
@@ -825,8 +833,8 @@ $().ready(function (){
         rules:{
             profile_photo : "required",
             name_mm : "required",
-            nrc_front : "required",
-            nrc_back : "required",
+            // nrc_front : "required",
+            // nrc_back : "required",
             father_name_mm : "required",
             cpa_batch_no : "required",
             address : "required",
@@ -835,10 +843,10 @@ $().ready(function (){
             cpa2_pass_date : "required",
             renew_accepted_date : "required",
             cpa2_pass_date : "required",
-            renew_file : "required",
-            reg_no : "required",
+            // renew_file : "required",
+            // reg_no : "required",
             degree_pass_year : "required",
-            fine_person : "required",
+            // fine_person : "required",
             cpa_certificate : "required",
             cpd_record : "required",
             passport_image : "required",
@@ -852,8 +860,8 @@ $().ready(function (){
             nrc_number : {
                 required : "Please enter your nrc number",
             },
-            nrc_front : "Please upload nrc photo (front)",
-            nrc_back : "Please upload nrc photo (back)",
+            // nrc_front : "Please upload nrc photo (front)",
+            // nrc_back : "Please upload nrc photo (back)",
             father_name_mm : "Please enter your father name in english",
             cpa_batch_no : "Please enter cpa batch number",
             address : "Please enter your address",
@@ -861,10 +869,10 @@ $().ready(function (){
             contact_mail : "Please enter your contact mail",
             cpa2_pass_date : "Please fill CPA 2 passed date",
             renew_accepted_date : "Please renew accepted date",
-            renew_file : "Please upload renew file",
-            reg_no : "Please fill registeration No.",
+            // renew_file : "Please upload renew file",
+            // reg_no : "Please fill registeration No.",
             degree_pass_year : "Please fill degree passed year",
-            fine_person : "Please fill this field",
+            // fine_person : "Please fill this field",
             cpa_certificate : "Please upload CPA certificate",
             cpd_record : "Please upload CPA record",
             passport_image : "Please upload passport image",
