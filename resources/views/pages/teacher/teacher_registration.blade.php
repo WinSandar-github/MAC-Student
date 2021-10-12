@@ -1078,7 +1078,7 @@
                                                                 </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row mb-3">
+                                                    <!-- <div class="row mb-3">
                                                         <label for="" class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <label for="" class="col-md-3 col-form-label label_align_right">လူမျိုး</label>
                                                         <div class="col-md-8">
@@ -1100,10 +1100,10 @@
                                                         <div class="col-md-8">
                                                             <input type="text" name="date_of_birth" class="form-control" disabled>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="row mb-3">
-                                                        <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <label class="col-md-3 col-form-label label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                                         <div class="col-md-8">
                                                             <input type="text" name="phone_renew" class="form-control"  autocomplete="off">
@@ -1111,23 +1111,23 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                            <label for="" class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                                            <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                                             <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ</label>
                                                             <div class="col-md-8">
                                                                 <input type="text"  name="current_address" class="form-control" autocomplete="off">
                                                             </div>
                                                     </div>
 
-                                                    <div class="row mb-3">
+                                                    <!-- <div class="row mb-3">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                                             <label for="" class="col-md-3 col-form-label label_align_right">အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                             <div class="col-md-8">
                                                                 <input type="text"  name="address" class="form-control" readonly>
                                                             </div>
-                                                    </div>
+                                                    </div> -->
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
                                                     <label class="col-md-3 col-form-label label">{{ __('ပညာအရည်အချင်း') }}</label>
                                                     <div class="col-md-8">
                                                         <table class="table tbl_degree_renew_update table-bordered input-table">
@@ -1160,7 +1160,7 @@
                                                     </div>
                                                     
                                                     <div class="row mb-3">
-                                                        <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                                         <label class="col-md-3 col-form-label label">သင်ကြားမည့်သင်တန်းကျောင်းအမည်</label>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
@@ -1205,7 +1205,7 @@
                                                         </div>
                                                     </div>
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၁၃။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
                                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>
                                                     
 
