@@ -580,8 +580,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="RenewCPAFF()">Save changes</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              <button type="button" style="background-color: #39c0ba" class="btn btn-sm text-white" onclick="RenewCPAFF()">Submit</button>
             </div>
           </div>
         </div>

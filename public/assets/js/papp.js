@@ -138,34 +138,34 @@ function check_email_papp()
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
     var code = $("input[name=verify_code]").val();
-    var self_confession_accept_PAPP = document.getElementsByClassName("accept_PAPP");
-    var self_confession_not_accept_PAPP = document.getElementsByClassName("not_accept_PAPP");
     var accept_PAPP = document.getElementById("accept");
     var not_accept_PAPP = document.getElementById("not-accept");
-    if(self_confession_accept_PAPP.checked == true || self_confession_not_accept_PAPP.checked == true && accept_PAPP.checked == true || not_accept_PAPP.checked == true){
-        if(verify_code != code){
-            errorMessage("Your code is not correct.Please check your email inbox again!");
-            // $('#exampleModal').modal('show');
-            // $('#exampleModal1').modal('hide');
-            // $('#exampleModal').modal('show');
-        }else{
-            Papp_Submit();
-            $('#pappModal').modal('hide');
+    if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
+        $('#valid_self_confession_PAPP').css('display','none');
+        for(i = 1; i <= 29; i++){
+            console.log("value=>",$(`input[name=check${i}]:checked`).val());
+            if($(`input[name=check${i}]:checked`).val() == undefined){
+                $(".accept_PAPP:unchecked").css("border","1px solid red");
+                $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+            }
+            else{
+                if(verify_code != code){
+                    errorMessage("Your code is not correct.Please check your email inbox again!");
+                    return false;
+                    // $('#exampleModal').modal('show');
+                    // $('#exampleModal1').modal('hide');
+                    // $('#exampleModal').modal('show');
+                }else{
+                    Papp_Submit();
+                    $('#pappModal').modal('hide');
+                    return false;
+                }
+            }
         }
     }
     else{
-        if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
-            console.log("cc");
-            $('#valid_self_confession_PAPP').css('display','none');
-        }
-        else{
-            console.log("bb");
-            $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
-            $('#valid_self_confession_PAPP').css('display','block');
-        }
-        console.log("aa");
-        $(".accept_PAPP:unchecked").css("border","1px solid red");
-        $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+        $('#valid_self_confession_PAPP').text("Please choose Yes Or No");
+        $('#valid_self_confession_PAPP').css('display','block');
         errorMessage("Please choose Yes or No in Previous Page");  
     }
 }
@@ -232,6 +232,14 @@ function pappPaymentSubmit(){
 }
 
 function Papp_Submit(){
+    $arr = [];
+    for(i=1; i<=29; i++){
+        $self_confession = {
+            "self_confession" : $(`input[name=check${i}]:checked`).val(),
+        };
+        $arr.push($self_confession);
+    }
+    
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo  =   $("input[name=profile_photo]")[0].files[0];
     var cpa_check = document.getElementById("cpa_check");
@@ -329,6 +337,7 @@ function Papp_Submit(){
     data.append('contact_mail', $("input[name=contact_mail]").val());
     data.append('reg_no', $("input[name=reg_no]").val());
     data.append('type',0);
+    data.append('self_confession',JSON.stringify($arr));
     show_loader(); 
     $.ajax({
     url: BACKEND_URL+"/papp",
