@@ -23,12 +23,12 @@ $().ready(function (){
     
     $("#cpa2_self_form").validate({
         rules:{
-            reg_reason : 'required',
+            // reg_reason : 'required',
             batch_personal_no_self:"required",
             module:"required",
         },
         messages:{
-           reg_reason: "Please select registration reason.",
+        //    reg_reason: "Please select registration reason.",
            batch_personal_no_self:"Please enter this field.",
            module:"Please Select Module",
         },
