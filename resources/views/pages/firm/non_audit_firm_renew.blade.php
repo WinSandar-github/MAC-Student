@@ -32,7 +32,7 @@
     </div>
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
-            <form method="post" id="non_audit_renew_form" action="javascript:nonAuditRenewSubscribe();" enctype="multipart/form-data">
+            <form method="post" id="non_audit_renew_form" action="javascript:void();" enctype="multipart/form-data">
                 <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                   <div class="row mb-5">
     									<h5 class="card-title text-center fw-bolder" id="local_header" style="display:none;">
@@ -153,7 +153,7 @@
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Name') }}</label>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                                <input type="text" class="form-control" name="accountancy_firm_name" id="accountancy_firm_name" readonly="">
                                                 </div>
                                             </div>
                                         </div>
@@ -162,11 +162,11 @@
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Registeration No') }}</label>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
-                                                <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
+                                                <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mb-5">
+                                        {{--<div class="row mb-5">
                                             <label class="col-md-1 col-form-label" >{{ __('4.') }}</label>
                                             <label class="col-md-5 col-form-label label_align_right" >{{ __('Applied Date') }}</label>
                                             <div class="col-md-6">
@@ -174,7 +174,7 @@
                                                 <input type="text" class="form-control" id="register_date" readonly="">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--}}
 
 									</div>
 
@@ -210,129 +210,128 @@
 								</div>
 
                 <div class="row mb-3">
-                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Address of Practice(Head Office)</label>
                   <div class="col-md-8">
-                      <textarea readonly="" name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                      <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
+                      <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                   </div>
                 </div>
 
-								<div class="row">
-									<div class="col-md-2 offset-md-4">
-										<div class="form-group">
-											<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off"  readonly="">
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off"  readonly="">
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="city" class="form-control" placeholder="City" autocomplete="off"  readonly="">
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off"  readonly="">
-										</div>
-									</div>
+                <div class="row mb-3">
+                  <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
+                  <div class="col-md-8">
+                      <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
+                      <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                    {{--<div class="col-md-2 offset-md-4">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Township</small></label>
+                        <input  type="text" name="township" class="form-control" placeholder="" autocomplete="off" value="{{ old('township') }}" required="">
+                    </div>--}}
+                    <div class="col-md-2 offset-md-4">
+                      <label for="" class="control-label text-muted fw-bolder"><small>Post Code</small></label>
+                      <input  type="text" name="post_code" class="form-control" placeholder="" autocomplete="off" value="{{ old('post_code') }}" required="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Website Address</small></label>
+                        <input  type="text" name="website" class="form-control" placeholder="" autocomplete="off" value="{{ old('website') }}" required="">
+                    </div>
+                    {{--<div class="col-md-2">
+                        <label for="" class="control-label text-muted fw-bolder"><small>City</small></label>
+                        <input  type="text" name="city" class="form-control" placeholder="" autocomplete="off" value="{{ old('city') }}" required="">
+                    </div>--}}
+                    {{--<div class="col-md-2">
+                      <label for="" class="control-label text-muted fw-bolder"><small>State/Region</small></label>
+                      <input  type="text" name="state" class="form-control" placeholder="" autocomplete="off" value="{{ old('state') }}" required="">
+                    </div>--}}
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4 col-form-label"></div>
+                    <div class="col-md-2">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Telephone</small></label>
+                        <input  type="text" name="phone_no" class="form-control" placeholder="" autocomplete="off" value="{{ old('phone_no') }}" required="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Email Address</small></label>
+                        <input  type="email" name="h_email" class="form-control" placeholder="" autocomplete="off" value="{{ old('h_email') }}" required="">
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
+									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
 								</div>
 
-								<div class="row">
-									<div class="col-md-4"></div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off"  readonly="">
-										</div>
-									</div>
-									<div class="col-md-3">
-										<div class="form-group">
-											<input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off"  readonly="">
-										</div>
-									</div>
-									<div class="col-md-3">
-										<div class="form-group">
-											<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off"  readonly="">
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Branch Office') }}</label>
-								</div>
 								<div class="row mb-3">
 									<label class="col-md-1 col-form-label"></label>
 									<div class="col-md-11">
-										<div class="card">
-											<div class="card-body">
-												<table class="table branch_non_audit table-bordered input-table">
-													<thead>
-														<tr>
-															<th class="less-font-weight">Name</th>
-                              <th class="less-font-weight">Address</th>
-															<th class="less-font-weight">Township</th>
-															<th class="less-font-weight">Post Code</th>
-															<th class="less-font-weight">City</th>
-															<th class="less-font-weight">State/Region</th>
-															<th class="less-font-weight">Telephone</th>
-															<th class="less-font-weight">Email</th>
-															<th class="less-font-weight">Website</th>
-															<th >
-																<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowBranch("branch_non_audit")'>
-																	<i class="fa fa-plus"></i>
-																</button>
-															</th>
-														</tr>
-													<thead>
-													<tbody id="tbl_branch_body">
+                    <table class="table branch_non_audit table-bordered input-table">
+                      <thead>
+                        <tr>
+                          <th class="less-font-weight">Name</th>
+                          <th class="less-font-weight">Address</th>
+                          <th class="less-font-weight">Township</th>
+                          <th class="less-font-weight">Post Code</th>
+                          <th class="less-font-weight">City</th>
+                          <th class="less-font-weight">State/Region</th>
+                          <th class="less-font-weight">Telephone</th>
+                          <th class="less-font-weight">Email</th>
+                          <th class="less-font-weight">Website</th>
+                          <th class="less-font-weight text-center">
+                            <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranch("branch_non_audit")'>
+                              <li class="fa fa-plus"></li>
+                            </button>
+                          </th>
+                        </tr>
+                      <thead>
+                      <tbody id="tbl_branch_body">
 
-													</tbody>
-												</table>
-											</div>
-										</div>
+                      </tbody>
+                    </table>
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
+									<label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
+									<label for="" class="col-md-6 non_partner_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
 								</div>
 
 								<div class="row mb-3">
 									<div class="col-md-1 col-form-label"></div>
 									<div class="col-md-11">
-										<div class="card">
-											<div class="card-body">
-												<table id="myTable" class="table non_partner table-bordered input-table">
-													<thead>
-														<tr>
-															<th class="less-font-weight" rowspan="2">Sr</th>
-															<th class="less-font-weight" rowspan="2">Name</th>
-															<th class="less-font-weight" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
-															<th >
-																<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowPartnerByNonAudit("non_partner")'>
-																	<i class="fa fa-plus"></i>
-																</button>
-															</th>
-														</tr>
+                    <table id="myTable" class="table non_partner table-bordered input-table">
+                      <thead>
+                        <tr>
+                          <th class="less-font-weight" rowspan="2">Sr</th>
+                          <th class="less-font-weight" rowspan="2">Name</th>
+                          <th class="less-font-weight" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
+                          <th  class="less-font-weight text-center">
+                            <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerByNonAudit("non_partner")'>
+                              <li class="fa fa-plus"></li>
+                            </button>
+                          </th>
+                        </tr>
 
-													</thead>
-													<tbody id="tbl_non_partner_body">
+                      </thead>
+                      <tbody id="tbl_non_partner_body">
 
-													</tbody>
-												</table>
-											</div>
-										</div>
+                      </tbody>
+                    </table>
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
-
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
+									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
 								</div>
+
 								<div class="row mb-3">
 									<div class="col-md-1"></div>
 									<div class="col-md-11">
@@ -346,11 +345,11 @@
 															<th class="less-font-weight">Position</th>
 															<th class="less-font-weight" >Passport / CSC No.</th>
 															<!-- <th class="less-font-weight" >CSC No.</th> -->
-															<th >
-																<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addRowDirectorByNonAudit("non_director")'>
-																	<i class="fa fa-plus"></i>
-																</button>
-															</th>
+                              <th  class="less-font-weight text-center"  >
+                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorByNonAudit("non_director")'>
+                                  <li class="fa fa-plus"></li>
+                                </button>
+                              </th>
 														</tr>
 
 													</thead>
@@ -364,7 +363,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
 								</div>
 								<div class="row">
@@ -392,18 +391,18 @@
 														</div>
 													</div>
 
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-11 col-auto">
-                                                            <span class="letterheads" ></span>
+                          <div class="row mb-3">
+                              <div class="col-md-11 col-auto">
+                                  <span class="letterheads" ></span>
 
-                                                        </div>
-                                                    </div>
+                              </div>
+                          </div>
 
 													<div class="controls1">
 														<div class="entry1">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-                                                                    <input type="hidden" id='hidden_letterheads'>
+                                  <input type="hidden" id='hidden_letterheads'>
 																	<input disabled type="file" class="form-control" name="letterheads[]" >
 																</div>
 																<div class="col-md-1 col-auto">
@@ -420,12 +419,12 @@
 															<label class="form-label">(b) Passport size photo</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                              <div class="col-md-11 col-auto">
 
-                                                            <span class="pass_photos" ></span>
-                                                        </div>
-                                                    </div>
+                                  <span class="pass_photos" ></span>
+                              </div>
+                          </div>
 
 													<div class="controls2">
 														<div class="entry2">
@@ -477,18 +476,18 @@
 															<label class="form-label">(d) Copy of Education Certificate</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="edu_certs" ></span>
-                                                                            </div>
+                                <span class="edu_certs" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls4">
 														<div class="entry4">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-                                                                    <input type="hidden" id='hidden_edu_certs'>
+                                  <input type="hidden" id='hidden_edu_certs'>
 																	<input disabled type="file" class="form-control" name="edu_certs[]" >
 																</div>
 																<div class="col-md-1 col-auto">
@@ -505,20 +504,20 @@
 															<label class="form-label">(e) Letter outlining past work experience</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="work_exps" ></span>
-                                                                            </div>
+                                <span class="work_exps" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls5">
 														<div class="entry5">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 
 																	<input disabled type="file" class="form-control" name="work_exps[]" >
-                                                                    <input  type="hidden" id='hidden_work_exps'>
+                                  <input  type="hidden" id='hidden_work_exps'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls5","entry5")'>
@@ -542,14 +541,14 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-                                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                                  <div class="row mb-3">
+                                          <div class="col-md-11 col-auto">
 
-                                                                                <span class="nrc_passports_front" ></span>
-                                                                            </div>
+                                              <span class="nrc_passports_front" ></span>
+                                          </div>
 
-                                                                     </div>
-                                                                     <input type="hidden" id='hidden_nrc_passports_front'>
+                                   </div>
+                                  <input type="hidden" id='hidden_nrc_passports_front'>
 																	<input disabled type="file" class="form-control" name="nrc_passports_front[]" >
 																</div>
 
@@ -559,14 +558,14 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
 																<div class="col-md-7 col-auto">
-                                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                                  <div class="row mb-3">
+                                          <div class="col-md-11 col-auto">
 
-                                                                                <span class="nrc_passports_back" ></span>
-                                                                            </div>
+                                              <span class="nrc_passports_back" ></span>
+                                          </div>
 
-                                                                     </div>
-                                                                     <input type="hidden" id='hidden_nrc_passports_back'>
+                                   </div>
+                                  <input type="hidden" id='hidden_nrc_passports_back'>
 																	<input disabled type="file" class="form-control" name="nrc_passports_back[]" >
 																</div>
 																<div class="col-md-1 col-auto">
@@ -583,19 +582,19 @@
 															<label class="form-label">(g) Copy of Tax clearance from Internal Revenue Department</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
+                            <div class="row mb-3">
+                                        <div class="col-md-11 col-auto">
 
-                                                                    <span class="tax_clearances" ></span>
-                                                                </div>
+                                            <span class="tax_clearances" ></span>
+                                        </div>
 
-                                                    </div>
+                            </div>
 													<div class="controls7">
 														<div class="entry7">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="tax_clearances[]" >
-                                                                    <input type="hidden" id='hidden_tax_clearances'>
+                                  <input type="hidden" id='hidden_tax_clearances'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls7","entry7")'>
@@ -646,19 +645,19 @@
 															<label class="form-label">(a) Copy of Certificate or Registration, if any</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                                      <div class="col-md-11 col-auto">
 
-                                                                    <span class="certi_or_regs" ></span>
-                                                                </div>
+                                          <span class="certi_or_regs" ></span>
+                                      </div>
 
-                                                    </div>
+                          </div>
 													<div class="controls9">
 														<div class="entry9">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="certi_or_regs[]" >
-                                                                    <input type="hidden" id='hidden_certi_or_regs'>
+                                  <input type="hidden" id='hidden_certi_or_regs'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls9","entry9")'>
@@ -674,13 +673,13 @@
 															<label class="form-label">(b) Copy of signed Partnership Deeds/ Memorandum of Agreement</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                                      <div class="col-md-11 col-auto">
 
-                                                                    <span class="deeds_memos" ></span>
-                                                                </div>
+                                          <span class="deeds_memos" ></span>
+                                      </div>
 
-                                                    </div>
+                          </div>
 													<div class="controls10">
 														<div class="entry10">
 															<div class="row mb-3">
@@ -702,19 +701,19 @@
 															<label class="form-label">(c) Copy of letterhead to be used</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                              <div class="col-md-11 col-auto">
 
-                                                                                <span class="letterheads" ></span>
-                                                                            </div>
+                                  <span class="letterheads" ></span>
+                              </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls11">
 														<div class="entry11">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="letterheads[]" >
-                                                                    <input type="hidden" id='hidden_letterheads'>
+                                  <input type="hidden" id='hidden_letterheads'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls11","entry11")'>
@@ -730,19 +729,19 @@
 															<label class="form-label">(d) Passport size photos of the all partners</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="pass_photos" ></span>
-                                                                            </div>
+                                <span class="pass_photos" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls12">
 														<div class="entry12">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="pass_photos[]" >
-                                                                    <input type="hidden" id='hidden_pass_photos'>
+                                  <input type="hidden" id='hidden_pass_photos'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls12","entry12")'>
@@ -758,13 +757,13 @@
 															<label class="form-label">(e) Profiles of the all partners</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                              <div class="col-md-11 col-auto">
 
-                                                                                <span class="owner_profiles" ></span>
-                                                                            </div>
+                                  <span class="owner_profiles" ></span>
+                              </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls13">
 														<div class="entry13">
 															<div class="row mb-3">
@@ -786,13 +785,13 @@
 															<label class="form-label">(f) Copy of Education Certificates of the all partners</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
+                            <div class="row mb-3">
+                                        <div class="col-md-11 col-auto">
 
-                                                                    <span class="edu_certs" ></span>
-                                                                </div>
+                                            <span class="edu_certs" ></span>
+                                        </div>
 
-                                                    </div>
+                            </div>
 													<div class="controls14">
 														<div class="entry14">
 															<div class="row mb-3">
@@ -814,13 +813,13 @@
 															<label class="form-label">(g) Letter outlining past work experiences of the all partners</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="work_exps" ></span>
-                                                                            </div>
+                                <span class="work_exps" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls15">
 														<div class="entry15">
 															<div class="row mb-3">
@@ -848,13 +847,13 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-                                                                    <div class="row mb-3">
-                                                                                <div class="col-md-11 col-auto">
+                                  <div class="row mb-3">
+                                              <div class="col-md-11 col-auto">
 
-                                                                                    <span class="nrc_passports_front" ></span>
-                                                                                </div>
+                                                  <span class="nrc_passports_front" ></span>
+                                              </div>
 
-                                                                    </div>
+                                  </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_front[]" >
                                                                     <input type="hidden" id='hidden_nrc_passports_front'>
 																</div>
@@ -869,15 +868,15 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
 																<div class="col-md-7 col-auto">
-                                                                    <div class="row mb-3">
-                                                                                <div class="col-md-11 col-auto">
+                                <div class="row mb-3">
+                                            <div class="col-md-11 col-auto">
 
-                                                                                    <span class="nrc_passports_back" ></span>
-                                                                                </div>
+                                                <span class="nrc_passports_back" ></span>
+                                            </div>
 
-                                                                    </div>
+                                </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_back[]" >
-                                                                    <input type="hidden" id='hidden_nrc_passports_back'>
+                                  <input type="hidden" id='hidden_nrc_passports_back'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls16","entry16")'>
@@ -893,19 +892,19 @@
 															<label class="form-label">(i) Copy of Tax clearance from Internal Revenue Department</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                                      <div class="col-md-11 col-auto">
 
-                                                                    <span class="tax_clearances" ></span>
-                                                                </div>
+                                          <span class="tax_clearances" ></span>
+                                      </div>
 
-                                                    </div>
+                          </div>
 													<div class="controls17">
 														<div class="entry17">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="tax_clearances[]" >
-                                                                    <input type="hidden" id='hidden_tax_clearances'>
+                                  <input type="hidden" id='hidden_tax_clearances'>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls17","entry17")'>
@@ -956,19 +955,19 @@
 															<label class="form-label">(a) Copy of Certificate of Incorporation (company incorporated in Myanmar)/ Certificate of Registration (branch office registered in Myanmar)</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="certificate_incors" ></span>
-                                                                            </div>
+                                <span class="certificate_incors" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls19">
 														<div class="entry19">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="certificate_incors[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_certificate_incors" >
+                                  <input type="hidden" class="form-control" id="hidden_certificate_incors" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls19","entry19")'>
@@ -985,13 +984,13 @@
 															<label class="form-label">(b) Copy of Permit under Section 27A of Myanmar Companies Act (For Only Foreign Company)</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                                      <div class="col-md-11 col-auto">
 
-                                                                    <span class="permit_foreigns" ></span>
-                                                                </div>
+                                          <span class="permit_foreigns" ></span>
+                                      </div>
 
-                                                    </div>
+                          </div>
 													<div class="controls20">
 														<div class="entry20">
 															<div class="row mb-3">
@@ -1013,13 +1012,13 @@
 															<label class="form-label">(c) Copy of recent audited financial statements</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="financial_statements" ></span>
-                                                                            </div>
+                                <span class="financial_statements" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls21">
 														<div class="entry21">
 															<div class="row mb-3">
@@ -1041,19 +1040,19 @@
 															<label class="form-label">(d) Copy of commercial tax registration certificate</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                        <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="tax_reg_certificate" ></span>
-                                                                            </div>
+                                <span class="tax_reg_certificate" ></span>
+                            </div>
 
-                                                                </div>
+                        </div>
 													<div class="controls22">
 														<div class="entry22">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="tax_reg_certificate[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_tax_reg_certificate" >
+                                  <input type="hidden" class="form-control" id="hidden_tax_reg_certificate" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls22","entry22")'>
@@ -1069,19 +1068,19 @@
 															<label class="form-label">(e) Copy of letterhead to be used</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="letterheads" ></span>
-                                                                            </div>
+                                <span class="letterheads" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls23">
 														<div class="entry23">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="letterheads[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_letterheads" >
+                                  <input type="hidden" class="form-control" id="hidden_letterheads" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled lass="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls23","entry23")'>
@@ -1097,19 +1096,19 @@
 															<label class="form-label">(f) Copy of Education Certificates of the professional staff</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="edu_certs" ></span>
-                                                                            </div>
+                                <span class="edu_certs" ></span>
+                            </div>
 
-                                                                 </div>
+                          </div>
 													<div class="controls24">
 														<div class="entry24">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="edu_certs[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_edu_certs" >
+                                  <input type="hidden" class="form-control" id="hidden_edu_certs" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls24","entry24")'>
@@ -1125,19 +1124,19 @@
 															<label class="form-label">(g) Letter outlining past work experiences of the professional staff</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="work_exps" ></span>
-                                                                            </div>
+                                <span class="work_exps" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls25">
 														<div class="entry25">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="work_exps[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_work_exps" >
+                                  <input type="hidden" class="form-control" id="hidden_work_exps" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls25","entry25")'>
@@ -1159,15 +1158,15 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-                                                                    <div class="row mb-3">
-                                                                                <div class="col-md-11 col-auto">
+                                  <div class="row mb-3">
+                                      <div class="col-md-11 col-auto">
 
-                                                                                    <span class="nrc_passports_front" ></span>
-                                                                                </div>
+                                          <span class="nrc_passports_front" ></span>
+                                      </div>
 
-                                                                    </div>
+                                  </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_front[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_nrc_passports_front" >
+                                  <input type="hidden" class="form-control" id="hidden_nrc_passports_front" >
 																</div>
 																<!-- <div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -1180,15 +1179,15 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
 																<div class="col-md-7 col-auto">
-                                                                    <div class="row mb-3">
-                                                                                <div class="col-md-11 col-auto">
+                                  <div class="row mb-3">
+                                              <div class="col-md-11 col-auto">
 
-                                                                                    <span class="nrc_passports_back" ></span>
-                                                                                </div>
+                                                  <span class="nrc_passports_back" ></span>
+                                              </div>
 
-                                                                    </div>
+                                  </div>
 																	<input disabled type="file" class="form-control" name="nrc_passports_back[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_nrc_passports_back" >
+                                  <input type="hidden" class="form-control" id="hidden_nrc_passports_back" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>
@@ -1204,19 +1203,19 @@
 															<label class="form-label">(i) Copy of Tax clearance from Internal Revenue Department</label>
 														</div>
 													</div>
-                                                    <div class="row mb-3">
-                                                                            <div class="col-md-11 col-auto">
+                          <div class="row mb-3">
+                            <div class="col-md-11 col-auto">
 
-                                                                                <span class="tax_clearances" ></span>
-                                                                            </div>
+                                <span class="tax_clearances" ></span>
+                            </div>
 
-                                                                </div>
+                          </div>
 													<div class="controls27">
 														<div class="entry27">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
 																	<input disabled type="file" class="form-control" name="tax_clearances[]" >
-                                                                    <input type="hidden" class="form-control" id="hidden_tax_clearances" >
+                                  <input type="hidden" class="form-control" id="hidden_tax_clearances" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls27","entry27")'>
@@ -1278,21 +1277,26 @@
 								<br>
 
 
-								<div class="row">
+                <div class="row">
 									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
-									<label class="col-md-3 col-form-label">{{ __('Name Of Managing Director') }}</label>
-									<div class="col-md-8 col-form-label">
+									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
+									<div class="col-md-4 col-form-label">
 										<div class="form-group">
-											<input disabled type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" >
+											<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" >
+										</div>
+									</div>
+									<label class="col-md-2 col-form-label">{{ __('Passport/CSC No.') }}</label>
+									<div class="col-md-2 col-form-label">
+										<div class="form-group">
+											<input type="text" name="dir_passport_csc"  class="form-control" placeholder="Enter Passport/CSC No.!" autofocus autocomplete="off" >
 										</div>
 									</div>
 								</div>
 
-
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Total Staff') }}</label>
-
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+									<label class="col-md-2 col-form-label">{{ __('Total Staff') }}</label>
+									<label for="" class="col-md-6 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
 								</div>
 
 								<div class="row mb-3">
@@ -1315,7 +1319,7 @@
 													<tfoot id="tbl_non_audit_number_foot">
 														<tr>
 															<td>Total</td>
-															<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>
+															<td><input  type='text'  value='' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>
 														</tr>
 													</tfoot>
 												</table>
@@ -1324,9 +1328,10 @@
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
-									<label class="col-md-11 col-form-label">{{ __('Types Of Service Provided') }}</label>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
+									<label class="col-md-4 col-form-label">{{ __('Types of Service Provided') }}</label>
+									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
 
 								</div>
 								<div class="row">
@@ -1344,9 +1349,11 @@
 													<tbody id="tbl_type_service_body">
 
 													</tbody>
-													<tfoot id="tbl_type_service_foot">
-														<tr style='display:none' id='tr_other'>
-															<td style="width:1000px;"><input type="text" class="form-control" name="other" id="other"></td>
+                          <tfoot id="tbl_type_service_foot">
+														<tr id='tr_other'>
+															<td style="width:1000px;">
+																<input type="text" class="form-control" name="other" id="other">
+															</td>
 														</tr>
 													</tfoot>
 
@@ -1397,7 +1404,7 @@
 
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
-										<label class="col-md-1 col-form-label" id="label1">13.</label>
+										<label class="col-md-1 col-form-label" id="label1">12.</label>
 										<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
 
 									</div>
@@ -1435,30 +1442,37 @@
 								</div><br>
 
 								<!-- Declaration  -->
+                <div class="row">
+										<label class="col-md-1 col-form-label">{{ __('') }}</label>
+										<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
+								</div>
+
 								<div class="row">
-									<label class="col-md-1 col-form-label" id="label2"></label>
-									<label class="col-md-1 col-form-label" id="label3" style="display:none" ></label>
-									<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
-									<label class="col-form-label" style="display:contents;font-weight:bold;">{{ __('I') }}</label>
-									<div class="col-md-4">
-										<div class="form-group">
-												<input style="font-weight:bold;" disabled type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(sole proprietor/ managing partner)" >
-										</div>
+									<label class="col-md-1 col-form-label">{{ __('') }}</label>
+
+                  <div class="col-md-6">
+											<div class="form-group" style="display:flex;">
+													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
+													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)(English)" >
+													<input type="text" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
+											</div>
 									</div>
+
 									<div class="col-md-4" style="font-weight:bold;">
-										<div class="form-group">
-												(sole proprietor/ managing partner)
-										</div>
+											<div class="form-group">
+															(managing director)
+											</div>
 									</div>
 								</div>
 
-								<div class="row mb-3" style="font-weight:bold;">
-									<label class="col-md-3 col-form-label">{{ __('') }}</label>
-									<div class="col-md-9">
-										<div class="form-group">
-										representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+								<div class="row  mb-3">
+										<label class="col-md-1 col-form-label">{{ __('') }}</label>
+										<div class="col-md-9" style="font-weight:bold;">
+												<div class="form-group">
+													representing all the members of the firm, confirm that the particulars stated in this form, attached supporting documents are correct.
+													I am fully responsible for the application and updates of the firm particulars.
+												</div>
 										</div>
-									</div>
 								</div>
 
 
@@ -1525,6 +1539,40 @@
         </div>
     </div>
 </div>
+
+<!-- Email Verification Modal -->
+<form method="post" id="non_audit_email_verify_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+      novalidate>
+    @csrf
+    <div class="modal fade" id="nonAuditFirmRenewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                    <div class="mb-3" style="text-align:center;">
+                        <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                        <label>We have been sent verification code on your email.Please check your email.</label>
+                    </div><br>
+                      <div class="mb-3" style="text-align:center;">
+                        <label style="margin-bottom: 2%;">Enter your verification code</label>
+                        <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
+                      </div>
+                  </div>
+                  <center>
+                      <button type="submit" id="btn1" onclick="check_email_non_audit_renew()" class="btn btn-success btn-hover-dark w-30">Verify
+                      </button>
+                  </center><br>
+                  <div class="col-md-12" style="text-align:center;">
+                    <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                  </div><br><br>
+            </div>
+        </div>
+    </div>
+</form>
 @push('scripts')
 <script src="{{ asset("js/form_validation/non_audit_firm_renew_validation.js") }}"></script>
 <script>
@@ -1533,7 +1581,6 @@
         loadNonAuditOrganization();
         loadNonAuditTypeOfService();
         getNonAuditData();
-
 
     });
 </script>

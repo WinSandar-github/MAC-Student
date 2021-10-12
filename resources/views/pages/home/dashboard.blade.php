@@ -490,7 +490,7 @@
                         <div class="row" id="check_renew_nonaudit" style="display:none;text-align: center; margin-top: 2%;">
                             <div class="form-group">
                                 <center>
-                                    <a href="{{ url('/non_audit_firm_renew') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
+                                    <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
                                 </center>
                             </div>
                         </div>

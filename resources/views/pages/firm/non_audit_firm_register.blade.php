@@ -217,52 +217,46 @@
 								</div>
 
 								<div class="row mb-3">
-									<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+									<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address of Practice(Head Office)</label>
 									<div class="col-md-8">
-											<textarea name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+											<textarea name="head_office_address" class="form-control" placeholder="Head Office Address(English)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<div class="col-md-2 offset-md-4">
-										<div class="form-group">
-											<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" >
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" >
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" >
-										</div>
-									</div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="state" class="form-control" placeholder="State / Region" autocomplete="off" >
-										</div>
+									<label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
+									<div class="col-md-8">
+											<textarea name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
 									</div>
 								</div>
 
-								<div class="row">
-									<div class="col-md-4"></div>
-									<div class="col-md-2">
-										<div class="form-group">
-											<input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" >
+								<div class="row mb-3">
+										<div class="col-md-4 col-form-label"></div>
+										<div class="col-md-2">
+												<input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" >
 										</div>
-									</div>
-									<div class="col-md-3">
-										<div class="form-group">
-											<input type="text" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" >
+										<div class="col-md-3">
+												<input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" >
 										</div>
-									</div>
-									<div class="col-md-3">
-										<div class="form-group">
-											<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" >
+
+								</div>
+
+								<div class="row mb-3">
+										{{--<div class="col-md-2 offset-md-4">
+												<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" >
+										</div>--}}
+										<div class="col-md-2 offset-md-4">
+												<input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" >
 										</div>
-									</div>
+										<div class="col-md-3">
+												<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" >
+										</div>
+										{{--<div class="col-md-2">
+												<input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" >
+										</div>--}}
+										{{--<div class="col-md-2">
+												<input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" >
+										</div>--}}
 								</div>
 
 								<div class="row">
@@ -1063,7 +1057,7 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
-									<label class="col-md-3 col-form-label">{{ __('Name Of Managing Director') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
 											<input type="text" name="name_sole_proprietor"  class="form-control" placeholder="Enter Name Of Managing Director!" autofocus autocomplete="off" >
@@ -1113,8 +1107,8 @@
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
-									<label class="col-md-4 col-form-label">{{ __('Types Of Service Provided') }}</label>
-									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
+									<label class="col-md-4 col-form-label">{{ __('Types of Service Provided') }}</label>
+									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types of Service Provided</label>
 
 								</div>
 								<div class="row mb-3">
@@ -1236,10 +1230,11 @@
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
 
-									<div class="col-md-4">
+									<div class="col-md-6">
 											<div class="form-group" style="display:flex;">
 													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
-													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)" >
+													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)(English)" >
+													<input type="text" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
 											</div>
 									</div>
 									<div class="col-md-4" style="font-weight:bold;">

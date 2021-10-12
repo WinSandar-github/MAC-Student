@@ -84,10 +84,10 @@
 												<td><span id="message"></span></td>
 											</tr>
 										</table>
-										<div class="row" id="check_renew" style="display:none;">
-											<div class="form-group">
-												<a href="{{ url('/audit_firm_renew') }}" class="btn btn-sm btn-block btn-info pull-right">Audit Firm Renew Form</a>
-											</div>
+										<div class="row" id="check_renew_non_audit" style="display:none;">
+												<div class="form-group">
+														<a href="{{ url('/non_audit_firm_renew') }}" class="btn btn-sm btn-block btn-info pull-right">Non-Audit Firm Renew Form</a>
+												</div>
 										</div>
 									</div>
 									<div class="row" id="check_status" style="display:none;">
@@ -214,6 +214,7 @@
 																<a href="{{url('non_audit_firm_register')}}" class="btn btn-primary btn-hover-dark" >Register</a>
 															</p>
 														</div>
+
 												</ul>
 										</div>
 								</div>
@@ -341,6 +342,18 @@
 	                                </div>
 	                            </div>
                           	</div>
+														<div id="renew_btn_nonaudit" style="display:none;">
+															<div class="row">
+																	<div class="col-md-6"></div>
+																	<div class="col-md-6">
+																			<div class="pull-right mt-4">
+																					<p class="info-btn col-md-2 mb-4 text-dark h6">
+																							<a href="{{url('non_audit_firm_renew')}}" class="btn btn-success btn-hover-dark" >Renew</a>
+																					</p>
+																			</div>
+																	</div>
+															</div>
+														</div>
                             <div class="row payment-btn" style="display:none;">
                                 <div class="col-md-6"></div>
                                 <div class="">
@@ -437,7 +450,8 @@
     //nonAuditFirmDateQuery();
 		//nonAuditVerifyStatus();
 		//checkPaymentNonAudit();
-		nonAuditData();
+		//nonAuditData();
+		verifyStatus();
     })
     //app_form_feedback();
 

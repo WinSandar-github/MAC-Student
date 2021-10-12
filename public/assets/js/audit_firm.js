@@ -134,10 +134,12 @@ function dateQuery(){
           else if(data.type == 'next'){
             $("#message").append("<span class='text-success'>"+data.message+"</span>");
             if(data.firm_type == 1){
+              // audit firm
               $(".payment-btn").css('display','block');
               $(".nonaudit-payment-btn").css('display','none');
             }
             else{
+              // non-audit firm
               $(".payment-btn").css('display','none');
               $(".nonaudit-payment-btn").css('display','block');
             }
@@ -145,10 +147,12 @@ function dateQuery(){
           else{
             $("#message").append("<span class='text-success'>"+data.message+"</span>");
             if(data.firm_type == 1){
+              // audit firm
               $(".payment-btn").css('display','block');
               $(".nonaudit-payment-btn").css('display','none');
             }
             else{
+              // non-audit firm
               $(".payment-btn").css('display','none');
               $(".nonaudit-payment-btn").css('display','block');
             }
@@ -188,6 +192,8 @@ function verifyStatus()
                 // non-audit firm
                 $('#check_renew').css('display','none');
                 $('#check_renew_nonaudit').css('display','block');
+                $("#renew_btn_nonaudit").css('display','block');
+                $(".register-btn").css('display','none');
               }
             }
           }
@@ -432,6 +438,8 @@ function check_email_audit_renew(){
   }
 }
 
+
+
 function getAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
   var student_id = student.id;
@@ -441,10 +449,8 @@ function getAuditData(){
       success: function (data){
         console.log("get audit >>",data);
           var audit_data = data.data;
-          //console.log("ad >>",audit_data);
           var other_data = data.other_data;
           var student_data = data.student_infos;
-          //console.log("od >>",other_data);
 
           $('input[name=email]').val(student_data[0].email);
 
@@ -455,10 +461,10 @@ function getAuditData(){
 
           $('textarea[name=head_office_address]').val(audit_data.head_office_address);
           $('textarea[name=head_office_address_mm]').val(audit_data.head_office_address_mm);
-          $('input[name=township]').val(audit_data.township);
+          //$('input[name=township]').val(audit_data.township);
           $('input[name=post_code]').val(audit_data.postcode);
-          $('input[name=city]').val(audit_data.city);
-          $('input[name=state]').val(audit_data.state_region);
+          //$('input[name=city]').val(audit_data.city);
+          //$('input[name=state]').val(audit_data.state_region);
           $('input[name=phone_no]').val(audit_data.telephones);
           $('input[name=h_email]').val(audit_data.h_email);
           $('input[name=website]').val(audit_data.website);
@@ -543,7 +549,7 @@ function getAuditData(){
                 tr += "<td ><input  type='text' value='"+item.position+"' name='do_position[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ><input  type='text' value='"+item.cpa_reg_no+"' name='do_cpa_reg_no[]' class='form-control' autocomplete='off'></td>";
                 tr += "<td ><input  type='text' value='"+item.public_private_reg_no+"' name='do_pub_pri_reg_no[]' class='form-control' autocomplete='off'></td>";
-                tr += "<td ></td>" ;
+                tr += '<td class="text-center"><button class="delete btn btn-danger btn-sm" type="button" onclick=addRowDirector("director")><li class="fa fa-times"></li></button></td>' ;
                 tr += "</tr>";
                 $("#tbl_director_body").append(tr);
                 count++
