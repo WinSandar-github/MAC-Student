@@ -83,19 +83,12 @@ function user_profile() {
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
 
-            }
-            // else if (data.school && data.teacher && data.teacher_renew) {
-            //     $('.dashboard_name').append('Teacher And School ');
-            //     loadRenewTeacherDash(data.teacher_renew.pop());
-            //     loadSchoolByDash(data.school);
-
-            // }
-            else if (data.cpa_ff && data.student_course_regs == '') {
+            }else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
                 console.log('cpaff',data.cpa_ff);
                 let cpaff_initial = data.cpa_ff[0];
-                let cpaff= data.cpa_ff[data.cpa_ff.length-1];
+                let cpaff_latest_data= data.cpa_ff[data.cpa_ff.length-1];
                 document.getElementById('cpaff_image').src=BASE_URL + cpaff.profile_photo;
                 $('#cpaff_name_mm').text(cpaff_initial.name_mm);
                 $('#cpaff_name_eng').text(cpaff_initial.name_eng);
@@ -104,28 +97,39 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
-                var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
-                var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
+                // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
+                var reject_initial=FRONTEND_URL + "/update_cpaff_initial";
+                var reject_renewal=FRONTEND_URL + "/update_cpaff_renewal";
                 var is_renew;
-                if(cpaff.is_renew==0){
+                if(cpaff_latest_data.type==0){
                     is_renew="Initial";
                 }
                 else{
                     is_renew="Renewal";
                 }
-                if (cpaff.status == 0) {
+                if (cpaff_latest_data.status == 0) {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is checking.<br><br>');
                     // $('.status_papp').append('Action &nbsp;&nbsp;');
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
-                } else if (cpaff.status == 1) {
+                } else if (cpaff_latest_data.status == 1) {
+                    var cpaff_renew_url = FRONTEND_URL + "/cpa_ff_information";
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Approved.<br><br>');
                     $('.status_history').append('Action &nbsp;&nbsp;');
                     $('.status_history').append(`<a href= ${cpaff_renew_url} class="btn btn-success btn-sm xl-auto" > CPA(Full-Fledged) Renew Form </a><hr>`);
                     // $('.status_papp').append('Action &nbsp;&nbsp;');
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
-                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
-                    $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    localStorage.setItem('cpaff_id',cpaff_latest_data.id);
+                    localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
+                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');                       
+                    if(cpaff.type==0){
+                        $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    }
+                    else{
+                        $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    }
+                    // $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
+                    // $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 if (data.papp.length!=0 && data.student_course_regs == '') {
                     var reject_initial=FRONTEND_URL + "/update_papp_initial";
@@ -291,6 +295,8 @@ function user_profile() {
 
                 if (cpaff.length !== 0) {
                     $('.cpaff').show();
+                    var reject_initial=FRONTEND_URL + "/update_cpaff_initial";
+                    var reject_renewal=FRONTEND_URL + "/update_cpaff_renewal";
                     let cpaff_latest_data=cpaff[cpaff.length-1];
                     var is_renew;
                     if(cpaff_latest_data.is_renew==0){
@@ -352,14 +358,25 @@ function user_profile() {
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         // }
                     } else {
+
+                        localStorage.setItem('cpaff_id',cpaff_latest_data.id);
+                        localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
                         $('.status').append(`
                         <tr>
-                            <td>CPA(Full-Fledged)</td>
+                            <td>PAPP ${is_renew}</td>
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
-                        `);
+                        `);                      
+                        if(cpaff_latest_data.type==0){
+                            // $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                        }
+                        else{
+                            // $('.status_history').append(`<a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                            $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_renewal}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
+                        }
                     }
 
                     if (data.papp.length !== 0) {
@@ -2064,10 +2081,10 @@ function saveGovDoneForm(id) {
 
 }
 function loadSchoolByDash(school_data) {
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    
     $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/getSchoolInfo/"+student.id,
+        url : BACKEND_URL+"/getSchoolInfo/"+school_data.student_info_id,
         success: function (result) {
             
             var school=result.data.pop();
@@ -2100,7 +2117,11 @@ function loadSchoolByDash(school_data) {
                         $('.sch_status').hide();
                     } else {
                         $('.sch_reject-btn').show();
-                        $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
+                        if(school.initial_status==0){
+                            $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
+                        }else if(school.initial_status==1){
+                            $('.sch-reject-p').append(`<a href='${FRONTEND_URL}/renew_school_edit' class="btn btn-success btn-hover-dark" > Update </a>`);
+                        }
                         $('.sch_status_history').append('School Registration is Rejected.');
     
                         $('.sch_reject-reason').append(school.reason);
@@ -2139,13 +2160,13 @@ function loadSchoolByDash(school_data) {
     });
     
 }
-function laodTeacherByDash(teacher) {
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
+function laodTeacherByDash(teacher_data) {
+    
     $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/getTeacher/"+student.id,
+        url : BACKEND_URL+"/getTeacher/"+teacher_data.student_info_id,
         success: function (result) {
-            
+        
         var teacher=result.data.pop();
         $('.teacher-title').text('Teacher Information')
         $('.teacher').show();
@@ -2194,46 +2215,4 @@ function laodTeacherByDash(teacher) {
     }
 });
 }
-function loadRenewTeacherDash(teacher){
-    
-    $('.teacher-title').text('Teacher Information')
-    $('.teacher').show();
-    $('.cpaff_other').hide();
-    $('.da-card').hide();
-    //localStorage.setItem("teacher_id", teacher.id);
-    $('#teacher_name_mm').text(teacher.name_mm);
-    $('#teacher_name_eng').text(teacher.name_eng);
-    $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
 
-    $("#teacher_email").text(teacher.email);
-    $('#teacher_phone').text(teacher.phone);
-    if (teacher.approve_reject_status == 0) {
-        $('.teacher_status_history').append('Teacher Registration is checking.');
-    } else if (teacher.approve_reject_status == 1) {
-        $('.teacher_status_history').append('Teacher Registration is Approved.');
-        $('.teacher_payment-btn').show();
-        $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
-        $('.teacher_payment-status').show();
-    } else {
-        $('.teacher_status_history').append('Teacher Registration is Rejected.');
-        $('.teacher_reject-btn').show();
-        $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
-        $('.teacher_reject-reason').append(teacher.reason);
-    }
-    if (teacher.payment_method != null) {
-        $('.teacher_period').show();
-        var now = new Date();
-        var period_date = teacher.payment_date.split(' ');
-        var new_period_date = period_date[0].split('-');
-        var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-        $('#teacher_period_time').text("01-01-"+now.getFullYear()+ " to 31-12-" + now.getFullYear());
-        $('.teacher_renew-btn').show();
-        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-        $('.teacher_payment-status').show();
-        $('.teacher_payment-btn').hide();
-        $(".teacher_payment_status").text("Complete");
-    }else{
-        $(".teacher_payment_status").text("Incomplete");
-    }
-    
-}

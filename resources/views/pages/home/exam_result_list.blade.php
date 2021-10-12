@@ -5,7 +5,8 @@
                     <div class="col-md-12 text-center">
                             <input type="hidden" id="course_code" name="course_code" value="{{$course['code']}}">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header shadow-sm p-3 mb-3 rounded" style="background-color:#EEFBF3;">
+
                                     <div class="row">
                                     <div class="col-md-12">
                                             <h5 class="text-center m-3"> {{$course['name_mm']}}သင်တန်း အမှတ်စဥ် - {{$course['active_batch'][0]['number'] }} စာ‌မေးပွဲ</h5>
