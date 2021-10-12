@@ -2140,10 +2140,10 @@ function loadSchoolByDash(school_data) {
     
 }
 function laodTeacherByDash(teacher) {
-    var student =JSON.parse(localStorage.getItem("studentinfo"));
+    
     $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/getTeacher/"+student.id,
+        url : BACKEND_URL+"/getTeacher/"+student_id,
         success: function (result) {
             
         var teacher=result.data.pop();
