@@ -42,6 +42,24 @@ function audit_reg_feedback(){
 //     $('#audit_form_pending').css('display','block');
 // }
 
+function addInputFileFirm(divname, diventry) {
+  var controlForm = $('.' + divname + ':first'),
+      currentEntry = $('.btn-add').parents('.' + diventry + ':first'),
+      newEntry = $(currentEntry.clone()).appendTo(controlForm);
+  newEntry.find('input').val('');
+  controlForm.find('.' + diventry + ':not(:last) .btn-add')
+      .removeClass('btn-add').addClass('btn-remove')
+      .removeClass('btn-primary').addClass('btn-danger')
+      .attr("onclick", "delInputFileFirm('" + diventry + "')")
+      .html('<li class="fa fa-times"></li>');
+
+
+}
+
+function delInputFileFirm(diventry){
+  $('.btn-remove').parents('.'+diventry+':first').remove();
+}
+
 function auditData(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
     if(student!=null){
@@ -101,11 +119,13 @@ function auditData(){
 
 function dateQuery(){
     var student =JSON.parse(localStorage.getItem("studentinfo"));
+    var student_id = student.id;
     if(student!=null){
       $.ajax({
         type: "GET",
-        url: BACKEND_URL+"/getDateRange/"+student.accountancy_firm_info_id,
+        url: BACKEND_URL+"/getDateRange/"+student_id,
         success: function (data){
+          //console.log("date_query >>>",data);
           if(data.type == 'renew'){
             $("#message").append("<span class='text-warning'>"+data.message+"</span>");
             $(".payment-btn").css('display','none');
@@ -141,35 +161,37 @@ function dateQuery(){
 function verifyStatus()
 {
     var student =JSON.parse(localStorage.getItem("studentinfo"));
+    var student_id = student.id;
     if(student!=null){
       $.ajax({
         type: "GET",
-        url: BACKEND_URL+"/checkVerify/"+student.accountancy_firm_info_id,
+        url: BACKEND_URL+"/checkVerify/"+student_id,
         success: function (data){
-            var status = data;
-            status.forEach(function(element){
-                if(element.verify_status == 1){
-                    $('#check_renew').css('display','none');
-                    $('#check_renew_nonaudit').css('display','none');
-                }else if(element.verify_status == 2){
-                    $('#check_renew').css('display','none');
-                    $('#check_renew_nonaudit').css('display','none');
-                }else{
-                    // if need to renew
-                    if(element.audit_firm_type_id == 1){
-                      // audit firm
-                      $('#check_renew').css('display','block');
-                      $('#check_renew_nonaudit').css('display','none');
-                    }
-                    else{
-                      // non-audit firm
-                      $('#check_renew').css('display','none');
-                      $('#check_renew_nonaudit').css('display','block');
-                    }
-                }
-            })
-        }
-    })
+          if(data.verify_status == 1){
+              $('#check_renew').css('display','none');
+              $('#check_renew_nonaudit').css('display','none');
+          }
+          else if(data.verify_status == 2){
+              $('#check_renew').css('display','none');
+              $('#check_renew_nonaudit').css('display','none');
+          }
+          else{
+              // if need to renew
+              if(data.audit_firm_type_id == 1){
+                // audit firm
+                $('#check_renew').css('display','block');
+                $('#check_renew_nonaudit').css('display','none');
+                $("#renew_btn").css('display','block');
+                $(".register-btn").css('display','none');
+              }
+              else{
+                // non-audit firm
+                $('#check_renew').css('display','none');
+                $('#check_renew_nonaudit').css('display','block');
+              }
+            }
+          }
+        })
     }
 }
 
@@ -186,10 +208,11 @@ function createAuditFirm(){
   send_data.append('profile_photo',profile_photo);
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('head_office_address',$("textarea[name=head_office_address]").val());
-  send_data.append('township',$("input[name=township]").val());
+  send_data.append('head_office_address_mm',$("textarea[name=head_office_address_mm]").val());
+  //send_data.append('township',$("input[name=township]").val());
   send_data.append('post_code',$("input[name=post_code]").val());
-  send_data.append('city',$("input[name=city]").val());
-  send_data.append('state',$("input[name=state]").val());
+  //send_data.append('city',$("input[name=city]").val());
+  //send_data.append('state',$("input[name=state]").val());
   send_data.append('phone_no',$("input[name=phone_no]").val());
   send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
@@ -393,33 +416,57 @@ function check_email_audit()
     }
 }
 
+function check_email_audit_renew(){
+  var text = localStorage.getItem('verify_code');
+  var obj = JSON.parse(text);
+  var verify_code = obj.data.verify_code;
+  var code = $("input[name=verify_code]").val();
+  if(verify_code != code){
+      successMessage("Your code is not correct.Please check your email inbox again!");
+      // $('#exampleModal').modal('show');
+      // $('#exampleModal1').modal('hide');
+      // $('#exampleModal').modal('show');
+  }else{
+      auditRenewSubscribe();
+      $('#auditFirmRenewModal').modal('hide');
+  }
+}
+
 function getAuditData(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
+  var student_id = student.id;
   $.ajax({
       type: "GET",
-      url: BACKEND_URL+"/getAuditStatus/"+student.accountancy_firm_info_id,
+      url: BACKEND_URL+"/get_audit_data_for_renew/"+student_id,
       success: function (data){
-        console.log("get >>",data);
-          var audit_data = data;
-          audit_data.forEach(function(element){
-            $('input[name=email]').val(student.email);
+        console.log("get audit >>",data);
+          var audit_data = data.data;
+          //console.log("ad >>",audit_data);
+          var other_data = data.other_data;
+          var student_data = data.student_infos;
+          //console.log("od >>",other_data);
 
-            $("#accountancy_firm_name").val(element.accountancy_firm_name);
-            $("#accountancy_firm_reg_no").val(element.accountancy_firm_reg_no);
-            $("#register_date").val(element.register_date);
-            $('#previewImg').attr("src",BASE_URL+element.image);
+          $('input[name=email]').val(student_data[0].email);
 
-            $('textarea[name=head_office_address]').val(element.head_office_address);
-            $('input[name=township]').val(element.township);
-            $('input[name=post_code]').val(element.postcode);
-            $('input[name=city]').val(element.city);
-            $('input[name=state]').val(element.state_region);
-            $('input[name=phone_no]').val(element.telephones);
-            $('input[name=h_email]').val(element.h_email);
-            $('input[name=website]').val(element.website);
-            $('input[name=name_sole_proprietor]').val(element.name_of_sole_proprietor);
-            $('input[name=declaration]').val(element.declaration);
+          $("#accountancy_firm_name").val(audit_data.accountancy_firm_name);
+          $("#accountancy_firm_reg_no").val(audit_data.accountancy_firm_reg_no);
+          $("#register_date").val(audit_data.register_date);
+          $('#previewImg').attr("src",BASE_URL+audit_data.image);
 
+          $('textarea[name=head_office_address]').val(audit_data.head_office_address);
+          $('textarea[name=head_office_address_mm]').val(audit_data.head_office_address_mm);
+          $('input[name=township]').val(audit_data.township);
+          $('input[name=post_code]').val(audit_data.postcode);
+          $('input[name=city]').val(audit_data.city);
+          $('input[name=state]').val(audit_data.state_region);
+          $('input[name=phone_no]').val(audit_data.telephones);
+          $('input[name=h_email]').val(audit_data.h_email);
+          $('input[name=website]').val(audit_data.website);
+          $('input[name=name_sole_proprietor]').val(audit_data.name_of_sole_proprietor);
+          $('input[name=declaration]').val(audit_data.declaration);
+
+
+          other_data.forEach(function(element){
             // Branch office
             var branch=element.branch_offices;
             branch.forEach(function(item){
@@ -455,40 +502,6 @@ function getAuditData(){
               $('#company').css('display','block');
 
             }
-
-            // Audit Firm file
-            // var audit_file=element.audit_firm_file;
-            // audit_file.forEach(function(item){
-            //   if(item.ppa_certificate!="null"){
-            //     removeBracketedAudit(item.ppa_certificate,"ppa_certis");
-            //
-            //   }else $(".ppa_certis").append("<span class='text-primary'>no file</span>");
-            //
-            //   if(item.letterhead!="null"){
-            //     removeBracketedAudit(item.letterhead,"letterheads");
-            //   }else $(".letterheads").append("<span class='text-primary'>no file</span>");
-            //
-            //   if(item.tax_clearance!="null"){
-            //     removeBracketedAudit(item.tax_clearance,"tax_clearances");
-            //   }else $(".tax_clearances").append("<span class='text-primary'>no file</span>");
-            //
-            //   if(item.tax_reg_certificate!="null"){
-            //     removeBracketedAudit(item.tax_reg_certificate,"tax_reg_certificate");
-            //   }else $(".tax_reg_certificate").append("<span class='text-primary'>no file</span>");
-            //
-            //   if(item.certi_or_reg!="null"){
-            //     removeBracketedAudit(item.certi_or_reg,"certi_or_regs");
-            //   }else $(".certi_or_regs").append("<span class='text-primary'>no file</span>");
-            //
-            //   if(item.deeds_memo!="null"){
-            //     removeBracketedAudit(item.deeds_memo,"deeds_memos");
-            //   }else $(".deeds_memos").append("<span class='text-primary'>no file</span>");
-            //
-            //   if(item.certificate_incor!="null"){
-            //     removeBracketedAudit(item.certificate_incor,"certificate_incors");
-            //   }else $(".certificate_incors").append("<span class='text-primary'>no file</span>");
-            //
-            // });
 
             // Sole Proprietor/Partners/Shareholders
             var firm_owner_audit=element.firm_owner_audits;
@@ -583,8 +596,8 @@ function getAuditData(){
             t_s_p_arr.forEach(function(item){
               $('input[name=t_s_p_id][value='+item+']').attr("checked", true);
             });
-
           });
+
       }
   })
 }
@@ -994,6 +1007,7 @@ function removeBracketedAudit(file,divname){
 function auditRenewSubscribe()
 {
   var student =JSON.parse(localStorage.getItem("studentinfo"));
+  var student_id = student.id;
   var send_data = new FormData();
 
   if($("input[name=profile_photo]")[0].files[0]){
@@ -1002,14 +1016,16 @@ function auditRenewSubscribe()
     send_data.append('profile_photo', $('#hidden_profile').val());
   }
   send_data.append('id',student.accountancy_firm_info_id);
+  send_data.append('student_id',student_id);
 
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
   send_data.append('head_office_address',$("textarea[name=head_office_address]").val());
-  send_data.append('township',$("input[name=township]").val());
+  send_data.append('head_office_address_mm',$("textarea[name=head_office_address_mm]").val());
+  //send_data.append('township',$("input[name=township]").val());
   send_data.append('post_code',$("input[name=post_code]").val());
-  send_data.append('city',$("input[name=city]").val());
-  send_data.append('state',$("input[name=state]").val());
+  //send_data.append('city',$("input[name=city]").val());
+  //send_data.append('state',$("input[name=state]").val());
   send_data.append('phone_no',$("input[name=phone_no]").val());
   send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
@@ -1144,7 +1160,7 @@ function auditRenewSubscribe()
     }
   });
 
-  //show_loader();
+  show_loader();
     $.ajax({
         url: BACKEND_URL+'/renew_subscribe',
         type: 'post',
@@ -1152,9 +1168,9 @@ function auditRenewSubscribe()
         contentType: false,
         processData: false,
         success: function (data) {
-          // EasyLoading.hide();
-          // successMessage("Your new subscription is success!");
-          // location.href = FRONTEND_URL+'/';
+          EasyLoading.hide();
+          successMessage("Your new subscription is success!");
+          location.href = FRONTEND_URL+'/';
         },
         error: function (result) {
         },

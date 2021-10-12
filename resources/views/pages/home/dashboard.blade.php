@@ -399,10 +399,18 @@
                                 </div>
                                 <div class="row  mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Head Office Address</p>
+                                        <p class="ml-2" style="font-weight:bold">Head Office Address(English)</p>
                                     </div>
                                     <div class="col-md-6">
                                         <span class="text-start" id="head_office"></span>
+                                    </div>
+                                </div>
+                                <div class="row  mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Head Office Address(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="text-start" id="head_office_mm"></span>
                                     </div>
                                 </div>
 
@@ -475,7 +483,7 @@
                         <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
                             <div class="form-group">
                                 <center>
-                                    <a href="{{ url('/audit_firm_renew') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
+                                    <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
                                 </center>
                             </div>
                         </div>
@@ -731,7 +739,7 @@
 
                                             <div class=" pull-right mt-4">
                                                 <p class="info-btn text-dark h6 sch-reject-p">
-                                                
+
                                                 </p>
                                             </div>
                                     </div>
@@ -967,7 +975,7 @@
 
 
             </div>
-            
+
         </div>
     </div>
 <!-- update profile -->
@@ -1240,6 +1248,7 @@
         verifyStatus();
         //checkPaymentAudit();
         audit_reg_feedback();
+        firmDashboardData();
     })
     //app_form_feedback();
 

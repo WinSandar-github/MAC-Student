@@ -1,3 +1,4 @@
+
 function user_profile() {
 
     show_loader();
@@ -8,80 +9,80 @@ function user_profile() {
             EasyLoading.hide();
             let data = result.data;
             if (data.accountancy_firm_info_id) {
-                $('.title').text('Accountancy Firm')
-                $('.acc_firm').show();
-                $('.cpaff_other').hide();
-                let acc_firm = data.accountancy_firm;
-                let firm_ownerships_audits = data.firm_ownerships_audits;
-
-                $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
-                $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
-                $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
-                    + " City, " + acc_firm.state_region + " State,");
-                $(".email").text(acc_firm.h_email);
-                $('.phone').text(acc_firm.telephones);
-                console.log(">>>>",acc_firm);
-                if (acc_firm.status == 2) {
-                    $('#reject_remark_box').css("display", "block");
-                    $('.reject_remark').text(acc_firm.remark);
-                }
-
-                if (acc_firm.audit_firm_type_id == 1) {
-                    // if audit firm type
-                    if (firm_ownerships_audits != '') {
-
-                        // show name and public practice reg no who selected Yes
-                        firm_ownerships_audits.forEach(function (item) {
-                            if (item.authority_to_sign == 1) {
-                                $("#info_for_audit").css("display", "block");
-                                var tr = "<tr>";
-                                tr += "<td>" + item.name + "</td>";
-                                tr += "<td >" + item.public_private_reg_no + "</td>";
-                                tr += "</tr>";
-                                $(".pub_pra_reg_no_and_name_tbody").append(tr);
-                            }
-                        });
-                    }
-
-                    if (acc_firm.status == 0) {
-                        $('.status_history').append('<span class="text-warning">Your Audit Firm Form is checking.</span>');
-                    } else if (acc_firm.status == 1) {
-                        $('.status_history').append('<span class="text-success">Your Audit Firm Form is Approved.</span>');
-                    } else {
-                        $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
-                        $('#reject_register_btn_audit').css("display","block");
-                    }
-                }
-                else {
-                    //if non-audit firm type
-                    $("#info_for_non_audit").css("display", "block");
-                    $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
-                    $('.passport_csc_no').text(acc_firm.dir_passport_csc);
-
-                    if (acc_firm.status == 0) {
-                        $('.status_history').append('<span class="text-warning">Your Non-Audit Firm Form is checking.</span>');
-                    } else if (acc_firm.status == 1) {
-                        $('.status_history').append('<span class="text-success">Your Non-Audit Firm Form is Approved.</span>');
-                    } else {
-                        $('.status_history').append('<span class="text-danger">Your Non-Audit Firm Form is Rejected.</span>');
-                        $('#reject_register_btn_non_audit').css("display","block");
-                    }
-                }
+                // $('.title').text('Accountancy Firm')
+                // $('.acc_firm').show();
+                // $('.cpaff_other').hide();
+                // let acc_firm = data.accountancy_firm;
+                // let firm_ownerships_audits = data.firm_ownerships_audits;
+                //
+                // $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
+                // $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
+                // $("#head_office").text(acc_firm.township + " Township," + acc_firm.city
+                //     + " City, " + acc_firm.state_region + " State,");
+                // $(".email").text(acc_firm.h_email);
+                // $('.phone').text(acc_firm.telephones);
+                //
+                // if (acc_firm.status == 2) {
+                //     $('#reject_remark_box').css("display", "block");
+                //     $('.reject_remark').text(acc_firm.remark);
+                // }
+                //
+                // if (acc_firm.audit_firm_type_id == 1) {
+                //     // if audit firm type
+                //     if (firm_ownerships_audits != '') {
+                //
+                //         // show name and public practice reg no who selected Yes
+                //         firm_ownerships_audits.forEach(function (item) {
+                //             if (item.authority_to_sign == 1) {
+                //                 $("#info_for_audit").css("display", "block");
+                //                 var tr = "<tr>";
+                //                 tr += "<td>" + item.name + "</td>";
+                //                 tr += "<td >" + item.public_private_reg_no + "</td>";
+                //                 tr += "</tr>";
+                //                 $(".pub_pra_reg_no_and_name_tbody").append(tr);
+                //             }
+                //         });
+                //     }
+                //
+                //     if (acc_firm.status == 0) {
+                //         $('.status_history').append('<span class="text-warning">Your Audit Firm Form is checking.</span>');
+                //     } else if (acc_firm.status == 1) {
+                //         $('.status_history').append('<span class="text-success">Your Audit Firm Form is Approved.</span>');
+                //     } else {
+                //         $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
+                //         $('#reject_register_btn_audit').css("display","block");
+                //     }
+                // }
+                // else {
+                //     //if non-audit firm type
+                //     $("#info_for_non_audit").css("display", "block");
+                //     $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
+                //     $('.passport_csc_no').text(acc_firm.dir_passport_csc);
+                //
+                //     if (acc_firm.status == 0) {
+                //         $('.status_history').append('<span class="text-warning">Your Non-Audit Firm Form is checking.</span>');
+                //     } else if (acc_firm.status == 1) {
+                //         $('.status_history').append('<span class="text-success">Your Non-Audit Firm Form is Approved.</span>');
+                //     } else {
+                //         $('.status_history').append('<span class="text-danger">Your Non-Audit Firm Form is Rejected.</span>');
+                //         $('#reject_register_btn_non_audit').css("display","block");
+                //     }
+                // }
 
 
             } else if (data.school && data.teacher == null) {
                 $('.dashboard_name').append('School ');
                 loadSchoolByDash(data.school);
-                
+
             }else if (data.teacher && data.school==null && data.teacher_renew.length==0) {
                 $('.dashboard_name').append('Teacher ');
                 laodTeacherByDash(data.teacher);
-                
+
             }else if (data.teacher_renew && data.teacher) {
                 $('.dashboard_name').append('Teacher ');
                 loadRenewTeacherDash(data.teacher_renew.pop());
-                
-            }  
+
+            }
             else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
@@ -2121,10 +2122,10 @@ function laodTeacherByDash(teacher) {
     } else {
         $(".teacher_payment_status").text("Incomplete");
     }
-    
+
 }
 function loadRenewTeacherDash(teacher){
-    
+
     $('.teacher-title').text('Teacher Information')
     $('.teacher').show();
     $('.cpaff_other').hide();
@@ -2164,5 +2165,85 @@ function loadRenewTeacherDash(teacher){
     }else{
         $(".teacher_payment_status").text("Incomplete");
     }
-    
+
+}
+
+function firmDashboardData(){
+  show_loader();
+  $.ajax({
+      url: BACKEND_URL + "/get_firm_dashboard_data/" + student_id,
+      type: 'get',
+      success: function (result) {
+          EasyLoading.hide();
+          console.log("result >>>",result);
+          let data = result.data;
+          //let accountancy_firm = result.data.accountancy_firm.slice(-1);
+          if (data.accountancy_firm_info_id) {
+              $('.title').text('Accountancy Firm')
+              $('.acc_firm').show();
+              $('.cpaff_other').hide();
+              let acc_firm = data.accountancy_firm.slice(-1);
+              //console.log("acc firm >>",acc_firm);
+              let firm_ownerships_audits = result.firm_ownerships_audits;
+              //console.log("firm_ownerships_audits >>",firm_ownerships_audits);
+              acc_firm.forEach(function(acc_firm){
+                $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
+                $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
+                $("#head_office").text(acc_firm.head_office_address);
+                $("#head_office_mm").text(acc_firm.head_office_address_mm);
+                $(".email").text(acc_firm.h_email);
+                $('.phone').text(acc_firm.telephones);
+
+                if (acc_firm.status == 2) {
+                    $('#reject_remark_box').css("display", "block");
+                    $('.reject_remark').text(acc_firm.remark);
+                }
+
+                if (acc_firm.audit_firm_type_id == 1) {
+                    // if audit firm type
+                    if (firm_ownerships_audits != '') {
+                        // show name and public practice reg no who selected Yes
+                        firm_ownerships_audits.forEach(function (item) {
+                            if (item.authority_to_sign == 1) {
+                                $("#info_for_audit").css("display", "block");
+                                var tr = "<tr>";
+                                tr += "<td>" + item.name + "</td>";
+                                tr += "<td >" + item.public_private_reg_no + "</td>";
+                                tr += "</tr>";
+                                $(".pub_pra_reg_no_and_name_tbody").append(tr);
+                            }
+                        });
+                    }
+
+                    if (acc_firm.status == 0) {
+                        $('.status_history').append('<span class="text-warning">Your Audit Firm Form is checking.</span>');
+                    } else if (acc_firm.status == 1) {
+                        $('.status_history').append('<span class="text-success">Your Audit Firm Form is Approved.</span>');
+                    } else {
+                        $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
+                        $('#reject_register_btn_audit').css("display","block");
+                    }
+                }
+                else {
+                    //if non-audit firm type
+                    $("#info_for_non_audit").css("display", "block");
+                    $('.managing_dir_name').text(acc_firm.name_of_sole_proprietor);
+                    $('.passport_csc_no').text(acc_firm.dir_passport_csc);
+
+                    if (acc_firm.status == 0) {
+                        $('.status_history').append('<span class="text-warning">Your Non-Audit Firm Form is checking.</span>');
+                    } else if (acc_firm.status == 1) {
+                        $('.status_history').append('<span class="text-success">Your Non-Audit Firm Form is Approved.</span>');
+                    } else {
+                        $('.status_history').append('<span class="text-danger">Your Non-Audit Firm Form is Rejected.</span>');
+                        $('#reject_register_btn_non_audit').css("display","block");
+                    }
+                }
+              });
+
+
+          }
+
+      }
+  });
 }

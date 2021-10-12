@@ -264,6 +264,19 @@
                                         </div>
                                     </div>
 
+																		<div id="renew_btn" style="display:none;">
+																			<div class="row">
+	                                        <div class="col-md-6"></div>
+	                                        <div class="col-md-6">
+	                                            <div class="pull-right mt-4">
+	                                                <p class="info-btn col-md-2 mb-4 text-dark h6">
+	                                                    <a href="{{url('audit_firm_renew')}}" class="btn btn-success btn-hover-dark" >Renew</a>
+	                                                </p>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+																		</div>
+
 				                            {{--<div class="row payment-btn" style="display:none;">
 				                                <div class="col-md-6"></div>
 				                                <div class="">
@@ -360,7 +373,7 @@
         //checkPaymentAudit();
         auditData();
         //dateQuery();
-        //verifyStatus();
+        verifyStatus();
     })
     //app_form_feedback();
 

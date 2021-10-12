@@ -195,26 +195,18 @@
                                             <div class="row mb-3">
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
                                               <div class="col-md-8">
-                                                  <textarea name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                                  <textarea name="head_office_address" class="form-control" placeholder="Head Office Address(English)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                               </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-md-2 offset-md-4">
-                                                    <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" >
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" >
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" >
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" >
-                                                </div>
+                                              <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
+                                              <div class="col-md-8">
+                                                  <textarea name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                              </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <div class="col-md-4 col-form-label"></div>
                                                 <div class="col-md-2">
                                                     <input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" >
@@ -222,9 +214,25 @@
                                                 <div class="col-md-3">
                                                     <input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" >
                                                 </div>
+
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                {{--<div class="col-md-2 offset-md-4">
+                                                    <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" >
+                                                </div>--}}
+                                                <div class="col-md-2 offset-md-4">
+                                                    <input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" >
+                                                </div>
                                                 <div class="col-md-3">
                                                     <input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" >
                                                 </div>
+                                                {{--<div class="col-md-2">
+                                                    <input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" >
+                                                </div>--}}
+                                                {{--<div class="col-md-2">
+                                                    <input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" >
+                                                </div>--}}
                                             </div>
 
                                             <div class="row">
@@ -296,11 +304,11 @@
                                                                         <div class="entry1">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="ppa_certis[]">
+                                                                                    <input type="file" class="form-control" name="ppa_certis[]" required>
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button type="button" class="btn btn-success btn-add btn-sm custom-btn" onclick='addInputFile("controls1","entry1")'>
+                                                                                    <button type="button" class="btn btn-success btn-add btn-sm custom-btn" onclick='addInputFileFirm("controls1","entry1")'>
                                                                                       <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -317,10 +325,10 @@
                                                                         <div class="entry2">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="letterheads[]">
+                                                                                    <input type="file" class="form-control" name="letterheads[]" required>
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls2","entry2")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls2","entry2")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -337,10 +345,10 @@
                                                                         <div class="entry3">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="tax_clearances[]">
+                                                                                    <input type="file" class="form-control" name="tax_clearances[]" required>
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls3","entry3")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls3","entry3")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -360,7 +368,7 @@
                                                                                     <input type="file" class="form-control" name="representatives[]">
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls4","entry4")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls4","entry4")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -394,11 +402,11 @@
                                                                         <div class="entry9">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="ppa_certis[]">
+                                                                                    <input type="file" class="form-control" name="ppa_certis[]" required>
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls9","entry9")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls9","entry9")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -416,11 +424,11 @@
                                                                         <div class="entry10">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="certi_or_regs[]">
+                                                                                    <input type="file" class="form-control" name="certi_or_regs[]" >
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls10","entry10")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls10","entry10")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -442,7 +450,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls11","entry11")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls11","entry11")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -464,7 +472,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls12","entry12")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls12","entry12")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -486,7 +494,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls13","entry13")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls13","entry13")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -508,7 +516,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls14","entry14")'>
+                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls14","entry14")'>
                                                                                         <i class="fa fa-plus"></i>
                                                                                     </button>
                                                                                 </div>
@@ -542,11 +550,10 @@
                                                                         <div class="entry19">
                                                                             <div class="row mb-3">
                                                                                 <div class="col-md-11 col-auto">
-                                                                                    <input type="file" class="form-control" name="ppa_certis[]">
-
+                                                                                    <input type="file" class="form-control" name="ppa_certis[]" required>
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls19","entry19")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls19","entry19")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -569,7 +576,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls20","entry20")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls20","entry20")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -591,7 +598,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls21","entry21")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls21","entry21")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -613,7 +620,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls22","entry22")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls22","entry22")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -635,7 +642,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls23","entry23")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls23","entry23")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -657,7 +664,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls24","entry24")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls24","entry24")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -679,7 +686,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls25","entry25")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls25","entry25")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -701,7 +708,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>
+                                                                                    <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls26","entry26")'>
                                                                                         <li class="fa fa-plus"></li>
                                                                                     </button>
                                                                                 </div>
@@ -723,7 +730,7 @@
 
                                                                                 </div>
                                                                                 <div class="col-md-1 col-auto">
-                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls27","entry27")'>
+                                                                                    <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls27","entry27")'>
                                                                                         <i class="fa fa-plus"></i>
                                                                                     </button>
                                                                                 </div>
