@@ -430,8 +430,8 @@ function loadPappData()
         data:"",
         success: function(data){
             var papp_data = data.data;
-            console.log('papp_data',papp_data)
-            $('#reg_no').val(papp_data.cpa_batch_no);
+            console.log('papp_data',data)
+            //$('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
