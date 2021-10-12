@@ -116,7 +116,7 @@ function user_profile() {
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
-                    $('.status_history').append(`<a href="${cpaff_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
+                    $('.status_history').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                 }
                 // console.log(data.papp)
                 if (data.papp && data.student_course_regs == '') {
@@ -329,6 +329,7 @@ function user_profile() {
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         // }
                     } else {
+                        var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                         $('.status').append(`
                         <tr>
                             <td>CPA(Full-Fledged)</td>
@@ -337,6 +338,8 @@ function user_profile() {
                             <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
                         `);
+                        $('.status').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
+                        $('.status').append(`<a href="${cpaff_reject_url}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
 
                     if (data.papp.length !== 0) {
