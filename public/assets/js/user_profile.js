@@ -454,6 +454,7 @@ function user_profile() {
                                 $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Renew Form</a></td></tr>`);
                             }
                         } else {
+                            // $('.papp_btn').css('display', 'none');
                             localStorage.setItem('papp_id',papp_latest_data.id);
                             localStorage.setItem('reject_reason',papp_latest_data.reject_description);
                             $('.status').append(`
