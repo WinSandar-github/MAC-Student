@@ -56,7 +56,7 @@ function CPA2_Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_private]")[0].files[0];
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
@@ -115,7 +115,7 @@ function CPA2_Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_mac]")[0].files[0];
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
@@ -174,7 +174,7 @@ function CPA2_Self_Study_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_self]")[0].files[0];
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
