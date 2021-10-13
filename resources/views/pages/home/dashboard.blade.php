@@ -725,8 +725,8 @@
                             <div class="card-header school-title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
                             <div class="card-body">
                                 <div class="row">
-
-                                    <div class="col-md-8 offset-md-2">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-8">
                                         <div class="row m-2 mt-3 border-bottom">
                                             <div class="col-md-6">
                                                 <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
@@ -781,9 +781,24 @@
                                         </div>
 
                                     </div>
-
+                                    <div class="col-md-3">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#pwModalTeacher">{{ __('Change Password') }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#profileModelSchool" id="">{{ __('Update Profile') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
+                                
                                 <div class="row my-2 sch_status">
 
 
@@ -872,7 +887,8 @@
                             <div class="card-header teacher-title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-8 offset-md-2">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-8">
                                         <div class="row m-2 mt-3 border-bottom">
                                             <div class="col-md-6">
                                                 <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
@@ -920,7 +936,22 @@
                                         </div>
 
                                     </div>
-
+                                    <div class="col-md-3">
+                                        <div class="row m-2 mt-3 border-bottom teacher_pw">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#pwModalTeacher">{{ __('Change Password') }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#profileModelTeacher" id="">{{ __('Update Profile') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row my-2">
@@ -1333,6 +1364,250 @@
         </div>
     </div>
 </form>
+<!--change pw school and teacher-->
+<div class="modal fade" id="pwModalTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 600px !important">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="changePwd" enctype="multipart/form-data" action="javascript:void(0);">
+                @csrf
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <label for="" class="col-md-4 col-form-label">Enter Your Old Password</label>
+                            <div class="col-md-8">
+                                <input type="password" placeholder="Enter your old Password!" name="old_password"
+                                    class="form-control" id="old_pwd" value="{{ old('password') }}" required="">
+                                <p id="old_err_meg" class="mt-2 text-danger "></p>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <label for="" class="col-md-4 col-form-label">Password</label>
+                            <div class="col-md-8">
+                                <input type="password" placeholder="Enter your new Password!" name="password"
+                                    class="form-control" value="{{ old('password') }}" required="">
+                            </div>
+
+                        </div>
+                        <br>
+
+
+                        <div class="row">
+
+                            <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                            <div class="col-md-8">
+                                <input type="password" placeholder="Enter your new Password again!"
+                                    name="confirm_password" class=" form-control" required="">
+                                <p class="text-center mt-3  text-danger" id="err_message"></p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- update profile school-->
+<div class="modal fade" id="profileModelSchool" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="javascript:updateProfileSchool();" enctype="multipart/form-data" id="school_update_form">
+                @csrf
+                <input type="hidden" id="school_id">
+                <input type="hidden" id="old_school_profile_photo">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">Email</label>
+                                    <div class="col-md-8">
+                                        <input type="email" name="sch_update_email"
+                                            class="form-control" id="sch_update_email" readonly>
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text"  name="sch_update_phone" id="sch_update_phone"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)</label>
+                                    <div class="col-md-8">
+                                        <textarea type="text"  name="sch_update_address" id="sch_update_address"
+                                            class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)</label>
+                                    <div class="col-md-8">
+                                        <textarea type="text"  name="sch_update_eng_address" id="sch_update_eng_address"
+                                            class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="col-md-10 ">
+                                    <div class="fileinput fileinput-new " data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail">
+                                                                <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewSchoolImg"
+                                                                    alt="Upload Photo">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                            <div class="d-flex justify-content-center">
+                                                                <span class="btn btn-round btn-secondary btn-file">
+                                                                <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" id="school_profile_photo" name="school_profile_photo" accept="image/*" required></span>
+                                                                <br>
+                                                                <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                            </div>
+                                                            <p >
+                                                                <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
+                                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- update profile teacher-->
+
+    <div class="modal fade" id="profileModelTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="javascript:updateProfileTeacher();" enctype="multipart/form-data" id="teacher_update_form">
+                    @csrf
+                    <input type="hidden" id="teacher_id">
+                    <input type="hidden" id="old_profile_photo">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8">
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">Email</label>
+                                        <div class="col-md-8">
+                                            <input type="email" name="teacher_update_email"
+                                                class="form-control" id="teacher_update_email" readonly>
+                                            @if ($errors->has('email'))
+                                                <span class="text-danger">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ဖုန်းနံပါတ်" name="teacher_update_phone" id="teacher_update_phone"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" name="teacher_update_address" id="teacher_update_address"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" name="teacher_update_eng_address" id="teacher_update_eng_address"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="col-md-10 ">
+                                        <div class="fileinput fileinput-new pull-right" data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail">
+                                                                <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewTeacherImg"
+                                                                    alt="Upload Photo">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                            <div class="d-flex justify-content-center">
+                                                                <span class="btn btn-round btn-secondary btn-file">
+                                                                <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                                <br>
+                                                                <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                            </div>
+                                                            <p >
+                                                                <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
+                                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 @push('scripts')
 <script type="text/javascript">

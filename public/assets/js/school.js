@@ -307,7 +307,7 @@ function getCourses(){
           $.each(response.data,function(i,v){
               var newcode=(v.code).split('_');
               var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
-              console.log(result+":"+result.numeral);
+              console.log(result.numeral);
               var course_code=result.numeral;
               
               opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;

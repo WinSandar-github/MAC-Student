@@ -87,6 +87,7 @@ function user_profile() {
 
             }else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
+                $('.teacher_pw').hide();
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
 
@@ -2150,6 +2151,13 @@ function loadSchoolByDash(school_data) {
                 $("#sch_nrc").text(school.nrc_state_region + "/" + school.nrc_township + "(" + school.nrc_citizen + ")" + school.nrc_number);
                 $("#sch_date_of_birth").text(school.date_of_birth);
                 $("#sch_email").text(school.email);
+                $("#sch_update_email").val(school.email);
+                $("#sch_update_phone").val(school.phone);
+                $("#sch_update_address").val(school.address);
+                $("#sch_update_eng_address").val(school.eng_address);
+                $('#school_id').val(school.id);
+                $('#old_school_profile_photo').val(school.profile_photo);
+                $('#previewSchoolImg').attr("src",BASE_URL+school.profile_photo);
                 $('#sch_phone').text(school.phone);
                 if (school.approve_reject_status == 0) {
                     $('.sch_status_history').append('School Registration is checking.');
@@ -2227,7 +2235,13 @@ function laodTeacherByDash(teacher_data) {
         $('#teacher_name_mm').text(teacher.name_mm);
         $('#teacher_name_eng').text(teacher.name_eng);
         $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-
+        $('#teacher_update_email').val(teacher.email);
+        $('#teacher_update_phone').val(teacher.phone);
+        $('#teacher_update_address').val(teacher.current_address);
+        $('#teacher_update_eng_address').val(teacher.eng_current_address);
+        $('#teacher_id').val(teacher.id);
+        $('#old_profile_photo').val(teacher.image);
+        $('#previewTeacherImg').attr("src",BASE_URL+teacher.image);
         $("#teacher_email").text(teacher.email);
         $('#teacher_phone').text(teacher.phone);
         if (teacher.approve_reject_status == 0) {
@@ -2266,49 +2280,7 @@ function laodTeacherByDash(teacher_data) {
     }
 });
 }
-function loadRenewTeacherDash(teacher){
 
-    $('.teacher-title').text('Teacher Information')
-    $('.teacher').show();
-    $('.cpaff_other').hide();
-    $('.da-card').hide();
-    //localStorage.setItem("teacher_id", teacher.id);
-    $('#teacher_name_mm').text(teacher.name_mm);
-    $('#teacher_name_eng').text(teacher.name_eng);
-    $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-
-    $("#teacher_email").text(teacher.email);
-    $('#teacher_phone').text(teacher.phone);
-    if (teacher.approve_reject_status == 0) {
-        $('.teacher_status_history').append('Teacher Registration is checking.');
-    } else if (teacher.approve_reject_status == 1) {
-        $('.teacher_status_history').append('Teacher Registration is Approved.');
-        $('.teacher_payment-btn').show();
-        $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
-        $('.teacher_payment-status').show();
-    } else {
-        $('.teacher_status_history').append('Teacher Registration is Rejected.');
-        $('.teacher_reject-btn').show();
-        $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
-        $('.teacher_reject-reason').append(teacher.reason);
-    }
-    if (teacher.payment_method != null) {
-        $('.teacher_period').show();
-        var now = new Date();
-        var period_date = teacher.payment_date.split(' ');
-        var new_period_date = period_date[0].split('-');
-        var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-        $('#teacher_period_time').text("01-01-"+now.getFullYear()+ " to 31-12-" + now.getFullYear());
-        $('.teacher_renew-btn').show();
-        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-        $('.teacher_payment-status').show();
-        $('.teacher_payment-btn').hide();
-        $(".teacher_payment_status").text("Complete");
-    }else{
-        $(".teacher_payment_status").text("Incomplete");
-    }
-
-}
 
 function firmDashboardData(){
   show_loader();
@@ -2389,4 +2361,52 @@ function firmDashboardData(){
 
       }
   });
+}
+function updateProfileTeacher(){
+    var formData = new FormData($("#teacher_update_form" )[0]);
+    
+    var teacher_id=$('#teacher_id').val();
+    formData.append('old_profile_photo',$('#old_profile_photo').val());
+    formData.append('phone',$('#teacher_update_phone').val());
+    formData.append('address',$("#teacher_update_address").val());
+    formData.append('eng_address',$("#teacher_update_eng_address").val());
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/updateProfileTeacher/" + teacher_id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileModelTeacher').modal('hide');
+            location.href = '/';
+        }
+    });
+}
+function updateProfileSchool(){
+    var formData = new FormData($("#school_update_form" )[0]);
+    
+    var school_id=$('#school_id').val();
+    formData.append('old_school_profile_photo',$('#old_school_profile_photo').val());
+    formData.append('phone',$('#sch_update_phone').val());
+    formData.append('address',$("#sch_update_address").val());
+    formData.append('eng_address',$("#sch_update_eng_address").val());
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/updateProfileSchool/" + school_id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileModelSchool').modal('hide');
+            location.href = '/';
+        }
+    });
 }
