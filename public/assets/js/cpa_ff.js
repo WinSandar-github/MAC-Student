@@ -13,7 +13,7 @@ function CheckPartTwo() {
     var qt_pass = document.getElementById("qt_pass_check");
     if (cpa_part_2.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', false);
-        $("input[name=reg_no]").prop('disabled', false);
+        $("input[name=cpa_batch_no]").prop('disabled', false);
         $("input[name=country]").prop('disabled', true);
         $("input[name=government]").prop('disabled', true);
         $("input[name=roll_no]").prop('disabled', true);
@@ -27,7 +27,7 @@ function CheckPartTwo() {
     }
     else if (qt_pass.checked == true) {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
-        $("input[name=reg_no]").prop('disabled', true);
+        $("input[name=cpa_batch_no]").prop('disabled', true);
         $("input[name=country]").prop('disabled', false);
         $("input[name=government]").prop('disabled', false);
         $("input[name=roll_no]").prop('disabled', false);
@@ -35,16 +35,16 @@ function CheckPartTwo() {
         $("input[name=exam_year]").prop('disabled', false);
         $("input[name=exam_month]").prop('disabled', false);
         $("input[name=cpa2_pass_date]").val('');
-        $("input[name=reg_no]").val('');
+        $("input[name=cpa_batch_no]").val('');
     }
     else {
         $("input[name=cpa2_pass_date]").prop('disabled', true);
-        $("input[name=reg_no]").prop('disabled', true);
+        $("input[name=cpa_batch_no]").prop('disabled', true);
         $("input[name=country]").prop('disabled', true);
         $("input[name=government]").prop('disabled', true);
         $("input[name=roll_no]").prop('disabled', true);
         $("input[name=cpa2_pass_date]").val('');
-        $("input[name=reg_no]").val('');
+        $("input[name=cpa_batch_no]").val('');
         $("input[name=country]").val('');
         $("input[name=government]").val('');
         $("input[name=roll_no]").val('');
@@ -599,7 +599,7 @@ function createCPAFFRegister() {
     send_data.append('form_type', $("input[name=form_type]").val());
     // send_data.append('cpa_certificate_back', cpa_certificate_back);
     send_data.append('cpa2_pass_date', $("input[name=cpa2_pass_date]").val());
-    send_data.append('reg_no', $("input[name=reg_no]").val());
+    // send_data.append('reg_no', $("input[name=reg_no]").val());
     send_data.append('country', $("input[name=country]").val());
     send_data.append('government', $("input[name=government]").val());
     send_data.append('exam_year', $("input[name=exam_year]").val());

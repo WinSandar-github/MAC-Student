@@ -555,7 +555,7 @@
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
@@ -819,7 +819,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no"readonly="">
+                                        <input type="text" class="form-control" name="reg_no" id="reg_no">
                                     </div>
                                 </div><br/><br>
 

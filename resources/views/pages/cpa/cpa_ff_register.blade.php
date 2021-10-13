@@ -313,7 +313,7 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpersonal_no" id="cpersonal_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
                                 {{--<div class="pass_batch_two" style="display:none">
                                     <div class="row mb-3">
