@@ -610,6 +610,7 @@ function getAuditData(){
   })
 }
 
+// reject_update
 function getAuditDataForRejectUpdate(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
   var student_id = student.id;
@@ -640,7 +641,6 @@ function getAuditDataForRejectUpdate(){
           $('input[name=website]').val(audit_data.website);
           $('input[name=name_sole_proprietor]').val(audit_data.name_of_sole_proprietor);
           $('input[name=declaration]').val(audit_data.declaration);
-
 
           other_data.forEach(function(element){
             // Branch office
@@ -772,7 +772,100 @@ function getAuditDataForRejectUpdate(){
             t_s_p_arr.forEach(function(item){
               $('input[name=t_s_p_id][value='+item+']').attr("checked", true);
             });
+
+            var audit_firm_file = element.audit_firm_file;
+
+            // audit_firm_file.forEach(function(item){
+            //   if(element.organization_structure_id == 1){
+            //     if(item.ppa_certificate!="null"){
+            //       removeBracketedAudit(item.ppa_certificate,"public_practice_acc_certi");
+            //
+            //     }else $(".public_practice_acc_certi").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.letterhead!="null"){
+            //       removeBracketedAudit(item.letterhead,"stationery_letterhead");
+            //
+            //     }else $(".stationery_letterhead").append("<span class='text-primary'>no file</span>");
+            //
+            //
+            //     if(item.tax_clearance!="null"){
+            //       console.log("tax");
+            //       removeBracketedAudit(item.tax_clearance,"tax_clearances");
+            //
+            //     }else $(".tax_clearances").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.certificate_incor!="null"){
+            //       removeBracketedAudit(item.certificate_incor,"representatives");
+            //
+            //     }else $(".representatives").append("<span class='text-primary'>no file</span>");
+            //   }
+            //   if(element.organization_structure_id == 2){
+            //     if(item.ppa_certificate!="null"){
+            //       removeBracketedAudit(item.ppa_certificate,"ppa_certis_partnership");
+            //
+            //     }else $(".ppa_certis_partnership").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.certi_or_reg!="null"){
+            //       removeBracketedAudit(item.certi_or_reg,"certi_or_regs_partnership");
+            //
+            //     }else $(".certi_or_regs_partnership").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.deeds_memo!="null"){
+            //       removeBracketedAudit(item.deeds_memo,"deeds_memos_partnership");
+            //
+            //     }else $(".deeds_memos_partnership").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.letterhead!="null"){
+            //       removeBracketedAudit(item.letterhead,"letterheads_partnership");
+            //
+            //     }else $(".letterheads_partnership").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.tax_clearance!="null"){
+            //       removeBracketedAudit(item.tax_clearance,"tax_clearances_partnership");
+            //
+            //     }else $(".tax_clearances_partnership").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.certificate_incor!="null"){
+            //       removeBracketedAudit(item.certificate_incor,"representatives_partnership");
+            //
+            //     }else $(".representatives_partnership").append("<span class='text-primary'>no file</span>");
+            //   }
+            //   if(element.organization_structure_id == 3){
+            //     if(item.ppa_certificate!="null"){
+            //       removeBracketedAudit(item.ppa_certificate,"ppa_certis_company");
+            //
+            //     }else $(".ppa_certis_company").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.certificate_incor!="null"){
+            //       removeBracketedAudit(item.certificate_incor,"certificate_incors_company");
+            //
+            //     }else $(".certificate_incors_company").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.deeds_memo!="null"){
+            //       removeBracketedAudit(item.deeds_memo,"memorandums_company");
+            //
+            //     }else $(".memorandums_company").append("<span class='text-primary'>no file</span>");
+            //
+            //
+            //     if(item.tax_reg_certificate!="null"){
+            //       removeBracketedAudit(item.tax_reg_certificate,"comercial_tax_reg");
+            //
+            //     }else $(".comercial_tax_reg").append("<span class='text-primary'>no file</span>");
+            //
+            //     if(item.letterhead!="null"){
+            //       removeBracketedAudit(item.letterhead,"stationery_letterhead_company");
+            //
+            //     }else $(".stationery_letterhead_company").append("<span class='text-primary'>no file</span>");
+            //
+            //
+            //     if(item.tax_clearance!="null"){
+            //       removeBracketedAudit(item.tax_clearance,"tax_clearance_company");
+            //
+            //     }else $(".tax_clearance_company").append("<span class='text-primary'>no file</span>");
+            //   }
+            // });
           });
+
 
       }
   })
@@ -780,7 +873,7 @@ function getAuditDataForRejectUpdate(){
 
 function auditRejectUpdate(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
-  var student_id = student.accountancy_firm_info_id;
+  var firm_id = student.accountancy_firm_info_id;
 
   var send_data=new FormData();
   // send_data.append('accountancy_firm_reg_no',$("input[name=accountancy_firm_reg_no]").val());
@@ -788,10 +881,11 @@ function auditRejectUpdate(){
   send_data.append('profile_photo',profile_photo);
   send_data.append('accountancy_firm_name',$("input[name=accountancy_firm_name]").val());
   send_data.append('head_office_address',$("textarea[name=head_office_address]").val());
-  send_data.append('township',$("input[name=township]").val());
+  send_data.append('head_office_address_mm',$("textarea[name=head_office_address_mm]").val());
+  //send_data.append('township',$("input[name=township]").val());
   send_data.append('post_code',$("input[name=post_code]").val());
-  send_data.append('city',$("input[name=city]").val());
-  send_data.append('state',$("input[name=state]").val());
+  //send_data.append('city',$("input[name=city]").val());
+  //send_data.append('state',$("input[name=state]").val());
   send_data.append('phone_no',$("input[name=phone_no]").val());
   send_data.append('h_email',$("input[name=h_email]").val());
   send_data.append('website',$("input[name=website]").val());
@@ -808,10 +902,8 @@ function auditRejectUpdate(){
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
 
-  send_data.append('email',$("input[name=email]").val());
-  send_data.append('password',$("input[name=password]").val());
-  // send_data.append('form_fee',$("input[name=form_fee]").val());
-  // send_data.append('nrc_fee',$("input[name=nrc_fee]").val());
+  // send_data.append('email',$("input[name=email]").val());
+  // send_data.append('password',$("input[name=password]").val());
 
   $('input[name="bo_branch_name[]"]').map(function(){send_data.append('bo_branch_name[]',$(this).val())});
   $('input[name="bo_address[]"]').map(function(){send_data.append('bo_address[]',$(this).val())});
@@ -935,7 +1027,7 @@ function auditRejectUpdate(){
   show_loader();
 
     $.ajax({
-        url: BACKEND_URL+'/update_acc_firm_info/'+student_id,
+        url: BACKEND_URL+'/update_rejected_acc_firm_info/'+firm_id,
         type: 'post',
         data:send_data,
         contentType: false,

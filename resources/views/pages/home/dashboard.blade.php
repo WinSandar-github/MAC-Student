@@ -533,7 +533,7 @@
                               <div class="col-md-12">
                                   <div align="center">
                                       <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                          <a href="" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                          <a href="{{url('non_audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
                                       </p>
                                   </div>
                               </div>
