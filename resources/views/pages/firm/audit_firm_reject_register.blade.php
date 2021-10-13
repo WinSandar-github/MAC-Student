@@ -146,38 +146,55 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Address Of Practice(Head Office)</label>
                                       <div class="col-md-8">
-                                          <textarea  name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                          <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
+                                          <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                       </div>
                                     </div>
 
                                     <div class="row mb-3">
+                                      <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
+                                      <div class="col-md-8">
+                                          <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
+                                          <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        {{--<div class="col-md-2 offset-md-4">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Township</small></label>
+                                            <input  type="text" name="township" class="form-control" placeholder="" autocomplete="off" value="{{ old('township') }}" required="">
+                                        </div>--}}
                                         <div class="col-md-2 offset-md-4">
-                                            <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
+                                          <label for="" class="control-label text-muted fw-bolder"><small>Post Code</small></label>
+                                          <input  type="text" name="post_code" class="form-control" placeholder="" autocomplete="off" value="{{ old('post_code') }}" required="">
                                         </div>
-                                        <div class="col-md-2">
-                                            <input  type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" required="">
+                                        <div class="col-md-3">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Website Address</small></label>
+                                            <input  type="text" name="website" class="form-control" placeholder="" autocomplete="off" value="{{ old('website') }}" required="">
                                         </div>
-                                        <div class="col-md-2">
-                                            <input  type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" required="">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <input  type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
-                                        </div>
+                                        {{--<div class="col-md-2">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>City</small></label>
+                                            <input  type="text" name="city" class="form-control" placeholder="" autocomplete="off" value="{{ old('city') }}" required="">
+                                        </div>--}}
+                                        {{--<div class="col-md-2">
+                                          <label for="" class="control-label text-muted fw-bolder"><small>State/Region</small></label>
+                                          <input  type="text" name="state" class="form-control" placeholder="" autocomplete="off" value="{{ old('state') }}" required="">
+                                        </div>--}}
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col-md-4 col-form-label"></div>
                                         <div class="col-md-2">
-                                            <input  type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" required="">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Telephone</small></label>
+                                            <input  type="text" name="phone_no" class="form-control" placeholder="" autocomplete="off" value="{{ old('phone_no') }}" required="">
                                         </div>
                                         <div class="col-md-3">
-                                            <input  type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Email Address</small></label>
+                                            <input  type="email" name="h_email" class="form-control" placeholder="" autocomplete="off" value="{{ old('h_email') }}" required="">
                                         </div>
-                                        <div class="col-md-3">
-                                            <input  type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
-                                        </div>
+
                                     </div><br>
 
                                     <div class="row">
