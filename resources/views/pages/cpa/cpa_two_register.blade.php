@@ -568,7 +568,7 @@
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <select disabled class="form-control nrc_state_region" name="nrc_state_region" id="nrc_state_region">
+                                                                <select disabled class="form-control nrc_state_region" name="nrc_state_region" id="nrc_state_region" style="padding:6px;">
                                                                     @foreach($nrc_regions as $region)
                                                                         <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                             {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -578,7 +578,7 @@
                                                             </div>
 
                                                             <div class="col-md-3">
-                                                                <select disabled class="form-control nrc_township" name="nrc_township" id="nrc_township">
+                                                                <select disabled class="form-control nrc_township" name="nrc_township" id="nrc_township" style="padding:6px;">
                                                                     @foreach($nrc_townships as $township)
                                                                         <option value="{{ $township['township_mm'] }}">
                                                                             {{ $township['township_mm'] }}
@@ -588,7 +588,7 @@
                                                             </div>
 
                                                             <div class="col-md-3">
-                                                                <select disabled class="form-control nrc_citizen" name="nrc_citizen" id="nrc_citizen" >
+                                                                <select disabled class="form-control nrc_citizen" name="nrc_citizen" id="nrc_citizen" style="padding:6px;">
                                                                     @foreach($nrc_citizens as $citizen)
                                                                     <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                         {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -779,7 +779,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input class="form-check-input" type="checkbox"
-                                                                   name="reg_reason[]" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" required>
+                                                                   name="reg_reason[]" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" >
                                                             <span class="form-check-sign"></span>
                                                             (က) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
@@ -811,7 +811,7 @@
                                                             (ဃ) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
                                                         </label>
                                                     </div>
-                                                    <label  class="error attend_place_error" style="display:none;" for="reg_reason[]">Please select registration reason.</label>
+                                                    <!-- <label  class="error attend_place_error" style="display:none;" for="reg_reason[]">Please select registration reason.</label> -->
                                                 </div>
                                         </div>
                                         <div class="row mb-3" style="display:none;">
@@ -963,7 +963,7 @@
                                                             <div class="row">
 
                                                                 <div class="col-md-2">
-                                                                    <select disabled class="form-control nrc_state_region" name="nrc_state_region" id="nrc_state_region">
+                                                                    <select disabled class="form-control nrc_state_region" name="nrc_state_region" id="nrc_state_region" style="padding:6px;">
                                                                         @foreach($nrc_regions as $region)
                                                                             <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                 {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
@@ -973,7 +973,7 @@
                                                                 </div>
 
                                                                 <div class="col-md-3">
-                                                                    <select disabled class="form-control nrc_township" name="nrc_township" id="nrc_township">
+                                                                    <select disabled class="form-control nrc_township" name="nrc_township" id="nrc_township" style="padding:6px;">
                                                                         @foreach($nrc_townships as $township)
                                                                             <option value="{{ $township['township_mm'] }}">
                                                                                 {{ $township['township_mm'] }}
@@ -983,7 +983,7 @@
                                                                 </div>
 
                                                                 <div class="col-md-3">
-                                                                    <select disabled class="form-control nrc_citizen" name="nrc_citizen" id="nrc_citizen" >
+                                                                    <select disabled class="form-control nrc_citizen" name="nrc_citizen" id="nrc_citizen" style="padding:6px;">
                                                                         @foreach($nrc_citizens as $citizen)
                                                                         <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                             {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
@@ -1269,7 +1269,7 @@
                                         </div>
                                                 
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left:17px;">၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left" >၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                             <div class="row  col-md-8 checkbox-radios   py-2">
                                                 <div class="col-md-5 form-check-radio">
                                                     <label class="form-check-label" for="sub_mac">

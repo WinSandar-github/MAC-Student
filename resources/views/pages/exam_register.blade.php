@@ -244,11 +244,12 @@
                                         <div class="row mb-3">
                                             <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၁။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             <div class="col-md-8">
-                                                <div class="form-group">
+                                                <input type="text" name="private_school_name" id="selected_school_id" class="form-control" readonly>
+                                                <!-- <div class="form-group">
                                                             <select class="form-control form-select" name="private_school_name" id="selected_school_id" style="width: 100%;" required>
                                                                 <option disabled selected>Select School</option>
                                                             </select>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -525,6 +526,7 @@
 
         get_student_info(student_id).then(data => {
             if(data){
+                console.log('info',data.data);
                 let current_stu_course = data.data.student_course_regs.slice(-1);
                 let last_exam = data.data.exam_registers.slice(-1);               
 
@@ -540,6 +542,8 @@
                     else if(current_stu_reg[0].module=="3"){
                         $("#2").prop("checked", true);
                     }
+
+                    $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
 
                     if(last_exam[0]){
                         $("input[name='date']").val(formatDate(last_exam[0].created_at));
@@ -584,6 +588,7 @@
                 $("input[name='phone']").val(data.data.phone);
 
                 $("input[name='personal_no']").val(data.data.personal_no);
+                
 
                 if(data.data.student_register[0].type == 0){
                     $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
@@ -603,6 +608,6 @@
     });
 
     loadExamDepartment();
-    loadSchoolList();
+    // loadSchoolList();
 </script>
 @endpush
