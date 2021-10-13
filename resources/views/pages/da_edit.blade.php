@@ -435,7 +435,10 @@
 
                             <div class="row mb-3">                                
                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>Attached Certificate</label>
-                                <div class="col-md-8" id="edu">
+                                <div class="col-md-2"  id="degree_certificate" >
+                                        <span class="certificate"></span>
+                                    </div>
+                                <div class="col-md-6" id="edu">
                                     <div class="row mb-3" id="edu0">
                                         <div class="col-md-11" id="degree_edu">
                                             <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
@@ -448,7 +451,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" id="old_certificate" id="old_certificate">
+                            <input type="hidden" name="old_certificate" id="old_certificate">
 
                             
 
@@ -569,7 +572,7 @@
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-M-Y",
+                dateFormat: "M-Y",
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
@@ -670,7 +673,15 @@
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
                         $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
-                        console.log('certificate',JSON.parse(education_history.certificate));
+                        // console.log('certificate',JSON.parse(education_history.certificate));
+
+                        let certificate = JSON.parse(education_history.certificate);
+                        console.log('certificate',certificate);
+                        $.each(certificate, function (fileCount, fileName) {
+
+                            $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+
+                        })
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){
