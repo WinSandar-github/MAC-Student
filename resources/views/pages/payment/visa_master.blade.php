@@ -8,7 +8,7 @@
 
     $orderid= "2106-000212";
     $returnURL="https://demo.aggademo.me/MAC_Student/public/index.php/post_payment/visa_master";
-    $currency="USD";
+    $currency="MMK";
     $amount="500";
     $description="test donation 2106-000212";
     $merchangname="MAC";

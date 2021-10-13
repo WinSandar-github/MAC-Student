@@ -727,7 +727,8 @@ function loadSubject(course_id,select){
         success: function (result) {
             $.each(result.data, function( index, value ){
                 var newcode=index.split('_');
-                var course_code=convert(newcode[1]);
+                var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+                var course_code=result.numeral;
                 var group = $(`<optgroup label="${newcode[0].toUpperCase()+' '+course_code}"/>`);
                 
                 $.each(value, function(key, val){

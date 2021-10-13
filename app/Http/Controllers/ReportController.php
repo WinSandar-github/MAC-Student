@@ -66,7 +66,14 @@ class ReportController extends Controller
 
     public function entryExamList()
     {  
-        return view('pages.home.entry_exam_list');
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/course_by_course_code/cpa_1')->getBody(),true);
+ 
+         
+        $course = $res['data'][0];
+        
+        return view('pages.home.entry_exam_list',compact('course'));
     }
 
     public function qualifiedTestList()

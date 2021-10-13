@@ -1,19 +1,20 @@
 function showRegList(course_code) {
 
-
     var reg_table = $('.tbl_reg_list').DataTable({
         scrollX: true,
         processing: true,
         serverSide: true,
         searching: false,
-        paging: false,
-        "order": [[1, 'asc']],
+        paging: true,
+        "order": [[0, 'asc']],
         ajax: {
             url: BACKEND_URL + "/get_attendes_student",
             type: "POST",
             data: function (d) {
                 d.course_code = course_code,
-                    d.module = $('#selected_module').val()
+                    d.module = $('#selected_module').val(),
+                    d.student_type = $('#student_type').val()
+
 
             }
         },
@@ -32,10 +33,10 @@ function showRegList(course_code) {
 
     });
 
-    $("#selected_module").change(function () {
+
+    $("#search").click(function () {
 
         reg_table.draw();
-
     });
 
 
@@ -52,7 +53,7 @@ function showAppList(course_code) {
         serverSide: true,
         searching: false,
         paging: true,
-        "order": [[1, 'asc']],
+        "order": [[0, 'asc']],
         ajax: {
             url: BACKEND_URL + "/get_student_app_list",
             type: "POST",
@@ -66,12 +67,7 @@ function showAppList(course_code) {
             { data: 'student_info.name_mm', name: 'student_info.name_mm' },
             { data: 'student_info.father_name_mm', name: 'student_info.father_name_mm' },
             { data: 'nrc', name: 'nrc' },
-
-
         ],
-        sort: function (row, type, set, meta) {
-            return row[meta.col][1];
-        }
     });
 
 
@@ -88,7 +84,6 @@ function showExamList(course_code) {
         serverSide: true,
         searching: false,
         paging: false,
-        "order": [[1, 'asc']],
         ajax: {
 <<<<<<< HEAD
             url  : BACKEND_URL + "/approve_exam_list",
@@ -100,7 +95,9 @@ function showExamList(course_code) {
             type: "POST",
             data: function (d) {
                 d.course_code = course_code,
-                    d.module = $('#selected_module').val()
+                    d.module = $('#selected_module').val(),
+                    d.exam_department = $('#exam_department').val()
+
 
 
 
@@ -113,7 +110,7 @@ function showExamList(course_code) {
             { data: 'student_info.name_mm', name: 'student_info.name_mm' },
             { data: 'student_info.father_name_mm', name: 'student_info.father_name_mm' },
             { data: 'nrc', name: 'nrc' },
-            { data: 'student_info.personal_no', name: 'personal_no' },
+            { data: 'cpersonal_no', name: 'cpersonal_no' },
 
 
         ],
@@ -122,11 +119,11 @@ function showExamList(course_code) {
 
     });
 
-    $("#selected_module").change(function () {
+    $("#search").click(function () {
 
         exam_table.draw();
-
     });
+
 
 }
 
