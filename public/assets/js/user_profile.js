@@ -87,15 +87,15 @@ function user_profile() {
             }else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
-                console.log('cpaff',data.cpa_ff);
+                console.log('cpaff',data);
                 let cpaff_initial = data.cpa_ff[0];
                 let cpaff_latest_data= data.cpa_ff[data.cpa_ff.length-1];
-                document.getElementById('cpaff_image').src=BASE_URL + cpaff_latest_data.profile_photo;
+                document.getElementById('cpaff_image').src=BASE_URL + data.image;
                 $('#cpaff_name_mm').text(cpaff_initial.name_mm);
                 $('#cpaff_name_eng').text(cpaff_initial.name_eng);
                 $("#cpaff_nrc").text(cpaff_initial.nrc_state_region + "/" + cpaff_initial.nrc_township + "(" + cpaff_initial.nrc_citizen + ")" + cpaff_initial.nrc_number);
-                $("#cpaff_email").text(cpaff_initial.email);
-                $('#cpaff_phone').text(cpaff_initial.phone);
+                $("#cpaff_email").text(data.email);
+                $('#cpaff_phone').text(data.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
@@ -1925,6 +1925,26 @@ $('#edit_profile').click(function () {
     });
     $('#profileModel').modal('show');
 });
+
+function Cpaff_profile_update() {
+    let student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL + "/student_info/" + student.id,
+        type: 'get',
+        contentType: false,
+        processData: false,
+        success: function (res) {
+            console.log('res',res);
+            $('#update_email').val(res.data.email);
+            //$('.date_of_birth').val(res.data.date_of_birth);
+            $('#update_phone').val(res.data.phone);
+            $('#update_address').val(res.data.address);
+            $('#previewImg').attr("src", BASE_URL + res.data.image);
+            $('#old_image').val(res.data.image);
+        }
+    });
+    $('#profileModel').modal('show');
+}
 
 $('.course_list').click(function () {
     var type = $(this).val();

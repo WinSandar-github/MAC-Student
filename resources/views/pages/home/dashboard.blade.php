@@ -579,7 +579,7 @@
                             <div class="col-md-3">
                                 <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
@@ -623,6 +623,21 @@
                                     </div>
                                 </div>
 
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-10 offset-md-1 mb-2">
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-10 offset-md-1 mb-2">
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                            onclick="Cpaff_profile_update()">{{ __('Update Profile') }}</button>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
