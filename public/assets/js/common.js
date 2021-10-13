@@ -570,9 +570,9 @@ function thousands_separators(num) {
 
 function convert(num) {
 
-    var numeralCodes = [["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],         // Ones
-    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
-    ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]];
+    var numeralCodes = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];        // Ones
+    // ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
+    // ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]];
     var numeral = "";
     var digits = num.split('').reverse();
     for (var i = 0; i < digits.length; i++) {
@@ -580,3 +580,45 @@ function convert(num) {
     }
     return numeral;
 }
+var numeralCodes = [
+    {
+      num: '1',			
+      numeral : 'I',
+    },
+    {
+      num: '2',			
+      numeral : 'II',
+    },
+    {
+      num: '3',			
+      numeral : 'III',
+    },
+    {
+      num: '4',			
+      numeral : 'IV',
+    },
+    {
+      num: '5',			
+      numeral : 'V',
+    },
+    {
+      num: '6',			
+      numeral : 'VI',
+    },
+    {
+      num: '7',			
+      numeral : 'VII',
+    },
+    {
+      num: '8',			
+      numeral : 'VIII',
+    },
+    {
+      num: '9',			
+      numeral : 'IX',
+    },
+    {
+      num: '10',			
+      numeral : 'X',
+    },
+  ];

@@ -399,10 +399,10 @@ function loadCpaffData() {
                             $('#father_name_mm').val(student.father_name_mm);
                             $('#father_name_eng').val(student.father_name_eng);
                             cpaff_data.gender=="Male"? $('#male').attr('checked',true):$('#female').attr('checked',true);
-                            $('#remark').css('display', 'block');
-                            $('#remark_description').text(cpaff_data.reject_description);
-                            $('#cpaff_submit').html('Update');
-                            $("#cpaff_submit").addClass("update-profile");
+                            // $('#remark').css('display', 'block');
+                            // $('#remark_description').text(cpaff_data.reject_description);
+                            // $('#cpaff_submit').html('Update');
+                            // $("#cpaff_submit").addClass("update-profile");
 
                         }
                     });
@@ -605,23 +605,48 @@ function createCPAFFRegister() {
     send_data.append('exam_year', $("input[name=exam_year]").val());
     send_data.append('exam_month', $("input[name=exam_month]").val());
     send_data.append('roll_no', $("input[name=roll_no]").val());
+    send_data.append('type', 0);
 
     show_loader();
-    $.ajax({
-        url: BACKEND_URL + "/cpa_ff",
-        type: 'post',
-        data: send_data,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            EasyLoading.hide();
-            successMessage("You have successfully registerd!");
-            // location.reload();
-            location.href = FRONTEND_URL + "/";
-        },
-        error: function (message) {
-        }
-    });
+    if($('#cpaff_id').val())
+    {
+        var id=$('#cpaff_id').val();
+        send_data.append('cpaff_id',id);   
+        $.ajax({
+            url: BACKEND_URL+"/update_cpaff_initial",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage("You have successfully updated!");
+                    // location.reload();
+                    location.href = FRONTEND_URL+'/';
+                },
+            error:function (message){
+                EasyLoading.hide();
+                }
+            });
+    }
+    else
+    {
+        $.ajax({
+            url: BACKEND_URL + "/cpa_ff",
+            type: 'post',
+            data: send_data,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                EasyLoading.hide();
+                successMessage("You have successfully registerd!");
+                // location.reload();
+                location.href = FRONTEND_URL + "/";
+            },
+            error: function (message) {
+            }
+        });
+    }
 
 }
 
@@ -1044,32 +1069,61 @@ function RenewCPAFF() {
     send_data.append('total_hours', $("input[name=total_hours]").val());
     send_data.append('is_renew', 1);
     send_data.append('self_confession_renew',$("input[name=self_confession_renew]").val());
+    send_data.append('type',1);
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
     if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
-         $.ajax({
-            url: BACKEND_URL + "/renew_cpaff",
-            type: 'post',
-            data: send_data,
-            contentType: false,
-            processData: false,
-            success: function (result) {
-                EasyLoading.hide();
-                console.log(result);
-                successMessage(result.message);
-                // location.reload();
-                location.href = FRONTEND_URL + "/";
-                document.getElementById('approved').style.display = 'none';
-                document.getElementById('rejected').style.display = 'none';
-                document.getElementById('pending').style.display = 'none';
-                document.getElementById('cpaff_form').style.display = 'none';
-                document.getElementById('cpaff_renew_form').style.display = 'none';
-                document.getElementById('expiry_card').style.display = 'none';
-            },
-            error: function (message) {
-                EasyLoading.hide();
-            }
-        });
+        if($('#cpaff_id').val()){
+                    send_data.append('cpaff_id',$('#cpaff_id').val());
+                    $.ajax({
+                        url: BACKEND_URL+"/update_cpaff_renewal",
+                        type: 'post',
+                        data:send_data,
+                        contentType: false,
+                        processData: false,
+                        success: function(result){
+                            EasyLoading.hide();
+                            successMessage(result.message);
+                            // location.reload();
+                            location.href = FRONTEND_URL+'/';
+                            document.getElementById('approved').style.display='none';
+                            document.getElementById('rejected').style.display='none';
+                            document.getElementById('pending').style.display='none';
+                            document.getElementById('papp_form').style.display='none';
+                            document.getElementById('papp_renew_form').style.display='none';
+                            document.getElementById('expiry_card').style.display='none';
+                        },
+                        error:function (message){
+                        }
+                    });
+                }
+                else
+                {
+                     $.ajax({
+                        url: BACKEND_URL + "/renew_cpaff",
+                        type: 'post',
+                        data: send_data,
+                        contentType: false,
+                        processData: false,
+                        success: function (result) {
+                            EasyLoading.hide();
+                            console.log(result);
+                            successMessage(result.message);
+                            // location.reload();
+                            location.href = FRONTEND_URL + "/";
+                            document.getElementById('approved').style.display = 'none';
+                            document.getElementById('rejected').style.display = 'none';
+                            document.getElementById('pending').style.display = 'none';
+                            document.getElementById('cpaff_form').style.display = 'none';
+                            document.getElementById('cpaff_renew_form').style.display = 'none';
+                            document.getElementById('expiry_card').style.display = 'none';
+                        },
+                        error: function (message) {
+                            EasyLoading.hide();
+                        }
+                    });
+                }
+         
     }
     else{
         $('#valid_self_confession').text("Please choose Yes Or No");
