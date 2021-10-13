@@ -289,7 +289,7 @@
                                         <span class="btn btn-round btn-secondary btn-file">
                                         <span class="fileinput-new">ဓာတ်ပုံ</span>
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required=""></span>
+                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*"></span>
                                         <br>
                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
@@ -476,7 +476,7 @@
                                 {{--<div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('CPA(FF) Registeraion No.') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="reg_no" id="reg_no" required="">
+                                        <input type="text"  class="form-control" name="reg_no" id="reg_no" >
                                     </div>
                                 </div>--}}
                             </div>
@@ -490,7 +490,7 @@
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="papp_reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required="" autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="papp_reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်"  autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
@@ -587,7 +587,7 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
+                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
                                         </div><br>
 
 
@@ -698,7 +698,7 @@
                                     </div>
 									<div class="col-md-1 papp_file_old"></div> 
                                     <div class="col-md-3">
-                                        <input type="file" class="form-control"  id="papp_file"  name="papp_file" required="" accept="image/*">
+                                        <input type="file" class="form-control"  id="papp_file"  name="papp_file"  accept="image/*">
                                     </div>
                                     {{--<div class="col-md-4 view_cpa_ff_file">
 										<input type="hidden" id="hidden_cpa_ff_file">
@@ -714,7 +714,7 @@
                                     </div>
 									<div class="col-md-1 cpd_record_file_old"></div> 
                                     <div class="col-md-3">
-                                        <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file" required="">
+                                        <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file" >
                                     </div>
                                 </div><br/><br>
 
@@ -725,7 +725,7 @@
                                             <label style="font-size:15px;">စုစုပေါင်း နာရီ</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" required="" >
+                                            <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div><br/>
                                 
@@ -737,7 +737,7 @@
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-1 mpa_mem_card_front_old"></div> 
                                     <div class="col-md-3">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" accept="image/*">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front"  accept="image/*">
                                     </div>
                                 </div><br/><br>
 
@@ -747,7 +747,7 @@
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
                                     <div class="col-md-1 mpa_mem_card_back_old"></div> 
                                     <div class="col-md-3">
-                                        <input type="file" class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" required="" accept="image/*">
+                                        <input type="file" class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back"  accept="image/*">
                                     </div>
                                 </div>
 
@@ -800,7 +800,7 @@
     </script>
 @endsection
 @push('scripts')
-<script src="{{ asset('js/form_validation/papp_renew_validation.js') }}"></script>
+<!-- <script src="{{ asset('js/form_validation/papp_renew_validation.js') }}"></script> -->
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
@@ -926,16 +926,21 @@
                 let audit_company = JSON.parse(papp.company);
                 let audit_period = JSON.parse(papp.period);
                 let audit_manager = JSON.parse(papp.manager);
-                console.log(audit_company.length)
-                for (let j = 0; j < audit_company.length - 1; j++) {
-                    addRowPapp("tbl_papp");
-                }
+                console.log(audit_company)
                 for (let i = 0; i < audit_company.length; i++) {
-                    $('input[name="company[]"]').eq(i).val(audit_company[i]);
-                    $('input[name="period[]"]').eq(i).val(audit_period[i]);
-                    $('input[name="manager[]"]').eq(i).val(audit_manager[i]);
+                    index=i+1;
+                    var newRow = $("<tr>");
+                    var cols = "";
+                    cols += '<td><input type="text" class="form-control" value='+index+' style="text-align:center;"/></td>';
+                    cols += '<td><input type="text" name="company[]" class="form-control" value='+audit_company[i]+'  autocomplete="off" required/></td>';
+                    cols += '<td><input type="text" name="period[]" class="form-control" value='+audit_period[i]+'  autocomplete="off" required/></td>';
+                    cols += '<td><input type="text" name="manager[]" class="form-control"  value='+audit_manager[i]+' autocomplete="off" required/></td>';
+                    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowPapp("tbl_papp")><li class="fa fa-times"></li></button></td>';
+                    newRow.append(cols);
+                    $("table.tbl_papp").append(newRow);
                 }
-            }
-        });
+             }
+        });  
+
 </script>
 @endpush

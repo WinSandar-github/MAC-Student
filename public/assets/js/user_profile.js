@@ -129,7 +129,7 @@ function user_profile() {
                     localStorage.setItem('cpaff_id',cpaff_latest_data.id);
                     localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
                     $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
-                    if(cpaff.type==0){
+                    if(cpaff_latest_data.type==0){
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     else{
@@ -346,6 +346,7 @@ function user_profile() {
                         `);
                         // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     } else if (cpaff_latest_data.status == 1) {
+
                         $('.status').append(`
                         <tr>
                             <td>CPA(Full-Fledged) ${is_renew}</td>
@@ -388,7 +389,6 @@ function user_profile() {
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         // }
                     } else {
-
                         localStorage.setItem('cpaff_id',cpaff_latest_data.id);
                         localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
                         $('.status').append(`
