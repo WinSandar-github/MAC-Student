@@ -1062,7 +1062,7 @@
 
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
