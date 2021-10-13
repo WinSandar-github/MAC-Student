@@ -10,6 +10,12 @@ function user_profile() {
             let data = result.data;
 
             if (data.accountancy_firm_info_id) {
+              dateQuery();
+              verifyStatus();
+              //checkPaymentAudit();
+              audit_reg_feedback();
+              firmDashboardData();
+
                 // $('.title').text('Accountancy Firm')
                 // $('.acc_firm').show();
                 // $('.cpaff_other').hide();
@@ -122,7 +128,7 @@ function user_profile() {
                 } else {
                     localStorage.setItem('cpaff_id',cpaff_latest_data.id);
                     localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
-                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');                       
+                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
                     if(cpaff.type==0){
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
@@ -392,7 +398,7 @@ function user_profile() {
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
-                        `);                      
+                        `);
                         if(cpaff_latest_data.type==0){
                             // $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
@@ -2358,6 +2364,7 @@ function firmDashboardData(){
                     } else {
                         $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
                         $('#reject_register_btn_audit').css("display","block");
+                        $('.payment-btn').css("display","none");
                     }
                 }
                 else {

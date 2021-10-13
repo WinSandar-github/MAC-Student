@@ -1338,7 +1338,7 @@
     $('document').ready(function(){
         // dateQuery();
         // verifyStatus();
-        // //checkPaymentAudit();
+        //checkPaymentAudit();
         // audit_reg_feedback();
         // firmDashboardData();
     })
