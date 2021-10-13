@@ -790,25 +790,26 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
-    $.ajax({
-        url: BACKEND_URL + "/papp/" + papp_id,
-        type: 'get',
-        success: function (result) {
-            console.log('result==>',result);
-            var papp=result.data[0];
-            var cpaff_date=new Date(papp.cpaff_pass_date);
-            var papp_date=new Date(papp.papp_date);
-            $('#cpaff_pass_date').val(cpaff_date.getFullYear());
-            $('#papp_date').val(papp_date.getFullYear());
-            if(papp.use_firm==0){
-                $('#firm_check').attr('checked',true);
-            }
-            else if(papp.firm_name!=null || papp.firm_type!=null || papp.firm_step!=null)
-            {
+    // $.ajax({
+    //     url: BACKEND_URL + "/papp/" + papp_id,
+    //     type: 'get',
+    //     success: function (result) {
+    //         console.log('result==>',result);
+    //         var papp=result.data[0];
+    //         var cpaff_date=new Date(papp.cpaff_pass_date);
+    //         var papp_date=new Date(papp.papp_date);
+    //         $('#cpaff_pass_date').val(cpaff_date.getFullYear());
+    //         $('#papp_date').val(papp_date.getFullYear());
+    //         if(papp.use_firm==0){
+    //             $('#firm_check').attr('checked',true);
+    //         }
+    //         else if(papp.firm_name!=null || papp.firm_type!=null || papp.firm_step!=null)
+    //         {
+    //             $('#used_firm_check').attr('checked',true);
                 
-            }
-        }
-    });
+    //         }
+    //     }
+    // });
     $(document).ready(function() {
         $('.modal').MultiStep({
             title:'ဝန်ခံချက်',
