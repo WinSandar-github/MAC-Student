@@ -2008,15 +2008,15 @@ function Cpaff_profile_update() {
         processData: false,
         success: function (res) {
             console.log('res', res);
-            $('#update_email').val(res.data.email);
+            $('#update_email_cpaff').val(res.data.email);
             //$('.date_of_birth').val(res.data.date_of_birth);
-            $('#update_phone').val(res.data.phone);
-            $('#update_address').val(res.data.address);
-            $('#previewImg').attr("src", BASE_URL + res.data.image);
-            $('#old_image').val(res.data.image);
+            $('#update_phone_cpaff').val(res.data.phone);
+            $('#update_address_cpaff').val(res.data.address);
+            $('#previewImg_cpaff').attr("src", BASE_URL + res.data.image);
+            $('#old_image_cpaff').val(res.data.image);
         }
     });
-    $('#profileModel').modal('show');
+    $('#profileCpaffModel').modal('show');
 }
 
 $('.course_list').click(function () {
@@ -2071,6 +2071,27 @@ $('#update_profile').submit(function (e) {
             EasyLoading.hide();
             successMessage(data.message);
             $('#profileModel').modal('hide');
+        }
+    });
+});
+
+$('#update_cpaff_profile').submit(function (e) {
+    e.preventDefault();
+    let student = JSON.parse(localStorage.getItem('studentinfo'));
+    var formData = new FormData(this);
+    formData.append('membership','cpaff')
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/update_profile/" + student.id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileCpaffModel').modal('hide');
         }
     });
 });
