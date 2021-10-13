@@ -650,8 +650,8 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
+                                    <div class="col-md-3">
                                                 <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
                                     </div>
                                 </div><br/><br>
@@ -659,8 +659,8 @@
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
-                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
+                                    <div class="col-md-3">
                                                 <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
                                     </div>
                                 </div>
@@ -678,8 +678,8 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">CPA(FF) Registeraion No.</div>
+                                    <div class="col-md-3">
                                         <input type="text"  class="form-control" name="reg_no"  id="reg_no">
                                     </div>
                                 </div><br/><br>
@@ -763,11 +763,6 @@
    Papp_feedback();
    loadCpaffInitialData();
    loadPappData();
-//    loc = window.location.href;   
-//    let papp_url = new URL(loc);
-//    console.log('myVar',papp_url.pathname);
-//    var id = papp_url.herf.substring(papp_url.href.lastIndexOf('/') + 1);
-//    alert(id);
     var papp_id=localStorage.getItem('papp_id');
     var reject_description=localStorage.getItem('reject_reason');
     $('#papp_id').val(papp_id);
@@ -777,21 +772,6 @@
             dateFormat: "M-Y",
             allowInput: true,
     });
-    // $(".tax_year").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-    // $(".papp_date").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-    // $(".cpaff_pass_date").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
     $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
@@ -810,6 +790,26 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    // $.ajax({
+    //     url: BACKEND_URL + "/papp/" + papp_id,
+    //     type: 'get',
+    //     success: function (result) {
+    //         console.log('result==>',result);
+    //         var papp=result.data[0];
+    //         var cpaff_date=new Date(papp.cpaff_pass_date);
+    //         var papp_date=new Date(papp.papp_date);
+    //         $('#cpaff_pass_date').val(cpaff_date.getFullYear());
+    //         $('#papp_date').val(papp_date.getFullYear());
+    //         if(papp.use_firm==0){
+    //             $('#firm_check').attr('checked',true);
+    //         }
+    //         else if(papp.firm_name!=null || papp.firm_type!=null || papp.firm_step!=null)
+    //         {
+    //             $('#used_firm_check').attr('checked',true);
+                
+    //         }
+    //     }
+    // });
     $(document).ready(function() {
         $('.modal').MultiStep({
             title:'ဝန်ခံချက်',
