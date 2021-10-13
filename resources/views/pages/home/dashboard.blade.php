@@ -101,8 +101,7 @@
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-10 offset-md-1 mb-2">
-                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
-                                            id="edit_profile">{{ __('Update Profile') }}</button>
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -554,22 +553,91 @@
                     {{--<div class="cpaff_other">
                         <div class="row">
 
-                            <div class="col-md-12">
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-4">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                            
+                            
+                            
+                            </div>--}}
+                            <div class="qualified_test">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
                                     </div>
-                                    <div class="col-md-8">
-                                        <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
+                                    <div class="col-md-6">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_nrc"></span>
+                                            </div>
+                                        </div>
+        
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_phone"></span>
+                                            </div>
+                                        </div>
+                                        
+        
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+        
                                 </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-4">
-                                        <p class="ml-2" style="font-weight:bold">NRC</p>
+        
+                                <div class="row my-2">
+        
+                                    <div class="offset-md-3 col-md-9">
+        
+                                        <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                        Application Status</h5>
+        
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Submit Date</th>
+                                                    <th>Status Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="status">
+                                            </tbody>   
+                                        </table>
                                     </div>
-                                    <div class="col-md-8">
-                                        <span id="cpaff_nrc"></span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -1038,68 +1106,8 @@
                         </div>
             </div>
             <!--end teacher dashboard-->
-            <div class="qualified_test">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">NRC</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_nrc"></span>
-                            </div>
-                        </div>
-
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Email</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_email"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_phone"></span>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-                <div class="row my-2">
-
-
-                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                        Application Status</h5>
-
-                    <div class="text-center status_history">
-
-                    </div>
-                    <div class="text-center status_papp">
-
-                    </div>
-                </div>
-
-
-            </div>
-
+          
+            
         </div>
     </div>
 <!-- update profile -->
@@ -1121,7 +1129,7 @@
 
                                     <label for="" class="col-md-3 col-form-label">Email</label>
                                     <div class="col-md-8">
-                                        <input type="email" placeholder="Enter your Email address!" name="email"
+                                        <input type="email" readonly placeholder="Enter your Email address!" name="email"
                                             class="form-control" id="update_email"="">
                                         @if ($errors->has('email'))
                                             <span class="text-danger">
