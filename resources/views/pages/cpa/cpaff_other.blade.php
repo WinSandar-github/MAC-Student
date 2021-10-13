@@ -286,7 +286,7 @@
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                                 </div>
                                                 <div class="col-md-1" id="add_div" >
-                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFDegree()" >
+                                                    <button type="button" class="btn btn-primary" id="add_btn" onclick="AddCPAFFInitialDegree()" >
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -336,7 +336,7 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" placeholder="ခုနှစ်" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
                                 <div class="pass_batch_two" style="display:none">
                                     <div class="row mb-3">
@@ -371,9 +371,9 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
-                                    <input type="text" name="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
-                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
+                                    <input type="text" name="exam_year" id="exam_year" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="လ" class="form-control" autocomplete="off" style="display: inline;width: 100px;" disabled> လတွင်
+                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
                                 <div class="qt_pass" style="display:none">
@@ -619,11 +619,29 @@
             allowInput: true,
     });
 
-    $("input[name='cpa2_pass_date']").flatpickr({
-            enableTime: false,
-            dateFormat: "Y",
-            allowInput: true,
-    });
+    // $("input[name='cpa2_pass_date']").flatpickr({
+    //         enableTime: false,
+    //         dateFormat: "Y",
+    //         allowInput: true,
+    // });
+    $("#exam_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#exam_month").datepicker({
+        format: "mm",
+        viewMode: "months", 
+        minViewMode: "months",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#cpa2_pass_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
     $(document).on('keydown', '#father_name_mm', function () {
         myanmarLetterOnly($(this));
     });

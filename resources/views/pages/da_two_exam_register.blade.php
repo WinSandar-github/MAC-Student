@@ -308,13 +308,15 @@ $nrc_characters = config('myanmarnrc.characters');
                                                     <div class="row mb-3">
                                                         <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label1">၁၅။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                                         <div class="col-md-8">
-                                                            <div class="form-group">
+                                                            <input type="text" name="private_school_name" id="selected_school_id"
+                                                                class="form-control" value="{{ old('private_school_name') }}" readonly="">
+                                                            <!-- <div class="form-group">
                                                                 <select class="form-control form-select"
                                                                     name="private_school_name" id="selected_school_id"
                                                                     style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -617,6 +619,7 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
                     $("input[name='personal_no']").val(student_info.personal_no);
+                    $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
                     let batch_id = localStorage.getItem('batch_id');
                     // let last_exam = data.data.exam_registers.slice(-1);
                     if(last_exam.length!=0)
@@ -760,7 +763,7 @@ $nrc_characters = config('myanmarnrc.characters');
                 }
             }
         });
-        loadSchoolList();
+        // loadSchoolList();
         loadExamDepartment();
     </script>
 @endpush

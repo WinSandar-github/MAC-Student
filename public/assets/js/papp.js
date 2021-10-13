@@ -142,24 +142,26 @@ function check_email_papp()
     var not_accept_PAPP = document.getElementById("not-accept");
     if(accept_PAPP.checked == true || not_accept_PAPP.checked == true){
         $('#valid_self_confession_PAPP').css('display','none');
+        var arr = [];
         for(i = 1; i <= 29; i++){
-            console.log("value=>",$(`input[name=check${i}]:checked`).val());
-            if($(`input[name=check${i}]:checked`).val() == undefined){
-                $(".accept_PAPP:unchecked").css("border","1px solid red");
-                $(".not_accept_PAPP:unchecked").css("border","1px solid red");
-            }
-            else{
-                if(verify_code != code){
-                    errorMessage("Your code is not correct.Please check your email inbox again!");
-                    return false;
-                    // $('#exampleModal').modal('show');
-                    // $('#exampleModal1').modal('hide');
-                    // $('#exampleModal').modal('show');
-                }else{
-                    Papp_Submit();
-                    $('#pappModal').modal('hide');
-                    return false;
-                }
+            arr.push($(`input[name=check${i}]:checked`).val());
+        }
+        console.log("arr",arr);
+        if(arr.includes(undefined)){
+            $(".accept_PAPP:unchecked").css("border","1px solid red");
+            $(".not_accept_PAPP:unchecked").css("border","1px solid red");
+        }
+        else{
+            if(verify_code != code){
+                errorMessage("Your code is not correct.Please check your email inbox again!");
+                return false;
+                // $('#exampleModal').modal('show');
+                // $('#exampleModal1').modal('hide');
+                // $('#exampleModal').modal('show');
+            }else{
+                Papp_Submit();
+                $('#pappModal').modal('hide');
+                return false;
             }
         }
     }
@@ -430,8 +432,8 @@ function loadPappData()
         data:"",
         success: function(data){
             var papp_data = data.data;
-            console.log('papp_data',papp_data)
-            $('#reg_no').val(papp_data.cpa_batch_no);
+            console.log('papp_data',data)
+            //$('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
