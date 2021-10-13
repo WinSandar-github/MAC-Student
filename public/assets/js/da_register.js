@@ -105,7 +105,7 @@ function createDARegister() {
             EasyLoading.hide();
             successMessage("You have successfully registered. Use your email and password to login.");
             setInterval(() => {
-                location.href = FRONTEND_URL + '/';
+                // location.href = FRONTEND_URL + '/';
             }, 3000);
         },
         error: function (message) {

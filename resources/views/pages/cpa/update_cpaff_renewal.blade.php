@@ -70,6 +70,9 @@
                         <button id="cpaff_modal" value="submit" class="btn btn-success btn-hover-dark w-30"> Go to payment</button>
                     </center> -->
                 </div>
+                <div class="col-md-12 text-center mb-5" style="font-weight:bold;font-size:20px;" name="remark" id="remark">
+                    <label>Reject လုပ်ရသည့်အကြောင်းအရင်း</label><label class="col-md-12 col-form-label text-danger" id="remark_description"></label>
+                </div>
 
 
                                 <div id="cpa_initial">
@@ -218,7 +221,7 @@
                 {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
-                        
+                        <input type="hidden" id="cpaff_id" name="cpaff_id"/>
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
@@ -602,8 +605,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button type="button" style="background-color: #39c0ba" class="btn btn-sm text-white" onclick="RenewCPAFF()">Submit</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="RenewCPAFF()">Save changes</button>
             </div>
           </div>
         </div>
@@ -668,5 +671,10 @@
     checkPaymentCpaff();
     loadCpaffData();
     loadCpaffInitialData();
+
+    var cpaff_id=localStorage.getItem('cpaff_id');
+    var reject_description=localStorage.getItem('reject_reason');
+    $('#cpaff_id').val(cpaff_id);
+    $('#remark_description').text(reject_description);
 </script>
 @endpush
