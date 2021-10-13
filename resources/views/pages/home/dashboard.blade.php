@@ -556,7 +556,7 @@
                             
                             
                             
-                            </div>--}}
+                            </div>
                             <div class="qualified_test">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -1380,8 +1380,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="changePwd" enctype="multipart/form-data" action="javascript:void(0);">
+            <form action="javascript:changePasswordTeacher();" enctype="multipart/form-data" id="school_teacher_form">
                 @csrf
+                <input type="hidden" id="student_info_id">
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
@@ -1495,12 +1496,12 @@
                                                                 <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewSchoolImg"
                                                                     alt="Upload Photo">
                                                             </div>
-                                                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                             <div class="d-flex justify-content-center">
                                                                 <span class="btn btn-round btn-secondary btn-file">
                                                                 <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                                 <span class="fileinput-exists">Change</span>
-                                                                <input type="file" id="school_profile_photo" name="school_profile_photo" accept="image/*" required></span>
+                                                                <input type="file" id="image" name="image" accept="image/*"></span>
                                                                 <br>
                                                                 <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                             </div>
@@ -1589,12 +1590,12 @@
                                                                 <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewTeacherImg"
                                                                     alt="Upload Photo">
                                                             </div>
-                                                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail "></div>
                                                             <div class="d-flex justify-content-center">
                                                                 <span class="btn btn-round btn-secondary btn-file">
                                                                 <span class="fileinput-new">ဓာတ်ပုံ</span>
                                                                 <span class="fileinput-exists">Change</span>
-                                                                <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                                                                <input type="file" id="image" name="image" accept="image/*" ></span>
                                                                 <br>
                                                                 <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                                             </div>

@@ -2437,14 +2437,15 @@ function updateProfileTeacher(){
     var formData = new FormData($("#teacher_update_form" )[0]);
     
     var teacher_id=$('#teacher_id').val();
-    formData.append('old_profile_photo',$('#old_profile_photo').val());
+    formData.append('membership','teacher');
+    formData.append('old_image',$('#old_profile_photo').val());
     formData.append('phone',$('#teacher_update_phone').val());
     formData.append('address',$("#teacher_update_address").val());
     formData.append('eng_address',$("#teacher_update_eng_address").val());
     formData.append('_method', 'PATCH');
     show_loader();
     $.ajax({
-        url: BACKEND_URL + "/updateProfileTeacher/" + teacher_id,
+        url: BACKEND_URL + "/update_profile/" + teacher_id,
         type: 'POST',
         contentType: false,
         processData: false,
@@ -2452,8 +2453,8 @@ function updateProfileTeacher(){
         success: function (data) {
             EasyLoading.hide();
             successMessage(data.message);
-            $('#profileModelTeacher').modal('hide');
-            location.href = '/';
+            $('#profileModelTeacher').modal('toggle');
+            location.reload();
         }
     });
 }
@@ -2461,14 +2462,15 @@ function updateProfileSchool(){
     var formData = new FormData($("#school_update_form" )[0]);
     
     var school_id=$('#school_id').val();
-    formData.append('old_school_profile_photo',$('#old_school_profile_photo').val());
+    formData.append('membership','school');
+    formData.append('old_image',$('#old_school_profile_photo').val());
     formData.append('phone',$('#sch_update_phone').val());
     formData.append('address',$("#sch_update_address").val());
     formData.append('eng_address',$("#sch_update_eng_address").val());
     formData.append('_method', 'PATCH');
     show_loader();
     $.ajax({
-        url: BACKEND_URL + "/updateProfileSchool/" + school_id,
+        url: BACKEND_URL + "/update_profile/" + school_id,
         type: 'POST',
         contentType: false,
         processData: false,
@@ -2476,8 +2478,42 @@ function updateProfileSchool(){
         success: function (data) {
             EasyLoading.hide();
             successMessage(data.message);
-            $('#profileModelSchool').modal('hide');
-            location.href = '/';
+            $('#profileModelSchool').modal('toggle');
+            location.reload();
         }
     });
+}
+function changePasswordTeacher(){
+    show_loader();
+    if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
+        EasyLoading.hide();
+        $("input[name=password]").val('');
+        $("input[name=confirm_password]").val('');
+        $("input[name=password]").addClass('is-invalid');
+        $("input[name=confirm_password]").addClass('is-invalid');
+        $('#err_message').text("Your password and confirm password do not match!");
+    } else {
+        var formData = new FormData($("#school_teacher_form")[0]);
+        formData.append('id', student_id);
+        $.ajax({
+            url: BACKEND_URL + "/update_pwd",
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                EasyLoading.hide();
+                successMessage(data.message);
+                $('#pwModalTeacher').modal('toggle');
+                location.reload();
+            },
+            error: function (err) {
+                EasyLoading.hide();
+                if (err.status == 401) {
+                    $('#old_pwd').addClass('is-invalid');
+                    $('#old_err_meg').text(err.responseJSON.error);
+                }
+            }
+        });
+    }
 }
