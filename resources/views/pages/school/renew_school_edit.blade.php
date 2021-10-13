@@ -1,19 +1,37 @@
 @php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
 @endphp
 
 @extends('layouts.app')
-
 @section('content')
-     <div class="main-wrapper">
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .list {
+            max-height: 350px;
+            overflow-y: auto !important;
+        }
+        .error-border{
+            border: 1px solid red;
+        }
+    </style>
+@section('content')
+    <div class="main-wrapper">
+        <!-- Overlay Start -->
+        <div class="overlay"></div>
+        <!-- Overlay End -->
         <!-- Page Banner Start -->
         <div class="section page-banner">
+
             {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
+
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
+
             <div class="container">
                 <!-- Page Banner Start -->
                 <div class="page-banner-content">
@@ -21,259 +39,37 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">School <span>Detail</span></h2>
+                    <h2 class="title">School Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
-
             </div>
+
             <!-- Shape Icon Box Start -->
             {{--<div class="shape-icon-box">
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
+
+                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}"
+                     alt="Shape">
+
                 <div class="box-content">
                     <div class="box-wrapper">
                         <i class="flaticon-badge"></i>
                     </div>
                 </div>
+
                 <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
+
             </div>--}}
             <!-- Shape Icon Box End -->
+
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
+
             {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
+
         </div>
-        <div class="section"> <!-- section-padding mt-n10 -->
-            <div class="container mt-5"> <!-- container-fluid p-4 -->
-                <div class="status-reject" style="display:none">
-                    <div class="card text-danger bg-warning mb-3">
 
-                        <div class="card-body">
-                            <p class='reject-reason'></p>
-                            <p class="card-text reject">Your Registration Form need to prepare.Please update your form
-                             </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="school_pending" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-                <div class="card text-white bg-primary my-3">
-
-                    <div class="card-body">
-                        <p class="card-text">Your School Registeration Form is checking</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="school_approve" style="display:none; margin-top:5%; margin-left: 5%; margin-right:7%;">
-                <div class="card text-white bg-primary my-3">
-                    <div class="card-body">
-                        <p class="card-text">Your School Registeration Form is approved! You need to subscribe your teacher service with desire payment method!</p>
-                    </div>
-                </div>
-            </div>
-
-								<div id="school_detail">
-									<div class="row">
-										<div class="card col-md-7 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Description</h4>
-														<hr>
-														<div class="info-list">
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-12">
-                                                                    <div class="description-info"></div>
-                                                                </div>
-                                                            </div>
-															<div class="row">
-                                                                <div class="col-md-12">
-                                                                    <h4 class="col-md-12 card-title text-success">Requirement</h4>
-                                                                    <hr>
-                                                                    <div class="requirement-info">
-                                                                
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-														</div>
-                                                        
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="card col-md-4 m-2">
-											<div class="card-body">
-												<div class="row">
-													<div class="col-md-12 widget-information">
-														<h4 class="col-md-12 card-title text-success">Fees</h4>
-														<hr>
-														<div class="info-list">
-															<div class="col-md-12">
-																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'></span> </li>
-																		<li><i class="icofont-money"></i> <strong>Initial Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fee</strong><span class='renew-yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='reconnected-fee'></li>
-																		<div class="row register-btn">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('school_register')}}" class="btn btn-success btn-hover-dark" >Register</a>
-                                                                                        
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <div class="row update-btn" style="display:none;">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn text-dark h6">
-                                                                                        <a href="{{url('school_edit')}}" class="btn btn-success btn-hover-dark" >Update</a>
-                                                                                        
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <div class="row payment-btn" style="display:none;">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn text-dark h6">
-                                                                                        
-                                                                                        <button id="school_modal" class="btn btn-success btn-hover-dark"> Go to payment</button>
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                        <div class="row renew_payment-btn" style="display:none;">
-                                                                            <div class="col-md-6"></div>
-                                                                            <div class="">
-                                                                                <div class="pull-right mt-4">
-                                                                                    <p class="info-btn text-dark h6">
-                                                                                        
-                                                                                        <button id="renew_school_modal" class="btn btn-success btn-hover-dark"> Go to payment</button>
-                                                                                    </p>
-                                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                        </div>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-<!--Modal-->
-<form method="post" class="needs-validation" action="javascript:schoolPaymentSubmit();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="schoolpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">School Registeration Form Fee - ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>
-    <!--renew Modal-->
-<form method="post" class="needs-validation" action="javascript:renewSchoolPaymentSubmit();" enctype="multipart/form-data"
-          novalidate>
-        @csrf
-        <div class="modal fade" id="renewSchoolpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <br>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <center>
-                                <h4 style="margin-bottom:5%;">School Registeration Form Fee - ****** MMK</h4>
-                            </center>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
-                                         data-value="CBPAY" name="payment_method" id="cb_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
-                                         data-value="MPU" name="payment_method" id="mpu_img">
-                                </center>
-                                <br>
-                            </div>
-                            <div class="col-sm-3 col-5">
-                                <center>
-                                    <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
-                                         data-value="CASH" name="payment_method" id="cash_img">
-                                </center>
-                                <br>
-                            </div>
-                            <input type="hidden" name="payment_method" value="CASH">
-                            <center>
-                                <button type="submit" id="school_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
-                            </center>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </form>
-                <div class="card border-success mb-3" id="school_renew_form" style="display:none;">
+        <div class="container" style="overflow: hidden;">
+            <div class="row mt-5">
+                <div class="card border-success mb-3" id="school_renew_form" >
                     <div class="card-body p-4">
                             <div class="row mb-3">
                                 <h5 class="card-title text-center fw-bolder">မြန်မာနိုင်ငံစာရင်းကောင်စီ</h5>
@@ -284,7 +80,7 @@
                                 <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၆</label>
                                                                 
                             </div>
-                            <form method="post" action="javascript:renewSchool();" enctype="multipart/form-data" id="school_renew_form_data">
+                            <form method="post" action="javascript:updateSchool();" enctype="multipart/form-data" id="school_renew_form_data">
                             <div class="row mb-3">
                                 <div class="col-md-8">
 
@@ -411,7 +207,7 @@
                                     <input type="hidden" id="branch_own_type_h">
                                     <input type="hidden" id="hinitial_status">
                                     <input type="hidden" id="type">
-                                    <input type="hidden" id="renew_id">
+                                    <input type="hidden" id="initial_reject" value="This user is rejecter but this user is updated">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
@@ -507,17 +303,17 @@
                                         
                                     </div>
                                 </div> -->
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၉။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၀။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၉။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>
@@ -1105,13 +901,54 @@
                         </div>
                 </div>
             </div>
-            
         </div>
     </div>
-    
-    <!-- JavaScript Section -->
+
+
+
+    <!-- Modal -->
+    <form method="post" id="form1" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="schoolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center>
+                        <br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div>
+                        <br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code"
+                                           placeholder="Enter Verification Code"></center>
+                        </div>
+                    </div>
+                    <center>
+                        <button type="submit" id="btn1" onclick="check_email_school()"
+                                class="btn btn-success btn-hover-dark w-30">Verify
+                        </button>
+                    </center>
+                    <br>
+                    <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
     <script>
-         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
+        var mmnrc_regions = {!! json_encode($nrc_regions) !!};
         // get NRC Townships data from myanmarnrc.php config file
         var mmnrc_townships = {!! json_encode($nrc_townships) !!};
         // get NRC characters data from myanmarnrc.php config file
@@ -1121,26 +958,146 @@
     </script>
 @endsection
 @push('scripts')
-<script src="{{ asset('assets/js/school.js') }}"></script>
-<script type="text/javascript">
-    $('document').ready(function(){
-        $('.multiple-attend-course').select2({
-            placeholder: "Select Requirement"
+    <script src="{{ asset('assets/js/myanmarnrc.js') }}"></script>
+    <script src="{{ asset('assets/js/school.js') }}"></script>
+    <script src="{{ asset('js/form_validation/school_validation.js') }}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function (e) {
+            $('.js-example-basic-multiple').select2();
+            // $('.select2').select2({
+            //     placeholder: "Select"
+            // });
+            $("#school_register_form").submit(function (event) {
+                var tbl_establish = $('.tbl_sch_established_persons_body tr').length;
+                var tbl_governs = $('.tbl_sch_governs_body tr').length;
+                var tbl_member_list_bio = $('.tbl_member_list_biography_body tr').length;
+                var tbl_teacher_list_bio = $('.tbl_teacher_list_biography_body tr').length;
+                var own_type = $('input[name="own_type"]:checked').length;
+                var branch_sch_own_type = $('input[name="branch_sch_own_type"]:checked').length;
+                var tbl_degree = $('.tbl_degree_body tr').length;
+                var tbl_branch_school = $('.tbl_branch_school_body tr').length;
+                var tbl_bulding_type = $('.tbl_bulding_type_body tr').length;
+                var tbl_classroom = $('.tbl_classroom_body tr').length;
+                var tbl_toilet_type = $('.tbl_toilet_type_body tr').length;
+                var tbl_manage_room_numbers = $('.tbl_manage_room_numbers_body tr').length;
+                if (!tbl_establish) {
+                    $("#sch_establish_error").css('display', 'block');
+                    event.preventDefault();
+                }
+                if (!tbl_governs) {
+                    $("#sch_governs_error").css('display', 'block');
+                    event.preventDefault();
+                }
+                if (!tbl_member_list_bio) {
+                    $("#member_list_biography_error").css('display', 'block');
+                    event.preventDefault();
+                }
+                if (!tbl_teacher_list_bio) {
+                    $("#teacher_list_bio_error").css('display', 'block');
+                    event.preventDefault();
+                }
+                if(!own_type){
+                    $(".own_type").show();
+                    event.preventDefault();
+                }
+                if(!branch_sch_own_type){
+                    $(".branch_sch_own_type").show();
+                    event.preventDefault();
+                }
+                if(!tbl_degree){
+                    $(".degree").show();
+                    event.preventDefault();
+
+                }
+                // if(!tbl_branch_school){
+                //     $(".branch_school").show();
+                //     event.preventDefault();
+                // }
+                if (!tbl_bulding_type) {
+                    $(".tbl_bulding_type_error").show();
+                    event.preventDefault();
+                }
+                if (!tbl_classroom) {
+                    $(".tbl_bulding_type_error").show();
+                    event.preventDefault();
+                }
+                if (!tbl_toilet_type) {
+                    $(".tbl_toilet_type_error").show();
+                    event.preventDefault();
+                }
+                if (!tbl_manage_room_numbers) {
+                    $(".tbl_manage_room_numbers_error").show();
+                    event.preventDefault();
+                }
+                //validate school_type checkbox
+                var checkedNum = $('input[name="school_type[]"]:checked').length;
+                if (!checkedNum) {
+                    $(".type").show();
+                } else {
+                    $(".type").hide();
+                }
+            });
+
+            $('.multiple-attend-course').select2({
+                placeholder: "Select Requirement"
+            });
+
+            $('input[type=checkbox][name="school_type[]"]').change(function () {
+                var checkedNum = $('input[name="school_type[]"]:checked').length;
+                if (!checkedNum) {
+                    $(".type").show();
+                } else {
+                    $(".type").hide();
+                }
+            });
+            $('input[type=radio][name="own_type"]').change(function () {
+                var own_type = $('input[name="own_type"]:checked').length;
+                if (!own_type) {
+                    $(".own_type").show();
+                } else {
+                    $(".own_type").hide();
+                }
+            });
+            $('input[type=radio][name="branch_sch_own_type"]').change(function () {
+                var branch_sch_own_type = $('input[name="branch_sch_own_type"]:checked').length;
+                if (!branch_sch_own_type) {
+                    $(".branch_sch_own_type").show();
+                } else {
+                    $(".branch_sch_own_type").hide();
+                }
+            });
+            $("input[name='dob']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true
+            });
+
+            $("input[id*='name_mm'], text[id*='name_mm']").on('keyup', function (e) {
+                myanmarLetterOnly($(this));
+            });
+            $(document).on('keydown', '#name_mm', function () {
+                myanmarLetterOnly($(this));
+            });
+            $("input[id*='father_name_mm'], text[id*='father_name_mm']").on('keyup', function (e) {
+                myanmarLetterOnly($(this));
+            });
+            $(document).on('keydown', '#father_name_mm', function () {
+                myanmarLetterOnly($(this));
+            });
+
+            function myanmarLetterOnly(self) {
+                val = self.val();
+                if (/[a-zA-Z0-9]+$/.test(val)) {
+                    self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+                }
+            }
+            
+            
+
         });
-        var course_type = location.pathname.split('/');
-        // console.log('course_type',course_type[2]);
-        var student = JSON.parse(localStorage.getItem('studentinfo'));
-
-
-        if(!student){
-        localStorage.setItem('course_type',course_type[2])
-        }
-        loadDescription('School');
-        getCourses();
         school_reg_feedback();
-        checkPaymentSchool();
-    })
-    //app_form_feedback();
-    
-</script>
+        getCourses();
+
+    </script>
 @endpush

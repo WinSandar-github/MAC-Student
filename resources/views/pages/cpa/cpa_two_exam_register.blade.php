@@ -188,13 +188,15 @@
                                                             id="cpa2_label1">{{ __('၁၀။') }}</label>
                                                         <label class="col-md-3 col-form-label label_align_right">{{ __('ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်') }}</label>
                                                         <div class="col-md-8">
-                                                            <div class="form-group">
+                                                            <input type="text" name="private_school_name" id="selected_school_id"
+                                                                    class="form-control" value="{{ old('private_school_name') }}" readonly="">
+                                                            <!-- <div class="form-group">
                                                                 <select class="form-control form-select"
                                                                     name="private_school_name" id="selected_school_id"
                                                                     style="width: 100%;">
                                                                     <option value="" disabled selected>Select School</option>
                                                                 </select>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div><br />
                                                 </div>
@@ -250,7 +252,7 @@
                                                     <label class="col-md-12 col-form-label"><span class="pull-left" style="margin-right: 40px;padding-left: 60px;">{{ __('(ဃ)') }}</span>အဆိုပါစာမေးပွဲတွင်အောင်မြင်ခဲ့သည့် Module ရှိပါကဆိုင်ရာအကွက်တွင်(✓)အမှတ်အသားပြုရန် - </label>
                                                 </div>
 
-                                                <div class="row mb-3" style="padding-left: 363px;" style="display:none">                                                    
+                                                <div class="row mb-3" style="padding-left: 363px; display:none;" >                                                    
                                                     <div class="row col-md-8 mx-5">
                                                         <div class="col-md-4 form-check">
                                                             <label class="form-check-label">
@@ -486,7 +488,7 @@
                 // console.log(data.data.cpersonal_no)
                 $("input[name='address']").val(data.data.address);
                 $("input[name='phone']").val(data.data.phone);
-                
+                $("input[name='private_school_name']").val(current_stu_reg[0].private_school_name);
                 if(exam_registers )
                 {
 
@@ -544,7 +546,7 @@
                 $("#date").val(formatDate(exam_registers[0].updated_at));
 
                 if(current_stu_reg[0].type == 0){
-                    $("input[name='class_address']").val("ကိုယ်ပိုင်လေ့လာသင်ယူမည့်သူများ");
+                    $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူများ");
                 }else if(current_stu_reg[0].type == 1){
                     $("input[name='class_address']").val("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းကျောင်း");
                 }else if(data.data.student_register[0].type == 2 && student_course_regs[0].mac_type==1){
@@ -562,6 +564,6 @@
 
         })
         loadExamDepartment();
-        loadSchoolList();
+        // loadSchoolList();
     </script>
 @endpush
