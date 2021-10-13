@@ -575,7 +575,7 @@
 
                         </div>
                     </div>
-                
+
                     <!-- cpaff other dashboard -->
                     <div class="cpaff_other">
                         <div class="row">
@@ -1229,11 +1229,11 @@
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
-        dateQuery();
-        verifyStatus();
+        // dateQuery();
+        // verifyStatus();
         //checkPaymentAudit();
-        audit_reg_feedback();
-        firmDashboardData();
+        // audit_reg_feedback();
+        // firmDashboardData();
     })
     //app_form_feedback();
 
