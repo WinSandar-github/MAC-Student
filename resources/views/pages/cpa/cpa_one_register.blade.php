@@ -456,7 +456,7 @@
                                         </div>--}}
 
                                         <div class="row mb-3" id="direct_access_no_private_div">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="direct_access_no_private" name="direct_access_no_private" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
@@ -465,7 +465,7 @@
                                         </div> 
 
                                          <div class="row" id="entry_success_no_private_div">
-                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                            <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
                                             <div class="col-md-8">
                                                 <div>
                                                     <input type="text" id="entry_success_no_private" name="entry_success_no_private" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
@@ -1167,7 +1167,7 @@
                                                                     <input type="text" class="form-control nrc_township" name="nrc_township" style="padding: 6px;" readonly>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <input type="text" class="form-control nrc_citizen" name="nrc_citizen" readonly>
+                                                                    <input type="text" class="form-control nrc_citizen" name="nrc_citizen" style="padding: 6px;"readonly>
                                                                 </div>
 
                                                                 <div class="col-md-4">
@@ -1878,8 +1878,7 @@
                             $("#entry_success_no_private_div").hide();
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
-                        }
-                        if(last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
+                        }else if(last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
                             console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
                             $("#entry_success_no_self_div").show();

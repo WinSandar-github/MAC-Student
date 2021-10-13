@@ -104,7 +104,18 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်<span style="color:red">*</span></label>
+                                        <label class="col-md-6 col-form-label label"><span class="pull-left">၂။</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)<span style="color:red">*</span></label>
+                                        <div class="col-md-3">
+                                            <input type="text" name="father_name_mm" class="form-control" >
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" name="father_name_eng" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ်</label>
+                                        
+
                                         <div class="col-md-6">
                                             <div class="row" style="padding-top: 0px; margin-top: 0px;">
                                                 <div class="col-md-2">
@@ -144,40 +155,71 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
-                                        <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span>အဘအမည်(မြန်မာ/အင်္ဂလိပ်)</label>
-                                        <div class="col-md-3">
-                                            <input type="text" name="father_name_mm" class="form-control" >
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" name="father_name_eng" class="form-control" >
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="col-md-4 text-center">
-                                {{--User Photo--}}
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail img-circle shadow">
-                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-                                                alt="Upload Photo" id="da_to_cpa_preview_img">
+                                    {{--User Photo--}}
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-circle shadow">
+                                            <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                                    alt="Upload Photo" id="da_to_cpa_preview_img">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                        <div class="d-flex justify-content-center">
+                                            <span class="btn btn-round btn-secondary btn-file">
+                                            <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
+                                            <input type="hidden" name="old_image" id="old_image">
+                                            <br>
+                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
                                     </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
-                                    <div class="d-flex justify-content-center">
-                                        <span class="btn btn-round btn-secondary btn-file">
-                                        <span class="fileinput-new">ဓာတ်ပုံ</span>
-                                        <span class="fileinput-exists">Change</span>
-                                        <input type="file" id="profile_photo" name="image" accept="image/*" required></span>
-                                        <input type="hidden" name="old_image" id="old_image">
-                                        <br>
-                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
+                                    {{--User Photo--}}
                                 </div>
-                                {{--User Photo--}}
-                                </div>
-                            </div>                                      
-
+                            </div>  
                             <div class="row mb-3">
+                                <div class="col-md-6 text-center">
+                                    <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail shadow">
+                                            <img src="{{ asset('assets/images/image_placeholder.png') }}" alt="Upload Photo" id="nrc_front_update">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                        <div>
+                                            <span class="btn btn-secondary btn-round btn-file">
+                                                <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အရှေ့)</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="hidden" name="old_nrc_front" id="old_nrc_front">
+                                                <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*" required>
+                                            </span>
+                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 text-center">
+                                    <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail shadow">
+                                            <img src="{{ asset('assets/images/image_placeholder.png') }}" id="nrc_back_update"
+                                                    alt="Upload Photo">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                        <div>
+                                                <span class="btn btn-secondary btn-round btn-file">
+                                                    <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
+                                                    <span class="fileinput-exists">Change</span>
+                                                    <input type="hidden" id="old_nrc_back" id="old_nrc_back">
+                                                    <input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*" required>
+                                                </span>
+                                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                        <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>ကျား / မ (Gender)<span style="color:red">*</span></label>
                                         <div class="row col-md-8 py-2">
                                             <div class="col-md-3 form-check-radio mx-2">
@@ -391,6 +433,23 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">                                
+                                <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>Attached Certificate</label>
+                                <div class="col-md-8" id="edu">
+                                    <div class="row mb-3" id="edu0">
+                                        <div class="col-md-11" id="degree_edu">
+                                            <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
+                                        </div>
+                                        <div class="col-md-1 text-center" id="add_div">
+                                            <button type="button" class="btn btn-primary btn-success" style="padding-left:5px;" id="add_btn" onclick="AddDAEdu()">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="old_certificate" id="old_certificate">
+
                             
 
                             <div class="row mb-3">
@@ -502,15 +561,15 @@
         // da_edit();
         $("input[name='date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "d-M-Y",
         });
         $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "d-M-Y",
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-m-Y",
+                dateFormat: "d-M-Y",
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
@@ -550,7 +609,7 @@
                       var education_history = data.data.student_education_histroy;
                       if(info){
                     $('#stu_id').val(info.id);
-                    console.log(info)
+                    console.log('info',info)
 
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
@@ -571,7 +630,11 @@
                         document.getElementById('da_to_cpa_preview_img').src = BASE_URL + info.image;
                         $("input[name=old_image]").val(info.image);
 
+                        document.getElementById('nrc_front_update').src = BASE_URL + info.nrc_front;
+                        $("input[name=old_nrc_front]").val(info.nrc_front);
 
+                        document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
+                        $("input[name=old_nrc_back]").val(info.nrc_back); 
 
                       }
 
@@ -606,6 +669,8 @@
                         $("input[name=university_name]").val(education_history.university_name);
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
+                        $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
+                        console.log('certificate',JSON.parse(education_history.certificate));
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){

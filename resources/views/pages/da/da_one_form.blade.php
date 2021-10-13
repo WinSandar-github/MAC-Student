@@ -526,7 +526,7 @@
                                                         <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
                                                     </div>
                                                     <div class="col-md-1 text-center" id="add_div">
-                                                        <button type="button" class="btn btn-primary" style="padding-left:5px;" id="add_btn" onclick="AddDAEdu()">
+                                                        <button type="button" class="btn btn-primary btn-success" style="padding-left:5px;" id="add_btn" onclick="AddDAEdu()">
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </div>

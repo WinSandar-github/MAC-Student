@@ -453,7 +453,8 @@ $('#cpa_update').submit(function (e) {
         success: function (data) {
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            // location.href = FRONTEND_URL + "/";
+            successMessage("You have successfully updated!");
+            location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
         }
