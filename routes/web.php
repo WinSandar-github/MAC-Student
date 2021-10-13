@@ -201,3 +201,5 @@ Route::get('/cbpay_qr', 'PaymentController@cbpayQR');
 Route::get('/cbpay_pin', 'PaymentController@cbpayPin');
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
+Route::get('qt_edit/{id}', 'QtController\QtController@edit');
+
