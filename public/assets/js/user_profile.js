@@ -127,10 +127,10 @@ function user_profile() {
                     $('.status_papp').append('Action &nbsp;&nbsp;');
                     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
-                    localStorage.setItem('cpaff_id', cpaff_latest_data.id);
-                    localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
-                    $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
-                    if (cpaff.type == 0) {
+                    localStorage.setItem('cpaff_id',cpaff_latest_data.id);
+                    localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
+                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
+                    if(cpaff_latest_data.type==0){
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     else {
@@ -414,6 +414,7 @@ function user_profile() {
                         `);
                         // $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                     } else if (cpaff_latest_data.status == 1) {
+
                         $('.status').append(`
                         <tr>
                             <td>CPA(Full-Fledged) ${is_renew}</td>
@@ -456,9 +457,8 @@ function user_profile() {
                         //     $('.papp_btn').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
                         // }
                     } else {
-
-                        localStorage.setItem('cpaff_id', cpaff_latest_data.id);
-                        localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
+                        localStorage.setItem('cpaff_id',cpaff_latest_data.id);
+                        localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
                         $('.status').append(`
                         <tr>
                             <td>PAPP ${is_renew}</td>
@@ -2009,15 +2009,15 @@ function Cpaff_profile_update() {
         processData: false,
         success: function (res) {
             console.log('res', res);
-            $('#update_email').val(res.data.email);
+            $('#update_email_cpaff').val(res.data.email);
             //$('.date_of_birth').val(res.data.date_of_birth);
-            $('#update_phone').val(res.data.phone);
-            $('#update_address').val(res.data.address);
-            $('#previewImg').attr("src", BASE_URL + res.data.image);
-            $('#old_image').val(res.data.image);
+            $('#update_phone_cpaff').val(res.data.phone);
+            $('#update_address_cpaff').val(res.data.address);
+            $('#previewImg_cpaff').attr("src", BASE_URL + res.data.image);
+            $('#old_image_cpaff').val(res.data.image);
         }
     });
-    $('#profileModel').modal('show');
+    $('#profileCpaffModel').modal('show');
 }
 
 $('.course_list').click(function () {
@@ -2072,6 +2072,27 @@ $('#update_profile').submit(function (e) {
             EasyLoading.hide();
             successMessage(data.message);
             $('#profileModel').modal('hide');
+        }
+    });
+});
+
+$('#update_cpaff_profile').submit(function (e) {
+    e.preventDefault();
+    let student = JSON.parse(localStorage.getItem('studentinfo'));
+    var formData = new FormData(this);
+    formData.append('membership','cpaff')
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/update_profile/" + student.id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileCpaffModel').modal('hide');
         }
     });
 });
