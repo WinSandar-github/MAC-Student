@@ -270,10 +270,12 @@ function getCourses(){
            var opt;
            
           $.each(response.data,function(i,v){
-            
-            [a, b] = v.code.split('_');
+            if(v.course_type_id !=3){
+              [a, b] = v.code.split('_');
 
-            opt += '<option value='+v.id+'>'+a.toUpperCase()+' '+ number2roma(b) +'</option>';
+              opt += '<option value='+v.id+'>'+a.toUpperCase()+' '+ number2roma(b) +'</option>';
+            }
+            
 
 
             // var newcode=(v.code).split('_');
@@ -291,9 +293,9 @@ function getCourses(){
 }
 function number2roma(num){
   if(num){
-  var nums = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX'};
-  return num.toString().replace(/([0-9])/g, function (s, key) {
-  return nums[key] || s;
+    var nums = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX'};
+    return num.toString().replace(/([0-9])/g, function (s, key) {
+    return nums[key] || s;
   });
   }
   
