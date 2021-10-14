@@ -209,3 +209,7 @@ Route::get('/cbpay_pin', 'PaymentController@cbpayPin');
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
 Route::get('qt_edit/{id}', 'QtController\QtController@edit');
+
+//Reconnect
+Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
+Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');
