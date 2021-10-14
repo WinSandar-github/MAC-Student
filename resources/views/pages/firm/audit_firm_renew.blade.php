@@ -1039,6 +1039,21 @@
 <script src="{{ asset("js/form_validation/audit_firm_renew_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
+    	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
+    			myanmarLetterOnly($(this));
+    	});
+
+    	$(document).on('keydown', '#head_office_address_mm', function () {
+    			myanmarLetterOnly($(this));
+    	});
+
+    	function myanmarLetterOnly(self) {
+    			val = self.val();
+    			if (/[a-zA-Z0-9]+$/.test(val)) {
+    					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+    			}
+    	}
+
         loadAuditOrganization();
         loadAuditTypeOfService();
         loadAuditTotalStaffReg();
