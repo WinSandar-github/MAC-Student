@@ -257,61 +257,33 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
-  var numeralCodes = [
-    {
-      num: '1',			
-      numeral : 'I',
-    },
-    {
-      num: '2',			
-      numeral : 'II',
-    },
+  var changeCode = [{num: '1',numcode : 'I',},{num: '2',numcode : 'II',},
     {
       num: '3',			
-      numeral : 'III',
+      numcode : 'III',
     },
     {
       num: '4',			
-      numeral : 'IV',
+      numcode : 'IV',
     },
-    {
-      num: '5',			
-      numeral : 'V',
-    },
-    {
-      num: '6',			
-      numeral : 'VI',
-    },
-    {
-      num: '7',			
-      numeral : 'VII',
-    },
-    {
-      num: '8',			
-      numeral : 'VIII',
-    },
-    {
-      num: '9',			
-      numeral : 'IX',
-    },
-    {
-      num: '10',			
-      numeral : 'X',
-    },
+    
   ];
+  
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
       success:function(response){
            var opt;
+           
           $.each(response.data,function(i,v){
-              var newcode=(v.code).split('_');
-              var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
-              console.log(result.numeral);
-              var course_code=result.numeral;
+            var newcode=(v.code).split('_');
+            var new_data = changeCode.filter( obj => obj.num ===newcode[1])[0];
+             console.log(new_data)
               
-              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
+              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+new_data.numcode}</option>`;
+              
           })
+          
           $(".multiple-attend-course").append(opt);
           //$(".attend_course").siblings(".nice-select").css('display','none');
       }
@@ -1135,7 +1107,7 @@ function loadTeacherById(row){
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[2].children[0].readOnly = true;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].value=value.nrc_state_region+'/'+value.nrc_township+'/'+value.nrc_number;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].readOnly = true;
-          loadEductaionHistoryByTeacher(value.id,row);
+          loadEductaionHistoryByTeacher(value.student_info_id,row);
           
           if(value.certificates.search(/[\'"[\]']+/g)==0){
             loadCertificates(value.certificates.replace(/[\'"[\]']+/g, ''),row);

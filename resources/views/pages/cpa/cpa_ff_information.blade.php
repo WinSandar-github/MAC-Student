@@ -434,7 +434,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" id="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
                                     <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                 </div>

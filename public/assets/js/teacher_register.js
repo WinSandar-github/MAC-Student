@@ -172,31 +172,35 @@ function teacherPaymentSubmit(){
                         invoice_no='T-'+ans;
                     }else{
                         var count_invoice=val.count_invoice_no+1;
-                        $.each(result.data, function( index, value ){
-                            
-                            if(value.from_valid_date==null){
-                                
-                                    if(current_date > value.from_valid_date){
-                                        var str = "" + count_invoice;
-                                        var pad = "000"
-                                        var ans = pad.substring(0, pad.length - str.length) + str
-                                        invoice_no='T-'+ans;
-                                        
-                                    }
-                                    
-                            }else{
-                                
-                                if(current_date > value.from_valid_date){
-                                    var str = "" + count_invoice;
+                        var str = "" + count_invoice;
                                     var pad = "000"
                                     var ans = pad.substring(0, pad.length - str.length) + str
                                     invoice_no='T-'+ans;
-                                    
-                                }
-                                
-                            }
+                        // $.each(result.data, function( index, value ){
                             
-                        })
+                        //     if(value.from_valid_date==null){
+                                
+                        //             if(current_date > value.from_valid_date){
+                        //                 var str = "" + count_invoice;
+                        //                 var pad = "000"
+                        //                 var ans = pad.substring(0, pad.length - str.length) + str
+                        //                 invoice_no='T-'+ans;
+                                        
+                        //             }
+                        //             console.log(invoice_no)
+                        //     }else{
+                                
+                        //         if(current_date > value.from_valid_date){
+                        //             var str = "" + count_invoice;
+                        //             var pad = "000"
+                        //             var ans = pad.substring(0, pad.length - str.length) + str
+                        //             invoice_no='T-'+ans;
+                                    
+                        //         }
+                                
+                        //     }
+                            
+                        // })
                     }
                 
                 
@@ -419,8 +423,9 @@ function loadRenewTeacher(){
                                 $("input[name=race]").val(teacher.race);
                                 $("input[name=religion]").val(teacher.religion);
                                 $("input[name=date_of_birth]").val(teacher.date_of_birth);
-                                $("input[name=current_address]").val(teacher.address);
-                                $("input[name=address]").val(teacher.current_address);
+                                $("textarea[name=current_address]").val(teacher.current_address);
+                                $("textarea[name=eng_current_address]").val(teacher.eng_current_address);
+                                $("input[name=address]").val(teacher.address);
                                 $("input[id=position]").val(teacher.position);
                                 $("input[id=department]").val(teacher.department);
                                 $("input[id=organization]").val(teacher.organization);
@@ -752,6 +757,8 @@ function updateTeacher(){
             url: BACKEND_URL+"/getTeacher/"+student.id,//getTeacherStatus
             type: 'GET',
             success: function(result){
+                var old_nrc_front=result.data[0].nrc_front;
+                var old_nrc_back=result.data[0].nrc_back;
                 var teacher=result.data.pop();
             //   var form_data = data;
             //   form_data.forEach(function(element){
@@ -803,8 +810,10 @@ function updateTeacher(){
                                 $("input[name=race]").val(teacher.race);
                                 $("input[name=religion]").val(teacher.religion);
                                 $("input[name=date_of_birth]").val(teacher.date_of_birth);
-                                $("input[name=address]").val(teacher.address);
-                                $("input[name=current_address]").val(teacher.current_address);
+                                $("textarea[name=address]").val(teacher.address);
+                                $("textarea[name=eng_address]").val(teacher.eng_address);
+                                $("textarea[name=eng_current_address]").val(teacher.eng_current_address);
+                                $("textarea[name=current_address]").val(teacher.current_address);
                                 $("input[name=position]").val(teacher.position);
                                 $("input[name=department]").val(teacher.department);
                                 $("input[name=organization]").val(teacher.organization);
@@ -851,17 +860,17 @@ function updateTeacher(){
                             // $('#hidden_profile').val(teacher.image);
                             if(teacher.nrc_front==null){
                                 $('#hidden_nrc_front').val(teacher.nrc_front);
-                                //$("#nrc_front_img_renew").attr("src",BASE_URL+teacher.nrc_front);
+                                $("#nrc_front_img_renew").attr("src",BASE_URL+old_nrc_front);
                             }else{
                                 $('#hidden_nrc_front').val(teacher.nrc_front);
-                                $("#nrc_front_img_renew").attr("src",BASE_URL+teacher.nrc_front);
+                                $("#nrc_front_img_renew").attr("src",BASE_URL+old_nrc_back);
                             }
                                 if(teacher.nrc_back==null){
                                     $('#hidden_nrc_back').val(teacher.nrc_back);
-                                    //$("#nrc_back_img_renew").attr("src",BASE_URL+teacher.nrc_back);
+                                    $("#nrc_back_img_renew").attr("src",BASE_URL+old_nrc_front);
                                 }else{
                                     $('#hidden_nrc_back').val(teacher.nrc_back);
-                                    $("#nrc_back_img_renew").attr("src",BASE_URL+teacher.nrc_back);
+                                    $("#nrc_back_img_renew").attr("src",BASE_URL+old_nrc_back);
                                 }      
                                     
                                 $('#hschool_name_renew').val(teacher.school_name);

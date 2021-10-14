@@ -1217,7 +1217,112 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="profileCpaffModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="update_cpaff_profile" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-7">
 
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">Email</label>
+                                    <div class="col-md-8">
+                                        <input type="email" readonly placeholder="Enter your Email address!" name="email"
+                                            class="form-control" id="update_email_cpaff"="">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <br>
+
+                                {{--
+                                    <div class="row">
+                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                            <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                                        class="form-control" ="" id="name_mm_cpaff">
+                                            </div>
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+
+                                            <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
+
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng_cpaff"
+                                                        class="form-control" ="">
+                                            </div>
+                                        </div>
+                                    <br>
+                                --}}
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="date_of_birth" class="form-control date_of_birth"
+                                            placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="update_phone_cpaff"
+                                            class="form-control"="">
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" id="update_address_cpaff"
+                                            class="form-control"="">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="align-content-end  pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg_cpaff"
+                                        src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg"
+                                        alt="">
+                                    <p class="mt-2 " style="margin-right: 10px;">
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="image"
+                                            accept="image/*" onchange="previewImageFile(this);">
+                                    </p>
+                                    <div class="form-text mb-2">Allowed Jpeg Image.</div>
+                                    <input type="hidden" name="old_image_cpaff" id="old_image_cpaff">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="showPwdModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="max-width: 600px !important">
         <div class="modal-content">
@@ -1275,6 +1380,51 @@
     </div>
 </div>
 
+<!-- Article Form Registration Fee -->
+<div class="modal fade" id="articleRegistrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <br>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <center>
+                        <h4 style="margin-bottom:5%;">Article Registeration Form Fee - ****** MMK</h4>
+                    </center>
+                    <div class="col-sm-3 col-5">
+                        <center>
+                            <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                data-value="CBPAY" name="payment_method" id="cb_img">
+                        </center>
+                        <br>
+                    </div>
+                    <div class="col-sm-3 col-5">
+                        <center>
+                            <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                data-value="MPU" name="payment_method" id="mpu_img">
+                        </center>
+                        <br>
+                    </div>
+                    <div class="col-sm-3 col-5">
+                        <center>
+                            <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                data-value="CASH" name="payment_method" id="cash_img">
+                        </center>
+                        <br>
+                    </div>
+                    <input type="hidden" name="payment_method" value="CASH">
+                    <center>
+                        <button type="submit" id="article_registration_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                    </center>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+<!-- JavaScript Section -->
 {{--Audit Payment Modal--}}
 <form method="post" class="needs-validation" action="javascript:auditPaymentSubmit();" enctype="multipart/form-data"
       novalidate>

@@ -41,6 +41,7 @@ $().ready(function (){
             audit_structure : "required",
             audit_staff_no : "required",
             current_check_service_id : "required",
+            confirm_129: "required",
             current_check_services_other : {
                 required : $("#selected_service_id").val() == 9
             },
@@ -117,6 +118,7 @@ $().ready(function (){
             repeat_yearly : "Please enter your repeat yearly",
             training_absent : "Please enter your training absent",
             training_absent_reason : "Please enter your training absent reason",
+            confirm_129: "Please check one",
         },
         
     });
