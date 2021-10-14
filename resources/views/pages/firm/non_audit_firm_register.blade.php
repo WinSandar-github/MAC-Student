@@ -157,7 +157,7 @@
 
 										{{--<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
-											<label class="col-md-5 col-form-label label_align_right">{{ __('Firm Name') }}</label>
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Accountancy Firm Name') }}</label>
 											<div class="col-md-6">
 												<div class="form-group">
 													<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
@@ -1234,7 +1234,7 @@
 											<div class="form-group" style="display:flex;">
 													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
 													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)(English)" >
-													<input type="text" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
+													<input type="text" id="declaration_mm" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
 											</div>
 									</div>
 									<div class="col-md-4" style="font-weight:bold;">
@@ -1342,12 +1342,29 @@
 <script src="{{ asset("js/form_validation/non_audit_firm_validation.js") }}"></script>
 <script>
 
-$(document).ready(function(){
-	$("#non-audit-form").submit(function( event ) {
-
+$(document).ready(function(e){
+	$("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
+			myanmarLetterOnly($(this));
 	});
 
+	$(document).on('keydown', '#declaration_mm', function () {
+			myanmarLetterOnly($(this));
+	});
 
+	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
+			myanmarLetterOnly($(this));
+	});
+
+	$(document).on('keydown', '#head_office_address_mm', function () {
+			myanmarLetterOnly($(this));
+	});
+
+	function myanmarLetterOnly(self) {
+			val = self.val();
+			if (/[a-zA-Z0-9]+$/.test(val)) {
+					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+			}
+	}
 
 });
 

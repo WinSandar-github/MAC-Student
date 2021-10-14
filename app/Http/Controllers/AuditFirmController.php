@@ -25,4 +25,9 @@ class AuditFirmController extends Controller
     {
         return view('pages.firm.audit_firm_renew');
     }
+
+    public function auditReconnect()
+    {
+        return view('pages.firm.audit_initial_renew_reconnect');
+    }
 }
