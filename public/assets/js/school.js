@@ -283,9 +283,9 @@ function getCourses(){
            var opt;
           $.each(response.data,function(i,v){
               var newcode=(v.code).split('_');
-              var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
-              console.log(result.numcode);
-              var course_code=result.numcode;
+              var new_data = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+              console.log(new_data.numcode);
+              var course_code=new_data.numcode;
               
               opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
