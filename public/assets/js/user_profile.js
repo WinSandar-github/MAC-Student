@@ -2337,37 +2337,38 @@ function laodTeacherByDash(teacher_data) {
             $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
             $('.teacher_reject-reason').append(teacher.reason);
         }
+        // if (teacher.payment_method != null) {
+        //     $('.teacher_period').show();
+        //     var now = new Date();
+        //     if(teacher.initial_status==0){
+        //         var period_date = teacher.from_valid_date.split(' ');
+        //         var new_period_date = period_date[0].split('-');
+        //         var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+        //         $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+        //     }else if(teacher.initial_status==1){
+        //        $('#teacher_period_time').text('01-01-'+ now.getFullYear() + " to 31-12-" + now.getFullYear());
+        //     }
+            
+        // }
         if (teacher.payment_method != null) {
             $('.teacher_period').show();
             var now = new Date();
-            if(teacher.initial_status==0){
+            if (teacher.initial_status == 0) {
                 var period_date = teacher.from_valid_date.split(' ');
                 var new_period_date = period_date[0].split('-');
                 var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
                 $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-            }else if(teacher.initial_status==1){
-               $('#teacher_period_time').text('01-01-'+ now.getFullYear() + " to 31-12-" + now.getFullYear());
+            } else if (teacher.initial_status == 1) {
+                $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
             }
-            if (teacher.payment_method != null) {
-                $('.teacher_period').show();
-                var now = new Date();
-                if (teacher.initial_status == 0) {
-                    var period_date = teacher.from_valid_date.split(' ');
-                    var new_period_date = period_date[0].split('-');
-                    var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-                    $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
-                } else if (teacher.initial_status == 1) {
-                    $('#teacher_period_time').text('01-01-' + now.getFullYear() + " to 31-12-" + now.getFullYear());
-                }
 
-                $('.teacher_renew-btn').show();
-                $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-                $('.teacher_payment-status').show();
-                $('.teacher_payment-btn').hide();
-                $(".teacher_payment_status").text("Complete");
-            } else {
-                $(".teacher_payment_status").text("Incomplete");
-            }
+            $('.teacher_renew-btn').show();
+            $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+            $('.teacher_payment-status').show();
+            $('.teacher_payment-btn').hide();
+            $(".teacher_payment_status").text("Complete");
+        } else {
+            $(".teacher_payment_status").text("Incomplete");
         }
     }
     });
