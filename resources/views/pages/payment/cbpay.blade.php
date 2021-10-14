@@ -67,3 +67,10 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+    <script src="{{ asset('assets/js/payment.js') }}"></script>
+    <script type="text/javascript">
+        deviceOS();
+    </script>
+@endpush
+

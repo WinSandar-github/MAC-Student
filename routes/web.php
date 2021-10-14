@@ -41,6 +41,8 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
+Route::get('update_papp_initial','PAPPController@reject_initial');
+Route::get('update_papp_renewal','PAPPController@reject_renewal');
 
 //PAPP Information Page
 Route::get('student_papp_information','PAPPInfoController@info');
@@ -50,7 +52,10 @@ Route::get('student_index', 'StudentController@index');
 
 //CPA_FF Register Form
 Route::get('cpa_ff_register', 'CPAFFController@info');
+// Route::get('cpa_ff_reject', 'CPAFFController@reject');
 Route::get('cpaff_other', 'CPAFFController@other');
+Route::get('update_cpaff_initial','CPAFFController@reject_initial');
+Route::get('update_cpaff_renewal','CPAFFController@reject_renewal');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
@@ -129,6 +134,9 @@ Route::get('audit_firm_information', 'AuditFirmInfoController@info');
 // Audit Firm Reject Register
 Route::get('audit_firm_reject_register', 'AuditFirmInfoController@updateRejectedRegister');
 
+// Non Audit Firm Reject Register
+Route::get('non_audit_firm_reject_register', 'NonAuditFirmInfoController@updateRejectedRegister');
+
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
@@ -141,6 +149,9 @@ Route::get('school_information', 'SchoolInfoController@info');
 
 //School edit Form
 Route::get('school_edit', 'SchoolController@edit');
+
+//School renewedit Form
+Route::get('renew_school_edit', 'SchoolController@renew_edit');
 
 //Teacher Register Form
 Route::get('teacher_register', 'TeacherController@info');
@@ -165,7 +176,9 @@ Route::get('article_resign_registration', 'ArticleController@articleResign');
 Route::get('article_information', 'ArticleInfoController@info');
 
 //list of all result
-Route::get('application_list/{course_id}','ReportController@app_list');
+Route::get('attend_registration_list/{course_id}','ReportController@attendRegistrationList');
+Route::get('application_list/{course_id}','ReportController@appList');
+
 
 Route::get('exam_registration_list/{course_id}','ReportController@exam_list');
 Route::get('exam_result_list/{course_id}','ReportController@exam_result_list');
@@ -184,6 +197,9 @@ Route::get('/setPayment', 'PaymentController@setPayment');
 Route::post('payment_method/{id}', 'PaymentController@postPayment');
 Route::post('post_payment/{type}', 'PaymentController@postPayment');
 Route::post('/payment_status', 'PaymentController@paymentStatus'); // response route
-
+Route::get('/cbpay_qr', 'PaymentController@cbpayQR');
+Route::get('/cbpay_pin', 'PaymentController@cbpayPin');
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
+Route::get('qt_edit/{id}', 'QtController\QtController@edit');
+

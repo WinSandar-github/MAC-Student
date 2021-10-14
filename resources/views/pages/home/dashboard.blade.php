@@ -34,9 +34,9 @@
     </div>
 
     <div class=" section section-padding mt-n10">
-        <div class="container">
-            <div class="card da-card"><!-- when school and teacher dashboard use da-card hide  -->
-                <div class="card-header title text-center text-dark h5" style="background-color:#E7F8EE;">
+        <div class="container" style="margin-top: 0px!important">
+            <div class="card da-card shadow-lg"><!-- when school and teacher dashboard use da-card hide  -->
+                <div class="card-header title text-center text-dark h5 p-3" style="background-color:#E7F8EE;">
                 </div>
 
                 <div class="card-body">
@@ -101,8 +101,7 @@
                                 </div>
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-10 offset-md-1 mb-2">
-                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
-                                            id="edit_profile">{{ __('Update Profile') }}</button>
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -348,7 +347,7 @@
                                                     <th>Batch Name</th>
                                                     <th>Module</th>
                                                     <th>Success Year</th>
-                                                    
+
                                                 </thead>
                                                 <tbody class="course">
                                                 </tbody>
@@ -379,7 +378,6 @@
                     </div>
                     <div class="acc_firm">
                         <div class="row">
-
                             <div class="col-md-8 offset-md-2">
                                 <div class="row   mt-3 border-bottom">
                                     <div class="col-md-6">
@@ -400,10 +398,18 @@
                                 </div>
                                 <div class="row  mt-3 border-bottom">
                                     <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Head Office Address</p>
+                                        <p class="ml-2" style="font-weight:bold">Head Office Address(English)</p>
                                     </div>
                                     <div class="col-md-6">
                                         <span class="text-start" id="head_office"></span>
+                                    </div>
+                                </div>
+                                <div class="row  mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Head Office Address(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="text-start" id="head_office_mm"></span>
                                     </div>
                                 </div>
 
@@ -463,13 +469,52 @@
                         </div>
 
                         <div class="row my-2">
-                            <h5 class="text-center border-bottom pb-2"
-                                style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
-
+                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;"> Application Status</h5>
                             <div class="text-center fw-bolder status_history">
+                            </div>
+                            <div class="text-center fw-bolder" id="message">
 
                             </div>
+                            {{--<input type="text" class="form-control" id="message" readonly="">--}}
                         </div>
+                        {{--renew buttons--}}
+                        <div class="row" id="check_renew" style="display:none;text-align: center; margin-top: 2%;">
+                            <div class="form-group">
+                                <center>
+                                    <a href="{{ url('/audit_firm_information') }}" class="btn btn-success btn-hover-dark">Audit Firm Renew Form</a>
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="row" id="check_renew_nonaudit" style="display:none;text-align: center; margin-top: 2%;">
+                            <div class="form-group">
+                                <center>
+                                    <a href="{{ url('/non_audit_firm_information') }}" class="btn btn-success btn-hover-dark">Non-Audit Firm Renew Form</a>
+                                </center>
+                            </div>
+                        </div>
+                        {{--payment buttons--}}
+                        <div class="row payment-btn" style="display:none;">
+                            <div class="col-md-6"></div>
+                            <div class="">
+                                <div class="mt-4" align="center">
+                                    <p class="info-btn text-dark h6">
+                                        <button id="audit_payment_btn" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row nonaudit-payment-btn" style="display:none;">
+                            <div class="col-md-6"></div>
+                            <div class="">
+                                <div class="mt-4" align="center">
+                                    <p class="info-btn text-dark h6">
+                                        <button id="non_audit_payment_btn" class="btn btn-success btn-hover-dark"> Go to payment</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         {{--reject register buttons--}}
                         <div id="reject_register_btn_audit" style="display:none;">
                           <div class="row" >
@@ -487,7 +532,7 @@
                               <div class="col-md-12">
                                   <div align="center">
                                       <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                          <a href="" class="btn btn-success btn-hover-dark" >Update Register</a>
+                                          <a href="{{url('non_audit_firm_reject_register')}}" class="btn btn-success btn-hover-dark" >Update Register</a>
                                       </p>
                                   </div>
                               </div>
@@ -504,80 +549,243 @@
                         </div>
 
                     </div>
+                     <!-- cpaff other dashboard -->
+                    {{--<div class="cpaff_other">
+                        <div class="row">
 
+                            
+                            
+                            
+                            </div>
+                            <div class="qualified_test">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">NRC</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_nrc"></span>
+                                            </div>
+                                        </div>
+        
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Email</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-6">
+                                                <p class="ml-2" style="font-weight:bold">Phone</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="qt_phone"></span>
+                                            </div>
+                                        </div>
+                                        
+        
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+        
+                                </div>
+        
+                                <div class="row my-2">
+        
+                                    <div class="offset-md-3 col-md-9">
+        
+                                        <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                        Application Status</h5>
+        
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Submit Date</th>
+                                                    <th>Status Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="status">
+                                            </tbody>   
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>--}}
+                    <div class="card-body cpaff_other">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">NRC</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="cpaff_nrc"></span>
+                                        </div>
+                                    </div>
 
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Email</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="cpaff_email"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">Phone</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="cpaff_phone"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom period" style="display:none;">
+                                        <div class="col-md-6">
+                                            <p class="ml-2" style="font-weight:bold">This certificate is valid for the
+                                                period</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span id="period_time_cpaff"></span>
+                                        </div>
+                                    </div>
 
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-10 offset-md-1 mb-2">
+                                            <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2 mt-3 border-bottom">
+                                        <div class="col-md-10 offset-md-1 mb-2">
+                                            <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                onclick="Cpaff_profile_update()">{{ __('Update Profile') }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row my-2">
+                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                        Application Status</h5>
+                                <div class="text-center status_history"></div>
+                                <div class="text-center status_papp"> </div>
+                            </div>
+                        
+                    </div>
                 </div>
             </div>
-
             <!-- cpaff other dashboard -->
-            <div class="cpaff_other">
-                <div class="row">
+            {{--<div class="cpaff_other">
+                <div class="card">
+                    <div class="card-header cpaff_other_title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">NRC</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="cpaff_nrc"></span>
+                                    </div>
+                                </div>
 
-                    <div class="col-md-8 offset-md-2">
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Email</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="cpaff_email"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Phone</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="cpaff_phone"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom period" style="display:none;">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">This certificate is valid for the
+                                            period</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="period_time_cpaff"></span>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">NRC</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_nrc"></span>
-                            </div>
+
                         </div>
 
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Email</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_email"></span>
-                            </div>
+                        <div class="row my-2">
+                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                    Application Status</h5>
+                            <div class="text-center status_history"></div>
+                            <div class="text-center status_papp"> </div>
                         </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="cpaff_phone"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom period" style="display:none;">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">This certificate is valid for the
-                                    period</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="period_time_cpaff"></span>
-                            </div>
-                        </div>
-
                     </div>
-
                 </div>
-
-                <div class="row my-2">
-
-
-                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                        Application Status</h5>
-
-                    <div class="text-center status_history">
-
-                    </div>
-                    <div class="text-center status_papp">
-
-                    </div>
-                </div>
-
-
-            </div>
+            </div>--}}
             <!-- end cpaff other dashboard -->
             <!-- school dashboard-->
             <div class="school" style="display:none;">
@@ -585,8 +793,8 @@
                             <div class="card-header school-title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
                             <div class="card-body">
                                 <div class="row">
-
-                                    <div class="col-md-8 offset-md-2">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-8">
                                         <div class="row m-2 mt-3 border-bottom">
                                             <div class="col-md-6">
                                                 <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
@@ -641,9 +849,24 @@
                                         </div>
 
                                     </div>
-
+                                    <div class="col-md-3">
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#pwModalTeacher">{{ __('Change Password') }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#profileModelSchool" id="">{{ __('Update Profile') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
+                                
                                 <div class="row my-2 sch_status">
 
 
@@ -691,9 +914,8 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
+                                                <p class="info-btn text-dark h6 sch-reject-p">
 
-                                                    <a href="/MAC_Student/public/index.php/school_edit" class="btn btn-success btn-hover-dark"> Update</a>
                                                 </p>
                                             </div>
                                     </div>
@@ -703,10 +925,10 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
+                                                <p class="info-btn text-dark h6 sch_payment-p">
 
-                                                    <a href="/MAC_Student/public/index.php/school_information" class="btn btn-success btn-hover-dark"> Go to
-                                                        payment</a>
+                                                    <!-- <a href="/school_information" class="btn btn-success btn-hover-dark"> Go to
+                                                        payment</a> -->
                                                 </p>
                                             </div>
                                     </div>
@@ -715,9 +937,9 @@
                                     <div class="col-md-6"></div>
                                     <div class="">
                                                 <div class=" pull-right mt-4">
-                                                    <p class="info-btn text-dark h6">
+                                                    <p class="info-btn text-dark h6 sch_renew-p">
 
-                                                        <a href="/MAC_Student/public/index.php/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                        <!-- <a href="/school_information" class="btn btn-success btn-hover-dark"> Renew Form</a> -->
                                                     </p>
                                                 </div>
                                     </div>
@@ -733,7 +955,8 @@
                             <div class="card-header teacher-title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-8 offset-md-2">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-8">
                                         <div class="row m-2 mt-3 border-bottom">
                                             <div class="col-md-6">
                                                 <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)
@@ -781,7 +1004,22 @@
                                         </div>
 
                                     </div>
-
+                                    <div class="col-md-3">
+                                        <div class="row m-2 mt-3 border-bottom teacher_pw">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#pwModalTeacher">{{ __('Change Password') }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="row m-2 mt-3 border-bottom">
+                                            <div class="col-md-10 offset-md-1 mb-2">
+                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#profileModelTeacher" id="">{{ __('Update Profile') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row my-2">
@@ -833,9 +1071,9 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
-
-                                                    <a href="/MAC_Student/public/index.php/teacher_register" class="btn btn-success btn-hover-dark"> Update</a>
+                                                <p class="info-btn text-dark h6 teacher_reject-p">
+                                                    <!--https://demo.aggademo.me/MAC_Student/public/index.php-->
+                                                    <!-- <a href="/teacher_register" class="btn btn-success btn-hover-dark"> Update</a> -->
                                                 </p>
                                             </div>
                                     </div>
@@ -845,10 +1083,10 @@
                                     <div>
 
                                             <div class=" pull-right mt-4">
-                                                <p class="info-btn text-dark h6">
+                                                <p class="info-btn text-dark h6 teacher_payment-p">
 
-                                                    <a href="/MAC_Student/public/index.php/teacher_information" class="btn btn-success btn-hover-dark"> Go to
-                                                        payment</a>
+                                                    <!-- <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Go to
+                                                        payment</a> -->
                                                 </p>
                                             </div>
                                     </div>
@@ -857,9 +1095,9 @@
                                     <div class="col-md-6"></div>
                                     <div class="">
                                                 <div class=" pull-right mt-4">
-                                                    <p class="info-btn text-dark h6">
+                                                    <p class="info-btn text-dark h6 teacher_renew-p">
 
-                                                        <a href="/MAC_Student/public/index.php/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a>
+                                                        <!-- <a href="/teacher_information" class="btn btn-success btn-hover-dark"> Renew Form</a> -->
                                                     </p>
                                                 </div>
                                     </div>
@@ -867,69 +1105,9 @@
                             </div>
                         </div>
             </div>
-
-            <div class="qualified_test">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">NRC</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_nrc"></span>
-                            </div>
-                        </div>
-
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Email</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_email"></span>
-                            </div>
-                        </div>
-                        <div class="row m-2 mt-3 border-bottom">
-                            <div class="col-md-6">
-                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                            </div>
-                            <div class="col-md-6">
-                                <span id="qt_phone"></span>
-                            </div>
-                        </div>
-                         
-
-                    </div>
-
-                </div>
-
-                <div class="row my-2">
-
-
-                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                        Application Status</h5>
-
-                    <div class="text-center status_history">
-
-                    </div>
-                    <div class="text-center status_papp">
-
-                    </div>
-                </div>
-
-
-            </div>
             <!--end teacher dashboard-->
+          
+            
         </div>
     </div>
 <!-- update profile -->
@@ -951,7 +1129,7 @@
 
                                     <label for="" class="col-md-3 col-form-label">Email</label>
                                     <div class="col-md-8">
-                                        <input type="email" placeholder="Enter your Email address!" name="email"
+                                        <input type="email" readonly placeholder="Enter your Email address!" name="email"
                                             class="form-control" id="update_email"="">
                                         @if ($errors->has('email'))
                                             <span class="text-danger">
@@ -1039,7 +1217,112 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="profileCpaffModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="update_cpaff_profile" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-7">
 
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">Email</label>
+                                    <div class="col-md-8">
+                                        <input type="email" readonly placeholder="Enter your Email address!" name="email"
+                                            class="form-control" id="update_email_cpaff"="">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <br>
+
+                                {{--
+                                    <div class="row">
+                                            <label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                            <label for="" class="col-md-3 col-form-label">အမည်(မြန်မာ)</label>
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="အမည်(မြန်မာ)" name="name_mm"
+                                                        class="form-control" ="" id="name_mm_cpaff">
+                                            </div>
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+
+                                            <label for="" class="col-md-3 col-form-label">အမည်(အင်္ဂလိပ်)</label>
+
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="အမည်(အင်္ဂလိပ်)" name="name_eng" id="name_eng_cpaff"
+                                                        class="form-control" ="">
+                                            </div>
+                                        </div>
+                                    <br>
+                                --}}
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">မွေးသက္ကရာဇ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="date_of_birth" class="form-control date_of_birth"
+                                            placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone" id="update_phone_cpaff"
+                                            class="form-control"="">
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+
+                                    <label for="" class="col-md-3 col-form-label">နေရပ်လိပ်စာ</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="နေရပ်လိပ်စာ" name="address" id="update_address_cpaff"
+                                            class="form-control"="">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="align-content-end  pull-right">
+                                    <img class="col-md-3 profile-style" id="previewImg_cpaff"
+                                        src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg"
+                                        alt="">
+                                    <p class="mt-2 " style="margin-right: 10px;">
+                                        <input type="file" class="custom-file-input" id="profile_photo" name="image"
+                                            accept="image/*" onchange="previewImageFile(this);">
+                                    </p>
+                                    <div class="form-text mb-2">Allowed Jpeg Image.</div>
+                                    <input type="hidden" name="old_image_cpaff" id="old_image_cpaff">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="showPwdModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="max-width: 600px !important">
         <div class="modal-content">
@@ -1142,3 +1425,359 @@
     </div>
 </div>
 <!-- JavaScript Section -->
+{{--Audit Payment Modal--}}
+<form method="post" class="needs-validation" action="javascript:auditPaymentSubmit();" enctype="multipart/form-data"
+      novalidate>
+    @csrf
+    <div class="modal fade" id="auditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <br>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <center>
+                            <h4 style="margin-bottom:5%;">Audit Firm Registration Form Fee - ****** MMK</h4>
+                        </center>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                     data-value="CBPAY" name="payment_method" id="cb_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                     data-value="MPU" name="payment_method" id="mpu_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                     data-value="CASH" name="payment_method" id="cash_img">
+                            </center>
+                            <br>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                        <center>
+                            <button type="submit" id="audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                        </center>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</form>
+
+{{--Non-Audit Payment Modal--}}
+<form method="post" class="needs-validation" action="javascript:nonAuditPaymentSubmit();" enctype="multipart/form-data"
+      novalidate>
+    @csrf
+    <div class="modal fade" id="nonAuditpaymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <br>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <center>
+                            <h4 style="margin-bottom:5%;">Non-Audit Firm Registration Form Fee - ****** MMK</h4>
+                        </center>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cbpay.png')}}" width="50%" height="50%"
+                                     data-value="CBPAY" name="payment_method" id="cb_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/mpu.png')}}" width="50%" height="50%"
+                                     data-value="MPU" name="payment_method" id="mpu_img">
+                            </center>
+                            <br>
+                        </div>
+                        <div class="col-sm-3 col-5">
+                            <center>
+                                <img class="fit-image" src="{{asset('img/cash.png')}}" width="50%" height="50%"
+                                     data-value="CASH" name="payment_method" id="cash_img">
+                            </center>
+                            <br>
+                        </div>
+                        <input type="hidden" name="payment_method" value="CASH">
+                        <center>
+                            <button type="submit" id="non_audit_pay_now_btn" class="btn btn-success btn-hover-dark w-30" data-bs-toggle="modal">Pay Now </button>
+                        </center>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</form>
+<!--change pw school and teacher-->
+<div class="modal fade" id="pwModalTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 600px !important">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="javascript:changePasswordTeacher();" enctype="multipart/form-data" id="school_teacher_form">
+                @csrf
+                <input type="hidden" id="student_info_id">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <label for="" class="col-md-4 col-form-label">Enter Your Old Password</label>
+                            <div class="col-md-8">
+                                <input type="password" placeholder="Enter your old Password!" name="old_password"
+                                    class="form-control" id="old_pwd" value="{{ old('password') }}" required="">
+                                <p id="old_err_meg" class="mt-2 text-danger "></p>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <label for="" class="col-md-4 col-form-label">Password</label>
+                            <div class="col-md-8">
+                                <input type="password" placeholder="Enter your new Password!" name="password"
+                                    class="form-control" value="{{ old('password') }}" required="">
+                            </div>
+
+                        </div>
+                        <br>
+
+
+                        <div class="row">
+
+                            <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                            <div class="col-md-8">
+                                <input type="password" placeholder="Enter your new Password again!"
+                                    name="confirm_password" class=" form-control" required="">
+                                <p class="text-center mt-3  text-danger" id="err_message"></p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- update profile school-->
+<div class="modal fade" id="profileModelSchool" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="javascript:updateProfileSchool();" enctype="multipart/form-data" id="school_update_form">
+                @csrf
+                <input type="hidden" id="school_id">
+                <input type="hidden" id="old_school_profile_photo">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">Email</label>
+                                    <div class="col-md-8">
+                                        <input type="email" name="sch_update_email"
+                                            class="form-control" id="sch_update_email" readonly>
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                    <div class="col-md-8">
+                                        <input type="text"  name="sch_update_phone" id="sch_update_phone"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)</label>
+                                    <div class="col-md-8">
+                                        <textarea type="text"  name="sch_update_address" id="sch_update_address"
+                                            class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+
+                                    <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)</label>
+                                    <div class="col-md-8">
+                                        <textarea type="text"  name="sch_update_eng_address" id="sch_update_eng_address"
+                                            class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="col-md-10 ">
+                                    <div class="fileinput fileinput-new " data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail">
+                                                                <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewSchoolImg"
+                                                                    alt="Upload Photo">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                                            <div class="d-flex justify-content-center">
+                                                                <span class="btn btn-round btn-secondary btn-file">
+                                                                <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" id="image" name="image" accept="image/*"></span>
+                                                                <br>
+                                                                <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                            </div>
+                                                            <p >
+                                                                <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
+                                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- update profile teacher-->
+
+    <div class="modal fade" id="profileModelTeacher" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="javascript:updateProfileTeacher();" enctype="multipart/form-data" id="teacher_update_form">
+                    @csrf
+                    <input type="hidden" id="teacher_id">
+                    <input type="hidden" id="old_profile_photo">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8">
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">Email</label>
+                                        <div class="col-md-8">
+                                            <input type="email" name="teacher_update_email"
+                                                class="form-control" id="teacher_update_email" readonly>
+                                            @if ($errors->has('email'))
+                                                <span class="text-danger">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">ဖုန်းနံပါတ်</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ဖုန်းနံပါတ်" name="teacher_update_phone" id="teacher_update_phone"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" name="teacher_update_address" id="teacher_update_address"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" name="teacher_update_eng_address" id="teacher_update_eng_address"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="col-md-10 ">
+                                        <div class="fileinput fileinput-new pull-right" data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail">
+                                                                <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewTeacherImg"
+                                                                    alt="Upload Photo">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail "></div>
+                                                            <div class="d-flex justify-content-center">
+                                                                <span class="btn btn-round btn-secondary btn-file">
+                                                                <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" id="image" name="image" accept="image/*" ></span>
+                                                                <br>
+                                                                <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                            </div>
+                                                            <p >
+                                                                <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
+                                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+@push('scripts')
+<script type="text/javascript">
+    $('document').ready(function(){
+        // dateQuery();
+        // verifyStatus();
+        //checkPaymentAudit();
+        // audit_reg_feedback();
+        // firmDashboardData();
+    })
+    //app_form_feedback();
+
+</script>
+@endpush

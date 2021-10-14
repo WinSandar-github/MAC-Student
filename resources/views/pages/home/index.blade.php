@@ -125,6 +125,10 @@
                                 <button class="course_list" value="app">တက်ရောက်ခွင့်ရသူများစာရင်း</button>
                             </li>
                             <li>
+                                {{-- <button class="course_list" data-bs-toggle="tab" value="reg">တက်ရောက်ခွင့်ရသူများစာရင်း</button> --}}
+                                <button class="course_list" value="reg">မှတ်ပုံတင်ထားပြီးသူများစာရင်း</button>
+                            </li>
+                            <li>
                                 {{-- <button class="course_list" data-bs-toggle="tab" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button> --}}
                                 <button class="course_list" value="exam">စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
                             </li>
@@ -140,10 +144,10 @@
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                        
                             <li>
-                                  <button value="exam" onclick=" window.open('/entry_exam_list','_blank')">CPA One ဝင်ခွင့်စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                                  <button value="exam" onclick=" window.open(`${FRONTEND_URL}/entry_exam_list`,'_blank')">CPA One ဝင်ခွင့်စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
                             </li>
                             <li>
-                                 <button class="course_list" onclick=" window.open('/qualified_test_list','_blank')">အရည်အချင်းစစ် စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
+                                 <button class="course_list" onclick=" window.open(`${FRONTEND_URL}/qualified_test_list`,'_blank')">အရည်အချင်းစစ် စာမေးပွဲဖြေဆိုခွင့်ရသူများစာရင်း</button>
                             </li>
                         </ul>
                         
@@ -218,8 +222,6 @@
                                     <li>  သတ်မှတ်အလုပ်သင်လုပ်သက်ပြည့်မြောက်ပြီးသူ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ
                                     <li>  MICPA အသင်းဝင် </li>
-                                    <li> မှတ်ပုံတင်စာရင်းကိုင် (R.A) လက်မှတ်ရရှိထားသူများ၏ PAPP မှတ်ပုံတင်လျှောက်ထားမှုကို 
-                                        ခွင့်ပြုပါက ယင်းတို့ကို CPA(Full-Fledged) နှင့် PAPP အဖြစ် တစ်ပြိုင်နက်တည်း မှတ်ပုံတင်ခွင့်ပြုပါသည်။</li>
                                     <li> . . .</li>
                                 </ul>
 
@@ -244,8 +246,7 @@
                                 <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">   
                                     <li> CPA(FF) မှတ်ပုံတင်သက်တမ်း ၁ နှစ် ပြည့်မြောက်သူများ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ</li>
-                                    <li> မှတ်ပုံတင်စာရင်းကိုင် (R.A) လက်မှတ်ရရှိထားသူများ၏ PAPP မှတ်ပုံတင်လျှောက်ထားမှုကို ခွင့်ပြုပါက ယင်းတို့ကို CPA(Full-Fledged) နှင့် PAPP အဖြစ် တစ်ပြိုင်နက်တည်း မှတ်ပုံတင်ခွင့်ပြုပါသည်။</li>
-                                    <br> . . .
+                                    <li> . . .</li>
                             </ul>
 
 

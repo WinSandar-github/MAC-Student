@@ -72,7 +72,7 @@
                         <div class="card text-white bg-primary my-3">
 
                             <div class="card-body">
-                                <p class="card-text">Your PAPP registration form is approved! You need to subscribe your teacher service with desire payment method!</p>
+                                <p class="card-text">Your PAPP registration form is approved! You need to subscribe your service with desire payment method!</p>
                             </div>
                         </div>
 
@@ -154,7 +154,7 @@
 
 								<div id="papp_initial">
 									<div class="row">
-										<div class="card col-md-7 m-2">
+										<div class="card col-md-6 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -180,7 +180,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-4 m-2">
+										<div class="card col-md-5 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -192,7 +192,7 @@
 																		<li><i class="icofont-money"></i> <strong>Application Fee</strong> <span class='application-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Registration Fee</strong><span class='registration-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Reconnect Fee(per year)</strong><span class='reconnected-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renewal Fee</strong><span class='renew-fee'></li>
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fee(Within January)</strong><span class='delay-fee'></li>
 																		<li><i class="icofont-money"></i> <strong>Delay Fee(From February to April)</strong><span class='late-feb-fee'></li>
                                                                         <div class="row register-btn">
@@ -200,7 +200,7 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark" >Register</a>
+                                                                                        <a href="{{url('student_papp')}}" class="btn btn-success btn-hover-dark">Register</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -482,7 +482,7 @@
                                                 <label for="" class="col-form-label"> ဘွဲ့အမည်</label>
                                             </div>
                                             <div class="col-md-7 col-auto">
-                                                <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်">
+                                                <input type="text"  class="form-control" name="degree_name[]" placeholder="ဘွဲ့အမည်" disabled>
                                             </div>
                                         </div>
                                         <div class="row mb-2" id="degree_year0">
@@ -491,7 +491,7 @@
                                                 <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                             </div>
                                             <div class="col-md-7 col-auto">
-                                                <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" disabled>
                                             </div>
                                         </div>
 
@@ -502,7 +502,7 @@
                                             </div>
                                             <div class="col-md-2 foreign_degree_file">
                                             </div>
-                                            <div class="col-md-5"  id="degree_edu" >
+                                            <div class="col-md-5"  id="degree_edu" style="padding-left:5px; display: none;">
                                                 <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
                                             </div>
                                             <div class="col-md-1" id="add_div" >
@@ -535,7 +535,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('E-mail Address') }}</div>
                                     <div class="col-md-8">
-                                        <input type="email"  class="form-control" name="contact_mail" id="contact_mail">
+                                        <input type="email" class="form-control" name="contact_mail" id="contact_mail">
                                     </div>
                                 </div>
                                 {{--<div class="row mb-3" style="padding-left: 15px;">
@@ -553,10 +553,17 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
+<<<<<<< HEAD
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+=======
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required="" autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+>>>>>>> 7651a0b02e08fda4a68e7cce78e35d51890a2245
                                             </label>
                                         </div>
 
@@ -670,8 +677,8 @@
                                                 <table class="table tbl_papp table-bordered input-table">
                                                     <thead>
                                                         <tr >
-                                                            <th class="less-font-weight text-center" width="5%">စဉ်</th>
-                                                            <th class="less-font-weight text-center"  width="40%">လုပ်ငန်းအပ်နှံသည့်ပုဂ္ဂိုလ်/ကုမ္ပဏီ/စီးပွားရေးအဖွဲ့အစည်း/လူမှုရေးအဖွဲ့အစည်း*</th>
+                                                            <th class="less-font-weight text-center" width="8%">စဉ်</th>
+                                                            <th class="less-font-weight text-center"  width="37%">လုပ်ငန်းအပ်နှံသည့်ပုဂ္ဂိုလ်/ကုမ္ပဏီ/စီးပွားရေးအဖွဲ့အစည်း/လူမှုရေးအဖွဲ့အစည်း*</th>
                                                             <th class="less-font-weight text-center"  width="15%">စာရင်းကာလ**</th>
                                                             <th class="less-font-weight text-center"  width="40%">တာဝန်ယူဆောင်ရွက်သည့် Principal/Managing Partner/အမှုထမ်းPPA၏အမည်***</th>
                                                             <th class="text-center" width="10%"><button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPapp("tbl_papp")'><li class="fa fa-plus"></li></button></th>
@@ -781,13 +788,13 @@
                                     </div>
                                 </div><br/><br>
 
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-6">
                                             <label style="font-size:15px;">စုစုပေါင်း နာရီ</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                             <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" required="" >
                                     </div>
                                 </div><br/>
@@ -799,7 +806,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" >
+                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" accept="image/*">
                                     </div>
                                 </div><br/><br>
 
@@ -808,7 +815,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" required="" >
+                                        <input type="file" class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" required="" accept="image/*">
                                     </div>
                                 </div>
 
@@ -817,9 +824,18 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeration No./PAPP Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">CPA(FF) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="reg_no"  id="reg_no" placeholder="" readonly="">
+                                        <input type="text" class="form-control" name="reg_no" id="reg_no">
+                                    </div>
+                                </div><br/><br>
+
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                    <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
                                     </div>
                                 </div><br/><br>
 
@@ -866,18 +882,6 @@
         loadCpaffData();
         loadPappData();
         loadCpaffInitialData();
-    })
-    //app_form_feedback();
-    // $(".papp_date").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });s
-    $("#papp_date").datepicker({
-        format: "yyyy",
-        viewMode: "years", 
-        minViewMode: "years",
-        autoclose:true //to close picker once year is selected
     });
     $("#papp_date").datepicker({
         format: "yyyy",
@@ -885,11 +889,6 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
-    // $(".papp_renew_year").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
     $("#papp_renew_year").datepicker({
         format: "yyyy",
         viewMode: "years", 
@@ -901,12 +900,6 @@
             dateFormat: "d-M-Y",
             allowInput: true,
     });
-
-    // $(".tax_year").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
     $("#tax_year").datepicker({
         format: "yyyy",
         viewMode: "years", 
