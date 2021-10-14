@@ -367,7 +367,7 @@
                                                     <input class="form-check-input" type="checkbox" name="know_policy">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * အလုပ်သင်သက်တမ်းတစ်လျောက်တွင် တစ်ကြိမ်သာ နုတ်ထွက်ခွင့်ရှိပြီး အလုပ်သင်ပြန်လည်ဆင်းမည်ဆိုပါက နုတ်ထွက်ခွင့်ပြုသည့်နေ့မှစ၍ အနည်းဆုံးတစ်နှစ်ကြာမှသာ ပြန်လည်ဆင်းခွင့်ရှိမည်ဖြစ်ကြောင်း သိရှိပြီး/မပြီး<br>
+                                                        * အလုပ်သင်သက်တမ်းတစ်လျောက်တွင် တစ်ကြိမ်သာ နုတ်ထွက်ခွင့်ရှိပြီး အလုပ်သင်ပြန်လည်ဆင်းမည်ဆိုပါက နုတ်ထွက်ခွင့်ပြုသည့်နေ့မှစ၍ အနည်းဆုံးတစ်နှစ်ကြာမှသာ ပြန်လည်ဆင်းခွင့်ရှိမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="know_policy">Please check one</label>
@@ -457,7 +457,7 @@
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
-            $("#personal_no").val(student_reg.personal_no);
+            $("#personal_no").val(student_info.cpersonal_no);
             $("#nrc_state_region").val(student_info.nrc_state_region);
             $("#nrc_township").val(student_info.nrc_township);
             $("#nrc_citizen").val(student_info.nrc_citizen);
