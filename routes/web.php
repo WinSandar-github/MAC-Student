@@ -145,6 +145,9 @@ Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
 
+//School Register Reconnected Form
+Route::get('school_register_reconnected', 'SchoolController@reconnect');
+
 // School Information Page
 Route::get('school_information', 'SchoolInfoController@info');
 

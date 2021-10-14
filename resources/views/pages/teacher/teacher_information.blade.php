@@ -399,32 +399,35 @@
                                                                 <div class="col-md-8">
                                                                     <div class="row" >
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
                                                                                 @foreach($nrc_regions as $region)
                                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                         {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                                     </option>
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> -->
                                                                         </div>
                                                                         <div class="col-md-3 col-7 px-1">
-                                                                            <select class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_township" id="nrc_township" readonly>
                                                                                 @foreach($nrc_townships as $township)
                                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                         {{ $township['township_mm'] }}
                                                                                     </option>
                                                                                 @endforeach
-                                                                            </select>
-                                                                            </select>
+                                                                            </select> -->
+                                                                            
                                                                         </div>
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
                                                                                 @foreach($nrc_citizens as $citizen)
                                                                                 <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                                 </option>
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> -->
                                                                         </div>
 
                                                                         <div class="col-md-5 col-7 pl-1">
