@@ -71,7 +71,7 @@
 
 								<div id="school_detail">
 									<div class="row">
-										<div class="card col-md-7 m-2">
+										<div class="card col-md-6 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -98,7 +98,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-4 m-2">
+										<div class="card col-md-5 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -107,13 +107,13 @@
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'></span> </li>
-																		<li><i class="icofont-money"></i> <strong>Initial Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fee</strong><span class='renew-yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='reconnected-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Application Fees</strong><span class='application-fee'></span> </li>
+																		<li><i class="icofont-money"></i> <strong>Initial Registration Fees</strong><span class='registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fees</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fees</strong><span class='renew-registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fees</strong><span class='renew-yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fees</strong><span class='delay-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fees(per year)</strong><span class='reconnected-fee'></li>
 																		<div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6">
