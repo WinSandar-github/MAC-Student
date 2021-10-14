@@ -134,6 +134,9 @@ Route::get('audit_firm_information', 'AuditFirmInfoController@info');
 // Audit Firm Reject Register
 Route::get('audit_firm_reject_register', 'AuditFirmInfoController@updateRejectedRegister');
 
+// Non Audit Firm Reject Register
+Route::get('non_audit_firm_reject_register', 'NonAuditFirmInfoController@updateRejectedRegister');
+
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');

@@ -411,7 +411,9 @@
                                     <input type="hidden" id="branch_own_type_h">
                                     <input type="hidden" id="hinitial_status">
                                     <input type="hidden" id="type">
-                                    <input type="hidden" id="renew_id">
+                                    <input type="hidden" id="school_name">
+                                    <input type="hidden" id="school_address">
+                                    <input type="hidden" id="hcourse">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
