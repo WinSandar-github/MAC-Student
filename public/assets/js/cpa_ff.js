@@ -853,61 +853,61 @@ function loadCPAFF() {
 
 }
 
-$().ready(function (){
-    $("#cpaff_renew_form_submit").validate({
-        rules:{
-            profile_photo : "required",
-            name_mm : "required",
-            // nrc_front : "required",
-            // nrc_back : "required",
-            father_name_mm : "required",
-            cpa_batch_no : "required",
-            address : "required",
-            phone : "required",
-            contact_mail : "required",
-            cpa2_pass_date : "required",
-            renew_accepted_date : "required",
-            cpa2_pass_date : "required",
-            // renew_file : "required",
-            // reg_no : "required",
-            degree_pass_year : "required",
-            // fine_person : "required",
-            cpa_certificate : "required",
-            cpd_record : "required",
-            passport_image : "required",
-        },
-        messages:{
-            profile_photo : "Please replace your photo with current photo",
-            name_mm : "Please enter your name",
-            nrc_state_region : "Please select one",
-            nrc_township : "Please select one",
-            nrc_citizen : "Please select one",
-            nrc_number : {
-                required : "Please enter your nrc number",
-            },
-            // nrc_front : "Please upload nrc photo (front)",
-            // nrc_back : "Please upload nrc photo (back)",
-            father_name_mm : "Please enter your father name in english",
-            cpa_batch_no : "Please enter cpa batch number",
-            address : "Please enter your address",
-            phone : "Please enter your phone number",
-            contact_mail : "Please enter your contact mail",
-            cpa2_pass_date : "Please fill CPA 2 passed date",
-            renew_accepted_date : "Please renew accepted date",
-            // renew_file : "Please upload renew file",
-            // reg_no : "Please fill registeration No.",
-            degree_pass_year : "Please fill degree passed year",
-            // fine_person : "Please fill this field",
-            cpa_certificate : "Please upload CPA certificate",
-            cpd_record : "Please upload CPA record",
-            passport_image : "Please upload passport image",
+// $().ready(function (){
+//     $("#cpaff_renew_form_submit").validate({
+//         rules:{
+//             profile_photo : "required",
+//             name_mm : "required",
+//             // nrc_front : "required",
+//             // nrc_back : "required",
+//             father_name_mm : "required",
+//             cpa_batch_no : "required",
+//             address : "required",
+//             phone : "required",
+//             contact_mail : "required",
+//             cpa2_pass_date : "required",
+//             renew_accepted_date : "required",
+//             cpa2_pass_date : "required",
+//             // renew_file : "required",
+//             // reg_no : "required",
+//             degree_pass_year : "required",
+//             // fine_person : "required",
+//             cpa_certificate : "required",
+//             cpd_record : "required",
+//             passport_image : "required",
+//         },
+//         messages:{
+//             profile_photo : "Please replace your photo with current photo",
+//             name_mm : "Please enter your name",
+//             nrc_state_region : "Please select one",
+//             nrc_township : "Please select one",
+//             nrc_citizen : "Please select one",
+//             nrc_number : {
+//                 required : "Please enter your nrc number",
+//             },
+//             // nrc_front : "Please upload nrc photo (front)",
+//             // nrc_back : "Please upload nrc photo (back)",
+//             father_name_mm : "Please enter your father name in english",
+//             cpa_batch_no : "Please enter cpa batch number",
+//             address : "Please enter your address",
+//             phone : "Please enter your phone number",
+//             contact_mail : "Please enter your contact mail",
+//             cpa2_pass_date : "Please fill CPA 2 passed date",
+//             renew_accepted_date : "Please renew accepted date",
+//             // renew_file : "Please upload renew file",
+//             // reg_no : "Please fill registeration No.",
+//             degree_pass_year : "Please fill degree passed year",
+//             // fine_person : "Please fill this field",
+//             cpa_certificate : "Please upload CPA certificate",
+//             cpd_record : "Please upload CPA record",
+//             passport_image : "Please upload passport image",
 
-        },
-        submitHandler: function(form) {
-            $('#renewModal').modal('show');
-        }
-    });
-});
+//         },
+//         submitHandler: function(form) {
+//             $('#renewModal').modal('show');
+//         }
+//     });
+// });
 
 // function RenewCPAFF() {
 //     var student = JSON.parse(localStorage.getItem('studentinfo'));
@@ -1058,10 +1058,10 @@ function RenewCPAFF() {
     }
     // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
     send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
-    send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
-    send_data.append('old_card_no', $("input[name=reg_no]").val());
+    send_data.append('renew_accepted_date', $("input[name=renew_accepted_date]").val());
+    send_data.append('reg_no', $("input[name=reg_no]").val());
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
-    send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
+    send_data.append('renew_file', $("input[name=renew_file]")[0].files[0]);
     send_data.append('is_convicted', $("input[name=fine_person]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
@@ -1124,6 +1124,100 @@ function RenewCPAFF() {
                         }
                     });
                 }
+         
+    }
+    else{
+        $('#valid_self_confession').text("Please choose Yes Or No");
+        $('#valid_self_confession').css('display','block');
+        errorMessage("Please choose Yes or No");
+    }
+}
+
+function renewRejectCpaff() {
+    var student = JSON.parse(localStorage.getItem('studentinfo'));
+    var profile_photo = $("input[name=profile_photo]")[0].files[0];
+    var cpa = $("input[name=cpa]")[0].files[0];
+    var ra = $("input[name=ra]")[0].files[0];
+    show_loader();
+    var send_data = new FormData($("#cpaff_renew_form_submit")[0]);
+    send_data.append('student_info_id', student.id);
+    // send_data.append('student_info_id', student.id);
+    if ($("input[name=nrc_front]")[0].files[0]) {
+        send_data.append('nrc_front', $("input[name=nrc_front]")[0].files[0]);
+    } else {
+        send_data.append('nrc_front', $('#hidden_nrc_front').val());
+    }
+    if ($("input[name=nrc_back]")[0].files[0]) {
+        send_data.append('nrc_back', $("input[name=nrc_back]")[0].files[0]);
+    } else {
+        send_data.append('nrc_back', $('#hidden_nrc_back').val());
+    }
+    send_data.append('cpa_certificate', $("input[name=cpa_certificate]")[0].files[0]);
+    send_data.append('mpa_mem_card', $("input[name=mpa_mem_card]")[0].files[0]);
+    send_data.append('mpa_mem_card_back', $("input[name=mpa_mem_card_back]")[0].files[0]);
+    send_data.append('cpd_record', $("input[name=cpd_record]")[0].files[0]);
+    if ($("#cpa_edu").prop("checked")) {
+        send_data.append('cpa', cpa);
+    }
+    else if ($("#ra_edu").prop("checked")) {
+        send_data.append('ra', ra);
+    }
+    else if ($("#education").prop("checked")) {
+        $('input[name="degree_name[]"]').map(function () {
+            send_data.append('degree_name[]', $(this).val());
+        });
+        $('input[name="degree_pass_year[]"]').map(function () {
+            send_data.append('degree_pass_year[]', $(this).val());
+        });
+        $('input[name="degree_file[]"]').map(function () {
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                send_data.append('degree_file[]', $(this).get(0).files[i]);
+            }
+        });
+    }
+    // send_data.append('old_card_year', $("input[name=cpa2_pass_date]").val());
+    send_data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
+    send_data.append('renew_card_year', $("input[name=renew_accepted_date]").val());
+    send_data.append('old_card_no', $("input[name=reg_no]").val());
+    send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
+    send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
+    send_data.append('is_convicted', $("input[name=fine_person]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('contact_mail', $("input[name=contact_mail]").val());
+    send_data.append('total_hours', $("input[name=total_hours]").val());
+    send_data.append('fine_person', $("input[name=fine_person]").val());
+    send_data.append('is_renew', 1);
+    send_data.append('self_confession_renew',$("input[name=self_confession_renew]").val());
+    send_data.append('type',1);
+    var self_confession_accept = document.getElementById("accept_cpaffRenew");
+    var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
+    if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
+        
+        send_data.append('cpaff_id',$('#cpaff_id').val());
+        $.ajax({
+            url: BACKEND_URL+"/update_cpaff_renewal",
+            type: 'post',
+            data:send_data,
+            contentType: false,
+            processData: false,
+            success: function(result){
+                EasyLoading.hide();
+                successMessage(result.message);
+                // location.reload();
+                location.href = FRONTEND_URL+'/';
+                document.getElementById('approved').style.display='none';
+                document.getElementById('rejected').style.display='none';
+                document.getElementById('pending').style.display='none';
+                document.getElementById('papp_form').style.display='none';
+                document.getElementById('papp_renew_form').style.display='none';
+                document.getElementById('expiry_card').style.display='none';
+            },
+            error:function (message){
+            }
+        });
+         
+                
          
     }
     else{

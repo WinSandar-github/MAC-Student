@@ -295,7 +295,7 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;"> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;"> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
                                 {{--<div class="pass_batch_two" style="display:none">
                                     <div class="row mb-3">
@@ -330,9 +330,9 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label"><input type="text" name="country" id="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" id="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
-                                    <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
-                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" id="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label"><input type="text" name="country" id="country" class="form-control" style="display: inline;width: 100px;" > နိုင်ငံ <input type="text" name="government" id="government" class="form-control" style="display: inline;width: 100px;" >အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
+                                    <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" > ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" > လတွင်
+                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" id="roll_no" class="form-control" style="display: inline;width: 100px;" >ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
                                 {{--<div class="qt_pass" style="display:none">
@@ -649,7 +649,7 @@
         success: function (result) {
             // console.log(result);
             var cpaff=result.data[0];
-            // console.log(cpaff)
+            console.log(cpaff)
             document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
             document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
             document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
@@ -662,26 +662,28 @@
             $('#government').val(cpaff.government);
             $('#roll_no').val(cpaff.roll_no);
             $('#total_hours').val(cpaff.total_hours);
-            // var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
+            var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
+            var exam_year=new Date(cpaff.exam_year);
+            var exam_month=new Date(cpaff.exam_month);
 
-            // if(cpaff.cpa2_pass_date!=null || cpaff.cpa_batch_no!=null){
-            //     $('#cpa_part_2_check').attr('checked',true);
-            //     $('#cpa_part_2_check').attr('disabled',false);
-            //     $("input[name='cpa2_pass_date']").val(cpaff.cpa2_pass_date.getFullYear());
-            //     $("input[name='cpa_batch_no']").val(cpaff.cpa_batch_no);
-            // }
-            // else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
-            // {
-            //     // $('#used_firm_check').attr('checked',true);
-            //     $('#qt_pass_check').attr('checked',true);
-            //     $('#qt_pass_check').attr('disabled',false);
+            if(cpaff.cpa2_pass_date!=null || cpaff.cpa_batch_no!=null){
+                $('#cpa_part_2_check').attr('checked',true);
+                $('#cpa_part_2_check').attr('disabled',false);
+                $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
+                $("input[name='cpa_batch_no']").val(cpaff.cpa_batch_no);
+            }
+            else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
+            {
+                // $('#used_firm_check').attr('checked',true);
+                $('#qt_pass_check').attr('checked',true);
+                $('#qt_pass_check').attr('disabled',false);
 
-            //     $("input[name='country']").val(cpaff.country);
-            //     $("input[name='government']").val(cpaff.government);
-            //     $("input[name='exam_year']").val(cpaff.exam_year);
-            //     $("input[name='exam_month']").val(cpaff.exam_month);
-            //     $("input[name='roll_no']").val(cpaff.roll_no);
-            // }
+                $("input[name='country']").val(cpaff.country);
+                $("input[name='government']").val(cpaff.government);
+                $("input[name='exam_year']").val(exam_year.getFullMonth());
+                $("input[name='exam_month']").val(exam_month.getFullMonth());
+                $("input[name='roll_no']").val(cpaff.roll_no);
+            }
             
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
@@ -691,8 +693,8 @@
 
             if (cpaff.ra != null && cpaff.ra != "null") {
                 $('#ra_edu').attr('checked', true);
-                $('#cpa_edu').attr('disabled', true);   
-                $('#education').attr('disabled', true); 
+                // $('#cpa_edu').attr('disabled', false);   
+                // $('#education').attr('disabled', false); 
                 getCPAEducation();        
                 $(".ra_file").append("<a href='"+BASE_URL+cpaff.ra+"'  target='_blank'>View File</a><br/>");
             }
@@ -702,8 +704,8 @@
             }
             if(cpaff.cpa!=null && cpaff.cpa!="null"){
                 $('#cpa_edu').attr('checked', true);   
-                $('#education').attr('disabled', true); 
-                $('#ra_edu').attr('disabled', true);            
+                // $('#education').attr('disabled', true); 
+                // $('#ra_edu').attr('disabled', true);            
                 getCPAEducation();
                 $(".cpa_file").show();
                 $(".cpa_file").append("<a href='" + BASE_URL + cpaff.cpa + "'  target='_blank'>View File</a><br/>");
@@ -714,8 +716,8 @@
             }
             if (cpaff.foreign_degree != null && cpaff.foreign_degree != "null") {
                 $('#education').attr('checked', true);
-                $('#cpa_edu').attr('disabled', true); 
-                $('#ra_edu').attr('disabled', true);
+                // $('#cpa_edu').attr('disabled', true); 
+                // $('#ra_edu').attr('disabled', true);
                 getCPAEducation();
                 let foreign_degree = JSON.parse(cpaff.foreign_degree);
                 let degree_name = JSON.parse(cpaff.degree_name);
