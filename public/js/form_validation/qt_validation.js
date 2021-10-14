@@ -200,7 +200,31 @@ $(document).ready(function () {
             label.addClass("valid").html('<i class="fa fa-check-circle me-2" aria-hidden="true"></i>OK')
         },
         submitHandler: function (form) {
-            register_qt();
+            var send_data = new FormData();
+            send_data.append('email', $("input[name='email']").val());
+            send_data.append('nrc_state_region', $("#nrc_state_region").val());
+            send_data.append('nrc_township', $("#nrc_township").val());
+            send_data.append('nrc_citizen', $("#nrc_citizen").val());
+            send_data.append('nrc_number', $("#nrc_number").val());
+            $.ajax({
+                url: BACKEND_URL + "/unique_email",
+                type: 'post',
+                data: send_data,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    if (result.email != null) {
+                        Swal.fire("Email has been used, please check again!");
+                    }
+                    else if (result.nrc != null) {
+                        Swal.fire("NRC has been used, please check again!");
+                    }
+                    else if (result.email == null && result.nrc == null) {
+                        $('#exampleModal').modal('show');
+                        send_email();
+                    }
+                }
+            });
         }
     });
 
@@ -362,7 +386,27 @@ $(document).ready(function () {
             label.addClass("valid").html('<i class="fa fa-check-circle me-2" aria-hidden="true"></i>OK')
         },
         submitHandler: function (form) {
+
             edit_qt();
         }
     });
 });
+
+
+function check_email_qualifiedt_test() {
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if (verify_code != code) {
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    } else {
+        register_qt();
+
+        $('#qtModal').modal('hide');
+    }
+}
+

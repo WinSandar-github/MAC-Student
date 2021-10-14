@@ -140,7 +140,7 @@ function edit_qt() {
     $('input[name="edu_status_local[]"]').map(function () {
         send_data.append("edu_status_local[]", $(this).val());
     });
-    send_data.append('old_certificate', $("input[name=old_certificate]").val());
+    // send_data.append('old_certificate', $("input[name=old_certificate]").val());
 
     $('input[name="certificate[]"]').map(function () {
         for (var i = 0; i < $(this).get(0).files.length; ++i) {
