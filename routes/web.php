@@ -134,6 +134,9 @@ Route::get('audit_firm_information', 'AuditFirmInfoController@info');
 // Audit Firm Reject Register
 Route::get('audit_firm_reject_register', 'AuditFirmInfoController@updateRejectedRegister');
 
+// Non Audit Firm Reject Register
+Route::get('non_audit_firm_reject_register', 'NonAuditFirmInfoController@updateRejectedRegister');
+
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
@@ -198,3 +201,5 @@ Route::get('/cbpay_qr', 'PaymentController@cbpayQR');
 Route::get('/cbpay_pin', 'PaymentController@cbpayPin');
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
+Route::get('qt_edit/{id}', 'QtController\QtController@edit');
+
