@@ -260,19 +260,19 @@ function getCourses(){
   var numeralCodes = [
     {
       num: '1',			
-      numeral : 'I',
+      numcode : 'I',
     },
     {
       num: '2',			
-      numeral : 'II',
+      numcode : 'II',
     },
     {
       num: '3',			
-      numeral : 'III',
+      numcode : 'III',
     },
     {
       num: '4',			
-      numeral : 'IV',
+      numcode : 'IV',
     },
     
   ];
@@ -284,8 +284,8 @@ function getCourses(){
           $.each(response.data,function(i,v){
               var newcode=(v.code).split('_');
               var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
-              console.log(result.numeral);
-              var course_code=result.numeral;
+              console.log(result.numcode);
+              var course_code=result.numcode;
               
               opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
