@@ -752,7 +752,7 @@
                                             <div class="row col-md-8 py-2">
                                                 <div class="col-md-3 form-check-radio mx-2">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id="male_datocpa"
+                                                        <input class="form-check-input" type="radio" id="male_datocpa" disabled
                                                                 name="gender" value="Male" required>
                                                         <span class="form-check-sign"></span>
                                                         ကျား
@@ -760,7 +760,7 @@
                                                 </div>
                                                 <div class="col-md-3 form-check-radio mx-2">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" id='female_datocpa'
+                                                        <input class="form-check-input" type="radio" id='female_datocpa' disabled
                                                                 name="gender" value='Female' required>
                                                         <span class="form-check-sign"></span>
                                                         မ

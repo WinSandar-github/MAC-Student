@@ -163,7 +163,8 @@
 
                                 {{--<form class="needs-validation" method="post" action="javascript:CPA2_Private_School_Submit();" enctype="multipart/form-data">--}}
                                 <form  id="cpa2_private_form" method="post" action="javascript:void();" enctype="multipart/form-data">
-                                    <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
+                                    <input type="hidden" name="batch_id" class="batch_id" value="{{$batch['id']}}"/>
+                                    <input type="hidden" name="sr_no" class="sr_no">
                                     <fieldset id="fieldset" >
                                         <div class="col-md-12">
                                             <div class="row mb-3">
@@ -447,7 +448,7 @@
                                             <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                             <label class="col-md-2 label_align_right col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
                                             <div class="col-md-8">
-                                                <input readonly type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" required="">
+                                                <input readonly type="text" name="batch_no_private" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_private" required="" value="{{ $batch['number'] }}">
                                             </div>
                                         </div>
                                         {{--<div class="row mb-3" style="display:none;">
@@ -540,7 +541,8 @@
 
                                 {{--<form  method="post" action="javascript:CPA2_Self_Study_Submit();" enctype="multipart/form-data">--}}
                                 <form  method="post" id="cpa2_self_form" action="javascript:void();" enctype="multipart/form-data">
-                                    <input type="hidden" name="batch_id" value="{{$batch['id']}}"/>
+                                    <input type="hidden" name="batch_id" class="batch_id" value="{{$batch['id']}}"/>
+                                    <input type="hidden" name="sr_no" class="sr_no">
 
                                     <fieldset id="fieldset" >
 
@@ -776,36 +778,36 @@
                                             <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၈။') }}</span>{{ __('မှတ်ပုံတင်ရသည့်အကြောင်းအရင်း') }}</label>
                                             <div class="row col-md-8 py-2">
                                                     
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" value="သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း" >
                                                             <span class="form-check-sign"></span>
                                                             (က) သင်တန်းတက်ရောက်ခဲ့ပြီးစာမေးပွဲဝင်ရောက်မဖြေဆိုခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" value="သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း" >
                                                             <span class="form-check-sign"></span>
                                                             (ခ) သင်တန်းတက်ရောက်ချိန် ၆၀% မပြည့်ခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" value="စာမေးပွဲကျရှုံးခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဂ) စာမေးပွဲကျရှုံးခြင်း
                                                         </label>
                                                     </div>
 
-                                                    <div class="form-check">
+                                                    <div class="form-check-radio">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input" type="radio"
                                                                    name="reg_reason[]" value="သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း">
                                                             <span class="form-check-sign"></span>
                                                             (ဃ) သင်တန်းမှနုတ်ထွက်ခဲ့ခြင်း
@@ -828,7 +830,7 @@
                                             <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                             <label class="col-md-2 label_align_right col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
                                             <div class="col-md-8">
-                                                <input readonly type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self">
+                                                <input readonly type="text" name="batch_no_self" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_self" value="{{ $batch['number'] }}">
                                             </div>
                                         </div>
                                         <div class="row mb-3" style="display:none;">
@@ -933,8 +935,8 @@
                                 </div>
                                 {{--<form  method="post" class="needs-validation" novalidate action="javascript:CPA2_Mac_Submit();" enctype="multipart/form-data" >--}}
                                 <form  method="post" id="cpa2_mac_form"  novalidate action="javascript:void();" enctype="multipart/form-data" >
-                                    <input type="hidden" id="batch_id" name="batch_id" value="{{$batch['id']}}"/>
-
+                                    <input type="hidden" class="batch_id" name="batch_id" value="{{$batch['id']}}"/>
+                                    <input type="hidden" name="sr_no" class="sr_no">
                                     <fieldset id="fieldset" >
 
                                         <div class="col-md-12">
@@ -1227,7 +1229,7 @@
                                             <label class="col-md-2 label_align_right col-form-label">{{ __('သင်တန်းအမှတ်စဥ်') }}</label>
 
                                             <div class="col-md-8">
-                                                    <input readonly type="text" name="batch_no" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" >
+                                                    <input readonly type="text" name="batch_no_mac" class="form-control batch_no" placeholder="သင်တန်းအမှတ်စဥ်" id="batch_no_mac" value="{{ $batch['number'] }}">
 
                                             </div>
                                         </div>
@@ -1569,14 +1571,9 @@ $('document').ready(function(){
                 $('.address').val(student_info.address);
                 $('.phone').val(student_info.phone);
                 $('.email').val(student_info.email);
-                $('.education').val(student_info.student_education_histroy.degree_name);
+                $('.education').val(student_info.student_education_histroy.degree_name); 
 
-
-                
-
-
-
-                // $('.sr_no');.val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                 // $('.course_name').val(current_stu_course[0].batch.course.name);
                 // $('.batch_no').val(current_stu_course[0].batch.number);
                 $('.previewImg').attr('src',BASE_URL+student_info.image);
@@ -1591,8 +1588,6 @@ $('document').ready(function(){
                         processData: false,
                         async:false,
                         success: function (res) {
-                          
- 
                             
                             $('.batch_no').val(res.data.number);
                             $('.batch_id').val(res.data.id);
@@ -1632,8 +1627,9 @@ $('document').ready(function(){
                         
                         
                     }else{
-                         $('.batch_no').val(current_stu_course[0]?.batch?.number);
-                         $('.batch_id').val(current_stu_course[0]?.batch?.id);
+                        console.log('aa',$('.batch_no').val())
+                         $('.batch_no').val();
+                         $('.batch_id').val();
                     }
                     if(data.data.exam_registers.length!=0){
                         $("input[name='office_address']").prop('readonly', false);

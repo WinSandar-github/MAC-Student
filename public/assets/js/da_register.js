@@ -229,15 +229,15 @@ $('#da_update').submit(function (e) {
 })
 
 //store Da Application Form
-$('#store_da_two_form').submit(function (e) {
+function StoreDAtoCPA() {
 
-    e.preventDefault();
-    var formData = new FormData(this);
+    // e.preventDefault();
+    var formData = new FormData();
     formData.append('student_id', student_id);
     formData.append('batch_id', $("input[name=batch_id]").val());
     formData.append('type', $("input[name='dtype']:checked").val());
     formData.append('mac_type', $("input[name='mac_dtype']:checked").val());
-    send_data.append('gender', $("input[type='radio'][name='gender']:checked").val());
+    formData.append('gender', $("input[type='radio'][name='gender']:checked").val());
     // if($('#entry_type').val() === 'da_pass'){
     // var da_pass_certificate = $("input[name=da_pass_certificate]")[0].files[0];
     // send_data.append('da_pass_certificate', da_pass_certificate);
@@ -256,7 +256,7 @@ $('#store_da_two_form').submit(function (e) {
         success: function (data) {
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            //successMessage("You have successfully registerd!");
+            successMessage("You have successfully registerd!");
             location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
@@ -266,7 +266,7 @@ $('#store_da_two_form').submit(function (e) {
         }
 
     });
-});
+}
 
 // $('#btn2').submit(function(e){
 //     e.preventDefault();
@@ -290,6 +290,7 @@ function createDaTwoSelfStudy() {
     var profile_photo = $("input[name='profile_photo_self']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
+    send_data.append('sr_no', $("input[name='student_regno']").val());
     send_data.append('batch_id', $("input[name='batch_id']").val());
     send_data.append('batch_no_self', $("input[id='batch_no_self']").val());
     send_data.append('part_no_self', $("input[id='part_no_self']").val());
@@ -349,6 +350,7 @@ function createDaTwoPrivateSchool() {
     var profile_photo = $("input[name='profile_photo_private']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
+    send_data.append('sr_no', $("input[name='student_regno']").val());
     send_data.append('batch_id', $("input[name='batch_id']").val());
     send_data.append('batch_no_private', $("input[id='batch_no_private']").val());
     send_data.append('part_no_private', $("input[id='part_no_private']").val());
@@ -410,6 +412,7 @@ function createDaTwoMac() {
     var send_data = new FormData();
 
     send_data.append('student_id', student_id);
+    send_data.append('sr_no', $("input[name='student_regno']").val());
     send_data.append('batch_id', $("input[name='batch_id']").val());
     send_data.append('batch_no_mac', $("input[id='batch_no_mac']").val());
     send_data.append('part_no_mac', $("input[id='part_no_mac']").val());

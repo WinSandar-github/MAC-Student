@@ -806,7 +806,7 @@
     //         else if(papp.firm_name!=null || papp.firm_type!=null || papp.firm_step!=null)
     //         {
     //             $('#used_firm_check').attr('checked',true);
-                
+    //             $("input[name='used_firm_name']").val(papp.firm_name);
     //         }
     //     }
     // });

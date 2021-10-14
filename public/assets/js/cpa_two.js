@@ -40,9 +40,9 @@ function get_cpa_course() {
             contentType: false,
             processData: false,
             success: function (res) {
-                // console.log('res',res)
+                console.log('res',res)
                 // $('.batch_id').append(res.data.id);
-                $('.batch_no').val(res.data.name);
+                $('.batch_no').val(res.data.number);
                 $('.course_name').val(res.data.course.name);
                 $('.batch_number').append(res.data.number);
             }
@@ -60,6 +60,7 @@ function CPA2_Private_School_Submit() {
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
+    data.append('sr_no', $("input[name='sr_no']").val());
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
     data.append('cpa_one_success_no', $("#cpa_one_success_no").val());
@@ -119,6 +120,7 @@ function CPA2_Mac_Submit() {
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
+    data.append('sr_no', $("input[name='sr_no']").val());
     data.append('cpa_one_pass_date', $("#cpa_one_pass_date").val());
     data.append('cpa_one_access_no', $("#cpa_one_access_no").val());
     data.append('cpa_one_success_no', $("#cpa_one_success_no").val());
@@ -178,6 +180,7 @@ function CPA2_Self_Study_Submit() {
     var data = new FormData();
     data.append('batch_id', $("input[name='batch_id']").val())
     data.append('student_id', student.id);
+    data.append('sr_no', $("input[name='sr_no']").val());
     // $(':checkbox:checked').map(function(){data.append('reg_reason[]',$(this).val())});
     $('input[name="reg_reason[]"]:checked').map(function (key, val) {
         data.append('reg_reason[]', val.value);

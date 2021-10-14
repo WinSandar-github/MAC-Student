@@ -10,6 +10,12 @@ function user_profile() {
             let data = result.data;
 
             if (data.accountancy_firm_info_id) {
+              dateQuery();
+              verifyStatus();
+              //checkPaymentAudit();
+              audit_reg_feedback();
+              firmDashboardData();
+
                 // $('.title').text('Accountancy Firm')
                 // $('.acc_firm').show();
                 // $('.cpaff_other').hide();
@@ -87,15 +93,15 @@ function user_profile() {
             }else if (data.cpa_ff && data.student_course_regs == '') {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
                 $('.cpaff_other').show();
-                console.log('cpaff',data.cpa_ff);
+                console.log('cpaff',data);
                 let cpaff_initial = data.cpa_ff[0];
                 let cpaff_latest_data= data.cpa_ff[data.cpa_ff.length-1];
-                document.getElementById('cpaff_image').src=BASE_URL + cpaff_latest_data.profile_photo;
+                document.getElementById('cpaff_image').src=BASE_URL + data.image;
                 $('#cpaff_name_mm').text(cpaff_initial.name_mm);
                 $('#cpaff_name_eng').text(cpaff_initial.name_eng);
                 $("#cpaff_nrc").text(cpaff_initial.nrc_state_region + "/" + cpaff_initial.nrc_township + "(" + cpaff_initial.nrc_citizen + ")" + cpaff_initial.nrc_number);
-                $("#cpaff_email").text(cpaff_initial.email);
-                $('#cpaff_phone').text(cpaff_initial.phone);
+                $("#cpaff_email").text(data.email);
+                $('#cpaff_phone').text(data.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
@@ -122,7 +128,7 @@ function user_profile() {
                 } else {
                     localStorage.setItem('cpaff_id',cpaff_latest_data.id);
                     localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
-                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');                       
+                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
                     if(cpaff.type==0){
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
@@ -392,7 +398,7 @@ function user_profile() {
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-danger">Reject</span></td>
                         </tr>
-                        `);                      
+                        `);
                         if(cpaff_latest_data.type==0){
                             // $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                             $('.status').append(`<tr><td colspan=2></td><td>Action</td><td><a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a></td></tr>`);
@@ -609,12 +615,19 @@ function user_profile() {
 
 
                             } else {
+                                console.log('latest_course_reg',latest_course_reg[0]);
                                 $('.status').append(`
                                 <tr>
                                     <td>Cpa One Entry Exam Registration Form</td>
                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                     <td>${formatDate(last_exam[0].updated_at)}</td>
                                     <td><span class="badge bg-danger">Reject</span></td>
+                                </tr>
+                                <tr>
+                                    <td>မှတ်ချက် - </td>
+                                    <td colspan=2>${latest_course_reg[0].remark}</td><td>
+                                        <a href="${FRONTEND_URL + '/entry_edit'}" class="btn btn-sm btn-success">Update Cpa One Entry Exam Registration Form</a>
+                                    </td>
                                 </tr>
                                 `);
 
@@ -1926,6 +1939,26 @@ $('#edit_profile').click(function () {
     $('#profileModel').modal('show');
 });
 
+function Cpaff_profile_update() {
+    let student = JSON.parse(localStorage.getItem('studentinfo'));
+    $.ajax({
+        url: BACKEND_URL + "/student_info/" + student.id,
+        type: 'get',
+        contentType: false,
+        processData: false,
+        success: function (res) {
+            console.log('res',res);
+            $('#update_email').val(res.data.email);
+            //$('.date_of_birth').val(res.data.date_of_birth);
+            $('#update_phone').val(res.data.phone);
+            $('#update_address').val(res.data.address);
+            $('#previewImg').attr("src", BASE_URL + res.data.image);
+            $('#old_image').val(res.data.image);
+        }
+    });
+    $('#profileModel').modal('show');
+}
+
 $('.course_list').click(function () {
     var type = $(this).val();
     let show_url;
@@ -2338,6 +2371,7 @@ function firmDashboardData(){
                     } else {
                         $('.status_history').append('<span class="text-danger">Your Audit Firm Form is Rejected.</span>');
                         $('#reject_register_btn_audit').css("display","block");
+                        $('.payment-btn').css("display","none");
                     }
                 }
                 else {

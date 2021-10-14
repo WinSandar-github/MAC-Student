@@ -17,7 +17,8 @@ $().ready(function (){
             is_full_module : "Please Select Module!",
         },
         submitHandler: function(form) {
-            $('#paymentModal').modal('show');
+            // $('#paymentModal').modal('show');
+            CPAExamRegister();
         }
         
     });
