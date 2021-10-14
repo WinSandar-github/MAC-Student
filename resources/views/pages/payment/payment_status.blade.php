@@ -94,7 +94,7 @@ function is_hash_value_matched()
         if(($_POST['status']=="DE") && (is_hash_value_matched())){
 
 ?>
- <h3>You Payment is Fail!</h3>
+ <h3>You Payment is Fail! Please try again Later.</h3>
 
 
  <?php
@@ -108,7 +108,7 @@ function is_hash_value_matched()
         }
     ?>
 
-
+        <br/> <br/>
 
 
         <a href="{{ route('home') }}" class="btn btn-success" >Back to Dashboard</a>

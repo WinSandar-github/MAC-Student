@@ -7,7 +7,7 @@
     
     $mpu_merchant_ID = constant('mpu_merchant_ID');
     $pgw_test_Url = constant('pgw_test_Url');
-     $amount="000000100000";
+    // $amount="000000100000";
     // $invoice_no = $invoice_no.rand(10,1000);
     //echo $invoice_no;
     // $product_Desc="Form Fee";
@@ -15,7 +15,7 @@
     $invoice_no = $data['invoiceNo'];
     $product_desc = $data['productDesc'];
     // $amount = str_pad($data['amount'], 20, "0", STR_PAD_LEFT);
-    //$amount = str_pad($data['amount'] * 100, 12, '0', STR_PAD_LEFT);
+    $amount = str_pad($data['amount'] * 100, 12, '0', STR_PAD_LEFT);
     $currencyCode = '104';
     $name = $data['name_eng'];
     $email = $data['email'];
