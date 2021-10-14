@@ -38,6 +38,7 @@ $().ready(function (){
                 required : "#experience_yes:checked"
             },
             confirm_142 : "required",
+            confirm_status : "required",
             mentor_declare : "required",
             papp_attach : "required",
         },
@@ -73,6 +74,7 @@ $().ready(function (){
             experience : "Please select one",
             experience_file : "Please enter your attachment",
             confirm_142 : "Please check one",
+            confirm_status : "Please check one",
             papp_attach : "Please enter your attachment",
         },
         

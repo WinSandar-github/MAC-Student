@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Audit <span>Firm </span><span>Initial Registration</span></h2>
+                    <h2 class="title">Audit <span>Firm </span><span>Reconnect Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -75,7 +75,7 @@
                 <div class="comment-form">
                 <!-- Form Wrapper Start -->
                     <div class="form-wrapper">
-                        <form id="audit_firm_form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
+                        <form id="audit_reconnect_form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
                             @csrf
                             <input type="hidden" value="1" name="audit_firm_type_id">
                             <div class="row">
@@ -83,7 +83,7 @@
                                     <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                                       <div class="row mb-5">
                                           <h5 class="card-title text-center fw-bolder">
-                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME(Initial)
+                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME(Reconnect)
                                           </h5>
                                       </div>
                                       <div class="row mb-3">
@@ -162,6 +162,13 @@
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
+                                                </div>
+
+                                                <div class="row mb-5">
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">4.</span>Registration No.</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="registration_no"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Registration No.!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" >
+                                                    </div>
                                                 </div>
                                               </div>
                                               <div class="col-md-4 text-center">
@@ -944,11 +951,58 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-1 col-form-label">13.</label>
-                                                <label for="" class="col-md-3 col-form-label">Types Of Service Provided</label>
+                                                <label for="" class="col-md-3 col-form-label">Types of Service Provided</label>
                                                 <div class="col-md-4"><div class="row type_service_provided mt-1"></div></div>
                                                 <label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="t_s_p_id">Please select one</label>
                                                 <div class="col-md-4 col-form-label text-danger" id="t_s_p_id_validate" style="display:none;" >
                                                         Type of Service Provided ရွေးချယ်ပါ
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-5">
+                                                <label for="" class="col-md-1 col-form-label">14.</label>
+                                                <label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
+                                                <div class="col-md-2">
+                                                    <label for="" class="col-form-label">Start Date</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-5">
+                                                <label for="" class="col-md-1 col-form-label"></label>
+                                                <label for="" class="col-md-4 col-form-label"></label>
+                                                <div class="col-md-2">
+                                                    <label for="" class="col-form-label">End Date</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-5">
+                                                <label for="" class="col-md-1 col-form-label">15.</label>
+                                                <label for="" class="col-md-4 col-form-label">Request to Disconnect</label>
+                                                <div class="row col-md-7 py-2">
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="yes"
+                                                                    name="req_for_stop" value="1" >
+                                                            <span class="form-check-sign"></span>
+                                                            Yes
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3 form-check-radio mx-2">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" id="no"
+                                                                    name="req_for_stop" value="2" >
+                                                            <span class="form-check-sign"></span>
+                                                            No
+                                                        </label>
+                                                    </div>
+
+                                                    <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
                                                 </div>
                                             </div>
 
@@ -1048,7 +1102,7 @@
         <form method="post" id="audit_email_verify_form"  action="javascript:void();" enctype="multipart/form-data"
               >
             @csrf
-            <div class="modal fade" id="auditFirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="auditReconnectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1067,7 +1121,7 @@
                               </div>
                           </div>
                           <center>
-                              <button type="submit" id="btn1" onclick="check_email_audit()" class="btn btn-success btn-hover-dark w-30">Verify
+                              <button type="submit" id="btn1" onclick="check_email_audit_reconnect()" class="btn btn-success btn-hover-dark w-30">Verify
                               </button>
                           </center><br>
                           <div class="col-md-12" style="text-align:center;">
@@ -1084,26 +1138,41 @@
     <!-- JavaScript Section -->
 @endsection
 @push('scripts')
-  <script src="{{ asset("js/form_validation/audit_firm_validation.js") }}"></script>
+  <script src="{{ asset("js/form_validation/audit_reconnect_validation.js") }}"></script>
 @endpush
 @push('scripts')
 <script>
 
 $(document).ready(function(){
+  $("input[name='last_reg_payment_start']").flatpickr({
+      enableTime: false,
+      dateFormat: "M-Y",
+      //dateFormat: "Y",
+      allowInput: true,
+  });
+  $("input[name='last_reg_payment_end']").flatpickr({
+      enableTime: false,
+      dateFormat: "M-Y",
+      //dateFormat: "Y",
+      allowInput: true,
+  });
+
   $("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
-      myanmarLetterOnly($(this));
-  });
+			myanmarLetterOnly($(this));
+	});
 
-  $(document).on('keydown', '#head_office_address_mm', function () {
-      myanmarLetterOnly($(this));
-  });
+	$(document).on('keydown', '#head_office_address_mm', function () {
+			myanmarLetterOnly($(this));
+	});
 
-  function myanmarLetterOnly(self) {
-      val = self.val();
-      if (/[a-zA-Z0-9]+$/.test(val)) {
-          self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
-      }
-  }
+
+
+	function myanmarLetterOnly(self) {
+			val = self.val();
+			if (/[a-zA-Z0-9]+$/.test(val)) {
+					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+			}
+	}
 
     // $(".partner_list tbody tr").each(function(row,index){
     //   // remove error color of radio buttons when checked
