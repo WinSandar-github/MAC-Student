@@ -419,8 +419,9 @@ function loadRenewTeacher(){
                                 $("input[name=race]").val(teacher.race);
                                 $("input[name=religion]").val(teacher.religion);
                                 $("input[name=date_of_birth]").val(teacher.date_of_birth);
-                                $("input[name=current_address]").val(teacher.address);
-                                $("input[name=address]").val(teacher.current_address);
+                                $("textarea[name=current_address]").val(teacher.current_address);
+                                $("textarea[name=eng_current_address]").val(teacher.eng_current_address);
+                                $("input[name=address]").val(teacher.address);
                                 $("input[id=position]").val(teacher.position);
                                 $("input[id=department]").val(teacher.department);
                                 $("input[id=organization]").val(teacher.organization);

@@ -279,7 +279,7 @@
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail img-circle shadow">
                                         <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-                                                alt="Upload Photo">
+                                                alt="Upload Photo" id="cpaff_img">
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                                     <div class="d-flex justify-content-center">
@@ -329,7 +329,7 @@
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 cpa_file"></div>
                                                 <div class="col-md-8">
-                                                    <input type="file"  class="form-control" name="cpa" style="display:none">
+                                                    <input type="file"  class="form-control" name="cpa">
                                                 </div>
                                             </div><br/>
                                         </div>
@@ -346,7 +346,7 @@
                                                 <div class="col-md-2 ra_file" id="ra_file"></div>
                                                 <div class="col-md-8">
                                                     <!-- <div class="single-form"> -->
-                                                        <input type="file"  class="form-control" name="ra" style="display:none">
+                                                        <input type="file"  class="form-control" name="ra">
                                                     <!-- </div> -->
                                                 </div>
                                             </div><br/>
@@ -374,7 +374,7 @@
                                                     <label for="" class="col-form-label"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-7 col-auto">
-                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" readonly>
+                                                    <input type="text" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)" disabled>
                                                 </div>
                                             </div>
 
@@ -385,9 +385,9 @@
                                                 </div>
                                                 <div class="col-md-2 foreign_degree_file">
                                                 </div>
-                                                <div class="col-md-5"  id="degree_edu" style="padding-left:5px; display: none;" >
+                                                {{--<div class="col-md-5"  id="degree_edu" >
                                                     <input type="file"  class="form-control" id="degree_file0"  name="degree_file[]" >
-                                                </div>
+                                                </div>--}}
                                                 <div class="col-md-1" id="add_div" >
                                                     <button type="button" class="btn btn-primary"  style="padding-left:5px; display: none;" id="add_btn" onclick="AddCPAFFDegree()" >
                                                         <i class="fa fa-plus"></i>
@@ -402,7 +402,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -437,7 +437,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" id="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
                                     <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                 </div>
@@ -446,7 +446,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
-                                <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" >
+                                <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" id="fine_person" class="form-control" style="display: inline;width: 100px;" >
                             </div><br/><br>
 
                             <div class="row">
@@ -539,7 +539,7 @@
                               <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
                               <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
                               <div class="col-md-4">
-                                  <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" required="">
+                                  <input type="text"  class="form-control" name="total_hours" id="total_hours"  placeholder="စုစုပေါင်း နာရီ" required="">
 
                               </div>
                           </div><br/><br>
@@ -676,5 +676,77 @@
     var reject_description=localStorage.getItem('reject_reason');
     $('#cpaff_id').val(cpaff_id);
     $('#remark_description').text(reject_description);
+
+    $.ajax({
+        url: BACKEND_URL + "/cpa_ff/" + cpaff_id,
+        type: 'get',
+        success: function (result) {
+            console.log(result);
+            var cpaff=result.data[0];
+            console.log(cpaff)
+            document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
+
+            $('#cpa_batch_no').val(cpaff.cpa_batch_no);
+            $('#address').val(cpaff.address);
+            $('#phone').val(cpaff.phone);
+            $('#contact_mail').val(cpaff.contact_mail);
+            $('#total_hours').val(cpaff.total_hours);
+            $('#fine_person').val(cpaff.fine_person);
+
+            var cpaff_pass_date=new Date(cpaff.cpaff_pass_date);
+            $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());
+            var renew_accepted_date=new Date(cpaff.renew_accepted_date);
+            $('#renew_accepted_date').val(renew_accepted_date.getFullYear());
+            var old_card_no_year=new Date(cpaff.old_card_no_year);
+            $('#old_card_no_year').val(old_card_no_year.getFullYear());
+
+            // $('.renew_file_old').append("<a href='" + BASE_URL + cpaff.renew_file + "'  target='_blank'>View File</a><br/>");
+            // $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
+            // $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
+            // $('.cpd_record_old').append("<a href='" + BASE_URL + cpaff.cpd_record + "'  target='_blank'>View File</a><br/>");
+            // $('.three_years_full_old').append("<a href='" + BASE_URL + cpaff.three_years_full + "'  target='_blank'>View File</a><br/>");
+
+            if (cpaff.ra != null && cpaff.ra != "null") {
+                $('#ra_edu').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true);   
+                $('#education').attr('disabled', true); 
+                getCPAEducation();        
+                $(".ra_file").append("<a href='"+BASE_URL+cpaff.ra+"'  target='_blank'>View File</a><br/>");
+            }
+            else {
+                getCPAEducation();
+                $(".ra_file").append("");
+            }
+            if(cpaff.cpa!=null && cpaff.cpa!="null"){
+                $('#cpa_edu').attr('checked', true);   
+                $('#education').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);            
+                getCPAEducation();
+                $(".cpa_file").show();
+                $(".cpa_file").append("<a href='" + BASE_URL + cpaff.cpa + "'  target='_blank'>View File</a><br/>");
+            }
+            else {
+                getCPAEducation();
+                $(".cpa_file").append("");
+            }
+            if (cpaff.foreign_degree != null && cpaff.foreign_degree != "null") {
+                $('#education').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);
+                getCPAEducation();
+                let foreign_degree = JSON.parse(cpaff.foreign_degree);
+                let degree_name = JSON.parse(cpaff.degree_name);
+                let degree_pass_year = JSON.parse(cpaff.degree_pass_year);
+                for (let j = 0; j < degree_name.length - 1; j++) {
+                    AddCPAFFDegree();
+                }
+                for (let i = 0; i < degree_name.length; i++) {
+                    $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+                    $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);
+                    $($(".foreign_degree_file")[i]).append(jQuery("<a href='" + BASE_URL + foreign_degree[i] + "'  target='_blank'>View File</a><br/>"));
+                }
+            }
+        }
+    });
 </script>
 @endpush
