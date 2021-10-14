@@ -2,7 +2,7 @@
     display: none;
 }
 
-.non_login,.login,.da_cpa,.acc_firm,.school,.teacher,.application,.registration,.exam,.qualified_test{
+.non_login,.login,.da_cpa,.acc_firm,.school,.teacher,.application,.registration,.exam,.qualified_test,#other_edu_div{
     display: none;
 }
 

@@ -591,7 +591,7 @@ function createCPAFFRegister() {
 
 
     //save to cpaff
-    send_data.append('cpa_batch_no', $("input[name=cpersonal_no]").val());
+    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
@@ -721,7 +721,7 @@ function getCpersonalNo()
 {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     // console.log(student.cpersonal_no)
-    $('#cpersonal_no').val(student.cpersonal_no);
+    $('#cpa_batch_no').val(student.cpersonal_no);
 }
 
 function form_feedback() {
@@ -1067,6 +1067,7 @@ function RenewCPAFF() {
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());
     send_data.append('total_hours', $("input[name=total_hours]").val());
+    send_data.append('fine_person', $("input[name=fine_person]").val());
     send_data.append('is_renew', 1);
     send_data.append('self_confession_renew',$("input[name=self_confession_renew]").val());
     send_data.append('type',1);
