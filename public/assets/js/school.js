@@ -257,67 +257,47 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
-  var numeralCodes = [
-    {
-      num: '1',			
-      numeral : 'I',
-    },
-    {
-      num: '2',			
-      numeral : 'II',
-    },
-    {
-      num: '3',			
-      numeral : 'III',
-    },
-    {
-      num: '4',			
-      numeral : 'IV',
-    },
-    {
-      num: '5',			
-      numeral : 'V',
-    },
-    {
-      num: '6',			
-      numeral : 'VI',
-    },
-    {
-      num: '7',			
-      numeral : 'VII',
-    },
-    {
-      num: '8',			
-      numeral : 'VIII',
-    },
-    {
-      num: '9',			
-      numeral : 'IX',
-    },
-    {
-      num: '10',			
-      numeral : 'X',
-    },
+  var changeCode = [
+    {num: '1',numcode : 'I'},{num: '2',numcode : 'II'},
+    {num: '3', numcode : 'III'},{num: '4',numcode : 'IV'},
+    
   ];
+  
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
       success:function(response){
            var opt;
+           
           $.each(response.data,function(i,v){
-              var newcode=(v.code).split('_');
-              var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
-              console.log(result.numeral);
-              var course_code=result.numeral;
+            
+            [a, b] = v.code.split('_');
+
+            opt += '<option value='+v.id+'>'+a.toUpperCase()+' '+ number2roma(b) +'</option>';
+
+
+            // var newcode=(v.code).split('_');
+            // var new_data = changeCode.filter( obj => obj.num ===newcode[1])[0];
+            //  console.log(new_data.length)
+            // // opt +=$('<option />').attr('value', v.id).html(newcode[0].toUpperCase()+' '+new_data.numcode);
+            //   opt += '<option value='+v.id+'>'+newcode[0].toUpperCase()+' '+new_data.numcode+'</option>';
               
-              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
+          
           $(".multiple-attend-course").append(opt);
           //$(".attend_course").siblings(".nice-select").css('display','none');
       }
   });
 }
-
+function number2roma(num){
+  if(num){
+  var nums = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX'};
+  return num.toString().replace(/([0-9])/g, function (s, key) {
+  return nums[key] || s;
+  });
+  }
+  
+}
 function addRowSchEstablishPerson(tbody){
   $("#sch_establish_error").hide();
   var newRow = $("<tr>");
@@ -834,8 +814,11 @@ function loadDescription(membership_name,divname){
   $('.delay-fee').html("");
   $('.cpa-subject-fee').html("");
   $('.da-subject-fee').html("");
+  $('.renew-cpa-subject-fee').html("");
+  $('.renew-da-subject-fee').html("");
   $('.renew-yearly-fee').html("");
   $('.reconnected-fee').html("");
+  $('.renew-registration-fee').html("");
   $.ajax({
     type: "get",
     url: BACKEND_URL+"/showDescription/"+membership_name,
@@ -843,6 +826,7 @@ function loadDescription(membership_name,divname){
       var data=result.data;
       var application_fee=0;
       var registration_fee=0;
+      var renew_registration_fee=0;
       var reg_fee_sole=0;
       var reg_fee_partner=0;
       var yearly_fee=0;
@@ -856,6 +840,8 @@ function loadDescription(membership_name,divname){
       var late_fee_feb_to_apr_partner = 0;
       var cpa_subject_fee=0;
       var da_subject_fee=0;
+      var renew_cpa_subject_fee=0;
+      var renew_da_subject_fee=0;
       var renew_yearly_fee=0;
       var reconnected_fee=0;
       var reconnect_fee_sole = 0;
@@ -867,9 +853,11 @@ function loadDescription(membership_name,divname){
           $('.'+divname).append(value.description);
           application_fee +=value.form_fee;
           registration_fee +=value.registration_fee;
+          renew_registration_fee +=value.renew_registration_fee;
           reg_fee_sole += value.reg_fee_sole;
           reg_fee_partner += value.reg_fee_partner;
           yearly_fee +=value.yearly_fee;
+          renew_yearly_fee +=value.renew_yearly_fee;
           renew_fee +=value.renew_fee;
           renew_fee_sole += value.renew_fee_sole;
           renew_fee_partner += value.renew_fee_partner;
@@ -882,6 +870,8 @@ function loadDescription(membership_name,divname){
           reconnect_fee_partner += value.reconnect_fee_partner;
           cpa_subject_fee +=value.cpa_subject_fee;
           da_subject_fee +=value.da_subject_fee;
+          renew_cpa_subject_fee +=value.renew_cpa_subject_fee;
+          renew_da_subject_fee +=value.renew_da_subject_fee;
           reconnected_fee +=value.reconnected_fee;
           late_feb_fee +=value.late_feb_fee;
       })
@@ -908,9 +898,16 @@ function loadDescription(membership_name,divname){
       //
       $('.cpa-subject-fee').append(thousands_separators(cpa_subject_fee)+" MMK");
       $('.da-subject-fee').append(thousands_separators(da_subject_fee)+" MMK");
+
+      $('.renew-cpa-subject-fee').append(thousands_separators(renew_cpa_subject_fee)+" MMK");
+      $('.renew-da-subject-fee').append(thousands_separators(renew_da_subject_fee)+" MMK");
+
       $('.renew-yearly-fee').append(thousands_separators(renew_yearly_fee)+" MMK");
       $('.reconnected-fee').append(thousands_separators(reconnected_fee)+" MMK");
       $('.late-feb-fee').append(thousands_separators(late_feb_fee)+" MMK");
+
+      $('.renew-registration-fee').append(thousands_separators(renew_registration_fee)+" MMK");
+      
     }
   })
 }
