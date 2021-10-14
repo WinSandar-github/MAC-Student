@@ -87,6 +87,7 @@ function user_profile() {
 
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
+                $('.teacher_pw').hide();
                 laodTeacherByDash(data.teacher);
                 loadSchoolByDash(data.school);
 
@@ -2205,34 +2206,33 @@ function loadSchoolByDash(school_data) {
         url: BACKEND_URL + "/getSchoolInfo/" + school_data.student_info_id,
         success: function (result) {
 
-            var school = result.data.pop();
+            var school=result.data.pop();
 
-            $('.school-title').text('School Information')
-            $('.school').show();
-            $('.cpaff_other').hide();
-            $('.da-card').hide();
-            localStorage.setItem("school_id", school.id);
-            $('#sch_name_mm').text(school.name_mm);
-            $('#sch_name_eng').text(school.name_eng);
-            $("#sch_nrc").text(school.nrc_state_region + "/" + school.nrc_township + "(" + school.nrc_citizen + ")" + school.nrc_number);
-            $("#sch_date_of_birth").text(school.date_of_birth);
-            $("#sch_email").text(school.email);
-            $('#sch_phone').text(school.phone);
-            if (school.approve_reject_status == 0) {
-                $('.sch_status_history').append('School Registration is checking.');
-            } else if (school.approve_reject_status == 1) {
-                $('.sch_status_history').append('School Registration is Approved.');
-                $('.sch_payment-btn').show();
-                $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
-                $('.sch_payment-status').show();
-            } else {
-
-                if (school.initial_status == 2) {
-                    $('.sch_reject-btn').hide();
-                    $('.sch_renew-btn').hide();
-                    $('.sch_cessation-btn').show();
-                    $('.sch_cessation-reason').append(school.cessation_reason);
-                    $('.sch_status').hide();
+                $('.school-title').text('School Information')
+                $('.school').show();
+                $('.cpaff_other').hide();
+                $('.da-card').hide();
+                localStorage.setItem("school_id", school.id);
+                $('#sch_name_mm').text(school.name_mm);
+                $('#sch_name_eng').text(school.name_eng);
+                $("#sch_nrc").text(school.nrc_state_region + "/" + school.nrc_township + "(" + school.nrc_citizen + ")" + school.nrc_number);
+                $("#sch_date_of_birth").text(school.date_of_birth);
+                $("#sch_email").text(school.email);
+                $("#sch_update_email").val(school.email);
+                $("#sch_update_phone").val(school.phone);
+                $("#sch_update_address").val(school.address);
+                $("#sch_update_eng_address").val(school.eng_address);
+                $('#school_id').val(school.id);
+                $('#old_school_profile_photo').val(school.profile_photo);
+                $('#previewSchoolImg').attr("src",BASE_URL+school.profile_photo);
+                $('#sch_phone').text(school.phone);
+                if (school.approve_reject_status == 0) {
+                    $('.sch_status_history').append('School Registration is checking.');
+                } else if (school.approve_reject_status == 1) {
+                    $('.sch_status_history').append('School Registration is Approved.');
+                    $('.sch_payment-btn').show();
+                    $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
+                    $('.sch_payment-status').show();
                 } else {
                     $('.sch_reject-btn').show();
                     if (school.initial_status == 0) {
@@ -2244,8 +2244,8 @@ function loadSchoolByDash(school_data) {
 
                     $('.sch_reject-reason').append(school.reason);
                 }
-            }
-            if (school.payment_method != null) {
+            
+            if(school.payment_method != null) {
                 $('.sch_period').show();
                 var now = new Date();
                 if (school.initial_status == 0) {
@@ -2285,30 +2285,47 @@ function laodTeacherByDash(teacher_data) {
         url: BACKEND_URL + "/getTeacher/" + teacher_data.student_info_id,
         success: function (result) {
 
-            var teacher = result.data.pop();
-            $('.teacher-title').text('Teacher Information')
-            $('.teacher').show();
-            $('.cpaff_other').hide();
-            $('.da-card').hide();
-            localStorage.setItem("teacher_id", teacher.id);
-            $('#teacher_name_mm').text(teacher.name_mm);
-            $('#teacher_name_eng').text(teacher.name_eng);
-            $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-
-            $("#teacher_email").text(teacher.email);
-            $('#teacher_phone').text(teacher.phone);
-            if (teacher.approve_reject_status == 0) {
-                $('.teacher_status_history').append('Teacher Registration is checking.');
-            } else if (teacher.approve_reject_status == 1) {
-                $('.teacher_status_history').append('Teacher Registration is Approved.');
-                $('.teacher_payment-btn').show();
-                $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
-                $('.teacher_payment-status').show();
-            } else {
-                $('.teacher_status_history').append('Teacher Registration is Rejected.');
-                $('.teacher_reject-btn').show();
-                $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
-                $('.teacher_reject-reason').append(teacher.reason);
+        var teacher=result.data.pop();
+        $('.teacher-title').text('Teacher Information')
+        $('.teacher').show();
+        $('.cpaff_other').hide();
+        $('.da-card').hide();
+        localStorage.setItem("teacher_id", teacher.id);
+        $('#teacher_name_mm').text(teacher.name_mm);
+        $('#teacher_name_eng').text(teacher.name_eng);
+        $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
+        $('#teacher_update_email').val(teacher.email);
+        $('#teacher_update_phone').val(teacher.phone);
+        $('#teacher_update_address').val(teacher.current_address);
+        $('#teacher_update_eng_address').val(teacher.eng_current_address);
+        $('#teacher_id').val(teacher.id);
+        $('#old_profile_photo').val(teacher.image);
+        $('#previewTeacherImg').attr("src",BASE_URL+teacher.image);
+        $("#teacher_email").text(teacher.email);
+        $('#teacher_phone').text(teacher.phone);
+        if (teacher.approve_reject_status == 0) {
+            $('.teacher_status_history').append('Teacher Registration is checking.');
+        } else if (teacher.approve_reject_status == 1) {
+            $('.teacher_status_history').append('Teacher Registration is Approved.');
+            $('.teacher_payment-btn').show();
+            $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
+            $('.teacher_payment-status').show();
+        } else {
+            $('.teacher_status_history').append('Teacher Registration is Rejected.');
+            $('.teacher_reject-btn').show();
+            $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
+            $('.teacher_reject-reason').append(teacher.reason);
+        }
+        if (teacher.payment_method != null) {
+            $('.teacher_period').show();
+            var now = new Date();
+            if(teacher.initial_status==0){
+                var period_date = teacher.from_valid_date.split(' ');
+                var new_period_date = period_date[0].split('-');
+                var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
+                $('#teacher_period_time').text(period + " to 31-12-" + now.getFullYear());
+            }else if(teacher.initial_status==1){
+               $('#teacher_period_time').text('01-01-'+ now.getFullYear() + " to 31-12-" + now.getFullYear());
             }
             if (teacher.payment_method != null) {
                 $('.teacher_period').show();
@@ -2331,51 +2348,10 @@ function laodTeacherByDash(teacher_data) {
                 $(".teacher_payment_status").text("Incomplete");
             }
         }
+    }
     });
 }
-function loadRenewTeacherDash(teacher) {
 
-    $('.teacher-title').text('Teacher Information')
-    $('.teacher').show();
-    $('.cpaff_other').hide();
-    $('.da-card').hide();
-    //localStorage.setItem("teacher_id", teacher.id);
-    $('#teacher_name_mm').text(teacher.name_mm);
-    $('#teacher_name_eng').text(teacher.name_eng);
-    $("#teacher_nrc").text(teacher.nrc_state_region + "/" + teacher.nrc_township + "(" + teacher.nrc_citizen + ")" + teacher.nrc_number);
-
-    $("#teacher_email").text(teacher.email);
-    $('#teacher_phone').text(teacher.phone);
-    if (teacher.approve_reject_status == 0) {
-        $('.teacher_status_history').append('Teacher Registration is checking.');
-    } else if (teacher.approve_reject_status == 1) {
-        $('.teacher_status_history').append('Teacher Registration is Approved.');
-        $('.teacher_payment-btn').show();
-        $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
-        $('.teacher_payment-status').show();
-    } else {
-        $('.teacher_status_history').append('Teacher Registration is Rejected.');
-        $('.teacher_reject-btn').show();
-        $('.teacher_reject-p').append(`<a href='${FRONTEND_URL}/teacher_register' class="btn btn-success btn-hover-dark" > Update </a>`);
-        $('.teacher_reject-reason').append(teacher.reason);
-    }
-    if (teacher.payment_method != null) {
-        $('.teacher_period').show();
-        var now = new Date();
-        var period_date = teacher.payment_date.split(' ');
-        var new_period_date = period_date[0].split('-');
-        var period = new_period_date[2] + '-' + new_period_date[1] + '-' + new_period_date[0];
-        $('#teacher_period_time').text("01-01-" + now.getFullYear() + " to 31-12-" + now.getFullYear());
-        $('.teacher_renew-btn').show();
-        $('.teacher_renew-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
-        $('.teacher_payment-status').show();
-        $('.teacher_payment-btn').hide();
-        $(".teacher_payment_status").text("Complete");
-    } else {
-        $(".teacher_payment_status").text("Incomplete");
-    }
-
-}
 
 function firmDashboardData() {
     show_loader();
@@ -2456,4 +2432,88 @@ function firmDashboardData() {
 
         }
     });
+}
+function updateProfileTeacher(){
+    var formData = new FormData($("#teacher_update_form" )[0]);
+    
+    var teacher_id=$('#teacher_id').val();
+    formData.append('membership','teacher');
+    formData.append('old_image',$('#old_profile_photo').val());
+    formData.append('phone',$('#teacher_update_phone').val());
+    formData.append('address',$("#teacher_update_address").val());
+    formData.append('eng_address',$("#teacher_update_eng_address").val());
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/update_profile/" + teacher_id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileModelTeacher').modal('toggle');
+            location.reload();
+        }
+    });
+}
+function updateProfileSchool(){
+    var formData = new FormData($("#school_update_form" )[0]);
+    
+    var school_id=$('#school_id').val();
+    formData.append('membership','school');
+    formData.append('old_image',$('#old_school_profile_photo').val());
+    formData.append('phone',$('#sch_update_phone').val());
+    formData.append('address',$("#sch_update_address").val());
+    formData.append('eng_address',$("#sch_update_eng_address").val());
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/update_profile/" + school_id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileModelSchool').modal('toggle');
+            location.reload();
+        }
+    });
+}
+function changePasswordTeacher(){
+    show_loader();
+    if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
+        EasyLoading.hide();
+        $("input[name=password]").val('');
+        $("input[name=confirm_password]").val('');
+        $("input[name=password]").addClass('is-invalid');
+        $("input[name=confirm_password]").addClass('is-invalid');
+        $('#err_message').text("Your password and confirm password do not match!");
+    } else {
+        var formData = new FormData($("#school_teacher_form")[0]);
+        formData.append('id', student_id);
+        $.ajax({
+            url: BACKEND_URL + "/update_pwd",
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                EasyLoading.hide();
+                successMessage(data.message);
+                $('#pwModalTeacher').modal('toggle');
+                location.reload();
+            },
+            error: function (err) {
+                EasyLoading.hide();
+                if (err.status == 401) {
+                    $('#old_pwd').addClass('is-invalid');
+                    $('#old_err_meg').text(err.responseJSON.error);
+                }
+            }
+        });
+    }
 }

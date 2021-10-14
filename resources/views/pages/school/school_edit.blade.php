@@ -289,22 +289,22 @@
                             
 
                             <!-- DOB -->
-                            <!-- <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-md-4 col-form-label text-end"><span
-                                            class="pull-left">{{ __('၄။') }}</span>{{ __('မွေးသက္ကရာဇ်') }}</label>
+                                            class="pull-left">{{ __('၅။') }}</span>{{ __('မွေးသက္ကရာဇ်') }}</label>
                                 <div class="col-md-8">
                                     <input type="text" id="dob" name="dob" placeholder="dd-mm-yyyy"
                                                class="form-control" autocomplete='off' >
 
                                 </div>
-                            </div> -->
+                            </div>
                             <!-- DOB -->
 
                             <!-- Education -->
 
                                 <div class="row ">
                                     <label class="col-md-4 col-form-label text-end"><span
-                                            class="pull-left">{{ __('၅။') }}</span>{{ __('ပညာအရည်အချင်း') }}</label>
+                                            class="pull-left">{{ __('၆။') }}</span>{{ __('ပညာအရည်အချင်း') }}</label>
                                     <div class="col-md-8">
                                         <table class="table tbl_degree table-bordered input-table">
                                             <thead>
@@ -335,7 +335,7 @@
                             <!-- လုပ်ငန်းဖွဲ့စည်းမှုပုံစံ -->
                             <div class="row mb-4">
                                 <label class="col-md-4 col-form-label text-end">
-                                    <span class="pull-left">{{ __('၆။') }}</span>
+                                    <span class="pull-left">{{ __('၇။') }}</span>
                                     {{ __('လုပ်ငန်းဖွဲ့စည်းမှုပုံစံကျောင်းကို အောက်ဖော်ပြပါလုပ်ငန်းဖွဲ့စည်းမှုပုံစံဖြင့်ဆောင်ရွက်ပါမည်(ဆိုင်ရာတွင်အမှန်ခြစ် ခြစ်ရန်)') }}
                                 </label>
                                 <input type="hidden" id="hidden_school_type">
@@ -387,7 +387,7 @@
                         {{-- လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း --}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၇။') }}</span>{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}
+                                            class="pull-left">{{ __('၈။') }}</span>{{ __('လျှောက်ထားသူ/အဖွဲ့အစည်း၏နောက်ခံသမိုင်း(သီးခြားစာရွက်ဖြင့်ဖော်ပြရန်)') }}
                                 </label>
                                 <div class="col-md-8">
 
@@ -419,7 +419,7 @@
                             {{--ဆက်သွယ်ရန်လိပ်စာ--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၈။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                            class="pull-left">{{ __('၉။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" name="address" style="resize:none;" class="form-control"
                                                   autocomplete='off' ></textarea>
@@ -431,7 +431,7 @@
                             {{--ဖုန်းနံပါတ်--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၉။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
+                                            class="pull-left">{{ __('၁၀။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
                                 <div class="col-md-8">
                                     <input type="text" name="phone" class="form-control" placeholder="ဖုန်းနံပါတ်"
                                                autocomplete='off' >
