@@ -274,30 +274,7 @@ function getCourses(){
       num: '4',			
       numeral : 'IV',
     },
-    {
-      num: '5',			
-      numeral : 'V',
-    },
-    {
-      num: '6',			
-      numeral : 'VI',
-    },
-    {
-      num: '7',			
-      numeral : 'VII',
-    },
-    {
-      num: '8',			
-      numeral : 'VIII',
-    },
-    {
-      num: '9',			
-      numeral : 'IX',
-    },
-    {
-      num: '10',			
-      numeral : 'X',
-    },
+    
   ];
   $.ajax({
       url:BACKEND_URL+'/get_courses',
