@@ -56,6 +56,7 @@ Route::get('cpa_ff_register', 'CPAFFController@info');
 Route::get('cpaff_other', 'CPAFFController@other');
 Route::get('update_cpaff_initial','CPAFFController@reject_initial');
 Route::get('update_cpaff_renewal','CPAFFController@reject_renewal');
+Route::get('cpaff_reconnect','CPAFFController@cpaffReconnect');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
@@ -143,6 +144,9 @@ Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
 
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
+
+//School Register Reconnected Form
+Route::get('school_register_reconnected', 'SchoolController@reconnect');
 
 // School Information Page
 Route::get('school_information', 'SchoolInfoController@info');

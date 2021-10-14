@@ -80,7 +80,7 @@
                                 <label class="col-md-2 col-form-label fw-bolder">ကျောင်းပုံစံ-၆</label>
                                                                 
                             </div>
-                            <form method="post" action="javascript:updateSchool();" enctype="multipart/form-data" id="school_renew_form_data">
+                            <form method="post" action="javascript:renewUpdateSchool();" enctype="multipart/form-data" id="school_renew_form_data">
                             <div class="row mb-3">
                                 <div class="col-md-8">
 
@@ -258,7 +258,7 @@
                                     </div>
                             </div>
                             
-                            <div class="row mb-3">
+                            <!-- <div class="row mb-3">
                                     
                                     <label class="col-md-4 col-form-label text-end"><span class="pull-left">{{ __('၅။') }}</span>{{ __('မွေးသက္ကရာဇ်') }}</label>
                                     <div class="col-md-8">
@@ -266,17 +266,27 @@
                                             <input type="text" id="dob" name="dob"  class="form-control" autocomplete='off' readonly>
                                         </div>
                                     </div>
-                            </div>
+                            </div> -->
 
                             
                                       
                             <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
-                                        <div class="col-md-8">
-                                            <textarea type="text" name="address" style="resize:none;" class="form-control" autocomplete='off' ></textarea>
-                                        
-                                        </div>
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၅။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" name="address" style="resize:none;" class="form-control"
+                                                  autocomplete='off' ></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" name="eng_address" style="resize:none;" class="form-control"
+                                                  autocomplete='off' ></textarea>
+
+                                </div>
                             </div>
 
                             <div class="row mb-3">
@@ -893,7 +903,7 @@
                                 </div>
                                         <div class="row mb-3">
                                             <div class="col-md-2 offset-md-5">
-                                                <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit submit_btn">{{ __('Submit') }}</button>
+                                                <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit submit_btn" disabled>{{ __('Submit') }}</button>
                                             </div>
                                         </div>
                             </form>
