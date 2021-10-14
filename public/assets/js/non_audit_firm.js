@@ -505,6 +505,7 @@ function getNonAuditData(){
       type: "GET",
       url: BACKEND_URL+"/get_non_audit_data_for_renew/"+student_id,
       success: function (data){
+        //console.log("na >>",data);
           var non_audit_data = data.data;
           var other_data = data.other_data;
           var student_data = data.student_infos;
@@ -539,6 +540,7 @@ function getNonAuditData(){
           $('input[name=h_email]').val(non_audit_data.h_email);
           $('input[name=website]').val(non_audit_data.website);
           $('input[name=name_sole_proprietor]').val(non_audit_data.name_of_sole_proprietor);
+          $('input[name=dir_passport_csc]').val(non_audit_data.dir_passport_csc);
           $('input[name=declaration]').val(non_audit_data.declaration);
           $('input[name=declaration_mm]').val(non_audit_data.declaration_mm);
 
