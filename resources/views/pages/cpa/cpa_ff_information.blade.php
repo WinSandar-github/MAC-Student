@@ -74,7 +74,7 @@
 
                                 <div id="cpa_initial">
                                     <div class="row">
-                                        <div class="card col-md-7 m-2">
+                                        <div class="card col-md-6 m-2">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 widget-information">
@@ -100,7 +100,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card col-md-4 m-2">
+                                        <div class="card col-md-5 m-2">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 widget-information">
@@ -120,7 +120,7 @@
                                                                             <div class="col-md-6 pull-right">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" style="padding-left: 5%;">Register</a>
+                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark">Register</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -434,7 +434,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
+                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" id="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
                                 <div class="col-md-4">
                                     <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                 </div>

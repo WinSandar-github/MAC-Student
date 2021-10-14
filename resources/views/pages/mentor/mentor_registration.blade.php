@@ -532,6 +532,19 @@
                                   </div>
 
                                   <div class="row mb-3">
+                                      <div class="form-check">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" name="confirm_129">
+                                              <span class="form-check-sign"></span>
+                                              <p class="fw-bolder">
+                                                  * <a href="https://demo.aggademo.me/MAC/public/storage/article/129.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၉) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                              </p>
+                                          </label><br>
+                                          <label  class="error attend_place_error" style="display:none;" for="confirm_129">Please check one</label>
+                                      </div>
+                                  </div>
+
+                                  <div class="row mb-3">
                                     <div class="form-check">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="checkbox" name="mentor_declare" onchange="$('#submit_btn').prop('disabled', !this.checked)">

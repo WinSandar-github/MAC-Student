@@ -32,7 +32,7 @@
     </div>
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
-            <form id="audit_reject_register_form" method="post" class="" action="javascript:auditRejectUpdate();" enctype="multipart/form-data" >
+            <form id="audit_reject_register_form" method="post" class="" action="javascript:void();" enctype="multipart/form-data" >
                         <input type="hidden" name="audit_firm_type_id" id="audit_firm_type_id" value="1" />
                         <div class="col-md-12">
                             <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
@@ -146,42 +146,59 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address Of Practice(Head Office)</label>
+                                      <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Address Of Practice(Head Office)</label>
                                       <div class="col-md-8">
-                                          <textarea  name="head_office_address" class="form-control" placeholder="Head Office Address" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                          <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
+                                          <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                       </div>
                                     </div>
 
                                     <div class="row mb-3">
+                                      <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
+                                      <div class="col-md-8">
+                                          <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
+                                          <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        {{--<div class="col-md-2 offset-md-4">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Township</small></label>
+                                            <input  type="text" name="township" class="form-control" placeholder="" autocomplete="off" value="{{ old('township') }}" required="">
+                                        </div>--}}
                                         <div class="col-md-2 offset-md-4">
-                                            <input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" required="">
+                                          <label for="" class="control-label text-muted fw-bolder"><small>Post Code</small></label>
+                                          <input  type="text" name="post_code" class="form-control" placeholder="" autocomplete="off" value="{{ old('post_code') }}" required="">
                                         </div>
-                                        <div class="col-md-2">
-                                            <input  type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" required="">
+                                        <div class="col-md-3">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Website Address</small></label>
+                                            <input  type="text" name="website" class="form-control" placeholder="" autocomplete="off" value="{{ old('website') }}" required="">
                                         </div>
-                                        <div class="col-md-2">
-                                            <input  type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" required="">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <input  type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" required="">
-                                        </div>
+                                        {{--<div class="col-md-2">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>City</small></label>
+                                            <input  type="text" name="city" class="form-control" placeholder="" autocomplete="off" value="{{ old('city') }}" required="">
+                                        </div>--}}
+                                        {{--<div class="col-md-2">
+                                          <label for="" class="control-label text-muted fw-bolder"><small>State/Region</small></label>
+                                          <input  type="text" name="state" class="form-control" placeholder="" autocomplete="off" value="{{ old('state') }}" required="">
+                                        </div>--}}
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col-md-4 col-form-label"></div>
                                         <div class="col-md-2">
-                                            <input  type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" required="">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Telephone</small></label>
+                                            <input  type="text" name="phone_no" class="form-control" placeholder="" autocomplete="off" value="{{ old('phone_no') }}" required="">
                                         </div>
                                         <div class="col-md-3">
-                                            <input  type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" required="">
+                                            <label for="" class="control-label text-muted fw-bolder"><small>Email Address</small></label>
+                                            <input  type="email" name="h_email" class="form-control" placeholder="" autocomplete="off" value="{{ old('h_email') }}" required="">
                                         </div>
-                                        <div class="col-md-3">
-                                            <input  type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" required="">
-                                        </div>
+
                                     </div><br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">6.</label>
+                                        <label for="" class="col-md-1 col-form-label">4.</label>
                                         <label for="" class="col-md-2 col-form-label">Branch Office</label>
                                         <label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
                                     </div>
@@ -235,7 +252,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">7.</label>
+                                        <label for="" class="col-md-1 col-form-label">5.</label>
                                         <label for="" class="col-md-11 col-form-label">Organization Structure</label>
                                     </div>
                                     <div class="row">
@@ -257,30 +274,27 @@
                                                             <div class="row">
                                                                 <label class="col-md-12 col-form-label"><b> For Sole Proprietorship</b></label>
                                                             </div>
+
                                                             <div class="row mb-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">(a) Copy of valid Public Practice Accountant Certificate</label>
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="ppa_certificate" ></span>
-
-                                                                </div>
+                                                            <div class="public_practice_acc_certi mb-3">
                                                             </div>
                                                             <div class="controls1">
                                                                 <div class="entry1">
                                                                     <div class="row mb-3">
-                                                                        <div class="col-md-9 col-auto ppa-certis-upload">
-                                                                            <input  type="file" class="form-control" name="ppa_certis[]">
-                                                                        </div>
-                                                                        <div class="col-md-1 col-auto ppa-certis-btn">
-                                                                          <button type="button" class="btn btn-success btn-add btn-sm custom-btn" onclick='addInputFile("controls1","entry1")'>
-                                                                            <li class="fa fa-plus"></li>
-                                                                          </button>
-                                                                        </div>
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="ppa_certis[]" >
 
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button type="button" class="btn btn-success btn-add btn-sm custom-btn" onclick='addInputFileFirm("controls1","entry1")'>
+                                                                              <li class="fa fa-plus"></li>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -290,22 +304,18 @@
                                                                     <label class="form-label">(b) Copy of stationery/letterhead to be used in signing of auditor's report</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="letterheads" ></span>
-
-                                                                </div>
+                                                            <div class="stationery_letterhead mb-3">
                                                             </div>
                                                             <div class="controls2">
                                                                 <div class="entry2">
                                                                     <div class="row mb-3">
-                                                                        <div class="col-md-11 col-auto letterheads-upload">
-                                                                            {{--<input  type="file" class="form-control" name="letterheads[]">--}}
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="letterheads[]" >
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                          <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls2","entry2")'>
-                                                                              <li class="fa fa-plus"></li>
-                                                                          </button>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls2","entry2")'>
+                                                                                <li class="fa fa-plus"></li>
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -316,26 +326,43 @@
                                                                     <label class="form-label">(c) Copy of Tax clearance from Internal Revenue Department</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="tax_clearances" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls3">
                                                                 <div class="entry3">
                                                                     <div class="row mb-3">
-                                                                        <div class="col-md-11 col-auto tax-clearances-upload">
-                                                                            {{--<input  type="file" class="form-control" name="tax_clearances[]">--}}
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="tax_clearances[]" >
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                          <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls3","entry3")'>
-                                                                              <li class="fa fa-plus"></li>
-                                                                          </button>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls3","entry3")'>
+                                                                                <li class="fa fa-plus"></li>
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            {{--<div class="row mb-3">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">(d) Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="controls4">
+                                                                <div class="entry4">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="representatives[]">
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls4","entry4")'>
+                                                                                <li class="fa fa-plus"></li>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>--}}
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -357,6 +384,8 @@
                                                                     <label class="form-label">(a) Copy of Public Practice Accountant Certificate all partners</label>
 
                                                                 </div>
+                                                            </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
@@ -386,6 +415,8 @@
 
                                                                 </div>
                                                             </div>
+                                                            <div class="tax_clearances mb-3">
+                                                            </div>
                                                             <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
                                                                     <span class="certi_or_regs" ></span>
@@ -413,6 +444,8 @@
                                                                     <label class="form-label">(c) Copy of signed Partnership Deeds/ Memorandum of Agreement</label>
 
                                                                 </div>
+                                                            </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
@@ -442,6 +475,8 @@
 
                                                                 </div>
                                                             </div>
+                                                            <div class="tax_clearances mb-3">
+                                                            </div>
                                                             <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
                                                                     <span class="letterheads" ></span>
@@ -470,6 +505,8 @@
 
                                                                 </div>
                                                             </div>
+                                                            <div class="tax_clearances mb-3">
+                                                            </div>
                                                             <div class="row mb-3">
                                                                 <div class="col-md-11 col-auto">
                                                                     <span class="tax_clearances" ></span>
@@ -492,8 +529,6 @@
                                                                 </div>
                                                             </div>
 
-
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -501,7 +536,7 @@
                                     </div>
 
                                     <div id="company">
-                                            <div class="row">
+                                      <div class="row">
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-11">
                                                     <div class="card" id="audit_company">
@@ -512,26 +547,21 @@
 
                                                             <div class="row mb-3">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">(a) Copy of Public Practice Accountant Certificate all shareholders</label>
+                                                                    <label class="form-label">(a) Copy of valid Public Practice Accountant Certificate of all shareholders</label>
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="ppa_certis" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls19">
                                                                 <div class="entry19">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="ppa_certis[]">
-
+                                                                            <input type="file" class="form-control" name="ppa_certis[]" >
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls19","entry19")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls19","entry19")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -545,22 +575,18 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="certificate_incors" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls20">
                                                                 <div class="entry20">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="certificate_incors[]">
+                                                                            <input type="file" class="form-control" name="certificate_incors[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls20","entry20")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls20","entry20")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -573,27 +599,24 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="deeds_memos" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls21">
                                                                 <div class="entry21">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="deeds_memos[]">
+                                                                            <input type="file" class="form-control" name="deeds_memos[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls21","entry21")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls21","entry21")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
 
                                                             <div class="row mb-3">
                                                                 <div class="form-group">
@@ -601,22 +624,18 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="tax_reg_certificate" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls24">
                                                                 <div class="entry24">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="tax_reg_certificate[]">
+                                                                            <input type="file" class="form-control" name="tax_reg_certificate[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls24","entry24")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls24","entry24")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -629,22 +648,18 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="letterheads" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls25">
                                                                 <div class="entry25">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="letterheads[]">
+                                                                            <input type="file" class="form-control" name="letterheads[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls25","entry25")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls25","entry25")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -657,30 +672,23 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="tax_clearances" ></span>
-
-                                                                </div>
+                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls26">
                                                                 <div class="entry26">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="tax_clearances[]">
+                                                                            <input type="file" class="form-control" name="tax_clearances[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls26","entry26")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
-
 
                                                         </div>
                                                     </div>
@@ -714,7 +722,7 @@
                                     <br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">8.</label>
+                                        <label for="" class="col-md-1 col-form-label">6.</label>
                                         <label for="" class="col-md-4 col-form-label">Sole Proprietor/Partners/Shareholders</label>
                                         <label for="" class="col-md-6 partner_list_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
                                     </div>
@@ -753,7 +761,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">9.</label>
+                                        <label for="" class="col-md-1 col-form-label">7.</label>
                                         <label for="" class="col-md-4 col-form-label">Director(s)/Officer(s)/Sole Proprietor</label>
                                         <label for="" class="col-md-4 director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
                                     </div>
@@ -795,7 +803,7 @@
                                         </label>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">10.</label>
+                                        <label for="" class="col-md-1 col-form-label">8.</label>
                                         <label for="" class="col-md-4 col-form-label">Name Of Sole Proprietor/ Managing Partner</label>
                                         <div class="col-md-7">
                                             <input type="text" name="name_sole_proprietor" class="form-control" autocomplete="off" value="{{ old('name_sole_proprietor') }}" placeholder="Enter Name Of Sole Proprietor/ Managing Partner!" >
@@ -803,7 +811,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">11.</label>
+                                        <label for="" class="col-md-1 col-form-label">9.</label>
                                         <label for="" class="col-md-2 col-form-label">Total Staff</label>
                                     </div>
 
@@ -842,7 +850,7 @@
                                     </div><br>
 
                                     <div class="row">
-                                        <label for="" class="col-md-1 col-form-label">12.</label>
+                                        <label for="" class="col-md-1 col-form-label">10.</label>
                                         <label for="" class="col-md-2 col-form-label">Audit Staff</label>
                                     </div>
 
@@ -881,7 +889,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-1 col-form-label">13</label>
+                                        <label for="" class="col-md-1 col-form-label">11.</label>
                                         <label for="" class="col-md-3 col-form-label">Types Of Service Provided</label>
                                         <div class="col-md-4"><div class="row type_service_provided mt-1"></div></div>
                                         <div class="col-md-4 col-form-label text-danger" id="t_s_p_id_validate" style="display:none;" >
@@ -965,7 +973,7 @@
 </div>
 
 @push('scripts')
-{{--<script src="{{ asset("js/form_validation/audit_reject_register_validation.js") }}"></script>--}}
+<script src="{{ asset("js/form_validation/audit_reject_register_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
         loadAuditOrganization();

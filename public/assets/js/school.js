@@ -257,25 +257,47 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
+  var changeCode = [
+    {num: '1',numcode : 'I'},{num: '2',numcode : 'II'},
+    {num: '3', numcode : 'III'},{num: '4',numcode : 'IV'},
+    
+  ];
   
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
       success:function(response){
            var opt;
+           
           $.each(response.data,function(i,v){
-              var newcode=(v.code).split('_');
-              var result = numeralCodes.filter( obj => obj.num === newcode[1])[0];
-              var course_code=result.numeral;
+            
+            [a, b] = v.code.split('_');
+
+            opt += '<option value='+v.id+'>'+a.toUpperCase()+' '+ number2roma(b) +'</option>';
+
+
+            // var newcode=(v.code).split('_');
+            // var new_data = changeCode.filter( obj => obj.num ===newcode[1])[0];
+            //  console.log(new_data.length)
+            // // opt +=$('<option />').attr('value', v.id).html(newcode[0].toUpperCase()+' '+new_data.numcode);
+            //   opt += '<option value='+v.id+'>'+newcode[0].toUpperCase()+' '+new_data.numcode+'</option>';
               
-              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
           })
+          
           $(".multiple-attend-course").append(opt);
           //$(".attend_course").siblings(".nice-select").css('display','none');
       }
   });
 }
-
+function number2roma(num){
+  if(num){
+  var nums = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX'};
+  return num.toString().replace(/([0-9])/g, function (s, key) {
+  return nums[key] || s;
+  });
+  }
+  
+}
 function addRowSchEstablishPerson(tbody){
   $("#sch_establish_error").hide();
   var newRow = $("<tr>");
@@ -415,9 +437,10 @@ function loadRenewSchool(){
   if(student!=null){
       $.ajax({
         type : 'GET',
-        url : BACKEND_URL+"/getSchoolInfo/"+student.id,//school
+        url : BACKEND_URL+"/school/"+student.school_id,//getSchoolInfo
         success: function (result) {
-            var school=result.data.pop();
+            //var school=result.data.pop();
+            var school=result.data;
             
             if(school.approve_reject_status==1){
                   $('#school_approve').css('display','none');
@@ -439,6 +462,9 @@ function loadRenewSchool(){
                   $('input[name=degree]').val(school.degree);
                   $('input[name=phone]').val(school.phone);
                   $('textarea[name=address]').val(school.address);
+                  $('#school_name').val(school.school_name);
+                  $('#school_address').val(school.school_address);
+                  $('#hcourse').val(school.attend_course);
                   if(school.type!=null){
                     $('#hidden_school_type').val(school.type);
                     if($("input:radio[id=school_type1]").val()==school.type){
@@ -523,6 +549,74 @@ function loadRenewSchool(){
                   //   tr += "</tr>";
                   //   $(".tbl_teacher_list_biography_body").append(tr);
                   // });
+                  var school_branch=school.school_branch;
+                  $.each(school_branch, function( index, value ) {
+                    var tr = "<tr>";
+                    tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_branch_school_id[]" class="form-control" value=`+value.id+`>${ index += 1 } </td>`;
+                    tr += '<td><input type="hidden" name="old_branch_school_address[]" class="form-control" value='+value.branch_school_address+'><input type="text" name="old_branch_school_address[]" class="form-control" value="'+value.branch_school_address+'"/></td>';
+                    tr += `<td><input type="hidden" name="old_branch_school_attach_h[]" class="form-control" value=`+value.branch_school_attach+`><input type="file" name="old_branch_school_attach[]" class="form-control"><a href='${BASE_URL+value.branch_school_attach}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+
+                    if(value.branch_sch_own_type=="private"){
+                      tr += '<td>'+
+                      '<div class="form-group">'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                              'value="private" checked onclick=brachOwnType(this)> ကိုယ်ပိုင်'+
+
+                                                    '</div>'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                              'value="rent" onclick=brachOwnType(this)> အငှား '+
+                                                    '</div>'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
+                                                              'id="old_branch_sch_own_type" value="use_sharing" onclick=brachOwnType(this)> တွဲဖက်သုံး'+
+                                                    '</div>'+
+                                                '</div>'+
+                      '</td>';
+                    }else if(value.branch_sch_own_type=="rent"){
+                      tr += '<td>'+
+                      '<div class="form-group">'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                              'value="private" onclick=brachOwnType(this)> ကိုယ်ပိုင်'+
+
+                                                    '</div>'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                              'value="rent" checked onclick=brachOwnType(this)> အငှား '+
+                                                    '</div>'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
+                                                              'id="old_branch_sch_own_type" value="use_sharing" onclick=brachOwnType(this)> တွဲဖက်သုံး'+
+                                                    '</div>'+
+                                                '</div>'+
+                      '</td>';
+                    }else{
+                      tr += '<td>'+
+                      '<div class="form-group">'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                              'value="private" onclick=brachOwnType('+this+')> ကိုယ်ပိုင်'+
+
+                                                    '</div>'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '" id="old_branch_sch_own_type"'+
+                                                              'value="rent" onclick=brachOwnType('+this+')> အငှား '+
+                                                    '</div>'+
+                                                    '<div class="form-check mt-2 form-check-inline">'+
+                                                        '<input class="form-check-input" type="radio" name="old_branch_sch_own_type' + index + '"'+
+                                                              'id="old_branch_sch_own_type" value="use_sharing" checked onclick=brachOwnType('+this+')> တွဲဖက်သုံး'+
+                                                    '</div>'+
+                                                '</div>'+
+                      '</td>';
+                    }
+
+
+                    tr += `<td><input type="hidden" name="old_branch_sch_letter_h[]" class="form-control" value=`+value.branch_sch_letter+`><input type="file" name="old_branch_sch_letter[]" class="form-control"><a href='${BASE_URL+value.branch_sch_letter}' style='margin-top:0.5px;' target='_blank' class='btn btn-success btn-md'>View File</a></td>`;
+                    tr += "</tr>";
+                    //$(".tbl_branch_school_body").append(tr);
+                  });
                   $('textarea[name=school_location]').val(school.school_location);
                   $('textarea[name=branch_school_location]').val(school.branch_school_location);
                   $('textarea[name=branch_school_address]').val(school.branch_school_address);
@@ -661,6 +755,9 @@ function renewSchool(){
     send_data.append('initial_status',  $('#hinitial_status').val());
     send_data.append('school_id',  $('#school_id').val());
     send_data.append('invoice_no',  $('#regno').val());
+    send_data.append('old_school_name',  $('#school_name').val());
+    send_data.append('old_school_address',  $('#school_address').val());
+    send_data.append('old_course',  $('#hcourse').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
     $("input[id=old_branch_sch_own_type]").map(function(){send_data.append('old_branch_sch_own_type[]',$(this).val())});
     
@@ -717,8 +814,11 @@ function loadDescription(membership_name,divname){
   $('.delay-fee').html("");
   $('.cpa-subject-fee').html("");
   $('.da-subject-fee').html("");
+  $('.renew-cpa-subject-fee').html("");
+  $('.renew-da-subject-fee').html("");
   $('.renew-yearly-fee').html("");
   $('.reconnected-fee').html("");
+  $('.renew-registration-fee').html("");
   $.ajax({
     type: "get",
     url: BACKEND_URL+"/showDescription/"+membership_name,
@@ -726,6 +826,7 @@ function loadDescription(membership_name,divname){
       var data=result.data;
       var application_fee=0;
       var registration_fee=0;
+      var renew_registration_fee=0;
       var reg_fee_sole=0;
       var reg_fee_partner=0;
       var yearly_fee=0;
@@ -739,6 +840,8 @@ function loadDescription(membership_name,divname){
       var late_fee_feb_to_apr_partner = 0;
       var cpa_subject_fee=0;
       var da_subject_fee=0;
+      var renew_cpa_subject_fee=0;
+      var renew_da_subject_fee=0;
       var renew_yearly_fee=0;
       var reconnected_fee=0;
       var reconnect_fee_sole = 0;
@@ -750,9 +853,11 @@ function loadDescription(membership_name,divname){
           $('.'+divname).append(value.description);
           application_fee +=value.form_fee;
           registration_fee +=value.registration_fee;
+          renew_registration_fee +=value.renew_registration_fee;
           reg_fee_sole += value.reg_fee_sole;
           reg_fee_partner += value.reg_fee_partner;
           yearly_fee +=value.yearly_fee;
+          renew_yearly_fee +=value.renew_yearly_fee;
           renew_fee +=value.renew_fee;
           renew_fee_sole += value.renew_fee_sole;
           renew_fee_partner += value.renew_fee_partner;
@@ -765,6 +870,8 @@ function loadDescription(membership_name,divname){
           reconnect_fee_partner += value.reconnect_fee_partner;
           cpa_subject_fee +=value.cpa_subject_fee;
           da_subject_fee +=value.da_subject_fee;
+          renew_cpa_subject_fee +=value.renew_cpa_subject_fee;
+          renew_da_subject_fee +=value.renew_da_subject_fee;
           reconnected_fee +=value.reconnected_fee;
           late_feb_fee +=value.late_feb_fee;
       })
@@ -791,9 +898,16 @@ function loadDescription(membership_name,divname){
       //
       $('.cpa-subject-fee').append(thousands_separators(cpa_subject_fee)+" MMK");
       $('.da-subject-fee').append(thousands_separators(da_subject_fee)+" MMK");
+
+      $('.renew-cpa-subject-fee').append(thousands_separators(renew_cpa_subject_fee)+" MMK");
+      $('.renew-da-subject-fee').append(thousands_separators(renew_da_subject_fee)+" MMK");
+
       $('.renew-yearly-fee').append(thousands_separators(renew_yearly_fee)+" MMK");
       $('.reconnected-fee').append(thousands_separators(reconnected_fee)+" MMK");
       $('.late-feb-fee').append(thousands_separators(late_feb_fee)+" MMK");
+
+      $('.renew-registration-fee').append(thousands_separators(renew_registration_fee)+" MMK");
+      
     }
   })
 }
@@ -1018,7 +1132,7 @@ function loadTeacherById(row){
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[2].children[0].readOnly = true;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].value=value.nrc_state_region+'/'+value.nrc_township+'/'+value.nrc_number;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].readOnly = true;
-          loadEductaionHistoryByTeacher(value.id,row);
+          loadEductaionHistoryByTeacher(value.student_info_id,row);
           
           if(value.certificates.search(/[\'"[\]']+/g)==0){
             loadCertificates(value.certificates.replace(/[\'"[\]']+/g, ''),row);
@@ -1097,11 +1211,13 @@ function loadCertificates(name,row){
 }
 function getSchoolInfo(){
   var student =JSON.parse(localStorage.getItem("studentinfo"));
+
   $.ajax({
     type : 'GET',
-    url : BACKEND_URL+"/getSchoolInfo/"+student.id,//school
+    url : BACKEND_URL+"/school/"+student.school_id,//getSchoolInfo
     success: function (result) {
-        var school=result.data.pop();
+        //var school=result.data.pop();
+        var school=result.data;
         $('#regno').val(school.s_code);
         $('#school_id').val(school.id);
         $('#student_info_id').val(student.id);

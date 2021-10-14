@@ -154,7 +154,7 @@
 
 								<div id="papp_initial">
 									<div class="row">
-										<div class="card col-md-7 m-2">
+										<div class="card col-md-6 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -180,7 +180,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-4 m-2">
+										<div class="card col-md-5 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -553,10 +553,17 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
+<<<<<<< HEAD
                                                 <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
                                                 <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+=======
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required="" autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+>>>>>>> 7651a0b02e08fda4a68e7cce78e35d51890a2245
                                             </label>
                                         </div>
 
@@ -781,13 +788,13 @@
                                     </div>
                                 </div><br/><br>
 
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-6">
                                             <label style="font-size:15px;">စုစုပေါင်း နာရီ</label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                             <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" required="" >
                                     </div>
                                 </div><br/>
@@ -819,7 +826,7 @@
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-6 col-form-label">CPA(FF) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no"readonly="">
+                                        <input type="text" class="form-control" name="reg_no" id="reg_no">
                                     </div>
                                 </div><br/><br>
 

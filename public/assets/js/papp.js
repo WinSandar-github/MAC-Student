@@ -298,10 +298,10 @@ function Papp_Submit(){
     data.append('papp_date', $("input[name=papp_date]").val());
     data.append('cpaff_pass_date', $("input[name=cpaff_pass_date]").val());
     if(firm_check.checked==true){
-    data.append('use_firm',0);
+    data.append('use_firm',1);
     }
     else{
-    data.append('use_firm',1);
+    data.append('use_firm',0);
     }
     if(used_firm_check.checked==true){
     data.append('firm_name', $("input[name=used_firm_name]").val());
@@ -432,8 +432,8 @@ function loadPappData()
         data:"",
         success: function(data){
             var papp_data = data.data;
-            console.log('papp_data',papp_data)
-            $('#reg_no').val(papp_data.cpa_batch_no);
+            console.log('papp_data',data)
+            //$('#reg_no').val(papp_data.cpa_batch_no);
             $('#cpa_batch_no').val(papp_data.cpa_batch_no);
             $('#address').val(papp_data.address);
             $('#phone').val(papp_data.phone);
@@ -748,9 +748,10 @@ function RenewPAPP(){
                     send_data.append('staff_firm_name', "");
                 }
                 send_data.append('papp_date', $("input[name=papp_date]").val());
-                send_data.append('papp_renew_year', $("input[name=papp_renew_year]").val());
+                send_data.append('papp_renew_date', $("input[name=papp_renew_year]").val());
                 send_data.append('papp_reg_date', $("input[name=papp_reg_date]").val());
                 send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+                send_data.append('audit_work', $("input[name=total_audit]").val());
 
                 send_data.append('cpa_ff_recommendation', papp_file);
                 // send_data.append('recommendation_183', file_183);

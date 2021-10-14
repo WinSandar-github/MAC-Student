@@ -12,7 +12,7 @@
                     <li><a href="#">Home</a></li>
                     <li class="active">Register</li>
                 </ul>
-                <h2 class="title">Non_Audit Firm Renew <span>Form</span></h2>
+                <h2 class="title">Non_Audit Firm  <span>Form</span></h2>
             </div>
             <!-- Page Banner End -->
         </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="container approve_request" style="overflow: hidden;">
         <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
-            <form method="post" id="non_audit_renew_form" action="javascript:void();" enctype="multipart/form-data">
+            <form method="post" id="non_audit_reject_register_form" action="javascript:void();" enctype="multipart/form-data">
                 <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                   <div class="row mb-5">
     									<h5 class="card-title text-center fw-bolder" id="local_header" style="display:none;">
@@ -510,7 +510,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_back[]" required>
+																	<input type="file" class="form-control" name="nrc_passports_back[]" >
 																</div>
 																{{--<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -550,7 +550,7 @@
 														<div class="entry8">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="representatives[]" required>
+																	<input type="file" class="form-control" name="representatives[]" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls8","entry8")'>
@@ -727,7 +727,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_front[]" required>
+																	<input type="file" class="form-control" name="nrc_passports_front[]" required >
 																</div>
 																<!-- <div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -740,7 +740,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Back)</label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_back[]" required>
+																	<input type="file" class="form-control" name="nrc_passports_back[]" >
 																</div>
 																{{--<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls16","entry16")'>
@@ -780,7 +780,7 @@
 														<div class="entry18">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="representatives[]" required>
+																	<input type="file" class="form-control" name="representatives[]" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls18","entry18")'>
@@ -858,7 +858,7 @@
 														<div class="entry21">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="financial_statements[]" required>
+																	<input type="file" class="form-control" name="financial_statements[]" required >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls21","entry21")'>
@@ -1019,7 +1019,7 @@
 														<div class="entry28">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="representatives[]" required>
+																	<input type="file" class="form-control" name="representatives[]" >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls28","entry28")'>
@@ -1062,7 +1062,7 @@
 
 
                 <div class="row">
-									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
@@ -1358,14 +1358,14 @@
     </div>
 </form>
 @push('scripts')
-<script src="{{ asset("js/form_validation/non_audit_firm_renew_validation.js") }}"></script>
+<script src="{{ asset("js/form_validation/non_audit_reject_register_validation.js") }}"></script>
 <script>
     $(document).ready(function(){
         loadNonAuditStaff();
         loadNonAuditOrganization();
         loadNonAuditTypeOfService();
-        getNonAuditData();
-
+        //getNonAuditData();
+        getNonAuditDataForRejectUpdate();
     });
 </script>
 @endpush

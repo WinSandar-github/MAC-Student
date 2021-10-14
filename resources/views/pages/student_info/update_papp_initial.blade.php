@@ -147,7 +147,7 @@
                                 {{--User Photo--}}
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail img-circle shadow">
-                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="papp_img"
                                                 alt="Upload Photo">
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
@@ -557,9 +557,10 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(က)</div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                             <label style="font-size:15px;">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်၊</label>
                                     </div>
+                                    <div class="col-md-1 cpa_ff_file_old"></div>
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" name="cpa_ff_file"  id="cpa_ff_file" >
                                     </div>
@@ -607,9 +608,10 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ခ) </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                             <label style="font-size:15px;">စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                     </div>
+                                    <div class="col-md-1 cpd_record_file_old"></div>
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file">
                                     </div>
@@ -628,7 +630,7 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">(ဂ) </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <div class="row">
                                             <label class="col-md-4" >ပြည်တွင်းအခွန်ဦးစီးဌာနသို့ </label>
                                             <div class="col-md-3">
@@ -642,6 +644,7 @@
 
 
                                     </div>
+                                    <div class="col-md-1 tax_free_file_old"></div>
                                     <div class="col-md-3">
                                             <input type="file" class="form-control" id="tax_free_file" name="tax_free_file">
                                     </div>
@@ -651,8 +654,9 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အရှေ့)</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
+                                    <div class="col-md-1 mpa_mem_card_front_old"></div>
+                                    <div class="col-md-3">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" accept="image/*">
                                     </div>
                                 </div><br/><br>
 
@@ -660,8 +664,9 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား(အနောက်)</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
+                                    <div class="col-md-1 mpa_mem_card_back_old"></div>
+                                    <div class="col-md-3">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" accept="image/*">
                                     </div>
                                 </div>
                                 {{--<div class="row">
@@ -678,8 +683,8 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeraion No.</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">CPA(FF) Registeraion No.</div>
+                                    <div class="col-md-3">
                                         <input type="text"  class="form-control" name="reg_no"  id="reg_no">
                                     </div>
                                 </div><br/><br>
@@ -691,7 +696,7 @@
                                 </div><br/><br>
                                 <div class="row mb-3">
                                     <div class="col-md-2 offset-md-5">
-                                        <button type="submit" id="papp_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Update') }}</button>
+                                        <button type="submit" id="papp_submit" class="btn btn-success btn-hover-dark w-100"  data-toggle="modal" data-target="#pappModal" disabled>{{ __('Update') }}</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -756,18 +761,13 @@
     </script>
 @endsection
 @push('scripts')
-<script src="{{ asset('js/form_validation/papp_validation.js') }}"></script>
+<!-- <script src="{{ asset('js/form_validation/papp_validation.js') }}"></script> -->
 <script type="text/javascript">
    loadCpaffData();
    isLoginPAPP();
    Papp_feedback();
-   loadCpaffInitialData();
-   loadPappData();
-//    loc = window.location.href;   
-//    let papp_url = new URL(loc);
-//    console.log('myVar',papp_url.pathname);
-//    var id = papp_url.herf.substring(papp_url.href.lastIndexOf('/') + 1);
-//    alert(id);
+//    loadCpaffInitialData();
+   //loadPappData();
     var papp_id=localStorage.getItem('papp_id');
     var reject_description=localStorage.getItem('reject_reason');
     $('#papp_id').val(papp_id);
@@ -777,21 +777,6 @@
             dateFormat: "M-Y",
             allowInput: true,
     });
-    // $(".tax_year").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-    // $(".papp_date").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-    // $(".cpaff_pass_date").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
     $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
@@ -809,6 +794,87 @@
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
+    });
+    $.ajax({
+        url: BACKEND_URL + "/papp/" + papp_id,
+        type: 'get',
+        success: function (result) {
+            console.log('result==>',result);
+            var papp=result.data[0];
+            document.getElementById('papp_img').src=BASE_URL + papp.profile_photo;
+            var cpaff_date=new Date(papp.cpaff_pass_date);
+            var papp_date=new Date(papp.papp_date);
+            var tax_date=new Date(papp.tax_year);
+            $('#cpaff_pass_date').val(cpaff_date.getFullYear());
+            $('#papp_date').val(papp_date.getFullYear());
+            $('#cpa_batch_no').val(papp.cpa_batch_no);
+            $('#address').val(papp.address);
+            $('#phone').val(papp.phone);
+            $('#contact_mail').val(papp.contact_mail);
+            $('#cpaff_reg_no').val(papp.cpa_batch_no);
+            if(papp.use_firm==1){
+                $('#firm_check').attr('checked',true);
+            }
+            else if(papp.firm_name!=null || papp.firm_type!=null || papp.firm_step!=null)
+            {
+                $('#used_firm_check').attr('checked',true);
+                $("input[name='used_firm_name']").val(papp.firm_name);
+                $("input[name='used_firm_type']").val(papp.firm_type);
+                $("input[name='used_firm_level']").val(papp.firm_step);
+            }
+            else if(papp.staff_firm_name!=null){                
+                $('#staff_firm_check').attr('checked',true);
+                $("input[name='staff_firm_name']").val(papp.staff_firm_name);
+            }
+            $("input[name='total_hours']").val(papp.cpd_hours);
+            $('#tax_year').val(tax_date.getFullYear());
+            $("input[name='reg_no']").val(papp.reg_no);
+            $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
+            $('.mpa_mem_card_front_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_front + "'  target='_blank'>View File</a><br/>");
+            $('.tax_free_file_old').append("<a href='" + BASE_URL + papp.tax_free_recommendation + "'  target='_blank'>View File</a><br/>");
+            $('.cpd_record_file_old').append("<a href='" + BASE_URL + papp.cpd_record + "'  target='_blank'>View File</a><br/>");
+            $('.cpa_ff_file_old').append("<a href='" + BASE_URL + papp.cpa_ff_recommendation + "'  target='_blank'>View File</a><br/>");
+            if (papp.ra != null && papp.ra != "null") {
+                $('#ra_edu').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true);   
+                $('#education').attr('disabled', true); 
+                getCPAEducation();        
+                $(".ra_file").append("<a href='"+BASE_URL+papp.ra+"'  target='_blank'>View File</a><br/>");
+            }
+            else {
+                getCPAEducation();
+                $(".ra_file").append("");
+            }
+            if(papp.cpa!=null && papp.cpa!="null"){
+                $('#cpa_edu').attr('checked', true);   
+                $('#education').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);            
+                getCPAEducation();
+                $(".cpa_file").show();
+                $(".cpa_file").append("<a href='" + BASE_URL + papp.cpa + "'  target='_blank'>View File</a><br/>");
+            }
+            else {
+                getCPAEducation();
+                $(".cpa_file").append("");
+            }
+            if (papp.foreign_degree != null && papp.foreign_degree != "null") {
+                $('#education').attr('checked', true);
+                $('#cpa_edu').attr('disabled', true); 
+                $('#ra_edu').attr('disabled', true);
+                getCPAEducation();
+                let foreign_degree = JSON.parse(papp.foreign_degree);
+                let degree_name = JSON.parse(papp.degree_name);
+                let degree_pass_year = JSON.parse(papp.degree_pass_year);
+                for (let j = 0; j < degree_name.length - 1; j++) {
+                    AddCPAFFDegree();
+                }
+                for (let i = 0; i < degree_name.length; i++) {
+                    $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+                    $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);
+                    $($(".foreign_degree_file")[i]).append(jQuery("<a href='" + BASE_URL + foreign_degree[i] + "'  target='_blank'>View File</a><br/>"));
+                }
+            }
+        }
     });
     $(document).ready(function() {
         $('.modal').MultiStep({
