@@ -1,22 +1,46 @@
 @extends('pages.home.announcement')
 
+@prepend('styles')
+    <style>
+       .card-header-blue{
+        background-color:#EEFBF3;
+        color:#FFFFFF;
+        border-bottom:3px solid #BBB;
+        box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        font-family: 'Roboto', sans-serif;
+        padding:0px;
+        margin-top:0px;
+        overflow:hidden;
+        -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+    </style>
+@endprepend
+
 @section('content')
-<div class="row">
-    <div class="col-md-12 text-center">
+<div class="row bcolor"> 
+    <div class="col-md-12">
             <input type="hidden" id="course_code" name="course_code" value="{{$course['code']}}">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header shadow-sm p-3 mb-3 rounded" style="background-color:#EEFBF3;">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="text-center m-3"> {{$course['name']}} တက်ရောက်ခွင့်ရသူများစာရင်း</h5>
+                            @php
+                            $start_year = date('Y',strtotime($course['active_batch'][0]['start_date']));
+                            @endphp
+                            
+                            <h5 class="text-center m-3"> {{$course['name_mm']}}သင်တန်း ({{$start_year}}-{{$start_year+1}})  </h5>
+                            <h5 class="text-center m-3"> တက်ရောက်ခွင့်ရသူများစာရင်း</h5>
+
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body ">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                {{-- <div class="card-header">
+                                {{--
+                                    <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="row">
@@ -53,10 +77,11 @@
                                             <button type="button" class="btn btn-primary btn-round m-0" onclick="getDAList('da_1')" id="search">Search</button>
                                         </div>
                                     </div>
+                                </div>
 
-                                
 
-                                </div> --}}
+                                --}}
+                               
                                  <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -68,8 +93,7 @@
                                                         <th class="bold-font-weight" >အမည်</th>
                                                         <th class="bold-font-weight" >အဖအမည်</th>
                                                         <th class="bold-font-weight" >မှတ်ပုံတင်နံပါတ်</th>
-                                                        
-                                                        <th class="bold-font-weight" >ကိုယ်ပိုင်နံပါတ်</th>
+                                                       
 
                                                     </tr>
                                                 </thead>

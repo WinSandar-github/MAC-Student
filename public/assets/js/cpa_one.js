@@ -70,7 +70,7 @@ function Private_School_Submit() {
     localStorage.setItem("isPrivateSchool", true);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_private = $("input[name=recommend_letter_private]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_private']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_private]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
     data.append('student_id', student.id)
@@ -128,7 +128,7 @@ function Self_Study_Submit() {
     
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var recommend_letter_self = $("input[name=recommend_letter_self]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_self']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_self]")[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
     data.append('academic_year', $("#academic_year_self").val());
@@ -185,7 +185,7 @@ function Mac_Submit() {
     localStorage.setItem("isPrivateSchool", false);
     let batch_id = localStorage.getItem('batch_id');
     var recommend_letter_mac = $("input[name=recommend_letter_mac]")[0].files[0];
-    var profile_photo= $("input[name='profile_photo_mac']")[0].files[0];
+    var profile_photo= $("input[name=profile_photo_mac]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var good_morale_file = $('#good_morale_file')[0].files[0];
     var no_crime_file = $('#no_crime_file')[0].files[0];
@@ -453,7 +453,8 @@ $('#cpa_update').submit(function (e) {
         success: function (data) {
             EasyLoading.hide();
             localStorage.setItem('approve_reject', data.approve_reject_status);
-            // location.href = FRONTEND_URL + "/";
+            successMessage("You have successfully updated!");
+            location.href = FRONTEND_URL + "/";
         },
         error: function (message) {
         }
@@ -519,7 +520,7 @@ function direct_or_da() {
                 let entry_exam = res.data.exams.slice(-1);
                 console.log('entry_exam',entry_exam);
                 if(entry_exam.length != 0){
-                    $('#exam_date').append(formatDateMY(entry_exam[0].exam_start_date));
+                    $('#exam_date').append(formatDateMYEntry(entry_exam[0].exam_start_date));
                 }else{
                     $('#exam_date').append("-------");
                 }

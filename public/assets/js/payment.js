@@ -68,3 +68,21 @@ $('#payment_form').submit(function (e) {
     $(this).unbind('submit').submit();
 });
 
+function deviceOS() {
+     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+     if (/windows phone/i.test(userAgent)) {
+        location.href = FRONTEND_URL + '/cbpay_pin';
+     }
+
+     if (/android/i.test(userAgent)) {
+        $('#payment_form').attr('aciton', FRONTEND_URL + '/post_payment/cbpay_pin');
+        location.href = FRONTEND_URL + '/cbpay_pin';
+     }
+
+     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        $('#payment_form').attr('aciton', FRONTEND_URL + '/post_payment/cbpay_pin');
+        location.href = FRONTEND_URL + '/cbpay_pin';
+     }
+
+     location.href = FRONTEND_URL + '/cbpay_qr';
+ }

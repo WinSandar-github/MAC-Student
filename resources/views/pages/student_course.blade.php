@@ -397,9 +397,8 @@
                     <p>DA Part II အောင်မြင်ပြီးသူများ</p>
                     <a id="da_pass" href="" class="btn btn-md btn-success">DA II Pass</a>
                     <hr>
-                    <p>ဝင်ခွင့်စာမေးပွဲဖြေဆိုသူများ</p>
-                    <a id="entry_exam" href="" class="btn btn-md btn-success">Entry Exam</a>
-                </div>
+                    <p id="entry_exam">ဝင်ခွင့်စာမေးပွဲဖြေဆိုသူများ</p>
+                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close
@@ -465,10 +464,7 @@
         })
         app_form_feedback();
 
-
-        // function direct_entry() {
-        //     alert("hlle")
-        // }
+ 
 
     </script>
 @endpush

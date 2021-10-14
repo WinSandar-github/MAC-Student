@@ -8,7 +8,8 @@ use App\Http\Controllers\CustomClass\Helper;
 
 class ReportController extends Controller
 {
-    public function app_list($course_id)
+
+    public function appList($course_id)
     {
          
         $client = new \GuzzleHttp\Client();
@@ -19,27 +20,25 @@ class ReportController extends Controller
          
        
         $course = $res['data'];
-        // switch ($course['code']) {
-        //     case "da_1":
-        //         $course_name = "ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)";
-        //         break;
-        //     case "da_2":
-        //         $course_name = "ဒီပလိုမာစာရင်းကိုင်(ဒုတိယပိုင်း)";
-
-        //         break;
-        //     case "da_1":
-        //         $course_name = "ဒီမာစာရင်းကိုင်(ပထမပိုင်း)";
-        //         break;
-        //     case "da_2":
-        //         $course_name = "ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)";
-
-        //         break;    
-            
-
-        // }
+     
        
       
         return view('pages.home.application_list',compact('course'));
+    }
+    public function attendRegistrationList($course_id)
+    {
+         
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/course/'.$course_id)->getBody(),true);
+        $res_module = json_decode($client->request('GET', Helper::$domain.'/module')->getBody(),true);
+
+        $modules =  $res_module['data'];
+        $course = $res['data'];
+     
+       
+      
+        return view('pages.home.attendes_registration_list',compact('course','modules'));
     }
 
     public function exam_list($course_id)
@@ -48,8 +47,11 @@ class ReportController extends Controller
         $client = new \GuzzleHttp\Client();
        
         $res = json_decode($client->request('GET', Helper::$domain.'/course/'.$course_id)->getBody(),true);
+        $res_module = json_decode($client->request('GET', Helper::$domain.'/module')->getBody(),true);
+
+        $modules =  $res_module['data'];
         $course = $res['data'];
-        return view('pages.home.exam_approve_list',compact('course'));
+        return view('pages.home.exam_approve_list',compact('course','modules'));
     }
 
     
@@ -59,13 +61,23 @@ class ReportController extends Controller
         $client = new \GuzzleHttp\Client();
        
         $res = json_decode($client->request('GET', Helper::$domain.'/course/'.$course_id)->getBody(),true);
+        $res_module = json_decode($client->request('GET', Helper::$domain.'/module')->getBody(),true);
+
+        $modules =  $res_module['data'];
         $course = $res['data'];
-        return view('pages.home.exam_result_list',compact('course'));
+        return view('pages.home.exam_result_list',compact('course','modules'));
     }
 
     public function entryExamList()
     {  
-        return view('pages.home.entry_exam_list');
+        $client = new \GuzzleHttp\Client();
+       
+        $res = json_decode($client->request('GET', Helper::$domain.'/course_by_course_code/cpa_1')->getBody(),true);
+ 
+         
+        $course = $res['data'][0];
+        
+        return view('pages.home.entry_exam_list',compact('course'));
     }
 
     public function qualifiedTestList()
