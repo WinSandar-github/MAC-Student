@@ -600,7 +600,7 @@
 <script type="text/javascript">
     isLoginCPAFF();
     form_feedback();
-    getCpersonalNo();
+    getCpersonalNo(); 
 
     var cpaff_id=localStorage.getItem('cpaff_id');
     var reject_description=localStorage.getItem('reject_reason');
