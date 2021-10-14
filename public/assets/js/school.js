@@ -1135,7 +1135,7 @@ function loadTeacherById(row){
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[2].children[0].readOnly = true;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].value=value.nrc_state_region+'/'+value.nrc_township+'/'+value.nrc_number;
           document.getElementById("tbl_teacher_list_biography_body").rows[row].cells[3].children[0].readOnly = true;
-          loadEductaionHistoryByTeacher(value.id,row);
+          loadEductaionHistoryByTeacher(value.student_info_id,row);
           
           if(value.certificates.search(/[\'"[\]']+/g)==0){
             loadCertificates(value.certificates.replace(/[\'"[\]']+/g, ''),row);
