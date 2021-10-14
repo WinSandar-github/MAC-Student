@@ -290,10 +290,13 @@ function getCourses(){
   });
 }
 function number2roma(num){
+  if(num){
   var nums = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX'};
-  return num.replace(/([0-9])/g, function (s, key) {
-      return nums[key] || s;
+  return num.toString().replace(/([0-9])/g, function (s, key) {
+  return nums[key] || s;
   });
+  }
+  
 }
 function addRowSchEstablishPerson(tbody){
   $("#sch_establish_error").hide();
