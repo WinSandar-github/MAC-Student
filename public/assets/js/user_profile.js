@@ -98,11 +98,11 @@ function user_profile() {
                 let cpaff_initial = data.cpa_ff[0];
                 let cpaff_latest_data = data.cpa_ff[data.cpa_ff.length - 1];
                 document.getElementById('cpaff_image').src = BASE_URL + data.image;
-                $('#cpaff_name_mm').text(cpaff_initial.name_mm);
-                $('#cpaff_name_eng').text(cpaff_initial.name_eng);
-                $("#cpaff_nrc").text(cpaff_initial.nrc_state_region + "/" + cpaff_initial.nrc_township + "(" + cpaff_initial.nrc_citizen + ")" + cpaff_initial.nrc_number);
+                $('#cpaff_name_mm').text(data.name_mm);
+                $('#cpaff_name_eng').text(data.name_eng);
+                $("#cpaff_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
                 $("#cpaff_email").text(data.email);
-                $('#cpaff_phone').text(data.phone);
+                $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp_information";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
@@ -127,10 +127,10 @@ function user_profile() {
                     $('.status_papp').append('Action &nbsp;&nbsp;');
                     $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
                 } else {
-                    localStorage.setItem('cpaff_id',cpaff_latest_data.id);
-                    localStorage.setItem('reject_reason',cpaff_latest_data.reject_description);
-                    $('.status_history').append('CPA(Full-Fledged) '+is_renew+' Registration Form is Rejected.');
-                    if(cpaff_latest_data.type==0){
+                    localStorage.setItem('cpaff_id', cpaff_latest_data.id);
+                    localStorage.setItem('reject_reason', cpaff_latest_data.reject_description);
+                    $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is Rejected.');
+                    if (cpaff_latest_data.type == 0) {
                         $('.status_history').append(`<a href="${reject_initial}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
                     }
                     else {
