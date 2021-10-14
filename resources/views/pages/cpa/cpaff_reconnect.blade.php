@@ -1,9 +1,9 @@
 @php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
+    $nrc_language = config('myanmarnrc.language');
+    $nrc_regions = config('myanmarnrc.regions_states');
+    $nrc_townships = config('myanmarnrc.townships');
+    $nrc_citizens = config('myanmarnrc.citizens');
+    $nrc_characters = config('myanmarnrc.characters');
 @endphp
 
 @extends('layouts.app')
@@ -23,8 +23,6 @@
         <!-- Page Banner Start -->
         <div class="section page-banner">
 
-            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
-
             <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
 
             <div class="container">
@@ -34,60 +32,31 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">CPA (Full-Fledged) Initial Registration  <span>Form</span></h2>
+                    <h2 class="title">CPA (Full-Fledged) Re-connected Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
 
-            <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-
-            </div>--}}
             <!-- Shape Icon Box End -->
 
             <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
 
         </div>
         <div class="container" style="overflow: hidden;">
 
             <div class="row mt-5">
-
-                <div id="expiry_card" style="display:none;">
-                    <div class="card border-danger my-3" style="height:60px;">
-                        <div class="card-body">
-                            <p  class="card-text" id="expire"></p>
-                        </div>
-                    </div>
-                </div>
                 <div class="card border-success mb-3" id="cpaff_from">
                     <div class="row mb-3">
                         <div style="text-align: right;margin-top:1%;">
-                            <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၁)</h6>
+                            <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၂)</h6>
                         </div>
                         <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
-                            လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ရန်ကနဦးလျှောက်ထားခြင်း
+                        လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
                         </h5>
                     </div>
                     <div class="card-body">
-
-                    {{--<form method="post" action="javascript:createCPAFFRegister();" class="needs-validation" enctype="multipart/form-data" novalidate>--}}
-                    <form method="post" id="cpaff_other_form" action="javascript:void();" enctype="multipart/form-data">
-                    <!-- <fieldset id="fieldset" > -->
-                        <input type="hidden" name="status">
-                        <input type="hidden" name="form_type" value="1">
+                    <form method="post" id="cpaff_reconnect_form" action="javascript:void();" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row mb-3">
@@ -317,133 +286,88 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label">{{ __('E-mail Address') }}</div>
                                     <div class="col-md-8">
-                                        <input type="email"  class="form-control" name="contact_mail"  placeholder="" >
+                                        <input type="email"  class="form-control" name="contact_mail"  placeholder=""  autocomplete="off">
                                     </div>
                                 </div>
                             </div>
 
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                    <label class="col-md-10 col-form-label">{{ __('လျှောက်ထားသူ၏ပညာအရည်အချင်းဆိုင်ကြေညာချက်(ဆိုင်ရာအကွက်တွင်အမှန်ခြစ်အမှတ်အသားပြု၍ဖြည့်ပေးပါ)') }}</label>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label"></label>
-                                    <label class="col-md-10 col-form-label">{{ __('ကျွန်ုပ်သည် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံသားတော်၏နိုင်ငံသားဖြစ်ပြီး ') }}</label>
+                            <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
+                                <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" id="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                            </div><br/>
 
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
-                                    </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" placeholder="ခုနှစ်" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
-                                </div>
-                                {{--<div class="pass_batch_two" style="display:none">
-                                    <div class="row mb-3">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">အောင်မြင်သည့် သင်တန်းအမှတ်စဉ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="pass_batch_no" placeholder="သင်တန်းအမှတ်စဉ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 " >
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">ကိုယ်ပိုင်အမှတ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="pass_personal_no" placeholder="ကိုယ်ပိုင်အမှတ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
-
-                                <div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-1 mt-2">
-                                        <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
-                                    </div>
-                                    <label class="col-md-10 col-form-label"><input type="text" name="country" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> နိုင်ငံ <input type="text" name="government" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
-                                    <input type="text" name="exam_year" id="exam_year" placeholder="ခုနှစ်" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="လ" class="form-control" autocomplete="off" style="display: inline;width: 100px;" disabled> လတွင်
-                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
-
-                                </div>
-                                {{--<div class="qt_pass" style="display:none">
-                                    <div class="row mb-3">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">အောင်မြင်သည့် ခုနှစ်/လ</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control qt_pass_date" name="qt_pass_date"  placeholder="ခုနှစ်/လ (MMM-YYYY)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 " >
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">ခုံအမှတ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control qt_pass_seat_no" name="qt_pass_seat_no" placeholder="ခုံအမှတ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
-
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-                                    <label class="col-md-8 col-form-label">{{ __('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျှက် လျှောက်ထားပါသည်') }}</label>
-                                </div>
-                                <div class="row mb-3">
+                            <div class="row">
+                                <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
+                                <label class="col-md-10 col-form-label">လျှောက်ထားသူသည် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေအရ ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့်ရရှိထားသူ သို့မဟုတ် ရရှိခဲ့ဖူးသူဖြစ်ပါက အောက်ပါအချက်များကို ရှင်းလင်းဖော်ပြပါ-</label>                                
+                            </div><br/>
+                                <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ်</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="cpa_certificate" >
+
+                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
                                     </div>
-                                </div>
-                                {{--<div class="row mb-3">
+
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
-                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ် (အနောက်)</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="cpa_certificate_back" >
+
+                                    <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                    </div><br><br>
+
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+
+                                    <div class="col-md-7 col-form-label">(မိတ္တူတင်ပြရန်)</div>
+                                    <div class="col-md-3">
+                                        <input type="file"  class="form-control" name="renew_file" style="width:90%;">
                                     </div>
-                                </div>--}}
-                                <div class="row mb-3">
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
+                                    <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" >
+                                </div><br/><br>
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၄။') }}</label>
+                                    <label class="col-md-10 col-form-label">{{ __('မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ နှင့် ၆၈ ပါပြဌာန်းချက်များကို လိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံပါသည်။') }}</label>                                
+                                </div><br/><br>
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
+                                    <label class="col-md-8 col-form-label">{{ __('အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျှက် လျှောက်ထားပါသည်') }}</label>                                
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
+                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
+                                    <div class="col-md-4">
+                                        <input type="file"  class="form-control" name="cpa_certificate" required="">
+                                    </div>
+                                </div><br/><br>
+
+                                <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card" accept="image/*">
+                                        <input type="file"  class="form-control" name="mpa_mem_card" required="" accept="image/*">
                                     </div>
-                                </div>
+                                </div><br><br>
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
                                     <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_back"  accept="image/*">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_back" required="" accept="image/*">
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
@@ -514,56 +438,67 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                              </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <label class="col-md-6 col-form-label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</label>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="cpd_record"  >
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-2"></div>
-                                    <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
-                                    <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
-                                    <div class="col-md-4">
-                                        <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
-                                    </div>
-                                </div>
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                </div>                                      
+                              </div><br> 
 
-                                    <div class="col-md-6 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
-                                    <div class="col-md-4">င
-                                        <input type="file"  class="form-control" name="passport_image"  >
-                                    </div>
-                                </div>--}}
+                              <div class="row">
+                                  <div class="col-md-1"></div>
+                                  <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
+                                  <div class="col-md-6 col-form-label">{{ __('စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ်လေ့လာသင်ယူမှု(Continuous professional Development-CPD)မှတ်တမ်း') }}</div>
+                                  <div class="col-md-4">
+                                        <input type="file"  class="form-control" name="cpd_record" required="">
+                                  </div>
+                              </div><br/>
+
+                              <div class="row">
+                                  <div class="col-md-2"></div>
+                                  <!-- <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label> -->
+                                  <label class="col-md-6 col-form-label">{{ __('စုစုပေါင်း နာရီ') }}</label>
+                                  <div class="col-md-4">
+                                      <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" required="">
+
+                                  </div>
+                              </div><br/><br>
+                                                
+                                <br/>
+
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
+                                    <div class="col-md-5">
+                                        <label class="col-form-label">{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်') }}</label>
+                                    </div>  
+                                    <div class="col-md-6"> 
+                                        <input type="text" name="last_paid_year" id="last_paid_year" class="form-control">
+                                    </div>                            
+                                </div><br/><br>
+
                                 <div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                    <div class="col-md-6 col-form-label">စာရင်းကိုင်အလုပ်သင်လုပ်သက်(၃)နှစ်ပြည့်ကြောင်းရုံးအမိန့်</div>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="three_years_full"  >
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ရပ်နားဖောင်တင်ခဲ့ခြင်းရှိ/မရှိ<span style="color:red;">*&nbsp;&nbsp;</span></label>
+                                    <div class="col-md-4 pt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" class="form-check-input" id="yes" name="resign" value="1" onclick="$('#range').show()">
+                                            <label class="form-check-label">ရှိ &nbsp;&nbsp;</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" class="form-check-input" id="no" name="resign" value="0" onclick="$('#range').hide()">
+                                            <label class="form-check-label">မရှိ</label>
+                                        </div>
+                                        <label  class="error attend_place_error" style="display:none;" for="resign">Please select one</label>
                                     </div>
                                 </div>
-                                {{-- <div class="row mb-4">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
 
-                                    <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="letter"  >
+                                <div id="range" style="display:none">
+                                    <div class="row mb-3" style="margin-left: 80px">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="start_date" placeholder="ရက်စွဲမှ">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="end_date" placeholder="ရက်စွဲအထိ">
+                                        </div>
                                     </div>
-                                </div> --}}
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-                                </div>--}}
-                                <div class="row mb-3" style="padding-left:50px;">
+                                </div>
+
+                                <div class="row mb-3" style="padding-left:50px; margin-top:10px;">
                                     <div class="form-check">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="checkbox" name="cpaff_submit_confirm" onchange="$('#cpaff_submit').prop('disabled', !this.checked)">
@@ -586,7 +521,6 @@
             <div>
         </div>
     </div>
-    {{-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#submitModal">Open modal</button> --}}
     <div id="submitModal" class="multi-step" style="width: 100%;height : 100vh">
     </div>
 
@@ -602,46 +536,43 @@
     </script>
 @endsection
 @push('scripts')
-<script src="{{ asset('js/form_validation/cpaff_other_validation.js') }}"></script>
+<script src="{{ asset('js/form_validation/cpaff_reconnect_validation.js') }}"></script>
 <script type="text/javascript">
-    // isLoginCPAFF();
-    // form_feedback();
-    // check_email_cpaff();
-    $(".degree_pass_year").flatpickr({
-            enableTime: false,
-            dateFormat: "M-Y",
-            allowInput: true,
-    });
-
-    $("input[name='qt_pass_date']").flatpickr({
-            enableTime: false,
-            dateFormat: "M-Y",
-            allowInput: true,
-    });
-
-    // $("input[name='cpa2_pass_date']").flatpickr({
-    //         enableTime: false,
-    //         dateFormat: "Y",
-    //         allowInput: true,
-    // });
-    $("#exam_year").datepicker({
+    $("#renew_accepted_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#exam_month").datepicker({
-        format: "mm",
-        viewMode: "months", 
-        minViewMode: "months",
-        autoclose:true //to close picker once year is selected
-    }); 
-    $("#cpa2_pass_date").datepicker({
+    $("#cpaff_pass_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
+    $("#old_card_no_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#last_paid_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("input[name='start_date']").flatpickr({
+        enableTime: false,
+        dateFormat: "M-d-Y",
+        allowInput: true,
+    });
+    $("input[name='end_date']").flatpickr({
+        enableTime: false,
+        dateFormat: "M-d-Y",
+        allowInput: true,
+    });
+
     $(document).on('keydown', '#father_name_mm', function () {
         myanmarLetterOnly($(this));
     });

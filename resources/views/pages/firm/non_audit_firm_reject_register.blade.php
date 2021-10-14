@@ -1,402 +1,382 @@
-@php
-	$nrc_language = config('myanmarnrc.language');
-	$nrc_regions = config('myanmarnrc.regions_states');
-	$nrc_townships = config('myanmarnrc.townships');
-	$nrc_citizens = config('myanmarnrc.citizens');
-	$nrc_characters = config('myanmarnrc.characters');
-@endphp
-
 @extends('layouts.app')
-
 @section('content')
-    <div class="main-wrapper">
-
-        <!-- Header Section Start -->
-        <!-- Header Section End -->
-
-        <!-- Mobile Menu Start -->
-        <!-- Mobile Menu End -->
-
-        <!-- Overlay Start -->
-        <div class="overlay"></div>
-        <!-- Overlay End -->
-
-          <!-- Page Banner Start -->
-          <div class="section page-banner">
-
-            {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
-
-            <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
-
-            <div class="container">
-                <!-- Page Banner Start -->
-                <div class="page-banner-content">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Register</li>
-                    </ul>
-                    <h2 class="title">Non-Audit <span>Service </span><span>Initial Registration</span></h2>
-                </div>
-                <!-- Page Banner End -->
+<div class="main-wrapper">
+    <div class="overlay"></div>
+    <div class="section page-banner">
+        {{--<img class="shape-1 animation-round" src="{{ asset('assets/images/shape/shape-8.png')}}" alt="Shape">--}}
+        <img class="shape-2" src="{{ asset('assets/images/shape/shape-23.png')}}" alt="Shape">
+        <div class="container">
+            <!-- Page Banner Start -->
+            <div class="page-banner-content">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Register</li>
+                </ul>
+                <h2 class="title">Non_Audit Firm  <span>Form</span></h2>
             </div>
-
-            <!-- Shape Icon Box Start -->
-            {{--<div class="shape-icon-box">
-
-                <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
-
-                <div class="box-content">
-                    <div class="box-wrapper">
-                        <i class="flaticon-badge"></i>
-                    </div>
-                </div>
-
-                <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
-
-            </div>--}}
-            <!-- Shape Icon Box End -->
-
-            <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
-
-            {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
-
+            <!-- Page Banner End -->
         </div>
-          <div class="container" style="overflow: hidden;">
-
-			<div id="non_audit_reject" style="display: none;margin-top:5%;">
-				<div class="card text-white bg-dark mb-3">
-
-					<div class="card-body">
-						{{--<p class="card-text reject">Your Audit Firm Registration Form need to prepare.Please update your form
-						</p>--}}
-						<p class="card-text reject">Your need to resubmit your audit firm registration form. Please fill your form again.
-						</p>
-					</div>
-				</div>
+        <!-- Shape Icon Box Start -->
+        {{--<div class="shape-icon-box">
+            <img class="icon-shape-1 animation-left" src="{{ asset('assets/images/shape/shape-5.png')}}" alt="Shape">
+            <div class="box-content">
+                <div class="box-wrapper">
+                    <i class="flaticon-badge"></i>
+                </div>
             </div>
+            <img class="icon-shape-2" src="{{ asset('assets/images/shape/shape-6.png')}}" alt="Shape">
+        </div>--}}
+        <!-- Shape Icon Box End -->
+        <img class="shape-3" src="{{ asset('assets/images/shape/shape-24.png')}}" alt="Shape">
+        {{--<img class="shape-author" src="{{ asset('assets/images/author/author-11.jpg')}}" alt="Shape">--}}
+    </div>
+    <div class="container approve_request" style="overflow: hidden;">
+        <div class="email_verify" style="display:block; margin-top:5%; margin-bottom: 5%;">
+            <form method="post" id="non_audit_reject_register_form" action="javascript:void();" enctype="multipart/form-data">
+                <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
+                  <div class="row mb-5">
+    									<h5 class="card-title text-center fw-bolder" id="local_header" style="display:none;">
+    											APPLICATION FOR REGISTRATION OF LOCAL FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+    									</h5>
+    									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
+    											APPLICATION FOR REGISTRATION OF INTERNATIONAL/FOREIGN FIRM PROVIDING <br>(NON-AUDIT) ACCOUNTANCY SERVICES
+    									</h5>
+    							</div>
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      {{--<div class="col-md-3 pull-left">
+                        <select class="form-control form-select" id="choose_firm_type" aria-label="">
+                            <option value="0" selected>Choose Firm Type</option>
+                            <option value="1">Local</option>
+                            <option value="2">Foreign</option>
+                        </select>
+                      </div>--}}
+                        <div class="col-md-2 pull-right">
+                          <h6>For the year - {{ date('Y') }}</h6>
+                        </div>
+                    </div>
+                  </div>
+                  <input type="hidden" value="2" name="audit_firm_type_id">
+	                <input type="hidden" value="1" name="local_foreign_type">
+                <!-- <br> -->
 
-			<div id="non_audit_app_form" style="display:block;">
-				<form id="non-audit-form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" >
-					<input type="hidden" value="2" name="audit_firm_type_id">
-		            <input type="hidden" value="1" name="local_foreign_type">
-	            	<div class="row mt-5">
-						<div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
-							<div class="row mb-5">
-									<h5 class="card-title text-center fw-bolder" id="local_header">
-											(NON-AUDIT) ACCOUNTANCY SERVICES (Initial)
-									</h5>
-									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
-											 (NON-AUDIT) ACCOUNTANCY SERVICES (Initial)
-									</h5>
-							</div>
-							<div class="row mb-3">
-								<div class="col-md-12">
-									<div class="col-md-3 pull-left">
-											<select class="form-control form-select" name="choose_firm_type" id="choose_firm_type" aria-label="" >
-												<option value="">Choose Firm Type</option>
-												<option value="1">Local</option>
-												<option value="2">Foreign</option>
-											</select>
-									</div>
-										<div class="col-md-2 pull-right">
-											<h6>For the year - {{ date('Y') }}</h6>
-										</div>
-								</div>
-							</div>
+                    <div class="card-header"  id="local_info" style="display:none;">
+                        <h4>Local Firm Information</h4>
+                    </div>
+                    <div class="card-header"  id="foreign_info" style="display:none;">
+                        <h4>Foreign Firm Information</h4>
+					          </div>
 
-							<div class="card-body">
+                    <div class="card-body">
+                        <div class="col-md-12">
 
-								<div class="row">
+                            {{--<table width="100%">
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <label class="col-form-label">Accountancy Firm Name</label>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                        </div>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <label class="col-form-label">Accountancy Firm Registeration No</label>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
+                                        </div>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%"></td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <label class="col-form-label">Applied Date</label>
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+                                        <div class="single-form">
+                                            <input type="text" class="form-control" id="register_date" readonly="">
+                                        </div>
+                                    </td>
+                                    <td width="20%"></td>
+                                </tr>
+                            </table>--}}
+
+                            <div class="row">
 									<div class="col-md-8">
-										<div class="row mb-5">
-												{{--<label for="" class="col-md-1 col-form-label">{{ __('၁။') }}</label>
-												<label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
-												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
-												<div class="col-md-8">
-														<input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
-														@if ($errors->has('email'))
-																<span class="text-danger">
-																		<strong>{{ $errors->first('email') }}</strong>
-																</span>
-														@endif
-												</div>
-										</div>
 
-										<div class="row mb-5">
-												{{--<label for="" class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-												<label for="" class="col-md-5 col-form-label label_align_right">Password</label>--}}
-												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Password</label>
-												<div class="col-md-8">
-														<input type="password" placeholder="Enter Password!" name="password" id="password" class="form-control" value="{{ old('password') }}" >
-												</div>
-												@if ($errors->has('password'))
-														<span class="text-danger">
-																<strong>{{ $errors->first('password') }}</strong>
-														</span>
-												@endif
-										</div>
-
-										<div class="row mb-5">
-												{{--<label for="" class="col-md-1 col-form-label">{{ __('၃။') }}</label>
-												<label for="" class="col-md-5 col-form-label label_align_right">Confirm Password</label>--}}
-												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('3.') }}</span>Confirm Password!</label>
-												<div class="col-md-8">
-														<input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" class="form-control" >
-												</div>
-										</div>
-
-										{{--<div class="row">
-											<label class="col-md-1 col-form-label">{{ __('4') }}</label>
-											<label class="col-md-3 col-form-label">{{ __('Firm Registration Number') }}</label>
-											<div class="col-md-8">
-												<div class="form-group">
-													<input type="text" name="accountancy_firm_reg_no" class="form-control" placeholder="Firm Registration No" autocomplete="off" >
-												</div>
-											</div>
-										</div><br>--}}
-
-										{{--<div class="row">
-											<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
-											<label class="col-md-5 col-form-label label_align_right">{{ __('Accountancy Firm Name') }}</label>
+										<div class="row mt-3">
+											<label class="col-md-1 col-form-label">{{ __('1.') }}</label>
+											<label class="col-md-5 col-form-label label_align_right" >{{ __('Email') }}</label>
 											<div class="col-md-6">
 												<div class="form-group">
-													<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
+														<input  type="email" placeholder="Enter your Email address!" name="email" class="form-control"   readonly="">
 												</div>
 											</div>
-											@error('name')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div><br>--}}
-
-										<div class="row mb-5">
-												{{--<label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
-												<label for="" class="col-md-5 col-form-label label_align_right">Firm Name</label>--}}
-												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Firm Name</label>
-												<div class="col-md-8">
-													<div class="form-group">
-														<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
-													</div>
-												</div>
-												@error('name')
-													<span class="invalid-feedback" role="alert">
-														<strong>{{ $message }}</strong>
-													</span>
-												@enderror
 										</div>
+
+										{{--<div class="row">
+											<label class="col-md-1 col-form-label">{{ __('2.') }}</label>
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Password') }}</label>
+											<div class="col-md-6">
+												<div class="form-group">
+														<input  type="password" placeholder="Enter your Password!" name="password" class="form-control" value="{{ old('password') }}"  >
+												</div>
+											</div>
+										</div><br>
+
+										<div class="row">
+											<label class="col-md-1 col-form-label">{{ __('3.') }}</label>
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Confirm Password') }}</label>
+											<div class="col-md-6">
+												<div class="form-group">
+														<input  type="password" placeholder="Enter your Password again!" name="confirm_password" class="form-control" value="{{ old('password') }}">
+												</div>
+											</div>
+										</div><br> --}}
+
+                                        <div class="row">
+                                            <label class="col-md-1 col-form-label" >{{ __('2.') }}</label>
+                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Name') }}</label>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <input type="text" class="form-control" name="accountancy_firm_name" id="accountancy_firm_name" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-md-1 col-form-label" >{{ __('3.') }}</label>
+                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Accountancy Firm Registeration No') }}</label>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                <input type="text" class="form-control" name="accountancy_firm_reg_no" id="accountancy_firm_reg_no" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{--<div class="row mb-5">
+                                            <label class="col-md-1 col-form-label" >{{ __('4.') }}</label>
+                                            <label class="col-md-5 col-form-label label_align_right" >{{ __('Applied Date') }}</label>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <input type="text" class="form-control" id="register_date" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>--}}
 
 									</div>
 
 									<div class="col-md-4 text-center">
-										{{--<div class="col-md-7 pull-right">
-											<img class="col-md-3 profile-style" id="previewImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
-											<p class="mt-2">
-											<input type="file" class="custom-file-input" id="profile_photo" name="profile_photo" onchange="previewImageFile(this);" >
-											</p>
-											<div class="form-text mb-2 text-danger" >Allowed Jpeg and Png Image.</div>
-										</div>--}}
-										{{--User Photo--}}
-										<div class="fileinput fileinput-new" data-provides="fileinput">
-												<div class="fileinput-new thumbnail img-circle shadow">
-														<img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
-																 alt="Upload Photo">
-												</div>
-												<div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
-												<div class="d-flex justify-content-center">
-														<span class="btn btn-round btn-secondary btn-file">
-														<span class="fileinput-new">Photo</span>
-														<span class="fileinput-exists">Change</span>
-														<input type="file" id="profile_photo" name="profile_photo" accept="image/*" ></span>
-														<br>
-														<a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-												</div>
-										</div>
-										{{--User Photo--}}
-									</div>
+                    {{--<div class="col-md-7 pull-right">
+                        <input type="hidden" id="hidden_profile">
+                        <div class="form-text mb-2 text-warning">Update Your Profile Photo!</div>
+                        <img class="col-md-3 profile-style" id="previewImg" src="{{ asset('assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                        <p class="mt-2">
+                            <input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" >
+                        </p>
+                        <div class="form-text mb-2">Allowed Jpeg and Png Image.</div>
+                    </div>--}}
+                    {{--User Photo--}}
+                    <h3 class="form-text mb-2 text-warning">Update Your Profile Photo!</h3>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-circle shadow">
+                            <img id="previewImg" src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                 alt="Upload Photo">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                        <div class="d-flex justify-content-center">
+                            <span class="btn btn-round btn-secondary btn-file">
+                            <span class="fileinput-new">Photo</span>
+                            <span class="fileinput-exists">Change</span>
+                            <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required></span>
+                            <br>
+                            <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+                    </div>
+                    {{--User Photo--}}
+                  </div>
 								</div>
 
-								<div class="row mb-3">
-									<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address of Practice(Head Office)</label>
-									<div class="col-md-8">
-											<textarea name="head_office_address" class="form-control" placeholder="Head Office Address(English)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
-									</div>
-								</div>
+                <div class="row mb-3">
+                  <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Address of Practice(Head Office)</label>
+                  <div class="col-md-8">
+                      <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(English)</small></label>
+                      <textarea name="head_office_address" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                  </div>
+                </div>
 
-								<div class="row mb-3">
-									<label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
-									<div class="col-md-8">
-											<textarea name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
-									</div>
-								</div>
+                <div class="row mb-3">
+                  <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
+                  <div class="col-md-8">
+                      <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
+                      <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                  </div>
+                </div>
 
-								<div class="row mb-3">
-										<div class="col-md-4 col-form-label"></div>
-										<div class="col-md-2">
-												<input type="text" name="phone_no" class="form-control" placeholder="Telephone" autocomplete="off" value="{{ old('phone_no') }}" >
-										</div>
-										<div class="col-md-3">
-												<input type="email" name="h_email" class="form-control" placeholder="Email Address" autocomplete="off" value="{{ old('h_email') }}" >
-										</div>
+                <div class="row mb-3">
+                    {{--<div class="col-md-2 offset-md-4">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Township</small></label>
+                        <input  type="text" name="township" class="form-control" placeholder="" autocomplete="off" value="{{ old('township') }}" required="">
+                    </div>--}}
+                    <div class="col-md-2 offset-md-4">
+                      <label for="" class="control-label text-muted fw-bolder"><small>Post Code</small></label>
+                      <input  type="text" name="post_code" class="form-control" placeholder="" autocomplete="off" value="{{ old('post_code') }}" required="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Website Address</small></label>
+                        <input  type="text" name="website" class="form-control" placeholder="" autocomplete="off" value="{{ old('website') }}" required="">
+                    </div>
+                    {{--<div class="col-md-2">
+                        <label for="" class="control-label text-muted fw-bolder"><small>City</small></label>
+                        <input  type="text" name="city" class="form-control" placeholder="" autocomplete="off" value="{{ old('city') }}" required="">
+                    </div>--}}
+                    {{--<div class="col-md-2">
+                      <label for="" class="control-label text-muted fw-bolder"><small>State/Region</small></label>
+                      <input  type="text" name="state" class="form-control" placeholder="" autocomplete="off" value="{{ old('state') }}" required="">
+                    </div>--}}
+                </div>
 
-								</div>
+                <div class="row mb-3">
+                    <div class="col-md-4 col-form-label"></div>
+                    <div class="col-md-2">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Telephone</small></label>
+                        <input  type="text" name="phone_no" class="form-control" placeholder="" autocomplete="off" value="{{ old('phone_no') }}" required="">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="control-label text-muted fw-bolder"><small>Email Address</small></label>
+                        <input  type="email" name="h_email" class="form-control" placeholder="" autocomplete="off" value="{{ old('h_email') }}" required="">
+                    </div>
 
-								<div class="row mb-3">
-										{{--<div class="col-md-2 offset-md-4">
-												<input type="text" name="township" class="form-control" placeholder="Township" autocomplete="off" value="{{ old('township') }}" >
-										</div>--}}
-										<div class="col-md-2 offset-md-4">
-												<input type="text" name="post_code" class="form-control" placeholder="Post Code" autocomplete="off" value="{{ old('post_code') }}" >
-										</div>
-										<div class="col-md-3">
-												<input type="text" name="website" class="form-control" placeholder="Website Address" autocomplete="off" value="{{ old('website') }}" >
-										</div>
-										{{--<div class="col-md-2">
-												<input type="text" name="city" class="form-control" placeholder="City" autocomplete="off" value="{{ old('city') }}" >
-										</div>--}}
-										{{--<div class="col-md-2">
-												<input type="text" name="state" class="form-control" placeholder="State/Region" autocomplete="off" value="{{ old('state') }}" >
-										</div>--}}
-								</div>
+                </div><br>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('5.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
 									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
 								</div>
 
 								<div class="row mb-3">
-									<div class="col-md-12">
-										<table class="table branch_non_audit table-bordered input-table">
-											<thead>
-												<tr>
-													<th class="less-font-weight text-center">Name</th>
-													<th class="less-font-weight text-center">Address</th>
-													<th class="less-font-weight text-center">Township</th>
-													<th class="less-font-weight text-center">Post Code</th>
-													<th class="less-font-weight text-center">City</th>
-													<th class="less-font-weight text-center">State/Region</th>
-													<th class="less-font-weight text-center">Telephone</th>
-													<th class="less-font-weight text-center">Email</th>
-													<th class="less-font-weight text-center">Website</th>
-													<th  class="less-font-weight text-center text-center"  >
-														<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranch("branch_non_audit")'>
-															<li class="fa fa-plus"></li>
-														</button>
-													</th>
-												</tr>
-											<thead>
-											<tbody>
+									<label class="col-md-1 col-form-label"></label>
+									<div class="col-md-11">
+                    <table class="table branch_non_audit table-bordered input-table">
+                      <thead>
+                        <tr>
+                          <th class="less-font-weight">Name</th>
+                          <th class="less-font-weight">Address</th>
+                          <th class="less-font-weight">Township</th>
+                          <th class="less-font-weight">Post Code</th>
+                          <th class="less-font-weight">City</th>
+                          <th class="less-font-weight">State/Region</th>
+                          <th class="less-font-weight">Telephone</th>
+                          <th class="less-font-weight">Email</th>
+                          <th class="less-font-weight">Website</th>
+                          <th class="less-font-weight text-center">
+                            <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowBranch("branch_non_audit")'>
+                              <li class="fa fa-plus"></li>
+                            </button>
+                          </th>
+                        </tr>
+                      <thead>
+                      <tbody id="tbl_branch_body">
 
-
-											</tbody>
-										</table>
+                      </tbody>
+                    </table>
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 									<label for="" class="col-md-6 non_partner_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
 								</div>
 
 								<div class="row mb-3">
-									<div class="col-md-12">
-										<table id="myTable" class="table non_partner table-bordered input-table">
-											<thead>
-												<tr>
-													<th class="less-font-weight text-center" rowspan="2">Sr</th>
-													<th class="less-font-weight text-center" rowspan="2">Name</th>
-													<th class="less-font-weight text-center" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
+									<div class="col-md-1 col-form-label"></div>
+									<div class="col-md-11">
+                    <table id="myTable" class="table non_partner table-bordered input-table">
+                      <thead>
+                        <tr>
+                          <th class="less-font-weight" rowspan="2">Sr</th>
+                          <th class="less-font-weight" rowspan="2">Name</th>
+                          <th class="less-font-weight" rowspan="2">Passport / CSC No. / Incorporation Certificate</th>
+                          <th  class="less-font-weight text-center">
+                            <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerByNonAudit("non_partner")'>
+                              <li class="fa fa-plus"></li>
+                            </button>
+                          </th>
+                        </tr>
 
-													<th  class="less-font-weight text-center"  >
-														<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerByNonAudit("non_partner")'>
-															<li class="fa fa-plus"></li>
-														</button>
-													</th>
-												</tr>
+                      </thead>
+                      <tbody id="tbl_non_partner_body">
 
-											</thead>
-											<tbody>
-												<tr>
-													<td align="center" class="align-middle">1</td>
-													<td><input type="text" value="" name="fona_name[]" class="form-control" autocomplete="off" ></td>
-													<td>
-														<input type="text" value="" name="fona_pass_csc_inco[]" class="form-control" autocomplete="off" >
-													</td>
+                      </tbody>
+                    </table>
+									</div>
+								</div>
 
-													<td class="text-center">
-															<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowPartnerByNonAudit("non_partner")'>
-																<li class="fa fa-times"></li>
-															</button>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
+									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
+								</div>
+
+								<div class="row mb-3">
+									<div class="col-md-1"></div>
+									<div class="col-md-11">
+										<div class="card">
+											<div class="card-body">
+												<table id="myTable" class="table non_director table-bordered">
+													<thead>
+														<tr>
+															<th class="less-font-weight">Sr</th>
+															<th class="less-font-weight">Name</th>
+															<th class="less-font-weight">Position</th>
+															<th class="less-font-weight" >Passport / CSC No.</th>
+															<!-- <th class="less-font-weight" >CSC No.</th> -->
+                              <th  class="less-font-weight text-center"  >
+                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorByNonAudit("non_director")'>
+                                  <li class="fa fa-plus"></li>
+                                </button>
+                              </th>
+														</tr>
+
+													</thead>
+													<tbody id="tbl_director_body">
+
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
 								</div>
 
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
-									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
-									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
+									<label class="col-md-11 col-form-label">{{ __('Organization Structure') }}</label>
 								</div>
-								<div class="row mb-3">
-									<div class="col-md-12">
-										<table id="myTable" class="table non_director table-bordered">
-											<thead>
-												<tr>
-													<th class="less-font-weight text-center">Sr</th>
-													<th class="less-font-weight text-center">Name</th>
-													<th class="less-font-weight text-center">Position</th>
-													<th class="less-font-weight text-center" >Passport / CSC No.</th>
-													<!-- <th class="less-font-weight" >CSC No.</th> -->
-													<th  class="less-font-weight text-center">
-														<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorByNonAudit("non_director")'>
-															<li class="fa fa-plus"></li>
-														</button>
-													</th>
-												</tr>
-
-											</thead>
-											<tbody>
-												<tr>
-													<td align="center" class="align-middle">1</td>
-													<td><input type="text" value="" name="dona_name[]" class="form-control" autocomplete="off" ></td>
-													<td><input type="text" value="" name="dona_position[]" class="form-control" autocomplete="off" ></td>
-													<td>
-														<input type="text" value="" name="dona_passport[]" class="form-control" autocomplete="off" >
-
-													</td>
-													<!-- <td><input type="text" value="" name="dona_csc_no[]" class="form-control" autocomplete="off" required></td> -->
-
-													<td class="text-center">
-															<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorByNonAudit("non_director")'>
-																<li class="fa fa-times"></li>
-															</button>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-
-								<div class="row mb-3">
-									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
-									<label class="col-md-3 col-form-label">{{ __('Organization Structure') }}</label>
-									<label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="org_stru_id">Please select one</label>
-								</div>
-								{{--<div class="row">
+								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
 									<!-- <label class="col-md-1 col-form-label">{{ __('') }}</label> -->
 									<div class="col-md-8" id="org_validate" style="display:none;">
-											<label style="color:#ef815;">Please Select Organization Structure </label>
+											<label class="text-danger">Organization Structure ရွေးချယ်ပါ</label>
 									</div>
-								</div>--}}
+								</div>
 
-								<div class='row organization_data'></div><br>
+								<div class='row mb-3 organization_data'></div>
 
-								<div id="sole-proprietorship">
+                <div id="sole-proprietorship">
 									<div class="row">
 										<div class="col-md-1"></div>
 										<div class="col-md-11">
@@ -414,7 +394,7 @@
 														<div class="entry1">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="letterheads[]" >
+																	<input type="file" class="form-control" name="letterheads[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls1","entry1")'>
@@ -434,7 +414,7 @@
 														<div class="entry2">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="pass_photos[]" >
+																	<input type="file" class="form-control" name="pass_photos[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls2","entry2")'>
@@ -454,7 +434,7 @@
 														<div class="entry3">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="owner_profiles[]" >
+																	<input type="file" class="form-control" name="owner_profiles[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls3","entry3")'>
@@ -474,7 +454,7 @@
 														<div class="entry4">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="edu_certs[]" >
+																	<input type="file" class="form-control" name="edu_certs[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls4","entry4")'>
@@ -494,7 +474,7 @@
 														<div class="entry5">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="work_exps[]" >
+																	<input type="file" class="form-control" name="work_exps[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls5","entry5")'>
@@ -517,7 +497,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_front[]" >
+																	<input type="file" class="form-control" name="nrc_passports_front[]" required>
 																</div>
 																<!-- <div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -550,7 +530,7 @@
 														<div class="entry7">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="tax_clearances[]" >
+																	<input type="file" class="form-control" name="tax_clearances[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls7","entry7")'>
@@ -605,7 +585,7 @@
 														<div class="entry9">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="certi_or_regs[]" >
+																	<input type="file" class="form-control" name="certi_or_regs[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls9","entry9")'>
@@ -625,7 +605,7 @@
 														<div class="entry10">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="deeds_memos[]" >
+																	<input type="file" class="form-control" name="deeds_memos[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls10","entry10")'>
@@ -645,7 +625,7 @@
 														<div class="entry11">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="letterheads[]" >
+																	<input type="file" class="form-control" name="letterheads[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls11","entry11")'>
@@ -665,7 +645,7 @@
 														<div class="entry12">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="pass_photos[]" >
+																	<input type="file" class="form-control" name="pass_photos[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls12","entry12")'>
@@ -685,7 +665,7 @@
 														<div class="entry13">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="owner_profiles[]" >
+																	<input type="file" class="form-control" name="owner_profiles[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls13","entry13")'>
@@ -705,7 +685,7 @@
 														<div class="entry14">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="edu_certs[]" >
+																	<input type="file" class="form-control" name="edu_certs[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls14","entry14")'>
@@ -725,7 +705,7 @@
 														<div class="entry15">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="work_exps[]" >
+																	<input type="file" class="form-control" name="work_exps[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls15","entry15")'>
@@ -747,7 +727,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_front[]" >
+																	<input type="file" class="form-control" name="nrc_passports_front[]" required >
 																</div>
 																<!-- <div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -780,7 +760,7 @@
 														<div class="entry17">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="tax_clearances[]" >
+																	<input type="file" class="form-control" name="tax_clearances[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls17","entry17")'>
@@ -835,7 +815,7 @@
 														<div class="entry19">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="certificate_incors[]" >
+																	<input type="file" class="form-control" name="certificate_incors[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls19","entry19")'>
@@ -856,7 +836,7 @@
 															<div class="entry20">
 																<div class="row mb-3">
 																	<div class="col-md-11 col-auto">
-																		<input type="file" class="form-control" name="permit_foreigns[]" >
+																		<input type="file" class="form-control" name="permit_foreigns[]" required>
 																	</div>
 																	<div class="col-md-1 col-auto">
 																		<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls20","entry20")'>
@@ -878,7 +858,7 @@
 														<div class="entry21">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="financial_statements[]" >
+																	<input type="file" class="form-control" name="financial_statements[]" required >
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls21","entry21")'>
@@ -899,7 +879,7 @@
 														<div class="entry22">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="tax_reg_certificate[]" >
+																	<input type="file" class="form-control" name="tax_reg_certificate[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls22","entry22")'>
@@ -920,7 +900,7 @@
 														<div class="entry23">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="letterheads[]" >
+																	<input type="file" class="form-control" name="letterheads[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls23","entry23")'>
@@ -941,7 +921,7 @@
 														<div class="entry24">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="edu_certs[]" >
+																	<input type="file" class="form-control" name="edu_certs[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls24","entry24")'>
@@ -962,7 +942,7 @@
 														<div class="entry25">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="work_exps[]" >
+																	<input type="file" class="form-control" name="work_exps[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls25","entry25")'>
@@ -985,7 +965,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Front)</label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_front[]" >
+																	<input type="file" class="form-control" name="nrc_passports_front[]" required>
 																</div>
 																<!-- <div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls6","entry6")'>
@@ -998,7 +978,7 @@
 																<div class="col-md-1"></div>
 																<label class="col-md-3 form-label">NRC Card/ Passport(Back) </label>
 																<div class="col-md-7 col-auto">
-																	<input type="file" class="form-control" name="nrc_passports_back[]" >
+																	<input type="file" class="form-control" name="nrc_passports_back[]" required>
 																</div>
 																{{--<div class="col-md-1 col-auto">
 																	<button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls26","entry26")'>
@@ -1019,7 +999,7 @@
 														<div class="entry27">
 															<div class="row mb-3">
 																<div class="col-md-11 col-auto">
-																	<input type="file" class="form-control" name="tax_clearances[]" >
+																	<input type="file" class="form-control" name="tax_clearances[]" required>
 																</div>
 																<div class="col-md-1 col-auto">
 																	<button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls27","entry27")'>
@@ -1055,8 +1035,34 @@
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+                <div class="modal fade" id="fileModal">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">View File</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                        <div class="modal-body image-body">
+                            <div class="image-div">
+                                <img src="" id="file" class="image-logo" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+								<br>
+
+
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
@@ -1071,14 +1077,15 @@
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
 									<label class="col-md-2 col-form-label">{{ __('Total Staff') }}</label>
 									<label for="" class="col-md-6 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
 								</div>
 
 								<div class="row mb-3">
-									<div class="col-md-12">
+									<div class="col-md-1"></div>
+									<div class="col-md-11">
 										<div class="card">
 											<div class="card-body">
 												<table id="tbl_non_audit_number" class="table">
@@ -1096,7 +1103,7 @@
 													<tfoot id="tbl_non_audit_number_foot">
 														<tr>
 															<td>Total</td>
-															<td><input  type='number' disabled value='0' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>
+															<td><input  type='text'  value='' name='total_non_audit_staff[]' class='form-control' id="total_non_audit_staff" ></td>
 														</tr>
 													</tfoot>
 												</table>
@@ -1105,14 +1112,15 @@
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
+                <div class="row">
+									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Types of Service Provided') }}</label>
-									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types of Service Provided</label>
+									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types Of Service Provided</label>
 
 								</div>
-								<div class="row mb-3">
-									<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-11">
 										<div class="card type-service-card">
 											<div class="card-body">
 												<table id="tbl_type_service" class="table">
@@ -1125,7 +1133,7 @@
 													<tbody id="tbl_type_service_body">
 
 													</tbody>
-													<tfoot id="tbl_type_service_foot">
+                          <tfoot id="tbl_type_service_foot">
 														<tr id='tr_other'>
 															<td style="width:1000px;">
 																<input type="text" class="form-control" name="other" id="other">
@@ -1136,6 +1144,14 @@
 												</table>
 											</div>
 										</div>
+									</div>
+								</div><br>
+
+								<div class="row">
+									<label class="col-md-1 col-form-label">{{ __('') }}</label>
+									<label class="col-md-2 col-form-label">{{ __('') }}</label>
+									<div class="col-md-8" id="type_service_validate" style="display:none;">
+											<label class="text-danger">Service Provided အမျိုးအစားရွေးချယ်ပါ</label>
 									</div>
 								</div>
 
@@ -1172,47 +1188,35 @@
 
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
-										<label class="col-md-1 col-form-label" id="label1">13.</label>
-										<label class="col-md-6 col-form-label">{{ __('Particulars Of Directors/ Staff Members who is a Myanmar CPA') }}</label>
-										<label class="col-md-5 director_staffmembers_validate col-form-label" id="" style="display: none;color:#ef815;">Please Fill Particulars Of Directors/ Staff Members Who Is A Myanmar CPA</label>
+										<label class="col-md-1 col-form-label" id="label1">12.</label>
+										<label class="col-md-11 col-form-label">{{ __('Particulars Of Directors/ Staff Members Who Is A Myanmar CPA') }}</label>
+
 									</div>
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-1"></div>
+										<div class="col-md-11">
 											<div class="card">
 												<div class="card-body">
 													<table id="myTable" class="table director_cpa_initial table-bordered">
 														<thead>
 															<tr>
-																<th class="less-font-weight text-center" rowspan="2">Sr</th>
-																<th class="less-font-weight text-center" rowspan="2">Name</th>
-																<th class="less-font-weight text-center" rowspan="2">Position</th>
-																<th class="less-font-weight text-center" rowspan="2">CPA(Passed Reg.No)</th>
-																<th class="less-font-weight text-center" rowspan="2">CPA (Full-Fledged) Reg.No</th>
-																<th class="less-font-weight text-center" rowspan="2">Public Practice Reg.No</th>
-
-																<th  class="less-font-weight text-center">
-																	<button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowDirectorCPA("director_cpa_initial")'>
-																		<li class="fa fa-plus"></li>
+																<th class="less-font-weight" rowspan="2">Sr</th>
+																<th class="less-font-weight" rowspan="2">Name</th>
+																<th class="less-font-weight" rowspan="2">Position</th>
+																<th class="less-font-weight" rowspan="2">CPA(Passed Reg.No)</th>
+																<th class="less-font-weight" rowspan="2">CPA (Full-Fledged) Reg.No</th>
+																<th class="less-font-weight" rowspan="2">Public Practice Reg.No</th>
+																<th class="less-font-weight" style="text-align: right;">
+																	<button class="btn btn-primary btn-sm" type="button" onclick='addRowDirectorCPA("director_cpa_initial")'>
+																		<i class="fa fa-plus"></i>
 																	</button>
+
 																</th>
 															</tr>
 
 														</thead>
-														<tbody>
-															<tr>
-																<td>1</td>
-																<td><input type="text" value="" name="mf_name[]" class="form-control" autocomplete="off" ></td>
-																<td><input type="text" value="" name="mf_position[]" class="form-control" autocomplete="off"></td>
-																<td><input type="text" value="" name="mf_cpa_passed_reg_no[]" class="form-control" autocomplete="off"></td>
-																<td><input type="text" value="" name="mf_cpa_full_reg_no[]" class="form-control" autocomplete="off"></td>
-																<td><input type="text" value="" name="mf_pub_pra_reg_no[]" class="form-control" autocomplete="off"></td>
+														<tbody id="tbl_cpa_myanmar_body">
 
-																<td class="text-center">
-																		<button type="button" class="delete btn btn-danger btn-sm" onclick='delRowDirectorCPA("director_cpa_initial")'>
-																			<li class="fa fa-times"></li>
-																		</button>
-																</td>
-															</tr>
 														</tbody>
 													</table>
 												</div>
@@ -1222,7 +1226,7 @@
 								</div><br>
 
 								<!-- Declaration  -->
-								<div class="row">
+                <div class="row">
 										<label class="col-md-1 col-form-label">{{ __('') }}</label>
 										<label class="col-md-2 col-form-label" style="font-weight:bold;">{{ __('Declaration') }}</label>
 								</div>
@@ -1230,13 +1234,14 @@
 								<div class="row">
 									<label class="col-md-1 col-form-label">{{ __('') }}</label>
 
-									<div class="col-md-6">
+                  <div class="col-md-6">
 											<div class="form-group" style="display:flex;">
 													<label class="col-form-label" style="font-weight:bold;padding-right:10px;">{{ __('I') }}</label>
 													<input type="text" name="declaration" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="{{ old('declaration') }}" placeholder="(managing director)(English)" >
-													<input type="text" id="declaration_mm" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
+													<input type="text" name="declaration_mm" class=" @error('date_of_birth') is-invalid @enderror form-control" autocomplete="off" value="" placeholder="(managing director)(Myanmar)" >
 											</div>
 									</div>
+
 									<div class="col-md-4" style="font-weight:bold;">
 											<div class="form-group">
 															(managing director)
@@ -1254,128 +1259,136 @@
 										</div>
 								</div>
 
-								<div class="row">
-									<div class="col-md-12">
-										<div class="col-md-3 pull-right">
-											<h6 class="pull-right">Date - {{ date('d-M-Y') }}</h6>
-										</div>
-									</div>
-								</div>
 
 
-								{{--<div class="row mb-3">
-										<div class="col-md-1"></div>
-										<label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-										<label class="col-md-10 col-form-label">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-										<input type="hidden" name="type" value="Student" class="form-control" placeholder="" autocomplete="off" >
-										<input type="hidden" name="status" value="0" class="form-control" placeholder="" autocomplete="off" >
-								</div>--}}
+                            <div class="row">
+                              <div class="col-md-8">
+                                <!-- <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Accountancy Firm Name') }}</label>
+                                    <div class="col-md-7">
+                                        <div class="form-group single-form">
+                                          <input type="text" class="form-control" id="accountancy_firm_name" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Accountancy Firm Registeration No') }}</label>
+                                    <div class="col-md-7">
+                                        <div class="form-group single-form">
+                                          <input type="text" class="form-control" id="accountancy_firm_reg_no" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-1 col-form-label" >{{ __('') }}</label>
+                                    <label class="col-md-4 col-form-label" style="align-self:center;">{{ __('Applied Date') }}</label>
+                                    <div class="col-md-7">
+                                        <div class="form-group single-form">
+                                          <input type="text" class="form-control" id="register_date" readonly="">
+                                        </div>
+                                    </div>
+                                </div> -->
+                              </div>
+                              <!-- <div class="col-md-4">
+                                <div class="col-md-6 pull-right">
+                                  <img class="col-md-3 profile-style" id="previewImg" src="/assets/images/blank-profile-picture-1.png" accept="image/png,image/jpeg" alt="">
+                                  <p class="mt-2">
+                                    <input type="file" value="" class="custom-file-input" id="audit_renew_profile" name="profile_photo" onchange="previewImageFile(this);" required>
+                                  </p>
+                                </div>
+                              </div> -->
+                            </div>
 
-								<div class="row mb-3">
-									<div class="col-md-2 offset-md-5">
-										<button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" form="non-audit-form" >{{ __('Submit') }}</button>
-									</div>
-								</div>
-							</div>
-						</div>
+                            <!-- <table width="100%">
+                                <tr>
+                                    <td>
+                                        <div class="text-center mt-4">
+                                            <label class="col-form-label"><h3>Your registeration is expired.You need to subscribe again!</h3></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table><br> -->
 
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-
-	<!-- Email Verification Modal -->
-	<form method="post" id="non_audit_email_verify_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
-				novalidate>
-			@csrf
-			<div class="modal fade" id="nonAuditFirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-							<div class="modal-content">
-									<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
-											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">
-											<center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
-											<div class="mb-3" style="text-align:center;">
-													<label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
-													<label>We have been sent verification code on your email.Please check your email.</label>
-											</div><br>
-												<div class="mb-3" style="text-align:center;">
-													<label style="margin-bottom: 2%;">Enter your verification code</label>
-													<center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
-												</div>
-										</div>
-										<center>
-												<button type="submit" id="btn1" onclick="check_email_non_audit()" class="btn btn-success btn-hover-dark w-30">Verify
-												</button>
-										</center><br>
-										<div class="col-md-12" style="text-align:center;">
-											<p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
-										</div><br><br>
-							</div>
-					</div>
-			</div>
-	</form>
-
-
-
+                            <div class="row mb-3">
+                                <div class="col-md-2 offset-md-5">
+                                    <button type="submit" class="btn btn-success btn-hover-dark w-100">{{ __('Submit') }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
-
+<!-- Email Verification Modal -->
+<form method="post" id="non_audit_email_verify_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
+      novalidate>
+    @csrf
+    <div class="modal fade" id="nonAuditFirmRenewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center><br>
+                    <div class="mb-3" style="text-align:center;">
+                        <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                        <label>We have been sent verification code on your email.Please check your email.</label>
+                    </div><br>
+                      <div class="mb-3" style="text-align:center;">
+                        <label style="margin-bottom: 2%;">Enter your verification code</label>
+                        <center><input type="text" class="form-control w-50" name="verify_code" placeholder="Enter Verification Code"></center>
+                      </div>
+                  </div>
+                  <center>
+                      <button type="submit" id="btn1" onclick="check_email_non_audit_renew()" class="btn btn-success btn-hover-dark w-30">Verify
+                      </button>
+                  </center><br>
+                  <div class="col-md-12" style="text-align:center;">
+                    <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                  </div><br><br>
+            </div>
+        </div>
     </div>
-    <!-- JavaScript Section -->
-    <script>
-         var mmnrc_regions = {!! json_encode($nrc_regions) !!};
-        // get NRC Townships data from myanmarnrc.php config file
-        var mmnrc_townships = {!! json_encode($nrc_townships) !!};
-        // get NRC characters data from myanmarnrc.php config file
-        var mmnrc_characters = {!! json_encode($nrc_characters) !!};
-        // get language data from myanmarnrc.php config file
-        var mmnrc_language = "{{ $nrc_language }}";
-    </script>
-
-@endsection
+</form>
 @push('scripts')
-<script src="{{asset('assets/js/non_audit_firm.js')}}"></script>
-<script src="{{ asset("js/form_validation/non_audit_firm_validation.js") }}"></script>
+<script src="{{ asset("js/form_validation/non_audit_reject_register_validation.js") }}"></script>
 <script>
+    $(document).ready(function(){
+      $("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
+    			myanmarLetterOnly($(this));
+    	});
 
-$(document).ready(function(e){
-	$("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
-			myanmarLetterOnly($(this));
-	});
+    	$(document).on('keydown', '#declaration_mm', function () {
+    			myanmarLetterOnly($(this));
+    	});
 
-	$(document).on('keydown', '#declaration_mm', function () {
-			myanmarLetterOnly($(this));
-	});
+    	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
+    			myanmarLetterOnly($(this));
+    	});
 
-	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
-			myanmarLetterOnly($(this));
-	});
+    	$(document).on('keydown', '#head_office_address_mm', function () {
+    			myanmarLetterOnly($(this));
+    	});
 
-	$(document).on('keydown', '#head_office_address_mm', function () {
-			myanmarLetterOnly($(this));
-	});
-
-	function myanmarLetterOnly(self) {
-			val = self.val();
-			if (/[a-zA-Z0-9]+$/.test(val)) {
-					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
-			}
-	}
-
-});
-
-
-loadNonAuditStaff();
-loadNonAuditOrganization();
-loadNonAuditTypeOfService();
-
-// pendingStatus();
-
-
+    	function myanmarLetterOnly(self) {
+    			val = self.val();
+    			if (/[a-zA-Z0-9]+$/.test(val)) {
+    					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+    			}
+    	}
+      
+        loadNonAuditStaff();
+        loadNonAuditOrganization();
+        loadNonAuditTypeOfService();
+        //getNonAuditData();
+        getNonAuditDataForRejectUpdate();
+    });
 </script>
-
 @endpush

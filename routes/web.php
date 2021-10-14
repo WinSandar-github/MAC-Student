@@ -56,6 +56,7 @@ Route::get('cpa_ff_register', 'CPAFFController@info');
 Route::get('cpaff_other', 'CPAFFController@other');
 Route::get('update_cpaff_initial','CPAFFController@reject_initial');
 Route::get('update_cpaff_renewal','CPAFFController@reject_renewal');
+Route::get('cpaff_reconnect','CPAFFController@cpaffReconnect');
 
 // CPA_FF Information Page
 Route::get('cpa_ff_information', 'CPAFFInfoController@info');
@@ -137,12 +138,21 @@ Route::get('audit_firm_information', 'AuditFirmInfoController@info');
 // Audit Firm Reject Register
 Route::get('audit_firm_reject_register', 'AuditFirmInfoController@updateRejectedRegister');
 
+// Non Audit Firm Reject Register
+Route::get('non_audit_firm_reject_register', 'NonAuditFirmInfoController@updateRejectedRegister');
+
 // Route::get('audit_firm_edit', 'AuditFirmController@auditFirmEdit');
 Route::get('audit_firm_resubmit', 'AuditFirmController@auditFirmReSubmit');
 Route::get('audit_firm_renew', 'AuditFirmController@auditFirmRenew');
 
+Route::get('audit_initial_renew_reconnect', 'AuditFirmController@auditReconnect');
+Route::get('non_audit_initial_renew_reconnect', 'NonAuditFirmController@nonAuditReconnect');
+
 //School Register Form
 Route::get('school_register', 'SchoolController@info');
+
+//School Register Reconnected Form
+Route::get('school_register_reconnected', 'SchoolController@reconnect');
 
 // School Information Page
 Route::get('school_information', 'SchoolInfoController@info');
@@ -201,3 +211,8 @@ Route::get('/cbpay_qr', 'PaymentController@cbpayQR');
 Route::get('/cbpay_pin', 'PaymentController@cbpayPin');
 // Qualified Test
 Route::get('qt_register', 'QtController\QtController@index')->name('qt_register');
+Route::get('qt_edit/{id}', 'QtController\QtController@edit');
+
+//Reconnect
+Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
+Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');

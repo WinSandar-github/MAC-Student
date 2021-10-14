@@ -35,7 +35,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Non-Audit <span>Service </span><span>Initial Registration</span></h2>
+                    <h2 class="title">Non-Audit <span>Service </span><span>Reconnect Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -76,17 +76,17 @@
             </div>
 
 			<div id="non_audit_app_form" style="display:block;">
-				<form id="non-audit-form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" >
+				<form id="non_audit_reconnect_form" class="" method="post" action="javascript:void();" enctype="multipart/form-data" >
 					<input type="hidden" value="2" name="audit_firm_type_id">
 		            <input type="hidden" value="1" name="local_foreign_type">
 	            	<div class="row mt-5">
 						<div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
 							<div class="row mb-5">
 									<h5 class="card-title text-center fw-bolder" id="local_header">
-											(NON-AUDIT) ACCOUNTANCY SERVICES (Initial)
+											(NON-AUDIT) ACCOUNTANCY SERVICES (Reconnect)
 									</h5>
 									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
-											 (NON-AUDIT) ACCOUNTANCY SERVICES (Initial)
+											 (NON-AUDIT) ACCOUNTANCY SERVICES (Reconnect)
 									</h5>
 							</div>
 							<div class="row mb-3">
@@ -157,7 +157,7 @@
 
 										{{--<div class="row">
 											<label class="col-md-1 col-form-label">{{ __('4.') }}</label>
-											<label class="col-md-5 col-form-label label_align_right">{{ __('Accountancy Firm Name') }}</label>
+											<label class="col-md-5 col-form-label label_align_right">{{ __('Firm Name') }}</label>
 											<div class="col-md-6">
 												<div class="form-group">
 													<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
@@ -173,7 +173,7 @@
 										<div class="row mb-5">
 												{{--<label for="" class="col-md-1 col-form-label">{{ __('၄။') }}</label>
 												<label for="" class="col-md-5 col-form-label label_align_right">Firm Name</label>--}}
-												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Firm Name</label>
+												<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('4.') }}</span>Accountancy Firm Name</label>
 												<div class="col-md-8">
 													<div class="form-group">
 														<input type="text" name="accountancy_firm_name"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Firm Name!" autofocus autocomplete="off" >
@@ -185,6 +185,13 @@
 													</span>
 												@enderror
 										</div>
+
+                    <div class="row mb-5">
+                        <label class="col-md-4 col-form-label label"><span class="pull-left">5.</span>Registration No.</label>
+                        <div class="col-md-8">
+                            <input type="text" name="registration_no"  class="form-control  @error('name') is-invalid @enderror" placeholder="Enter Registration No.!" autocomplete="off" value="{{ old('accountancy_firm_name') }}" >
+                        </div>
+                    </div>
 
 									</div>
 
@@ -217,7 +224,7 @@
 								</div>
 
 								<div class="row mb-3">
-									<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('5.') }}</span>Address of Practice(Head Office)</label>
+									<label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('6.') }}</span>Address of Practice(Head Office)</label>
 									<div class="col-md-8">
 											<textarea name="head_office_address" class="form-control" placeholder="Head Office Address(English)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
 									</div>
@@ -260,7 +267,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('6.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Branch Office') }}</label>
 									<label for="" class="col-md-4 branch_office_validate col-form-label" style="display:none;color:#ef815;">Please Fill Branch Office</label>
 								</div>
@@ -295,7 +302,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('7.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Sole Proprietor/Partners/Shareholders') }}</label>
 									<label for="" class="col-md-6 non_partner_validate col-form-label" style="display:none;color:#ef815;">Please Fill Sole Proprietor/Partners/Shareholders</label>
 								</div>
@@ -337,7 +344,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('8.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Director(s)/Officer(s)') }}</label>
 									<label for="" class="col-md-4 non_director_validate col-form-label" style="display:none;color:#ef815;">Please Fill Director(s)/Officer(s)</label>
 								</div>
@@ -382,7 +389,7 @@
 								</div>
 
 								<div class="row mb-3">
-									<label class="col-md-1 col-form-label">{{ __('9.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Organization Structure') }}</label>
 									<label  class="col-md-4 col-form-label error attend_place_error" style="display:none;" for="org_stru_id">Please select one</label>
 								</div>
@@ -1056,7 +1063,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('10.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
 									<label class="col-md-3 col-form-label">{{ __('Name of Managing Director') }}</label>
 									<div class="col-md-4 col-form-label">
 										<div class="form-group">
@@ -1072,7 +1079,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('11.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
 									<label class="col-md-2 col-form-label">{{ __('Total Staff') }}</label>
 									<label for="" class="col-md-6 total_staff_validate col-form-label" style="display:none;color:#ef815;">Please Fill Total Staff</label>
 								</div>
@@ -1106,7 +1113,7 @@
 								</div>
 
 								<div class="row">
-									<label class="col-md-1 col-form-label">{{ __('12.') }}</label>
+									<label class="col-md-1 col-form-label">{{ __('13.') }}</label>
 									<label class="col-md-4 col-form-label">{{ __('Types of Service Provided') }}</label>
 									<label class="col-md-6 col-form-label" id="type_service_validate" style="display: none;color:#ef815;">Please Fill Types of Service Provided</label>
 
@@ -1138,6 +1145,53 @@
 										</div>
 									</div>
 								</div>
+
+                <div class="row mb-5">
+                    <label for="" class="col-md-1 col-form-label">14.</label>
+                    <label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
+                    <div class="col-md-2">
+                        <label for="" class="col-form-label">Start Date</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <label for="" class="col-md-1 col-form-label"></label>
+                    <label for="" class="col-md-4 col-form-label"></label>
+                    <div class="col-md-2">
+                        <label for="" class="col-form-label">End Date</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <label for="" class="col-md-1 col-form-label">15.</label>
+                    <label for="" class="col-md-4 col-form-label">Request to Disconnect</label>
+                    <div class="row col-md-7 py-2">
+                        <div class="col-md-3 form-check-radio mx-2">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" id="yes"
+                                        name="req_for_stop" value="1" required>
+                                <span class="form-check-sign"></span>
+                                Yes
+                            </label>
+                        </div>
+                        <div class="col-md-3 form-check-radio mx-2">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" id="no"
+                                        name="req_for_stop" value="2" required>
+                                <span class="form-check-sign"></span>
+                                No
+                            </label>
+                        </div>
+
+                        <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
+                    </div>
+                </div>
 
 								{{--<table width="100%">
 									<tr>
@@ -1172,7 +1226,7 @@
 
 								<div id="director_staffmembers" style="display:none;">
 									<div class="row">
-										<label class="col-md-1 col-form-label" id="label1">13.</label>
+										<label class="col-md-1 col-form-label" id="label1">16.</label>
 										<label class="col-md-6 col-form-label">{{ __('Particulars Of Directors/ Staff Members who is a Myanmar CPA') }}</label>
 										<label class="col-md-5 director_staffmembers_validate col-form-label" id="" style="display: none;color:#ef815;">Please Fill Particulars Of Directors/ Staff Members Who Is A Myanmar CPA</label>
 									</div>
@@ -1273,7 +1327,7 @@
 
 								<div class="row mb-3">
 									<div class="col-md-2 offset-md-5">
-										<button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" form="non-audit-form" >{{ __('Submit') }}</button>
+										<button type="submit" class="btn btn-success btn-hover-dark w-100" id="submit_btn" form="non_audit_reconnect_form" >{{ __('Submit') }}</button>
 									</div>
 								</div>
 							</div>
@@ -1289,7 +1343,7 @@
 	<form method="post" id="non_audit_email_verify_form" class="needs-validation" action="javascript:void();" enctype="multipart/form-data"
 				novalidate>
 			@csrf
-			<div class="modal fade" id="nonAuditFirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal fade" id="nonAuditReconnectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 							<div class="modal-content">
 									<div class="modal-header">
@@ -1308,7 +1362,7 @@
 												</div>
 										</div>
 										<center>
-												<button type="submit" id="btn1" onclick="check_email_non_audit()" class="btn btn-success btn-hover-dark w-30">Verify
+												<button type="submit" id="btn1" onclick="check_email_non_audit_reconnect()" class="btn btn-success btn-hover-dark w-30">Verify
 												</button>
 										</center><br>
 										<div class="col-md-12" style="text-align:center;">
@@ -1339,11 +1393,24 @@
 @endsection
 @push('scripts')
 <script src="{{asset('assets/js/non_audit_firm.js')}}"></script>
-<script src="{{ asset("js/form_validation/non_audit_firm_validation.js") }}"></script>
+<script src="{{ asset("js/form_validation/non_audit_reconnect_validation.js") }}"></script>
 <script>
 
 $(document).ready(function(e){
-	$("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
+  $("input[name='last_reg_payment_start']").flatpickr({
+      enableTime: false,
+      dateFormat: "M-Y",
+      //dateFormat: "Y",
+      allowInput: true,
+  });
+  $("input[name='last_reg_payment_end']").flatpickr({
+      enableTime: false,
+      dateFormat: "M-Y",
+      //dateFormat: "Y",
+      allowInput: true,
+  });
+
+  $("input[id*='declaration_mm'], text[id*='declaration_mm']").change(function (e) {
 			myanmarLetterOnly($(this));
 	});
 
@@ -1351,7 +1418,7 @@ $(document).ready(function(e){
 			myanmarLetterOnly($(this));
 	});
 
-	$("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
+  $("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
 			myanmarLetterOnly($(this));
 	});
 
@@ -1359,12 +1426,14 @@ $(document).ready(function(e){
 			myanmarLetterOnly($(this));
 	});
 
+
 	function myanmarLetterOnly(self) {
 			val = self.val();
 			if (/[a-zA-Z0-9]+$/.test(val)) {
 					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
 			}
 	}
+
 
 });
 
