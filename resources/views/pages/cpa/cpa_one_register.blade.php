@@ -1448,7 +1448,7 @@
                                                 <label class="col-md-12 col-form-label">
                                                     <span class="pull-left" style="padding-left: 170px;">{{ __('(၂)') }}</span>
                                                     <span class="pull-left" style="padding-left: 65px; padding-right: 45px;"><input type="radio" class="form-check-input" name="internship"  value="ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းတွင်" id="personal_acc_training" onclick="$('#gov_department_file').hide()"></span>
-                                                    ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်းတွင်</label>
+                                                    ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းတွင်</label>
                                             </div>
 
                                             <div class="row mb-3">

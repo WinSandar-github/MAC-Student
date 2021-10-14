@@ -449,15 +449,39 @@
 
                                         <div class="row mb-3" style="margin-left: 100px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(က။)') }}</span>အကျင့်စာရိတ္တကောင်းမွန်ကြောင်း ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံးမှထောက်ခံစာ</label>
-                                            <div class="col-md-9">
+                                            <!-- <div class="col-md-9">
                                                 <input type="file" name="recommend_attach" class="form-control">
+                                            </div> -->
+                                            <div class="col-md-9" id="recommend">
+                                                <div class="row mb-3" id="recommend0">
+                                                    <div class="col-md-11" id="recommend_attach">
+                                                        <input type="file" class="form-control" id="recommend_attach" name="recommend_attach[]" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-1 text-center" id="add_div">
+                                                        <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddRecommend()">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3" style="margin-left: 100px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ခ။)') }}</span>ပြစ်မှုကင်းရှင်းကြောင်း ရဲစခန်းထောက်ခံစာ</label>
-                                            <div class="col-md-9">
+                                            <!-- <div class="col-md-9">
                                                 <input type="file" name="police_attach" class="form-control">
+                                            </div> -->
+                                            <div class="col-md-9" id="police">
+                                                <div class="row mb-3" id="police0">
+                                                    <div class="col-md-11" id="police_attach">
+                                                        <input type="file" class="form-control" id="police_attach" name="police_attach[]" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-1 text-center" id="add_div">
+                                                        <button type="button" class="btn btn-primary"  style="padding-left:5px;" id="add_btn" onclick="AddPolice()">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -469,10 +493,26 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၄၂) </a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_status">
+                                                    <span class="form-check-sign"></span>
+                                                    <p class="fw-bolder">
+                                                        * ၁။ ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။<br>
+                                                        ၂။ စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။<br>
+                                                        ၃။ စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။<br>
+                                                        ၄။ ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။
+                                                    </p>
+                                                </label><br>
+                                                <label  class="error attend_place_error" style="display:none;" for="confirm_status">Please check one</label>
                                             </div>
                                         </div>
 
