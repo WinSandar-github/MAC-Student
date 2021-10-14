@@ -257,7 +257,7 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
-  var numeralCodes = [
+  var changeCode = [
     {
       num: '1',			
       numcode : 'I',
@@ -283,7 +283,7 @@ function getCourses(){
            var opt;
           $.each(response.data,function(i,v){
               var newcode=(v.code).split('_');
-              var new_data = numeralCodes.filter( obj => obj.num === newcode[1])[0];
+              var new_data = changeCode.filter( obj => obj.num === newcode[1])[0];
               console.log(new_data.numcode);
               var course_code=new_data.numcode;
               
