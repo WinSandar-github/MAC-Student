@@ -352,7 +352,7 @@
                                     <div class="row mb-2">
                                         <label for="" class="col-md-3 col-form-label label_align_right"><span class="pull-left">၁၃။</span>ပြည်တွင်းမှရရှိသည့်ပညာအရည်အချင်း</label>
                                         <div class="col-md-9" id="edu">
-                                            <input type="hidden" value="{{$qualified_test['local_education_certificate']}}" name="old_certificate">
+                                            <input type="hidden" value="{{$qualified_test['local_education_certificate']}}" id="lcl_edu_certi" name="old_certificate">
 
                                             @foreach($local_education as $key => $local_edu)
                                             
@@ -364,7 +364,7 @@
                                                         </div>
                                                         <div class="col-md-6">
 
-                                                            <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
+                                                            <input type="file" class="form-control" id="certificate{!! $key !!}" name="certificate[]" autocomplete="off">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -564,6 +564,12 @@
     <script src="{{ asset("js/form_validation/qt_validation.js") }}"></script>
     <script>
         $(document).ready(function(){
+            let local_education_certificate = JSON.parse($('#lcl_edu_certi').val());
+            console.log(typeof local_education_certificate,local_education_certificate.lenght)
+            setBlobs(local_education_certificate)
+
+            
+            
             $("input[name='exam_date']").flatpickr({
                 enableTime: false,
                 allowInput: true,
@@ -571,8 +577,7 @@
                 altFormat: "Y , F",
                 dateFormat: "d-m-Y",
             });
-        });
-        $(document).ready(function(){
+      
             $("input[name='date_of_birth']").flatpickr({
                 enableTime: false,
                 allowInput: true,
@@ -580,10 +585,31 @@
                 altFormat: "j F , Y",
                 dateFormat: "d-m-Y",
             });
+            if($("#other_edu_status").val() == 3){
+                selectEduForeign()
+            }
         });
 
-        if($("#other_edu_status").val() == 3){
-            selectEduForeign()
+    function setBlobs(lcl_edu_certificate)
+    {
+        let filename;
+        console.log(lcl_edu_certificate,"Local Education")
+        lcl_edu_certificate.forEach((element,index) =>{
+            console.log(element)
+            filename = element.split('/')[3];
+            let fileInputElement = document.getElementById('certificate'+index);
+            let container = new DataTransfer();
+            let data = new Blob();
+            let file = new File([`${BASE_URL+element}`], filename,{type:"image/jpeg, 'application/pdf'}", lastModified:new Date().getTime()});
+            container.items.add(file);
+            fileInputElement.files = container.files;
+            console.log(fileInputElement.files);
+        })
+       
+        // Here load or generate data
+        
+        
+       
         }
     </script>
 @endpush

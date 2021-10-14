@@ -257,15 +257,7 @@ function school_reg_feedback(){
 }
 
 function getCourses(){
-  var changeCode = [
-    {
-      num: '1',			
-      numcode : 'I',
-    },
-    {
-      num: '2',			
-      numcode : 'II',
-    },
+  var changeCode = [{num: '1',numcode : 'I',},{num: '2',numcode : 'II',},
     {
       num: '3',			
       numcode : 'III',
@@ -276,19 +268,22 @@ function getCourses(){
     },
     
   ];
+  
   $.ajax({
       url:BACKEND_URL+'/get_courses',
       type:'get',
       success:function(response){
            var opt;
+           
           $.each(response.data,function(i,v){
-              var newcode=(v.code).split('_');
-              var new_data = changeCode.filter( obj => obj.num === newcode[1])[0];
-              console.log(new_data.numcode);
-              var course_code=new_data.numcode;
+            var newcode=(v.code).split('_');
+            var new_data = changeCode.filter( obj => obj.num ===newcode[1])[0];
+             console.log(new_data)
               
-              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+course_code}</option>`;
+              opt += `<option value=${v.id}  >${newcode[0].toUpperCase()+' '+new_data.numcode}</option>`;
+              
           })
+          
           $(".multiple-attend-course").append(opt);
           //$(".attend_course").siblings(".nice-select").css('display','none');
       }
