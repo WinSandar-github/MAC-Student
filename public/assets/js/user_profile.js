@@ -8,7 +8,7 @@ function user_profile() {
         success: function (result) {
             EasyLoading.hide();
             let data = result.data;
-
+            console.log("reslut=>",result)
             if (data.accountancy_firm_info_id) {
                 dateQuery();
                 verifyStatus();
@@ -205,8 +205,16 @@ function user_profile() {
                 //     // console.log(period);
                 //     $('#period_time_cpaff').text(period + " to 31-12-" + now.getFullYear());
                 // }
-
-
+            }else if(data.student_course_regs == '' && data.cpa_ff.length === 0 && data.papp.length!==0){
+                let papp=data.papp[0];
+                $('.title').text('CPA Full-Fledged and PAPP Information')
+                $('.cpaff_other').show();
+                document.getElementById('cpaff_image').src = BASE_URL + data.image;
+                $('#cpaff_name_mm').text(data.name_mm);
+                $('#cpaff_name_eng').text(data.name_eng);
+                $("#cpaff_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
+                $("#cpaff_email").text(data.email);
+                $('#cpaff_phone').text(data.phone);
             } else if (data.mentor) {
                 $('.title').text('Mentor Information')
                 $('.school').show();
