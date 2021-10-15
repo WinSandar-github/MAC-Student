@@ -474,6 +474,7 @@
                                 </div>
 
                             </div>
+                            <input type="hidden" id="offline_user" value="true">;
                             <div class="request_stop_yes" style="display:none;">
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"></label>
