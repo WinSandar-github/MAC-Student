@@ -659,6 +659,7 @@ function createSelfStudy() {
     var profile_photo = $("input[name='profile_photo_self']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
+    send_data.append('sr_no', $("input[name='student_regno']").val());
     send_data.append('type', 0);
     send_data.append('recommendation_letter', recommend_letter_self);
     send_data.append('batch_no_self', $("input[name='batch_no_self']").val());
@@ -703,6 +704,7 @@ function createPrivateSchool() {
     var profile_photo = $("input[name='profile_photo_private']")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
+    send_data.append('sr_no', $("input[name='student_regno']").val());
     send_data.append('type', 1);
     send_data.append('recommendation_letter', recommend_letter_private);
     send_data.append('batch_no_private', $("input[name='batch_no_private']").val());
@@ -749,6 +751,7 @@ function createMac() {
     var profile_photo = $("input[name=profile_photo_mac]")[0].files[0];
     var send_data = new FormData();
     send_data.append('student_id', student_id);
+    send_data.append('sr_no', $("input[name='student_regno']").val());
     send_data.append('type', 2);
     send_data.append('recommendation_letter', recommend_letter_mac);
     send_data.append('batch_no_mac', $("input[name='batch_no_mac']").val());

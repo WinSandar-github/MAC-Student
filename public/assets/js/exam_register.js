@@ -121,8 +121,8 @@ $('#cpa1exam_btn').click(function () {
     }, 1000);
 });
 
-$('#cpa_exam_register').submit(function(e){
-    e.preventDefault();
+function CPAExamRegister(){
+
 
     // var school_id;
     var school_name;
@@ -135,7 +135,7 @@ $('#cpa_exam_register').submit(function(e){
         school_name = " ";
     }
 
-    var form_data = new FormData(this);
+    var form_data = new FormData();
     form_data.append('form_type',$("#form_type").val());
     form_data.append('student_id',student_id);
     // form_data.append('private_school_id', school_id);
@@ -162,8 +162,36 @@ $('#cpa_exam_register').submit(function(e){
       }
     });
 
-})
+}
 
+//entry exam form reject update
+$('#entry_exam_update').submit(function (e) {
+    e.preventDefault();
+
+
+    var formData = new FormData(this);
+    formData.append('_method', 'PATCH');
+    var student_id = $('#stu_id').val();
+
+    show_loader();
+    $.ajax({
+        type: "POST",
+        url: BACKEND_URL + "/cpa_entry_exam_update/" + student_id,
+
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            localStorage.setItem('approve_reject', data.approve_reject_status);
+            successMessage("You have successfully updated!");
+            location.href = FRONTEND_URL + "/";
+        },
+        error: function (message) {
+        }
+    })
+
+})
 //da2 exam
 // $( "#da2submit" ).click(function() {
 //     if(all_Filled('#da2_exam')){
