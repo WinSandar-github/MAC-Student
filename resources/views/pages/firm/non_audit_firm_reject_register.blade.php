@@ -1383,7 +1383,7 @@
     					self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
     			}
     	}
-      
+
         loadNonAuditStaff();
         loadNonAuditOrganization();
         loadNonAuditTypeOfService();
