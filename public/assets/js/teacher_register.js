@@ -404,11 +404,24 @@ function loadRenewTeacher(){
                                  
                                   //$('#previewImg').attr("src",BASE_URL+teacher.image);
                                   $('#hidden_profile').val(teacher.image);
-                                  $('#hidden_nrc_front').val(teacher.nrc_front);
-                                  $('#hidden_nrc_back').val(teacher.nrc_back);
+                                  
+                                  
                                   $('#hschool_name').val(teacher.school_name);
-                                  $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
-                                  $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                                  if(teacher.nrc_front==null){
+                                    $("#nrc_front_img").attr("src",BASE_URL+result.data[0].nrc_front);
+                                    $('#hidden_nrc_front').val(result.data[0].nrc_front);
+                                  }else{
+                                    $("#nrc_front_img").attr("src",BASE_URL+teacher.nrc_front);
+                                    $('#hidden_nrc_front').val(teacher.nrc_front);
+                                  }
+                                  if(teacher.nrc_back==null){
+                                    $("#nrc_back_img").attr("src",BASE_URL+result.data[0].nrc_back);
+                                    $('#hidden_nrc_back').val(result.data[0].nrc_back);
+                                  }else{
+                                    $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
+                                    $('#hidden_nrc_back').val(teacher.nrc_back);
+                                  }
+                                  $('#regno').val(teacher.t_code);
                                   //loadEductaionHistory(teacher.id,'tbl_degree');
                                     if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                         //loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
@@ -444,7 +457,7 @@ function loadRenewTeacher(){
                                 // }
                                 $('#hinitial_status').val(1);
                                 //$('#payment_date').val(teacher.payment_date);
-                                  $('#regno').val(teacher.invoice_no);
+                                  
                                   
                                   $('#student_info_id').val(teacher.student_info_id);
                                   if(teacher.initial_status==0){

@@ -10,7 +10,8 @@ $().ready(function (){
             date:"Please enter this field.",
         },
         submitHandler: function(form) {
-            $('#cpa2examModal').modal('show');
+            // $('#cpa2examModal').modal('show');
+            CPAExamRegister();
         }
     });
 });
