@@ -1090,10 +1090,20 @@
 <script>
 
 $(document).ready(function(){
-    $("#audit_firm_form").submit(function(event){
+  $("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
+      myanmarLetterOnly($(this));
+  });
 
+  $(document).on('keydown', '#head_office_address_mm', function () {
+      myanmarLetterOnly($(this));
+  });
 
-    });
+  function myanmarLetterOnly(self) {
+      val = self.val();
+      if (/[a-zA-Z0-9]+$/.test(val)) {
+          self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+      }
+  }
 
     // $(".partner_list tbody tr").each(function(row,index){
     //   // remove error color of radio buttons when checked

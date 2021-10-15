@@ -8,7 +8,7 @@ function user_profile() {
         success: function (result) {
             EasyLoading.hide();
             let data = result.data;
-
+            console.log("reslut=>",result)
             if (data.accountancy_firm_info_id) {
                 dateQuery();
                 verifyStatus();
@@ -205,26 +205,19 @@ function user_profile() {
                 //     // console.log(period);
                 //     $('#period_time_cpaff').text(period + " to 31-12-" + now.getFullYear());
                 // }
-
-
+            }else if(data.student_course_regs == '' && data.cpa_ff.length === 0 && data.papp.length!==0){
+                let papp=data.papp[0];
+                $('.title').text('CPA Full-Fledged and PAPP Information')
+                $('.cpaff_other').show();
+                document.getElementById('cpaff_image').src = BASE_URL + data.image;
+                $('#cpaff_name_mm').text(data.name_mm);
+                $('#cpaff_name_eng').text(data.name_eng);
+                $("#cpaff_nrc").text(data.nrc_state_region + "/" + data.nrc_township + "(" + data.nrc_citizen + ")" + data.nrc_number);
+                $("#cpaff_email").text(data.email);
+                $('#cpaff_phone').text(data.phone);
             } else if (data.mentor) {
-                $('.title').text('Mentor Information')
-                $('.school').show();
-                $('.cpaff_other').hide();
-                let mentor = data.mentor;
-                $('#sch_name_mm').text(mentor.name_mm);
-                $('#sch_name_eng').text(mentor.name_eng);
-                $("#sch_nrc").text(mentor.nrc_state_region + "/" + mentor.nrc_township + "(" + mentor.nrc_citizen + ")" + mentor.nrc_number);
-                $("#sch_date_of_birth").text(mentor.date_of_birth);
-                $("#sch_email").text(mentor.m_email);
-                $('#sch_phone').text(mentor.phone_no);
-                if (mentor.status == 0) {
-                    $('.status_history').append('Mentor Registration is checking.');
-                } else if (mentor.status == 1) {
-                    $('.status_history').append('Mentor Registration is Approved.');
-                } else {
-                    $('.status_history').append('Mentor Registration is Rejected.');
-                }
+                $('.dashboard_name').append('Mentor ');
+                loadMentorByDash(data.mentor);
             } else if (data.qualified_test) {
                 let qt = data.qualified_test;
 
@@ -268,7 +261,7 @@ function user_profile() {
                             <td>${formatDate(qt.updated_at)}</td>
                             <td><span class="badge bg-success text-dark">Approve</span></td>
                         </tr>
-                        
+
                         `);
 
                     } else if (qt.grade == 1) {
@@ -294,7 +287,7 @@ function user_profile() {
                             <td>${formatDate(qt.updated_at)}</td>
                                 <td><span class="badge bg-warning">Failed</span></td>
                             </tr >
-                            
+
                         `);
                     }
 
@@ -306,14 +299,14 @@ function user_profile() {
                         <td>${formatDate(qt.updated_at)}</td>
                         <td><span class="badge bg-warning text-dark">Reject</span></td>
                     </tr>
-                    
+
                     <tr><td colspan=2></td><td>Action</td>
                         <td>
                         <a href="${qt_edit}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>
                         <td>
                     </td>
                     </tr>
-               
+
                     `);
                     // $('.status').append('Qualified Test Form is Rejected.');
                     // $('.status').append(`<a href="${qt_edit}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
@@ -683,12 +676,19 @@ function user_profile() {
 
 
                             } else {
+                                console.log('latest_course_reg',latest_course_reg[0]);
                                 $('.status').append(`
                                 <tr>
                                     <td>Cpa One Entry Exam Registration Form</td>
                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                     <td>${formatDate(last_exam[0].updated_at)}</td>
                                     <td><span class="badge bg-danger">Reject</span></td>
+                                </tr>
+                                <tr>
+                                    <td>မှတ်ချက် - </td>
+                                    <td colspan=2>${latest_course_reg[0].remark}</td><td>
+                                        <a href="${FRONTEND_URL + '/entry_edit'}" class="btn btn-sm btn-success">Update Cpa One Entry Exam Registration Form</a>
+                                    </td>
                                 </tr>
                                 `);
 
@@ -2372,11 +2372,11 @@ function saveRegistrationFee(id){
     $('#cash_img').click(function() {
         $('#article_registration_btn').prop('disabled', false);
     });
-    
+
     $('#cb_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
-    
+
     $('#mpu_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
@@ -2416,11 +2416,11 @@ function saveGovRegistrationFee(id){
     $('#cash_img').click(function() {
         $('#article_registration_btn').prop('disabled', false);
     });
-    
+
     $('#cb_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
-    
+
     $('#mpu_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
@@ -2532,7 +2532,7 @@ function loadSchoolByDash(school_data) {
 
                     $('.sch_reject-reason').append(school.reason);
                 }
-            
+
             if(school.payment_method != null) {
                 $('.sch_period').show();
                 var now = new Date();
@@ -2615,7 +2615,7 @@ function laodTeacherByDash(teacher_data) {
         //     }else if(teacher.initial_status==1){
         //        $('#teacher_period_time').text('01-01-'+ now.getFullYear() + " to 31-12-" + now.getFullYear());
         //     }
-            
+
         // }
         if (teacher.payment_method != null) {
             $('.teacher_period').show();
@@ -2641,6 +2641,35 @@ function laodTeacherByDash(teacher_data) {
     });
 }
 
+function loadMentorByDash(mentor) {
+    $('.mentor-title').text('Teacher Information')
+    $('.mentor').show();
+    $('.cpaff_other').hide();
+    $('.da-card').hide();
+    localStorage.setItem("mentor_id", mentor.id);
+    $('#mentor_name_mm').text(mentor.name_mm);
+    $('#mentor_name_eng').text(mentor.name_eng);
+    $("#mentor_nrc").text(mentor.nrc_state_region + "/" + mentor.nrc_township + "(" + mentor.nrc_citizen + ")" + mentor.nrc_number);
+    $('#mentor_id').val(mentor.id);
+    $("#mentor_email").text(mentor.m_email);
+    $('#mentor_phone').text(mentor.phone_no);
+    $("#mentor_update_email").val(mentor.m_email);
+    $("#mentor_update_phone").val(mentor.phone_no);
+    $("#mentor_update_address").val(mentor.address);
+    $('#old_mentor_profile_photo').val(mentor.image);
+    $('#previewMentorImg').attr("src",BASE_URL+mentor.image);
+    if (mentor.status == 0) {
+        $('.mentor_status_history').append('Mentor Registration is checking.');
+    } else if (mentor.status == 1) {
+        $('.mentor_status_history').append('Mentor Registration is Approved.');
+    } else {
+        $('.mentor_status_history').append('Mentor Registration is Rejected.');
+        $('.mentor_reject_btn').show();
+        $('.mentor_reject_p').append(`<button class="btn btn-success btn-hover-dark" disabled> Update </button>`);
+        // $('.mentor_reject_p').append(`<a href='${FRONTEND_URL}/mentor_register' class="btn btn-success btn-hover-dark" > Update </a>`);
+        $('.mentor_reject_reason').append(mentor.reject_reason);
+    }
+}
 
 function firmDashboardData() {
     show_loader();
@@ -2661,6 +2690,14 @@ function firmDashboardData() {
                 let firm_ownerships_audits = result.firm_ownerships_audits;
                 //console.log("firm_ownerships_audits >>",firm_ownerships_audits);
                 acc_firm.forEach(function (acc_firm) {
+                    $("#audit_id").val(acc_firm.id);
+                    $("#audit_old_profile_photo").val(acc_firm.image);
+                    $("#previewAuditImg").attr("src",BASE_URL+acc_firm.image);
+                    $("#audit_update_email").val(data.email);
+                    $("#audit_phone").val(acc_firm.telephones);
+                    $("#audit_address_mm").val(acc_firm.head_office_address_mm);
+                    $("#audit_address_eng").val(acc_firm.head_office_address);
+
                     $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                     $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                     $("#head_office").text(acc_firm.head_office_address);
@@ -2722,9 +2759,10 @@ function firmDashboardData() {
         }
     });
 }
+
 function updateProfileTeacher(){
     var formData = new FormData($("#teacher_update_form" )[0]);
-    
+
     var teacher_id=$('#teacher_id').val();
     formData.append('membership','teacher');
     formData.append('old_image',$('#old_profile_photo').val());
@@ -2749,7 +2787,7 @@ function updateProfileTeacher(){
 }
 function updateProfileSchool(){
     var formData = new FormData($("#school_update_form" )[0]);
-    
+
     var school_id=$('#school_id').val();
     formData.append('membership','school');
     formData.append('old_image',$('#old_school_profile_photo').val());
@@ -2805,4 +2843,88 @@ function changePasswordTeacher(){
             }
         });
     }
+}
+function updateProfileAudit(){
+  var formData = new FormData($("#audit_update_form" )[0]);
+
+  var audit_id=$('#audit_id').val();
+  formData.append('membership','audit');
+  formData.append('old_image',$('#audit_old_profile_photo').val());
+  formData.append('audit_phone',$('#audit_phone').val());
+  formData.append('audit_address_mm',$("#audit_address_mm").val());
+  formData.append('audit_address_eng',$("#audit_address_eng").val());
+  formData.append('_method', 'PATCH');
+  show_loader();
+  $.ajax({
+      url: BACKEND_URL + "/update_profile/" + audit_id,
+      type: 'POST',
+      contentType: false,
+      processData: false,
+      data: formData,
+      success: function (data) {
+          EasyLoading.hide();
+          successMessage(data.message);
+          $('#profileModelAudit').modal('toggle');
+          location.reload();
+      }
+  });
+}
+function changePasswordAudit(){
+  show_loader();
+  if ($("input[id=password_audit]").val() != $("input[id=confirm_password_audit]").val()) {
+      EasyLoading.hide();
+      $("input[id=password_audit]").val('');
+      $("input[id=confirm_password_audit]").val('');
+      $("input[id=password_audit]").addClass('is-invalid');
+      $("input[id=confirm_password_audit]").addClass('is-invalid');
+      $('#err_message').text("Your password and confirm password do not match!");
+  } else {
+      var formData = new FormData($("#audit_chagne_pw_form")[0]);
+      formData.append('id', student_id);
+      $.ajax({
+          url: BACKEND_URL + "/update_pwd",
+          type: 'POST',
+          contentType: false,
+          processData: false,
+          data: formData,
+          success: function (data) {
+              EasyLoading.hide();
+              successMessage(data.message);
+              $('#pwModalAudit').modal('toggle');
+              location.reload();
+          },
+          error: function (err) {
+              EasyLoading.hide();
+              if (err.status == 401) {
+                  $('#old_pwd_audit').addClass('is-invalid');
+                  $('#old_err_msg_audit').text(err.responseJSON.error);
+              }
+          }
+      });
+  }
+}
+
+function updateProfileMentor(){
+    var formData = new FormData($("#mentor_update_form" )[0]);
+
+    var mentor_id=$('#mentor_id').val();
+    formData.append('membership','mentor');
+    formData.append('old_image',$('#old_mentor_profile_photo').val());
+    formData.append('phone',$('#mentor_update_phone').val());
+    formData.append('address',$("#mentor_update_address").val());
+    formData.append('_method', 'PATCH');
+    show_loader();
+    $.ajax({
+        url: BACKEND_URL + "/update_profile/" + mentor_id,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (data) {
+            EasyLoading.hide();
+            successMessage(data.message);
+            $('#profileModelMentor').modal('toggle');
+            location.reload();
+        }
+    });
 }

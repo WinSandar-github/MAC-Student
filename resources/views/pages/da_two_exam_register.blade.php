@@ -161,7 +161,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၅။</span>ကျား / မ (Gender)</label>
                                                     <div class="row col-md-8 py-2">
                                                         <div class="col-md-3 form-check-radio mx-2">
                                                             <label class="form-check-label">
@@ -185,7 +185,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၅။</span>မွေးသက္ကရာဇ်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၆။</span>မွေးသက္ကရာဇ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" name="date_of_birth" class="form-control"
                                                             placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly="">
@@ -193,7 +193,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၆။</span>ပညာအရည်အချင်း</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ပညာအရည်အချင်း</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
                                                             class="form-control" value="{{ old('degree_name') }}" readonly="">
@@ -201,7 +201,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>လက်ရှိအလုပ်အကိုင်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၈။</span>လက်ရှိအလုပ်အကိုင်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name"
                                                             class="form-control" value="{{ old('name') }}" readonly="">
@@ -209,7 +209,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၈။</span>ရာထူး</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၉။</span>ရာထူး</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="ရာထူး" name="position" class="form-control"
                                                             value="{{ old('position') }}" readonly="">
@@ -217,7 +217,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၉။</span>ဌာန</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၀။</span>ဌာန</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="ဌာန" name="department" class="form-control"
                                                             value="{{ old('department') }}" readonly="">
@@ -225,7 +225,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၀။</span>ရုံးစိုက်ရာဒေသ</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၁။</span>ရုံးစိုက်ရာဒေသ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="ရုံးလိပ်စာ" name="office_address"
                                                             class="form-control" value="{{ old('office_address') }}" readonly="">
@@ -233,7 +233,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၁။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၂။</span>အမြဲတမ်းနေရပ်လိပ်စာ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address"
                                                             class="form-control" value="{{ old('current_address') }}"
@@ -242,7 +242,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၂။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၃။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="နေရပ်လိပ်စာ" name="address"
                                                             class="form-control" value="{{ old('address') }}" readonly="">
@@ -250,7 +250,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၃။</span>ဖုန်းနံပါတ်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၄။</span>ဖုန်းနံပါတ်</label>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="ဖုန်းနံပါတ်" name="phone"
                                                             class="form-control" value="{{ old('phone') }}" readonly="">
@@ -258,7 +258,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၄။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၁၅။</span>နိုင်ငံ့ဝန်ထမ်း ဟုတ်/မဟုတ်</label>
                                                     <div class="col-md-2 pt-2">
                                                         <div class="form-check">
                                                             <div class="row">
@@ -306,7 +306,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                                                 <div id="is_private_school" style="display=none;">
                                                     <div class="row mb-3">
-                                                        <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label1">၁၅။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                                        <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label1">၁၆။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                                         <div class="col-md-8">
                                                             <input type="text" name="private_school_name" id="selected_school_id"
                                                                 class="form-control" value="{{ old('private_school_name') }}" readonly="">
@@ -322,7 +322,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <div class="col-md-4 col-form-label label" id=""><span class="pull-left" id="da2_label2">၁၅။</span>စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်
+                                                    <div class="col-md-4 col-form-label label" id=""><span class="pull-left" id="da2_label2">၁၆။</span>စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန်
                                                     </div>
                                                 </div>
 
@@ -388,7 +388,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div><br />--}}
 
                                             <div class="row">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label3">၁၆။</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label3">၁၇။</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
                                                 <div class="col-md-8">
                                                   <div class="form-group">
                                                     <select class="form-control form-select" name="exam_department" id="exam_department" >
@@ -399,21 +399,21 @@ $nrc_characters = config('myanmarnrc.characters');
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left" id="da2_label4">၁၇။</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
+                                                <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left" id="da2_label4">၁၈။</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                                 <div class="col-md-8">
                                                     <input type="text" name="class_address" id="class_address" class="form-control" readonly>
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label5">၁၈။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left" id="da2_label5">၁၉။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" placeholder="" name="personal_no" id="personal_no"  class="form-control" value="" readonly="">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left" id="da2_label6">၁၉။</span>ယခုဖြေဆိုမည့် Module</label>
+                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left" id="da2_label6">၂၀။</span>ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-8">
                                             <div class="row" disabled>
                                                 <div class="col-md-3">
@@ -716,7 +716,7 @@ $nrc_characters = config('myanmarnrc.characters');
 
                     $(".personal_no_self").val(student_info.registration_no);
                     if(data.data.student_register[0].type == 0){
-                        $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
+                        $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူ");
                     }else if(data.data.student_register[0].type == 1){
                         $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
                     }else{
@@ -748,18 +748,18 @@ $nrc_characters = config('myanmarnrc.characters');
             if (boo == "true") {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'block';
-                    document.getElementById('da2_label1').innerHTML = "၁၅။";
-                    document.getElementById('da2_label2').innerHTML = "၁၆။";
-                    document.getElementById('da2_label3').innerHTML = "၁၇။";
-                    document.getElementById('da2_label4').innerHTML = "၁၈။";
-                    document.getElementById('da2_label5').innerHTML = "၁၉။";
-                    document.getElementById('da2_label6').innerHTML = "၂၀။";
+                    document.getElementById('da2_label1').innerHTML = "၁၆။";
+                    document.getElementById('da2_label2').innerHTML = "၁၇။";
+                    document.getElementById('da2_label3').innerHTML = "၁၈။";
+                    document.getElementById('da2_label4').innerHTML = "၁၉။";
+                    document.getElementById('da2_label5').innerHTML = "၂၀။";
+                    document.getElementById('da2_label6').innerHTML = "၂၁။";
                     
                 }
             } else {
                 if (document.getElementById('is_private_school')) {
                     document.getElementById('is_private_school').style.display = 'none';
-                    document.getElementById('da2_label2').innerHTML = "၁၅။";
+                    document.getElementById('da2_label2').innerHTML = "၁၆။";
                 }
             }
         });

@@ -41,6 +41,7 @@ $().ready(function (){
             address : "required",
             phone : "required",
             contact_mail : "required",
+            cpa2_pass_date : "required",
             cpa_certificate : "required",
             mpa_mem_card : "required",
             mpa_mem_card_back : "required",
@@ -79,6 +80,7 @@ $().ready(function (){
             address : "Please enter your address",
             phone : "Please enter your phone number",
             contact_mail : "Please enter your contact mail",
+            cpa2_pass_date : "Please enter CPA2 passed date",
             cpa_certificate : "Please upload CPA certificate(front)",
             mpa_mem_card : "Please upload MPA member card(front)",
             mpa_mem_card_back : "Please upload MPA member card(back)",
@@ -239,6 +241,7 @@ function createCpaffOtherRegister(){
 
     //save to cpaff
     send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    send_data.append('cpa2_pass_date', $("input[name=cpa2_pass_date]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
     send_data.append('contact_mail', $("input[name=contact_mail]").val());

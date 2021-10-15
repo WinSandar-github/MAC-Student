@@ -144,6 +144,7 @@
 
                                     <form id="cpa_pp_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
                                     <input type="hidden" name="batch_id" class="batch_id">
+                                    <input type="hidden" name="sr_no" class="sr_no">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="row mb-3 mt-4">
@@ -567,6 +568,7 @@
 
                                     <form id="cpa_ss_form" method="post" action="javascript:void();" enctype="multipart/form-data" novalidate>
                                     <input type="hidden" name="batch_id" class="batch_id">
+                                    <input type="hidden" name="sr_no" class="sr_no">
                                         <div class="row mb-3">
                                             <div class="col-md-8">
                                                 <div class="row mb-3 mt-4">
@@ -1144,6 +1146,7 @@
                                     <form  method="post" id="cpa_mac_form" action="javascript:void();" enctype="multipart/form-data" novalidate>
 
                                     <input type="hidden" name="batch_id" class="batch_id">
+                                    <input type="hidden" name="sr_no" class="sr_no">
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="row mb-3 mt-4">
@@ -1531,8 +1534,24 @@
                                                 </div>
                                             </div>
 
-                                              <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                              
+
+                                            <div class="row mb-3" id="direct_access_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" id="entry_success_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" style="display:none">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
                                                 
@@ -1558,20 +1577,6 @@
                                                
                                                         <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
                                                    
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" id="direct_access_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" id="entry_success_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
                                             
@@ -1789,7 +1794,7 @@
 
                             $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                             $('.course_name').val(current_stu_course[0].batch.course.name);
-                            // $(".batch_number").append(current_stu_course[0].batch.number);
+                            $(".batch_number").append(current_stu_course[0].batch.number);
                             $(".batch_no").val(current_stu_course[0].batch.number);
                             $(".batch_id").val(current_stu_course[0].batch.id);
                             if(last_exam.length!=0){
@@ -1870,6 +1875,10 @@
                             $("#entry_success_no_private_div").hide();
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
+
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else if(info.da_pass_roll_number){
                             console.log("for da2pass");
                             $("#direct_access_no_self_div").show();
@@ -1878,6 +1887,10 @@
                             $("#entry_success_no_private_div").hide();
                             $("#direct_access_no_mac_div").show();
                             $("#entry_success_no_mac_div").hide();
+
+                            $("#direct_access_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#direct_access_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else if(last_exam[0].exam_type_id == 3 || last_exam[0].exam_type_id == 2){   
                             console.log("for entry1");                        
                             $("#direct_access_no_self_div").hide();
@@ -1886,6 +1899,10 @@
                             $("#entry_success_no_private_div").show();
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
+
+                            $("#entry_success_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#entry_success_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#entry_success_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }else{
                             console.log("for entry2");
                             $("#direct_access_no_self_div").hide();
@@ -1894,6 +1911,10 @@
                             $("#entry_success_no_private_div").show();
                             $("#direct_access_no_mac_div").hide();
                             $("#entry_success_no_mac_div").show();
+
+                            $("#entry_success_no_self").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#entry_success_no_private").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
+                            $("#entry_success_no_mac").val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                         }
                         
 

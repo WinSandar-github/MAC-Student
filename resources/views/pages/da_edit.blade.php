@@ -80,7 +80,7 @@
                             <div class="row mb-5">
                                 <h5 class="card-title text-center fw-bolder mb-3">
                                     မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                    လက်မှတ်ရပြည်သူစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
+                                    ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
                                 </h5>
                                 <div class="d-flex justify-content-between">
                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
@@ -90,9 +90,11 @@
                             </div>
 
                             <input type="hidden" name="batch_id" id="batch_id" />
+                            <input type="hidden" name="email" >
 
                             <div class="row">
                                 <div class="col-md-8">
+
                                     <div class="row mb-3">
                                         <label class="col-md-6 col-form-label label"><span class="pull-left">{{ __('၁။') }}</span>အမည်(မြန်မာ/အင်္ဂလိပ်)</label>
                                         <div class="col-md-3">
@@ -209,7 +211,7 @@
                                                 <span class="btn btn-secondary btn-round btn-file">
                                                     <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
                                                     <span class="fileinput-exists">Change</span>
-                                                    <input type="hidden" id="old_nrc_back" id="old_nrc_back">
+                                                    <input type="hidden" name="old_nrc_back" id="old_nrc_back">
                                                     <input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*" required>
                                                 </span>
                                             <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
@@ -295,7 +297,7 @@
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၁။') }}</span>လက်ရှိအလုပ်အကိုင်</label>
                                 <div class="col-md-8">
-                                    <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="name"
+                                    <input type="text" placeholder="လက်ရှိအလုပ်အကိုင်" name="job_name"
                                         class="form-control" value="{{ old('name') }}" >
                                 </div>
                             </div>
@@ -435,7 +437,10 @@
 
                             <div class="row mb-3">                                
                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>Attached Certificate</label>
-                                <div class="col-md-8" id="edu">
+                                <div class="col-md-2"  id="degree_certificate" >
+                                        <span class="certificate"></span>
+                                    </div>
+                                <div class="col-md-6" id="edu">
                                     <div class="row mb-3" id="edu0">
                                         <div class="col-md-11" id="degree_edu">
                                             <input type="file" class="form-control" id="certificate0" name="certificate[]" autocomplete="off">
@@ -448,7 +453,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" id="old_certificate" id="old_certificate">
+                            <input type="hidden" name="old_certificate" id="old_certificate">
 
                             
 
@@ -569,7 +574,7 @@
         });
         $("input[name='qualified_date']").flatpickr({
                 enableTime: false,
-                dateFormat: "d-M-Y",
+                dateFormat: "M-Y",
         });
 
         $("input[id*='nrc_number'], text[id*='nrc_number']").change(function(e) {
@@ -610,7 +615,7 @@
                       if(info){
                     $('#stu_id').val(info.id);
                     console.log('info',info)
-
+                        $("input[name=email]").val(info.email);
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
                         $("#nrc_state_region").val(info.nrc_state_region);
@@ -636,6 +641,8 @@
                         document.getElementById('nrc_back_update').src = BASE_URL + info.nrc_back;
                         $("input[name=old_nrc_back]").val(info.nrc_back); 
 
+                        $("input[name=old_rec_letter]").val(info.recommend_letter);
+
                       }
 
                       var batch_id = student_course[0].batch_id; 
@@ -653,7 +660,7 @@
                             }
                         })
                       if(job_history){
-                        $("input[name=name]").val(job_history.company_name);
+                        $("input[name=job_name]").val(job_history.name);
                         $("input[name=position]").val(job_history.position);
                         $("input[name=department]").val(job_history.department);
                         $("input[name=organization]").val(job_history.organization);
@@ -670,7 +677,15 @@
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
                         $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
-                        console.log('certificate',JSON.parse(education_history.certificate));
+                        // console.log('certificate',JSON.parse(education_history.certificate));
+
+                        let certificate = JSON.parse(education_history.certificate);
+                        console.log('certificate',certificate);
+                        $.each(certificate, function (fileCount, fileName) {
+
+                            $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
+
+                        })
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){
