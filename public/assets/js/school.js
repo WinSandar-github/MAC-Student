@@ -179,11 +179,10 @@ function createSchoolRegister(){
     var send_data = new FormData($( "#school_register_form" )[0]);
     send_data.append('student_info_id',$('#student_info_id').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
-    // var rows = document.getElementById('tbl_branch_school').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length
-    // for(var i=0;i<rows;i++){
-    //   file.push($("input[id=branch_sch_letter"+i+"]"));
-    // }
-    // send_data.append('branch_sch_letter[]',file);
+    if($('#offline_user').val()){
+      send_data.append('offline_user',$('#offline_user').val());
+    }
+    
     show_loader();
     $.ajax({
         type: "POST",
@@ -1296,7 +1295,7 @@ function loadEductaionHistoryByTeacher(id,row){
   $.ajax({
     type : 'POST',
     url : BACKEND_URL+"/getEducationHistory",
-    data: 'teacher_id='+id,
+    data: 'student_info_id='+id,
     success: function(result){
         $.each(result.data, function( index, value ) {
 

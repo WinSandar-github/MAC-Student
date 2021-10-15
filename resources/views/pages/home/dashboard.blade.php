@@ -1658,8 +1658,8 @@
                             <label for="" class="col-md-4 col-form-label">Enter Your Old Password</label>
                             <div class="col-md-8">
                                 <input type="password" placeholder="Enter your old Password!" name="old_password"
-                                    class="form-control" id="old_pwd" value="{{ old('password') }}" required="">
-                                <p id="old_err_meg" class="mt-2 text-danger "></p>
+                                    class="form-control" id="teacher_old_pwd" value="{{ old('password') }}" required="">
+                                <p id="teacher_old_err_meg" class="mt-2 text-danger "></p>
                             </div>
 
                         </div>
@@ -1668,7 +1668,7 @@
 
                             <label for="" class="col-md-4 col-form-label">Password</label>
                             <div class="col-md-8">
-                                <input type="password" placeholder="Enter your new Password!" name="password"
+                                <input type="password" placeholder="Enter your new Password!" name="password" id="teacher_password"
                                     class="form-control" value="{{ old('password') }}" required="">
                             </div>
 
@@ -1681,8 +1681,8 @@
                             <label for="" class="col-md-4 col-form-label">Confirm Password</label>
                             <div class="col-md-8">
                                 <input type="password" placeholder="Enter your new Password again!"
-                                    name="confirm_password" class=" form-control" required="">
-                                <p class="text-center mt-3  text-danger" id="err_message"></p>
+                                    name="confirm_password" id="teacher_confirm_password" class=" form-control" required="">
+                                <p class="text-center mt-3  text-danger" id="teacher_err_message"></p>
                             </div>
                         </div>
 
