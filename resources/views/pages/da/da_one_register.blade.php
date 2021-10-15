@@ -510,7 +510,7 @@
                                                     <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" id="mac_school" style="display:none">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
@@ -1867,6 +1867,7 @@
                         $("input[name='recommend_letter_self']").prop('disabled', false);
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
+                        $("#mac_school").show();
                         $("input[name='mac_type']").prop('disabled', false);
                     }
                     else{

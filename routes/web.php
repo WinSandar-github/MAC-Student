@@ -93,6 +93,9 @@ Route::get('cpa_two_mac/{id}', 'CPATwoRegisterController@mac');
 Route::get('cpa_two_private_school/{id}', 'CPATwoRegisterController@private_school');
 Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
+//cpa_two_register for cpa_one_pass
+Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
+
 
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
@@ -119,6 +122,9 @@ Route::get('login','LoginController@login')->name('login');
 
 // show application form of da one
 Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
+
+//da_two_register for da_one_pass
+Route::get('da_two_reg_daone_pass', 'DARegisterController@da_two_registerForm');
 
 Route::get('da_two_register/{id}', 'DAController@da_two_register');
 

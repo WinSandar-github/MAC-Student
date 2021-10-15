@@ -153,6 +153,40 @@ function check_email() {
     }
 }
 
+function check_da_two_reg_email() {
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if (verify_code != code) {
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    } else {
+        // $('#exampleModal1').modal('show');
+        createDATwoRegDAOnePass();
+        $('#DATwoRegEmailModal').modal('hide');
+    }
+}
+
+function check_cpa_two_reg_email() {
+    var text = localStorage.getItem('verify_code');
+    var obj = JSON.parse(text);
+    var verify_code = obj.data.verify_code;
+    var code = $("input[name=verify_code]").val();
+    if (verify_code != code) {
+        successMessage("Your code is not correct.Please check your email inbox again!");
+        // $('#exampleModal').modal('show');
+        // $('#exampleModal1').modal('hide');
+        // $('#exampleModal').modal('show');
+    } else {
+        // $('#exampleModal1').modal('show');
+        createCPATwoRegDAOnePass();
+        $('#CPATwoRegEmailModal').modal('hide');
+    }
+}
+
 function da_edit() {
     var student = JSON.parse(localStorage.getItem('studentinfo'));
 
@@ -800,6 +834,32 @@ function selectType() {
     } else {
 
         $('#blk_mac').css('display', 'none');
+
+    }
+}
+
+function CPAOneselectType() {
+
+    var radioValue = $("input[name='cpa_one_attend_place']:checked").val();
+
+    if (radioValue == 2) {
+        $('#cpa_one_blk_mac').css('display', 'inline-block');
+    } else {
+
+        $('#cpa_one_blk_mac').css('display', 'none');
+
+    }
+}
+
+function DAOneselectType() {
+
+    var radioValue = $("input[name='da_one_attend_place']:checked").val();
+
+    if (radioValue == 2) {
+        $('#da_one_blk_mac').css('display', 'inline-block');
+    } else {
+
+        $('#da_one_blk_mac').css('display', 'none');
 
     }
 }

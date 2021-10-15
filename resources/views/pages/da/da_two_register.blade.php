@@ -516,7 +516,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                         </div>
                                                     </div>--}}                                                 
 
-<div class="row mb-3">
+                                                <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၈။</span>ယခုဖြေဆိုမည့် Module -</label>
                                                 <div class="row col-md-8 py-2">
                                                     <div class="col-md-4 form-check-radio">
@@ -1354,7 +1354,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" style="display:none">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     

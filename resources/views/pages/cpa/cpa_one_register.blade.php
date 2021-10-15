@@ -1534,8 +1534,24 @@
                                                 </div>
                                             </div>
 
-                                              <div class="row mb-3">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၁၉။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                              
+
+                                            <div class="row mb-3" id="direct_access_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" id="entry_success_no_mac_div">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၁၉။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
+                                                <div class="col-md-8">
+                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3" style="display:none">
+                                                <label class="col-md-4 col-form-label label"><span class="pull-left">၂၀။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
                                                 
@@ -1561,20 +1577,6 @@
                                                
                                                         <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
                                                    
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" id="direct_access_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" id="direct_access_no_mac" name="direct_access_no_mac" class="form-control" value="" placeholder="တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့် အမှတ်စဥ်" >
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3" id="entry_success_no_mac_div">
-                                                <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂၀။') }}</span>ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်</label>
-                                                <div class="col-md-8">
-                                                <input type="text" id="entry_success_no_mac" name="entry_success_no_mac" class="form-control" value="" placeholder="ဝင်ခွင့်စာမေးပွဲအောင်မြင်သည့်အမှတ်စဥ်" >
                                                 </div>
                                             </div>
                                             
