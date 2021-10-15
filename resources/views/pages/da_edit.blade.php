@@ -624,7 +624,7 @@
                       if(info){
                     $('#stu_id').val(info.id);
                  
-                         $("input[name=email]").val(info.email);
+                        $("input[name=email]").val(info.email);
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
                         $("#nrc_state_region").val(info.nrc_state_region);
