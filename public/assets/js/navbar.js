@@ -10,13 +10,13 @@ $(document).ready(function () {
         var navbar = `<li><a href="${FRONTEND_URL}">Dashboard</a></li>`;
 
         if (student.accountancy_firm_info_id != null) {
-            navbar += `<li>
-                            <a href="#">Firm</a>
-                            <ul class="sub-menu">
-                                <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
-                                <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
-                            </ul>
-                        </li>`;
+            // navbar += `<li>
+            //                 <a href="#">Firm</a>
+            //                 <ul class="sub-menu">
+            //                     <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm </a></li>
+            //                     <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
+            //                 </ul>
+            //             </li>`;
         } else if (student.school_id != null) {
             //navbar += `<li><a href="${FRONTEND_URL}/school_information">School</a></li>`;
         } else if (student.teacher_id) {
@@ -42,7 +42,7 @@ $(document).ready(function () {
                                 <li><a href="${FRONTEND_URL}/school_information">School</a></li>
                                 <li><a href="${FRONTEND_URL}/teacher_information">Teacher</a></li>
                             </ul>
-                        </li>                       
+                        </li>
                         <li>
                             <a href="${FRONTEND_URL}/mentor_information">Mentor</a>
                         </li>
@@ -55,7 +55,7 @@ $(document).ready(function () {
                               <li><a href="${FRONTEND_URL}/audit_firm_information">Audit Firm</a></li>
                               <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                             </ul>
-                        </li>                       
+                        </li>
 
                         <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
         }
@@ -86,6 +86,7 @@ $(document).ready(function () {
                             <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                         </ul>
                     </li>
+                    <li><a href="${FRONTEND_URL}/reconnect">Reconnect</a></li>
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }
     $('#navbar').append(navbar);

@@ -281,7 +281,7 @@
                                 {{--User Photo--}}
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail img-circle shadow">
-                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}"
+                                        <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="papp_renew_img"
                                                 alt="Upload Photo">
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
@@ -289,7 +289,7 @@
                                         <span class="btn btn-round btn-secondary btn-file">
                                         <span class="fileinput-new">ဓာတ်ပုံ</span>
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required=""></span>
+                                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*"></span>
                                         <br>
                                         <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
@@ -476,7 +476,7 @@
                                 {{--<div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label">{{ __('CPA(FF) Registeraion No.') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="reg_no" id="reg_no" required="">
+                                        <input type="text"  class="form-control" name="reg_no" id="reg_no" >
                                     </div>
                                 </div>--}}
                             </div>
@@ -488,10 +488,10 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
-                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="papp_reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်"  autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
 
@@ -587,7 +587,7 @@
                                     </div>
                                     <div class="col-md-11">
                                         <div class="row">
-                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control" required="">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
+                                            <label class="col-md-11"  style="font-size:15px;"><?php echo date("Y") ?> ပြက္ခဒိန်နှစ်အတွင်း အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းကိုဦးစီးပိုင်ရှင်/ ဦးဆောင်အဖွဲ့ဝင်/ သာမန်အစုဝင်/ အဖွဲ့ခေါင်းဆောင်အနေဖြင့် ကျွန်ုပ်လက်ခံဆောင်ရွက်ခဲ့သည့် Statutory Audit Work စုစုပေါင်း (<input type="text" style="display:inline; width:50px;" name="total_audit" class="form-control">) ခုရှိပါသည်။ အဆိုပါ Statutory Audit Work အပြည့်အစုံကို အောက်ပါဇယားအတွင်းထုတ်ဖော်ကြေညာပါသည်-</label>
                                         </div><br>
 
 
@@ -696,8 +696,9 @@
                                     <div class="col-md-6">
                                         <label >PAPP မှတ်ပုံတင်ကတ်ပြား၊</label>
                                     </div>
-									<div class="col-md-4">
-                                        <input type="file" class="form-control"  id="papp_file"  name="papp_file" required="" accept="image/*">
+									<div class="col-md-1 papp_file_old"></div> 
+                                    <div class="col-md-3">
+                                        <input type="file" class="form-control"  id="papp_file"  name="papp_file"  accept="image/*">
                                     </div>
                                     {{--<div class="col-md-4 view_cpa_ff_file">
 										<input type="hidden" id="hidden_cpa_ff_file">
@@ -711,19 +712,20 @@
                                     <div class="col-md-6">
                                             <label style="font-size:15px;">စတင်လျှောက်ထားသည့်နေ့မတိုင်မီ ၁၂ လအတွင်း စဥ်ဆက်မပြတ် လေ့လာသင်ယူမှု (Continuous Professional Development - CPD) မှတ်တမ်း၊</label>
                                     </div>
-									<div class="col-md-4">
-                                        <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file" required="">
+									<div class="col-md-1 cpd_record_file_old"></div> 
+                                    <div class="col-md-3">
+                                        <input type="file" class="form-control" id="cpd_record_file" name="cpd_record_file" >
                                     </div>
                                 </div><br/><br>
 
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-7">
                                             <label style="font-size:15px;">စုစုပေါင်း နာရီ</label>
                                     </div>
                                     <div class="col-md-3">
-                                            <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" required="" >
+                                            <input type="text" class="form-control" id="total_hours" name="total_hours" placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div><br/>
                                 
@@ -733,8 +735,9 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဂ)') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front" required="" accept="image/*">
+                                    <div class="col-md-1 mpa_mem_card_front_old"></div> 
+                                    <div class="col-md-3">
+                                                <input type="file"  class="form-control" name="mpa_mem_card_front" id="mpa_mem_card_front"  accept="image/*">
                                     </div>
                                 </div><br/><br>
 
@@ -742,8 +745,9 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('') }}</label>
                                     <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
-                                    <div class="col-md-4">
-                                        <input type="file" class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back" required="" accept="image/*">
+                                    <div class="col-md-1 mpa_mem_card_back_old"></div> 
+                                    <div class="col-md-3">
+                                        <input type="file" class="form-control" name="mpa_mem_card_back" id="mpa_mem_card_back"  accept="image/*">
                                     </div>
                                 </div>
 
@@ -752,17 +756,17 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeration No.</div>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no"readonly="">
+                                    <div class="col-md-7 col-form-label">CPA(FF) Registeration No.</div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="reg_no" id="reg_no">
                                     </div>
                                 </div><br/><br>
 
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                    <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-7 col-form-label">PAPP Registeration No.</div>
+                                    <div class="col-md-3">
                                         <input type="text" class="form-control" name="papp_reg_no" placeholder="Enter PAPP Registeration No.">
                                     </div>
                                 </div><br/><br>
@@ -796,6 +800,7 @@
     </script>
 @endsection
 @push('scripts')
+<!-- <script src="{{ asset('js/form_validation/papp_renew_validation.js') }}"></script> -->
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');
@@ -808,12 +813,14 @@
         Papp_feedback();
         checkPaymentPapp();
         loadCpaffData();
-        loadPappData();
-        loadCpaffInitialData();
+        //loadPappData();
+        //loadCpaffInitialData();
         var papp_id=localStorage.getItem('papp_id');
+        console.log("oao",papp_id);
         var reject_description=localStorage.getItem('reject_reason');
         $('#papp_id').val(papp_id);
         $('#remark_description').text(reject_description);
+        
     });
     $("#papp_date").datepicker({
         format: "yyyy",
@@ -838,5 +845,102 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    var id=localStorage.getItem('papp_id');
+    $.ajax({
+            url: BACKEND_URL + "/papp/" + id,
+            type: 'get',
+            success: function (result) {
+                console.log('result==>',result);
+                var papp=result.data[0];
+                document.getElementById('papp_renew_img').src=BASE_URL + papp.profile_photo;
+                var papp_date=new Date(papp.papp_date);
+                $('#papp_date').val(papp_date.getFullYear());
+                $('#cpa_batch_no').val(papp.cpa_batch_no);
+                $('#address').val(papp.address);
+                $('#phone').val(papp.phone);
+                $('#contact_mail').val(papp.contact_mail);
+                $('#cpaff_reg_no').val(papp.cpa_batch_no);
+                if(papp.use_firm==1){
+                    $('#firm_check').attr('checked',true);
+                }
+                else if(papp.firm_name!=null || papp.firm_type!=null || papp.firm_step!=null)
+                {
+                    $('#used_firm_check').attr('checked',true);
+                    $("input[name='used_firm_name']").val(papp.firm_name);
+                    $("input[name='used_firm_type']").val(papp.firm_type);
+                    $("input[name='used_firm_level']").val(papp.firm_step);
+                }
+                else if(papp.staff_firm_name!=null){                
+                    $('#staff_firm_check').attr('checked',true);
+                    $("input[name='staff_firm_name']").val(papp.staff_firm_name);
+                }
+                $("input[name='total_hours']").val(papp.cpd_hours);
+                $("input[name='reg_no']").val(papp.reg_no);                
+                $("input[name='total_audit']").val(papp.audit_work);
+                $("input[name='papp_renew_year']").val(papp.papp_renew_date);
+                $("input[name='papp_reg_no']").val(papp.papp_reg_no);
+                $('.mpa_mem_card_back_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_back + "'  target='_blank'>View File</a><br/>");
+                $('.mpa_mem_card_front_old').append("<a href='" + BASE_URL + papp.mpa_mem_card_front + "'  target='_blank'>View File</a><br/>");
+                $('.cpd_record_file_old').append("<a href='" + BASE_URL + papp.cpd_record + "'  target='_blank'>View File</a><br/>");
+                $('.papp_file_old').append("<a href='" + BASE_URL + papp.cpa_ff_recommendation + "'  target='_blank'>View File</a><br/>");
+                if (papp.ra != null && papp.ra != "null") {
+                    $('#ra_edu').attr('checked', true);
+                    $('#cpa_edu').attr('disabled', true);   
+                    $('#education').attr('disabled', true); 
+                    getCPAEducation();        
+                    $(".ra_file").append("<a href='"+BASE_URL+papp.ra+"'  target='_blank'>View File</a><br/>");
+                }
+                else {
+                    getCPAEducation();
+                    $(".ra_file").append("");
+                }
+                if(papp.cpa!=null && papp.cpa!="null"){
+                    $('#cpa_edu').attr('checked', true);   
+                    $('#education').attr('disabled', true); 
+                    $('#ra_edu').attr('disabled', true);            
+                    getCPAEducation();
+                    $(".cpa_file").show();
+                    $(".cpa_file").append("<a href='" + BASE_URL + papp.cpa + "'  target='_blank'>View File</a><br/>");
+                }
+                else {
+                    getCPAEducation();
+                    $(".cpa_file").append("");
+                }
+                if (papp.foreign_degree != null && papp.foreign_degree != "null") {
+                    $('#education').attr('checked', true);
+                    $('#cpa_edu').attr('disabled', true); 
+                    $('#ra_edu').attr('disabled', true);
+                    getCPAEducation();
+                    let foreign_degree = JSON.parse(papp.foreign_degree);
+                    let degree_name = JSON.parse(papp.degree_name);
+                    let degree_pass_year = JSON.parse(papp.degree_pass_year);
+                    for (let j = 0; j < degree_name.length - 1; j++) {
+                        AddCPAFFDegree();
+                    }
+                    for (let i = 0; i < degree_name.length; i++) {
+                        $('input[name="degree_name[]"]').eq(i).val(degree_name[i]);
+                        $('input[name="degree_pass_year[]"]').eq(i).val(degree_pass_year[i]);
+                        $($(".foreign_degree_file")[i]).append(jQuery("<a href='" + BASE_URL + foreign_degree[i] + "'  target='_blank'>View File</a><br/>"));
+                    }
+                }
+                let audit_company = JSON.parse(papp.company);
+                let audit_period = JSON.parse(papp.period);
+                let audit_manager = JSON.parse(papp.manager);
+                console.log(audit_company)
+                for (let i = 0; i < audit_company.length; i++) {
+                    index=i+1;
+                    var newRow = $("<tr>");
+                    var cols = "";
+                    cols += '<td><input type="text" class="form-control" value='+index+' style="text-align:center;"/></td>';
+                    cols += '<td><input type="text" name="company[]" class="form-control" value='+audit_company[i]+'  autocomplete="off" required/></td>';
+                    cols += '<td><input type="text" name="period[]" class="form-control" value='+audit_period[i]+'  autocomplete="off" required/></td>';
+                    cols += '<td><input type="text" name="manager[]" class="form-control"  value='+audit_manager[i]+' autocomplete="off" required/></td>';
+                    cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowPapp("tbl_papp")><li class="fa fa-times"></li></button></td>';
+                    newRow.append(cols);
+                    $("table.tbl_papp").append(newRow);
+                }
+             }
+        });  
+
 </script>
 @endpush

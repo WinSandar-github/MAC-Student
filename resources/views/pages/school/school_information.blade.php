@@ -71,7 +71,7 @@
 
 								<div id="school_detail">
 									<div class="row">
-										<div class="card col-md-7 m-2">
+										<div class="card col-md-6 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -98,7 +98,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card col-md-4 m-2">
+										<div class="card col-md-5 m-2">
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-12 widget-information">
@@ -107,13 +107,13 @@
 														<div class="info-list">
 															<div class="col-md-12">
 																<ul>
-																		<li><i class="icofont-money"></i> <strong>Application Fee</strong><span class='application-fee'></span> </li>
-																		<li><i class="icofont-money"></i> <strong>Initial Registration Fee</strong><span class='registration-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fee</strong><span class='yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fee</strong><span class='renew-yearly-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Delay Fee</strong><span class='delay-fee'></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Reconnect Fee</strong><span class='reconnected-fee'></li>
+																		<li><i class="icofont-money"></i> <strong>Application Fees</strong><span class='application-fee'></span> </li>
+																		<li><i class="icofont-money"></i> <strong>Initial Registration Fees</strong><span class='registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Yearly Fees</strong><span class='yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Registration Fees</strong><span class='renew-registration-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Yearly Fees</strong><span class='renew-yearly-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Delay Fees</strong><span class='delay-fee'></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Reconnected Fees(per year)</strong><span class='reconnected-fee'></li>
 																		<div class="row register-btn">
                                                                             <div class="col-md-6"></div>
                                                                             <div class="col-md-6">
@@ -411,7 +411,9 @@
                                     <input type="hidden" id="branch_own_type_h">
                                     <input type="hidden" id="hinitial_status">
                                     <input type="hidden" id="type">
-                                    <input type="hidden" id="renew_id">
+                                    <input type="hidden" id="school_name">
+                                    <input type="hidden" id="school_address">
+                                    <input type="hidden" id="hcourse">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
@@ -476,16 +478,24 @@
                                       
                             <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                                    class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)') }}</label>
                                         <div class="col-md-8">
                                             <textarea type="text" name="address" style="resize:none;" class="form-control" autocomplete='off' ></textarea>
                                         
                                         </div>
                             </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၇။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" name="eng_address" style="resize:none;" class="form-control"
+                                                  autocomplete='off' ></textarea>
 
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">{{ __('၇။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
+                                                    class="pull-left">{{ __('၈။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
                                         <div class="col-md-8">
                                             <input type="text" name="phone" class="form-control"  autocomplete='off'>
                                         </div>
@@ -493,7 +503,7 @@
                             </div>
                             <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၈။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
+                                                class="pull-left">၉။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="regno" readonly>
                                         
@@ -509,7 +519,7 @@
                                 </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၉။</span>Status</label>
+                                                class="pull-left">၁၀။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
@@ -517,7 +527,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၀။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၁၁။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>

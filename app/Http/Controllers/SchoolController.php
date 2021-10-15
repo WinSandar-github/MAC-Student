@@ -12,4 +12,10 @@ class SchoolController extends Controller
     public function edit(){
         return view('pages.school.school_edit');
     }
+    public function renew_edit(){
+        return view('pages.school.renew_school_edit');
+    }
+    public function reconnect(){
+        return view('pages.school.school_register_reconnected');
+    }
 }

@@ -2,12 +2,12 @@ $().ready(function (){
 
     $("#audit_reject_register_form").validate({
         rules:{
-            email : "required",
-            password : "required",
-            confirm_password : {
-                required : true,
-                equalTo : "#password"
-            },
+            // email : "required",
+            // password : "required",
+            // confirm_password : {
+            //     required : true,
+            //     equalTo : "#password"
+            // },
             profile_photo : "required",
             accountancy_firm_name : "required",
             township : "required",
@@ -21,7 +21,8 @@ $().ready(function (){
             name_sole_proprietor : "required",
             t_s_p_id : "required",
             declaration : "required",
-            head_office_address : "required"
+            head_office_address : "required",
+            head_office_address_mm : "required"
             // foa_name : "required",
             // foa_pub_pri_reg_no : "required",
             // foa_authority_to_sign : "required"
@@ -46,49 +47,33 @@ $().ready(function (){
             name_sole_proprietor : "Please enter Name Of Sole Proprietor/ Managing Partner",
             t_s_p_id : "Please select Type of Service Provided",
             declaration : "Please enter declaration",
-            head_office_address : "Please enter head office address"
+            head_office_address : "Please enter head office address(English)",
+            head_office_address_mm : "Please enter head office address(Myanmar)"
             //foa_authority_to_sign : "Please select Yes or No"
 
         },
         submitHandler: function(form) {
             // $('#cpaffModal').modal('show');
             // send_email();
-            var send_data = new FormData();
-            send_data.append('email',$("input[name='email']").val());
-            $.ajax({
-            url: BACKEND_URL+"/unique_email",
-            type: 'post',
-            data:send_data,
-            contentType: false,
-            processData: false,
-            success: function(result){
-              if(result.email!=null){
-              Swal.fire("Email has been used, please check again!");
-              }
-              else if(result.email==null){
-                var branch_off_validate_flag = validateBranchOffice();
-                var partners_validate_flag = validatePartners();
-                var directors_validate_flag = validateDirectorsOfficers();
-                var audit_staff_validate_flag = validateAuditStaff();
-                var total_staff_validate_flag = validateTotalStaff();
 
-                console.log(branch_off_validate_flag);
-                console.log(partners_validate_flag);
-                console.log(directors_validate_flag);
-                console.log(audit_staff_validate_flag);
-                console.log(total_staff_validate_flag);
+            var branch_off_validate_flag = validateBranchOffice();
+            var partners_validate_flag = validatePartners();
+            var directors_validate_flag = validateDirectorsOfficers();
+            var audit_staff_validate_flag = validateAuditStaff();
+            var total_staff_validate_flag = validateTotalStaff();
 
-                if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && audit_staff_validate_flag == true && total_staff_validate_flag == true){
-                  $('#auditFirmModal').modal('show');
-                  send_email();
-                }
-                else{
-                  alert("Your form is not valid !!!");
-                }
+            // console.log(branch_off_validate_flag);
+            // console.log(partners_validate_flag);
+            // console.log(directors_validate_flag);
+            // console.log(audit_staff_validate_flag);
+            // console.log(total_staff_validate_flag);
 
-              }
+            if(branch_off_validate_flag == true && partners_validate_flag == true && directors_validate_flag == true && audit_staff_validate_flag == true && total_staff_validate_flag == true){
+              auditRejectUpdate();
             }
-        });
+            else{
+              alert("Your form is not valid !!!");
+            }
       },
 
     });

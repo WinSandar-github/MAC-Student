@@ -74,7 +74,7 @@
 
                                 <div id="cpa_initial">
                                     <div class="row">
-                                        <div class="card col-md-7 m-2">
+                                        <div class="card col-md-6 m-2">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 widget-information">
@@ -100,7 +100,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card col-md-4 m-2">
+                                        <div class="card col-md-5 m-2">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 widget-information">
@@ -120,7 +120,7 @@
                                                                             <div class="col-md-6 pull-right">
                                                                                 <div class="pull-right mt-4">
                                                                                     <p class="info-btn col-md-2 mb-4 text-dark h6">
-                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark" style="padding-left: 5%;">Register</a>
+                                                                                        <a href="{{url('cpa_ff_register')}}" class="btn btn-success btn-hover-dark">Register</a>
                                                                                         
                                                                                     </p>
                                                                                     
@@ -399,7 +399,7 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(စ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
@@ -432,13 +432,30 @@
                             <label class="col-md-10 col-form-label">လျှောက်ထားသူသည် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေအရ ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့်ရရှိထားသူ သို့မဟုတ် ရရှိခဲ့ဖူးသူဖြစ်ပါက အောက်ပါအချက်များကို ရှင်းလင်းဖော်ပြပါ-</label>                                
                         </div><br/>
                             <div class="row">
-                                <div class="col-md-1"></div>
-                                <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
-                                <div class="col-md-6 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ် (မှတ်ပုံတင်အမှတ် <input type="text" name="reg_no" class="form-control" style="display: inline;width: 100px;" > ၊ခုနှစ် <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="display: inline;width: 100px;" >)  (မိတ္တူတင်ပြရန်)</div>
-                                <div class="col-md-4">
-                                    <input type="file"  class="form-control" name="renew_file" style="width:90%;">
-                                </div>
-                            </div><br/>
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
+
+                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                    </div>
+
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+
+                                    <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                    </div><br><br>
+
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+
+                                    <div class="col-md-7 col-form-label">(မိတ္တူတင်ပြရန်)</div>
+                                    <div class="col-md-3">
+                                        <input type="file"  class="form-control" name="renew_file" style="width:90%;">
+                                    </div>
+                                </div><br/>
 
                             <div class="row">
                                 <div class="col-md-1"></div>
@@ -620,6 +637,7 @@
     </script> --}}
 @endsection
 @push('scripts')
+<script src="{{ asset('js/form_validation/cpaff_renew_validation.js') }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         var course_type = location.pathname.split('/');

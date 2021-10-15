@@ -329,6 +329,30 @@
                                             <input type="text" placeholder="အဘအမည်(အင်္ဂလိပ်)" name="father_name_eng" id="father_name_eng" class="form-control" required="">
                                         </div>
                                     </div>
+                                    
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                        <div class="row col-md-8 py-2">
+                                            <div class="col-md-3 form-check-radio mx-2">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" id="male"
+                                                            name="gender" value="Male" required>
+                                                    <span class="form-check-sign"></span>
+                                                    ကျား
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 form-check-radio mx-2">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" id='female'
+                                                            name="gender" value='Female' required>
+                                                    <span class="form-check-sign"></span>
+                                                    မ
+                                                </label>
+                                            </div>
+                                            
+                                            <label  class="error attend_place_error" style="display:none;" for="gender">Please select one</label>
+                                        </div>
+                                    </div>
 
                                     <div class="row mb-2">
                                         {{--<label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
@@ -410,6 +434,8 @@
                                     </div> --}}
 
                                     {{--ပညာအရည်အချင်း(local) လက်မှတ်မိတ္တူအမှန်--}}
+                                    <input type="hidden" id="count" value="0">
+
                                     <div class="row mb-2">
                                         <label for="" class="col-md-3 col-form-label label_align_right"><span class="pull-left">၁၅။</span>ပြည်တွင်းမှရရှိသည့်ပညာအရည်အချင်း</label>
                                         <div class="col-md-9" id="edu">
@@ -441,25 +467,39 @@
                                                     class="pull-left">၁၆။</span>နိုင်ငံခြားတိုင်းပြည်မှပေးအပ်သည့် <br>
                                             ပညာအရည်အချင်း</label>
 
-                                        <div class="col-md-3 pt-3">
+                                        <div class="col-md-9 pt-3">
 
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input"
-                                                       name="edu_status_foreign" value="1">
+                                                       name="edu_status_foreign" value="1" onclick="selectEduForeign()">
                                                 <label class="form-check-label">ACCA</label>
                                             </div>
 
                                             <div class="form-check form-check-inline">
                                                 <input type="radio" class="form-check-input"
-                                                       name="edu_status_foreign" value="2">
+                                                       name="edu_status_foreign" value="2" onclick="selectEduForeign()">
                                                 <label class="form-check-label">CIMA</label>
                                             </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input type="radio" class="form-check-input"
+                                                       name="edu_status_foreign" value="3" onclick="selectEduForeign()" id="other_edu_status">
+                                                <label class="form-check-label" >Other</label>
+                                            </div>
+
+                                            <div class="row mt-2 ml-1 " id="other_edu_div">
+                                                 <div class="col-md-9 offset-md-3 px-3 ">
+                                                    <input type="text" name="other_edu_foreign" id="other_edu_foreign" placeholder="Other" class="form-control ml-2">
+                                                </div>
+                                            </div>
+
 
                                             <label class="error attend_place_error" style="display:none;"
                                                    for="gov_staff">Please select one</label>
                                         </div>
 
                                     </div>
+                                    
 
                                     <div class="row mb-3">
                                         <div class="col-md-2"></div>
@@ -562,6 +602,46 @@
             </div>
         </div>
     </div>
+
+     <!-- Modal -->
+     <form method="post" id="form1" class="needs-validation" action="javascript:void(0);" enctype="multipart/form-data"
+          novalidate>
+        @csrf
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Email Verificatoin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <center><img class="fit-image" src="{{asset('img/email.png')}}" width="15%"></center>
+                        <br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label><h4>VERIFICATION CODE ON YOUR EMAIL</h4></label><br>
+                            <label>We have been sent verification code on your email.Please check your email.</label>
+                        </div>
+                        <br>
+                        <div class="mb-3" style="text-align:center;">
+                            <label style="margin-bottom: 2%;">Enter your verification code</label>
+                            <center><input type="text" class="form-control w-50" name="verify_code"
+                                           placeholder="Enter Verification Code"></center>
+                        </div>
+                    </div>
+                    <center>
+                        <button type="submit" id="btn1" onclick="check_email_qualifiedt_test()"
+                                class="btn btn-success btn-hover-dark w-30">Verify
+                        </button>
+                    </center>
+                    <br>
+                    <div class="col-md-12" style="text-align:center;">
+                        <p>Didn't get code?</p>&nbsp;&nbsp;<a href="#" onclick="send_email()">RESEND CODE</a>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <!-- JavaScript Section -->
     <script>

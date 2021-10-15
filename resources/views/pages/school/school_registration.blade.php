@@ -417,9 +417,18 @@
                             {{--ဆက်သွယ်ရန်လိပ်စာ--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၁၁။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                            class="pull-left">{{ __('၁၁။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" name="address" style="resize:none;" class="form-control"
+                                                  autocomplete='off' ></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၁၂။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" name="eng_address" style="resize:none;" class="form-control"
                                                   autocomplete='off' ></textarea>
 
                                 </div>
@@ -429,7 +438,7 @@
                             {{--ဖုန်းနံပါတ်--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၁၂။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
+                                            class="pull-left">{{ __('၁၃။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
                                 <div class="col-md-8">
                                     <input type="text" name="phone" class="form-control" placeholder="ဖုန်းနံပါတ်"
                                                autocomplete='off' >
@@ -471,9 +480,18 @@
                             {{--ကျောင်းတည်နေရာလိပ်စာ--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ') }}</label>
+                                            class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(မြန်မာ)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" style="resize:none;" name="school_address"
+                                                  class="form-control" autocomplete='off' ></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">၄။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" style="resize:none;" name="eng_school_address"
                                                   class="form-control" autocomplete='off' ></textarea>
 
                                 </div>
@@ -492,7 +510,7 @@
                             {{--ပိုင်ဆိုင်မှုပုံစံ--}}
                             <div class="row">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">၄။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
+                                            class="pull-left">၅။</span>{{ __('ပိုင်ဆိုင်မှုပုံစံ') }}</label>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <div class="form-check mt-2 form-check-inline">
@@ -552,7 +570,7 @@
                             <div class="row mb-3">
 
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">၅။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
+                                            class="pull-left">၆။</span>{{ __('ကျောင်းခွဲတည်နေရာလိပ်စာ') }}</label>
                             </div>
                             <div class="row">
 
@@ -845,6 +863,7 @@
                             </div>
 
                             <input type="hidden" id="student_info_id" >
+                            <input type="hidden" id="initial_reject" value="This user is rejecter but this user is updated">
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                 <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
