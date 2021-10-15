@@ -390,7 +390,7 @@
                                                     <label for="" class="col-form-labe"> အောင်မြင်သည့်နှစ်/လ</label>
                                                 </div>
                                                 <div class="col-md-6 col-auto">
-                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" placeholder="လ၊နှစ်(MMM-YYYY)">
+                                                    <input type="type" class="form-control degree_pass_year" name="degree_pass_year[]" id="degree_pass_year" placeholder="လ၊နှစ်(MMM-YYYY)">
                                                 </div>
                                             </div>
 
@@ -1008,6 +1008,11 @@
             allowInput: true,
     });
     $("#to_date").flatpickr({
+            enableTime: false,
+            dateFormat: "d-M-Y",
+            allowInput: true,
+    });
+    $("#degree_pass_year").flatpickr({
             enableTime: false,
             dateFormat: "d-M-Y",
             allowInput: true,
