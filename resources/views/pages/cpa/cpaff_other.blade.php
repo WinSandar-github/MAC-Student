@@ -599,6 +599,7 @@
         var mmnrc_characters = {!! json_encode($nrc_characters) !!};
         // get language data from myanmarnrc.php config file
         var mmnrc_language = "{{ $nrc_language }}";
+        console.log(mmnrc_regions);
     </script>
 @endsection
 @push('scripts')
