@@ -54,7 +54,7 @@
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                        
                             <li>
-                                  <button value="exam" onclick=" window.open(`${FRONTEND_URL}/entry_exam_list`,'_blank')">Certificate of Certified Public Accountant (Full-Fledged)</button>
+                                  <button value="exam" onclick="location.href =`${FRONTEND_URL}/cpaff_reconnect`">Certificate of Certified Public Accountant (Full-Fledged)</button>
                             </li>
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/reconnect_papp`"> Certificate of Professional Accountant in Public Practice (PAPP) </button>

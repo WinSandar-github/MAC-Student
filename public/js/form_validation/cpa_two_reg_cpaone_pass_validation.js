@@ -1,5 +1,5 @@
 $().ready(function (){
-    $("#cpa_one_form").validate({
+    $("#cpa_two_reg_cpaone_pass_form").validate({
         rules:{
             email : "required",
             password : "required",
@@ -20,37 +20,40 @@ $().ready(function (){
             nrc_back : "required",
             father_name_mm : "required",
             father_name_eng : "required",
+            gender : "required",
             race : "required",
             religion : "required",
             date_of_birth : "required",
             phone : "required",
             current_address : "required",
             address : "required",
-            name : "required",
-            position : "required",
-            department : "required",
-            organization : "required",
-            company_name : "required",
-            salary : "required",
-            office_address : "required",
+            // current_job : "required",
+            // position : "required",
+            // department : "required",
+            // organization : "required",
+            // company_name : "required",
+            // salary : "required",
+            // office_address : "required",
             gov_staff : "required",
             recommend_letter : {
-                required : "#yes:checked"
+                required : "#gov_staff:checked"
             },
-            degree_name : "required",
-            university_name : "required",
-            roll_number : "required",
-            qualified_date : "required",
-            certificate : "required",
-            // acca_cima : "required",
-            // direct_degree : "required",
-            // degree_date : "required",
-            // degree_rank : "required",
+            // degree_name : "required",
+            // university_name : "required",
+            // roll_number : "required",
+            // qualified_date : "required",
+            // certificate : "required",
             attend_place : "required",
             mac_type : {
-                required : "#mac:checked"
+                required : "#main_mac:checked"
             },
-            da_one_declare : "required"
+            cpa_one_attend_place : "required",
+            cpa_one_mac_type : {
+                required : "#da_one_main_mac:checked"
+            },
+            cpa_one_pass_exam_date : "required",
+            cpa_one_pass_level : "required",
+            cpa_one_pass_personal_no : "required",
         },
         messages:{
             email : "Please enter your email",
@@ -72,38 +75,39 @@ $().ready(function (){
             nrc_back : "Please upload nrc photo (front)",
             father_name_mm : "Please enter your father name",
             father_name_eng : "Please enter your father name in english",
+            gender : "Please select gender",
             race : "Please enter your race",
             religion : "Please enter your religion",
             date_of_birth : "Select your date of birth",
             phone : "Please enter your phone number",
             current_address : "Please enter your current address",
             address : "Please enter your address",
-            name : "Please enter your current job",
-            position : "Please enter your position",
-            department : "Please enter your department",
-            organization : "Please enter your organization",
-            company_name : "Please enter your company name",
-            salary : "Please enter your salary",
-            office_address : "Please enter your office address",
+            // current_job : "Please enter your current job",
+            // position : "Please enter your position",
+            // department : "Please enter your department",
+            // organization : "Please enter your organization",
+            // company_name : "Please enter your company name",
+            // salary : "Please enter your salary",
+            // office_address : "Please enter your office address",
             gov_staff : "Please select one",
             recommend_letter : {
                 required : "Please upload recommend letter"
             },
-            degree_name : "Please enter your degree name",
-            university_name : "Please enter your university name",
-            roll_number : "Please enter your roll number",
-            qualified_date : "Please fill your qualified date",
-            certificate : "Please upload your certificate",
-            // acca_cima : "Please select one",
-            // direct_degree : "Please enter pass degree level",
-            // degree_date : "Please enter pass degree date",
-            // degree_rank : "Please enter indentify number",
+            // degree_name : "Please enter your degree name",
+            // university_name : "Please enter your university name",
+            // roll_number : "Please enter your roll number",
+            // qualified_date : "Please fill your qualified date",
+            // certificate : "Please upload your certificate",
             attend_place : "Please select one",
-            da_one_declare : "Please accept our policy",
-            // mac_type : "Please select one",
-            mac_type : {
-                required : "Please select one"
-            },
+            mac_type : "Please select one",
+
+            cpa_one_attend_place : "Please select one",
+            cpa_one_mac_type : "Please select one",
+
+            cpa_one_pass_exam_date : "Please Enter Your CPA One Pass Date",
+            cpa_one_pass_level : "Please enter your CPA One Pass Level",
+            cpa_one_pass_personal_no : "Please enter your CPA One Pass Personal Number",
+
         },
         submitHandler: function(form) {
             var send_data = new FormData();
@@ -126,34 +130,11 @@ $().ready(function (){
                         Swal.fire("NRC has been used, please check again!");
                     }
                     else if(result.email==null && result.nrc==null){
-                        $('#cpaEmailModal').modal('show');
+                        $('#CPATwoRegEmailModal').modal('show');
                         send_email();
                     }
                 }
             });
         }
-
-        
-    });
-
-    $("#da2_pass_cpa_one_form").validate({
-        rules:{            
-            dtype : "required",
-            mac_dtype : {
-                required : "#mac:checked"
-            },            
-        },
-        messages:{            
-            dtype : "Please select one",
-            mac_dtype : {
-                required : "Please select one"
-            },
-        },
-        submitHandler: function(form) {
-            // $('#paymentModal').modal('show');
-            StoreDAtoCPA();
-        }
-
-        
     });
 });
