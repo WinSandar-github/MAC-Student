@@ -381,15 +381,7 @@
 
                                                             <div class="row mb-3">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">(a) Copy of Public Practice Accountant Certificate all partners</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="ppa_certis" ></span>
+                                                                    <label class="form-label">(a) Copy of valid Public Practice Accountant Certificate of all partners</label>
 
                                                                 </div>
                                                             </div>
@@ -397,12 +389,12 @@
                                                                 <div class="entry9">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="ppa_certis[]">
+                                                                            <input type="file" class="form-control" name="ppa_certis[]" required>
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls9","entry9")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls9","entry9")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -415,24 +407,16 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="certi_or_regs" ></span>
-
-                                                                </div>
-                                                            </div>
                                                             <div class="controls10">
                                                                 <div class="entry10">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="certi_or_regs[]">
+                                                                            <input type="file" class="form-control" name="certi_or_regs[]" >
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls10","entry10")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls10","entry10")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -445,24 +429,16 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="deeds_memos" ></span>
-
-                                                                </div>
-                                                            </div>
                                                             <div class="controls11">
                                                                 <div class="entry11">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="deeds_memos[]">
+                                                                            <input type="file" class="form-control" name="deeds_memos[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls11","entry11")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls11","entry11")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -475,24 +451,16 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="letterheads" ></span>
-
-                                                                </div>
-                                                            </div>
                                                             <div class="controls12">
                                                                 <div class="entry12">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="letterheads[]">
+                                                                            <input type="file" class="form-control" name="letterheads[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls12","entry12")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls12","entry12")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -505,29 +473,43 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col-md-11 col-auto">
-                                                                    <span class="tax_clearances" ></span>
-
-                                                                </div>
-                                                            </div>
                                                             <div class="controls13">
                                                                 <div class="entry13">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input disabled type="file" class="form-control" name="tax_clearances[]">
+                                                                            <input type="file" class="form-control" name="tax_clearances[]">
 
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
-                                                                            <button disabled class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFile("controls13","entry13")'>
-                                                                                <i class="fa fa-plus"></i>
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls13","entry13")'>
+                                                                                <li class="fa fa-plus"></li>
                                                                             </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            {{--<div class="row mb-3">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">(f)Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="controls14">
+                                                                <div class="entry14">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="representatives[]">
+
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls14","entry14")'>
+                                                                                <i class="fa fa-plus"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>--}}
 
                                                         </div>
                                                     </div>
@@ -551,13 +533,11 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
                                                             <div class="controls19">
                                                                 <div class="entry19">
                                                                     <div class="row mb-3">
                                                                         <div class="col-md-11 col-auto">
-                                                                            <input type="file" class="form-control" name="ppa_certis[]" >
+                                                                            <input type="file" class="form-control" name="ppa_certis[]" required>
                                                                         </div>
                                                                         <div class="col-md-1 col-auto">
                                                                             <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls19","entry19")'>
@@ -574,8 +554,6 @@
                                                                     <label class="form-label">(b) Copy of Certificate of Incorporation</label>
 
                                                                 </div>
-                                                            </div>
-                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls20">
                                                                 <div class="entry20">
@@ -599,8 +577,6 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
                                                             <div class="controls21">
                                                                 <div class="entry21">
                                                                     <div class="row mb-3">
@@ -617,14 +593,55 @@
                                                                 </div>
                                                             </div>
 
+                                                            {{--<div class="row mb-3">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">(d)Copy of Form 6, Form 26 and Form E</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="controls22">
+                                                                <div class="entry22">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="form6_26e[]">
+
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls22","entry22")'>
+                                                                                <li class="fa fa-plus"></li>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>--}}
+
+                                                            {{--<div class="row mb-3">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">(e)Copy of Form A1 and/or Additional Form</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="controls23">
+                                                                <div class="entry23">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="form_a1[]">
+
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button class="btn btn-success btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls23","entry23")'>
+                                                                                <li class="fa fa-plus"></li>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>--}}
 
                                                             <div class="row mb-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">(d) Copy of commercial tax registration certificate</label>
 
                                                                 </div>
-                                                            </div>
-                                                            <div class="tax_clearances mb-3">
                                                             </div>
                                                             <div class="controls24">
                                                                 <div class="entry24">
@@ -648,8 +665,6 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
                                                             <div class="controls25">
                                                                 <div class="entry25">
                                                                     <div class="row mb-3">
@@ -672,8 +687,6 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="tax_clearances mb-3">
-                                                            </div>
                                                             <div class="controls26">
                                                                 <div class="entry26">
                                                                     <div class="row mb-3">
@@ -689,6 +702,29 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            {{--<div class="row mb-3">
+                                                                <div class="form-group">
+                                                                    <label class="form-label">(i)Representative Letter and Copy of representative's NRC Card if Not Self-Registration</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="controls27">
+                                                                <div class="entry27">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-11 col-auto">
+                                                                            <input type="file" class="form-control" name="representatives[]">
+
+                                                                        </div>
+                                                                        <div class="col-md-1 col-auto">
+                                                                            <button class="btn btn-primary btn-add btn-sm custom-btn" type="button" onclick='addInputFileFirm("controls27","entry27")'>
+                                                                                <i class="fa fa-plus"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>--}}
+
 
                                                         </div>
                                                     </div>
