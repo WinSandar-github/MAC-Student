@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title initial_text" style="display:block;">PAPP Initial Registration <span>Form</span></h2>
+                    <h2 class="title initial_text" style="display:block;">PAPP Manual Registration <span>Form</span></h2>
                     <h2 class="title renew_text" style="display:none;">PAPP Renewal Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
@@ -188,6 +188,77 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            {{--<div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
+                                                        value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);">
+                                                    </p>
+                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
+                                                    <p class="mt-2">
+                                                    <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
+                                                        value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);">
+                                                    </p>
+                                                    <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
+                                                </div>
+                                            </div>--}}
+                                            <div class="col-md-6 text-center">
+                                                <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                                    <div class="fileinput-new thumbnail shadow">
+                                                        <img src="{{ asset('assets/images/image_placeholder.png') }}" alt="Upload Photo">
+                                                    </div>
+                                                    <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                                    <div>
+                                                        <span class="btn btn-secondary btn-round btn-file">
+                                                            <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အရှေ့)</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="hidden" value="">
+                                                            <input type="file" id="nrc_front" name="nrc_front" value="{{ old('nrc_front') }}" accept="image/*">
+                                                        </span>
+                                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                    </div>
+                                                    <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 text-center">
+                                                <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
+                                                    <div class="fileinput-new thumbnail shadow">
+                                                        <img src="{{ asset('assets/images/image_placeholder.png') }}"
+                                                            alt="Upload Photo">
+                                                    </div>
+                                                    <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                                                    <div>
+                                                        <span class="btn btn-secondary btn-round btn-file">
+                                                            <span class="fileinput-new">နိုင်ငံသားစိစစ်ရေးကတ်ပြား(အနောက်)</span>
+                                                            <span class="fileinput-exists">Change</span>
+                                                            <input type="hidden" value=""><input type="file" id="nrc_back" name="nrc_back" value="{{ old('nrc_back') }}" accept="image/*">
+                                                        </span>
+                                                        <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                    </div>
+                                                    <span class="form-text text-danger">Allowed Jpeg and Png Image.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                      
+                                </div><br> 
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <label class="col-md-3 col-form-label label"><span class="pull-left">(စ)</span>ကျား / မ (Gender)</label>
                                     <div class="row col-md-8 py-2">
@@ -360,12 +431,12 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label">{{ __('E-mail Address') }}</div>
+                                    <div class="col-md-3 col-form-label label">{{ __('Contact E-mail Address') }}</div>
                                     <div class="col-md-8" >
                                         <input type="email"  placeholder="E-mail Address" class="form-control" name="contact_mail" id="contact_mail">
                                     </div>
                                 </div>
-                                <div class="row mb-3" style="padding-left: 110px;">
+                                {{--<div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဎ)') }}</span>နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်</div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်">
@@ -402,15 +473,103 @@
                                             <input class="form-control" type="text" style="display:inline; width:100px;" name="to_date" id="to_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;အထိ ရပ်နား Form တင်ခဲ့ပါသည်။
                                         </label>
                                     </div>
+                                </div>--}}
+                                <div class="row">
+                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span><span style="padding-left:0px">{{ __('CPA(Full-Fledged) အချက်အလက်များ') }}</span></label>
                                 </div>
-                                {{--<div class="row mb-3" style="padding-left: 15px;">
-                                    <div class="col-md-3 col-form-label label">{{ __('CPA(FF) Registeraion No.') }}</div>
-                                    <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="reg_no" id="reg_no" required="">
+                                <div class="row" style="padding-left: 110px;">
+                                    <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
+                                    <label class="col-md-11 col-form-label">လျှောက်ထားသူသည် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေအရ ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့်ရရှိထားသူ သို့မဟုတ် ရရှိခဲ့ဖူးသူဖြစ်ပါက အောက်ပါအချက်များကို ရှင်းလင်းဖော်ပြပါ-</label>                                
+                                </div>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၁)') }}</label>
+
+                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                    </div>
+
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+
+                                    <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="reg_card_no" id="reg_card_no" class="form-control" style="width:90%;">
+                                    </div><br><br>
+
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+
+                                    <div class="col-md-7 col-form-label">(မိတ္တူတင်ပြရန်)</div>
+                                    <div class="col-md-3">
+                                        <input type="file"  class="form-control" name="renew_file" style="width:90%;">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၂)') }}</label>
+                                    <div class="col-md-9 col-form-label"> အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်းလုပ်ကိုင်ရာတွင် မြန်မာနိုင်ငံစာရင်းကောင်စီဥပဒေပုဒ်မ ၆၆ တွင်ဖော်ပြထားသည့် တာဝန်တစ်ရပ်ရပ်ကို ဆောင်ရွက်ရန်ပျက်ကွက်ခြင်း၊ ပုဒ်မ ၆၈ တွင် ဖော်ပြထားသည့် ကျင့်ဝတ်သိက္ခာတစ်ရပ်ရပ်ဖောက်ဖျက်ခြင်းတို့နှင့် စပ်လျဉ်း၍ ပုဒ်မ ၇၄ ပုဒ်မခွဲ (ခ) (ဂ) နှင့်ပုဒ်မ ၇၅ တို့အရပြစ်ဒဏ်ချမှတ်ခံထားရသူ ဟုတ်/မဟုတ်။ <input type="text" name="fine_person" class="form-control" style="display: inline;width: 100px;" >
+                                </div>
+                                </div>
+                                <div class="row" style="padding-left: 110px;">
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
+                                    <label class="col-md-11 col-form-label">အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျှက် လျှောက်ထားပါသည်</label>                                                              
+                                </div><br/>
+
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၁)') }}</label>
+                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပြည့်မှီ)မှတ်ပုံတင်လက်မှတ်</div>
+                                    <div class="col-md-4">
+                                        <input type="file"  class="form-control" name="cpa_certificate" required="">
+                                    </div>
+                                </div><br/><br>
+
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၂)') }}</label>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အရှေ့)</div>
+                                    <div class="col-md-4">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_front"  id="mpa_mem_card_front" required="" accept="image/*">
+                                    </div>
+                                </div><br><br>
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label"></label>
+                                    <div class="col-md-6 col-form-label">မြန်မာနိုင်ငံလက်မှတ်ရပြည်သူ့စာရင်းကိုင်များအသင်းဝင်ကတ်ပြား (အနောက်)</div>
+                                    <div class="col-md-4">
+                                        <input type="file"  class="form-control" name="mpa_mem_card_back"  id="mpa_mem_card_back" required="" accept="image/*">
+                                    </div>
+                                </div>      
+                                <div class="row mt-3" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၃)') }}</label>
+                                    <div class="col-md-6 col-form-label">CPA(FF) Registration No.</div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Enter CPA(FF) Registration No." required>
+                                    </div>
+                                </div>
+                                {{--<div class="row mt-3" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၄)') }}</label>
+                                    <div class="col-md-6 col-form-label">CPA(FF) Registration လုပ်ခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="" id="cpaff_reg_year" placeholder="CPA(FF) Registration လုပ်ခဲ့သော ခုနှစ်" required>
+                                    </div>
+                                </div>
+                                <div class="row mt-3" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၅)') }}</label>
+                                    <div class="col-md-6 col-form-label">CPA(FF) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="cpaff_last_renew_year" id="cpaff_last_renew_year" placeholder="CPA(FF) နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" required>
                                     </div>
                                 </div>--}}
-                            </div>
                                 <div class="row">
+                                    <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၃။') }}</span><span style="padding-left:0px">{{ __('PAPP အချက်အလက်များ') }}</span></label>
+                                </div>
+                                {{--<div class="row">
                                     <div class="col-md-1">
                                             <label class="">{{ __('၂။') }}</label>
                                     </div>
@@ -423,35 +582,25 @@
                                                 <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
-
-
-
                                     </div>
-                                </div>
-                                <div class="row mb-2">
+                                </div>--}}
+                                <div class="row mb-2" style="padding-left: 110px;">
                                     <div class="col-md-1">
-                                        <div class="single-form">
-                                            <label class="col-form-label">{{ __('၃။') }}</label>
-
-                                        </div>
+                                            <label class="col-form-label">{{ __('(က)') }}</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <div class="single-form">
-                                            <label class="col-form-label">{{ __('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
-
-                                        </div>
+                                        <label class="col-form-label">{{ __('ကျွန်ုပ်သည် အများပြည်သူသို့ စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ရာတွင်') }}</label>
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="radio" id="firm_check" name="work_name" onclick="getPappFirm()"></div>
                                     <div class="col-md-10">
-
                                         <label style="font-size:15px;"> လုပ်ငန်းအမည် Firm Name အသုံးမပြုပါ။</label>
                                     </div>
                                 </div><br/>
-                                <div class="row mb-3">
+                                <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="radio" name="work_name" id="used_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-10">
@@ -459,7 +608,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                                <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4">
                                         <!-- <div class="single-form"> -->
@@ -472,7 +621,7 @@
                                         <!-- </div> -->
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row mb-2" style="padding-left: 110px;">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4">
                                         <!-- <div class="single-form"> -->
@@ -485,7 +634,7 @@
                                         <!-- </div> -->
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row mb-2" style="padding-left: 110px;">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4">
                                     <!-- <div class="single-form"> -->
@@ -497,7 +646,7 @@
                                         <input type="text" class="form-control" value="" name="used_firm_level" ></div>
                                     <!-- </div> -->
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row mb-2" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1"><input type="radio" name="work_name" id="staff_firm_check" value="" onclick="getPappFirm()"></div>
                                     <div class="col-md-4">
@@ -508,8 +657,94 @@
                                         <input type="text" class="form-control" name="staff_firm_name" ></div>
                                     <!-- </div> -->
                                 </div><br><br><br>
+                                <div class="row" style="padding-left: 110px;">
+                                    <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
+                                    <label class="col-md-11 col-form-label">အောက်ပါစာရွက်စာတမ်းများကို ပူးတွဲတင်ပြလျှက် လျှောက်ထားပါသည်</label>                                                              
+                                </div><br/>
 
-                                <div class="row">
+                                <div class="row" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1">(၁)</div>
+                                    <div class="col-md-4">
+                                        <label >PAPP မှတ်ပုံတင်ကတ်ပြား၊</label>
+                                    </div>
+									<div class="col-md-5">
+                                        <input type="file" class="form-control"  id="papp_file"  name="papp_file" required="" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3 mb-2" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၂)') }}</label>
+                                    <div class="col-md-4 col-form-label">PAPP Registration No.</div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" placeholder="Enter PAPP Registration No." required>
+                                    </div>
+                                </div>
+                                {{--<div class="row mb-2" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၃)') }}</label>
+                                    <div class="col-md-4 col-form-label">PAPP Registration လုပ်ခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="" id="papp_reg_year" placeholder="PAPP Registration လုပ်ခဲ့သော ခုနှစ်" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-2" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၄)') }}</label>
+                                    <div class="col-md-4 col-form-label">PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="papp_last_renew_year" id="papp_last_renew_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" required>
+                                    </div>
+                                </div>--}}
+                                <div class="row mb-2" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၃)') }}</label>
+                                    <div class="col-md-4 col-form-label">နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်</div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-2" style="padding-left: 110px;">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၄)') }}</label>
+                                    <div class="col-md-4 col-form-label">ရပ်နား Form တင်ထားခြင်းရှိ/မရှိ</div>
+                                    <div class="row col-md-6 py-2">
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id="yes"
+                                                        name="submitted_stop_form" value="1" onclick="$('#date_range').show()" required>
+                                                <span class="form-check-sign"></span>
+                                                ရှိ
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id='no'
+                                                        name="submitted_stop_form" value='0'  onclick="$('#date_range').hide()" required>
+                                                <span class="form-check-sign"></span>
+                                                မရှိ
+                                            </label>
+                                        </div>
+                                        
+                                        <label  class="error attend_place_error" style="display:none;" for="submitted_stop_form">Please select one</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-2" style="padding-left: 110px;display:none" id="date_range" >
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-6" style="padding-left:0px;">
+                                        <label>
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="from_date" id="from_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;မှ&nbsp;&nbsp;
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="to_date" id="to_date" placeholder="ရက်၊လ၊နှစ်">&nbsp;&nbsp;အထိ ရပ်နား Form တင်ခဲ့ပါသည်။
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row mt-5 mb-3" style="padding-left: 110px;">
+                                    <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onchange="$('#btn_reconnect_papp').prop('disabled', !this.checked)"></div>
+                                        <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
+                                    </div>
+								</div>
+                                {{--<div class="row">
                                     <div class="col-md-1">
                                             <label class="">{{ __('၄။') }}</label>
                                     </div>
@@ -624,10 +859,6 @@
 									<div class="col-md-4">
                                         <input type="file" class="form-control"  id="papp_file"  name="papp_file" required="" accept="image/*">
                                     </div>
-                                    {{--<div class="col-md-4 view_cpa_ff_file">
-										<input type="hidden" id="hidden_cpa_ff_file">
-                                        <!-- <input type="file" class="form-control"  id="cpa_ff_file"  name="cpa_ff_file"> -->
-                                    </div>--}}
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-1"></div>
@@ -668,18 +899,18 @@
                                 <div class="row mt-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">CPA(FF) Registration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Enter CPA(FF) Registeration No." required>
+                                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Enter CPA(FF) Registration No." required>
                                     </div>
                                 </div>
 
                                 <div class="row mt-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-                                    <div class="col-md-6 col-form-label">PAPP Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">PAPP Registration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" placeholder="Enter PAPP Registeration No." required>
+                                        <input type="text" class="form-control" name="papp_reg_no" id="papp_reg_no" placeholder="Enter PAPP Registration No." required>
                                     </div>
                                 </div>
                                 
@@ -688,7 +919,7 @@
                                     <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" onchange="$('#btn_reconnect_papp').prop('disabled', !this.checked)"></div>
                                         <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                                     </div>
-								</div>
+								</div>--}}
                               <div class="row mb-3">
                                   <div class="col-md-2 offset-md-5">
                                       <button type="submit" id="btn_reconnect_papp" class="btn btn-success btn-hover-dark w-100 renew_submit" disabled>{{ __('Submit') }}</button>
@@ -787,5 +1018,41 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
+    $("#latest_reg_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("#old_card_no_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#cpaff_reg_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("#cpaff_last_renew_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
+    $("#papp_reg_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    });
+    $("#papp_last_renew_year").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
+    }); 
 </script>
 @endpush

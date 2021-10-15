@@ -887,12 +887,14 @@ function createReconnectPapp(){
     var cpa = $("input[name=cpa]")[0].files[0];
     var ra = $("input[name=ra]")[0].files[0];
     var papp_file=$('#papp_file')[0].files[0];
-    var cpd_record_file=$('#cpd_record_file')[0].files[0];
     var mpa_mem_card_front=$('#mpa_mem_card_front')[0].files[0];
     var mpa_mem_card_back=$('#mpa_mem_card_back')[0].files[0];
     var nrc_state_region = $("#nrc_state_region").val();
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
+    var nrc_front       =   $("input[name=nrc_front]")[0].files[0];
+    var nrc_back        =   $("input[name=nrc_back]")[0].files[0];
+    var cpa_certificate        =   $("input[name=cpa_certificate]")[0].files[0];
     var send_data = new FormData();
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
@@ -911,6 +913,8 @@ function createReconnectPapp(){
     send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
     send_data.append('address', $("input[name=address]").val());
     send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('nrc_front', nrc_front);
+    send_data.append('nrc_back', nrc_back);
     if ($("#cpa_edu").prop("checked")) {
         send_data.append('cpa', cpa);
     }
@@ -931,18 +935,42 @@ function createReconnectPapp(){
         });
     }
 
-    $('input[name="company[]"]').map(function () {
-        send_data.append('company[]', $(this).val());
-    });
-    $('input[name="period[]"]').map(function () {
-        send_data.append('period[]', $(this).val());
-    });
-    $('input[name="manager[]"]').map(function () {
-        send_data.append('manager[]', $(this).val());
-    });
+    // $('input[name="company[]"]').map(function () {
+    //     send_data.append('company[]', $(this).val());
+    // });
+    // $('input[name="period[]"]').map(function () {
+    //     send_data.append('period[]', $(this).val());
+    // });
+    // $('input[name="manager[]"]').map(function () {
+    //     send_data.append('manager[]', $(this).val());
+    // });
     var firm_check = document.getElementById("firm_check");
     var used_firm_check = document.getElementById("used_firm_check");
     var staff_firm_check = document.getElementById("staff_firm_check");
+      
+    send_data.append('mpa_mem_card_front', mpa_mem_card_front);
+    send_data.append('mpa_mem_card_back', mpa_mem_card_back);
+    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
+    send_data.append('address', $("input[name=address]").val());
+    send_data.append('phone', $("input[name=phone]").val());
+    send_data.append('contact_mail', $("input[name=contact_mail]").val());  
+
+    //cpaff_data    
+    send_data.append('cpa_certificate', cpa_certificate);
+    send_data.append('reg_no', $("input[name=reg_no]").val());
+    send_data.append('old_card_no', $("input[name=reg_card_no]").val());
+    send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
+    send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
+    send_data.append('is_convicted', $("input[name=fine_person]").val());
+    send_data.append('is_renew',1);
+
+    //papp_data
+    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
+    send_data.append('cpa_ff_recommendation', papp_file);
+    send_data.append('submitted_from_date', $("input[name=from_date]").val());
+    send_data.append('submitted_to_date', $("input[name=to_date]").val());
+    send_data.append('latest_reg_year', $("input[name=latest_reg_year]").val());
+    send_data.append('submitted_stop_form', $("input[type='radio'][name='submitted_stop_form']:checked").val());
     if(firm_check.checked==true){
         send_data.append('use_firm',1);
     }
@@ -966,29 +994,9 @@ function createReconnectPapp(){
     }
     else{
         send_data.append('staff_firm_name', "");
-    }
-    send_data.append('papp_date', $("input[name=papp_date]").val());
-    send_data.append('papp_renew_date', $("input[name=papp_renew_year]").val());
-    send_data.append('papp_reg_date', $("input[name=papp_reg_date]").val());
-    send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
-    send_data.append('audit_work', $("input[name=total_audit]").val());
+    } 
+    send_data.append('type',1);
 
-    send_data.append('cpa_ff_recommendation', papp_file);
-    send_data.append('cpd_record', cpd_record_file);
-    send_data.append('mpa_mem_card_front', mpa_mem_card_front);
-    send_data.append('mpa_mem_card_back', mpa_mem_card_back);
-    send_data.append('cpd_hours', $("#total_hours").val());
-    send_data.append('tax_year', $("input[name=tax_year]").val());
-    send_data.append('cpa_batch_no', $("input[name=cpa_batch_no]").val());
-    send_data.append('address', $("input[name=address]").val());
-    send_data.append('phone', $("input[name=phone]").val());
-    send_data.append('contact_mail', $("input[name=contact_mail]").val());
-    send_data.append('reg_no', $("input[name=reg_no]").val());
-    send_data.append('submitted_from_date', $("input[name=from_date]").val());
-    send_data.append('submitted_to_date', $("input[name=to_date]").val());
-    send_data.append('latest_reg_year', $("input[name=latest_reg_year]").val());
-    send_data.append('submitted_stop_form', $("input[type='radio'][name='submitted_stop_form']:checked").val());
-    send_data.append('type',0);
     show_loader();
     $.ajax({
         url: BACKEND_URL+"/reconnect_papp",
@@ -998,18 +1006,12 @@ function createReconnectPapp(){
         processData: false,
         success: function(result){
             EasyLoading.hide();
-            console.lof(result);
             successMessage(result.message);
             // location.reload();
-            location.href = FRONTEND_URL+'/';
-            document.getElementById('approved').style.display='none';
-            document.getElementById('rejected').style.display='none';
-            document.getElementById('pending').style.display='none';
-            document.getElementById('papp_form').style.display='none';
-            document.getElementById('papp_renew_form').style.display='none';
-            document.getElementById('expiry_card').style.display='none';
+            location.href = FRONTEND_URL+"/";
         },
         error:function (message){
+            EasyLoading.hide();
         }
     });
 }
