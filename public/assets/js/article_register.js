@@ -79,6 +79,45 @@ function AddPolice() {
     police_count++;
 }
 
+// function loadMentorList(){
+//     var select = document.getElementById("mentor_id");
+//     $.ajax({
+//         url: BACKEND_URL+"/mentor",
+//         type: 'get',
+//         data:"",
+//         success: function(data){
+
+//             var montor_data=data.data;
+//             montor_data.forEach(function (element) {
+//                 var option = document.createElement('option');
+//                 option.text = element.name_eng;
+//                 option.value = element.id;
+//                 select.add(option,0);
+
+//             });
+//         },
+//         error:function (message){
+
+//         }
+
+//     });
+// }
+
+// function gerPappName(){
+//     var id = document.getElementById("mentor_id");
+//     $.ajax({
+//         type: 'GET',
+//         url: BACKEND_URL + "/getMentor/" + id,
+//         success: function (mentor) {
+//             console.log(mentor);
+//         },
+//         error:function (message){
+
+//         }
+
+//     });
+// }
+
 function createArticleFirmRegister() {
     var send_data = new FormData();
 

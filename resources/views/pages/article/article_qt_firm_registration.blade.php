@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:void(0);"
+                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 
@@ -480,6 +480,13 @@
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
                                         </div>
 
