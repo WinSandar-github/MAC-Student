@@ -853,7 +853,7 @@ function updateTeacher(){
                                 $('input[name=nrc_township]').val(teacher.nrc_township);
                                 $('input[name=nrc_citizen]').val(teacher.nrc_citizen);
                                 $('input[name=nrc_number]').val(teacher.nrc_number);
-                                $('input[name=phone_renew]').val(teacher.phone);
+                                $('input[name=phone]').val(teacher.phone);
                                 
                                 $('#teacher_id').val(teacher.id);
                                 $('#student_info_id').val(teacher.student_info_id);
@@ -876,7 +876,7 @@ function updateTeacher(){
                                 $('#hschool_name_renew').val(teacher.school_name);
                                 $('input[name=school_name_renew]').val(teacher.school_name);     
                                     
-                                    //loadEductaionHistoryByRenew(new_teacher_renew.id,'tbl_degree_renew_update');
+                                    loadEductaionHistoryByRenew(teacher.id,'tbl_degree_renew_update');
                                         if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                             loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject_renew_update");
                                             loadSubject(2,"selected_cpa_subject_renew_update");
@@ -900,7 +900,8 @@ function updateTeacher(){
                                         $("input[name=religion]").val(teacher.religion);
                                         $("input[name=date_of_birth]").val(teacher.date_of_birth);
                                         $("input[name=address]").val(teacher.address);
-                                        $("input[name=current_address]").val(teacher.current_address);
+                                        $("textarea[name=eng_current_address]").val(teacher.eng_current_address);
+                                        $("textarea[name=current_address]").val(teacher.current_address);
                                         $("input[name=position]").val(teacher.position);
                                         $("input[name=department]").val(teacher.department);
                                         $("input[name=organization]").val(teacher.organization);
@@ -1071,12 +1072,12 @@ function loadEductaionHistoryByRenew(id,table){
     $.ajax({
         type : 'POST',
         url : BACKEND_URL+"/getEducationHistory",
-        data: 'renewteacher_id='+id,
+        data: 'teacher_id='+id,
         success: function(result){
             $.each(result.data, function( index, value ){
                 var tr="<tr>";
                 tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_renewdegrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.university_name+'" readonly/></td>';
+                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.university_name+'" /></td>';
                 tr += '<td><input type="hidden" name="old_renewdegrees_certificates_h[]" class="form-control" value='+value.certificate+'><input type="file" name="old_renewdegrees_certificates[]" class="form-control"><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
                 tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
                 tr += "</tr>";
@@ -1104,7 +1105,7 @@ function updateRenewTeacherByReject(){
     
     var id=$('#teacher_id').val();
     //send_data.append('_method', 'PATCH');
-    show_loader();
+   show_loader();
     $.ajax({
         url: BACKEND_URL+'/renewTeacherUpdate/'+id,
         type: 'post',

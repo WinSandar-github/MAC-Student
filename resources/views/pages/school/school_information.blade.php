@@ -478,16 +478,24 @@
                                       
                             <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</label>
+                                                    class="pull-left">{{ __('၆။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)') }}</label>
                                         <div class="col-md-8">
                                             <textarea type="text" name="address" style="resize:none;" class="form-control" autocomplete='off' ></textarea>
                                         
                                         </div>
                             </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label label"><span
+                                            class="pull-left">{{ __('၇။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)') }}</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" name="eng_address" style="resize:none;" class="form-control"
+                                                  autocomplete='off' ></textarea>
 
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span
-                                                    class="pull-left">{{ __('၇။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
+                                                    class="pull-left">{{ __('၈။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
                                         <div class="col-md-8">
                                             <input type="text" name="phone" class="form-control"  autocomplete='off'>
                                         </div>
@@ -495,7 +503,7 @@
                             </div>
                             <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၈။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
+                                                class="pull-left">၉။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="regno" readonly>
                                         
@@ -511,7 +519,7 @@
                                 </div> -->
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label label"><span
-                                                class="pull-left">၉။</span>Status</label>
+                                                class="pull-left">၁၀။</span>Status</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" id="message" readonly>
                                        
@@ -519,7 +527,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-8 col-form-label label"><span
-                                                class="pull-left">၁၀။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
+                                                class="pull-left">၁၁။</span>{{ __('ယခင်မှတ်ပုံတင်ထားသည့်အချက်အလက်များမှပြောင်းလဲလိုသည့်အချက်အလက်များ') }}</label>
 
                                     
                                 </div>
