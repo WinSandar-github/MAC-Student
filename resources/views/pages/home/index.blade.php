@@ -215,15 +215,19 @@
                                 <a href="{{ url('cpa_ff_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
 
-                                
-                                <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="cpaff-description"></div>
+                                        </div>
+                                </div>
+                                {{--<ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">
                                     <li> အသက် ၂၁ နှစ်ပြည့်ပြီးသူ </li>
                                     <li>  CPA Part-2 စာမေးပွဲအောင်မြင်သူ (သို့မဟုတ်) အရည်အချင်းစစ်စာမေးပွဲအောင်မြင်ပြီးသူ</li>
                                     <li>  သတ်မှတ်အလုပ်သင်လုပ်သက်ပြည့်မြောက်ပြီးသူ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ
                                     <li>  MICPA အသင်းဝင် </li>
                                     <li> . . .</li>
-                                </ul>
+                                </ul>--}}
 
 
                                 
@@ -241,13 +245,17 @@
                                 <h4 class="d-inline-block"> Certificate of Professional Accountant in Public Practice (PAPP) </h4> 
                                 <a href="{{ url('student_papp_information') }}" class="btn btn-success" style="float:right !important">  Read More</a>
                                 <hr>
-
+                                <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="papp-description"></div>
+                                        </div>
+                                </div>
                                 
-                                <ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">   
+                                {{--<ul style="line-height:180%; font-family: Arial, Helvetica, sans-serif; text-align: justify;">   
                                     <li> CPA(FF) မှတ်ပုံတင်သက်တမ်း ၁ နှစ် ပြည့်မြောက်သူများ</li>
                                     <li> စတင်လျှောက်ထားသည့် နေ့မတိုင်မီ ၁၂ လအတွင်း အနဲဆုံး CPD ၂၀ နာရီ ပြည့်မီသူ</li>
                                     <li> . . .</li>
-                            </ul>
+                            </ul>--}}
 
 
                                 
@@ -362,5 +370,7 @@
 <script type="text/javascript">
     loadDescription('School','school-description');
     loadDescription('Teacher','teacher-description');
+    loadDescription('PAPP','papp-description');
+    loadDescription('CPAFF','cpaff-description');
 </script>
 @endpush
