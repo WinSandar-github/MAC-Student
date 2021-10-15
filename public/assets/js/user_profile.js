@@ -2811,13 +2811,13 @@ function updateProfileSchool(){
 }
 function changePasswordTeacher(){
     show_loader();
-    if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
+    if ($("input[id=teacher_password]").val() != $("input[id=teacher_confirm_password]").val()) {
         EasyLoading.hide();
-        $("input[name=password]").val('');
-        $("input[name=confirm_password]").val('');
-        $("input[name=password]").addClass('is-invalid');
-        $("input[name=confirm_password]").addClass('is-invalid');
-        $('#err_message').text("Your password and confirm password do not match!");
+        $("input[id=teacher_password]").val('');
+        $("input[id=teacher_confirm_password]").val('');
+        $("input[id=teacher_password]").addClass('is-invalid');
+        $("input[id=teacher_confirm_password]").addClass('is-invalid');
+        $('#teacher_err_message').text("Your password and confirm password do not match!");
     } else {
         var formData = new FormData($("#school_teacher_form")[0]);
         formData.append('id', student_id);
@@ -2836,8 +2836,8 @@ function changePasswordTeacher(){
             error: function (err) {
                 EasyLoading.hide();
                 if (err.status == 401) {
-                    $('#old_pwd').addClass('is-invalid');
-                    $('#old_err_meg').text(err.responseJSON.error);
+                    $('#teacher_old_pwd').addClass('is-invalid');
+                    $('#teacher_old_err_meg').text(err.responseJSON.error);
                 }
             }
         });
