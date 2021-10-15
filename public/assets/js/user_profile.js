@@ -675,12 +675,19 @@ function user_profile() {
 
 
                             } else {
+                                console.log('latest_course_reg',latest_course_reg[0]);
                                 $('.status').append(`
                                 <tr>
                                     <td>Cpa One Entry Exam Registration Form</td>
                                     <td>${formatDate(last_exam[0].created_at)}</td>
                                     <td>${formatDate(last_exam[0].updated_at)}</td>
                                     <td><span class="badge bg-danger">Reject</span></td>
+                                </tr>
+                                <tr>
+                                    <td>မှတ်ချက် - </td>
+                                    <td colspan=2>${latest_course_reg[0].remark}</td><td>
+                                        <a href="${FRONTEND_URL + '/entry_edit'}" class="btn btn-sm btn-success">Update Cpa One Entry Exam Registration Form</a>
+                                    </td>
                                 </tr>
                                 `);
 

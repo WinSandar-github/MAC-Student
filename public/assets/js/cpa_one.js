@@ -73,7 +73,8 @@ function Private_School_Submit() {
     var profile_photo= $("input[name=profile_photo_private]")[0].files[0];
     var student = JSON.parse(localStorage.getItem('studentinfo'));
     var data = new FormData();
-    data.append('student_id', student.id)
+    data.append('student_id', student.id);
+    data.append('sr_no', $("input[name='sr_no']").val());
     data.append('private_school_name', $("#selected_school_id option:selected").text());
     data.append('academic_year', $("#academic_year_private").val());
     data.append('direct_access_no', $("#direct_access_no_private").val());
@@ -131,6 +132,7 @@ function Self_Study_Submit() {
     var profile_photo= $("input[name=profile_photo_self]")[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
+    data.append('sr_no', $("input[name='sr_no']").val());
     data.append('academic_year', $("#academic_year_self").val());
     data.append('direct_access_no', $("#direct_access_no_self").val());
     data.append('entry_success_no', $("#entry_success_no_self").val());
@@ -191,6 +193,7 @@ function Mac_Submit() {
     var no_crime_file = $('#no_crime_file')[0].files[0];
     var data = new FormData();
     data.append('student_id', student.id);
+    data.append('sr_no', $("input[name='sr_no']").val());
     data.append('academic_year', $("#academic_year_mac").val());
     data.append('direct_access_no', $("#direct_access_no_mac").val());
     data.append('entry_success_no', $("#entry_success_no_mac").val());
@@ -243,12 +246,12 @@ function Mac_Submit() {
 
 
 //store cpa  app form
-$('#cpa_register').submit(function (e) {
+function SubmitCPAforDaTwoPass() {
     if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
         alert("Your password and confirm password do not match!");
         return;
     }
-    e.preventDefault();
+    
 
     var certificate = $('input[name="certificate[]"]');
 
@@ -363,7 +366,7 @@ $('#cpa_register').submit(function (e) {
         }
     })
 
-})
+}
 
 
 function cpa_edit() {
@@ -718,7 +721,7 @@ function check_email_cpa() {
         // $('#exampleModal1').modal('hide');
         // $('#exampleModal').modal('show');
     } else {
-        $('#cpaPaymentModal').modal('show');
+        SubmitCPAforDaTwoPass();
         $('#cpaEmailModal').modal('hide');
     }
 }
@@ -768,19 +771,19 @@ function check_email_cpa_entry() {
         // $('#exampleModal1').modal('hide');
         // $('#exampleModal').modal('show');
     } else {
-        $('#cpaEntryPaymentModal').modal('show');
+        SubmitCPAEntryForm();
         $('#cpaEntryEmailModal').modal('hide');
 
 
     }
 }
 
-$('#cpa_entry_register').submit(function (e) {
+function SubmitCPAEntryForm() {
     if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
         alert("Your password and confirm password do not match!");
         return;
     }
-    e.preventDefault();
+    
     var is_gov_staff;
     if (document.getElementById('yes').checked) {
         is_gov_staff = 1;
@@ -868,7 +871,7 @@ $('#cpa_entry_register').submit(function (e) {
     // send_data.append('qt_entry',1);
 
     send_data.append('batch_id', batch_id)
-    //show_loader(); 
+    show_loader(); 
 
     $.ajax({
         type: "POST",
@@ -878,7 +881,7 @@ $('#cpa_entry_register').submit(function (e) {
         data: send_data,
         success: function (data) {
             // console.log('data',data)
-            //EasyLoading.hide();
+            EasyLoading.hide();
             successMessage("You have successfully registerd!");
 
             if (data.name_mm != null) {
@@ -896,7 +899,7 @@ $('#cpa_entry_register').submit(function (e) {
 
     })
 
-})
+}
 
 $("#cpa_one_entry_app_submit").click(function () {
 

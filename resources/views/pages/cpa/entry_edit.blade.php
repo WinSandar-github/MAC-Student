@@ -71,7 +71,7 @@
     <div class="form-wrapper">
         <div class="row">
             <div class="col-md-12">
-                <form class="needs-validation" id="da_update" action="javascript:void();" method="post" enctype="multipart/form-data" novalidate>
+                <form class="needs-validation" id="entry_exam_update" action="javascript:void();" method="post" enctype="multipart/form-data" novalidate>
                     @csrf
                     <input type="hidden" name="stu_id" id="stu_id">
                     <div class="card border-success mb-3" style="padding:3% 5% 3% 5%;">
@@ -80,10 +80,11 @@
                             <div class="row mb-5">
                                 <h5 class="card-title text-center fw-bolder mb-3">
                                     မြန်မာနိုင်ငံစာရင်းကောင်စီ<br>
-                                    ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း)သင်တန်းတက်ရောက်ခွင့်လျှောက်လွှာ
+                                    လက်မှတ်ရပြည်သူ့စာရင်းကိုင်(ပထမပိုင်း)သင်တန်းဝင်ခွင့်စာမေးပွဲလျှောက်လွှာ
                                 </h5>
                                 <div class="d-flex justify-content-between">
                                     <h6>ရက်စွဲ - {{ date('d-M-Y') }}</h6>
+                                    <h6 style="padding-right:80px">စာမေးပွဲဖြေဆိုမည့် လ/ခုနှစ် - <span name="exam_date" id="exam_date"></span></h6>
                                     <h6>အမှတ်စဥ် - <span class="batch_number"></span></h6>
                                 </div>
                                 
@@ -563,6 +564,8 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function (e) {
+        // direct_or_da();
+
         // da_edit();
         $("input[name='date']").flatpickr({
                 enableTime: false,
@@ -655,7 +658,14 @@
                             processData: false,
                             async:false,
                             success: function (res) {
-                                 
+                                 console.log('batch',res);
+                                 let entry_exam = res.data.exams.slice(-1);
+                                console.log('entry_exam',entry_exam);
+                                if(entry_exam.length != 0){
+                                    $('#exam_date').append(formatDateMYEntry(entry_exam[0].exam_start_date));
+                                }else{
+                                    $('#exam_date').append("-------");
+                                }
                                 $('.batch_number').append(res.data.number);
                             }
                         })
