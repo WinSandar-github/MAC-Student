@@ -51,6 +51,12 @@ class CPATwoRegisterController extends Controller
         return view('pages.cpa.cpa_two_exam_register');
     }
 
+    public function CPATwoRegCpaOnePassForm()
+    {
+
+        return view('pages.cpa.cpa_two_reg_cpaone_pass');
+    }
+
     public function cpaTwoAppForm($id)
     {       
         $client = new \GuzzleHttp\Client();

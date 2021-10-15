@@ -39,6 +39,11 @@ class CPAOneRegisterController extends Controller
     {
         return view('pages.cpa.cpa_edit');
     }
+
+    public function entry_edit()
+    {      
+        return view('pages.cpa.entry_edit');
+    }
     public function cpaExamRegister()
     {
         return view('pages.cpa.cpa_exam_register');
