@@ -658,7 +658,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်</label>
                                                         <div class="col-md-8">
-                                                            <input type="file" class="form-control" accept="image/*" required>
+                                                            <input type="file" name="teacher_card" class="form-control" accept="image/*" required>
                                                             
                                                         </div>
                                                 </div>   

@@ -261,7 +261,7 @@ function user_profile() {
                             <td>${formatDate(qt.updated_at)}</td>
                             <td><span class="badge bg-success text-dark">Approve</span></td>
                         </tr>
-                        
+
                         `);
 
                     } else if (qt.grade == 1) {
@@ -287,7 +287,7 @@ function user_profile() {
                             <td>${formatDate(qt.updated_at)}</td>
                                 <td><span class="badge bg-warning">Failed</span></td>
                             </tr >
-                            
+
                         `);
                     }
 
@@ -299,14 +299,14 @@ function user_profile() {
                         <td>${formatDate(qt.updated_at)}</td>
                         <td><span class="badge bg-warning text-dark">Reject</span></td>
                     </tr>
-                    
+
                     <tr><td colspan=2></td><td>Action</td>
                         <td>
                         <a href="${qt_edit}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>
                         <td>
                     </td>
                     </tr>
-               
+
                     `);
                     // $('.status').append('Qualified Test Form is Rejected.');
                     // $('.status').append(`<a href="${qt_edit}" class="btn btn-outline-primary btn-sm ms-2"><i class="fa fa-pencil-square-o me-2" aria-hidden="true"></i>Edit Profile</a>`);
@@ -2372,11 +2372,11 @@ function saveRegistrationFee(id){
     $('#cash_img').click(function() {
         $('#article_registration_btn').prop('disabled', false);
     });
-    
+
     $('#cb_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
-    
+
     $('#mpu_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
@@ -2416,11 +2416,11 @@ function saveGovRegistrationFee(id){
     $('#cash_img').click(function() {
         $('#article_registration_btn').prop('disabled', false);
     });
-    
+
     $('#cb_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
-    
+
     $('#mpu_img').click(function() {
         $('#article_registration_btn').prop('disabled', true);
     });
@@ -2532,7 +2532,7 @@ function loadSchoolByDash(school_data) {
 
                     $('.sch_reject-reason').append(school.reason);
                 }
-            
+
             if(school.payment_method != null) {
                 $('.sch_period').show();
                 var now = new Date();
@@ -2615,7 +2615,7 @@ function laodTeacherByDash(teacher_data) {
         //     }else if(teacher.initial_status==1){
         //        $('#teacher_period_time').text('01-01-'+ now.getFullYear() + " to 31-12-" + now.getFullYear());
         //     }
-            
+
         // }
         if (teacher.payment_method != null) {
             $('.teacher_period').show();
@@ -2690,6 +2690,14 @@ function firmDashboardData() {
                 let firm_ownerships_audits = result.firm_ownerships_audits;
                 //console.log("firm_ownerships_audits >>",firm_ownerships_audits);
                 acc_firm.forEach(function (acc_firm) {
+                    $("#audit_id").val(acc_firm.id);
+                    $("#audit_old_profile_photo").val(acc_firm.image);
+                    $("#previewAuditImg").attr("src",BASE_URL+acc_firm.image);
+                    $("#audit_update_email").val(data.email);
+                    $("#audit_phone").val(acc_firm.telephones);
+                    $("#audit_address_mm").val(acc_firm.head_office_address_mm);
+                    $("#audit_address_eng").val(acc_firm.head_office_address);
+
                     $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                     $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                     $("#head_office").text(acc_firm.head_office_address);
@@ -2751,9 +2759,10 @@ function firmDashboardData() {
         }
     });
 }
+
 function updateProfileTeacher(){
     var formData = new FormData($("#teacher_update_form" )[0]);
-    
+
     var teacher_id=$('#teacher_id').val();
     formData.append('membership','teacher');
     formData.append('old_image',$('#old_profile_photo').val());
@@ -2778,7 +2787,7 @@ function updateProfileTeacher(){
 }
 function updateProfileSchool(){
     var formData = new FormData($("#school_update_form" )[0]);
-    
+
     var school_id=$('#school_id').val();
     formData.append('membership','school');
     formData.append('old_image',$('#old_school_profile_photo').val());
@@ -2803,13 +2812,13 @@ function updateProfileSchool(){
 }
 function changePasswordTeacher(){
     show_loader();
-    if ($("input[name=password]").val() != $("input[name=confirm_password]").val()) {
+    if ($("input[id=teacher_password]").val() != $("input[id=teacher_confirm_password]").val()) {
         EasyLoading.hide();
-        $("input[name=password]").val('');
-        $("input[name=confirm_password]").val('');
-        $("input[name=password]").addClass('is-invalid');
-        $("input[name=confirm_password]").addClass('is-invalid');
-        $('#err_message').text("Your password and confirm password do not match!");
+        $("input[id=teacher_password]").val('');
+        $("input[id=teacher_confirm_password]").val('');
+        $("input[id=teacher_password]").addClass('is-invalid');
+        $("input[id=teacher_confirm_password]").addClass('is-invalid');
+        $('#teacher_err_message').text("Your password and confirm password do not match!");
     } else {
         var formData = new FormData($("#school_teacher_form")[0]);
         formData.append('id', student_id);
@@ -2828,16 +2837,76 @@ function changePasswordTeacher(){
             error: function (err) {
                 EasyLoading.hide();
                 if (err.status == 401) {
-                    $('#old_pwd').addClass('is-invalid');
-                    $('#old_err_meg').text(err.responseJSON.error);
+                    $('#teacher_old_pwd').addClass('is-invalid');
+                    $('#teacher_old_err_meg').text(err.responseJSON.error);
                 }
             }
         });
     }
 }
+function updateProfileAudit(){
+  var formData = new FormData($("#audit_update_form" )[0]);
+
+  var audit_id=$('#audit_id').val();
+  formData.append('membership','audit');
+  formData.append('old_image',$('#audit_old_profile_photo').val());
+  formData.append('audit_phone',$('#audit_phone').val());
+  formData.append('audit_address_mm',$("#audit_address_mm").val());
+  formData.append('audit_address_eng',$("#audit_address_eng").val());
+  formData.append('_method', 'PATCH');
+  show_loader();
+  $.ajax({
+      url: BACKEND_URL + "/update_profile/" + audit_id,
+      type: 'POST',
+      contentType: false,
+      processData: false,
+      data: formData,
+      success: function (data) {
+          EasyLoading.hide();
+          successMessage(data.message);
+          $('#profileModelAudit').modal('toggle');
+          location.reload();
+      }
+  });
+}
+function changePasswordAudit(){
+  show_loader();
+  if ($("input[id=password_audit]").val() != $("input[id=confirm_password_audit]").val()) {
+      EasyLoading.hide();
+      $("input[id=password_audit]").val('');
+      $("input[id=confirm_password_audit]").val('');
+      $("input[id=password_audit]").addClass('is-invalid');
+      $("input[id=confirm_password_audit]").addClass('is-invalid');
+      $('#err_message').text("Your password and confirm password do not match!");
+  } else {
+      var formData = new FormData($("#audit_chagne_pw_form")[0]);
+      formData.append('id', student_id);
+      $.ajax({
+          url: BACKEND_URL + "/update_pwd",
+          type: 'POST',
+          contentType: false,
+          processData: false,
+          data: formData,
+          success: function (data) {
+              EasyLoading.hide();
+              successMessage(data.message);
+              $('#pwModalAudit').modal('toggle');
+              location.reload();
+          },
+          error: function (err) {
+              EasyLoading.hide();
+              if (err.status == 401) {
+                  $('#old_pwd_audit').addClass('is-invalid');
+                  $('#old_err_msg_audit').text(err.responseJSON.error);
+              }
+          }
+      });
+  }
+}
+
 function updateProfileMentor(){
     var formData = new FormData($("#mentor_update_form" )[0]);
-    
+
     var mentor_id=$('#mentor_id').val();
     formData.append('membership','mentor');
     formData.append('old_image',$('#old_mentor_profile_photo').val());

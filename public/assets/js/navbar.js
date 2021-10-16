@@ -86,7 +86,6 @@ $(document).ready(function () {
                             <li><a href="${FRONTEND_URL}/non_audit_firm_information">Non Audit Firm</a></li>
                         </ul>
                     </li>
-                    <li><a href="${FRONTEND_URL}/reconnect">Reconnect</a></li>
                     <li><a href="${FRONTEND_URL}/contact">Contact</a></li>`
     }
     $('#navbar').append(navbar);

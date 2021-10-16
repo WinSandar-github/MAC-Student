@@ -378,7 +378,8 @@
                     </div>
                     <div class="acc_firm">
                         <div class="row">
-                            <div class="col-md-8 offset-md-2">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-7">
                                 <div class="row   mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm
@@ -464,6 +465,24 @@
                                   </div>
                                 </div>
 
+                            </div>
+                            <div class="col-md-4">
+                              <div class="col-md-10">
+                                  <div class="row m-2 mt-3 border-bottom teacher_pw">
+                                      <div class="col-md-10 offset-md-1 mb-2">
+                                          <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                              data-bs-toggle="modal"
+                                              data-bs-target="#pwModalAudit">{{ __('Change Password') }}</button>
+                                      </div>
+                                  </div>
+                                  <div class="row m-2 mt-3 border-bottom">
+                                      <div class="col-md-10 offset-md-1 mb-2">
+                                          <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                              data-bs-toggle="modal"
+                                              data-bs-target="#profileModelAudit" id="">{{ __('Update Profile') }}</button>
+                                      </div>
+                                  </div>
+                              </div>
                             </div>
 
                         </div>
@@ -553,95 +572,96 @@
                     {{--<div class="cpaff_other">
                         <div class="row">
 
-                            
-                            
-                            
+
+
+
                             </div>
-                            <div class="qualified_test">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">NRC</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_nrc"></span>
-                                            </div>
-                                        </div>
-        
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Email</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_email"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_phone"></span>
-                                            </div>
-                                        </div>
-                                        
-        
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-10 offset-md-1 mb-2">
-                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-10 offset-md-1 mb-2">
-                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-        
-                                </div>
-        
-                                <div class="row my-2">
-        
-                                    <div class="offset-md-3 col-md-9">
-        
-                                        <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                        Application Status</h5>
-        
-                                        <table class="table ">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Submit Date</th>
-                                                    <th>Status Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="status">
-                                            </tbody>   
-                                        </table>
-                                    </div>
-                                    
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>--}}
+                    <div class="qualified_test">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">NRC</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_nrc"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Email</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_email"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Phone</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_phone"></span>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-10 offset-md-1 mb-2">
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-10 offset-md-1 mb-2">
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row my-2">
+
+                            <div class="offset-md-3 col-md-9">
+
+                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                Application Status</h5>
+
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Submit Date</th>
+                                            <th>Status Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="status">
+                                    </tbody>   
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
                                 <div class="col-md-3">
@@ -716,7 +736,7 @@
                                 <div class="text-center status_history"></div>
                                 <div class="text-center status_papp"> </div>
                             </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -866,7 +886,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row my-2 sch_status">
 
 
@@ -1106,7 +1126,7 @@
                         </div>
             </div>
             <!--end teacher dashboard-->
-            
+
             <!-- mentor dashboard-->
             <div class="mentor" style="display:none;">
                         <div class="card">
@@ -1205,7 +1225,7 @@
                         </div>
             </div>
             <!--end mentor dashboard-->
-            
+
         </div>
     </div>
 <!-- update profile -->
@@ -1638,8 +1658,8 @@
                             <label for="" class="col-md-4 col-form-label">Enter Your Old Password</label>
                             <div class="col-md-8">
                                 <input type="password" placeholder="Enter your old Password!" name="old_password"
-                                    class="form-control" id="old_pwd" value="{{ old('password') }}" required="">
-                                <p id="old_err_meg" class="mt-2 text-danger "></p>
+                                    class="form-control" id="teacher_old_pwd" value="{{ old('password') }}" required="">
+                                <p id="teacher_old_err_meg" class="mt-2 text-danger "></p>
                             </div>
 
                         </div>
@@ -1648,7 +1668,7 @@
 
                             <label for="" class="col-md-4 col-form-label">Password</label>
                             <div class="col-md-8">
-                                <input type="password" placeholder="Enter your new Password!" name="password"
+                                <input type="password" placeholder="Enter your new Password!" name="password" id="teacher_password"
                                     class="form-control" value="{{ old('password') }}" required="">
                             </div>
 
@@ -1661,8 +1681,8 @@
                             <label for="" class="col-md-4 col-form-label">Confirm Password</label>
                             <div class="col-md-8">
                                 <input type="password" placeholder="Enter your new Password again!"
-                                    name="confirm_password" class=" form-control" required="">
-                                <p class="text-center mt-3  text-danger" id="err_message"></p>
+                                    name="confirm_password" id="teacher_confirm_password" class=" form-control" required="">
+                                <p class="text-center mt-3  text-danger" id="teacher_err_message"></p>
                             </div>
                         </div>
 
@@ -1708,7 +1728,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row mb-3">
 
@@ -1718,7 +1738,7 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row mb-3">
 
@@ -1802,7 +1822,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    
+
 
                                     <div class="row mb-3">
 
@@ -1812,7 +1832,7 @@
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    
+
 
                                     <div class="row mb-3">
 
@@ -1895,7 +1915,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row mb-3">
 
@@ -1905,7 +1925,7 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row mb-3">
 
@@ -1950,6 +1970,159 @@
         </div>
     </div>
 </div>
+
+    {{--Update Profile Audit--}}
+    <div class="modal fade" id="profileModelAudit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="javascript:updateProfileAudit();" enctype="multipart/form-data" id="audit_update_form">
+                    @csrf
+                    <input type="hidden" id="audit_id">
+                    <input type="hidden" id="audit_old_profile_photo">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8">
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">Email</label>
+                                        <div class="col-md-8">
+                                            <input type="email" name="audit_update_email"
+                                                class="form-control" id="audit_update_email" readonly>
+                                            @if ($errors->has('email'))
+                                                <span class="text-danger">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">Head Office Telephone</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="ဖုန်းနံပါတ်" name="audit_phone" id="audit_phone"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">Head Office Address(Myanmar)</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" name="audit_address_mm" id="audit_address_mm"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+
+                                        <label for="" class="col-md-3 col-form-label">Head Office Address(English)</label>
+                                        <div class="col-md-8">
+                                            <textarea type="text" name="audit_address_eng" id="audit_address_eng"
+                                                class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="col-md-10 ">
+                                        <div class="fileinput fileinput-new pull-right" data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail">
+                                                                <img src="{{ asset('assets/images/blank-profile-picture-2.png') }}" id="previewAuditImg"
+                                                                    alt="Upload Photo">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail "></div>
+                                                            <div class="d-flex justify-content-center">
+                                                                <span class="btn btn-round btn-secondary btn-file">
+                                                                <span class="fileinput-new">ဓာတ်ပုံ</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" id="image" name="image" accept="image/*" ></span>
+                                                                <br>
+                                                                <a href="javascript:;" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                            </div>
+                                                            <p >
+                                                                <span class="form-text text-danger">Allowed Jpeg,Jpg and Png Image.</span>
+                                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{--Change Password Audit--}}
+    <div class="modal fade" id="pwModalAudit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 600px !important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="javascript:changePasswordAudit();" enctype="multipart/form-data" id="audit_chagne_pw_form">
+                    @csrf
+                    <input type="hidden" id="student_info_id">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+
+                                <label for="" class="col-md-4 col-form-label">Enter Your Old Password</label>
+                                <div class="col-md-8">
+                                    <input type="password" placeholder="Enter your old Password!" name="old_password"
+                                        class="form-control" id="old_pwd_audit" value="{{ old('password') }}" required="">
+                                    <p id="old_err_msg_audit" class="mt-2 text-danger "></p>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <label for="" class="col-md-4 col-form-label">Password</label>
+                                <div class="col-md-8">
+                                    <input type="password" placeholder="Enter your new Password!" name="password"
+                                    id="password_audit"    class="form-control" value="{{ old('password') }}" required="">
+                                </div>
+
+                            </div>
+                            <br>
+
+
+                            <div class="row">
+
+                                <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                                <div class="col-md-8">
+                                    <input type="password" placeholder="Enter your new Password again!"
+                                    id="confirm_password_audit"    name="confirm_password" class=" form-control" required="">
+                                    <p class="text-center mt-3  text-danger" id="err_message"></p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-success btn-hover-dark">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 @push('scripts')
 <script type="text/javascript">

@@ -549,7 +549,7 @@
                                                             <div class="entry3">
                                                                 <div class="row mb-3">
                                                                     <div class="col-md-11 col-auto">
-                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" >
+                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" required>
 
                                                                     </div>
                                                                     <div class="col-md-1 col-auto">
