@@ -1883,6 +1883,7 @@
                         $("input[name='recommend_letter_self']").prop('disabled', true);
                         $("input[name='recommend_letter_private']").prop('disabled', true);
                         $("input[name='gov_staff']").prop('disabled', true);
+                        $("#mac_school").hide();
                         $("input[name='mac_type']").prop('disabled', true);
                     }
                 }

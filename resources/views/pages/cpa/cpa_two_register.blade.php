@@ -1540,6 +1540,13 @@ $('document').ready(function(){
                 $('.department').val(student_info.student_job.department);
                 $('.office_address').val(student_info.student_job.office_address);
 
+                if(current_stu_course[0].mac_type == 1){
+                    $("#sub_mac").prop("checked",true);
+                }else{
+                    console.log("Hello")
+                    $("#sub_mac2").prop("checked",true);
+                }
+
                 if (data.data.gov_staff == 0) {
                         $("#no_self").prop("checked", true);
                         $("#no_private").prop("checked", true);
@@ -1643,6 +1650,8 @@ $('document').ready(function(){
                         $("input[name='recommend_letter_self']").prop('disabled', false);
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
+                        $("#mac_school").show();
+                        $("input[name='mac_type']").prop('disabled', false);
                     }
                     else{
                         $("input[name='office_address']").prop('readonly', true);
@@ -1656,6 +1665,8 @@ $('document').ready(function(){
                         $("input[name='recommend_letter_self']").prop('disabled', true);
                         $("input[name='recommend_letter_private']").prop('disabled', true);
                         $("input[name='gov_staff']").prop('disabled', true);
+                        $("#mac_school").hide();
+                        $("input[name='mac_type']").prop('disabled', true);
                     }
             }
 
