@@ -450,6 +450,7 @@ function loadCpaffInitialData() {
             $('#phone').val(cpaff_data.phone);
             $('#contact_mail').val(cpaff_data.contact_mail);
             $('#reg_no').val(cpaff_data.reg_no);
+            $('#cpaff_reg_no').val(cpaff_data.reg_no);
             console.log(cpaff_data.ra != null || cpaff_data.ra != "null");
             if (cpaff_data.ra != null && cpaff_data.ra != "null") {
                 $('#ra_edu').attr('checked', true);
@@ -1074,32 +1075,32 @@ function RenewCPAFF() {
     var self_confession_accept = document.getElementById("accept_cpaffRenew");
     var self_confession_not_accept = document.getElementById("not-accept_cpaffRenew");
     if(self_confession_accept.checked == true || self_confession_not_accept.checked == true){
-        if($('#cpaff_id').val()){
-                    send_data.append('cpaff_id',$('#cpaff_id').val());
-                    $.ajax({
-                        url: BACKEND_URL+"/update_cpaff_renewal",
-                        type: 'post',
-                        data:send_data,
-                        contentType: false,
-                        processData: false,
-                        success: function(result){
-                            EasyLoading.hide();
-                            successMessage(result.message);
-                            // location.reload();
-                            location.href = FRONTEND_URL+'/';
-                            document.getElementById('approved').style.display='none';
-                            document.getElementById('rejected').style.display='none';
-                            document.getElementById('pending').style.display='none';
-                            document.getElementById('papp_form').style.display='none';
-                            document.getElementById('papp_renew_form').style.display='none';
-                            document.getElementById('expiry_card').style.display='none';
-                        },
-                        error:function (message){
-                        }
-                    });
-                }
-                else
-                {
+        // if($('#cpaff_id').val()){
+        //             send_data.append('cpaff_id',$('#cpaff_id').val());
+        //             $.ajax({
+        //                 url: BACKEND_URL+"/update_cpaff_renewal",
+        //                 type: 'post',
+        //                 data:send_data,
+        //                 contentType: false,
+        //                 processData: false,
+        //                 success: function(result){
+        //                     EasyLoading.hide();
+        //                     successMessage(result.message);
+        //                     // location.reload();
+        //                     location.href = FRONTEND_URL+'/';
+        //                     document.getElementById('approved').style.display='none';
+        //                     document.getElementById('rejected').style.display='none';
+        //                     document.getElementById('pending').style.display='none';
+        //                     document.getElementById('papp_form').style.display='none';
+        //                     document.getElementById('papp_renew_form').style.display='none';
+        //                     document.getElementById('expiry_card').style.display='none';
+        //                 },
+        //                 error:function (message){
+        //                 }
+        //             });
+        //         }
+        //         else
+        //         {
                      $.ajax({
                         url: BACKEND_URL + "/renew_cpaff",
                         type: 'post',
@@ -1123,7 +1124,7 @@ function RenewCPAFF() {
                             EasyLoading.hide();
                         }
                     });
-                }
+                // }
          
     }
     else{
