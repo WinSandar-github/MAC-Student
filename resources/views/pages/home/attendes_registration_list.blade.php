@@ -72,7 +72,7 @@
                                             <div class="col-md-2 mx-3 pull-right">
                                                 
                                                 <select class="form-control form-select" name="student_type" id="student_type">
-                                                    <option value="select_type" selected >Select Student Type</option>
+                                                    <option value="" selected >Select Student Type</option>
                                                      
                                                     <option value="2">MAC</option>
                                                     <option value="1">Private School</option>

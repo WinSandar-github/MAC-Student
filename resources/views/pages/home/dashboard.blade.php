@@ -549,15 +549,7 @@
                         </div>
 
                     </div>
-                     <!-- cpaff other dashboard -->
-                    {{--<div class="cpaff_other">
-                        <div class="row">
-
-                            
-                            
-                            
-                            </div>
-                            <div class="qualified_test">
+                    <div class="qualified_test">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
@@ -640,6 +632,15 @@
                                     
                                 </div>
                             </div>
+                     <!-- cpaff other dashboard -->
+                    {{--<div class="cpaff_other">
+                        <div class="row">
+
+                            
+                            
+                            
+                            </div>
+                            
                         </div>
                     </div>--}}
                     <div class="card-body cpaff_other">

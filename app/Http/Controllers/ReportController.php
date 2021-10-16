@@ -20,7 +20,7 @@ class ReportController extends Controller
          
        
         $course = $res['data'];
-     
+        
        
       
         return view('pages.home.application_list',compact('course'));

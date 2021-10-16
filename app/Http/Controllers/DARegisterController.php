@@ -9,7 +9,8 @@ class DARegisterController extends Controller
     //show da application form
     public function registerForm()
     {
-        // return $batch_id;
+       
+
         return view('pages.da.da_one_form');
     }
     public function da_two_register()
