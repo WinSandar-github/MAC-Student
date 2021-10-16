@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:void(0);"
+                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleFirmRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 
@@ -449,16 +449,16 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၀။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၁၀။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="address" id="address" class="form-control">
+                                                <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၁၁။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၁။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
-                                                <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="current_address" class="form-control">
+                                                <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address" id="address" class="form-control">
                                             </div>
                                         </div>
 
@@ -480,6 +480,13 @@
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="request_papp_attach" class="form-control">
                                             </div>
                                         </div>
 
@@ -508,10 +515,26 @@
                                                     <input class="form-check-input" type="checkbox" name="confirm_142">
                                                     <span class="form-check-sign"></span>
                                                     <p class="fw-bolder">
-                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၄၂)</a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
+                                                        * <a href="https://demo.aggademo.me/MAC/public/storage/article/128.pdf" target="_blank">ဤရုံးအမိန့်အမှတ် (၁၂၈)</a> အားဖတ်ရှုပြီးဖြစ်ပါသည်။<br>
                                                     </p>
                                                 </label><br>
                                                 <label  class="error attend_place_error" style="display:none;" for="confirm_142">Please check one</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="confirm_status">
+                                                    <span class="form-check-sign"></span>
+                                                    <p class="fw-bolder">
+                                                        * ၁။ ကျွန်တော်/ ကျွန်မသည် ယခုလက်ရှိအချိန်တွင် အစိုးရနှင့် ပုဂ္ဂလိက အဖွဲ့အစည်းများတွင် အချိန်ပြည့်ဝန်ထမ်းအဖြစ် တာဝန်ထမ်းဆောင်နေခြင်းမရှိပါ။ Non Audit Service လုပ်ငန်းများလုပ်ကိုင် ဆောက်ရွက်နေခြင်းမရှိပါ။<br>
+                                                        ၂။ စာရင်းကိုင်အလုပ်သင်အဖြစ်ဆောင်ရွက်ရမည့် အချိန်အတွင်း အချိန်ပြည့်ဝန်ထမ်းအဖြစ် ဆောင်ရွက်ခြင်း၊ Non Audit Service လုပ်ငန်းများလုပ်ကိုင်မည်ဆိုပါက အလုပ်သင်အဖြစ်ဆောင်ရွက်ခြင်းမှ ရပ်ဆိုင်းခွင့်ပြုပါရန် မြန်မာနိုင်ငံစာရင်းကောင်စီသို့ မပျက်မကွက်အသိပေးပါမည်။ အလုပ်သင်ကာလအတွင်း အလုပ်သင်ကြားခြင်းနှင့်ဆိုင်သည့် လုပ်ငန်းတာဝန်များကို သာအချိန်ပြည့်တာဝန် ထမ်းဆောင်ရမည်ကို သိရှိပါသည်။<br>
+                                                        ၃။ စာရင်းကိုင်အလုပ်သင်နှင့် ကိုယ်ပိုင်စာရင်းကိုင် သင်တန်းကျောင်းများ ကြီးကြပ်ရေးကော်မတီ၏ ၇-၄-၂၀၂၀ ရက်စွဲပါ ရုံးအမိန့်အမှတ် ၁၂၈ ပါ စာရင်းကိုင်အလုပ်သင်များလိုက်နာရမည့် စည်းကမ်းချက်များနှင့် ရပိုင်ခွင့်များကို သိရှိနားလည် ပြီးဖြစ်ပါသည်။<br>
+                                                        ၄။ ဤဝန်ခံချက် ပျက်ကွက်ပါက အလုပ်သင်စည်းမျဥ်းများနှင့်အညီ အရေးယူခြင်းကို ခံရမည်ဖြစ်ကြောင်း သဘောတူပါသည်။
+                                                    </p>
+                                                </label><br>
+                                                <label  class="error attend_place_error" style="display:none;" for="confirm_status">Please check one</label>
                                             </div>
                                         </div>
 
@@ -585,7 +608,7 @@
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
-            $("#personal_no").val(student_reg.personal_no);
+            $("#personal_no").val(student_info.cpersonal_no);
             $("#nrc_state_region").val(student_info.nrc_state_region);
             $("#nrc_township").val(student_info.nrc_township);
             $("#nrc_citizen").val(student_info.nrc_citizen);

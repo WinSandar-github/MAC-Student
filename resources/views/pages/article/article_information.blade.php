@@ -141,14 +141,14 @@
                 <div class="modal-body text-center">
                     <div id="firm_article_row">
                         <h5 >Firm Article</h5>
-                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_3yr_btn">CII pass 3 yr</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_3yr_btn">CII Pass 3 yr</button>
                         <button class="btn btn-success btn-hover-dark article_btn" id="c12_btn">CPA I,II</button>
-                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_1yr_btn">CII pass 1 yr</button>
-                        <button class="btn btn-success btn-hover-dark article_btn" id="qt_pass_3yr_btn">QT pass 3 yr</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_1yr_btn">CII Pass 1 yr</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="qt_pass_3yr_btn">QT Pass 3 yr</button>
                     </div>
                     <div id="firm_article_renew_row">
                         <h5 >Renew Article</h5>
-                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_renew_btn">CII pass Renew</button>
+                        <button class="btn btn-success btn-hover-dark article_btn" id="c2_pass_renew_btn">CII Pass Renew</button>
                         <button class="btn btn-success btn-hover-dark article_btn" id="c12_renew_btn">CI,CII Renew</button>
                     </div>
                     <hr id="article_hr">
@@ -197,6 +197,7 @@
                 get_student_info(student_id).then(data => {
                     let student_info = data.data
                     let student_reg = data.data.student_register
+                    let qualified_test = data.data.qualified_test
                     let latest_article = data.data.article.slice(-1);
                     let latest_gov_article = data.data.gov_article.slice(-1);
                     let lastest_row = student_reg.length - 1;
@@ -206,7 +207,9 @@
                     let type = student_reg[lastest_row]?.type;  //  0-self_study / 1-private / 2-mac
                     let form_type = student_reg[lastest_row]?.form_type;
                     let internship = student_reg[lastest_row]?.internship;
-                    let exam_result = student_info.exam_results.length;
+                    //let exam_result = student_info.exam_results.length;
+                    let exam_results = student_info.exam_results.slice(-1);
+                    let exam_registers = student_info.exam_registers.slice(-1);
                     //var get_year = 0;
 
                     if(latest_article[0]?.done_status == 1 && latest_article[0]?.article_form_type == 'c12' ){
@@ -216,7 +219,7 @@
                         $("#firm_article_renew_row").hide();
                         $("#article_hr").hide();
                         $("#gov_article_row").hide();
-                        if(exam_result == 4){
+                        if(exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
                             $("#c2_pass_1yr_btn").prop('disabled', false);
                         }else{
                             $("#c2_pass_1yr_btn").prop('disabled', true);
@@ -229,11 +232,20 @@
                         $("#firm_article_renew_row").hide();
                         $("#article_hr").hide();
                         $("#gov_article_row").hide();
-                        if(exam_result == 4){
+                        if(exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
                             $("#c2_pass_1yr_btn").prop('disabled', false);
                         }else{
                             $("#c2_pass_1yr_btn").prop('disabled', true);
                         }
+                        $('#articleModal').modal('toggle');
+                    }else if(latest_article[0]?.done_status == 1 && latest_article[0]?.article_form_type == 'resign'){
+                        $("#firm_article_row").hide();
+                        $("#c12_btn").hide();
+                        $("#c2_pass_1yr_btn").hide();
+                        $("#c2_pass_3yr_btn").hide();
+                        $("#qt_pass_3yr_btn").hide();
+                        $("#article_hr").hide();
+                        $("#gov_article_row").hide();
                         $('#articleModal').modal('toggle');
                     }else{
                         if((form_type == 3 && course == "cpa_1") || (form_type == 3 && course == "cpa_2")){
@@ -267,11 +279,19 @@
                             $("#firm_article_renew_row").hide();
                             $("#article_hr").hide();
                             $("#gov_article_row").hide();
-                            if(exam_result == 4){
+                            if(exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)){
                                 $("#c2_pass_3yr_btn").prop('disabled', false);
                             }else{
                                 $("#c2_pass_3yr_btn").prop('disabled', true);
                             }
+                            $('#articleModal').modal('toggle');
+                        }else if(qualified_test){
+                            $("#c12_btn").hide();
+                            $("#c2_pass_1yr_btn").hide();
+                            $("#c2_pass_3yr_btn").hide();
+                            $("#firm_article_renew_row").hide();
+                            $("#article_hr").hide();
+                            $("#gov_article_row").hide();
                             $('#articleModal').modal('toggle');
                         }else{
                             alert("You aren't cpa student.");

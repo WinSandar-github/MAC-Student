@@ -150,7 +150,8 @@ $().ready(function (){
             },
         },
         submitHandler: function(form) {
-            $('#paymentModal').modal('show');
+            // $('#paymentModal').modal('show');
+            StoreDAtoCPA();
         }
 
         

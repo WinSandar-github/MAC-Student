@@ -138,7 +138,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ကျား / မ (Gender)</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၄။</span>ကျား / မ (Gender)</label>
                                         <div class="row col-md-8 py-2">
                                             <div class="col-md-3 form-check-radio mx-2">
                                                 <label class="form-check-label">
@@ -162,42 +162,42 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၄။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၅။</span>သင်တန်းသားကိုယ်ပိုင်အမှတ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="personal_no" id="personal_no" class="form-control" readonly>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၅။</span>မွေးသက္ကရာဇ်</label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၆။</span>မွေးသက္ကရာဇ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="date_of_birth" id="date_of_birth" class="form-control" disabled>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၆။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၇။</span>ဆက်သွယ်ရန်လိပ်စာ</label>
                                         <div class="col-md-8">
                                             <input type="text" name="address" id="address" class="form-control" readonly>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၇။</span>ဖုန်းနံပါတ်</label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၈။</span>ဖုန်းနံပါတ်</label>
                                         <div class="col-md-8">
                                             <input type="text" name="phone" id="phone" class="form-control" readonly>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၈။</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၉။</span>သင်တန်းတက်ရောက်သည့်နေရာ </label>
                                         <div class="col-md-8">
                                             <input type="text" name="class_address" id="class_address" class="form-control" readonly>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၉။</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၀။</span>ဖြေဆိုမည့်စာဖြေဌာန</label>
                                         <div class="col-md-8">
                                           <div class="form-group">
                                             <select class="form-control form-select" name="exam_department" id="exam_department" style="width:57%;margin-right:3px;" required>
@@ -208,7 +208,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left">၁၀။</span>ယခုဖြေဆိုမည့် Module</label>
+                                        <label for="" class="col-md-4 label_align_right"><span class="pull-left">၁၁။</span>ယခုဖြေဆိုမည့် Module</label>
                                         <div class="col-md-8">
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -242,7 +242,7 @@
 
                                     <div class="col-md-12"  id="is_private_school" style="display:none">
                                         <div class="row mb-3">
-                                            <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၁။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
+                                            <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၂။</span>ကိုယ်ပိုင်သင်တန်းကျောင်းအမည်</label>
                                             <div class="col-md-8">
                                                 <input type="text" name="private_school_name" id="selected_school_id" class="form-control" readonly>
                                                 <!-- <div class="form-group">
@@ -255,14 +255,14 @@
                                     </div>
 
                                     {{--<div class="row mb-3">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၀။</span>ဖြေဆိုခွင့်လျှောက်လွှာ </label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၁။</span>ဖြေဆိုခွင့်လျှောက်လွှာ </label>
                                         <div class="col-md-8">
                                             <input type="text" name="exam_reg_date" id="date" class="form-control" placeholder="လ၊ခုနှစ်(MMM-YYYY)" autocomplete="off" required>
                                         </div>
                                     </div>--}}
 
                                     <div class="row mb-3" style="display:none">
-                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၁။</span>စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန် </label>
+                                        <label for="" class="col-md-4 col-form-label label_align_right"><span class="pull-left">၁၂။</span>စာမေးပွဲပြန်လည်ဖြေဆိုသူများဖြည့်သွင်းရန် </label>
                                     </div>
                                     <div class="row mb-3" style="display:none">
                                         <label class="col-md-5 offset-md-1 col-form-label label_align_right"><span class="pull-left">(က)</span>နောက်ဆုံးဖြေဆိုခဲ့သည့်စာမေးပွဲကျင်းပသည့် ခုနှစ်/လ</label>
@@ -591,7 +591,7 @@
                 
 
                 if(data.data.student_register[0].type == 0){
-                    $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသူ");
+                    $("input[name='class_address']").val("ကိုယ်တိုင်လေ့လာသင်ယူမည့်သူ");
                 }else if(data.data.student_register[0].type == 1){
                     $("input[name='class_address']").val("ကိုယ်ပိုင်သင်တန်းကျောင်း");
                 }else{

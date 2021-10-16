@@ -47,6 +47,77 @@ function AddLabor() {
     labor_count++;
 }
 
+var recommend_count = 1;
+function AddRecommend() {
+    $("#recommend").append(
+        '<div class="row mb-3" id="recommend' + recommend_count + '">' +
+        '<div class="col-md-11">' +
+        '<input type="file"  class="form-control"  id="recommend_attach' + recommend_count + '"  name="recommend_attach[]" required="">' +
+        '</div>' +
+        '<div class="col-md-1 text-center"  id="recommend' + recommend_count + '_remove">' +
+        '<button class="btn btn-danger" id="myLink" style="padding-left:5px;" onclick="remove(recommend' + recommend_count + ')">' +
+        '<i class="fa fa-trash "></i>' +
+        '</button>' +
+        '</div>' +
+        '</div>');
+    recommend_count++;
+}
+
+var police_count = 1;
+function AddPolice() {
+    $("#police").append(
+        '<div class="row mb-3" id="police' + police_count + '">' +
+        '<div class="col-md-11">' +
+        '<input type="file"  class="form-control"  id="police_attach' + police_count + '"  name="police_attach[]" required="">' +
+        '</div>' +
+        '<div class="col-md-1 text-center"  id="police' + police_count + '_remove">' +
+        '<button class="btn btn-danger" id="myLink" style="padding-left:5px;" onclick="remove(police' + police_count + ')">' +
+        '<i class="fa fa-trash "></i>' +
+        '</button>' +
+        '</div>' +
+        '</div>');
+    police_count++;
+}
+
+// function loadMentorList(){
+//     var select = document.getElementById("mentor_id");
+//     $.ajax({
+//         url: BACKEND_URL+"/mentor",
+//         type: 'get',
+//         data:"",
+//         success: function(data){
+
+//             var montor_data=data.data;
+//             montor_data.forEach(function (element) {
+//                 var option = document.createElement('option');
+//                 option.text = element.name_eng;
+//                 option.value = element.id;
+//                 select.add(option,0);
+
+//             });
+//         },
+//         error:function (message){
+
+//         }
+
+//     });
+// }
+
+// function gerPappName(){
+//     var id = document.getElementById("mentor_id");
+//     $.ajax({
+//         type: 'GET',
+//         url: BACKEND_URL + "/getMentor/" + id,
+//         success: function (mentor) {
+//             console.log(mentor);
+//         },
+//         error:function (message){
+
+//         }
+
+//     });
+// }
+
 function createArticleFirmRegister() {
     var send_data = new FormData();
 
@@ -89,7 +160,7 @@ function createArticleFirmRegister() {
     send_data.append('gov_position', $("input[name=position]").val());
     send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
     // send_data.append('address', $("input[name=address]").val());
-    // send_data.append('current_address', $("input[name=current_address]").val());
+    send_data.append('current_address', $("input[name=current_address]").val());
     // send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('m_email', $("input[name=m_email]").val());
     send_data.append('ex_papp', $("input[name=previous_papp_name]").val());
@@ -137,8 +208,8 @@ function createArticleGovRegister() {
     var nrc_township = $("#nrc_township").val();
     var nrc_citizen = $("#nrc_citizen").val();
     //var labor_registration_attach = $("input[name=labor_registration_attach]")[0].files[0];
-    var recommend_attach = $("input[name=recommend_attach]")[0].files[0];
-    var police_attach = $("input[name=police_attach]")[0].files[0];
+    // var recommend_attach = $("input[name=recommend_attach]")[0].files[0];
+    // var police_attach = $("input[name=police_attach]")[0].files[0];
 
     // send_data.append('image', image);
     // send_data.append('name_mm', $("input[name=name_mm]").val());
@@ -182,9 +253,21 @@ function createArticleGovRegister() {
             send_data.append('labor_registration_attach[]', $(this).get(0).files[i]);
         }
     });
-    send_data.append('recommend_attach', recommend_attach);
+
+    $('input[name="recommend_attach[]"]').map(function () {
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            send_data.append('recommend_attach[]', $(this).get(0).files[i]);
+        }
+    });
+
+    $('input[name="police_attach[]"]').map(function () {
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            send_data.append('police_attach[]', $(this).get(0).files[i]);
+        }
+    });
+    // send_data.append('recommend_attach', recommend_attach);
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
-    send_data.append('police_attach', police_attach);
+    // send_data.append('police_attach', police_attach);
     send_data.append('accept_policy', 1);
 
     show_loader();
@@ -233,6 +316,76 @@ function createArticleResignRegister() {
         url: BACKEND_URL + "/article_resign_register",
         type: 'post',
         data: send_data,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            EasyLoading.hide();
+            successMessage("You have successfully registered.");
+            setInterval(() => {
+                location.href = FRONTEND_URL + '/';
+            }, 3000);
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
+}
+
+function createArticleRenewRegister() {
+    var send_data = new FormData();
+
+    var image = $("input[name=profile_photo]")[0].files[0];
+    var nrc_front = $("input[name=nrc_front]")[0].files[0];
+    var nrc_back = $("input[name=nrc_back]")[0].files[0];
+    var nrc_state_region = $("#nrc_state_region").val();
+    var nrc_township = $("#nrc_township").val();
+    var nrc_citizen = $("#nrc_citizen").val();
+    var request_papp_attach = $("input[name=request_papp_attach]")[0].files[0];
+
+    // send_data.append('image', image);
+    // send_data.append('name_mm', $("input[name=name_mm]").val());
+    // send_data.append('name_eng', $("input[name=name_eng]").val());
+    // send_data.append('personal_no', $("input[name=personal_no]").val());
+    // send_data.append('nrc_state_region', nrc_state_region);
+    // send_data.append('nrc_township', nrc_township);
+    // send_data.append('nrc_citizen', nrc_citizen);
+    // send_data.append('nrc_number', $("input[name=nrc_number]").val());
+    // send_data.append('nrc_front', nrc_front);
+    // send_data.append('nrc_back', nrc_back);
+    // send_data.append('education', $("input[name=education]").val());
+    // $('input[name="certificate[]"]').map(function () {
+    //     for (var i = 0; i < $(this).get(0).files.length; ++i) {
+    //         send_data.append('certificate[]', $(this).get(0).files[i]);
+    //     }
+    // });
+    // send_data.append('race', $("input[name=race]").val());
+    // send_data.append('religion', $("input[name=religion]").val());
+    // send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
+    // send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
+    // send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
+    send_data.append('gov_staff', $("input[type='radio'][name='current_job']:checked").val());
+    send_data.append('gov_position', $("input[name=position]").val());
+    send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
+    // send_data.append('address', $("input[name=address]").val());
+    // send_data.append('phone_no', $("input[name=phone_no]").val());
+    send_data.append('current_address', $("input[name=current_address]").val());
+    send_data.append('m_email', $("input[name=m_email]").val());
+    send_data.append('ex_papp', $("input[name=previous_papp_name]").val());
+    send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
+    send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
+    send_data.append('request_papp', $("input[name=papp_name]").val());
+    send_data.append('request_papp_attach', request_papp_attach);
+    send_data.append('student_info_id', $("input[name=student_info_id]").val());
+    send_data.append('article_form_type', $("input[name=article_form_type]").val());
+    send_data.append('accept_policy', 1);
+
+    show_loader();
+    $.ajax({
+        type: "POST",
+        data: send_data,
+        url: BACKEND_URL + "/article_renew_register",
+        cache: false,
         contentType: false,
         processData: false,
         success: function (result) {

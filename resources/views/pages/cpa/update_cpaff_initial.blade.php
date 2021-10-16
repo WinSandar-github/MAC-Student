@@ -295,73 +295,19 @@
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="cpa_part_2_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;"> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;"> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
-                                {{--<div class="pass_batch_two" style="display:none">
-                                    <div class="row mb-3">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">အောင်မြင်သည့် သင်တန်းအမှတ်စဉ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="pass_batch_no" placeholder="သင်တန်းအမှတ်စဉ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 " >
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">ကိုယ်ပိုင်အမှတ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="pass_personal_no" placeholder="ကိုယ်ပိုင်အမှတ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
 
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1 mt-2">
                                         <input type="radio" name="pass_type" id="qt_pass_check" value=""  onClick="CheckPartTwo()">
                                     </div>
-                                    <label class="col-md-10 col-form-label"><input type="text" name="country" id="country" class="form-control" style="display: inline;width: 100px;" disabled> နိုင်ငံ <input type="text" name="government" id="government" class="form-control" style="display: inline;width: 100px;" disabled>အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
-                                    <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" disabled> ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" disabled> လတွင်
-                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" id="roll_no" class="form-control" style="display: inline;width: 100px;" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
+                                    <label class="col-md-10 col-form-label"><input type="text" name="country" id="country" class="form-control" style="display: inline;width: 100px;" > နိုင်ငံ <input type="text" name="government" id="government" class="form-control" style="display: inline;width: 100px;" >အဖွဲ့အစည်းကပေးအပ်သည့် စာရင်းပညာဆိုင်ရာဘွဲ့/လက်မှတ်ရရှိခဲ့ပြီး မြန်မာနိုင်ငံစာရင်းကောင်စီက 
+                                    <input type="text" name="exam_year" id="exam_year" placeholder="YYYY" class="form-control" style="display: inline;width: 100px;" > ခုနှစ် <input type="text" name="exam_month" id="exam_month" placeholder="Month" class="form-control" style="display: inline;width: 100px;" > လတွင်
+                                    ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" id="roll_no" class="form-control" style="display: inline;width: 100px;" >ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
-                                {{--<div class="qt_pass" style="display:none">
-                                    <div class="row mb-3">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">အောင်မြင်သည့် ခုနှစ်/လ</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control qt_pass_date" name="qt_pass_date"  placeholder="ခုနှစ်/လ (MMM-YYYY)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 " >
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">ခုံအမှတ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control qt_pass_seat_no" name="qt_pass_seat_no" placeholder="ခုံအမှတ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -380,14 +326,6 @@
                                         <input type="file"  class="form-control" name="cpa_certificate" id="cpa_certificate">
                                     </div>
                                 </div>
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label"></label>
-                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ် (အနောက်)</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="cpa_certificate_back" >
-                                    </div>
-                                </div>--}}
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
@@ -411,33 +349,6 @@
                                 <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
                                 <div class="col-md-10">
                                     <div class="row">
-                                        {{--<div class="col-md-6">
-                                            <div class="row">
-                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                            </div>
-                                            <div class="row">
-                                                <img class="col-md-12 nrc-image-style" id="nrc_front" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
-                                                <p class="mt-2">
-                                                <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                    value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);">
-                                                </p>
-                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                            </div>
-                                            <div class="row">
-                                                <img class="col-md-12 nrc-image-style" id="nrc_back" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
-                                                <p class="mt-2">
-                                                <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                    value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);">
-                                                </p>
-                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                            </div>
-                                        </div>--}}
                                         <div class="col-md-6 text-center">
                                             <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail shadow">
@@ -495,15 +406,6 @@
                                         <input type="text"  class="form-control" name="total_hours" id="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div>
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-
-                                    <div class="col-md-6 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="passport_image"  >
-                                    </div>
-                                </div>--}}
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
@@ -513,20 +415,6 @@
                                         <input type="file"  class="form-control" name="three_years_full" id="three_years_full" >
                                     </div>
                                 </div>
-                                {{--<div class="row mb-4">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
-
-                                    <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="letter"  >
-                                    </div>
-                                </div>--}}
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-                                </div>--}}
                                 <div class="row mb-3" style="padding-left:50px;">
                                     <div class="form-check">
                                         <label class="form-check-label">
@@ -649,7 +537,7 @@
         success: function (result) {
             // console.log(result);
             var cpaff=result.data[0];
-            // console.log(cpaff)
+            console.log(cpaff)
             document.getElementById('cpaff_img').src=BASE_URL + cpaff.profile_photo;
             document.getElementById('nrc_front').src=BASE_URL + cpaff.nrc_front;
             document.getElementById('nrc_back').src=BASE_URL + cpaff.nrc_back;
@@ -662,26 +550,28 @@
             $('#government').val(cpaff.government);
             $('#roll_no').val(cpaff.roll_no);
             $('#total_hours').val(cpaff.total_hours);
-            // var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
+            var cpa2_pass_date=new Date(cpaff.cpa2_pass_date);
+            var exam_year=new Date(cpaff.exam_year);
+            var exam_month=new Date(cpaff.exam_month);
 
-            // if(cpaff.cpa2_pass_date!=null || cpaff.cpa_batch_no!=null){
-            //     $('#cpa_part_2_check').attr('checked',true);
-            //     $('#cpa_part_2_check').attr('disabled',false);
-            //     $("input[name='cpa2_pass_date']").val(cpaff.cpa2_pass_date.getFullYear());
-            //     $("input[name='cpa_batch_no']").val(cpaff.cpa_batch_no);
-            // }
-            // else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
-            // {
-            //     // $('#used_firm_check').attr('checked',true);
-            //     $('#qt_pass_check').attr('checked',true);
-            //     $('#qt_pass_check').attr('disabled',false);
+            if(cpaff.cpa2_pass_date!=null || cpaff.cpa_batch_no!=null){
+                $('#cpa_part_2_check').attr('checked',true);
+                $('#cpa_part_2_check').attr('disabled',false);
+                $("input[name='cpa2_pass_date']").val(cpa2_pass_date.getFullYear());
+                $("input[name='cpa_batch_no']").val(cpaff.cpa_batch_no);
+            }
+            else if(cpaff.country!=null || cpaff.government!=null || cpaff.exam_year!=null || cpaff.exam_month!=null || cpaff.roll_no!=null)
+            {
+                // $('#used_firm_check').attr('checked',true);
+                $('#qt_pass_check').attr('checked',true);
+                $('#qt_pass_check').attr('disabled',false);
 
-            //     $("input[name='country']").val(cpaff.country);
-            //     $("input[name='government']").val(cpaff.government);
-            //     $("input[name='exam_year']").val(cpaff.exam_year);
-            //     $("input[name='exam_month']").val(cpaff.exam_month);
-            //     $("input[name='roll_no']").val(cpaff.roll_no);
-            // }
+                $("input[name='country']").val(cpaff.country);
+                $("input[name='government']").val(cpaff.government);
+                $("input[name='exam_year']").val(exam_year.getFullMonth());
+                $("input[name='exam_month']").val(exam_month.getFullMonth());
+                $("input[name='roll_no']").val(cpaff.roll_no);
+            }
             
             $('.cpa_certificate_old').append("<a href='" + BASE_URL + cpaff.cpa_certificate + "'  target='_blank'>View File</a><br/>");
             $('.mpa_mem_card_old').append("<a href='" + BASE_URL + cpaff.mpa_mem_card + "'  target='_blank'>View File</a><br/>");
@@ -691,8 +581,8 @@
 
             if (cpaff.ra != null && cpaff.ra != "null") {
                 $('#ra_edu').attr('checked', true);
-                $('#cpa_edu').attr('disabled', true);   
-                $('#education').attr('disabled', true); 
+                // $('#cpa_edu').attr('disabled', false);   
+                // $('#education').attr('disabled', false); 
                 getCPAEducation();        
                 $(".ra_file").append("<a href='"+BASE_URL+cpaff.ra+"'  target='_blank'>View File</a><br/>");
             }
@@ -702,8 +592,8 @@
             }
             if(cpaff.cpa!=null && cpaff.cpa!="null"){
                 $('#cpa_edu').attr('checked', true);   
-                $('#education').attr('disabled', true); 
-                $('#ra_edu').attr('disabled', true);            
+                // $('#education').attr('disabled', true); 
+                // $('#ra_edu').attr('disabled', true);            
                 getCPAEducation();
                 $(".cpa_file").show();
                 $(".cpa_file").append("<a href='" + BASE_URL + cpaff.cpa + "'  target='_blank'>View File</a><br/>");
@@ -714,8 +604,8 @@
             }
             if (cpaff.foreign_degree != null && cpaff.foreign_degree != "null") {
                 $('#education').attr('checked', true);
-                $('#cpa_edu').attr('disabled', true); 
-                $('#ra_edu').attr('disabled', true);
+                // $('#cpa_edu').attr('disabled', true); 
+                // $('#ra_edu').attr('disabled', true);
                 getCPAEducation();
                 let foreign_degree = JSON.parse(cpaff.foreign_degree);
                 let degree_name = JSON.parse(cpaff.degree_name);

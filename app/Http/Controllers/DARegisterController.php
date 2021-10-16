@@ -13,6 +13,14 @@ class DARegisterController extends Controller
 
         return view('pages.da.da_one_form');
     }
+
+    //show da_two_register for da one pass
+    public function da_two_registerForm()
+    {
+        // return $batch_id;
+        return view('pages.da.da_two_reg_daone_pass');
+    }
+
     public function da_two_register()
     {
         return view('pages.da.da_two_register');

@@ -1028,32 +1028,35 @@
                                                                 <div class="col-md-8">
                                                                     <div class="row" >
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
                                                                                 @foreach($nrc_regions as $region)
                                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                         {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                                     </option>
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> -->
                                                                         </div>
                                                                         <div class="col-md-3 col-7 px-1">
-                                                                            <select class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_township" id="nrc_township" readonly>
                                                                                 @foreach($nrc_townships as $township)
                                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                         {{ $township['township_mm'] }}
                                                                                     </option>
                                                                                 @endforeach
-                                                                            </select>
-                                                                            </select>
+                                                                            </select> -->
+                                                                            
                                                                         </div>
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
                                                                                 @foreach($nrc_citizens as $citizen)
                                                                                 <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                                 </option>
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> -->
                                                                         </div>
 
                                                                         <div class="col-md-5 col-7 pl-1">
@@ -1136,15 +1139,25 @@
                                                         <label class="col-md-1 col-form-label">{{ __('၅။') }}</label>
                                                         <label class="col-md-3 col-form-label label">{{ __('ဖုန်းနံပါတ်') }}</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" name="phone_renew" class="form-control"  autocomplete="off">
+                                                            <input type="text" name="phone" class="form-control"  autocomplete="off">
                                                         
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                             <label for="" class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                                            <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ</label>
+                                                            <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)</label>
                                                             <div class="col-md-8">
-                                                                <input type="text"  name="current_address" class="form-control" autocomplete="off">
+                                                                <textarea placeholder="ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)" name="current_address"
+                                                                    class="form-control" value="{{ old('address') }}" autocomplete="off" ></textarea>
+                                                            </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                            <label for="" class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                                            <label for="" class="col-md-3 col-form-label label_align_right">ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)</label>
+                                                            <div class="col-md-8">
+                                                                <textarea type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)" name="eng_current_address"
+                                                                    class="form-control" value="{{ old('address') }}" autocomplete="off" ></textarea>
                                                             </div>
                                                     </div>
 
@@ -1157,7 +1170,7 @@
                                                     </div> -->
 
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၇။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
                                                     <label class="col-md-3 col-form-label label">{{ __('ပညာအရည်အချင်း') }}</label>
                                                     <div class="col-md-8">
                                                         <table class="table tbl_degree_renew_update table-bordered input-table">
@@ -1190,7 +1203,7 @@
                                                     </div>
                                                     
                                                     <div class="row mb-3">
-                                                        <label class="col-md-1 col-form-label">{{ __('၈။') }}</label>
+                                                        <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
                                                         <label class="col-md-3 col-form-label label">သင်ကြားမည့်သင်တန်းကျောင်းအမည်</label>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
@@ -1235,7 +1248,7 @@
                                                         </div>
                                                     </div>
                                                 <div class="row mb-3">
-                                                    <label class="col-md-1 col-form-label">{{ __('၉။') }}</label>
+                                                    <label class="col-md-1 col-form-label">{{ __('၁၀။') }}</label>
                                                     <label class="col-md-4 col-form-label"><b>{{ __('သင်ကြားမည့်သင်တန်းနှင့် ဘာသာရပ်များ') }}</b></label>
                                                     
 

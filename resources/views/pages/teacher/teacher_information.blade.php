@@ -243,7 +243,7 @@
 																		<li><i class="icofont-money"></i> <strong>Application Fees</strong> <span class='application-fee'></span></li>
 																		<li><i class="icofont-money"></i> <strong>Registration Fees</strong><span class='registration-fee'></span></li>
                                                                         <li><i class="icofont-money"></i> <strong>Yearly Fees</strong><p style="margin-top:3%;"><strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CPA One Subject</strong><span class='cpa-subject-fee'></span></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DA One Subject</strong><span class='da-subject-fee'></span></p></li>
-                                                                        <li><i class="icofont-money"></i> <strong>Renew Fees</strong><p style="margin-top:3%;"><strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CPA One Subject</strong><span class='cpa-subject-fee'></span></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DA One Subject</strong><span class='da-subject-fee'></span></p></li>
+                                                                        <li><i class="icofont-money"></i> <strong>Renew Fees</strong><p style="margin-top:3%;"><strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CPA One Subject</strong><span class='renew-cpa-subject-fee'></span></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DA One Subject</strong><span class='renew-da-subject-fee'></span></p></li>
                                                                         <!-- <li><i class="icofont-money"></i> <strong>Renew Registration Fee</strong><span class='renew-fee'></li> <span class='yearly-fee'>-->
                                                                         <!-- <li><i class="icofont-money"></i> <strong>Renew Fee</strong><span class='renew-fee'></li> -->
                                                                         <li><i class="icofont-money"></i> <strong>Delay Fees</strong><span class='delay-fee'></span></li>
@@ -399,32 +399,35 @@
                                                                 <div class="col-md-8">
                                                                     <div class="row" >
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_state_region" id="nrc_state_region" readonly>
                                                                                 @foreach($nrc_regions as $region)
                                                                                     <option value="{{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en'] }}">
                                                                                         {{ $nrc_language == 'mm' ? $region['region_mm'] : $region['region_en']  }}
                                                                                     </option>
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> -->
                                                                         </div>
                                                                         <div class="col-md-3 col-7 px-1">
-                                                                            <select class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_township" id="nrc_township" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_township" id="nrc_township" readonly>
                                                                                 @foreach($nrc_townships as $township)
                                                                                     <option value="{{ $township['township_mm'] }}">
                                                                                         {{ $township['township_mm'] }}
                                                                                     </option>
                                                                                 @endforeach
-                                                                            </select>
-                                                                            </select>
+                                                                            </select> -->
+                                                                            
                                                                         </div>
                                                                         <div class="col-md-2 col-5 px-1">
-                                                                            <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
+                                                                            <input type="text" class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
+                                                                            <!-- <select class="form-control" name="nrc_citizen" id="nrc_citizen" readonly>
                                                                                 @foreach($nrc_citizens as $citizen)
                                                                                 <option value="{{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}">
                                                                                     {{ $nrc_language == 'mm' ? $citizen['citizen_mm'] : $citizen['citizen_en'] }}
                                                                                 </option>
                                                                                 @endforeach
-                                                                            </select>
+                                                                            </select> -->
                                                                         </div>
 
                                                                         <div class="col-md-5 col-7 pl-1">
@@ -655,7 +658,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်</label>
                                                         <div class="col-md-8">
-                                                            <input type="file" class="form-control" accept="image/*" required>
+                                                            <input type="file" name="teacher_card" class="form-control" accept="image/*" required>
                                                             
                                                         </div>
                                                 </div>   
