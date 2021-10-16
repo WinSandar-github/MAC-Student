@@ -317,7 +317,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -678,7 +678,7 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
 
-                                    <div class="col-md-7 col-form-label">CPA(FF) Registeraion No.</div>
+                                    <div class="col-md-7 col-form-label">CPA(Full-Fledged) Registeraion No.</div>
                                     <div class="col-md-3">
                                         <input type="text"  class="form-control" name="reg_no"  id="reg_no">
                                     </div>

@@ -39,7 +39,6 @@ $().ready(function (){
             recommend_attach : "required",
             police_attach : "required",
             confirm_142 : "required",
-            confirm_status : "required",
             mentor_declare : "required",
         },
         messages:{
@@ -77,7 +76,6 @@ $().ready(function (){
             recommend_attach : "Please upload your attachment",
             police_attach : "Please upload your attachment",
             confirm_142 : "Please check one",
-            confirm_status : "Please check one",
         },
         
     });
