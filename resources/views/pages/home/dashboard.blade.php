@@ -661,6 +661,30 @@
                             </div>
                             
                         </div>
+                        <div id="qt_article_row" style="display:none;">
+                            <div class="row my-2">
+
+                                <div class="offset-md-3 col-md-9">
+
+                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                    Application Status</h5>
+
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="qt_article_status">
+                                        </tbody>   
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
@@ -2124,7 +2148,73 @@
         </div>
     </div>
 
+<!-- Leave Request Model-->
+<div class="modal fade" id="leaveRequestModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Leave Request Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <input type="hidden" id="article_id">
+                    <input type="hidden" id="form_name">
+                    <form action="javascript:saveLeaveRequest();" enctype="multipart/form-data" id="leave_request_form">
+                    @csrf
+                        <input type="hidden" id="leave_request_id">
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label>Leave Request Reason</label>
+                                <input type="text"  name="remark" id="remark" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label>Start Date</label>
+                                <input type="text" name="start_date" id="start_date" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly>
+                            </div>
+                            <div class="col-md-3">
+                                <label>End Date</label>
+                                <input type="text" name="end_date" id="end_date" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Total Date</label>
+                                <input type="number" name="total_date" id="total_date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3" align="right">
+                                <button type="submit" class="btn btn-success btn-hover-dark">Save Request</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">Leave Request</h5>
+                            <table class="table" id="leave_request_table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Leave Request Reason</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Total Date</th>
+                                        <th>Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leave_request_body">
+                                </tbody>   
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @push('scripts')
+<script src="{{ asset("js/form_validation/article_firm_validation.js") }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
         // dateQuery();
@@ -2132,6 +2222,19 @@
         //checkPaymentAudit();
         // audit_reg_feedback();
         // firmDashboardData();
+
+        $("input[name='start_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true
+        });
+
+        $("input[name='end_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true
+        });
+
     })
     //app_form_feedback();
 

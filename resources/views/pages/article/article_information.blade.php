@@ -269,6 +269,9 @@
                                 $("#article_hr").hide();
                                 $("#gov_article_row").hide();
                             }else{
+                                $("#c2_pass_3yr_btn").hide();
+                                $("#c2_pass_1yr_btn").hide();
+                                $("#qt_pass_3yr_btn").hide();
                                 $("#firm_article_renew_row").hide();
                             }
                             $('#articleModal').modal('toggle');
