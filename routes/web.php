@@ -208,7 +208,7 @@ Route::get('qualified_test_list','ReportController@qualifiedTestList');
 // Route::get('payment', 'PaymentController@payment');
 // Route::get('cash', 'PaymentController@cash');
 // Route::get('da_verify_email', 'PaymentController@verifyEmail');
-Route::get('payment_method/{id}', 'PaymentController@paymentMethod');
+Route::get('payment_method/{id}/{form_type}', 'PaymentController@paymentMethod');
 Route::get('/setPayment', 'PaymentController@setPayment');
 Route::post('payment_method/{id}', 'PaymentController@postPayment');
 Route::post('post_payment/{type}', 'PaymentController@postPayment');

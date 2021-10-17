@@ -614,8 +614,13 @@
                       var education_history = data.data.student_education_histroy;
                       if(info){
                     $('#stu_id').val(info.id);
+<<<<<<< HEAD
+                 
+                         $("input[name=email]").val(info.email);
+=======
                     console.log('info',info)
-                        $("input[name=email]").val(info.email);
+
+>>>>>>> parent of f6d58b68... update degree select in da one process
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
                         $("#nrc_state_region").val(info.nrc_state_region);
@@ -677,6 +682,7 @@
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
                         $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
+<<<<<<< HEAD
                         // console.log('certificate',JSON.parse(education_history.certificate));
 
                         let certificate = JSON.parse(education_history.certificate);
@@ -686,6 +692,9 @@
                             $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
 
                         })
+=======
+                        console.log('certificate',JSON.parse(education_history.certificate));
+>>>>>>> parent of f6d58b68... update degree select in da one process
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){

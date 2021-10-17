@@ -421,8 +421,9 @@ function loadRenewTeacher(){
                                     $("#nrc_back_img").attr("src",BASE_URL+teacher.nrc_back);
                                     $('#hidden_nrc_back').val(teacher.nrc_back);
                                   }
-                                  $('#regno').val(teacher.t_code);
-                                  //loadEductaionHistory(teacher.id,'tbl_degree');
+                                  $('#t_code').val(teacher.t_code);
+                                  $('#regno').val(teacher.regno);
+                                  loadEductaionHistory(teacher.id,'tbl_degree');
                                     if(teacher.certificates.search(/[\'"[\]']+/g)==0){
                                         //loadCertificates(teacher.certificates.replace(/[\'"[\]']+/g, ''),"selected_cpa_subject");
                                         //loadCertificates(teacher.diplomas.replace(/[\'"[\]']+/g, ''),"selected_da_subject");
@@ -456,9 +457,7 @@ function loadRenewTeacher(){
                                 //     $('#rec_letter').css('display','none');
                                 // }
                                 $('#hinitial_status').val(1);
-                                //$('#payment_date').val(teacher.payment_date);
-                                  
-                                  
+                                
                                   $('#student_info_id').val(teacher.student_info_id);
                                   if(teacher.initial_status==0){
                                     var accept=new Date(teacher.from_valid_date);
@@ -634,6 +633,7 @@ function renewTeacher(){
     send_data.append('teacher_id', $('#teacher_id').val());
     send_data.append('student_info_id', $('#student_info_id').val());
     send_data.append('initial_status',  $('#hinitial_status').val());
+    send_data.append('regno',  $('#regno').val());
   show_loader();
     $.ajax({
         url: BACKEND_URL+'/renewTeacher',
@@ -700,7 +700,7 @@ function loadEductaionHistory(id,table){
             $.each(result.data, function( index, value ){
                 var tr="<tr>";
                 tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-                tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.university_name+'" readonly/></td>';
+                tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'" readonly/></td>';
                 tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';//<input type="file" name="old_degrees_certificates[]" class="form-control">
                 tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
                 tr += "</tr>";
@@ -1090,7 +1090,7 @@ function loadEductaionHistoryByRenew(id,table){
             $.each(result.data, function( index, value ){
                 var tr="<tr>";
                 tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_renewdegrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.university_name+'" /></td>';
+                tr += '<td><input type="text" name="old_renewdegrees[]" class="form-control" value="'+value.degree_name+'" /></td>';
                 tr += '<td><input type="hidden" name="old_renewdegrees_certificates_h[]" class="form-control" value='+value.certificate+'><input type="file" name="old_renewdegrees_certificates[]" class="form-control"><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
                 tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
                 tr += "</tr>";

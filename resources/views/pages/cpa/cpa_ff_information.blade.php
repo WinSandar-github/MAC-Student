@@ -209,13 +209,8 @@
                         မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
                         လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
                     </h5>
-                    {{--<div class="d-flex justify-content-between">
-                        <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
-                        <h6>အမှတ်စဥ် - {{ __("____") }}</h6>
-                    </div>--}}
                 </div>
                 <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">
-                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
                         
@@ -435,17 +430,17 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
 
-                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ် </div>
                                     <div class="col-md-3">
-                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                        <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
                                     </div>
 
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
 
-                                    <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                    <div class="col-md-7 col-form-label">လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
                                     <div class="col-md-3">
-                                        <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
                                     </div><br><br>
 
                                     <div class="col-md-1"></div>
@@ -558,37 +553,36 @@
                               </div>
                           </div><br/><br>
 
-                          {{--<div class="row">
-                              <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                              <div class="col-md-6 col-form-label">{{ __('ပတ်စပို့အရွယ်ဓာတ်ပုံ') }}</div>
-                              <div class="col-md-4">
-                                          <input type="file"  class="form-control" name="passport_image">
+                          <div class="row mb-3" style="padding-left:50px;">
+                              <div class="form-check">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" name="cpaff_submit_confirm" onchange="$('#cpaff_submit').prop('disabled', !this.checked)">
+                                      <span class="form-check-sign"></span>
+                                      <p class="fw-bolder">
+                                          * အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။
+                                      </p>
+                                  </label>
+
                               </div>
-                          </div><br/><br>--}}
-
-                          {{-- <div class="row">
-                              <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-
-                              <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                              <div class="col-md-4">
-                                <input type="file"  class="form-control" name="letter" required="">
+                          </div>
+                          <div class="row mb-3">
+                              <div class="col-md-2 offset-md-5">
+                                  <button type="submit" id="cpaff_submit" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
                               </div>
-                          </div><br/><br> --}}
+                          </div>
 
-                            <div class="row">
+                            {{--<div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
                                 <div class="col-md-1 col-form-label"><input type="checkbox" name="submit_confirm" id="submit_confirm_ss" ></div>
                                 <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါအချက်အလက်အားလုံးမှန်ကန်ပါသည်။') }}</label>
                             </div><br/>
                                             
                             <br/>
-                      <div class="row ">
-                          <div class="col-md-2 offset-md-5">
-                              <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
-                          </div>
-                      </div>
+                            <div class="row ">
+                                <div class="col-md-2 offset-md-5">
+                                    <button type="submit" class="btn btn-success btn-hover-dark w-100 renew_submit">{{ __('Submit') }}</button>
+                              </div>
+                            </div>--}}
                     </div>
                 </form>
             </div>

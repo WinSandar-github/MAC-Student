@@ -241,6 +241,8 @@ function createCpaffReconnectRegister(){
     send_data.append('end_date', $("input[name=end_date]").val());//new field
     send_data.append('self_confession',$("input[name=self_confession]").val());
     send_data.append('form_type', 2);
+    send_data.append('is_renew', 0);
+    send_data.append('type', 0);
     // save to student_info
     send_data.append('email', $("input[name=email]").val());
     send_data.append('password', $("input[name=password]").val());
