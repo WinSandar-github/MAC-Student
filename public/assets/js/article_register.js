@@ -79,44 +79,49 @@ function AddPolice() {
     police_count++;
 }
 
-// function loadMentorList(){
-//     var select = document.getElementById("mentor_id");
-//     $.ajax({
-//         url: BACKEND_URL+"/mentor",
-//         type: 'get',
-//         data:"",
-//         success: function(data){
+function loadMentorList(){
+    var array = [];
+    $.ajax({
+        url: BACKEND_URL+"/mentor",
+        type: 'get',
+        data:"",
+        success: function(data){
+            var result=data.data;
+            result.forEach(function (element) {
+                array.push(element.papp_reg_no);
+            });
+                    
+            $('#papp_name').autocomplete({
+                source : array,              
+                select : getMentorName,
+                focus : getMentorName,
+                change :getMentorName
+            })
+        },
+        error:function (message){
 
-//             var montor_data=data.data;
-//             montor_data.forEach(function (element) {
-//                 var option = document.createElement('option');
-//                 option.text = element.name_eng;
-//                 option.value = element.id;
-//                 select.add(option,0);
+        }
 
-//             });
-//         },
-//         error:function (message){
+    });
+}
 
-//         }
+function getMentorName(event, ui){
+    papp_name = ui.item.label;
+    $.ajax({
+        type: 'GET',
+        url: BACKEND_URL + "/getMentor/" + papp_name,
+        success: function (mentor) {
+            var result = mentor.mentor;
+            result.forEach(function (element) {
+                $("#mentor_name").val(element.name_mm);
+                $("#mentor_id").val(element.id);
+            });
+        },
+        error:function (message){
 
-//     });
-// }
-
-// function gerPappName(){
-//     var id = document.getElementById("mentor_id");
-//     $.ajax({
-//         type: 'GET',
-//         url: BACKEND_URL + "/getMentor/" + id,
-//         success: function (mentor) {
-//             console.log(mentor);
-//         },
-//         error:function (message){
-
-//         }
-
-//     });
-// }
+        }
+    });
+}
 
 function createArticleFirmRegister() {
     var send_data = new FormData();
@@ -167,6 +172,7 @@ function createArticleFirmRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
+    send_data.append('mentor_id', $("#mentor_id").val());
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('exam_pass_date', $("input[name=pass_date]").val());
     send_data.append('exam_pass_batch', $("input[name=pass_no]").val());
@@ -375,6 +381,7 @@ function createArticleRenewRegister() {
     send_data.append('exp_start_date', $("input[name=previous_papp_start_date]").val());
     send_data.append('exp_end_date', $("input[name=previous_papp_end_date]").val());
     send_data.append('request_papp', $("input[name=papp_name]").val());
+    send_data.append('mentor_id', $("#mentor_id").val());
     send_data.append('request_papp_attach', request_papp_attach);
     send_data.append('student_info_id', $("input[name=student_info_id]").val());
     send_data.append('article_form_type', $("input[name=article_form_type]").val());
