@@ -570,12 +570,7 @@
                     </div>
                      <!-- cpaff other dashboard -->
                     {{--<div class="cpaff_other">
-                        <div class="row">
-
-
-
-
-                            </div>
+                        <div class="row"></div>
                             
                         </div>
                     </div>--}}
@@ -636,7 +631,6 @@
                                 </div>
                             </div>
 
-
                         </div>
 
                         <div class="row my-2">
@@ -659,7 +653,7 @@
                                     </tbody>   
                                 </table>
                             </div>
-                            
+ 
                         </div>
                         <div id="qt_article_row" style="display:none;">
                             <div class="row my-2">
