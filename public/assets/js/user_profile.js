@@ -204,13 +204,7 @@ function user_profile() {
                     else {
                         is_renew = ""
                     }
-                    if(papp_latest_data.status == 0 && papp_latest_data.type == 2)
-                    {
-                        $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
-                        $('.status_history').append('Action &nbsp;&nbsp;');
-                        $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
-                    }
-                    else if (papp_latest_data.status == 0) {
+                    if (papp_latest_data.status == 0) {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {
