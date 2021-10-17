@@ -962,7 +962,7 @@ function createReconnectPapp(){
     send_data.append('old_card_no_year', $("input[name=old_card_no_year]").val());
     send_data.append('old_card_file', $("input[name=renew_file]")[0].files[0]);
     send_data.append('is_convicted', $("input[name=fine_person]").val());
-    send_data.append('is_renew',1);
+    send_data.append('is_renew',2);
 
     //papp_data
     send_data.append('papp_reg_no', $("input[name=papp_reg_no]").val());
@@ -995,7 +995,7 @@ function createReconnectPapp(){
     else{
         send_data.append('staff_firm_name', "");
     } 
-    send_data.append('type',1);
+    send_data.append('type',2);
 
     show_loader();
     $.ajax({

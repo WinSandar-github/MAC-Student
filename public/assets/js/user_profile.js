@@ -112,8 +112,11 @@ function user_profile() {
                 if (cpaff_latest_data.type == 0) {
                     is_renew = "Initial";
                 }
-                else {
+                else if (cpaff_latest_data.type == 1) {
                     is_renew = "Renewal";
+                }
+                else {
+                    is_renew = "";
                 }
                 if (cpaff_latest_data.status == 0) {
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is checking.<br><br>');
