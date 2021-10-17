@@ -335,33 +335,6 @@
                                     </div>
                                     <label class="col-md-10 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်ဒုတိယပိုင်းစာမေးပွဲကို <input type="text" name="cpa2_pass_date" id="cpa2_pass_date" class="form-control" placeholder="ခုနှစ်" style="display: inline;width: 100px;" autocomplete="off" disabled> ခုနှစ်တွင် ကိုယ်ပိုင်အမှတ် <input type="text" name="cpa_batch_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled> ဖြင့် အောင်မြင်ပါသည်။</label>
                                 </div>
-                                {{--<div class="pass_batch_two" style="display:none">
-                                    <div class="row mb-3">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">အောင်မြင်သည့် သင်တန်းအမှတ်စဉ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="pass_batch_no" placeholder="သင်တန်းအမှတ်စဉ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 " >
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">ကိုယ်ပိုင်အမှတ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control" name="pass_personal_no" placeholder="ကိုယ်ပိုင်အမှတ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
 
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
@@ -373,33 +346,6 @@
                                     ကျင်းပခဲ့သည့် အရည်အချင်းစစ်စာမေးပွဲကို ခုံအမှတ်<input type="text" name="roll_no" class="form-control" style="display: inline;width: 100px;" autocomplete="off" disabled>ဖြင့် အောင်မြင်ခဲ့ပါသည်။</label>
 
                                 </div>
-                                {{--<div class="qt_pass" style="display:none">
-                                    <div class="row mb-3">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">အောင်မြင်သည့် ခုနှစ်/လ</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control qt_pass_date" name="qt_pass_date"  placeholder="ခုနှစ်/လ (MMM-YYYY)">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3 " >
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <label for="" class="col-md-4">ခုံအမှတ်</label>
-                                                <div class="col-md-8">
-                                                    <input type="text" class="form-control qt_pass_seat_no" name="qt_pass_seat_no" placeholder="ခုံအမှတ်">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
 
                                 <div class="row mb-3">
                                     <label class="col-md-1 col-form-label">{{ __('၃။') }}</label>
@@ -417,14 +363,6 @@
                                                 <input type="file"  class="form-control" name="cpa_certificate" >
                                     </div>
                                 </div>
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label"></label>
-                                    <div class="col-md-6 col-form-label">လက်မှတ်ရပြည်သူ့စာရင်းကိုင်စာမေးပွဲအောင်လက်မှတ် (အနောက်)</div>
-                                    <div class="col-md-4">
-                                                <input type="file"  class="form-control" name="cpa_certificate_back" >
-                                    </div>
-                                </div>--}}
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ခ)') }}</label>
@@ -446,33 +384,6 @@
                                 <div class="col-md-1 col-form-label">{{ __('(ဂ)') }}</div>
                                 <div class="col-md-10">
                                     <div class="row">
-                                        {{--<div class="col-md-6">
-                                            <div class="row">
-                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အရှေ့)</label>
-                                            </div>
-                                            <div class="row">
-                                                <img class="col-md-12 nrc-image-style" id="previewNRCFrontImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
-                                                <p class="mt-2">
-                                                <input type="file" class="nrc-custom-file-input" id="nrc_front"  name="nrc_front"
-                                                    value="{{ old('nrc_front') }}" accept="image/*"  onchange="previewNRCFrontImageFile(this);">
-                                                </p>
-                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <label for="" class="col-form-label">နိုင်ငံသားစိစစ်ရေးကတ်ပြား (အနောက်)</label>
-                                            </div>
-                                            <div class="row">
-                                                <img class="col-md-12 nrc-image-style" id="previewNRCBackImg" src="{{asset('/assets/images/blank-profile-picture-1.png')}}" accept="image/png,image/jpeg" alt="">
-                                                <p class="mt-2">
-                                                <input type="file" class="nrc-custom-file-input" id="nrc_back"  name="nrc_back"
-                                                    value="{{ old('nrc_back') }}" accept="image/*"  onchange="previewNRCBackImageFile(this);">
-                                                </p>
-                                                <div class="form-text mb-2 text-danger">Allowed Jpeg and Png Image.</div>
-                                            </div>
-                                        </div>--}}
                                         <div class="col-md-6 text-center">
                                             <div class="fileinput fileinput-new text-center mt-4" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail shadow">
@@ -529,15 +440,6 @@
                                         <input type="text"  class="form-control" name="total_hours"  placeholder="စုစုပေါင်း နာရီ" >
                                     </div>
                                 </div>
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-
-                                    <div class="col-md-6 col-form-label">ပတ်စပို့အရွယ်ဓာတ်ပုံ</div>
-                                    <div class="col-md-4">င
-                                        <input type="file"  class="form-control" name="passport_image"  >
-                                    </div>
-                                </div>--}}
                                 <div class="row mb-3">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
@@ -546,20 +448,6 @@
                                         <input type="file"  class="form-control" name="three_years_full"  >
                                     </div>
                                 </div>
-                                {{-- <div class="row mb-4">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
-
-                                    <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                                    <div class="col-md-4">
-                                        <input type="file"  class="form-control" name="letter"  >
-                                    </div>
-                                </div> --}}
-                                {{--<div class="row mb-3">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label mt-1"><input type="checkbox" name="submit_confirm" id="submit_confirm" onclick="ConfirmSubmit()"></label>
-                                    <label class="col-md-10 col-form-label fw-bolder">{{ __('အထက်ဖော်ပြပါ အချက်အလက်များမှန်ကန်ကြောင်းကတိပြုဝန်ခံပါသည်။') }}</label>
-                                </div>--}}
                                 <div class="row mb-3" style="padding-left:50px;">
                                     <div class="form-check">
                                         <label class="form-check-label">

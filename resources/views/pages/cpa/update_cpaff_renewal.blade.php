@@ -12,8 +12,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title cpaff_initial" style="display:block;">CPA (Full-Fledged) Initial Registration  <span>Form</span></h2>
-                    <h2 class="title cpaff_renew" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
+                    <h2 class="title" style="display:none;">CPA (Full-Fledged) Renewal Registration  <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
 
@@ -218,7 +217,6 @@
                     </div>--}}
                 </div>
                 <form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit" action="javascript:void(0)">
-                {{--<form method="post" enctype="multipart/form-data"  id="cpaff_renew_form_submit">--}}
                     @csrf
                     <div class="card-body">
                         <input type="hidden" id="cpaff_id" name="cpaff_id"/>
@@ -438,17 +436,17 @@
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
 
-                                <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်</div>
                                 <div class="col-md-3">
-                                    <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                    <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
                                 </div>
 
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label"></label>
 
-                                <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                <div class="col-md-7 col-form-label">လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
                                 <div class="col-md-3">
-                                    <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                    <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
                                 </div><br><br>
 
                                 <div class="col-md-1"></div>
@@ -565,25 +563,6 @@
 
                               </div>
                           </div><br/><br>
-
-                          {{--<div class="row">
-                              <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                              <div class="col-md-6 col-form-label">{{ __('ပတ်စပို့အရွယ်ဓာတ်ပုံ') }}</div>
-                              <div class="col-md-4">
-                                          <input type="file"  class="form-control" name="passport_image">
-                              </div>
-                          </div><br/><br>--}}
-
-                          {{-- <div class="row">
-                              <div class="col-md-1"></div>
-                              <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
-
-                              <div class="col-md-6 col-form-label">ကိုယ်တိုင်ဝန်ခံချက်</div>
-                              <div class="col-md-4">
-                                <input type="file"  class="form-control" name="letter" >
-                              </div>
-                          </div><br/><br> --}}
 
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
@@ -714,11 +693,12 @@
             $('#contact_mail').val(cpaff.contact_mail);
             $('#total_hours').val(cpaff.total_hours);
             $('#fine_person').val(cpaff.fine_person);
+            $('#reg_no').val(cpaff.reg_no);
 
             var cpaff_pass_date=new Date(cpaff.cpaff_pass_date);
             $('#cpaff_pass_date').val(cpaff_pass_date.getFullYear());
-            // var renew_accepted_date=new Date(cpaff.renew_accepted_date);
-            // $('#renew_accepted_date').val(renew_accepted_date.getFullYear());
+            var renew_accepted_date=new Date(cpaff.renew_accepted_date);
+            $('#renew_accepted_date').val(renew_accepted_date.getFullYear());
             var old_card_no_year=new Date(cpaff.old_card_no_year);
             $('#old_card_no_year').val(old_card_no_year.getFullYear());
 

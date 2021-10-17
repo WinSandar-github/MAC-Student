@@ -517,7 +517,7 @@
                                 <div class="row mb-3" style="padding-left: 15px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(င)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no" readonly="">
+                                        <input type="text"  class="form-control" name="cpa_batch_no" id="cpa_batch_no">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 15px;">
@@ -553,10 +553,10 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <label class="col-md-12"  style="font-size:15px;">ကျွန်ုပ်အား အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့်လုပ်ငန်း လုပ်ကိုင်သူအဖြစ်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control" autocomplete="off">ခုနှစ်အတွက်
-                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date" autocomplete="off">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
-                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 100px;" placeholder="မှတ်ပုံတင်အမှတ်" required="" autocomplete="off"> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
-                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year" autocomplete="off">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_date" id="papp_date" placeholder="နှစ်(YYYY)" class="form-control">ခုနှစ်အတွက်
+                                                <input type="text" style="display:inline; width:100px;" name="papp_reg_date" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" class="form-control papp_reg_date">ရက်စွဲပါ မှတ်ပုံတင်အမှတ်
+                                                <input type="text" class="form-control" name="reg_no" id="reg_no" style="display: inline;width: 120px;" placeholder="မှတ်ပုံတင်အမှတ်" required=""> ဖြင့်မှတ်ပုံတင်ပေးခဲ့ပီးဖြစ်ပါသည်။
+                                                <input type="text" style="display:inline; width:100px;" name="papp_renew_year" id="papp_renew_year" placeholder="နှစ်(YYYY)" class="form-control papp_renew_year">ခုနှစ်အတွက် မှတ်ပုံတင်သက်တမ်းတိုးပေးရန် လျှောက်ထားပါသည်။
                                             </label>
                                         </div>
 
@@ -817,9 +817,9 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(ဃ)') }}</label>
-                                    <div class="col-md-6 col-form-label">CPA(FF) Registeration No.</div>
+                                    <div class="col-md-6 col-form-label">CPA(Full-Fledged) Registeration No.</div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="reg_no" id="reg_no">
+                                        <input type="text" class="form-control" name="reg_no" id="cpaff_reg_no">
                                     </div>
                                 </div><br/><br>
 
