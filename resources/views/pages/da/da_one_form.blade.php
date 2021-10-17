@@ -491,10 +491,9 @@
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">(က)</span>ဘွဲ့အမည်</label>
                                             <div class="col-md-4">
                                                 <select name="degree_id"  class="form-control degree_id" >
-                                                    
+                                                    <option value="">select degree</option>
                                                 </select>
                                             <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
-
                                             </div>
                                             <div class="col-md-4" id="other_degree_name" style="display:none;">
                                                 <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
