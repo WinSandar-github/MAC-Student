@@ -43,7 +43,7 @@
         </div>
         <div class="section"> <!-- section-padding mt-n10 -->
             <div class="container mt-5"> 
-                <div class="card border-success mb-3" id="papp_renew_form" style="display:none;"><br/><!---->
+                <div class="card border-success mb-3" id="papp_renew_form"><br/><!---->
                     <div class="row mb-5">
                         <div style="text-align: right;margin-top:1%;">
                             <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၄)</h6>

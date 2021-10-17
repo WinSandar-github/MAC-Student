@@ -808,14 +808,13 @@ function RenewPAPP(){
                             EasyLoading.hide();
                             successMessage(result.message);
                             // location.reload();
-                            console.log(result,"invoice");
-                            // location.href = FRONTEND_URL+'/';
-                            // document.getElementById('approved').style.display='none';
-                            // document.getElementById('rejected').style.display='none';
-                            // document.getElementById('pending').style.display='none';
-                            // document.getElementById('papp_form').style.display='none';
-                            // document.getElementById('papp_renew_form').style.display='none';
-                            // document.getElementById('expiry_card').style.display='none';
+                            location.href = FRONTEND_URL+'/';
+                            document.getElementById('approved').style.display='none';
+                            document.getElementById('rejected').style.display='none';
+                            document.getElementById('pending').style.display='none';
+                            document.getElementById('papp_form').style.display='none';
+                            document.getElementById('papp_renew_form').style.display='none';
+                            document.getElementById('expiry_card').style.display='none';
                         },
                         error:function (message){
                         }
