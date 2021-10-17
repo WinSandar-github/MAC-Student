@@ -572,14 +572,22 @@
                     {{--<div class="cpaff_other">
                         <div class="row">
 
-                            
-                            
-                            
+
+
+
                             </div>
-                            <div class="qualified_test">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
+                            
+                        </div>
+                    </div>--}}
+                    <div class="qualified_test">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
                                     </div>
                                     <div class="col-md-6">
                                         <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
@@ -627,6 +635,31 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                        </div>
+
+                        <div class="row my-2">
+
+                            <div class="offset-md-3 col-md-9">
+
+                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                Application Status</h5>
+
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Submit Date</th>
+                                            <th>Status Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="status">
+                                    </tbody>   
+                                </table>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="card-body cpaff_other">

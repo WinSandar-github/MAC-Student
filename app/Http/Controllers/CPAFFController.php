@@ -30,5 +30,9 @@ class CPAFFController extends Controller
     public function cpaffReconnect(){
         return view('pages.cpa.cpaff_reconnect');
     }
+
+    public function cpaffRenew(){
+        return view('pages.cpa.cpaff_renew');
+    }
    
 }

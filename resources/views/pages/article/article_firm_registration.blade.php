@@ -555,28 +555,27 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                        <!-- <div class="row mb-3">
+                                        <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <select class="form-control" name="mentor_id" id="mentor_id" onchange="gerPappName();" >
-                                                                <option value="" disabled selected>ရွေးပါ</option>
-                                                        </select>
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                        <input type="hidden" id="mentor_id">
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('') }}</span></label>
@@ -688,7 +687,7 @@
 <script type="text/javascript">
     $('document').ready(function(){
 
-        // loadMentorList();
+        loadMentorList();
 
         var result = window.location.href;
         var url = new URL(result);
@@ -727,7 +726,13 @@
             // }else{
             //     $("#module_name").text("အားလုံး");
             // }
-            $("#batch_no").text(batch);
+            // $("#batch_no").text(batch);
+
+            if(batch == "undefined"){
+                $("#batch_no").text("-");
+            }else{
+                $("#batch_no").text(batch);
+            } 
             
             if(type == 0){
                 $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
