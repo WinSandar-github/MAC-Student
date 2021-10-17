@@ -306,15 +306,8 @@
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">၈။</span>ပညာအရည်အချင်း</label>
-                                                           
-                                                <div class="col-md-4">
-                                                    <select disabled name="degree_id"  class="form-control degree_id" >
-                                                        
-                                                    </select>
- 
-                                                </div>
-                                                <div class="col-md-4 other_degree_name" style="display:none;">
-                                                    <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
+                                                <div class="col-md-8">
+                                                    <input type="text" name="education" class="form-control" readonly>
                                                 </div>
                                             </div>
 
@@ -786,17 +779,11 @@
                                             </div>
 
                                             <div class="row mb-3">
-                                                    <label for="" class="col-md-4 col-form-label label_align_right"><span
+                                                <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">၈။</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-4">
-                                                    <select disabled name="degree_id" class="form-control degree_id" >
-                                                        
-                                                    </select>
- 
-                                                    </div>
-                                                    <div class="col-md-4 other_degree_name" style="display:none;">
-                                                        <input readonly type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
-                                                    </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="education" class="form-control" readonly>
+                                                </div>
                                             </div>
 
                                             <div class="row mb-3">
@@ -1243,15 +1230,9 @@
                                             <div class="row mb-3">
                                                 <label for="" class="col-md-4 col-form-label label_align_right"><span
                                                             class="pull-left">၈။</span>ပညာအရည်အချင်း</label>
-                                                    <div class="col-md-4">        
-                                                        <select readonly name="degree_id" class="form-control degree_id">
-                                                        
-                                                        </select>
-     
-                                                    </div>
-                                                    <div class="col-md-4 other_degree_name" style="display:none;">
-                                                        <input disabled type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name"   >
-                                                    </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="education" class="form-control" readonly>
+                                                </div>
                                             </div>
 
                                             <div class="row mb-3">
@@ -1746,9 +1727,8 @@
         $('document').ready(function () {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
-
             $('#form_type').val(localStorage.getItem("course_id"));
-        getDegree();
+
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
@@ -1841,13 +1821,7 @@
                     $("input[name='race']").val(data.data.race);
                     $("input[name='religion']").val(data.data.religion);
                     $("input[name='date_of_birth']").val(data.data.date_of_birth);
-                     var education_history = data.data.student_education_histroy;
-                     $(".degree_id").val(education_history.degree_id);
-                        if(education_history.degree_id == 40){
-                             
-                            $("input[name=degree_name]").val(education_history.degree_name);
-                            $('.other_degree_name').show();
-                        }
+                    $("input[name='education']").val(data.data.student_education_histroy.degree_name);
                     $("input[name='position']").val(data.data.student_job.position);
                     $("input[name='department']").val(data.data.student_job.department);
                     $("input[name='office_address']").val(data.data.student_job.office_address);
@@ -1920,7 +1894,6 @@
          
         // loadExam();
          reg_feedback();
-        
  
 
         loadSchoolList();
