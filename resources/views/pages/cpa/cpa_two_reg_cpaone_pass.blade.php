@@ -592,7 +592,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    {{--<div class="row mb-3">
                                         <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(စ)</span>Module <span style="color:red">*</span>-</label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-4 form-check-radio">
@@ -621,7 +621,7 @@
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                         </div>
-                                    </div>
+                                    </div>--}}
 
                                     <div class="row mb-3">
                                         <div class="form-check">

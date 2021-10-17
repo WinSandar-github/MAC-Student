@@ -104,6 +104,8 @@ function createDARegister() {
     send_data.append('office_address', $("input[name=office_address]").val());
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
+    send_data.append('degree_id', $("#degree_id").val());
+
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function () {
 
@@ -570,7 +572,7 @@ function createDATwoRegDAOnePass(){
     // send_data.append('pass_type', $("input[name='da_one_attend_place']:checked").val());
     send_data.append('mac_type', $("input[name='attend_place']:checked").val() == 2 ? $("input[name='mac_type']:checked").val() : 99);
     // send_data.append('pass_mac_type', $("input[name='da_one_attend_place']:checked").val() == 2 ? $("input[name='da_one_mac_type']:checked").val() : 88);
-    send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
+    // send_data.append('module', $("input[type='radio'][name='is_full_module']:checked").val());
     show_loader();
     $.ajax({
         url: BACKEND_URL + "/da_two_reg_daonepass",
@@ -999,3 +1001,27 @@ function selectdType() {
 //     }
 
 // });
+
+
+function getDegree() {
+    $.ajax({
+        url: BACKEND_URL + "/degree",
+        type: 'get',
+        data: "",
+        success: function (data) {
+
+            var degree_data = data.data;
+            var opt = `<option  disabled  >Select Degree </option>`;
+
+            degree_data.forEach(function (element) {
+                opt += `<option value=${element.id}  >${element.degree_name}</option>`;
+
+            });
+            $(".degree_id").append(opt);
+        },
+        error: function (message) {
+
+        }
+
+    });
+}
