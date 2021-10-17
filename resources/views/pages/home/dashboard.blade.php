@@ -646,8 +646,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-
 
                         </div>
 
@@ -671,9 +669,7 @@
                                     </tbody>   
                                 </table>
                             </div>
-                            
-=======
->>>>>>> parent of f6d58b68... update degree select in da one process
+ 
                         </div>
                         <div id="qt_article_row" style="display:none;">
                             <div class="row my-2">
