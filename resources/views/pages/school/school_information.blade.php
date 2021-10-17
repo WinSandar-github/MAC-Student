@@ -415,6 +415,11 @@
                                     <input type="hidden" id="school_address">
                                     <input type="hidden" id="hcourse">
                                     <input type="hidden" id="regno">
+                                    <input type="hidden" id="offline_user">
+                                    <input type="hidden" id="last_registration_fee_year">
+                                    <input type="hidden" id="request_for_temporary_stop">
+                                    <input type="hidden" id="from_request_stop_date">
+                                    <input type="hidden" id="to_request_stop_date">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
