@@ -485,18 +485,12 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-5 col-form-label label"><span class="pull-left">၂၂။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
-                                        
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၂။</span>တက္ကသိုလ်တစ်ခုခုမှအောင်မြင်ပြီးခဲ့သော</label>
+
                                         <div class="row mb-3" style="margin-left: 80px">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">(က)</span>ဘွဲ့အမည်</label>
-                                            <div class="col-md-4">
-                                                <select name="degree_id"  class="form-control degree_id" >
-                                                    <option value="">select degree</option>
-                                                </select>
-                                            <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
-                                            </div>
-                                            <div class="col-md-4" id="other_degree_name" style="display:none;">
-                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
+                                            <div class="col-md-8">
+                                                <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" >
                                             </div>
                                         </div>
 
@@ -810,11 +804,6 @@
         $(document).ready(function (e) {
             localStorage.removeItem('course_type');
 
-            $('.degree_id').select2({
-            placeholder: "Select Degree"
-        });
-
-
             $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-m-Y",
@@ -880,23 +869,6 @@
                 $('#btn_cash').prop('disabled', true);
             });
             $('#btn_cash').prop('disabled', true);
-
-            $('.degree_id').change(function(){
-                var selectedDegree = $(this).val();
-                if(selectedDegree == 40){ 
-                    $('#other_degree_name').show()
-                    $('#degree_name').prop('required',true)
-                
-                }
-                else{
-                    $('#other_degree_name').hide()
-                    $('#degree_name').prop('required',false)
-
-                };
-                
-            })
- 
-            getDegree();
         });
     </script>
 @endpush
