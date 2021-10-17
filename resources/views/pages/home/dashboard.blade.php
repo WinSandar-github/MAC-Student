@@ -572,24 +572,6 @@
                     {{--<div class="cpaff_other">
                         <div class="row">
 
-<<<<<<< HEAD
-
-
-
-                            </div>
-                            
-                        </div>
-                    </div>--}}
-                    <div class="qualified_test">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
-=======
                             
                             
                             
@@ -598,7 +580,6 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
->>>>>>> parent of f6d58b68... update degree select in da one process
                                     </div>
                                     <div class="col-md-6">
                                         <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
@@ -646,34 +627,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-
-
-                        </div>
-
-                        <div class="row my-2">
-
-                            <div class="offset-md-3 col-md-9">
-
-                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                Application Status</h5>
-
-                                <table class="table ">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Submit Date</th>
-                                            <th>Status Date</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="status">
-                                    </tbody>   
-                                </table>
-                            </div>
-                            
-=======
->>>>>>> parent of f6d58b68... update degree select in da one process
                         </div>
                     </div>
                     <div class="card-body cpaff_other">
@@ -754,72 +707,7 @@
                     </div>
                 </div>
             </div>
-            <!-- cpaff other dashboard -->
-            {{--<div class="cpaff_other">
-                <div class="card">
-                    <div class="card-header cpaff_other_title text-center text-dark h5" style="background-color:#E7F8EE;"></div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img class="img-fluid" id="cpaff_image" style="height : 200px;width:auto;"/>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng) / Name(Myanmar)</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="cpaff_name_eng"></span> / <span id="cpaff_name_mm"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">NRC</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="cpaff_nrc"></span>
-                                    </div>
-                                </div>
-
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Email</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="cpaff_email"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">Phone</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="cpaff_phone"></span>
-                                    </div>
-                                </div>
-                                <div class="row m-2 mt-3 border-bottom period" style="display:none;">
-                                    <div class="col-md-6">
-                                        <p class="ml-2" style="font-weight:bold">This certificate is valid for the
-                                            period</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span id="period_time_cpaff"></span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row my-2">
-                            <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                    Application Status</h5>
-                            <div class="text-center status_history"></div>
-                            <div class="text-center status_papp"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>--}}
+           
             <!-- end cpaff other dashboard -->
             <!-- school dashboard-->
             <div class="school" style="display:none;">
