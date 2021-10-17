@@ -20,7 +20,7 @@ function showRegList(course_code) {
         },
         columns: [
 
-            { data: "sr_no", name: 'No' },
+            { data: "sr_no", name: 'sr_no' },
             { data: 'student_info.name_mm', name: 'student_info.name_mm' },
             { data: 'student_info.father_name_mm', name: 'student_info.father_name_mm' },
             { data: 'nrc', name: 'nrc' },
@@ -64,7 +64,7 @@ function showAppList(course_code) {
         },
         columns: [
 
-            { data: "sr_no", name: 'No' },
+            { data: "sr_no", name: 'sr_no' },
             { data: 'student_info.name_mm', name: 'student_info.name_mm' },
             { data: 'student_info.father_name_mm', name: 'student_info.father_name_mm' },
             { data: 'nrc', name: 'nrc' },
