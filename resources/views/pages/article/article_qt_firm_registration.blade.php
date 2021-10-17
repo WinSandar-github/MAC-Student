@@ -301,8 +301,9 @@
 
                                         <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                            <div class="col-md-9 pt-2">
+                                                <!-- <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly> -->
+                                                <span id="education"></span>
                                             </div>
                                         </div>
 
@@ -476,10 +477,25 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="hidden" id="mentor_id">
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -593,18 +609,21 @@
 <script type="text/javascript">
     $('document').ready(function(){
 
+        loadMentorList();
+
         $("#article_form_type").val("qt_firm");
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
-            let student_reg = data.data.student_register
-            let lastest_row = student_reg.length - 1;
-            let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
-            let module = student_reg[lastest_row].module;  // module 1/2/all
-            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+            // let student_reg = data.data.student_register
+            // let lastest_row = student_reg.length - 1;
+            // let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+            // let exam_result = student_reg[lastest_row].status;  // pass/fail
+            // let module = student_reg[lastest_row].module;  // module 1/2/all
+            // let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+            let qualified_test = data.data.qualified_test
 
-            $("#student_info_id").val(student_reg[lastest_row].student_info_id);
+            $("#student_info_id").val(qualified_test.student_info_id);
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -618,7 +637,8 @@
             $("#race").val(student_info.race);
             $("#religion").val(student_info.religion);
             $("#date_of_birth").val(student_info.date_of_birth);
-            $("#education").val(student_info.student_education_histroy.degree_name);
+            let lcl = JSON.parse(qualified_test.local_education);
+            lcl.map(lcl_edu => $('#education').append(`<p>${lcl_edu}</p>`));
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
@@ -626,7 +646,7 @@
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
             document.getElementById('previewNRCBackImg').src = BASE_URL + student_info.nrc_back;
 
-            let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+            let certificate = JSON.parse(qualified_test.local_education_certificate);
                 $.each(certificate,function(fileCount,fileName){
                    
                      $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
