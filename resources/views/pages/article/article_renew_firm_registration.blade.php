@@ -173,7 +173,7 @@
                                                 <label class="col-md-1 col-form-label label"><span class="pull-left">{{__('၂။')}}</span></label>
                                                 <div class="col-md-11">
                                                     <ul>
-                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့် <span id="mentor_name">-----</span> ထံတွင် <span id="start_date">-----</span> နေ့မှ <span id="end_date">-----</span> နေ့အထိ <span id="result_name">----နှစ် ၊ ----လ ၊ ----ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
+                                                        <li>ယခင်က လက်တွေ့အလုပ်သင်ကြားမှုကို အလုပ်သင်ကြားပေးသည့် <span id="mentor_id">-----</span> ထံတွင် <span id="start_date">-----</span> နေ့မှ <span id="end_date">-----</span> နေ့အထိ <span id="result_name">----နှစ် ၊ ----လ ၊ ----ရက် </span> အလုပ်သင်ကြားမှုခံယူခဲ့ပါသည်။</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -326,10 +326,21 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
-                                            <div class="col-md-9">
-                                                <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                        <div id="firm_education">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="education" id="education" class="form-control" placeholder="ပညာအရည်အချင်း" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="qt_education" style="display:none;">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၄။') }}</span>ပညာအရည်အချင်း</label>
+                                                <div class="col-md-9  pt-2">
+                                                    <span id="add_qt_education"></span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -489,10 +500,25 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၃။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="papp_name" id="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input id="papp_name" type="text" name="papp_name" class="form-control" placeholder="လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="hidden" id="mentor_id">
+                                                        <input type="text" name="mentor_name" id="mentor_name" class="form-control" placeholder="Mentor Name">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -589,6 +615,9 @@
 <script src="{{ asset("js/form_validation/article_firm_validation.js") }}"></script>
 <script type="text/javascript">
     $('document').ready(function(){
+
+        loadMentorList();
+
         var result = window.location.href;
         var url = new URL(result);
         var get_data = url.searchParams.get("data");
@@ -597,57 +626,67 @@
 
         get_student_info(student_id).then(data => {
             let student_info = data.data
-            let student_reg = data.data.student_register
-            let lastest_row = student_reg.length - 1;
-            let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
-            let exam_result = student_reg[lastest_row].status;  // pass/fail
-            let module = student_reg[lastest_row].module;  // module 1/2/all
-            let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
-            let batch = student_reg[lastest_row].batch_no;
 
-            $("#student_info_id").val(student_reg[lastest_row].student_info_id);
+            let latest_article = data.data.article.slice(-1);
+            let qualified_test = data.data.qualified_test;
 
-            if(course == "cpa_1"){
-                $(".course_name").text("ပထမပိုင်း");
-            }else{
-                $(".course_name").text("ဒုတိယပိုင်း");
+            if(qualified_test == null){
+                let student_reg = data.data.student_register
+                let lastest_row = student_reg.length - 1;
+                let course = student_reg[lastest_row].course.code;  // cpa1/cpa2
+                let exam_result = student_reg[lastest_row].status;  // pass/fail
+                let module = student_reg[lastest_row].module;  // module 1/2/all
+                let type = student_reg[lastest_row].type;  //  0-self_study / 1-private / 2-mac
+                let batch = student_reg[lastest_row].batch_no;
+
+                if(course == "cpa_1"){
+                    $(".course_name").text("ပထမပိုင်း");
+                }else{
+                    $(".course_name").text("ဒုတိယပိုင်း");
+                }
+
+                var pass_date=new Date(student_reg[lastest_row].date);
+                var pass_year = pass_date.getFullYear();
+                var pass_month = pass_date.getMonth();
+                $("#pass_year").text(pass_year);
+                $("#pass_month").text(pass_month);
+
+                if(batch == "undefined"){
+                    $("#batch_no").text("-");
+                }else{
+                    $("#batch_no").text(batch);
+                } 
+                
+                if(type == 0){
+                    $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
+                }else if(type == 1){
+                    $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
+                }else{
+                    $("#type_name").text("သင်တန်းကျောင်း");
+                }
+
+                if(exam_result == 0){
+                    $("#result_name").text("တက်ရောက်နေ");
+                }else if(exam_result == 1){
+                    $("#result_name").text("အောင်မြင်");
+                }else{
+                    $("#result_name").text("ကျရုံး");
+                    $("#renew_row").show();
+                    document.getElementById('request_label').innerHTML="၃။";
+                }
+
+                if(get_data == "c2_pass_renew"){
+                    $("#all_first_row").css('display','none');
+                    $("#renew_first_row").css('display','block');
+                    $("#previous_papp_name_row").css('display','block');
+                    $("#previous_papp_date_row").css('display','block');
+                    document.getElementById('papp_name_label').innerHTML="၁၅။";
+                }else if(get_data == "c12_renew"){
+                    $("#all_first_row").css('display','block');
+                }
             }
 
-            var pass_date=new Date(student_reg[lastest_row].date);
-            var pass_year = pass_date.getFullYear();
-            var pass_month = pass_date.getMonth();
-            $("#pass_year").text(pass_year);
-            $("#pass_month").text(pass_month);
-
-            $("#batch_no").text(batch);
-            
-            if(type == 0){
-                $("#type_name").text("ကိုယ်တိုင်လေ့လာသင်ယူသူအဖြစ်");
-            }else if(type == 1){
-                $("#type_name").text("ကိုယ်ပိုင်စာရင်းကိုင်သင်တန်ကျောင်း");
-            }else{
-                $("#type_name").text("သင်တန်းကျောင်း");
-            }
-
-            if(exam_result == 0){
-                $("#result_name").text("တက်ရောက်နေ");
-            }else if(exam_result == 1){
-                $("#result_name").text("အောင်မြင်");
-            }else{
-                $("#result_name").text("ကျရုံး");
-                $("#renew_row").show();
-                document.getElementById('request_label').innerHTML="၃။";
-            }
-
-            if(get_data == "c2_pass_renew"){
-                $("#all_first_row").css('display','none');
-                $("#renew_first_row").css('display','block');
-                $("#previous_papp_name_row").css('display','block');
-                $("#previous_papp_date_row").css('display','block');
-                document.getElementById('papp_name_label').innerHTML="၁၅။";
-            }else if(get_data == "c12_renew"){
-                $("#all_first_row").css('display','block');
-            }
+            $("#student_info_id").val(latest_article[0].student_info_id);
 
             $('#name_mm').val(student_info.name_mm);
             $("#name_eng").val(student_info.name_eng);
@@ -661,20 +700,32 @@
             $("#race").val(student_info.race);
             $("#religion").val(student_info.religion);
             $("#date_of_birth").val(student_info.date_of_birth);
-            $("#education").val(student_info.student_education_histroy.degree_name);
+            if(qualified_test != null){
+                $("#firm_education").hide();
+                $("#qt_education").show();
+                let lcl = JSON.parse(qualified_test.local_education);
+                lcl.map(lcl_edu => $('#add_qt_education').append(`<p>${lcl_edu}</p>`));
+
+                let certificate = JSON.parse(qualified_test.local_education_certificate);
+                $.each(certificate,function(fileCount,fileName){
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
+                   
+                })
+            }else{
+                $("#education").val(student_info.student_education_histroy.degree_name);
+                let certificate = JSON.parse(student_info.student_education_histroy.certificate);
+                $.each(certificate,function(fileCount,fileName){
+                   
+                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
+                   
+                })
+            }
             $("#address").val(student_info.address);
             $("#phone_no").val(student_info.phone);
 
             document.getElementById('previewImg').src = BASE_URL + student_info.image;
             document.getElementById('previewNRCFrontImg').src = BASE_URL + student_info.nrc_front;
             document.getElementById('previewNRCBackImg').src = BASE_URL + student_info.nrc_back;
-
-            let certificate = JSON.parse(student_info.student_education_histroy.certificate);
-                $.each(certificate,function(fileCount,fileName){
-                   
-                     $(".stu_certificate").append(`<a href='${BASE_URL+fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View Attach File</a>`);                    
-                   
-                })
 
         });
     })

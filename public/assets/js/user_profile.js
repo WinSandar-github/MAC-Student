@@ -275,13 +275,171 @@ function user_profile() {
                             <td>${formatDate(qt.updated_at)}</td>
                             <td><span class="badge bg-success">Passed</span></td>
                         </tr>
-                        <tr>
-                            <td colspan=2></td><td>Action</td>
-                            <td>
-                            <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a>
-                             </td>
-                        </tr>
                         `);
+
+                        let latest_article = data.article.slice(-1);
+                        $("#qt_article_row").show();
+
+                        if (data.article.length == 0 && data.gov_article.length == 0) {
+                            $('.qt_article_status').append(`
+                            <tr>
+                                <td colspan=2></td><td>Action</td>
+                                <td>
+                                <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a>
+                                </td>
+                            </tr>
+                            `);
+                        }
+                        let article = data.article;
+                        article.forEach(function (element) {
+                            article_form_type = element.article_form_type;
+
+                                switch (article_form_type) {
+                                    case 'c12':
+                                        form_type = 'CPA I,II';
+                                        break;
+                                    case 'c2_pass_3yr':
+                                        form_type = 'CPA II Pass 3 yr';
+                                        break;
+                                    case 'c2_pass_1yr':
+                                        form_type = 'CPA II Pass 1 yr';
+                                        break;
+                                    case 'qt_firm':
+                                        form_type = 'QT Pass 3 yr';
+                                        break;
+                                    case 'c2_pass_renew':
+                                        form_type = 'CPA II Pass Renew';
+                                        break;
+                                    case 'c12_renew':
+                                        form_type = 'CPA I,II Renew';
+                                        break;
+                                    default:
+                                        form_type = 'Resign';
+                                        break;
+                                }
+                            let contract_start_date = element.contract_start_date === null ? "-" : element.contract_start_date;
+                            let contract_end_date = element.contract_end_date === null ? "-" : element.contract_end_date;
+                            if(element.article_form_type == 'resign'){
+                                if (element.resign_status == 0) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Checking</span></td>
+                                </tr>
+                                `);
+                                } else if (element.resign_status == 1) {
+                                    if (element.done_status == 1) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    } else {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                    }
+                                } else if (element.resign_status == 2) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Reject</span></td>
+                                </tr>
+                                `);
+                                }
+                            }else{
+                                if (element.status == 0) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Checking</span></td>
+                                </tr>
+                                `);
+                                } else if (element.status == 1) {
+                                    if (element.done_status == 1) {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Done</span></td>
+                                    </tr>
+                                    `);
+                                    } else {
+                                        $('.qt_article_status').append(`<tr>
+                                        <td>${form_type} Form</td>
+                                        <td>${contract_start_date}</td>
+                                        <td>${contract_end_date}</td>
+                                        <td><span class="badge bg-success">Approved</span></td>
+                                    </tr>
+                                    `);
+                                    }
+                                } else if (element.status == 2) {
+                                    $('.qt_article_status').append(`<tr>
+                                    <td>${form_type} Form</td>
+                                    <td>${contract_start_date}</td>
+                                    <td>${contract_end_date}</td>
+                                    <td><span class="badge bg-success">Reject</span></td>
+                                </tr>
+                                `);
+                                }
+                            }
+                        });
+                        
+                        if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
+                            var end_date = new Date(latest_article[0].contract_end_date);
+                            var today = new Date();
+
+                            var end_time = end_date.getTime();
+                            var today_time = today.getTime();
+
+                            if (end_time <= today_time && latest_article[0].done_status == 0) {
+                                if (latest_article[0].done_form_attach && latest_article[0].done_status == 0) {
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
+                                } else {
+                                    $('.qt_article_status').append(`<tr><td></td><td colspan=2>Done form များကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/Article_1year_Completed_Form.doc" target="_blank">Download File</div></div></td></tr>`);
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='done_form'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='done_form_btn' onclick='saveDoneForm(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                                }
+                            } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
+                                resign_article_url = '/article_resign_registration';
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
+                            } else if (latest_article[0].done_status == 1) {
+                                if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
+                                    article_url = '/article_information';
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Register Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Register </a></td></tr>`);
+                                }
+                            }
+                        }else if(latest_article[0].status == 1){
+                            if(latest_article[0].registration_fee == null){
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                            }
+                            if(!latest_article[0].mentor_attach_file){
+                                $('.qt_article_status').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Submit Attachment File</td><td><div class='row'><div class='col-md-8'><input type='file' class='form-control' name='attach_file'></div><div class='col-md-4'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveAttachFile(${latest_article[0].id})'>Submit</button></div></div></td></tr>`);
+                            }
+                            if(latest_article[0].mentor_attach_file && latest_article[0].registration_fee != null){
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
+                            }
+                        }else if(latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1){
+                            if(latest_article[0].registration_fee == null){
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
+                            }else if(latest_article[0].done_status == 0 && latest_article[0].registration_fee != null){
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                            }else if(latest_article[0].done_status == 1){
+                                article_url = '/article_information';
+                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
+                            }
+                        }
+
                     } else {
                         $('.status').append(`
                             <tr>
@@ -1776,7 +1934,7 @@ function user_profile() {
                                         form_type = 'CPA II Pass 1 yr';
                                         break;
                                     case 'qt_firm':
-                                        form_type = 'QT Pass';
+                                        form_type = 'QT Pass 3 yr';
                                         break;
                                     case 'c2_pass_renew':
                                         form_type = 'CPA II Pass Renew';
@@ -1882,6 +2040,7 @@ function user_profile() {
                                     }
                                 } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                     resign_article_url = '/article_resign_registration';
+                                    $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
                                 } else if (latest_article[0].done_status == 1) {
                                     if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
@@ -1969,7 +2128,7 @@ function user_profile() {
                                             form_type = 'CPA II Pass 1 yr';
                                             break;
                                         case 'qt_firm':
-                                            form_type = 'QT Pass';
+                                            form_type = 'QT Pass 3 yr';
                                             break;
                                         case 'c2_pass_renew':
                                             form_type = 'CPA II Pass Renew';
@@ -2078,6 +2237,7 @@ function user_profile() {
                                         }
                                     } else if (latest_article[0]?.article_form_type != "resign" && latest_article[0].status == 1 && latest_article[0].done_status == 0) {
                                         resign_article_url = '/article_resign_registration';
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveRequestRegister(${latest_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
                                     } else if (latest_article[0].done_status == 1) {
                                         if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
@@ -2115,7 +2275,6 @@ function user_profile() {
 
                                     var end_time = end_date.getTime();
                                     var today_time = today.getTime();
-
                                     if (end_time <= today_time && latest_gov_article[0].done_status == 0) {
                                         if (latest_gov_article[0].done_form_attach && latest_gov_article[0].done_status == 0) {
                                             $('.article_btn').append(`<tr><td colspan=2></td><td>Submit Done Form</td><td>Check By MAC</td></tr>`);
@@ -2125,6 +2284,7 @@ function user_profile() {
                                         }
                                     } else if (latest_gov_article[0].status == 1 && latest_gov_article[0].done_status == 0) {
                                         resign_article_url = '/article_resign_registration';
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>Leave Request Register</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs leave_request_btn' onclick='leaveGovRequestRegister(${latest_gov_article[0].id})'>Leave Request</button></div></div></td></tr>`);
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Resign Register</td><td> <a href='${FRONTEND_URL + resign_article_url}' class="btn btn-md btn-success" > Article Resign Register </a></td></tr>`);
                                     } else if (latest_gov_article[0].done_status == 1) {
                                         if (latest_stu_reg[0].course.code == "cpa_2" && exam_registers[0].form_type == 4 && (exam_results[0].registeration_id == exam_registers[0].id)) {
@@ -2331,6 +2491,150 @@ function isEmpty(obj) {
 
         return Object.keys(obj).length === 0;
     }
+}
+
+function leaveRequestRegister(id){
+    $('#leaveRequestModel').modal('toggle');
+    $('#article_id').val(id);
+    $('#form_name').val('other');
+    getLeaveRequest();
+}
+
+function leaveGovRequestRegister(id){
+    $('#leaveRequestModel').modal('toggle');
+    $('#article_id').val(id);
+    $('#form_name').val('gov');
+    getLeaveRequest();
+}
+
+function saveLeaveRequest(){
+    var data = new FormData();
+    data.append('id', $('#article_id').val());
+    data.append('form_name', $('#form_name').val());
+    data.append('remark', $("input[name=remark]").val());
+    data.append('start_date', $("input[name=start_date]").val());
+    data.append('end_date', $("input[name=end_date]").val());
+    data.append('total_date', $("input[name=total_date]").val());
+
+    show_loader();
+    $.ajax({
+        type: "POST",
+        data: data,
+        url: BACKEND_URL + "/save_leave_request",
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            EasyLoading.hide();
+            successMessage("You have successfully registered.");
+            $("#leave_request_form")[0].reset();
+            $('#leave_request_table').DataTable().destroy();
+            getLeaveRequest();
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
+}
+
+function getLeaveRequest(){
+    var id = $('#article_id').val();
+    var form_name = $('#form_name').val();
+
+    var data = new FormData();
+    data.append('id', id);
+    data.append('form_name', form_name);
+
+    $.ajax({
+        type: "POST",
+        data: data,
+        url: BACKEND_URL + "/get_leave_request",
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            $("#leave_request_body").html("");
+            var r = 1;
+            data.forEach(function(element){
+                var tr = "<tr>";
+                tr += "<td class='alignright'>" + r + "</td>";
+                tr += "<td>" + element.remark + "</td>";
+                tr += "<td>" + element.start_date + "</td>";
+                tr += "<td>" + element.end_date + "</td>";
+                tr += "<td>" + element.total_leave + "</td>";
+                tr += "<td class='alignright'><button class='btn btn-warning btn-sm' onclick='updateLeaveRequest("+ element.id +")'><li class='fa fa-pencil'></li></button></td>";
+                tr += "</tr>";
+                r = r + 1;
+                $("#leave_request_body").append(tr);
+            })
+			$('#leave_request_table').DataTable({
+				'destroy': true,
+				'paging': true,
+				'lengthChange': false,
+				"pageLength": 5,
+				'searching': false,
+				'info': false,
+				'autoWidth': true,
+				"scrollX": false,
+			});
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
+}
+
+function updateLeaveRequest(id){
+    $('#leave_request_form').removeAttr('action', 'javascript:saveLeaveRequest()');
+    $("#leave_request_form").attr('action', 'javascript:saveUpdateLeaveRequest()');
+    $.ajax({
+        type: "GET",
+        url: BACKEND_URL + "/get_update_leave_request/"+id,
+        success: function (result) {
+            $("#leave_request_id").val(result.id);
+            $("#remark").val(result.remark);
+            $("#start_date").val(result.start_date);
+            $("#end_date").val(result.end_date);
+            $("#total_date").val(result.total_leave);
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
+}
+
+function saveUpdateLeaveRequest(){
+    var data = new FormData();
+    data.append('id', $('#leave_request_id').val());
+    data.append('remark', $("input[name=remark]").val());
+    data.append('start_date', $("input[name=start_date]").val());
+    data.append('end_date', $("input[name=end_date]").val());
+    data.append('total_date', $("input[name=total_date]").val());
+
+    show_loader();
+    $.ajax({
+        type: "POST",
+        data: data,
+        url: BACKEND_URL + "/update_leave_request",
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            EasyLoading.hide();
+            successMessage("You have successfully registered.");
+            $("#leave_request_form")[0].reset();
+            $('#leave_request_table').DataTable().destroy();
+            getLeaveRequest();
+            $("#leave_request_form").attr('action', 'javascript:saveLeaveRequest()');
+        },
+        error: function (message) {
+            EasyLoading.hide();
+            errorMessage(message);
+        }
+    });
 }
 
 function saveDoneForm(id) {
