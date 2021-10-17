@@ -115,8 +115,11 @@ function user_profile() {
                 if (cpaff_latest_data.type == 0) {
                     is_renew = "Initial";
                 }
-                else {
+                else if (cpaff_latest_data.type == 1) {
                     is_renew = "Renewal";
+                }
+                else {
+                    is_renew = "";
                 }
                 if (cpaff_latest_data.status == 0) {
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is checking.<br><br>');
@@ -151,10 +154,19 @@ function user_profile() {
                     if (papp_latest_data.type == 0) {
                         is_renew = "Initial";
                     }
-                    else {
-                        is_renew = "Renewal"
+                    else if (papp_latest_data.type == 1) {
+                        is_renew = "Renewal";
                     }
-                    if (papp_latest_data.status == 0) {
+                    else {
+                        is_renew = ""
+                    }
+                    if(papp_latest_data.status == 0 && papp_latest_data.type == 2)
+                    {
+                        $('.status_history').append('PAPP ' + is_renew + ' Registration Form is Approved.<br><br>');
+                        $('.status_history').append('Action &nbsp;&nbsp;');
+                        $('.status_history').append(`<a href= ${papp_renew_url} class="btn btn-success btn-sm xl-auto" > PAPP Renew Form </a><hr>`);
+                    }
+                    else if (papp_latest_data.status == 0) {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
                         $('.status_papp').css('display', 'none');
                     } else if (papp_latest_data.status == 1) {

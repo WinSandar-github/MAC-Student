@@ -7,8 +7,4 @@ class Helper
 {
     public static $domain = 'https://demo.aggademo.me/MAC/public/index.php/api';
     public static $BASE_URL = 'https://demo.aggademo.me/MAC/public/index.php';
-
-//     public static $domain="http://localhost:9090/api";
-//     public static $BASE_URL="http://localhost:9090";
-
 }
