@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title initial_text" style="display:block;">PAPP Manual Registration <span>Form</span></h2>
+                    <h2 class="title initial_text" style="display:block;">PAPP Registration <span>Form</span></h2>
                     <h2 class="title renew_text" style="display:none;">PAPP Renewal Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
@@ -85,7 +85,7 @@
                         </div>
                         <h5 class="card-title text-center fw-bolder">
                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
-                            အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် သက်တမ်းတိုးရန်လျှောက်ထားခြင်း
+                            အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် လျှောက်ထားခြင်း
                         </h5>
                         {{--<div class="d-flex justify-content-between">
                             <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
