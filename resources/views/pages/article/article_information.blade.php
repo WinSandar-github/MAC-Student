@@ -197,6 +197,7 @@
                 get_student_info(student_id).then(data => {
                     let student_info = data.data
                     let student_reg = data.data.student_register
+                    let qualified_test = data.data.qualified_test
                     let latest_article = data.data.article.slice(-1);
                     let latest_gov_article = data.data.gov_article.slice(-1);
                     let lastest_row = student_reg.length - 1;
@@ -283,6 +284,14 @@
                             }else{
                                 $("#c2_pass_3yr_btn").prop('disabled', true);
                             }
+                            $('#articleModal').modal('toggle');
+                        }else if(qualified_test){
+                            $("#c12_btn").hide();
+                            $("#c2_pass_1yr_btn").hide();
+                            $("#c2_pass_3yr_btn").hide();
+                            $("#firm_article_renew_row").hide();
+                            $("#article_hr").hide();
+                            $("#gov_article_row").hide();
                             $('#articleModal').modal('toggle');
                         }else{
                             alert("You aren't cpa student.");

@@ -565,7 +565,7 @@
                                                             <input type="hidden" id="department">
                                                             <input type="hidden" id="renew_teacher_id">
                                                             <input type="hidden" id="payment_date">
-                                                            
+                                                            <input type="hidden" id="regno">
                                                     </div>
                                                     
                                                     <div class="row mb-3">
@@ -650,7 +650,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၁၁။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်အမှတ်</label>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control" id="regno" name="regno" readonly>
+                                                            <input type="text" class="form-control" id="t_code" name="t_code" readonly>
                                                             
                                                         </div>
                                                 </div>
@@ -658,7 +658,7 @@
                                                     <label class="col-md-1 col-form-label">{{ __('၁၂။') }}</label>
                                                     <label class="col-md-3 col-form-label label">သင်တန်းဆရာမှတ်ပုံတင်</label>
                                                         <div class="col-md-8">
-                                                            <input type="file" class="form-control" accept="image/*" required>
+                                                            <input type="file" name="teacher_card" class="form-control" accept="image/*" required>
                                                             
                                                         </div>
                                                 </div>   

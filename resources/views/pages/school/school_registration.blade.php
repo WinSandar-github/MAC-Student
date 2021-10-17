@@ -375,7 +375,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-check mt-2 form-check-inline">
                                                     <input class="form-check-input" type="radio" name="school_type" 
-                                                        value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
+                                                        value='P' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
                                                     
                                                 </div>
                                             </div>
@@ -397,7 +397,7 @@
                                         <div class="entry1">
                                             <div class="row mb-3">
                                                 <div class="col-md-11 col-auto">
-                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" accept="image/*" required>
+                                                    <input type="file" class="form-control" id="attachment" name="attachment[]" required>
 
                                                 </div>
                                                 <div class="col-md-1 col-auto">
@@ -420,7 +420,7 @@
                                             class="pull-left">{{ __('၁၁။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(မြန်မာ)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" name="address" style="resize:none;" class="form-control"
-                                                  autocomplete='off' ></textarea>
+                                                  autocomplete='off' required></textarea>
 
                                 </div>
                             </div>
@@ -429,7 +429,7 @@
                                             class="pull-left">{{ __('၁၂။') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ(အင်္ဂလိပ်)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" name="eng_address" style="resize:none;" class="form-control"
-                                                  autocomplete='off' ></textarea>
+                                                  autocomplete='off' required></textarea>
 
                                 </div>
                             </div>
@@ -441,7 +441,7 @@
                                             class="pull-left">{{ __('၁၃။') }}</span>{{ __('ဖုန်းနံပါတ်') }}</label>
                                 <div class="col-md-8">
                                     <input type="text" name="phone" class="form-control" placeholder="ဖုန်းနံပါတ်"
-                                               autocomplete='off' >
+                                               autocomplete='off' required>
 
                                 </div>
                             </div>
@@ -483,7 +483,7 @@
                                             class="pull-left">၃။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(မြန်မာ)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" style="resize:none;" name="school_address"
-                                                  class="form-control" autocomplete='off' ></textarea>
+                                                  class="form-control" autocomplete='off' required></textarea>
 
                                 </div>
                             </div>
@@ -492,7 +492,7 @@
                                             class="pull-left">၄။</span>{{ __('ကျောင်းတည်နေရာလိပ်စာ(အင်္ဂလိပ်)') }}</label>
                                 <div class="col-md-8">
                                     <textarea type="text" style="resize:none;" name="eng_school_address"
-                                                  class="form-control" autocomplete='off' ></textarea>
+                                                  class="form-control" autocomplete='off' required></textarea>
 
                                 </div>
                             </div>
@@ -502,8 +502,8 @@
                                 <label class="col-md-4 col-form-label label">ဓါတ်ပုံနှင့်တကွဖော်ပြချက်</label>
                                 <div class="col-md-8">
                                     <div class="mb-3 col-auto">
-                                        <input type="file" id="" name="school_location_attach" class="form-control"
-                                            accept="image/*" />
+                                        <input type="file"  name="school_location_attach" class="form-control"
+                                            accept="image/*" required/>
                                     </div>
                                 </div>
                             </div>
@@ -515,29 +515,29 @@
                                     <div class="form-group">
                                         <div class="form-check mt-2 form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type" id="private"
-                                                   value="private" onclick="ownTypeForm()"> ကိုယ်ပိုင်
+                                                   value="private" > ကိုယ်ပိုင်
 
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type" id="private"
-                                                   value="rent" onclick="ownTypeForm()"> အငှား
+                                                   value="rent" > အငှား
                                         </div>
                                         <div class="form-check mt-2 form-check-inline">
                                             <input class="form-check-input" type="radio" name="own_type"
-                                                   id="private" value="use_sharing" onclick="ownTypeForm()"> တွဲဖက်သုံး
+                                                   id="private" value="use_sharing" > တွဲဖက်သုံး
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
+                            
                             <div class="row mb-3">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
                                         <label class="invalid-feedback own_type text-danger">ပိုင်ဆိုင်မှုပုံစံ ရွေးပါ</label>
                                 </div>
                             </div>
-                            <div id="ownType_letter" style="display:none" >
-                                        <div class="row mb-3">
+                            <div class="row mb-3">
                                                 <label for="" class="col-md-1 col-form-label">{{ __('') }}</label>
                                                 <label for="" class="col-md-3 col-form-labe mt-1 label_align_right"> သက်ဆိုင်သည့် အထောက်အထား စာချုပ်စာတမ်းများ</label>
 
@@ -549,7 +549,7 @@
                                                             <div class="entry3">
                                                                 <div class="row mb-3">
                                                                     <div class="col-md-11 col-auto">
-                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" >
+                                                                        <input type="file" class="form-control" id="own_type_letter" name="own_type_letter[]" accept="image/*" required>
 
                                                                     </div>
                                                                     <div class="col-md-1 col-auto">
@@ -562,7 +562,9 @@
                                                         </div>
                                                      
                                                 </div>
-                                            </div>
+                            </div>
+                            <div id="ownType_letter" style="display:none" >
+                                        
                             </div>
                             {{--ပိုင်ဆိုင်မှုပုံစံ--}}
 
@@ -745,7 +747,7 @@
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)') }}</label>
                                 <div class="tbl-responsive">
-                                    <table class="table tbl_sch_established_persons table-bordered input-table">
+                                    <table class="table tbl_sch_established_persons table-bordered input-table" id="tbl_sch_established_persons">
                                         <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
@@ -780,7 +782,7 @@
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ') }}</label>
                                 <div class="tbl-responsive">
-                                    <table class="table tbl_sch_governs table-bordered input-table">
+                                    <table class="table tbl_sch_governs table-bordered input-table" id="tbl_sch_governs">
                                         <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
@@ -824,7 +826,7 @@
                                 <div class="row mb-1">
                                     <label class="col-form-label fw-bolder">{{ __('အဖွဲ့အစည်း၏အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                     <div class="tbl-responsive">
-                                        <table class="table tbl_member_list_biography table-bordered input-table">
+                                        <table class="table tbl_member_list_biography table-bordered input-table" id="tbl_member_list_biography">
                                             <thead class="text-nowrap">
                                             <tr>
                                                 <th class="less-font-weight text-center">စဉ်</th>
@@ -867,7 +869,7 @@
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                 <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
-                                    <table class="table tbl_teacher_list_biography table-bordered input-table">
+                                    <table class="table tbl_teacher_list_biography table-bordered input-table" id="tbl_teacher_list_biography">
                                         <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
@@ -914,7 +916,7 @@
                             </div>
                             <div class="row mb-1">
 
-                                        <table class="table tbl_bulding_type table-bordered input-table">
+                                        <table class="table tbl_bulding_type table-bordered input-table" id="tbl_bulding_type">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
@@ -943,7 +945,7 @@
 
                             <div class="row mb-1">
 
-                                        <table class="table tbl_classroom table-bordered input-table">
+                                        <table class="table tbl_classroom table-bordered input-table" id="tbl_classroom">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
@@ -973,7 +975,7 @@
 
                             <div class="row mb-1">
 
-                                        <table class="table tbl_toilet_type table-bordered input-table">
+                                        <table class="table tbl_toilet_type table-bordered input-table" id="tbl_toilet_type">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center"  >စဉ်</th>
@@ -1000,7 +1002,7 @@
                             </div>
                             <div class="row mb-1">
 
-                                    <table class="table tbl_manage_room_numbers table-bordered input-table">
+                                    <table class="table tbl_manage_room_numbers table-bordered input-table" id="tbl_manage_room_numbers">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>

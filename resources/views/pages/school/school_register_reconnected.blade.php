@@ -375,7 +375,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-check mt-2 form-check-inline">
                                                     <input class="form-check-input" type="radio" name="school_type" 
-                                                        value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
+                                                        value='P' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
                                                     
                                                 </div>
                                             </div>
@@ -474,6 +474,7 @@
                                 </div>
 
                             </div>
+                            <input type="hidden" id="offline_user" value="true">;
                             <div class="request_stop_yes" style="display:none;">
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"></label>

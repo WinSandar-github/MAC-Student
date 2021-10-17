@@ -576,91 +576,92 @@
 
 
                             </div>
-                            <div class="qualified_test">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">NRC</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_nrc"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Email</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_email"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-6">
-                                                <p class="ml-2" style="font-weight:bold">Phone</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span id="qt_phone"></span>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-10 offset-md-1 mb-2">
-                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
-                                            </div>
-                                        </div>
-                                        <div class="row m-2 mt-3 border-bottom">
-                                            <div class="col-md-10 offset-md-1 mb-2">
-                                                <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <div class="row my-2">
-
-                                    <div class="offset-md-3 col-md-9">
-
-                                        <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
-                                        Application Status</h5>
-
-                                        <table class="table ">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Submit Date</th>
-                                                    <th>Status Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="status">
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>--}}
+                    <div class="qualified_test">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">NRC</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_nrc"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Email</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_email"></span>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-6">
+                                        <p class="ml-2" style="font-weight:bold">Phone</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span id="qt_phone"></span>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-10 offset-md-1 mb-2">
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#showPwdModel">{{ __('Change Password') }}</button>
+                                    </div>
+                                </div>
+                                <div class="row m-2 mt-3 border-bottom">
+                                    <div class="col-md-10 offset-md-1 mb-2">
+                                        <button type="submit" class="btn btn-success btn-sm btn-hover-dark w-100 edit_profile">{{ __('Update Profile') }}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row my-2">
+
+                            <div class="offset-md-3 col-md-9">
+
+                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                Application Status</h5>
+
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Submit Date</th>
+                                            <th>Status Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="status">
+                                    </tbody>   
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
                                 <div class="col-md-3">
@@ -1657,8 +1658,8 @@
                             <label for="" class="col-md-4 col-form-label">Enter Your Old Password</label>
                             <div class="col-md-8">
                                 <input type="password" placeholder="Enter your old Password!" name="old_password"
-                                    class="form-control" id="old_pwd" value="{{ old('password') }}" required="">
-                                <p id="old_err_meg" class="mt-2 text-danger "></p>
+                                    class="form-control" id="teacher_old_pwd" value="{{ old('password') }}" required="">
+                                <p id="teacher_old_err_meg" class="mt-2 text-danger "></p>
                             </div>
 
                         </div>
@@ -1667,7 +1668,7 @@
 
                             <label for="" class="col-md-4 col-form-label">Password</label>
                             <div class="col-md-8">
-                                <input type="password" placeholder="Enter your new Password!" name="password"
+                                <input type="password" placeholder="Enter your new Password!" name="password" id="teacher_password"
                                     class="form-control" value="{{ old('password') }}" required="">
                             </div>
 
@@ -1680,8 +1681,8 @@
                             <label for="" class="col-md-4 col-form-label">Confirm Password</label>
                             <div class="col-md-8">
                                 <input type="password" placeholder="Enter your new Password again!"
-                                    name="confirm_password" class=" form-control" required="">
-                                <p class="text-center mt-3  text-danger" id="err_message"></p>
+                                    name="confirm_password" id="teacher_confirm_password" class=" form-control" required="">
+                                <p class="text-center mt-3  text-danger" id="teacher_err_message"></p>
                             </div>
                         </div>
 

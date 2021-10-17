@@ -175,15 +175,14 @@ function createSchoolRegister(){
         alert("Your password and confirm password do not match!");
         return;
     }
-    var file=[];
+    
     var send_data = new FormData($( "#school_register_form" )[0]);
     send_data.append('student_info_id',$('#student_info_id').val());
     $("input[id=branch_sch_own_type]").map(function(){send_data.append('branch_sch_own_type[]',$(this).val())});
-    // var rows = document.getElementById('tbl_branch_school').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length
-    // for(var i=0;i<rows;i++){
-    //   file.push($("input[id=branch_sch_letter"+i+"]"));
-    // }
-    // send_data.append('branch_sch_letter[]',file);
+    if($('#offline_user').val()){
+      send_data.append('offline_user',$('#offline_user').val());
+    }
+    
     show_loader();
     $.ajax({
         type: "POST",
@@ -201,6 +200,8 @@ function createSchoolRegister(){
           //   resetForm("#school_register_form");
         },
         error: function (result) {
+          //EasyLoading.hide();
+          
         },
     });
 
@@ -394,7 +395,7 @@ function addRowTeacherBio(tbody){
   var cols = "";
   var row=$('.'+tbody+' tr').length;
   cols += '<td class="text-center">'+row+'</td>';
-  cols += '<td><input type="text" name="teacher_registration_no[]" class="form-control" id="teacher_registration_no'+count+'" placeholder="" onfocusout="loadTeacherById('+count+')" required/></td>';
+  cols += '<td><input type="text" name="teacher_registration_no[]" class="form-control" id="teacher_registration_no'+count+'" placeholder="eg T-001" onfocusout="loadTeacherById('+count+')" required/></td>';
   cols += '<td><input type="text" name="teacher_name[]" class="form-control"  placeholder="" id="teacher_name'+row+'" required></td>';
   cols += '<td><input type="text" name="teacher_nrc[]" class="form-control"  placeholder="" id="teacher_nrc'+row+'" required></td>';
 
@@ -1150,7 +1151,7 @@ function addRowClassroom(tbody){
   cols += '<td class="text-center">'+row+'</td>';
   cols += '<td><input type="number" class="form-control" name="classroom_number[]" autocomplete="off" id="classroom_number'+row+'" required></td>';
   cols += '<td><input type="text" class="form-control" name="classroom_measurement[]" autocomplete="off" id="classroom_measurement'+row+'" required></td>';
-  cols += '<td><input type="number" class="form-control" name="student_num_limit[]" autocomplete="off" id="student_num_limit'+row+'" required></td>';
+  cols += '<td><input type="text" class="form-control" name="student_num_limit[]" autocomplete="off" id="student_num_limit'+row+'" required></td>';
   cols += '<td><input type="number" class="form-control" name="air_con[]" autocomplete="off" id="air_con'+row+'" required></td>';
   cols += '<td><input type="file" class="form-control" name="classroom_attach[]"  accept="image/*" id="classroom_attach'+row+'" required></td>';
   cols += '<td class="text-center"><button type="button" class="delete btn btn-sm btn-danger m-2" onclick=delRowClassroom("'+tbody+'")><li class="fa fa-times"></li></button></td>';
@@ -1229,19 +1230,20 @@ $("table."+tbody).on("click", ".delete", function (event) {
   });
 }
 function origanzationCheck(radio){
-  if (radio.value == "တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း") {
+  if (radio.value == "P") {
     $('.origanzation').css('display','block');
   }else {
     $('.origanzation').css('display','none');
   }
   $('#hidden_school_type').val(0);
 }
+
 function addInputFile(divname, diventry) {
   var controlForm = $('.' + divname + ':first'),
       currentEntry = $('.btn-add').parents('.' + diventry + ':first'),
       newEntry = $(currentEntry.clone()).appendTo(controlForm);
-  newEntry.find('input').val('');
-  controlForm.find('.' + diventry + ':not(:last) .btn-add')
+      newEntry.find('input').val('');
+      controlForm.find('.' + diventry + ':not(:last) .btn-add')
       .removeClass('btn-add').addClass('btn-remove')
       .removeClass('btn-primary').addClass('btn-danger')
       .attr("onclick", "delInputFile('" + diventry + "')")
@@ -1296,11 +1298,11 @@ function loadEductaionHistoryByTeacher(id,row){
   $.ajax({
     type : 'POST',
     url : BACKEND_URL+"/getEducationHistory",
-    data: 'teacher_id='+id,
+    data: 'student_info_id='+id,
     success: function(result){
         $.each(result.data, function( index, value ) {
 
-          education.push(value.university_name)
+          education.push(value.degree_name)
 
         });
         if(education.length!=0){
@@ -1640,7 +1642,7 @@ function loadEductaionHistoryBySchool(id,table){
           $.each(result.data, function( index, value ){
             var tr="<tr>";
             tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
-            tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.university_name+'"/></td>';
+            tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'"/></td>';
             tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><input type="file" name="old_degrees_certificates[]" class="form-control"><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
             tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
             tr += "</tr>";
