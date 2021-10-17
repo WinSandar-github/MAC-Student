@@ -76,8 +76,6 @@ function createDARegister() {
     send_data.append('office_address', $("input[name=office_address]").val());
     send_data.append('university_name', $("input[name=university_name]").val());
     send_data.append('degree_name', $("input[name=degree_name]").val());
-    send_data.append('degree_id', $("#degree_id").val());
-
     // send_data.append('certificate', certificate);
     $('input[name="certificate[]"]').map(function () {
 
@@ -892,27 +890,3 @@ function selectdType() {
 //     }
 
 // });
-
-
-function getDegree() {
-    $.ajax({
-        url: BACKEND_URL + "/degree",
-        type: 'get',
-        data: "",
-        success: function (data) {
-
-            var degree_data = data.data;
-            var opt = `<option  disabled  >Select Degree </option>`;
-
-            degree_data.forEach(function (element) {
-                opt += `<option value=${element.id}  >${element.degree_name}</option>`;
-
-            });
-            $(".degree_id").append(opt);
-        },
-        error: function (message) {
-
-        }
-
-    });
-}
