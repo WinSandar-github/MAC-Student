@@ -739,7 +739,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
                                           (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
                                           auditor's report of the accountancy firm)
@@ -777,7 +777,7 @@
                                     </div>
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
                                         </label>
                                     </div>
@@ -812,7 +812,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
                                         </label>
                                     </div>
