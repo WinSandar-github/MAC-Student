@@ -572,7 +572,6 @@
                     {{--<div class="cpaff_other">
                         <div class="row">
 
-<<<<<<< HEAD
 
 
 
@@ -589,16 +588,6 @@
                                 <div class="row m-2 mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Name(Eng)/ Name(Myanmar)</p>
-=======
-                            
-                            
-                            
-                            </div>
-                            <div class="qualified_test">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img class="img-fluid" id="qt_image" style="height : 200px;width:auto;" />
->>>>>>> parent of f6d58b68... update degree select in da one process
                                     </div>
                                     <div class="col-md-6">
                                         <span id="qt_name_eng"></span> / <span id="qt_name_mm"></span>
@@ -646,7 +635,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
 
 
                         </div>
@@ -672,8 +660,6 @@
                                 </table>
                             </div>
                             
-=======
->>>>>>> parent of f6d58b68... update degree select in da one process
                         </div>
                         <div id="qt_article_row" style="display:none;">
                             <div class="row my-2">

@@ -41,6 +41,7 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
+Route::get('renew_papp','PAPPController@renew_papp');
 Route::get('update_papp_initial','PAPPController@reject_initial');
 Route::get('update_papp_renewal','PAPPController@reject_renewal');
 
