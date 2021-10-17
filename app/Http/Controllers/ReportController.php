@@ -16,7 +16,7 @@ class ReportController extends Controller
        
         $res = json_decode($client->request('GET', Helper::$domain.'/course/'.$course_id)->getBody(),true);
         $course = $res['data'];
-        
+     
        
       
         return view('pages.home.application_list',compact('course'));

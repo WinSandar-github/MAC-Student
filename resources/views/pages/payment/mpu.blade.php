@@ -13,9 +13,10 @@
     // $product_Desc="Form Fee";
     
     $invoice_no = $data['invoiceNo'];
-    $product_desc = $data['productDesc'];
+    $product_desc = strlen($data['productDesc']) > 50 ? substr($data['productDesc'], 0, 50) : $data['productDesc'];
     // $amount = str_pad($data['amount'], 20, "0", STR_PAD_LEFT);
-    $amount = str_pad($data['amount'] * 100, 12, '0', STR_PAD_LEFT);
+    $amount = str_pad(array_sum(explode(',', $data['amount'])) * 100, 12, '0', STR_PAD_LEFT);
+    // $amount = str_pad($data['amount'] * 100, 12, '0', STR_PAD_LEFT);
     $currencyCode = '104';
     $name = $data['name_eng'];
     $email = $data['email'];

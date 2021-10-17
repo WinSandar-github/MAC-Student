@@ -404,15 +404,9 @@
 
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">{{ __('(က)') }}</span>ဘွဲ့အမည်</label>
-                                <div class="col-md-4">
-                                    <select name="degree_id" class="form-control degree_id" >
-                                        
-                                    </select>
-                                <label  class="error degree_id_error" style="display:none;" for="degree_id">Please select one</label>
-
-                                </div>
-                                <div class="col-md-4" id="other_degree_name" style="display:none;">
-                                    <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name" class="form-control" value="{{ old('degree_name') }}" id="degree_name" required >
+                                <div class="col-md-8">
+                                    <input type="text" placeholder="ဘွဲ့အမည်" name="degree_name"
+                                            class="form-control" value="" >
                                 </div>
                             </div>
 
@@ -570,9 +564,6 @@
 <script type="text/javascript">
     $(document).ready(function (e) {
         // da_edit();
-        $('.degree_id').select2({
-            placeholder: "Select Degree"
-        });
         $("input[name='date']").flatpickr({
                 enableTime: false,
                 dateFormat: "d-M-Y",
@@ -616,15 +607,20 @@
               get_student_info(student_id).then(data => {
                   if(data){
                       var info = data.data;
-                    
+                      console.log(info)
                       
                       var student_course = info.student_course_regs.slice(-1);
                       var job_history = data.data.student_job;
                       var education_history = data.data.student_education_histroy;
                       if(info){
                     $('#stu_id').val(info.id);
+<<<<<<< HEAD
                  
                          $("input[name=email]").val(info.email);
+=======
+                    console.log('info',info)
+
+>>>>>>> parent of f6d58b68... update degree select in da one process
                         $("input[name=name_mm]").val(info.name_mm);
                         $("input[name=name_eng]").val(info.name_eng);
                         $("#nrc_state_region").val(info.nrc_state_region);
@@ -681,15 +677,12 @@
                       }
 
                       if(education_history){
-                        $(".degree_id").select2().val(education_history.degree_id);
-                        if(education_history.degree_id == 40){
-                            $("input[name=degree_name]").val(education_history.degree_name);
-                            $('#other_degree_name').show();
-                        }
+                        $("input[name=degree_name]").val(education_history.degree_name);
                         $("input[name=university_name]").val(education_history.university_name);
                         $("input[name=roll_number]").val(education_history.roll_number);
                         $("input[name=qualified_date]").val(education_history.qualified_date);
                         $("input[name=old_certificate]").val(JSON.parse(education_history.certificate));
+<<<<<<< HEAD
                         // console.log('certificate',JSON.parse(education_history.certificate));
 
                         let certificate = JSON.parse(education_history.certificate);
@@ -699,6 +692,9 @@
                             $(".certificate").append(`<a href='${BASE_URL + fileName}' style='display:block; font-size:16px;text-decoration: none;' target='_blank'>View File</a>`);
 
                         })
+=======
+                        console.log('certificate',JSON.parse(education_history.certificate));
+>>>>>>> parent of f6d58b68... update degree select in da one process
                       }
                       // government staff OR not
                       if(info.gov_staff == 1){
@@ -756,23 +752,6 @@
               self.val( val.replace(/[a-zA-Z0-9]+$/, '') );
             }
         }
-
-        getDegree();
-        $('.degree_id').change(function(){
-                var selectedDegree = $(this).val();
-                if(selectedDegree == 40){ 
-                    $('#other_degree_name').show()
-                    $('#degree_name').prop('required',true)
-                
-                }
-                else{
-                    $('#other_degree_name').hide()
-                    $('#degree_name').prop('required',false)
-
-                };
-                
-            })
-
     });
 </script>
 @endpush

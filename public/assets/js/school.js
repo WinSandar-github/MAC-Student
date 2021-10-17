@@ -455,7 +455,7 @@ function loadRenewSchool(){
             var school=result.data.pop();
             //var school=result.data;
             
-            if(school.approve_reject_status==1){
+            if(school.approve_reject_status==1){//initial renew
               
                 $('#school_approve').css('display','none');
                 document.getElementById('school_detail').style.display='none';
@@ -479,9 +479,22 @@ function loadRenewSchool(){
                   $('input[name=phone]').val(school.phone);
                   $('textarea[name=address]').val(school.address);
                   $('textarea[name=eng_address]').val(school.eng_address);
-                  $('#school_name').val(school.school_name);
-                  $('#school_address').val(school.school_address);
-                  $('#hcourse').val(school.attend_course);
+                  if(school.renew_school_name==null){
+                    $('#school_name').val(school.school_name);
+                  }else{
+                    $('#school_name').val(school.renew_school_name);
+                  }
+                  if(school.renew_school_address==null){
+                    $('#school_address').val(school.school_address);
+                  }else{
+                    $('#school_address').val(school.renew_school_address);
+                  }
+                  if(school.renew_course==null){
+                    $('#hcourse').val(school.attend_course);
+                  }else{
+                    $('#hcourse').val(school.renew_course);
+                  }
+                  
                   if(school.type!=null){
                     $('#hidden_school_type').val(school.type);
                     if($("input:radio[id=school_type1]").val()==school.type){
@@ -540,17 +553,25 @@ function loadRenewSchool(){
                   $('#hidden_relevant_evidence_contracts	').val(school.relevant_evidence_contracts	);
                   $('#hidden_sch_establish_notes_attach').val(school.sch_establish_notes_attach);
                   $('#hidden_attachment').val(school.attachment);
-                  $('#hidden_nrc_front').val(school.nrc_front);
-                  $('#hidden_nrc_back').val(school.nrc_back);
-                  $("#nrc_front_img").attr("src",BASE_URL+school.nrc_front);
-                  $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
+                  if(school.nrc_front==null){
+                    $("#nrc_front_img").attr("src",BASE_URL+result.data[0].nrc_front);
+                    $('#hidden_nrc_front').val(result.data[0].nrc_front);
+                  }else{
+                    $("#nrc_front_img").attr("src",BASE_URL+school.nrc_front);
+                    $('#hidden_nrc_front').val(school.nrc_front);
+                  }
                   
+                  $('#hidden_nrc_back').val(school.nrc_back);
+                  
+                  $("#nrc_back_img").attr("src",BASE_URL+school.nrc_back);
+                  loadEductaionHistoryBySchoolRenew(school.id,'tbl_degree');
                   $('#hinitial_status').val(1);
                   $('#school_id').val(school.id);
                   $('#student_info_id').val(student.id);
-                  //$('#register_date').val(school.renew_date);
+                  $('#s_code').val(school.s_code);
+                  $('#regno').val(school.regno);
                   if(school.initial_status==0){
-                    $('#regno').val(school.invoice_no);
+                    
                     var accept=new Date(school.from_valid_date);
                     var month=accept.getMonth()+1;
                     var year=accept.getFullYear();
@@ -583,7 +604,7 @@ function loadRenewSchool(){
                       $('.renew_submit').prop('disabled', true);
                       $('#submit_confirm').prop('disabled', true);
                   }
-            }else if(school.approve_reject_status==2){
+            }else if(school.approve_reject_status==2){//renew reject
               $('#school_id').val(school.id);
               $('#student_info_id').val(school.student_info_id);
               $('#regno').val(school.s_code);
@@ -889,7 +910,7 @@ function renewSchool(){
     send_data.append('student_info_id', $('#student_info_id').val());
     send_data.append('initial_status',  $('#hinitial_status').val());
     send_data.append('school_id',  $('#school_id').val());
-    send_data.append('invoice_no',  $('#regno').val());
+    send_data.append('regno',  $('#regno').val());
     send_data.append('old_school_name',  $('#school_name').val());
     send_data.append('old_school_address',  $('#school_address').val());
     send_data.append('old_course',  $('#hcourse').val());
@@ -1794,4 +1815,23 @@ function requestStop(radio){
   }else{
     $('.request_stop_yes').css('display','none');
   }
+}
+function loadEductaionHistoryBySchoolRenew(id,table){
+  $.ajax({
+      type : 'POST',
+      url : BACKEND_URL+"/getEducationHistory",
+      data: 'school_id='+id,
+      success: function(result){
+
+          $.each(result.data, function( index, value ){
+            var tr="<tr>";
+            tr += `<td class="less-font-weight text-center"><input type="hidden" name="old_degrees_id[]" class="form-control" value=`+value.id+`>${ index += 1 }</td>`;
+            tr += '<td><input type="text" name="old_degrees[]" class="form-control" value="'+value.degree_name+'" readonly/></td>';
+            tr += '<td><input type="hidden" name="old_degrees_certificates_h[]" class="form-control" value='+value.certificate+'><a href='+BASE_URL+value.certificate+' style="margin-top:0.5px;" target="_blank" class="btn btn-success btn-md">View File</a></td>';
+            tr +=`<td class="text-center"><button type="button" disabled class="delete btn btn-sm btn-danger m-2" onclick=delRowEducation("`+table+`")><li class="fa fa-times"></li></button></td>`;
+            tr += "</tr>";
+            $("table."+table).append(tr);
+          });
+      }
+  });
 }
