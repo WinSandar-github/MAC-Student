@@ -1358,8 +1358,6 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
-                                                
-
                                                     <div class="col-md-5 form-check-radio">
                                                         <label class="form-check-label" for="sub_mac">
                                                         <input class="form-check-input" type="radio" id="sub_mac" name="mac_type" value='1'    >
@@ -1376,33 +1374,29 @@ $nrc_characters = config('myanmarnrc.characters');
                                                             နေပြည်တော်သင်တန်းကျောင်း
                                                         </label>
                                                     </div>
-                                                
-        
-                                               
-                                                        <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
-                                                   
+                                                    
+                                                    <label  class="error attend_mac_error" style="display:none;" for="attend_place">Please select one</label>
                                                 </div>
                                             </div>
-                                                
-                                                <div class="row mb-3">
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input class="form-check-input" type="checkbox" name="da_two_mac_reg_declare" onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
-                                                                <span class="form-check-sign"></span>
-                                                                <p class="fw-bolder">
-                                                                    * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
-                                                                    * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
-                                                                </p>
-                                                            </label>
-                                                        </div>
-                                                        {{--<h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>--}}
-                                                    </div>
-                                                </div>    
 
-                                                <div class="row justify-content-center">                                                      
-                                                        <button  type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="submit_btn_mac">Submit</button>
+                                            <div class="row mb-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="da_two_mac_reg_declare" onchange="$('#submit_btn_mac').prop('disabled', !this.checked)">
+                                                            <span class="form-check-sign"></span>
+                                                            <p class="fw-bolder">
+                                                                * အထက်ဖော်ပြပါအချက်အလက်များအားလုံးမှန်ကန်ပါသည်။၊<br>
+                                                                * မြန်မာနိုင်ငံစာရင်းကောင်စီကချမှတ်သည့်စည်းကမ်းများကိုလိုက်နာမည်ဖြစ်ကြောင်းဝန်ခံလျှက်လျှောက်ထားအပ်ပါသည်။
+                                                            </p>
+                                                        </label>
                                                     </div>
+                                                    {{--<h6 class="mt-4 pt-1">ရက်စွဲ - {{ date('d-M-Y') }}</h6>--}}
+                                                </div>
+                                            </div>    
+
+                                            <div class="row justify-content-center">                                                      
+                                                    <button  type="submit" class="btn btn-success btn-hover-dark w-25" disabled id="submit_btn_mac">Submit</button>
                                                 </div>
                                             </div>
 
@@ -1617,7 +1611,11 @@ $nrc_characters = config('myanmarnrc.characters');
                     let last_exam = data.data.exam_registers.slice(-1);
 
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
-                    $('#mac_type_name').text(mac_name)
+                    $('#mac_type_name').text(mac_name);
+
+                    $('input[type=radio][name=mac_type]').map((k, v) => {
+                        return $(v).val() == current_stu_course[0].mac_type ? $(v).attr('checked', 'true') : '';
+                    });
 
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val("Diploma In Accountancy Part Two");
