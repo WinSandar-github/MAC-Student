@@ -414,6 +414,7 @@
                                     <input type="hidden" id="school_name">
                                     <input type="hidden" id="school_address">
                                     <input type="hidden" id="hcourse">
+                                    <input type="hidden" id="regno">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
@@ -505,7 +506,7 @@
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၉။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="regno" readonly>
+                                        <input type="text" class="form-control" id="s_code" name="s_code" readonly>
                                         
                                     </div>
                                 </div>
