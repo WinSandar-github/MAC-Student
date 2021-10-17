@@ -2869,9 +2869,15 @@ function loadSchoolByDash(school_data) {
                 $('.sch_status_history').append('School Registration is checking.');
             } else if (school.approve_reject_status == 1) {
                 $('.sch_status_history').append('School Registration is Approved.');
-                $('.sch_payment-btn').show();
-                $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
-                $('.sch_payment-status').show();
+                if(school.offline_user!='true'){
+                    $('.sch_payment-btn').show();
+                    $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
+                    $('.sch_payment-status').show();
+                }else{
+                    $('.sch_renew-btn').show();
+                    $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
+                }
+                
             } else {
                 $('.sch_reject-btn').show();
                 if (school.initial_status == 0) {
