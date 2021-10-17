@@ -592,6 +592,19 @@
                                         </div>
                                     </div>
 
+                                    <input type="hidden" id="passed_course_id" value="3">
+                                    <input type="hidden" id="current_course_id" value="4">
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
+                                                    <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
+                                                </select>
+                                            </div>
+                                        </div>                                            
+                                    </div>
+
                                     {{--<div class="row mb-3">
                                         <label class="col-md-4 col-form-label label_align_right"><span class="pull-left" style="padding-left: 85px;">(စ)</span>Module <span style="color:red">*</span>-</label>
                                         <div class="row col-md-8 py-2" style="padding-left:24px">
@@ -787,6 +800,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
-        loadBatchList();
+        loadPassedBatchList();
+        loadCurrentBatchList();
     </script>
 @endpush

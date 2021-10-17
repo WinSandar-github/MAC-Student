@@ -144,7 +144,8 @@ function createCPATwoRegDAOnePass(){
     send_data.append('verify_status', $("input[name=verify_status]").val());
     send_data.append('payment_method', $("input[name=payment_method]").val());
     send_data.append('verify_code', $("input[name=verify_code]").val());
-    send_data.append('batch_id', $("#selected_batch_id").val());
+    send_data.append('batch_id', $("#selected_current_batch_id").val());
+    send_data.append('pass_batch_id', $("#selected_batch_id").val());
     send_data.append('cpa_one_pass_level', $("input[name=cpa_one_pass_level]").val());
     send_data.append('cpa_one_pass_exam_date', $("input[name=cpa_one_pass_exam_date]").val());
     send_data.append('cpa_one_pass_personal_no', $("input[name=cpa_one_pass_personal_no]").val());

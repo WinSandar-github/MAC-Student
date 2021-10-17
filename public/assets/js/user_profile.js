@@ -1404,6 +1404,7 @@ function user_profile() {
                                                                 }
                                                             })
                                                         } else {
+                                                            
                                                             get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;

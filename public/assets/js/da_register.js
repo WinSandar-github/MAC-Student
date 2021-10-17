@@ -24,10 +24,42 @@ function AddDAEdu() {
     count++;
 }
 
-function loadBatchList(){
+function loadPassedBatchList(){
+    var course_id = document.getElementById("passed_course_id").value;
     var select = document.getElementById("selected_batch_id");
     $.ajax({
-        url: BACKEND_URL + "/batch",
+        url: BACKEND_URL + "/get_passed_batch/" + course_id,
+        type: 'get',
+        data: "",
+        success: function (data) {
+            var batch_data = data.data;
+            batch_data.forEach(function (element) {
+                console.log('batch_data',element);
+                var option = document.createElement('option');
+                option.text = element.name + "/" + element.name_mm;
+                option.value = element.id;
+                select.add(option, 1);
+                //$("#selected_school_id").css('display','inline');
+                //$("#selected_school_id").siblings(".nice-select").css('display','none');
+                //$("#selected_school_id").siblings(".check-service-other").css('display','inline-table');
+
+
+            });
+        },
+        error: function (message) {
+
+        }
+
+    });
+}
+
+function loadCurrentBatchList(){
+    var course_id = document.getElementById("current_course_id").value;
+    var select = document.getElementById("selected_current_batch_id");
+    console.log('course_id',course_id)
+    console.log('select',select)
+    $.ajax({
+        url: BACKEND_URL + "/get_current_batch/" + course_id,
         type: 'get',
         data: "",
         success: function (data) {
@@ -561,7 +593,8 @@ function createDATwoRegDAOnePass(){
     send_data.append('verify_status', $("input[name=verify_status]").val());
     send_data.append('payment_method', $("input[name=payment_method]").val());
     send_data.append('verify_code', $("input[name=verify_code]").val());
-    send_data.append('batch_id', $("#selected_batch_id").val());
+    send_data.append('batch_id', $("#selected_current_batch_id").val());
+    send_data.append('pass_batch_id', $("#selected_batch_id").val());
     send_data.append('degree_rank', $("input[name=da_one_pass_level]").val());
     send_data.append('da_pass_date', $("input[name=da_one_pass_exam_date]").val());
     send_data.append('da_pass_roll_number', $("input[name=da_one_pass_personal_no]").val());
