@@ -678,9 +678,6 @@ function user_profile() {
                             is_renew = "";
                         }
                     }
-                    else {
-                        is_renew = "";
-                    }
                     if (cpaff_latest_data.status == 0) {
                         $('.status').append(`
                         <tr>
