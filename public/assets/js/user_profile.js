@@ -1493,6 +1493,7 @@ function user_profile() {
                                                                 }
                                                             })
                                                         } else {
+                                                            
                                                             get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
@@ -3124,7 +3125,7 @@ function firmDashboardData() {
         type: 'get',
         success: function (result) {
             EasyLoading.hide();
-            console.log("result >>>", result);
+            //console.log("result >>>", result);
             let data = result.data;
             //let accountancy_firm = result.data.accountancy_firm.slice(-1);
             if (data.accountancy_firm_info_id) {
@@ -3132,6 +3133,7 @@ function firmDashboardData() {
                 $('.acc_firm').show();
                 $('.cpaff_other').hide();
                 let acc_firm = data.accountancy_firm.slice(-1);
+                console.log("acc_firm >>>", acc_firm);
                 //console.log("acc firm >>",acc_firm);
                 let firm_ownerships_audits = result.firm_ownerships_audits;
                 //console.log("firm_ownerships_audits >>",firm_ownerships_audits);
@@ -3152,6 +3154,7 @@ function firmDashboardData() {
                     $('.phone').text(acc_firm.telephones);
 
                     if (acc_firm.status == 2) {
+                      console.log("youkkk");
                         $('#reject_remark_box').css("display", "block");
                         $('.reject_remark').text(acc_firm.remark);
                     }
