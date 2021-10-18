@@ -108,21 +108,40 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
-                if(data.invoice.length!=0){
-                    var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+data.invoice[data.invoice.length-1].invoiceNo;
-                }
+                
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var reject_initial = FRONTEND_URL + "/update_cpaff_initial";
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                 var is_renew;
-                if (cpaff_latest_data.type == 0) {
-                    is_renew = "Initial";
+                
+                if(data.invoice.length!=0){
+                    if (cpaff_latest_data.type == 0) {
+                        is_renew = "Initial";
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == "cpaff-initial" && val.status == 0;
+                        });
+                    }
+                    else if (cpaff_latest_data.type == 1) {
+                        is_renew = "Renewal";
+                        var invoice = data.invoice.filter(val => {
+                            return val.invoiceNo == "cpaff-renew" && val.status == 0;
+                        });
+                    }
+                    else {
+                        is_renew = "";
+                    }
+                    var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
                 }
-                else if (cpaff_latest_data.type == 1) {
-                    is_renew = "Renewal";
-                }
-                else {
-                    is_renew = "";
+                else{
+                    if (cpaff_latest_data.type == 0) {
+                        is_renew = "Initial";
+                    }
+                    else if (cpaff_latest_data.type == 1) {
+                        is_renew = "Renewal";
+                    }
+                    else {
+                        is_renew = "";
+                    }
                 }
                 if (cpaff_latest_data.status == 0 ) {
                     $('.status_history').append('CPA(Full-Fledged) ' + is_renew + ' Registration Form is checking.<br><br>');
@@ -197,14 +216,33 @@ function user_profile() {
                     // var reject_initial=FRONTEND_URL + "/student_papp";
                     var papp_latest_data = data.papp[data.papp.length - 1];
                     var is_renew;
-                    if (papp_latest_data.type == 0) {
-                        is_renew = "Initial";
+                    if(data.invoice.length!=0){
+                        if (papp_latest_data.type == 0) {
+                            is_renew = "Initial";
+                            var invoice = data.invoice.filter(val => {
+                                return val.invoiceNo == "papp-initial" && val.status == 0;
+                            });
+                        }
+                        else if (papp_latest_data.type == 1) {
+                            is_renew = "Renewal";
+                            var invoice = data.invoice.filter(val => {
+                                return val.invoiceNo == "papp-renew" && val.status == 0;
+                            });
+                        }
+                        else {
+                            is_renew = ""
+                        }
                     }
-                    else if (papp_latest_data.type == 1) {
-                        is_renew = "Renewal";
-                    }
-                    else {
-                        is_renew = ""
+                    else{
+                        if (papp_latest_data.type == 0) {
+                            is_renew = "Initial";
+                        }
+                        else if (papp_latest_data.type == 1) {
+                            is_renew = "Renewal";
+                        }
+                        else {
+                            is_renew = ""
+                        }
                     }
                     if (papp_latest_data.status == 0) {
                         $('.status_history').append('PAPP ' + is_renew + ' Registration Form is checking.<br><br>');
@@ -214,7 +252,7 @@ function user_profile() {
                             // var invoice = data.invoice.filter(val => {
                             //     return val.invoiceNo == 'papp' && val.status == 0;
                             // });
-                            var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+data.invoice[data.invoice.length-1].invoiceNo;
+                            var payment_url = FRONTEND_URL + "/payment_method/"+student_id+"/"+invoice[0].invoiceNo;
                         }
                         // $('.status_papp').css('display', 'none');
                         var papp_renew_url = FRONTEND_URL + "/renew_papp";
@@ -614,14 +652,33 @@ function user_profile() {
                     var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                     let cpaff_latest_data = cpaff[cpaff.length - 1];
                     var is_renew;
-                    if (cpaff_latest_data.is_renew == 0) {
-                        is_renew = "Initial";
+                    if(data.invoice.length!=0){
+                        if (cpaff_latest_data.is_renew == 0) {
+                            is_renew = "Initial";
+                            var invoice = data.invoice.filter(val => {
+                                return val.invoiceNo == "cpaff-initial" && val.status == 0;
+                            });
+                        }
+                        else if (cpaff_latest_data.is_renew == 1) {
+                            is_renew = "Renewal";
+                            var invoice = data.invoice.filter(val => {
+                                return val.invoiceNo == "cpaff-renew" && val.status == 0;
+                            });
+                        }
+                        else {
+                            is_renew = "";
+                        }
                     }
-                    else if (cpaff_latest_data.is_renew == 1) {
-                        is_renew = "Renewal";
-                    }
-                    else {
-                        is_renew = "";
+                    else{
+                        if (cpaff_latest_data.is_renew == 0) {
+                            is_renew = "Initial";
+                        }
+                        else if (cpaff_latest_data.is_renew == 1) {
+                            is_renew = "Renewal";
+                        }
+                        else {
+                            is_renew = "";
+                        }
                     }
                     if (cpaff_latest_data.status == 0) {
                         $('.status').append(`
@@ -640,7 +697,7 @@ function user_profile() {
                             <td>CPA(Full-Fledged) ${is_renew}</td>
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
-                            <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${data.invoice[data.invoice.length-1].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
+                            <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
                             
                         </tr>
                         `);
@@ -703,14 +760,34 @@ function user_profile() {
                         var reject_renewal = FRONTEND_URL + "/update_papp_renewal";
                         let papp_latest_data = data.papp[data.papp.length - 1];
                         var is_renew_papp;
-                        if (papp_latest_data.type == 0) {
-                            is_renew_papp = "Initial";
+                        if(data.invoice.length!=0){
+                            if (papp_latest_data.type == 0) {
+                                is_renew_papp = "Initial";
+                                
+                                var invoice = data.invoice.filter(val => {
+                                    return val.invoiceNo == "papp-initial" && val.status == 0;
+                                });
+                            }
+                            else if (papp_latest_data.type == 1) {
+                                is_renew_papp = "Renewal";                            
+                                var invoice = data.invoice.filter(val => {
+                                    return val.invoiceNo == "papp-renew" && val.status == 0;
+                                });
+                            }
+                            else {
+                                is_renew_papp = ""
+                            }
                         }
-                        else if (papp_latest_data.type == 1) {
-                            is_renew_papp = "Renewal";
-                        }
-                        else {
-                            is_renew_papp = ""
+                        else{
+                            if (papp_latest_data.type == 0) {
+                                is_renew_papp = "Initial";
+                            }
+                            else if (papp_latest_data.type == 1) {
+                                is_renew_papp = "Renewal";       
+                            }
+                            else {
+                                is_renew_papp = ""
+                            }
                         }
                         if (papp_latest_data.status == 0) {
                             $('.status').append(`
@@ -728,7 +805,7 @@ function user_profile() {
                                 <td>PAPP ${is_renew_papp}</td>
                                 <td>${formatDate(papp_latest_data.created_at)}</td>
                                 <td>${formatDate(papp_latest_data.updated_at)}</td>
-                                <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${data.invoice[data.invoice.length-1].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
+                                <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
                                 
                             </tr>
                             `);
