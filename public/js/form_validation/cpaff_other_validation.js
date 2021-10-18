@@ -148,7 +148,8 @@ function check_email_cpaff_other()
     }
 }
 
-function createCpaffOtherRegister(){
+function createCpaffOtherRegister(){    
+    show_loader();
     // var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo   =   $("input[name=profile_photo]")[0].files[0];
     var cpa             =   $("input[name=cpa]")[0].files[0];
@@ -272,7 +273,6 @@ function createCpaffOtherRegister(){
     send_data.append('exam_month', $("input[name=exam_month]").val());
     send_data.append('roll_no', $("input[name=roll_no]").val());
     send_data.append('type', 0);
-    show_loader();
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
         type: 'post',
@@ -284,9 +284,9 @@ function createCpaffOtherRegister(){
             EasyLoading.hide();
             successMessage("You have successfully registerd!");
             // location.reload();
-            setInterval(() => {
-                location.href = FRONTEND_URL + '/';
-            }, 3000);
+            setTimeout(function() {
+                location.href = FRONTEND_URL + '/';}, 2000);
+                
         },
         error:function (message){
             EasyLoading.hide();
