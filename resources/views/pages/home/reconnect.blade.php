@@ -52,6 +52,15 @@
                 <div class="courses-tabs-menu">
                     <div class="swiper-container">
                         <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                        
+                            <li>
+                                    <button value="course_list" onclick="location.href =`${FRONTEND_URL}/da_two_reg_daone_pass`"> Diploma In Accountancy Part Two Registration</button>
+                            </li>
+                            <li>
+                                    <button class="course_list" onclick="location.href =`${FRONTEND_URL}/cpa_two_reg_cpaone_pass`"> Certified Public Accountant Part Two Registration</button>
+                            </li>
+                        </ul>
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
                        
                             <li>
                                   <button value="exam" onclick="location.href =`${FRONTEND_URL}/cpaff_reconnect`">Certificate of Certified Public Accountant (Full-Fledged)</button>
@@ -59,7 +68,7 @@
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/reconnect_papp`"> Certificate of Professional Accountant in Public Practice (PAPP) </button>
                             </li>
-                        </ul>
+                        </ul>                       
                         
                     </div>
                 </div>

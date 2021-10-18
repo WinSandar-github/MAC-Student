@@ -1354,7 +1354,7 @@ $nrc_characters = config('myanmarnrc.characters');
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3" style="display:none">
+                                            <div class="row mb-3" id="mac_school" style="display:none">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၁၈။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
@@ -1640,6 +1640,13 @@ $nrc_characters = config('myanmarnrc.characters');
                     $("input[name='religion']").val(student_info.religion);
                     $("input[name='date_of_birth']").val(student_info.date_of_birth);
 
+                    if(current_stu_course[0].mac_type == 1){
+                        $("#sub_mac").prop("checked",true);
+                    }else{
+                        // console.log("Hello")
+                        $("#sub_mac2").prop("checked",true);
+                    }
+
 
                     let batch_id = localStorage.getItem('batch_id');
                     
@@ -1768,6 +1775,8 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("input[name='recommend_letter_self']").prop('disabled', false);
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
+                        $("#mac_school").show();
+                        $("input[name='mac_type']").prop('disabled', false);
                     }
                     else{
                         $("input[name='office_address']").prop('readonly', true);
@@ -1781,6 +1790,8 @@ $nrc_characters = config('myanmarnrc.characters');
                         $("input[name='recommend_letter_self']").prop('disabled', true);
                         $("input[name='recommend_letter_private']").prop('disabled', true);
                         $("input[name='gov_staff']").prop('disabled', true);
+                        $("#mac_school").hide();
+                        $("input[name='mac_type']").prop('disabled', true);
                     }
                 }
 
