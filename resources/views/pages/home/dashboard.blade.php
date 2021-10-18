@@ -669,6 +669,27 @@
                             </div>
 
                         </div>
+                        <div class="qt_article_row">
+                            <div class="row my-2">
+                                <div class="offset-md-3 col-md-9">
+                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                    Application Status</h5>
+
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="qt_article_status">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
@@ -2153,7 +2174,7 @@
                 dateFormat: "d-M-Y",
                 allowInput: true
         });
-        
+
     })
     //app_form_feedback();
 
