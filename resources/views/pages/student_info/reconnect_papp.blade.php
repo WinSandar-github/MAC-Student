@@ -21,7 +21,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title initial_text" style="display:block;">PAPP Registration <span>Form</span></h2>
+                    <h2 class="title initial_text" style="display:block;">PAPP Existing User Register<span>Form</span></h2>
                     <h2 class="title renew_text" style="display:none;">PAPP Renewal Registration <span>Form</span></h2>
                 </div>
                 <!-- Page Banner End -->
@@ -85,7 +85,7 @@
                         </div>
                         <h5 class="card-title text-center fw-bolder">
                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
-                            အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် လျှောက်ထားခြင်း
+                            အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်သူအဖြစ် သက်တမ်းတိုးလျှောက်ထားခြင်း
                         </h5>
                         {{--<div class="d-flex justify-content-between">
                             <h6>ရက်စွဲ - {{ __("dd-mm-yyyy") }}</h6>
@@ -684,9 +684,17 @@
                                 <div class="row mb-2" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၃)') }}</label>
-                                    <div class="col-md-4 col-form-label">PAPP Registration လုပ်ခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-4 col-form-label">PAPP Initail Registration လုပ်ခဲ့သော ခုနှစ်</div>
                                     <div class="col-md-5">
                                         <input type="text" class="form-control" name="papp_reg_year" id="papp_reg_year" placeholder="PAPP Registration လုပ်ခဲ့သော ခုနှစ်" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-2" style="padding-left: 110px;display:none">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(၄)') }}</label>
+                                    <div class="col-md-4 col-form-label">PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="papp_last_renew_year" id="papp_last_renew_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" >
                                     </div>
                                 </div>
                                 <div class="row mb-2" style="padding-left: 110px;">
@@ -694,20 +702,12 @@
                                     <label class="col-md-1 col-form-label">{{ __('(၄)') }}</label>
                                     <div class="col-md-4 col-form-label">PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်</div>
                                     <div class="col-md-5">
-                                        <input type="text" class="form-control" name="papp_last_renew_year" id="papp_last_renew_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" required>
+                                        <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="PAPP နောက်ဆုံးသက်တမ်းတိုးခဲ့သော ခုနှစ်" autocomplete="off" required>
                                     </div>
                                 </div>
                                 <div class="row mb-2" style="padding-left: 110px;">
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(၅)') }}</label>
-                                    <div class="col-md-4 col-form-label">နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်</div>
-                                    <div class="col-md-5">
-                                        <input type="text" class="form-control" name="latest_reg_year" id="latest_reg_year" placeholder="နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်" autocomplete="off" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-2" style="padding-left: 110px;">
-                                    <div class="col-md-1"></div>
-                                    <label class="col-md-1 col-form-label">{{ __('(၆)') }}</label>
                                     <div class="col-md-4 col-form-label">ရပ်နား Form တင်ထားခြင်းရှိ/မရှိ</div>
                                     <div class="row col-md-6 py-2">
                                         <div class="col-md-3 form-check-radio mx-2">

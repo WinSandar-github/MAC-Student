@@ -27,7 +27,7 @@
                         <li><a href="#">Home</a></li>
                         <li class="active">Register</li>
                     </ul>
-                    <h2 class="title">Audit <span>Firm </span><span>Reconnect Registration</span></h2>
+                    <h2 class="title">Audit <span>Firm </span><span>Existing User Registration</span></h2>
                 </div>
                 <!-- Page Banner End -->
             </div>
@@ -83,7 +83,7 @@
                                     <div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
                                       <div class="row mb-5">
                                           <h5 class="card-title text-center fw-bolder">
-                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME(Reconnect)
+                                              APPLICATION FOR REGISTRATION OF ACCOUNTANCY FIRM NAME
                                           </h5>
                                       </div>
                                       <div class="row mb-3">
@@ -781,7 +781,7 @@
 
                                                               </th>
                                                               <th  class="less-font-weight text-center">
-                                                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartner("partner_list")'>
+                                                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerForOffline("partner_list")'>
                                                                   <li class="fa fa-plus"></li>
                                                                 </button>
                                                               </th>
@@ -790,7 +790,7 @@
                                                       <tbody>
                                                           <tr>
                                                               <td align="center" class="align-middle">1</td>
-                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control" autocomplete="off" ></td>
+                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="" class="form-control" autocomplete="off" ></td>
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td>
@@ -1095,7 +1095,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2 offset-md-5">
-                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" disabled>{{ __('Submit') }}</button>
+                                                    <button type="submit" id="btn_submit_audit_firm" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button>
                                                     <!-- <button type="submit" id="" class="btn btn-success btn-hover-dark w-100" >{{ __('Submit') }}</button> -->
                                                 </div>
                                             </div>

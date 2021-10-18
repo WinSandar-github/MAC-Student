@@ -154,7 +154,7 @@ function user_profile() {
                         $('.status_history').append('Action &nbsp;&nbsp;');
                         $('.status_history').append(`<a href= ${payment_url} class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
                     }
-                    
+
                     // $('.status_papp').append('Action &nbsp;&nbsp;');
                     // $('.status_papp').append(`<a href= ${papp_url} class="btn btn-success btn-sm xl-auto" > PAPP form </a>`);
 
@@ -494,7 +494,7 @@ function user_profile() {
                                 }
                             }
                         });
-                        
+
                         if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
@@ -1030,19 +1030,19 @@ function user_profile() {
                                 // `);
 
                             } else if (latest_course_reg[0].approve_reject_status == 1) {
-                                
+
                                 let std_id = latest_course_reg[0].student_info_id;
 
                                 if(latest_course_reg[0].batch.course.code == "da_1" || latest_course_reg[0].batch.course.code == "cpa_1"){
-                                    
+
                                     $invoice_code = latest_course_reg[0].batch.course.code == "da_1" ? 'app_form' : 'cpa_app';
 
                                     var invoice = data.invoice.filter(val => {
                                         return val.invoiceNo == $invoice_code && val.status == 0;
                                     });
-    
+
                                     if (!jQuery.isEmptyObject(invoice) && invoice.length != 0 ) {
-    
+
                                         $('.status').append(`
                                         <tr>
                                             <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -1051,9 +1051,9 @@ function user_profile() {
                                             <td> <a href='${FRONTEND_URL}/payment_method/${std_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment for App Form</a></td>
                                         </tr>
                                         `);
-    
+
                                     } else {
-    
+
                                         $('.status').append(`
                                         <tr>
                                             <td>${latest_course_reg[0].batch.course.name} Application Form</td>
@@ -1105,13 +1105,13 @@ function user_profile() {
                                         // $('.status').append(`<p>Your Registration Form is Approved  on the  ${formatDate(latest_course_reg[0].updated_at)}.</p>`)
 
                                         var course_code = latest_course_reg[0].batch.course.code == "da_1";
-                                    
+
                                         var invoice = data.invoice.filter(val => {
-                                            return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code 
-                                                    || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code 
+                                            return (val.invoiceNo == 'mac_reg_' + latest_course_reg[0].batch.course.code
+                                                    || val.invoiceNo == 'prv_reg_' + latest_course_reg[0].batch.course.code
                                                     || val.invoiceNo == 'self_reg_' + latest_course_reg[0].batch.course.code ) && val.status == 0;
                                         });
-                                    
+
                                         if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
 
                                             $('.status').append(`
@@ -1570,7 +1570,7 @@ function user_profile() {
                                                                 }
                                                             })
                                                         } else {
-                                                            
+
                                                             get_course_by_code(latest_course_reg[0].batch.course.code).then(data => {
 
                                                                 var next_batch = data.data[0].active_batch.length === 0 ? null : data.data[0].active_batch;
@@ -3052,7 +3052,7 @@ function loadSchoolByDash(school_data,school_invoice) {
                     $('.sch_renew-btn').show();
                     $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
-                
+
             } else {
                 $('.sch_reject-btn').show();
                 if (school.initial_status == 0) {
@@ -3252,9 +3252,12 @@ function firmDashboardData() {
                     $('.phone').text(acc_firm.telephones);
 
                     if (acc_firm.status == 2) {
-                      console.log("youkkk");
                         $('#reject_remark_box').css("display", "block");
                         $('.reject_remark').text(acc_firm.remark);
+                    }
+
+                    if(acc_firm.offline_user == 1){
+                      $("#firm_payment_btn").css('display','none');
                     }
 
                     if (acc_firm.audit_firm_type_id == 1) {
