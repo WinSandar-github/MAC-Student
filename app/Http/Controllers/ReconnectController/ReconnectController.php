@@ -16,4 +16,17 @@ class ReconnectController extends Controller
     {
         return view('pages.student_info.reconnect_papp');
     }
+
+    
+    //show da_two_register for da one pass
+    public function da_two_registerForm()
+    {
+        return view('pages.da.da_two_reg_daone_pass');
+    }
+
+    //show cpa_two_register for cpa one pass
+    public function CPATwoRegCpaOnePassForm()
+    {
+        return view('pages.cpa.cpa_two_reg_cpaone_pass');
+    }
 }

@@ -41,6 +41,7 @@ Route::get('/da_two_exam_register', 'DATwoExamRegisterController@daTwoExamRegist
 
 //PAPP Register Form
 Route::get('student_papp','PAPPController@info');
+Route::get('renew_papp','PAPPController@renew_papp');
 Route::get('update_papp_initial','PAPPController@reject_initial');
 Route::get('update_papp_renewal','PAPPController@reject_renewal');
 
@@ -94,10 +95,6 @@ Route::get('cpa_two_mac/{id}', 'CPATwoRegisterController@mac');
 Route::get('cpa_two_private_school/{id}', 'CPATwoRegisterController@private_school');
 Route::get('cpa_two_register/{id}', 'CPATwoRegisterController@register');
 
-//cpa_two_register for cpa_one_pass
-Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
-
-
 Route::get('student_course/{course_type_id}', 'StudentController@course');
 Route::get('da_one_register', 'StudentController@daOneRegister');
 //Cpa
@@ -123,9 +120,6 @@ Route::get('login','LoginController@login')->name('login');
 
 // show application form of da one
 Route::get('da_one_form/{id}', 'DARegisterController@registerForm');
-
-//da_two_register for da_one_pass
-Route::get('da_two_reg_daone_pass', 'DARegisterController@da_two_registerForm');
 
 Route::get('da_two_register/{id}', 'DAController@da_two_register');
 
@@ -223,3 +217,11 @@ Route::get('qt_edit/{id}', 'QtController\QtController@edit');
 //Reconnect
 Route::get('reconnect','ReconnectController\ReconnectController@reconnect');
 Route::get('reconnect_papp','ReconnectController\ReconnectController@reconnect_papp');
+
+//da_two_register for da_one_pass
+// Route::get('da_two_reg_daone_pass', 'DARegisterController@da_two_registerForm');
+Route::get('da_two_reg_daone_pass','ReconnectController\ReconnectController@da_two_registerForm');
+
+//cpa_two_register for cpa_one_pass
+// Route::get('cpa_two_reg_cpaone_pass', 'CPATwoRegisterController@CPATwoRegCpaOnePassForm');
+Route::get('cpa_two_reg_cpaone_pass','ReconnectController\ReconnectController@CPATwoRegCpaOnePassForm');

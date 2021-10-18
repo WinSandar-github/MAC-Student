@@ -437,7 +437,18 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>ခုနှစ်/လ</label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(က)</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <select class="form-control form-select" name="selected_batch_name" id="selected_batch_id" required>
+                                                    <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
+                                                </select>
+                                            </div>
+                                        </div>                                            
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>ခုနှစ်/လ<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="">
                                             <input type="text" class="form-control" name="da_one_pass_exam_date" required>
@@ -446,7 +457,7 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ခ)</span>အဆင့်</label>                                            
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>အဆင့်<span style="color:red">*</span></label>                                            
                                         <div class="col-md-8">
                                             <div class="">
                                                 <input type="text" placeholder="အဆင့်" id="da_one_pass_level" name="da_one_pass_level" class="form-control ">
@@ -454,14 +465,14 @@
                                         </div>                                            
                                     </div>
                                     <div class="row mb-4">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဂ)</span>ကိုယ်ပိုင်အမှတ်</label>
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(ဃ)</span>ကိုယ်ပိုင်အမှတ်<span style="color:red">*</span></label>
                                         <div class="col-md-8">
                                             <input type="text" name="da_one_pass_personal_no" class="form-control da_one_pass_personal_no"
                                                 placeholder="ကိုယ်ပိုင်အမှတ်" id="da_one_pass_personal_no">
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
+                                    {{--<div class="row mb-3">
                                         <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>ဒီပလိုမာစာရင်းကိုင်(ပထမပိုင်း) သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span>-</label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
@@ -519,10 +530,10 @@
                                                 <label  class="error attend_place_error" style="display:none;" for="da_one_attend_place">Please select one</label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
 
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၅။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
+                                    <div class="row mb-3">                                        
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(င)</span>သင်တန်းတက်ရောက်ခဲ့သည့်နေရာ<span style="color:red">*</span></label>
                                         <div class="col-sm-8 col-md-8 checkbox-radios   py-2">
                                             <div class="form-check-radio px-0">
                                                 <label class="form-check-label" for="main_mac">
@@ -581,9 +592,22 @@
                                         </div>
                                     </div>
 
+                                    <input type="hidden" id="passed_course_id" value="1">
+                                    <input type="hidden" id="current_course_id" value="2">
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-form-label label_align_right"><span class="pull-left">၂၆။</span>ယခုဖြေဆိုမည့် Module -</label>
-                                        <div class="row col-md-8 py-2">
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left">၂၄။</span>သင်တန်းအမှတ်စဉ်<span style="color:red">*</span></label>                                            
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <select class="form-control form-select" name="selected_current_batch_name" id="selected_current_batch_id" required>
+                                                    <option value="" disabled selected>သင်တန်းအမှတ်စဉ် ရွေးချယ်ပါ</option>
+                                                </select>
+                                            </div>
+                                        </div>                                            
+                                    </div>
+
+                                    {{--<div class="row mb-3" >
+                                        <label class="col-md-4 col-form-label label"><span class="pull-left" style="padding-left: 85px;">(စ)</span>Module<span style="color:red">*</span></label>
+                                        <div class="row col-md-8 py-2" style="padding-left:24px">
                                             <div class="col-md-4 form-check-radio">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input module_one" type="radio" id="0"
@@ -610,7 +634,7 @@
                                             </div>
                                             <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                         </div>
-                                    </div>
+                                    </div>--}}
 
                                     <div class="row mb-3">
                                         <div class="form-check">
@@ -776,5 +800,7 @@
             });
             $('#btn_cash').prop('disabled', true);
         });
+        loadPassedBatchList();
+        loadCurrentBatchList();
     </script>
 @endpush
