@@ -68,8 +68,11 @@
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/reconnect_papp`"> Certificate of Professional Accountant in Public Practice (PAPP) </button>
                             </li>
-                        </ul>                       
-                        
+                            
+                            <li>
+                                 <button class="course_list" onclick="location.href =`${FRONTEND_URL}/school_register_reconnected`"> School </button>
+                            </li>
+                        </ul>       
                     </div>
                 </div>
             </div>
