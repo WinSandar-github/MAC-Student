@@ -82,11 +82,11 @@ function user_profile() {
 
             } else if (data.school && data.teacher == null) {
                 $('.dashboard_name').append('School ');
-                loadSchoolByDash(data.school);
+                loadSchoolByDash(data.school,data.invoice);
 
             } else if (data.teacher && data.school == null) {
                 $('.dashboard_name').append('Teacher ');
-                laodTeacherByDash(data.teacher);
+                laodTeacherByDash(data.teacher,data.invoice);
 
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
@@ -3005,7 +3005,7 @@ function saveAttachFile(id) {
         alert("Please Fill Attachment File");
     }
 }
-function loadSchoolByDash(school_data) {
+function loadSchoolByDash(school_data,school_invoice) {
 
     $.ajax({
         type: 'GET',
@@ -3034,11 +3034,19 @@ function loadSchoolByDash(school_data) {
             $('#sch_phone').text(school.phone);
             if (school.approve_reject_status == 0) {
                 $('.sch_status_history').append('School Registration is checking.');
+                
             } else if (school.approve_reject_status == 1) {
                 $('.sch_status_history').append('School Registration is Approved.');
                 if(school.offline_user!='true'){
                     $('.sch_payment-btn').show();
-                    $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
+                    var invoice = school_invoice.filter( val => {
+
+                        return val.invoiceNo == school.payment_method && val.status == 0;
+    
+                    });
+    
+                    var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                    $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
                     $('.sch_payment-status').show();
                 }else{
                     $('.sch_renew-btn').show();
@@ -3057,7 +3065,9 @@ function loadSchoolByDash(school_data) {
                 $('.sch_reject-reason').append(school.reason);
             }
 
-            if (school.payment_method != null) {
+            if (school.from_valid_date !=null)
+                //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
+                 {
                 $('.sch_period').show();
                 var now = new Date();
                 if (school.initial_status == 0) {
@@ -3078,10 +3088,11 @@ function loadSchoolByDash(school_data) {
                     $('.sch_renew-btn').show();
                     $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
+                
                 $('.sch_payment-status').show();
                 $('.sch_payment-btn').hide();
                 $(".sch_payment_status").text("Complete");
-            } else {
+            }else {
                 $(".sch_payment_status").text("Incomplete");
             }
 
@@ -3090,8 +3101,8 @@ function loadSchoolByDash(school_data) {
     });
 
 }
-function laodTeacherByDash(teacher_data) {
-
+function laodTeacherByDash(teacher_data, _invoice) {
+    
     $.ajax({
         type: 'GET',
         url: BACKEND_URL + "/getTeacher/" + teacher_data.student_info_id,
@@ -3120,7 +3131,17 @@ function laodTeacherByDash(teacher_data) {
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                 $('.teacher_payment-btn').show();
-                $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
+
+            
+                var invoice = _invoice.filter( val => {
+
+                    return val.invoiceNo == teacher.payment_method && val.status == 0;
+
+                });
+
+                var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                
+                $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
                 $('.teacher_payment-status').show();
             } else {
                 $('.teacher_status_history').append('Teacher Registration is Rejected.');

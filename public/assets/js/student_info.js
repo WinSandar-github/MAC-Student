@@ -619,8 +619,7 @@ function loadCourse() {
 
 }
 
-function selectedRegistration(radioValue) {
-
+function selectedRegistration(radioValue) {  
 
     if (radioValue == 3) {
 
@@ -638,7 +637,6 @@ function selectedRegistration(radioValue) {
         $("#private_card").addClass("text-success border-success");
         $('#mac_card').removeClass("text-success border-success");
     } else if (radioValue == 1) {
-
         $('#self_study_container').css('display', 'block');
         $('#private_school_container').css('display', 'none');
         $('#mac_container').css('display', 'none');
@@ -646,6 +644,7 @@ function selectedRegistration(radioValue) {
         $('#private_card').removeClass("text-success border-success");
         $("#mac_card").removeClass("text-success border-success");
     } else {
+        
         $('#mac_container').css('display', 'block');
         $('#self_study_container').css('display', 'none');
         $('#private_school_container').css('display', 'none');
