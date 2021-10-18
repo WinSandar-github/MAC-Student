@@ -108,12 +108,12 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
-                
+
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var reject_initial = FRONTEND_URL + "/update_cpaff_initial";
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                 var is_renew;
-                
+
                 if(data.invoice.length!=0){
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
@@ -696,7 +696,7 @@ function user_profile() {
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
-                            
+
                         </tr>
                         `);
                         // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
@@ -761,13 +761,13 @@ function user_profile() {
                         if(data.invoice.length!=0){
                             if (papp_latest_data.type == 0) {
                                 is_renew_papp = "Initial";
-                                
+
                                 var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "papp-initial" && val.status == 0;
                                 });
                             }
                             else if (papp_latest_data.type == 1) {
-                                is_renew_papp = "Renewal";                            
+                                is_renew_papp = "Renewal";
                                 var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "papp-renew" && val.status == 0;
                                 });
@@ -781,7 +781,7 @@ function user_profile() {
                                 is_renew_papp = "Initial";
                             }
                             else if (papp_latest_data.type == 1) {
-                                is_renew_papp = "Renewal";       
+                                is_renew_papp = "Renewal";
                             }
                             else {
                                 is_renew_papp = ""
@@ -804,7 +804,7 @@ function user_profile() {
                                 <td>${formatDate(papp_latest_data.created_at)}</td>
                                 <td>${formatDate(papp_latest_data.updated_at)}</td>
                                 <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
-                                
+
                             </tr>
                             `);
                             $('.papp_btn').css('display', 'none');
@@ -3223,6 +3223,7 @@ function firmDashboardData() {
                     $("#audit_address_mm").val(acc_firm.head_office_address_mm);
                     $("#audit_address_eng").val(acc_firm.head_office_address);
 
+                    document.getElementById('firm_img').src = BASE_URL + acc_firm.image;
                     $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                     $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                     $("#head_office").text(acc_firm.head_office_address);

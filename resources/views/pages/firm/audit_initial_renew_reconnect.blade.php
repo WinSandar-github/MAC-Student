@@ -760,7 +760,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
                                                   (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
                                                   auditor's report of the accountancy firm)
@@ -781,7 +781,7 @@
 
                                                               </th>
                                                               <th  class="less-font-weight text-center">
-                                                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartnerForOffline("partner_list")'>
+                                                                <button type="button" class="btn btn-success btn-sm btn-plus" onclick='addRowPartner("partner_list")'>
                                                                   <li class="fa fa-plus"></li>
                                                                 </button>
                                                               </th>
@@ -790,7 +790,7 @@
                                                       <tbody>
                                                           <tr>
                                                               <td align="center" class="align-middle">1</td>
-                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="" class="form-control" autocomplete="off" ></td>
+                                                              <td><input type="text" value="" name="foa_pub_pri_reg_no[]" id="foa_pub_pri_reg_no" onchange="checkPAPPExist(this.value,this.id,this)" class="form-control" autocomplete="off" ></td>
                                                               {{-- checkPAPPExist(this.value,this.id,this) --}}
                                                               <td><input type="text" value="" name="foa_name[]" class="form-control" autocomplete="off" ></td>
                                                               <td>
@@ -819,7 +819,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
                                                 </label>
                                             </div>
@@ -861,7 +861,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
                                                 </label>
                                             </div>
@@ -961,17 +961,17 @@
 
                                             <div class="row mb-5">
                                                 <label for="" class="col-md-1 col-form-label">14.</label>
-                                                <label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
+                                                <label for="" class="col-md-4 col-form-label">Last Registered Year</label>
 
                                                 <div class="col-md-3">
-                                                    <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_date" class="form-control" autocomplete="off">
+                                                    <input type="text" placeholder="YYYY" name="last_registered_year" class="form-control" autocomplete="off">
                                                 </div>
                                             </div>
 
 
                                             <div class="row mb-5">
                                                 <label for="" class="col-md-1 col-form-label">15.</label>
-                                                <label for="" class="col-md-4 col-form-label">Request to Disconnect</label>
+                                                <label for="" class="col-md-4 col-form-label">Suspended Year</label>
                                                 <div class="row col-md-7 py-2">
                                                     <div class="col-md-3 form-check-radio mx-2">
                                                         <label class="form-check-label">
@@ -999,21 +999,10 @@
                                                   <label for="" class="col-md-1 col-form-label"></label>
                                                   <label for="" class="col-md-4 col-form-label"></label>
                                                   <div class="col-md-2">
-                                                      <label for="" class="col-form-label">Start Date</label>
+                                                      <label for="" class="col-form-label">Year</label>
                                                   </div>
                                                   <div class="col-md-3">
-                                                      <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
-                                                  </div>
-                                              </div>
-
-                                              <div class="row mb-5">
-                                                  <label for="" class="col-md-1 col-form-label"></label>
-                                                  <label for="" class="col-md-4 col-form-label"></label>
-                                                  <div class="col-md-2">
-                                                      <label for="" class="col-form-label">End Date</label>
-                                                  </div>
-                                                  <div class="col-md-3">
-                                                      <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
+                                                      <input type="text" placeholder="YYYY" name="suspended_year" class="form-control" autocomplete="off">
                                                   </div>
                                               </div>
                                             </div>
@@ -1156,25 +1145,19 @@
 <script>
 
 $(document).ready(function(){
-  $("input[name='last_reg_payment_start']").flatpickr({
+  $("input[name='last_registered_year']").flatpickr({
       enableTime: false,
-      dateFormat: "M-Y",
+      dateFormat: "Y",
       //dateFormat: "Y",
       allowInput: true,
   });
-  $("input[name='last_reg_payment_end']").flatpickr({
+  $("input[name='suspended_year']").flatpickr({
       enableTime: false,
-      dateFormat: "M-Y",
+      dateFormat: "Y",
       //dateFormat: "Y",
       allowInput: true,
   });
 
-  $("input[name='last_reg_payment_date']").flatpickr({
-      enableTime: false,
-      dateFormat: "M-Y",
-      //dateFormat: "Y",
-      allowInput: true,
-  });
 
   $("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
 			myanmarLetterOnly($(this));

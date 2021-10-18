@@ -202,7 +202,7 @@
                                             <div class="row mb-3">
                                               <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
                                               <div class="col-md-8">
-                                                  <textarea name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                                  <textarea id="head_office_address_mm" name="head_office_address_mm" class="form-control" placeholder="Head Office Address(Myanmar)" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                               </div>
                                             </div>
 
