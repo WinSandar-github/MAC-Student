@@ -69,6 +69,16 @@
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/reconnect_papp`"> Certificate of Professional Accountant in Public Practice (PAPP) </button>
                             </li>
                             
+                        </ul>   
+                        <ul class="swiper-wrapper nav my-2" style="justify-content: space-evenly;">
+                       
+                            <li>
+                                  <button value="exam" onclick="location.href =`${FRONTEND_URL}/audit_initial_renew_reconnect`">Audit Firm</button>
+                            </li>
+                            <li>
+                                 <button class="course_list" onclick="location.href =`${FRONTEND_URL}/non_audit_initial_renew_reconnect`">Non-Audit Firm</button>
+                            </li>
+                            
                             <li>
                                  <button class="course_list" onclick="location.href =`${FRONTEND_URL}/school_register_reconnected`"> School </button>
                             </li>
