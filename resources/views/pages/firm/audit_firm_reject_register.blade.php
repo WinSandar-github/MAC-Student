@@ -56,7 +56,7 @@
                                               <label for="" class="col-md-5 col-form-label label_align_right">Email</label>--}}
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('1.') }}</span>Email</label>
                                               <div class="col-md-8">
-                                                  <input type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
+                                                  <input readonly type="email" placeholder="Enter Email!" name="email" class="form-control" value="{{ old('email') }}" >
                                                   @if ($errors->has('email'))
                                                       <span class="text-danger">
                                                           <strong>{{ $errors->first('email') }}</strong>
@@ -90,7 +90,7 @@
                                               <label for="" class="col-md-5 col-form-label label_align_right">Accountancy Firm Name</label>--}}
                                               <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('2.') }}</span>Accountancy Firm Name</label>
                                               <div class="col-md-8">
-                                                  <input type="text" class="form-control" id="accountancy_firm_name" name="accountancy_firm_name">
+                                                  <input readonly type="text" class="form-control" id="accountancy_firm_name" name="accountancy_firm_name">
                                               </div>
                                           </div>
 
@@ -765,7 +765,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
                                           (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
                                           auditor's report of the accountancy firm)
@@ -803,7 +803,7 @@
                                     </div>
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
                                         </label>
                                     </div>
@@ -834,7 +834,7 @@
 
                                     <div class="row">
                                         <label for="" class="col-md-1 col-form-label"></label>
-                                        <label for="" class="col-md-11 col-form-label text-warning">
+                                        <label for="" class="col-md-11 col-form-label text-primary">
                                           Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
                                         </label>
                                     </div>

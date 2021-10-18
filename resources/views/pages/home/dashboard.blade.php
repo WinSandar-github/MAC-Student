@@ -513,7 +513,7 @@
                             </div>
                         </div>
                         {{--payment buttons--}}
-                        <div class="row payment-btn" style="display:none;">
+                        {{--<div class="row payment-btn" style="display:none;">
                             <div class="col-md-6"></div>
                             <div class="">
                                 <div class="mt-4" align="center">
@@ -522,8 +522,16 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>--}}
+                        <div class="row" >
+                            <div class="col-md-6"></div>
+                            <div class="">
+                                <div class="mt-4" align="center" id="firm_payment_btn">
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="row nonaudit-payment-btn" style="display:none;">
+                        {{--<div class="row nonaudit-payment-btn" style="display:none;">
                             <div class="col-md-6"></div>
                             <div class="">
                                 <div class="mt-4" align="center">
@@ -532,7 +540,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
 
                         {{--reject register buttons--}}
                         <div id="reject_register_btn_audit" style="display:none;">
@@ -576,7 +584,7 @@
 
 
                             </div>
-                            
+
                         </div>
                     </div>--}}
                     <div class="qualified_test">
@@ -618,7 +626,7 @@
                                         <span id="qt_phone"></span>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                             <div class="col-md-3">
@@ -656,10 +664,10 @@
                                         </tr>
                                     </thead>
                                     <tbody class="status">
-                                    </tbody>   
+                                    </tbody>
                                 </table>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="card-body cpaff_other">
@@ -2059,6 +2067,72 @@
         </div>
     </div>
 
+    <!-- Leave Request Model-->
+    <div class="modal fade" id="leaveRequestModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Leave Request Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <input type="hidden" id="article_id">
+                        <input type="hidden" id="form_name">
+                        <form action="javascript:saveLeaveRequest();" enctype="multipart/form-data" id="leave_request_form">
+                        @csrf
+                            <input type="hidden" id="leave_request_id">
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <label>Leave Request Reason</label>
+                                    <input type="text"  name="remark" id="remark" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Start Date</label>
+                                    <input type="text" name="start_date" id="start_date" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>End Date</label>
+                                    <input type="text" name="end_date" id="end_date" class="form-control" placeholder="ရက်၊လ၊နှစ်(DD-MMM-YYYY)" readonly>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Total Date</label>
+                                    <input type="number" name="total_date" id="total_date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-9"></div>
+                                <div class="col-md-3" align="right">
+                                    <button type="submit" class="btn btn-success btn-hover-dark">Save Request</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">Leave Request</h5>
+                                <table class="table" id="leave_request_table">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Leave Request Reason</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Total Date</th>
+                                            <th>Update</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="leave_request_body">
+                                    </tbody>   
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @push('scripts')
 <script type="text/javascript">
     $('document').ready(function(){
@@ -2067,6 +2141,19 @@
         //checkPaymentAudit();
         // audit_reg_feedback();
         // firmDashboardData();
+
+        $("input[name='start_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true
+        });
+
+        $("input[name='end_date']").flatpickr({
+                enableTime: false,
+                dateFormat: "d-M-Y",
+                allowInput: true
+        });
+        
     })
     //app_form_feedback();
 

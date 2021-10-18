@@ -1589,16 +1589,7 @@ $nrc_characters = config('myanmarnrc.characters');
         $('document').ready(function() {
             const queryString = location.search;
             const urlParams = new URLSearchParams(queryString);
-            // $("input[name='mac_semester']").flatpickr({
-            //     enableTime: false,
-            //     dateFormat: "Y",
-            //     allowInput: true,
-            // }); 
-            // $("input[name='academic_year']").flatpickr({
-            //     enableTime: false,
-            //     dateFormat: "Y",
-            //     allowInput: true,
-            // });
+
             selectedRegistration(urlParams.get("study_type"));
 
             get_student_info(student_id).then(data => {
@@ -1606,7 +1597,8 @@ $nrc_characters = config('myanmarnrc.characters');
                 let student_info = data.data;
                 console.log("student_info",student_info)
                 
-                if(data){
+                if(data)
+                {
                     let current_stu_course = data.data.student_course_regs.slice(-1);
                     let last_exam = data.data.exam_registers.slice(-1);
 
@@ -1800,7 +1792,7 @@ $nrc_characters = config('myanmarnrc.characters');
         })
 
         loadCourse();
-        reg_feedback();
+        // reg_feedback();
         loadPrivateSchoolList();
 
         // var exam_date = localStorage.getItem("exam_date");
