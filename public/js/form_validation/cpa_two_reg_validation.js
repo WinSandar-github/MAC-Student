@@ -16,7 +16,8 @@ $().ready(function (){
             module:"Please Select Module",
         },
         submitHandler: function(form) {
-            $('#exampleModal1').modal('show');
+            // $('#exampleModal1').modal('show');
+            CPA2_Private_School_Submit();
         }
         
     });
@@ -33,7 +34,8 @@ $().ready(function (){
            module:"Please Select Module",
         },
         submitHandler: function(form) {
-            $('#exampleModal2').modal('show');
+            // $('#exampleModal2').modal('show');
+            CPA2_Self_Study_Submit();
         }
         
     });
@@ -54,7 +56,8 @@ $().ready(function (){
             module:"Please Select Module",
         },
         submitHandler: function(form) {
-            $('#exampleModal3').modal('show');
+            // $('#exampleModal3').modal('show');
+            CPA2_Mac_Submit();
         }
         
     });

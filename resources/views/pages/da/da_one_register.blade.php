@@ -510,7 +510,7 @@
                                                     <label  class="error attend_place_error" style="display:none;" for="is_full_module">Please select one</label>
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" id="mac_school" style="display:none">
                                                 <label class="col-md-4 col-form-label label"><span class="pull-left">၁၇။</span>သင်တန်းတက်ရောက်မည့်နေရာ<span style="color:red">*</span>-</label>
                                                 <div class="row  col-md-8 checkbox-radios   py-2">
                                                     
@@ -1339,7 +1339,7 @@
 
                                             <div class="row mb-3">
                                                 <label class="col-md-4 col-form-label label_align_right"><span
-                                                            class="pull-left">၁၆။</span>တိုက်ရိုက်တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
+                                                            class="pull-left">၁၆။</span>တက်ရောက်ခွင့်ရသည့်အမှတ်စဥ်</label>
                                                 <div class="col-md-8">
                                                     <input type="text" class="form-control sr_no" name="student_regno"
                                                            readonly>
@@ -1743,17 +1743,16 @@
                     var mac_name = current_stu_course[0].mac_type == 2 ?   "(နေပြည်တော်သင်တန်းကျောင်း)" : "(ရန်ကုန်သင်တန်းကျောင်း)";
                     $('#mac_type_name').text(mac_name)
                     $(".batch_number").append(current_stu_course[0].batch.number);
-                    // console.log('batch_number',current_stu_course[0].batch.number);
                     
                     $('.batch_id').val(current_stu_course[0].batch.id);
-                    // console.log('batch_id',current_stu_course[0].batch.id);
                     
                     $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
                     $('.course_name').val(current_stu_course[0].batch.course.name);
                     if(current_stu_course[0].mac_type == 1){
                         $("#sub_mac").prop("checked",true);
                     }else{
-                        $("sub_mac2").prop("checked",true);
+                        console.log("Hello")
+                        $("#sub_mac2").prop("checked",true);
                     }
                     // console.log(data.data.citizen)
                     if(last_exam[0]){
@@ -1868,6 +1867,7 @@
                         $("input[name='recommend_letter_self']").prop('disabled', false);
                         $("input[name='recommend_letter_private']").prop('disabled', false);
                         $("input[name='gov_staff']").prop('disabled', false);
+                        $("#mac_school").show();
                         $("input[name='mac_type']").prop('disabled', false);
                     }
                     else{
@@ -1883,6 +1883,7 @@
                         $("input[name='recommend_letter_self']").prop('disabled', true);
                         $("input[name='recommend_letter_private']").prop('disabled', true);
                         $("input[name='gov_staff']").prop('disabled', true);
+                        $("#mac_school").hide();
                         $("input[name='mac_type']").prop('disabled', true);
                     }
                 }

@@ -375,7 +375,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-check mt-2 form-check-inline">
                                                     <input class="form-check-input" type="radio" name="school_type" 
-                                                        value='တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
+                                                        value='P' onclick="origanzationCheck(this)"> တည်ဆဲဥပဒေတစ်ရပ်ရပ်နှင့်အညီဖွဲ့စည်းထားရှိသောလုပ်ငန်းအဖွဲ့အစည်း
                                                     
                                                 </div>
                                             </div>
@@ -448,9 +448,9 @@
                             {{--ဖုန်းနံပါတ်--}}
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"><span
-                                            class="pull-left">{{ __('၁၄။') }}</span>{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးခဲ့သည့် ခုနှစ်') }}</label>
+                                            class="pull-left">{{ __('၁၄။') }}</span>{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးခဲ့သည့် ရက်စွဲ') }}</label>
                                 <div class="col-md-8">
-                                    <input type="text" name="last_registration_fee_year" class="form-control" placeholder="yyyy"
+                                    <input type="text" name="last_registration_fee_year" class="form-control" placeholder="mm-yyyy"
                                                autocomplete='off' >
 
                                 </div>
@@ -474,6 +474,7 @@
                                 </div>
 
                             </div>
+                            <input type="hidden" id="offline_user" value="true">;
                             <div class="request_stop_yes" style="display:none;">
                             <div class="row mb-3">
                                 <label class="col-md-4 col-form-label label"></label>
@@ -787,7 +788,7 @@
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းတည်ထောင်သူပုဂ္ဂိုလ်(များ)') }}</label>
                                 <div class="tbl-responsive">
-                                    <table class="table tbl_sch_established_persons table-bordered input-table">
+                                    <table class="table tbl_sch_established_persons table-bordered input-table" id="tbl_sch_established_persons">
                                         <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
@@ -822,7 +823,7 @@
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('ကျောင်းစီမံအုပ်ချုပ်သူများ') }}</label>
                                 <div class="tbl-responsive">
-                                    <table class="table tbl_sch_governs table-bordered input-table">
+                                    <table class="table tbl_sch_governs table-bordered input-table" id="tbl_sch_governs">
                                         <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
@@ -866,7 +867,7 @@
                                 <div class="row mb-1">
                                     <label class="col-form-label fw-bolder">{{ __('အဖွဲ့အစည်း၏အလုပ်အမှုဆောင်အဖွဲ့ဝင်များ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                     <div class="tbl-responsive">
-                                        <table class="table tbl_member_list_biography table-bordered input-table">
+                                        <table class="table tbl_member_list_biography table-bordered input-table" id="tbl_member_list_biography">
                                             <thead class="text-nowrap">
                                             <tr>
                                                 <th class="less-font-weight text-center">စဉ်</th>
@@ -909,7 +910,7 @@
                             <div class="row mb-1">
                                 <label class="col-form-label fw-bolder">{{ __('သင်တန်းဆရာများ၏အမည်စာရင်းနှင့်ကိုယ်ရေးအချက်အလက်များ') }}</label>
                                 <div class="col-md-12" style="width: 100%;overflow-x: scroll;">
-                                    <table class="table tbl_teacher_list_biography table-bordered input-table">
+                                    <table class="table tbl_teacher_list_biography table-bordered input-table" id="tbl_teacher_list_biography">
                                         <thead class="text-nowrap">
                                         <tr>
                                             <th class="less-font-weight text-center">စဉ်</th>
@@ -956,7 +957,7 @@
                             </div>
                             <div class="row mb-1">
 
-                                        <table class="table tbl_bulding_type table-bordered input-table">
+                                        <table class="table tbl_bulding_type table-bordered input-table" id="tbl_bulding_type">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
@@ -985,7 +986,7 @@
 
                             <div class="row mb-1">
 
-                                        <table class="table tbl_classroom table-bordered input-table">
+                                        <table class="table tbl_classroom table-bordered input-table" id="tbl_classroom">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
@@ -1015,7 +1016,7 @@
 
                             <div class="row mb-1">
 
-                                        <table class="table tbl_toilet_type table-bordered input-table">
+                                        <table class="table tbl_toilet_type table-bordered input-table" id="tbl_toilet_type">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center"  >စဉ်</th>
@@ -1042,7 +1043,7 @@
                             </div>
                             <div class="row mb-1">
 
-                                    <table class="table tbl_manage_room_numbers table-bordered input-table">
+                                    <table class="table tbl_manage_room_numbers table-bordered input-table" id="tbl_manage_room_numbers">
                                             <thead class="text-nowrap">
                                                 <tr>
                                                     <th class="less-font-weight text-center" >စဉ်</th>
@@ -1273,7 +1274,7 @@
             }
             $("input[name='last_registration_fee_year']").flatpickr({
                 enableTime: false,
-                dateFormat: "Y",
+                dateFormat: "M-Y",
                 allowInput: true,
             });
             $("input[name='from_request_stop_date']").flatpickr({

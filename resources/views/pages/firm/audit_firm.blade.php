@@ -753,7 +753,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   Only Public Practice Accountants can be sole proprietor,partners or shareholders of an accountancy firm.
                                                   (Please list down sole proprietor,partners or shareholders including all engagement partner(s) who will be signing
                                                   auditor's report of the accountancy firm)
@@ -812,7 +812,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   All directors or officers of the audit firm may not need to be a CPA(Full-Fledged)
                                                 </label>
                                             </div>
@@ -854,7 +854,7 @@
 
                                             <div class="row">
                                                 <label for="" class="col-md-1 col-form-label"></label>
-                                                <label for="" class="col-md-11 col-form-label text-warning">
+                                                <label for="" class="col-md-11 col-form-label text-primary">
                                                   Sole proprietor/managing partner will be fully responsible for the application and updates of the firm particulars
                                                 </label>
                                             </div>
@@ -1090,10 +1090,20 @@
 <script>
 
 $(document).ready(function(){
-    $("#audit_firm_form").submit(function(event){
+  $("input[id*='head_office_address_mm'], text[id*='head_office_address_mm']").change(function (e) {
+      myanmarLetterOnly($(this));
+  });
 
+  $(document).on('keydown', '#head_office_address_mm', function () {
+      myanmarLetterOnly($(this));
+  });
 
-    });
+  function myanmarLetterOnly(self) {
+      val = self.val();
+      if (/[a-zA-Z0-9]+$/.test(val)) {
+          self.val(val.replace(/[a-zA-Z0-9]+$/, ''));
+      }
+  }
 
     // $(".partner_list tbody tr").each(function(row,index){
     //   // remove error color of radio buttons when checked

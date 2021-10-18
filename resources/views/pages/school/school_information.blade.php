@@ -414,6 +414,12 @@
                                     <input type="hidden" id="school_name">
                                     <input type="hidden" id="school_address">
                                     <input type="hidden" id="hcourse">
+                                    <input type="hidden" id="regno">
+                                    <input type="hidden" id="offline_user">
+                                    <input type="hidden" id="last_registration_fee_year">
+                                    <input type="hidden" id="request_for_temporary_stop">
+                                    <input type="hidden" id="from_request_stop_date">
+                                    <input type="hidden" id="to_request_stop_date">
                                     <div class="col-md-8">
                                         
                                         <div class="row">
@@ -505,7 +511,7 @@
                                     <label class="col-md-4 col-form-label label"><span
                                                 class="pull-left">၉။</span>ကျောင်းမှတ်ပုံတင်အမှတ်</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" id="regno" readonly>
+                                        <input type="text" class="form-control" id="s_code" name="s_code" readonly>
                                         
                                     </div>
                                 </div>
