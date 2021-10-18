@@ -180,9 +180,9 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>ကိုယ်ပိုင်အမှတ်</label>
+                                                    <label class="col-md-4 col-form-label label"><span class="pull-left">{{ __('၂။') }}</span>ခုံအမှတ်</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" placeholder="ကိုယ်ပိုင်အမှတ်" name="personal_no" id="personal_no" class="form-control" >
+                                                        <input type="text" placeholder="ခုံအမှတ်" name="personal_no" id="personal_no" class="form-control" >
                                                     </div>
                                                 </div>
 

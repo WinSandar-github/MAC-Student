@@ -42,7 +42,7 @@ $nrc_characters = config('myanmarnrc.characters');
             <div class="container">
                 
 
-                <div class="comment-form study" style="display:none;">
+                <div class="comment-form study">
                     <input type="hidden" name="form_type" id="form_type">
                     <div class="form-wrapper">
                         <div class="___class_+?36___">                            
