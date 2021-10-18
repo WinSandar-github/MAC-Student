@@ -178,6 +178,7 @@ function verifyStatus()
         type: "GET",
         url: BACKEND_URL+"/checkVerify/"+student_id,
         success: function (data){
+          console.log("verify",data);
           if(data.verify_status == 1){
               $('#check_renew').css('display','none');
               $('#check_renew_nonaudit').css('display','none');
