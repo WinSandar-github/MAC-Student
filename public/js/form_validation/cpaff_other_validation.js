@@ -103,6 +103,7 @@ $().ready(function (){
                 contentType: false,
                 processData: false,
                 success: function(result){
+                    console.log(result,"result");
                     if(result.email!=null){
                         Swal.fire("Email has been used, please check again!");
                     }
@@ -125,8 +126,10 @@ $().ready(function (){
 function check_email_cpaff_other()
 {
     var text = localStorage.getItem('verify_code');
+    
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
+    console.log(verify_code)
     var code = $("input[name=verify_code]").val();
     var self_confession_accept = document.getElementById("accept");
     var self_confession_not_accept = document.getElementById("not-accept");
@@ -145,7 +148,8 @@ function check_email_cpaff_other()
     }
 }
 
-function createCpaffOtherRegister(){
+function createCpaffOtherRegister(){    
+    show_loader();
     // var student = JSON.parse(localStorage.getItem('studentinfo'));
     var profile_photo   =   $("input[name=profile_photo]")[0].files[0];
     var cpa             =   $("input[name=cpa]")[0].files[0];
@@ -277,11 +281,15 @@ function createCpaffOtherRegister(){
         processData: false,
         success: function(result){
             console.log("success");
+            EasyLoading.hide();
             successMessage("You have successfully registerd!");
             // location.reload();
-            location.href = FRONTEND_URL+"/";
+            setTimeout(function() {
+                location.href = FRONTEND_URL + '/';}, 2000);
+                
         },
         error:function (message){
+            EasyLoading.hide();
         }
     });
 }
