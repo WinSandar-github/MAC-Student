@@ -83,10 +83,10 @@
 						<div class="card border-success mb-3" style="padding:3% 3% 3% 3%;">
 							<div class="row mb-5">
 									<h5 class="card-title text-center fw-bolder" id="local_header">
-											(NON-AUDIT) ACCOUNTANCY SERVICES (Reconnect)
+											(NON-AUDIT) ACCOUNTANCY SERVICES
 									</h5>
 									<h5 class="card-title text-center fw-bolder" id="foreign_header" style="display:none;">
-											 (NON-AUDIT) ACCOUNTANCY SERVICES (Reconnect)
+											 (NON-AUDIT) ACCOUNTANCY SERVICES
 									</h5>
 							</div>
 							<div class="row mb-3">
@@ -1414,7 +1414,7 @@ $(document).ready(function(e){
       //dateFormat: "Y",
       allowInput: true,
   });
-	
+
   $("input[name='last_reg_payment_end']").flatpickr({
       enableTime: false,
       dateFormat: "M-Y",
