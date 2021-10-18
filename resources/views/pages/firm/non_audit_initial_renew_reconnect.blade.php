@@ -1146,27 +1146,14 @@
 									</div>
 								</div>
 
-                <div class="row mb-5">
-                    <label for="" class="col-md-1 col-form-label">14.</label>
-                    <label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
-                    <div class="col-md-2">
-                        <label for="" class="col-form-label">Start Date</label>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
-                    </div>
-                </div>
+								<div class="row mb-5">
+										<label for="" class="col-md-1 col-form-label">14.</label>
+										<label for="" class="col-md-4 col-form-label">Last Registration Fee Payment Date</label>
 
-                <div class="row mb-5">
-                    <label for="" class="col-md-1 col-form-label"></label>
-                    <label for="" class="col-md-4 col-form-label"></label>
-                    <div class="col-md-2">
-                        <label for="" class="col-form-label">End Date</label>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
-                    </div>
-                </div>
+										<div class="col-md-3">
+												<input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_date" class="form-control" autocomplete="off">
+										</div>
+								</div>
 
                 <div class="row mb-5">
                     <label for="" class="col-md-1 col-form-label">15.</label>
@@ -1192,6 +1179,30 @@
                         <label  class="error attend_place_error" style="display:none;" for="req_for_stop">Please select one</label>
                     </div>
                 </div>
+
+								<div id="req_to_dissconect" style="display:none;">
+									<div class="row mb-5">
+											<label for="" class="col-md-1 col-form-label"></label>
+											<label for="" class="col-md-4 col-form-label"></label>
+											<div class="col-md-2">
+													<label for="" class="col-form-label">Start Date</label>
+											</div>
+											<div class="col-md-3">
+													<input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_start" class="form-control" autocomplete="off">
+											</div>
+									</div>
+
+									<div class="row mb-5">
+											<label for="" class="col-md-1 col-form-label"></label>
+											<label for="" class="col-md-4 col-form-label"></label>
+											<div class="col-md-2">
+													<label for="" class="col-form-label">End Date</label>
+											</div>
+											<div class="col-md-3">
+													<input type="text" placeholder="(MMM-YYYY)" name="last_reg_payment_end" class="form-control" autocomplete="off">
+											</div>
+									</div>
+								</div>
 
 								{{--<table width="100%">
 									<tr>
@@ -1403,7 +1414,15 @@ $(document).ready(function(e){
       //dateFormat: "Y",
       allowInput: true,
   });
+	
   $("input[name='last_reg_payment_end']").flatpickr({
+      enableTime: false,
+      dateFormat: "M-Y",
+      //dateFormat: "Y",
+      allowInput: true,
+  });
+
+	$("input[name='last_reg_payment_date']").flatpickr({
       enableTime: false,
       dateFormat: "M-Y",
       //dateFormat: "Y",
@@ -1435,6 +1454,15 @@ $(document).ready(function(e){
 	}
 
 
+});
+
+$("input[name=req_for_stop]").change(function(){
+	if($(this).val() == 1){
+		$("#req_to_dissconect").css("display","block");
+	}
+	else{
+		$("#req_to_dissconect").css("display","none");
+	}
 });
 
 

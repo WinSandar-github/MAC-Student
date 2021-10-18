@@ -129,33 +129,38 @@ function dateQuery(){
           if(data.status == 1){ // verify status will shown if form is approved
             if(data.type == 'renew'){
               $("#message").append("<span class='text-warning'>"+data.message+"</span>");
-              $(".payment-btn").css('display','none');
-              $(".nonaudit-payment-btn").css('display','none');
+              // $(".payment-btn").css('display','none');
+              // $(".nonaudit-payment-btn").css('display','none');
             }
             else if(data.type == 'next'){
               $("#message").append("<span class='text-success'>"+data.message+"</span>");
               if(data.firm_type == 1){
                 // audit firm
-                $(".payment-btn").css('display','block');
-                $(".nonaudit-payment-btn").css('display','none');
+                // $(".payment-btn").css('display','block');
+                // $(".nonaudit-payment-btn").css('display','none');
+                $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/'' class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
+
               }
               else{
                 // non-audit firm
-                $(".payment-btn").css('display','none');
-                $(".nonaudit-payment-btn").css('display','block');
+                // $(".payment-btn").css('display','none');
+                // $(".nonaudit-payment-btn").css('display','block');
+                $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/'' class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
               }
             }
             else{
               $("#message").append("<span class='text-success'>"+data.message+"</span>");
               if(data.firm_type == 1){
                 // audit firm
-                $(".payment-btn").css('display','block');
-                $(".nonaudit-payment-btn").css('display','none');
+                // $(".payment-btn").css('display','block');
+                // $(".nonaudit-payment-btn").css('display','none');
+                $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/'' class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
               }
               else{
                 // non-audit firm
-                $(".payment-btn").css('display','none');
-                $(".nonaudit-payment-btn").css('display','block');
+                // $(".payment-btn").css('display','none');
+                // $(".nonaudit-payment-btn").css('display','block');
+                $('#firm_payment_btn').append(`<a href= ${FRONTEND_URL}/payment_method/${student_id}/'' class="btn btn-info btn-sm xl-auto" > Payment</a><hr>`);
               }
             }
           }
@@ -413,6 +418,7 @@ function createAuditReconnect(){
   send_data.append('last_reg_payment_start',$("input[name=last_reg_payment_start]").val());
   send_data.append('last_reg_payment_end',$("input[name=last_reg_payment_end]").val());
   send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
+  send_data.append('last_reg_payment_date',$("input[name=last_reg_payment_date]").val());
 
   send_data.append('email',$("input[name=email]").val());
   send_data.append('password',$("input[name=password]").val());
