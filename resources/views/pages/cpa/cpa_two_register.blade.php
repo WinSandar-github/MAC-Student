@@ -1763,7 +1763,6 @@ $nrc_characters = config('myanmarnrc.characters');
         <!-- MAC -->
         <form method="post" class="needs-validation" action="javascript:CPA2_Mac_Submit();" enctype="multipart/form-data"
             novalidate>
-<<<<<<< HEAD
           @csrf
           <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -1891,138 +1890,6 @@ $('document').ready(function(){
                         $("#rec_letter_private").css("display",'block');
                         if(data.data.recommend_letter!=null){
                             $(".recommend_letter").append("<a href='"+BASE_URL+data.data.recommend_letter+"'  target='_blank'>View File</a><br/>")
-=======
-            @csrf
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <br>
-                        <div class="modal-body">
-                            <div class="row justify-content-center">
-                                <center>
-                                    <h4 style="margin-bottom:5%;">Certified Public Accountant Part Two Registeration(MAC)
-                                        Form Fee - ****** MMK</h4>
-                                </center>
-                                <div class="col-sm-3 col-5">
-                                    <center>
-                                        <img class="fit-image" src="{{ asset('img/cbpay.png') }}" width="50%"
-                                            height="50%" data-value="CBPAY" name="payment_method" id="cb_img">
-                                    </center>
-                                    <br>
-                                </div>
-                                <div class="col-sm-3 col-5">
-                                    <center>
-                                        <img class="fit-image" src="{{ asset('img/mpu.png') }}" width="50%"
-                                            height="50%" data-value="MPU" name="payment_method" id="mpu_img">
-                                    </center>
-                                    <br>
-                                </div>
-                                <div class="col-sm-3 col-5">
-                                    <center>
-                                        <img class="fit-image" src="{{ asset('img/cash.png') }}" width="50%"
-                                            height="50%" data-value="CASH" name="payment_method" id="cash_img_mac">
-                                    </center>
-                                    <br>
-                                </div>
-                                <input type="hidden" name="payment_method" value="CASH">
-                                <center>
-                                    <button type="submit" id="cpa2mac_btn" class="btn btn-success btn-hover-dark w-30"
-                                        data-bs-toggle="modal">Pay Now </button>
-                                </center>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-
-        <!-- JavaScript Section -->
-        <script>
-            var mmnrc_regions = {!! json_encode($nrc_regions) !!};
-            // get NRC Townships data from myanmarnrc.php config file
-            var mmnrc_townships = {!! json_encode($nrc_townships) !!};
-            // get NRC characters data from myanmarnrc.php config file
-            var mmnrc_characters = {!! json_encode($nrc_characters) !!};
-            // get language data from myanmarnrc.php config file
-            var mmnrc_language = "{{ $nrc_language }}";
-        </script>
-    @endsection
-    @push('scripts')
-        <script src="{{ asset('js/form_validation/cpa_two_reg_validation.js') }}"></script>
-        <script type="text/javascript">
-            $('document').ready(function() {
-
-
-                reg_feedback();
-                get_cpa_course();
-                var exam_date = localStorage.getItem("exam_date");
-
-                const queryString = location.search;
-                const urlParams = new URLSearchParams(queryString);
-                selectedRegistration(urlParams.get("study_type"));
-
-
-                get_student_info(student_id).then(data => {
-
-                    if (data) {
-                        let student_info = data.data;
-                        let current_stu_course = student_info.student_course_regs.slice(-1);
-                        let exam_registers = student_info.exam_registers.slice(-1);
-
-                        console.log('student_info from here', current_stu_course);
-                        $('.name_mm').val(student_info.name_mm);
-                        $('.name_eng').val(student_info.name_eng);
-                        $('.nrc_state_region').val(student_info.nrc_state_region);
-                        $('.nrc_township').val(student_info.nrc_township);
-                        $('.nrc_citizen').val(student_info.nrc_citizen);
-                        $('.nrc_number').val(student_info.nrc_number);
-
-                        $('input[type=radio][name=mac_type]').map((k, v) => {
-                            return $(v).val() == current_stu_course[0].mac_type ? $(v).attr('checked', 'true') : '';
-                        });
-
-                        $('.personal_no_private').val(student_info.cpersonal_no);
-                        $('.personal_no_self').val(student_info.cpersonal_no);
-                        $('.personal_no_mac').val(student_info.cpersonal_no);
-
-                        $('.cpa_one_pass_date_private').val(formatDate(exam_registers[0].updated_at));
-                        $('.cpa_one_pass_date_mac').val(formatDate(exam_registers[0].updated_at));
-
-                        $('.cpa_one_success_no_private').val(exam_registers[0].grade);
-                        $('.cpa_one_success_no_mac').val(exam_registers[0].grade);
-
-                        $('.father_name_mm').val(student_info.father_name_mm);
-                        $('.father_name_eng').val(student_info.father_name_eng);
-                        $('.race').val(student_info.race);
-                        $('.religion').val(student_info.religion);
-                        $('.date_of_birth').val(student_info.date_of_birth);
-                        $('.position').val(student_info.student_job.position);
-                        $('.department').val(student_info.student_job.department);
-                        $('.office_address').val(student_info.student_job.office_address);
-
-                        if (data.data.gov_staff == 0) {
-                            $("#no_self").prop("checked", true);
-                            $("#no_private").prop("checked", true);
-                            $("#no_mac").prop("checked", true);
-                        } else {
-                            $("#yes_mac").prop("checked", true);
-                            $("#rec_letter_mac").css("display", 'block');
-                            $("#yes_self").prop("checked", true);
-                            $("#rec_letter_self").css("display", 'block');
-                            $("#yes_private").prop("checked", true);
-                            $("#rec_letter_private").css("display", 'block');
-                            if (data.data.recommend_letter != null) {
-                                $(".recommend_letter").append("<a href='" + BASE_URL + data.data
-                                    .recommend_letter + "'  target='_blank'>View File</a><br/>")
-                            }
->>>>>>> 88a006b191939fb71f370fda227af821cb55cf8d
                         }
 
                         //gender
@@ -2036,7 +1903,6 @@ $('document').ready(function(){
                             $("#female_mac").prop("checked", true);
                         }
 
-<<<<<<< HEAD
                 $('.current_address').val(student_info.current_address);
                 $('.address').val(student_info.address);
                 $('.phone').val(student_info.phone);
@@ -2130,75 +1996,6 @@ $('document').ready(function(){
                         $("input[name='gov_staff']").prop('disabled', true);
                         $("#mac_school").hide();
                         $("input[name='mac_type']").prop('disabled', true);
-=======
-                        $('.current_address').val(student_info.current_address);
-                        $('.address').val(student_info.address);
-                        $('.phone').val(student_info.phone);
-                        $('.email').val(student_info.email);
-                        $('.education').val(student_info.student_education_histroy.degree_name);
-                        $('.sr_no').val(current_stu_course[0].sr_no != null ? current_stu_course[0].sr_no : 1);
-                        // $('.course_name').val(current_stu_course[0].batch.course.name);
-                        // $('.batch_no').val(current_stu_course[0].batch.number);
-                        $('.previewImg').attr('src', BASE_URL + student_info.image);
-                        if (exam_registers[0].grade == 1 && exam_registers[0].course.code == 'cpa_2') {
-                            let batch_id = localStorage.getItem('batch_id');
-                            // $('.batch_id').val(batch_id);
-                            $.ajax({
-                                type: "get",
-                                url: BACKEND_URL + "/batch/" + batch_id,
-                                contentType: false,
-                                processData: false,
-                                async: false,
-                                success: function(res) {
-                                    $('.batch_no').val(res.data.number);
-                                    $('.batch_id').val(res.data.id);
-                                    $('.personal_no').val(data.data.personal_no);
-                                    if (exam_registers[0].is_full_module == "1") {
-                                        $(".module_two").prop("checked", true);
-                                        $('.module_one').attr('disabled', true);
-                                        $('.module_full').attr('disabled', true);
-                                    } else if (exam_registers[0].is_full_module == "2") {
-                                        $(".module_one").prop("checked", true);
-                                        $('.module_two').attr('disabled', true);
-                                        $('.module_full').attr('disabled', true);
-                                    } else if (exam_registers[0].is_full_module == "3") {
-                                        $(".module_full").prop("checked", true);
-                                        $('.module_two').attr('disabled', true);
-                                        $('.module_full').attr('disabled', true);
-                                    }
-                                }
-                            })
-                        } else {
-                            console.log('aa', $('.batch_no').val())
-                            $('.batch_no').val();
-                            $('.batch_id').val();
-                        }
-                        if (data.data.exam_registers.length != 0) {
-                            $("input[name='office_address']").prop('readonly', false);
-                            $("input[name='current_address']").prop('readonly', false);
-                            $("input[name='address']").prop('readonly', false);
-                            $("input[name='phone']").prop('readonly', false);
-                            $("input[name='profile_photo_mac']").show();
-                            $("input[name='profile_photo_self']").show();
-                            $("input[name='profile_photo_private']").show();
-                            $("input[name='recommend_letter_mac']").prop('disabled', false);
-                            $("input[name='recommend_letter_self']").prop('disabled', false);
-                            $("input[name='recommend_letter_private']").prop('disabled', false);
-                            $("input[name='gov_staff']").prop('disabled', false);
-                        } else {
-                            $("input[name='office_address']").prop('readonly', true);
-                            $("input[name='current_address']").prop('readonly', true);
-                            $("input[name='address']").prop('readonly', true);
-                            $("input[name='phone']").prop('readonly', true);
-                            $("input[name='profile_photo_mac']").hide();
-                            $("input[name='profile_photo_self']").hide();
-                            $("input[name='profile_photo_private']").hide();
-                            $("input[name='recommend_letter_mac']").prop('disabled', true);
-                            $("input[name='recommend_letter_self']").prop('disabled', true);
-                            $("input[name='recommend_letter_private']").prop('disabled', true);
-                            $("input[name='gov_staff']").prop('disabled', true);
-                        }
->>>>>>> 88a006b191939fb71f370fda227af821cb55cf8d
                     }
 
                 });
