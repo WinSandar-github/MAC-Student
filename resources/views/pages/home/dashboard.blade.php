@@ -513,7 +513,7 @@
                             </div>
                         </div>
                         {{--payment buttons--}}
-                        <div class="row payment-btn" style="display:none;">
+                        {{--<div class="row payment-btn" style="display:none;">
                             <div class="col-md-6"></div>
                             <div class="">
                                 <div class="mt-4" align="center">
@@ -522,8 +522,16 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>--}}
+                        <div class="row" >
+                            <div class="col-md-6"></div>
+                            <div class="">
+                                <div class="mt-4" align="center" id="firm_payment_btn">
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="row nonaudit-payment-btn" style="display:none;">
+                        {{--<div class="row nonaudit-payment-btn" style="display:none;">
                             <div class="col-md-6"></div>
                             <div class="">
                                 <div class="mt-4" align="center">
@@ -532,7 +540,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
 
                         {{--reject register buttons--}}
                         <div id="reject_register_btn_audit" style="display:none;">
@@ -576,7 +584,7 @@
 
 
                             </div>
-                            
+
                         </div>
                     </div>--}}
                     <div class="qualified_test">
@@ -618,7 +626,7 @@
                                         <span id="qt_phone"></span>
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                             <div class="col-md-3">
@@ -656,10 +664,10 @@
                                         </tr>
                                     </thead>
                                     <tbody class="status">
-                                    </tbody>   
+                                    </tbody>
                                 </table>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="card-body cpaff_other">
