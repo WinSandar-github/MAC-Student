@@ -103,6 +103,7 @@ $().ready(function (){
                 contentType: false,
                 processData: false,
                 success: function(result){
+                    console.log(result,"result");
                     if(result.email!=null){
                         Swal.fire("Email has been used, please check again!");
                     }
@@ -125,8 +126,10 @@ $().ready(function (){
 function check_email_cpaff_other()
 {
     var text = localStorage.getItem('verify_code');
+    
     var obj = JSON.parse(text);
     var verify_code = obj.data.verify_code;
+    console.log(verify_code)
     var code = $("input[name=verify_code]").val();
     var self_confession_accept = document.getElementById("accept");
     var self_confession_not_accept = document.getElementById("not-accept");
@@ -269,6 +272,7 @@ function createCpaffOtherRegister(){
     send_data.append('exam_month', $("input[name=exam_month]").val());
     send_data.append('roll_no', $("input[name=roll_no]").val());
     send_data.append('type', 0);
+    show_loader();
     $.ajax({
         url: BACKEND_URL+"/cpa_ff",
         type: 'post',
@@ -277,11 +281,15 @@ function createCpaffOtherRegister(){
         processData: false,
         success: function(result){
             console.log("success");
+            EasyLoading.hide();
             successMessage("You have successfully registerd!");
             // location.reload();
-            location.href = FRONTEND_URL+"/";
+            setInterval(() => {
+                location.href = FRONTEND_URL + '/';
+            }, 3000);
         },
         error:function (message){
+            EasyLoading.hide();
         }
     });
 }
