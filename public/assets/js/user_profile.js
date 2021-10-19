@@ -91,8 +91,15 @@ function user_profile() {
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
                 $('.teacher_pw').hide();
-                laodTeacherByDash(data.teacher);
-                loadSchoolByDash(data.school);
+                var invoice = data.invoice.filter( val => {
+                    if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
+                        laodTeacherByDash(data.teacher,val.invoiceNo);
+                    }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
+                        loadSchoolByDash(data.school,val.invoiceNo);
+                    }
+                    
+                });
+                
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
@@ -3039,13 +3046,19 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_status_history').append('School Registration is Approved.');
                 if(school.offline_user!='true'){
                     $('.sch_payment-btn').show();
-                    var invoice = school_invoice.filter( val => {
+                    if(school_invoice=='init_sch' || school_invoice=='renew_sch' || school_invoice=="exit_sch" || school_invoice=="renew_exit_sch"){
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+school_invoice;
+                    }else {
+                        var invoice = school_invoice.filter( val => {
 
-                        return val.invoiceNo == school.payment_method && val.status == 0;
-    
-                    });
-    
-                    var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                            return val.invoiceNo == val.status == 0;
+                                //school.payment_method && 
+                        });
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                    }
+                    
+                    
+                    
                     $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
                     $('.sch_payment-status').show();
                 }else{
@@ -3065,7 +3078,7 @@ function loadSchoolByDash(school_data,school_invoice) {
                 $('.sch_reject-reason').append(school.reason);
             }
 
-            if (school.from_valid_date !=null)
+            if (school.payment_method !=null)
                 //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
                  {
                 $('.sch_period').show();
@@ -3131,15 +3144,19 @@ function laodTeacherByDash(teacher_data, _invoice) {
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                 $('.teacher_payment-btn').show();
+                if(_invoice=="init_tec" || _invoice=="renew_tec" || _invoice=="exit_tec" ){
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+_invoice;
+                }else{
+                    var invoice = _invoice.filter( val => {
 
+                        return val.invoiceNo ==  val.status == 0;
+                        //teacher.payment_method &&
+                    });
+    
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                }
             
-                var invoice = _invoice.filter( val => {
-
-                    return val.invoiceNo == teacher.payment_method && val.status == 0;
-
-                });
-
-                var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                
                 
                 $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
                 $('.teacher_payment-status').show();
