@@ -26,8 +26,7 @@ class PaymentController extends Controller
 
             $invoice = json_decode($resp->getBody()->getContents(), true);
 
-            Session::put('data', $invoice); 
-
+            Session::put('data', $invoice);
             return view('pages.payment.payment_method', compact('invoice'));
             
         }else{
