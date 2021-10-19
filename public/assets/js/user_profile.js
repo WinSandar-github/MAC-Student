@@ -82,17 +82,24 @@ function user_profile() {
 
             } else if (data.school && data.teacher == null) {
                 $('.dashboard_name').append('School ');
-                loadSchoolByDash(data.school);
+                loadSchoolByDash(data.school,data.invoice);
 
             } else if (data.teacher && data.school == null) {
                 $('.dashboard_name').append('Teacher ');
-                laodTeacherByDash(data.teacher);
+                laodTeacherByDash(data.teacher,data.invoice);
 
             } else if (data.school && data.teacher) {
                 $('.dashboard_name').append('Teacher And School ');
                 $('.teacher_pw').hide();
-                laodTeacherByDash(data.teacher);
-                loadSchoolByDash(data.school);
+                var invoice = data.invoice.filter( val => {
+                    if(val.invoiceNo=="init_tec" || val.invoiceNo=="renew_tec" ){
+                        laodTeacherByDash(data.teacher,val.invoiceNo);
+                    }else if(val.invoiceNo=="init_sch" || val.invoiceNo=="renew_sch" || val.invoiceNo=="exit_sch" || val.invoiceNo=="renew_exit_sch"){
+                        loadSchoolByDash(data.school,val.invoiceNo);
+                    }
+                    
+                });
+                
 
             } else if (data.cpa_ff && data.student_course_regs == '' && data.cpa_ff.length !== 0) {
                 $('.title').text('CPA Full-Fledged and PAPP Information')
@@ -108,12 +115,12 @@ function user_profile() {
                 $('#cpaff_phone').text(cpaff_initial.phone);
                 var papp_url = FRONTEND_URL + "/student_papp";
                 var cpaff_url = FRONTEND_URL + "/cpa_ff_register";
-                
+
                 // var cpaff_reject_url = FRONTEND_URL + "/cpa_ff_reject";
                 var reject_initial = FRONTEND_URL + "/update_cpaff_initial";
                 var reject_renewal = FRONTEND_URL + "/update_cpaff_renewal";
                 var is_renew;
-                
+
                 if(data.invoice.length!=0){
                     if (cpaff_latest_data.type == 0) {
                         is_renew = "Initial";
@@ -499,6 +506,12 @@ function user_profile() {
                             }
                         });
 
+                        var invoice = data.invoice.filter( val => {
+                            return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
+                        });
+
+                        var payment_url = FRONTEND_URL + "/payment_method/"+latest_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+
                         if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                             var end_date = new Date(latest_article[0].contract_end_date);
                             var today = new Date();
@@ -525,7 +538,12 @@ function user_profile() {
                             }
                         }else if(latest_article[0].status == 1){
                             if(latest_article[0].registration_fee == null){
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                // $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                }else{
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
+                                }
                             }
                             if(!latest_article[0].mentor_attach_file){
                                 $('.qt_article_status').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
@@ -535,11 +553,18 @@ function user_profile() {
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                             }
                         }else if(latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1){
-                            if(latest_article[0].registration_fee == null){
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
-                            }else if(latest_article[0].done_status == 0 && latest_article[0].registration_fee != null){
-                                $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                            }else if(latest_article[0].done_status == 1){
+                            if(latest_article[0].done_status == 0){
+                                // $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
+                                if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                }else{
+                                    $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                                }
+                            }
+                            // else if(latest_article[0].done_status == 0 && latest_article[0].registration_fee != null){
+                            //     $('.qt_article_status').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                            // }
+                            else if(latest_article[0].done_status == 1){
                                 article_url = '/article_information';
                                 $('.qt_article_status').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
                             }
@@ -700,7 +725,7 @@ function user_profile() {
                             <td>${formatDate(cpaff_latest_data.created_at)}</td>
                             <td>${formatDate(cpaff_latest_data.updated_at)}</td>
                             <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
-                            
+
                         </tr>
                         `);
                         // $('.status').append(`<tr><td colspan=2></td><td>Action</td><td> <a href='${FRONTEND_URL}/student_papp_information' class="btn btn-sm btn-success" > PAPP Form</a></td></tr>`);
@@ -765,13 +790,13 @@ function user_profile() {
                         if(data.invoice.length!=0){
                             if (papp_latest_data.type == 0) {
                                 is_renew_papp = "Initial";
-                                
+
                                 var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "papp-initial" && val.status == 0;
                                 });
                             }
                             else if (papp_latest_data.type == 1) {
-                                is_renew_papp = "Renewal";                            
+                                is_renew_papp = "Renewal";
                                 var invoice = data.invoice.filter(val => {
                                     return val.invoiceNo == "papp-renew" && val.status == 0;
                                 });
@@ -785,7 +810,7 @@ function user_profile() {
                                 is_renew_papp = "Initial";
                             }
                             else if (papp_latest_data.type == 1) {
-                                is_renew_papp = "Renewal";       
+                                is_renew_papp = "Renewal";
                             }
                             else {
                                 is_renew_papp = ""
@@ -808,7 +833,7 @@ function user_profile() {
                                 <td>${formatDate(papp_latest_data.created_at)}</td>
                                 <td>${formatDate(papp_latest_data.updated_at)}</td>
                                 <td><span class="badge bg-success">Approved</span><br/><a href='${FRONTEND_URL}/payment_method/${student_id}/${invoice[0].invoiceNo}' class="btn btn-sm btn btn-info">Payment</a></td>
-                                
+
                             </tr>
                             `);
                             $('.papp_btn').css('display', 'none');
@@ -2204,6 +2229,12 @@ function user_profile() {
                                 }
                             });
 
+                            var invoice = data.invoice.filter( val => {
+                                return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
+                            });
+    
+                            var payment_url = FRONTEND_URL + "/payment_method/"+latest_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+
                             if (latest_article[0] != null && latest_article[0].contract_end_date != null) {
                                 var end_date = new Date(latest_article[0].contract_end_date);
                                 var today = new Date();
@@ -2231,7 +2262,12 @@ function user_profile() {
                                 }
                             } else if (latest_article[0]?.status == 1) {
                                 if (latest_article[0].registration_fee == null) {
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                    // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                    }else{
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                                    }
                                 }
                                 if (!latest_article[0].mentor_attach_file) {
                                     $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
@@ -2241,11 +2277,18 @@ function user_profile() {
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                 }
                             } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
-                                if (latest_article[0].registration_fee == null) {
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
-                                } else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
-                                    $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                                } else if (latest_article[0].done_status == 1) {
+                                if (latest_article[0].done_status == 0) {
+                                    // $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
+                                    if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                    }else{
+                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                                    }
+                                } 
+                                // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
+                                //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                                // } 
+                                else if (latest_article[0].done_status == 1) {
                                     article_url = '/article_information';
                                     $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
                                 }
@@ -2401,6 +2444,13 @@ function user_profile() {
                             }
 
                             if (article.length != 0) {
+
+                                var invoice = data.invoice.filter( val => {
+                                    return val.invoiceNo == latest_article[0].article_form_type && val.status == 0;
+                                });
+        
+                                var payment_url = FRONTEND_URL + "/payment_method/"+latest_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+
                                 if (latest_article[0].contract_end_date != null) {
                                     var end_date = new Date(latest_article[0].contract_end_date);
                                     var today = new Date();
@@ -2429,7 +2479,12 @@ function user_profile() {
                                 }
                                 else if (latest_article[0].status == 1) {
                                     if (latest_article[0].registration_fee == null) {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                        // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                        }else{
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'>Payment Success</div></div></td></tr>`);
+                                        }
                                     }
                                     if (!latest_article[0].mentor_attach_file) {
                                         $('.article_btn').append(`<tr><td></td><td colspan=2>Mentor နှင့် ချုပ်ဆိုရမည့်စာချုပ်ပုံစံများနှင့် အခြားလိုအပ်သောစာရွက်စာတမ်းများကို Download ရယူရန် </td><td><div class='row'><div class='col-md-12'><a href="https://demo.aggademo.me/MAC/public/storage/article/142.pdf" target="_blank">Download File</div></div></td></tr>`);
@@ -2439,16 +2494,30 @@ function user_profile() {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     }
                                 } else if (latest_article[0]?.article_form_type == 'resign' && latest_article[0].resign_status == 1) {
-                                    if (latest_article[0].registration_fee == null) {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
-                                    } else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
-                                    } else if (latest_article[0].done_status == 1) {
+                                    if (latest_article[0].done_status == 0) {
+                                        // $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' onclick='saveRegistrationFee(${latest_article[0].id})'>Resign Fee</button></div></div></td></tr>`);
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                        }else{
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </div></div></td></tr>`);
+                                        }
+                                    } 
+                                    // else if (latest_article[0].done_status == 0 && latest_article[0].registration_fee != null) {
+                                    //     $('.article_btn').append(`<tr><td colspan=2></td><td>နုတ်ထွက်လျော်ကြေးပေးသွင်းရန်</td><td>Check By MAC</td></tr>`);
+                                    // } 
+                                    else if (latest_article[0].done_status == 1) {
                                         article_url = '/article_information';
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Article Renew Form</td><td> <a href='${FRONTEND_URL + article_url}' class="btn btn-md btn-success" > Article Renew </a></td></tr>`);
                                     }
                                 }
                             } else {
+
+                                var invoice = data.invoice.filter( val => {
+                                    return val.invoiceNo == "gov" && val.status == 0;
+                                });
+        
+                                var payment_url = FRONTEND_URL + "/payment_method/"+latest_gov_article[0].student_info_id+"/"+invoice[0].invoiceNo;
+
                                 if (latest_gov_article[0].contract_end_date != null) {
 
                                     var end_date = new Date(latest_gov_article[0].contract_end_date);
@@ -2476,7 +2545,12 @@ function user_profile() {
                                 }
                                 else if (latest_gov_article[0].status == 1) {
                                     if (latest_gov_article[0].registration_fee == null) {
-                                        $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveGovRegistrationFee(${latest_gov_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                        // $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><button class='btn btn-primary btn-xs' id='attach_file_btn' onclick='saveGovRegistrationFee(${latest_gov_article[0].id})'>Registration Fee</button></div></div></td></tr>`);
+                                        if (!jQuery.isEmptyObject(invoice) && invoice.length != 0) {
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'><a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a></div></div></td></tr>`);
+                                        }else{
+                                            $('.article_btn').append(`<tr><td colspan=2></td><td>မှတ်ပုံတင်ကြေးပေးသွင်းရန်</td><td><div class='row'><div class='col-md-12'> Payment Success </a></div></div></td></tr>`);
+                                        }
                                     } else {
                                         $('.article_btn').append(`<tr><td colspan=2></td><td>Duty Report Date</td><td>Check By MAC</td></tr>`);
                                     }
@@ -2888,49 +2962,49 @@ function saveGovDoneForm(id) {
 
 }
 
-function saveRegistrationFee(id) {
-    $('#articleRegistrationModal').modal('show');
+// function saveRegistrationFee(id) {
+//     // $('#articleRegistrationModal').modal('show');
 
-    $('#cash_img').click(function () {
-        $('#article_registration_btn').prop('disabled', false);
-    });
+//     // $('#cash_img').click(function () {
+//     //     $('#article_registration_btn').prop('disabled', false);
+//     // });
 
-    $('#cb_img').click(function () {
-        $('#article_registration_btn').prop('disabled', true);
-    });
+//     // $('#cb_img').click(function () {
+//     //     $('#article_registration_btn').prop('disabled', true);
+//     // });
 
-    $('#mpu_img').click(function () {
-        $('#article_registration_btn').prop('disabled', true);
-    });
-    $('#article_registration_btn').prop('disabled', true);
+//     // $('#mpu_img').click(function () {
+//     //     $('#article_registration_btn').prop('disabled', true);
+//     // });
+//     // $('#article_registration_btn').prop('disabled', true);
 
-    $('#article_registration_btn').click(function () {
-        var data = new FormData();
-        data.append('id', id);
+//     // $('#article_registration_btn').click(function () {
+//     //     var data = new FormData();
+//     //     data.append('id', id);
 
-        show_loader();
-        $.ajax({
-            type: "POST",
-            data: data,
-            url: BACKEND_URL + "/save_registration_fee",
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (result) {
-                EasyLoading.hide();
-                successMessage("You have successfully registered.");
-                setTimeout(function () {
-                    $('#articleRegistrationModal').modal('hide');
-                    location.reload();
-                }, 1000);
-            },
-            error: function (message) {
-                EasyLoading.hide();
-                errorMessage(message);
-            }
-        });
-    });
-}
+//     //     show_loader();
+//     //     $.ajax({
+//     //         type: "POST",
+//     //         data: data,
+//     //         url: BACKEND_URL + "/save_registration_fee",
+//     //         cache: false,
+//     //         contentType: false,
+//     //         processData: false,
+//     //         success: function (result) {
+//     //             EasyLoading.hide();
+//     //             successMessage("You have successfully registered.");
+//     //             setTimeout(function () {
+//     //                 $('#articleRegistrationModal').modal('hide');
+//     //                 location.reload();
+//     //             }, 1000);
+//     //         },
+//     //         error: function (message) {
+//     //             EasyLoading.hide();
+//     //             errorMessage(message);
+//     //         }
+//     //     });
+//     // });
+// }
 
 function saveGovRegistrationFee(id) {
     $('#articleRegistrationModal').modal('show');
@@ -3009,7 +3083,7 @@ function saveAttachFile(id) {
         alert("Please Fill Attachment File");
     }
 }
-function loadSchoolByDash(school_data) {
+function loadSchoolByDash(school_data,school_invoice) {
 
     $.ajax({
         type: 'GET',
@@ -3038,11 +3112,25 @@ function loadSchoolByDash(school_data) {
             $('#sch_phone').text(school.phone);
             if (school.approve_reject_status == 0) {
                 $('.sch_status_history').append('School Registration is checking.');
+                
             } else if (school.approve_reject_status == 1) {
                 $('.sch_status_history').append('School Registration is Approved.');
                 if(school.offline_user!='true'){
                     $('.sch_payment-btn').show();
-                    $('.sch_payment-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Payment</a>`);
+                    if(school_invoice=='init_sch' || school_invoice=='renew_sch' || school_invoice=="exit_sch" || school_invoice=="renew_exit_sch"){
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+school_invoice;
+                    }else {
+                        var invoice = school_invoice.filter( val => {
+
+                            return val.invoiceNo == val.status == 0;
+                                //school.payment_method && 
+                        });
+                        var payment_url = FRONTEND_URL + "/payment_method/"+school.student_info_id+"/"+invoice[0].invoiceNo;
+                    }
+                    
+                    
+                    
+                    $('.sch_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment</a>`);
                     $('.sch_payment-status').show();
                 }else{
                     $('.sch_renew-btn').show();
@@ -3061,7 +3149,9 @@ function loadSchoolByDash(school_data) {
                 $('.sch_reject-reason').append(school.reason);
             }
 
-            if (school.payment_method != null) {
+            if (school.payment_method !=null)
+                //school.payment_method != "init_sch" || school.payment_method != "renew_sch" || school.payment_method != "renew_exit_sch"
+                 {
                 $('.sch_period').show();
                 var now = new Date();
                 if (school.initial_status == 0) {
@@ -3082,10 +3172,11 @@ function loadSchoolByDash(school_data) {
                     $('.sch_renew-btn').show();
                     $('.sch_renew-p').append(`<a href='${FRONTEND_URL}/school_information' class="btn btn-success btn-hover-dark" > Renew Form</a>`);
                 }
+                
                 $('.sch_payment-status').show();
                 $('.sch_payment-btn').hide();
                 $(".sch_payment_status").text("Complete");
-            } else {
+            }else {
                 $(".sch_payment_status").text("Incomplete");
             }
 
@@ -3094,8 +3185,8 @@ function loadSchoolByDash(school_data) {
     });
 
 }
-function laodTeacherByDash(teacher_data) {
-
+function laodTeacherByDash(teacher_data, _invoice) {
+    
     $.ajax({
         type: 'GET',
         url: BACKEND_URL + "/getTeacher/" + teacher_data.student_info_id,
@@ -3124,7 +3215,21 @@ function laodTeacherByDash(teacher_data) {
             } else if (teacher.approve_reject_status == 1) {
                 $('.teacher_status_history').append('Teacher Registration is Approved.');
                 $('.teacher_payment-btn').show();
-                $('.teacher_payment-p').append(`<a href='${FRONTEND_URL}/teacher_information' class="btn btn-success btn-hover-dark" > Payment </a>`);
+                if(_invoice=="init_tec" || _invoice=="renew_tec" || _invoice=="exit_tec" ){
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+_invoice;
+                }else{
+                    var invoice = _invoice.filter( val => {
+
+                        return val.invoiceNo ==  val.status == 0;
+                        //teacher.payment_method &&
+                    });
+    
+                    var payment_url = FRONTEND_URL + "/payment_method/"+teacher.student_info_id+"/"+invoice[0].invoiceNo;
+                }
+            
+                
+                
+                $('.teacher_payment-p').append(`<a href=${payment_url} class="btn btn-success btn-hover-dark" > Payment </a>`);
                 $('.teacher_payment-status').show();
             } else {
                 $('.teacher_status_history').append('Teacher Registration is Rejected.');
@@ -3227,6 +3332,7 @@ function firmDashboardData() {
                     $("#audit_address_mm").val(acc_firm.head_office_address_mm);
                     $("#audit_address_eng").val(acc_firm.head_office_address);
 
+                    document.getElementById('firm_img').src = BASE_URL + acc_firm.image;
                     $('#acc_firm_reg_no').text(acc_firm.accountancy_firm_reg_no);
                     $('#acc_firm_name').text(acc_firm.accountancy_firm_name);
                     $("#head_office").text(acc_firm.head_office_address);

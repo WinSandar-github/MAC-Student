@@ -370,9 +370,9 @@ function createArticleRenewRegister() {
     // send_data.append('date_of_birth', $("input[name=date_of_birth]").val());
     // send_data.append('father_name_mm', $("input[name=father_name_mm]").val());
     // send_data.append('father_name_eng', $("input[name=father_name_eng]").val());
-    send_data.append('gov_staff', $("input[type='radio'][name='current_job']:checked").val());
-    send_data.append('gov_position', $("input[name=position]").val());
-    send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
+    // send_data.append('gov_staff', $("input[type='radio'][name='current_job']:checked").val());
+    // send_data.append('gov_position', $("input[name=position]").val());
+    // send_data.append('gov_joining_date', $("input[name=job_started_date]").val());
     // send_data.append('address', $("input[name=address]").val());
     // send_data.append('phone_no', $("input[name=phone_no]").val());
     send_data.append('current_address', $("input[name=current_address]").val());

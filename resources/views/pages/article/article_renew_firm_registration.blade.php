@@ -83,7 +83,7 @@
                         <!-- Form Wrapper Start -->
                         <div class="form-wrapper">
 
-                            <form method="post" id="article_register_form"  action="javascript:javascript:createArticleRenewRegister();"
+                            <form method="post" id="article_renew_register_form"  action="javascript:javascript:createArticleRenewRegister();"
                                     enctype="multipart/form-data" novalidate>
                                 @csrf
                                 
@@ -411,7 +411,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_job_label">{{ __('၈။') }}</span>ပုဂ္ဂလိကနှင့် အစိုးရဌာနအဖွဲအစည်းများ၊ အခြားဌာနအဖွဲ့အစည်းများ၊ ကုမ္ပဏီများ၊ Non Audit Service လုပ်ငန်းများတွင် အချိန်ပြည့်/ အချိန်ပိုင်းဝန်ထမ်း အဖြစ်ဆောင်ရွက်နေခြင်း ရှိ/မရှိ<span style="color:red">*</span></label>
                                             <div class="col-md-4">
                                                 <div class="form-check">
@@ -444,31 +444,31 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၉။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="current_address_label">{{ __('၈။') }}</span>ဆက်သွယ်ရန်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="ဆက်သွယ်ရန်လိပ်စာ" name="current_address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၁၀။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="address_label">{{ __('၉။') }}</span>အမြဲတမ်းနေရပ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" placeholder="အမြဲတမ်းနေရပ်လိပ်စာ" name="address"  id="address" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၁။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="phone_label">{{ __('၁၀။') }}</span>ဖုန်းနံပါတ်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="text" name="phone_no" id="phone_no" class="form-control" placeholder="ဖုန်းနံပါတ်">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="m_email_label">{{ __('၁၂။') }}</span>အီးမေးလ်လိပ်စာ<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="m_email_label">{{ __('၁၁။') }}</span>အီးမေးလ်လိပ်စာ<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <input type="email" placeholder="အီးမေးလ်လိပ်စာ" name="m_email" id="m_email" class="form-control" >
                                             </div>
@@ -476,7 +476,7 @@
 
                                         <div id="previous_papp_name_row" style="display:none;">
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်</label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၂။') }}</span>ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်</label>
                                                 <div class="col-md-9">
                                                     <input type="text" name="previous_papp_name" id="previous_papp_name" class="form-control" placeholder="ယခင်အလုပ်သင်ကြားခဲ့သည့် PAPP အမည်">
                                                 </div>
@@ -486,7 +486,7 @@
 
                                         <div id="previous_papp_date_row" style="display:none;">
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၄။') }}</span>ယခင်အလုပ်သင်ဆင်းခဲ့သည့် ကာလ</label>
+                                                <label class="col-md-3 col-form-label label"><span class="pull-left">{{ __('၁၃။') }}</span>ယခင်အလုပ်သင်ဆင်းခဲ့သည့် ကာလ</label>
                                                 <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -508,7 +508,7 @@
                                         </div> -->
 
                                         <div class="row mb-3">
-                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၄။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
+                                            <label class="col-md-3 col-form-label label"><span class="pull-left" id="papp_name_label">{{ __('၁၂။') }}</span>လက်တွေ့အလုပ်သင်ကြားလိုသည့် PAPP အမည်<span style="color:red">*</span></label>
                                             <div class="col-md-9">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -680,7 +680,7 @@
                     $("#renew_first_row").css('display','block');
                     $("#previous_papp_name_row").css('display','block');
                     $("#previous_papp_date_row").css('display','block');
-                    document.getElementById('papp_name_label').innerHTML="၁၅။";
+                    document.getElementById('papp_name_label').innerHTML="၁၂။";
                 }else if(get_data == "c12_renew"){
                     $("#all_first_row").css('display','block');
                 }
@@ -731,15 +731,15 @@
     })
 
     $(document).ready(function (e) {
-        $("input[name=current_job]").on("click", function(evt) {
-            var checkedValue = $("input[name='current_job']:checked").val();
-            if(checkedValue == '1'){
-                $("#current_job_row").css('display','block');
-            }
-            else if(checkedValue == '0'){
-                $("#current_job_row").css('display','none');
-            }
-        });
+        // $("input[name=current_job]").on("click", function(evt) {
+        //     var checkedValue = $("input[name='current_job']:checked").val();
+        //     if(checkedValue == '1'){
+        //         $("#current_job_row").css('display','block');
+        //     }
+        //     else if(checkedValue == '0'){
+        //         $("#current_job_row").css('display','none');
+        //     }
+        // });
 
         $("input[name=experience]").on("click", function(evt) {
             var checkedValue = $("input[name='experience']:checked").val();

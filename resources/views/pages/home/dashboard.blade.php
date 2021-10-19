@@ -378,8 +378,10 @@
                     </div>
                     <div class="acc_firm">
                         <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-7">
+                            <div class="col-md-3">
+                              <img class="" src="" id="firm_img" style="height : 200px;width:auto;" />
+                            </div>
+                            <div class="col-md-5">
                                 <div class="row   mt-3 border-bottom">
                                     <div class="col-md-6">
                                         <p class="ml-2 text-bold" style="font-weight:bold">Accountancy Firm
@@ -669,6 +671,27 @@
                             </div>
 
                         </div>
+                        <div class="qt_article_row">
+                            <div class="row my-2">
+                                <div class="offset-md-3 col-md-9">
+                                    <h5 class="text-center border-bottom pb-2" style="font-weight:bold ;background-color:#E7F8EE;">
+                                    Application Status</h5>
+
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="qt_article_status">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body cpaff_other">
                             <div class="row">
@@ -748,7 +771,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <!-- end cpaff other dashboard -->
             <!-- school dashboard-->
             <div class="school" style="display:none;">
@@ -2075,7 +2098,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Leave Request Register</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
+
                 <div class="modal-body">
                     <div class="container-fluid">
                         <input type="hidden" id="article_id">
@@ -2123,7 +2146,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="leave_request_body">
-                                    </tbody>   
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -2153,7 +2176,7 @@
                 dateFormat: "d-M-Y",
                 allowInput: true
         });
-        
+
     })
     //app_form_feedback();
 

@@ -403,9 +403,8 @@ function createNonAuditReconnect(){
   send_data.append('audit_firm_type_id',$("input[name=audit_firm_type_id]").val());
   send_data.append('local_foreign_type',$("input[name=local_foreign_type]").val());
   send_data.append('org_stru_id',$('input[name=org_stru_id]:checked').val());
-  send_data.append('last_reg_payment_start',$("input[name=last_reg_payment_start]").val());
-  send_data.append('last_reg_payment_end',$("input[name=last_reg_payment_end]").val());
-  send_data.append('last_reg_payment_date',$("input[name=last_reg_payment_date]").val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  send_data.append('suspended_year',$("input[name=suspended_year]").val());
   send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
   //send_data.append('t_s_p_id',$('input[name=t_s_p_id]:checked').val());
   // var t_s_p_id_val = new Array();

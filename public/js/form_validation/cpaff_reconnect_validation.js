@@ -41,7 +41,7 @@ $().ready(function (){
             phone : "required",
             contact_mail : "required",
             cpaff_pass_date : "required",
-            renew_accepted_date : "required",
+            cpaff_renew_date : "required",
             // old_card_no_year : "required",
             // papp_reg_no : "required",
             // renew_file : "required",
