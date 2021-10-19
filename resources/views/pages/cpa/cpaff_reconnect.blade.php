@@ -47,9 +47,9 @@
             <div class="row mt-5">
                 <div class="card border-success mb-3" id="cpaff_from">
                     <div class="row mb-3">
-                        <div style="text-align: right;margin-top:1%;">
+                        {{--<div style="text-align: right;margin-top:1%;">
                             <h6 style="font-weight:bold;">ပုံစံ၊ မစက(၂)</h6>
-                        </div>
+                        </div>--}}
                         <h5 class="card-title text-center fw-bolder" style="margin-top:1%;">
                             မြန်မာနိုင်ငံစာရင်းကောင်စီ<br><br>
                         လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) အဖြစ်မှတ်ပုံတင်ထားခြင်းကိုသက်တမ်းတိုးမြှင့်ရန်လျှောက်ထားခြင်း
@@ -268,32 +268,38 @@
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဈ)') }}</span>{{ __('CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="" >
+                                        <input type="text"  class="form-control" name="cpa_batch_no"  placeholder="CPA အပတ်စဉ်/ကိုယ်ပိုင်အမှတ်">
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
-                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ည)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ည)') }}</span>{{ __('CPA(Full-Fledged) Registeration No.') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="address"  placeholder="" >
+                                        <input type="text"  class="form-control" name="cpaff_reg_no" id="cpaff_reg_no"  placeholder="Enter CPA(Full-Fledged) Registeration No." >
+                                    </div>
+                                </div>
+                                <div class="row mb-3" style="padding-left: 110px;">
+                                    <div class="col-md-3 col-form-label label"><span class="pull-left">{{ __('(ဋ)') }}</span>{{ __('ဆက်သွယ်ရန်လိပ်စာ') }}</div>
+                                    <div class="col-md-8">
+                                        <input type="text"  class="form-control" name="address"  placeholder="ဆက်သွယ်ရန်လိပ်စာ" >
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label">{{ __('တယ်လီဖုန်းနံပါတ်၊ Fax ဖုန်းနံပါတ်') }}</div>
                                     <div class="col-md-8">
-                                        <input type="text"  class="form-control" name="phone"  placeholder="" >
+                                        <input type="text"  class="form-control" name="phone"  placeholder="တယ်လီဖုန်းနံပါတ်၊ Fax ဖုန်းနံပါတ်" >
                                     </div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 110px;">
                                     <div class="col-md-3 col-form-label label">{{ __('E-mail Address') }}</div>
                                     <div class="col-md-8">
-                                        <input type="email"  class="form-control" name="contact_mail"  placeholder=""  autocomplete="off">
+                                        <input type="email"  class="form-control" name="contact_mail"  placeholder="E-mail Address"  autocomplete="off">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-1 col-form-label">{{ __('၂။') }}</label>
-                                <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="renew_accepted_date" id="renew_accepted_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
+                                <label class="col-md-10 col-form-label">ကျွန်ုပ်အား <input type="text" name="cpaff_pass_date" id="cpaff_pass_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် လက်မှတ်ရပြည်သူ့စာရင်းကိုင် (ပြည့်မှီ) မှတ်ပုံတင်လက်မှတ်ထုတ်ပေးပြီးဖြစ်ပါသည်။ ထိုမှတ်ပုံတင်ကို <input type="text" name="cpaff_renew_date" id="cpaff_renew_date" class="form-control" style="display: inline;width: 100px;" required=""> ခုနှစ်အတွက် သက်တမ်းတိုးမြှင့်ပေးပါရန် လျှောက်ထားပါသည်။</label>                                
                             </div><br/>
 
                             <div class="row">
@@ -304,17 +310,18 @@
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label">{{ __('(က)') }}</label>
 
-                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ်နှင့် လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
+                                    <div class="col-md-7 col-form-label">နောက်ဆုံးထုတ်ပေးခဲ့သည့် ကိုယ်ပိုင်စာရင်းကိုင်လုပ်ငန်းလုပ်ကိုင်ခွင့်/ အများပြည်သူသို့စာရင်းဝန်ဆောင်မှုပေးသည့် လုပ်ငန်းလုပ်ကိုင်ခွင့် မှတ်ပုံတင်အမှတ် </div>
                                     <div class="col-md-3">
-                                        <input type="text" name="old_card_no_year" id="old_card_no_year" class="form-control" style="width:90%;">
+                                        <input type="text" name="papp_reg_no" id="papp_reg_no" class="form-control" style="width:90%;">
+                                        
                                     </div>
 
                                     <div class="col-md-1"></div>
                                     <label class="col-md-1 col-form-label"></label>
 
-                                    <div class="col-md-7 col-form-label">မှတ်ပုံတင်အမှတ်</div>
+                                    <div class="col-md-7 col-form-label">လုပ်ကိုင်ခွင့်ပြုသည့်ခုနှစ်</div>
                                     <div class="col-md-3">
-                                        <input type="text" name="reg_no" id="reg_no" class="form-control" style="width:90%;">
+                                        <input type="text" name="papp_reg_year" id="papp_reg_year" class="form-control" style="width:90%;">
                                     </div><br><br>
 
                                     <div class="col-md-1"></div>
@@ -463,40 +470,49 @@
                                 <br/>
 
                                 <div class="row">
-                                    <label class="col-md-1 col-form-label">{{ __('၆။') }}</label>
-                                    <div class="col-md-5">
-                                        <label class="col-form-label">{{ __('နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်') }}</label>
-                                    </div>  
-                                    <div class="col-md-6"> 
-                                        <input type="text" name="last_paid_year" id="last_paid_year" class="form-control">
-                                    </div>                            
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(င)') }}</label>
+                                    <div class="col-md-6 col-form-label">နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်</div>
+                                    <div class="col-md-4">
+                                        <input type="text" name="last_paid_year" id="last_paid_year" class="form-control" placeholder="နောက်ဆုံးမှတ်ပုံတင်ကြေးပေးသွင်းသည့်ခုနှစ်">
+                                    </div>
                                 </div><br/><br>
 
-                                <div class="row mb-3">
-                                    <label class="col-md-4 col-form-label label"><span class="pull-left">၇။</span>ရပ်နားဖောင်တင်ခဲ့ခြင်းရှိ/မရှိ<span style="color:red;">*&nbsp;&nbsp;</span></label>
-                                    <div class="col-md-4 pt-2">
-                                        <div class="form-check form-check-inline">
-                                            <input type="radio" class="form-check-input" id="yes" name="resign" value="1" onclick="$('#range').show()">
-                                            <label class="form-check-label">ရှိ &nbsp;&nbsp;</label>
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-1 col-form-label">{{ __('(စ)') }}</label>
+                                    <div class="col-md-4 col-form-label">ရပ်နား Form တင်ထားခြင်းရှိ/မရှိ</div>
+                                    <div class="row col-md-6 py-2">
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id="yes"
+                                                        name="resign" value="1" onclick="$('#date_range').show()" required>
+                                                <span class="form-check-sign"></span>
+                                                ရှိ
+                                            </label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input type="radio" class="form-check-input" id="no" name="resign" value="0" onclick="$('#range').hide()">
-                                            <label class="form-check-label">မရှိ</label>
+                                        <div class="col-md-3 form-check-radio mx-2">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" id='no'
+                                                        name="resign" value='0'  onclick="$('#date_range').hide()" required>
+                                                <span class="form-check-sign"></span>
+                                                မရှိ
+                                            </label>
                                         </div>
+                                        
                                         <label  class="error attend_place_error" style="display:none;" for="resign">Please select one</label>
                                     </div>
                                 </div>
 
-                                <div id="range" style="display:none">
-                                    <div class="row mb-3" style="margin-left: 80px">
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" name="start_date" placeholder="ရက်စွဲမှ">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" name="end_date" placeholder="ရက်စွဲအထိ">
-                                        </div>
+                                <div class="row mb-2" style="padding-left: 110px;display:none" id="date_range" >
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-6" style="padding-left:0px;">
+                                        <label>
+                                            <input class="form-control" type="text" style="display:inline; width:100px;" name="resign_date" id="resign_date" placeholder="ခုနှစ်">&nbsp;&nbsp;တွင် ရပ်နား Form တင်ခဲ့ပါသည်။
+                                        </label>
                                     </div>
                                 </div>
+                                <br/><br>
 
                                 <div class="row mb-3" style="padding-left:50px; margin-top:10px;">
                                     <div class="form-check">
@@ -538,7 +554,7 @@
 @push('scripts')
 <script src="{{ asset('js/form_validation/cpaff_reconnect_validation.js') }}"></script>
 <script type="text/javascript">
-    $("#renew_accepted_date").datepicker({
+    $("#cpaff_renew_date").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
@@ -550,7 +566,13 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     }); 
-    $("#old_card_no_year").datepicker({
+    // $("#old_card_no_year").datepicker({
+    //     format: "yyyy",
+    //     viewMode: "years", 
+    //     minViewMode: "years",
+    //     autoclose:true //to close picker once year is selected
+    // });
+    $("#papp_reg_year").datepicker({
         format: "yyyy",
         viewMode: "years", 
         minViewMode: "years",
@@ -562,16 +584,22 @@
         minViewMode: "years",
         autoclose:true //to close picker once year is selected
     });
-    $("input[name='start_date']").flatpickr({
-        enableTime: false,
-        dateFormat: "M-d-Y",
-        allowInput: true,
+    $("#resign_date").datepicker({
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years",
+        autoclose:true //to close picker once year is selected
     });
-    $("input[name='end_date']").flatpickr({
-        enableTime: false,
-        dateFormat: "M-d-Y",
-        allowInput: true,
-    });
+    // $("input[name='start_date']").flatpickr({
+    //     enableTime: false,
+    //     dateFormat: "M-d-Y",
+    //     allowInput: true,
+    // });
+    // $("input[name='end_date']").flatpickr({
+    //     enableTime: false,
+    //     dateFormat: "M-d-Y",
+    //     allowInput: true,
+    // });
 
     $(document).on('keydown', '#father_name_mm', function () {
         myanmarLetterOnly($(this));
