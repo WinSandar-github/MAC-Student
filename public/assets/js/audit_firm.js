@@ -179,11 +179,11 @@ function verifyStatus()
         url: BACKEND_URL+"/checkVerify/"+student_id,
         success: function (data){
           console.log("verify",data);
-          if(data.verify_status == 1){
+          if(data.verify_status == 1 && data.offline_user != 1 ){
               $('#check_renew').css('display','none');
               $('#check_renew_nonaudit').css('display','none');
           }
-          else if(data.verify_status == 2){
+          else if(data.verify_status == 2 && data.offline_user != 1 ){
               $('#check_renew').css('display','none');
               $('#check_renew_nonaudit').css('display','none');
           }
@@ -191,17 +191,21 @@ function verifyStatus()
               // if need to renew
               if(data.audit_firm_type_id == 1){
                 // audit firm
-                $('#check_renew').css('display','block');
-                $('#check_renew_nonaudit').css('display','none');
-                $("#renew_btn").css('display','block');
-                $(".register-btn").css('display','none');
+                if(data.status == 1){
+                  $('#check_renew').css('display','block');
+                  $('#check_renew_nonaudit').css('display','none');
+                  $("#renew_btn").css('display','block');
+                  $(".register-btn").css('display','none');
+                }
               }
               else{
                 // non-audit firm
-                $('#check_renew').css('display','none');
-                $('#check_renew_nonaudit').css('display','block');
-                $("#renew_btn_nonaudit").css('display','block');
-                $(".register-btn").css('display','none');
+                if(data.status != 1){
+                  $('#check_renew').css('display','none');
+                  $('#check_renew_nonaudit').css('display','block');
+                  $("#renew_btn_nonaudit").css('display','block');
+                  $(".register-btn").css('display','none');
+                }
               }
             }
           }
@@ -416,10 +420,9 @@ function createAuditReconnect(){
 
   send_data.append('name_sole_proprietor',$("input[name=name_sole_proprietor]").val());
   send_data.append('declaration',$("input[name=declaration]").val());
-  send_data.append('last_reg_payment_start',$("input[name=last_reg_payment_start]").val());
-  send_data.append('last_reg_payment_end',$("input[name=last_reg_payment_end]").val());
+  send_data.append('last_registered_year',$("input[name=last_registered_year]").val());
+  send_data.append('suspended_year',$("input[name=suspended_year]").val());
   send_data.append('req_for_stop',$('input[name=req_for_stop]:checked').val());
-  send_data.append('last_reg_payment_date',$("input[name=last_reg_payment_date]").val());
 
   send_data.append('email',$("input[name=email]").val());
   send_data.append('password',$("input[name=password]").val());

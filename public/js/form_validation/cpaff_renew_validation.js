@@ -2,6 +2,8 @@ $().ready(function (){
     $("#cpaff_renew_form_submit").validate({
         rules:{
             profile_photo : "required",
+            nrc_front : "required",
+            nrc_back : "required",
             name_mm : "required",
             // nrc_front : "required",
             // nrc_back : "required",
@@ -23,6 +25,8 @@ $().ready(function (){
         },
         messages:{
             profile_photo : "Please replace your photo with current photo",
+            nrc_front : "Please replace your photo with current photo",
+            nrc_back : "Please replace your photo with current photo",
             name_mm : "Please enter your name",
             nrc_state_region : "Please select one",
             nrc_township : "Please select one",
