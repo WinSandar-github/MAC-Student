@@ -139,7 +139,7 @@
                                       <label class="col-md-4 col-form-label label"><span class="pull-left"></span></label>
                                       <div class="col-md-8">
                                           <label for="" class="control-label text-muted fw-bolder"><small>Head Office Address(Myanmar)</small></label>
-                                          <textarea name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
+                                          <textarea id="head_office_address_mm" name="head_office_address_mm" class="form-control" placeholder="" autocomplete="off" value="" rows="3" style="resize:none;"></textarea>
                                       </div>
                                     </div>
 
