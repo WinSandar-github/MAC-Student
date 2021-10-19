@@ -1,4 +1,4 @@
-$().ready(function (){
+$().ready(function (){ 
     $("#cpaff_reconnect_form").validate({
         rules:{
             profile_photo : "required",
